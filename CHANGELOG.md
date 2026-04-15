@@ -24,6 +24,7 @@ Do not edit it manually.
 - web: serve planner bootstrap from published catalog (`1628a45`)
 - web: split home onboarding and planner routes (`1fabc1d`)
 - web: explain planner onboarding redirect (`a645a48`)
+- web: slim planner bootstrap and gate safely (`302fc9c`)
 
 ### Documentation
 
@@ -37,6 +38,7 @@ Do not edit it manually.
 - docs: record the current custom domain target (`27eb578`)
 - doctrine: expand accessibility and delivery guidance (`000c0f3`)
 - frontend: define home onboarding planner routes (`92c5a35`)
+- frontend: harden planner route fallback (`265d110`)
 
 ### Tests
 
