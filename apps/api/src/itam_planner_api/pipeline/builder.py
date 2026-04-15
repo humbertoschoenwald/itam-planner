@@ -58,6 +58,15 @@ class BulletinSourceAsset:
 
 
 @dataclass(frozen=True)
+class BulletinParseFailure:
+    source_code: str
+    source_id: str
+    snapshot_id: str
+    upstream_url: str
+    error_message: str
+
+
+@dataclass(frozen=True)
 class LiveSourceBundle:
     services_page: LiveSourceMaterial
     manual_document: LiveSourceMaterial | None
@@ -133,6 +142,7 @@ def build_from_live(public_data_root: Path | None = None) -> Path:
     bundle: LiveSourceBundle | None = None
     compared_release_id: str | None = None
     changed_source_ids: list[str] = []
+    bulletin_failures: list[BulletinParseFailure] = []
     try:
         with httpx.Client(follow_redirects=True, timeout=30.0, headers=headers) as client:
             bundle = _collect_live_source_bundle(client, raw_root)
@@ -164,13 +174,18 @@ def build_from_live(public_data_root: Path | None = None) -> Path:
                 changed_source_ids=[],
                 compared_release_id=compared_release_id,
                 latest_root=root / "latest",
+                bulletin_failures=[],
             )
             return root / "latest"
 
         _record_live_bundle_snapshots(repository, run_id, bundle)
-        _ingest_live_source_bundle(repository, bundle)
+        bulletin_failures = _ingest_live_source_bundle(repository, bundle)
         _validate_catalog(repository)
-        repository.complete_scrape_run(run_id, status="succeeded")
+        repository.complete_scrape_run(
+            run_id,
+            status="succeeded",
+            notes=_build_live_success_note(bulletin_failures),
+        )
         repository.mark_promoted_release(run_id, notes="live promotion")
         export_public_dataset(repository, working_root)
         promote_public_snapshot(working_root, root / "latest")
@@ -182,6 +197,7 @@ def build_from_live(public_data_root: Path | None = None) -> Path:
             changed_source_ids=changed_source_ids,
             compared_release_id=compared_release_id,
             latest_root=root / "latest",
+            bulletin_failures=bulletin_failures,
         )
         return root / "latest"
     except Exception as exc:
@@ -195,6 +211,7 @@ def build_from_live(public_data_root: Path | None = None) -> Path:
             changed_source_ids=changed_source_ids,
             compared_release_id=compared_release_id,
             latest_root=root / "latest",
+            bulletin_failures=bulletin_failures,
         )
         if bundle_collected and bundle is not None:
             _write_drift_report(
@@ -620,7 +637,9 @@ def _record_live_bundle_snapshots(
         repository.record_source_snapshot(snapshot, run_id, len(material.payload))
 
 
-def _ingest_live_source_bundle(repository: CatalogRepository, bundle: LiveSourceBundle) -> None:
+def _ingest_live_source_bundle(
+    repository: CatalogRepository, bundle: LiveSourceBundle
+) -> list[BulletinParseFailure]:
     repository.store_calendar_document(
         parse_school_calendar_pdf(bundle.school_calendar_document.payload),
         _snapshot_id(bundle.school_calendar_document.snapshot),
@@ -653,11 +672,25 @@ def _ingest_live_source_bundle(repository: CatalogRepository, bundle: LiveSource
         ),
         _snapshot_id(bundle.regulation_documents["post-2025"].snapshot),
     )
+    bulletin_failures: list[BulletinParseFailure] = []
     for bulletin_asset in bundle.bulletin_documents:
-        repository.store_bulletin(
-            parse_bulletin_pdf(bulletin_asset.document.payload, bulletin_asset.code),
-            _snapshot_id(bulletin_asset.document.snapshot),
-        )
+        snapshot_id = _snapshot_id(bulletin_asset.document.snapshot)
+        try:
+            repository.store_bulletin(
+                parse_bulletin_pdf(bulletin_asset.document.payload, bulletin_asset.code),
+                snapshot_id,
+            )
+        except ValueError as exc:
+            repository.update_source_snapshot_status(snapshot_id, "failed")
+            bulletin_failures.append(
+                BulletinParseFailure(
+                    source_code=bulletin_asset.code,
+                    source_id=bulletin_asset.document.snapshot.source_id,
+                    snapshot_id=snapshot_id,
+                    upstream_url=bulletin_asset.document.snapshot.upstream_url,
+                    error_message=str(exc),
+                )
+            )
 
     periods = parse_schedule_periods_menu(
         bundle.schedule_menu.payload.decode("utf-8", errors="ignore"), MENU_URL
@@ -676,6 +709,8 @@ def _ingest_live_source_bundle(repository: CatalogRepository, bundle: LiveSource
             period.period_id, subjects, offering_materials
         )
         repository.store_schedule_period(period, _snapshot_id(period_material.snapshot))
+
+    return bulletin_failures
 
 
 def _parse_schedule_offerings_from_materials(
@@ -845,6 +880,7 @@ def _write_run_report(
     changed_source_ids: list[str],
     compared_release_id: str | None,
     latest_root: Path,
+    bulletin_failures: list[BulletinParseFailure],
 ) -> None:
     report_path = ensure_directory(public_data_root / "working") / "last-run-report.json"
     payload = {
@@ -854,9 +890,29 @@ def _write_run_report(
         "changed_source_ids": changed_source_ids,
         "compared_release_id": compared_release_id,
         "latest_root": str(latest_root),
+        "bulletin_failures": [
+            {
+                "source_code": failure.source_code,
+                "source_id": failure.source_id,
+                "snapshot_id": failure.snapshot_id,
+                "upstream_url": failure.upstream_url,
+                "error_message": failure.error_message,
+            }
+            for failure in bulletin_failures
+        ],
         "reported_at": datetime.now(tz=UTC).isoformat(),
     }
     report_path.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+
+
+def _build_live_success_note(bulletin_failures: list[BulletinParseFailure]) -> str | None:
+    if not bulletin_failures:
+        return None
+
+    return (
+        "Promoted live dataset with "
+        f"{len(bulletin_failures)} incompatible bulletin documents marked as failed."
+    )
 
 
 def _write_drift_report(

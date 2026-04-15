@@ -6,7 +6,14 @@ from urllib.parse import urljoin
 
 from bs4 import BeautifulSoup
 
-from ..common import normalize_whitespace, parse_term_label, slugify, term_end_date, term_start_date
+from ..common import (
+    ascii_normalize,
+    normalize_whitespace,
+    parse_term_label,
+    slugify,
+    term_end_date,
+    term_start_date,
+)
 from ..models import (
     BulletinDocument,
     BulletinLink,
@@ -21,11 +28,14 @@ from .pdf import extract_pdf_text
 _CACHE_PATTERN = re.compile(r"var\s+cacheado\s*=\s*([\d.]+)")
 _COURSE_PATTERN = re.compile(r"\b([A-Z]{2,4}-\d{5})\b")
 _CREDITS_PATTERN = re.compile(r"(\d+)\s*$")
+_PROGRAM_TITLE_PATTERN = re.compile(r"^LICENCIATURA(?:S)?\s+EN\b")
+_PLAN_LINE_PATTERN = re.compile(r"^PLAN\s+([A-Z])$")
 _SEMESTER_PATTERN = re.compile(
-    r"^(PRIMER|SEGUNDO|TERCER|CUARTO|QUINTO|SEXTO|SEPTIMO|SÉPTIMO|OCTAVO)\s+SEMESTRE$"
+    r"^(PRIMER|SEGUNDO|TERCER|CUARTO|QUINTO|SEXTO|SEPTIMO|SÉPTIMO|OCTAVO|NOVENO|DECIMO|DÉCIMO)\s+SEMESTRE$"
 )
 _COHORT_PATTERN = re.compile(
-    r"PARA ALUMNOS QUE INGRESAN DE\s+([A-ZÁÉÍÓÚ\-]+\s+\d{4})\s+A\s+([A-ZÁÉÍÓÚ\-]+\s+\d{4})"
+    r"PARA ALUMNOS QUE INGRESA(?:N|RON)\s+DE\s+([A-ZÁÉÍÓÚ\-]+\s+\d{4})"
+    r"\s+A\s+([A-ZÁÉÍÓÚ\-]+\s+\d{4})"
 )
 _CONTINUATION_PATTERN = re.compile(r"^(?:Y\s+)?[A-Z]{2,4}-\d{5}(?:\s*(?:,|Y)\s*[A-Z]{2,4}-\d{5})*$")
 
@@ -39,6 +49,9 @@ _SEMESTER_ORDER = {
     "SEPTIMO SEMESTRE": 7,
     "SÉPTIMO SEMESTRE": 7,
     "OCTAVO SEMESTRE": 8,
+    "NOVENO SEMESTRE": 9,
+    "DECIMO SEMESTRE": 10,
+    "DÉCIMO SEMESTRE": 10,
 }
 
 _SKIP_LINES = (
@@ -48,6 +61,10 @@ _SKIP_LINES = (
     "TRONCO COMÚN",
     "MATERIA ÁREA DE CONCENTRACIÓN",
     "MATERIA AREA DE CONCENTRACION",
+)
+_JOINT_PLAN_PREFIXES = (
+    "PLAN CONJUNTO PARA LAS ",
+    "PLAN CONJUNTO DE LAS ",
 )
 
 
@@ -71,19 +88,18 @@ def parse_bulletin_pdf(pdf_bytes: bytes, source_code: str) -> BulletinDocument:
     text = extract_pdf_text(pdf_bytes)
     lines = [normalize_whitespace(line) for line in text.splitlines() if normalize_whitespace(line)]
 
-    program_title = next(line for line in lines if line.upper().startswith("LICENCIATURA EN"))
-    plan_line = next(line for line in lines if line.upper().startswith("PLAN "))
-    cohort_line = next(line for line in lines if "PARA ALUMNOS QUE INGRESAN" in line.upper())
-    application_term = next(
-        line
-        for line in lines
-        if parse_term_label(line) is not None and "ALUMNOS QUE INGRESAN" not in line
-    )
+    plan_line, plan_index = _find_plan_line(lines)
+    program_title = _find_program_title(lines, plan_index)
+    cohort_line = _find_cohort_line(lines)
+    application_term = _find_application_term(lines, plan_index)
 
-    entry_match = _COHORT_PATTERN.search(cohort_line.upper())
+    entry_match = _COHORT_PATTERN.search(cohort_line.upper()) if cohort_line is not None else None
     entry_from_term = entry_match.group(1) if entry_match is not None else None
     entry_to_term = entry_match.group(2) if entry_match is not None else None
-    plan_code = plan_line.split()[-1].strip()
+    plan_match = _PLAN_LINE_PATTERN.match(plan_line.upper())
+    if plan_match is None:
+        raise ValueError(f"Unable to parse bulletin plan line: {plan_line!r}")
+    plan_code = plan_match.group(1)
     parsed_application_term = parse_term_label(application_term)
     application_year = parsed_application_term[1] if parsed_application_term is not None else None
 
@@ -124,6 +140,7 @@ def _parse_requirements(lines: list[str], bulletin_id: str) -> list[BulletinRequ
     current_main: str | None = None
     current_tail: list[str] = []
     rows: list[tuple[str, str, list[str]]] = []
+    metadata_block_open = False
 
     def flush_current() -> None:
         nonlocal current_main, current_tail
@@ -137,22 +154,32 @@ def _parse_requirements(lines: list[str], bulletin_id: str) -> list[BulletinRequ
         if _SEMESTER_PATTERN.match(upper_line):
             flush_current()
             current_semester = upper_line
+            metadata_block_open = False
             continue
         if current_semester is None:
             continue
         if upper_line.startswith("(A)") or upper_line.startswith("ESTIMADA/O"):
             flush_current()
             break
+        normalized = normalize_whitespace(line)
         if any(token in upper_line for token in _SKIP_LINES):
             continue
-        if upper_line.startswith("LICENCIATURA EN") or upper_line.startswith("PLAN "):
+        if "LICENCIATURA" in upper_line or upper_line.startswith("PLAN CONJUNTO"):
+            metadata_block_open = True
             continue
-        if "PARA ALUMNOS QUE INGRESAN" in upper_line:
+        if _PLAN_LINE_PATTERN.match(upper_line):
+            metadata_block_open = True
+            continue
+        if "PARA ALUMNOS QUE INGRESA" in upper_line:
+            metadata_block_open = True
             continue
         if parse_term_label(upper_line) is not None:
+            metadata_block_open = True
+            continue
+        if metadata_block_open and _COURSE_PATTERN.search(normalized) is None:
             continue
 
-        normalized = normalize_whitespace(line)
+        metadata_block_open = False
         if _CONTINUATION_PATTERN.match(normalized.upper()) and current_main is not None:
             current_tail.append(normalized)
             continue
@@ -245,3 +272,63 @@ def _parse_requirement_line(
             for index, code in enumerate(prerequisite_codes, start=1)
         ],
     )
+
+
+def _find_program_title(lines: list[str], plan_index: int | None) -> str:
+    if plan_index is not None:
+        for index in range(max(0, plan_index - 3), min(len(lines), plan_index + 2)):
+            upper_line = lines[index].upper()
+            if _PROGRAM_TITLE_PATTERN.match(upper_line):
+                return _clean_program_title(lines[index])
+            if "LICENCIATURA" not in upper_line:
+                continue
+            if upper_line.endswith(" EN") and index + 1 < plan_index:
+                return _clean_program_title(f"{lines[index]} {lines[index + 1]}")
+            return _clean_program_title(lines[index])
+
+    for line in lines:
+        upper_line = line.upper()
+        if _PROGRAM_TITLE_PATTERN.match(upper_line):
+            return _clean_program_title(line)
+
+    raise ValueError("Unable to parse bulletin program title")
+
+
+def _find_plan_line(lines: list[str]) -> tuple[str, int | None]:
+    for index, line in enumerate(lines):
+        if _PLAN_LINE_PATTERN.match(line.upper()):
+            return line, index
+
+    raise ValueError("Unable to parse bulletin plan line")
+
+
+def _find_cohort_line(lines: list[str]) -> str | None:
+    for line in lines:
+        if "PARA ALUMNOS QUE INGRESA" in line.upper():
+            return line
+
+    return None
+
+
+def _find_application_term(lines: list[str], plan_index: int | None) -> str:
+    if plan_index is not None:
+        for line in lines[plan_index + 1 :]:
+            if parse_term_label(line) is not None and "ALUMNOS QUE INGRESA" not in line.upper():
+                return line
+
+    for line in lines:
+        if parse_term_label(line) is not None and "ALUMNOS QUE INGRESA" not in line.upper():
+            return line
+
+    raise ValueError("Unable to parse bulletin application term")
+
+
+def _clean_program_title(value: str) -> str:
+    cleaned = normalize_whitespace(value)
+    normalized_upper = ascii_normalize(cleaned).upper()
+
+    for prefix in _JOINT_PLAN_PREFIXES:
+        if normalized_upper.startswith(ascii_normalize(prefix).upper()):
+            return normalize_whitespace(cleaned[len(prefix) :])
+
+    return cleaned

@@ -3,6 +3,7 @@ from __future__ import annotations
 import sqlite3
 from datetime import UTC, date, datetime, time
 from pathlib import Path
+from typing import Literal
 
 from ..common import ensure_directory
 from ..models import (
@@ -312,6 +313,21 @@ class CatalogRepository:
         )
         self.connection.commit()
         return snapshot_id
+
+    def update_source_snapshot_status(
+        self,
+        snapshot_id: str,
+        parse_status: Literal["parsed", "skipped", "failed", "unchanged"],
+    ) -> None:
+        self.connection.execute(
+            """
+            UPDATE source_snapshots
+            SET parse_status = ?
+            WHERE snapshot_id = ?
+            """,
+            (parse_status, snapshot_id),
+        )
+        self.connection.commit()
 
     def store_bulletin(self, bulletin: BulletinDocument, source_snapshot_id: str) -> None:
         self.connection.execute(

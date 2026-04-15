@@ -142,6 +142,56 @@ def test_live_build_records_drift_and_preserves_latest(
     assert "services-home" in drift_report["changed_source_ids"]
 
 
+def test_live_build_marks_incompatible_bulletins_without_blocking_release(
+    fixtures_root,
+    tmp_path,
+    monkeypatch,
+) -> None:
+    public_data_root = tmp_path / "public-data"
+    fixture_bundle = builder._build_fixture_live_bundle(fixtures_root)
+    original_parse_bulletin_pdf = builder.parse_bulletin_pdf
+
+    monkeypatch.setattr(
+        builder,
+        "_collect_live_source_bundle",
+        lambda client, raw_root: fixture_bundle,
+    )
+
+    def flaky_parse_bulletin_pdf(pdf_bytes: bytes, source_code: str):
+        if source_code == "ACT-G":
+            raise ValueError("Unsupported live bulletin format")
+        return original_parse_bulletin_pdf(pdf_bytes, source_code)
+
+    monkeypatch.setattr(builder, "parse_bulletin_pdf", flaky_parse_bulletin_pdf)
+
+    latest_root = builder.build_from_live(public_data_root)
+
+    repository = CatalogRepository(latest_root / "catalog.sqlite")
+    try:
+        assert repository.table_count("bulletin_documents") == 1
+        failed_snapshot_count = repository.connection.execute(
+            """
+            SELECT COUNT(*) AS count
+            FROM source_snapshots
+            WHERE source_id = 'bulletin-act-g' AND parse_status = 'failed'
+            """
+        ).fetchone()["count"]
+        assert failed_snapshot_count == 1
+    finally:
+        repository.close()
+
+    boletines_index = json.loads(
+        (latest_root / "boletines" / "index.json").read_text(encoding="utf-8")
+    )
+    assert [document["source_code"] for document in boletines_index] == ["MA-E"]
+
+    run_report = json.loads(
+        (public_data_root / "working" / "last-run-report.json").read_text(encoding="utf-8")
+    )
+    assert run_report["status"] == "succeeded"
+    assert run_report["bulletin_failures"][0]["source_code"] == "ACT-G"
+
+
 def test_fixture_text_payload_normalization_is_platform_stable(tmp_path) -> None:
     windows_path = tmp_path / "windows.html"
     unix_path = tmp_path / "unix.html"
