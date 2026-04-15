@@ -28,13 +28,18 @@ This bibliography lists the primary official references for the tools and standa
 
 - [uv](https://docs.astral.sh/uv/)
 - [FastAPI](https://fastapi.tiangolo.com/)
+- [Typer](https://typer.tiangolo.com/)
+- [httpx](https://www.python-httpx.org/)
 - [Pydantic](https://docs.pydantic.dev/)
 - [Beautiful Soup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
 - [lxml](https://lxml.de/)
 - [Playwright](https://playwright.dev/)
+- [pypdf](https://pypdf.readthedocs.io/)
+- [pdfplumber](https://github.com/jsvine/pdfplumber)
 - [Ruff](https://docs.astral.sh/ruff/)
 - [basedpyright](https://docs.basedpyright.com/)
 - [SQLite](https://www.sqlite.org/docs.html)
+- [pytest](https://docs.pytest.org/)
 
 ## Quality and Repository Operations
 

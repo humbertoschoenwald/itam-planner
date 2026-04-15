@@ -33,6 +33,14 @@ Repository quality tools:
 - GitHub Actions: `actionlint`
 - Conventional Commit enforcement: `Commitlint`
 
+Mandatory test policy:
+
+- Every parser, normalizer, repository, exporter, and applicability resolver must have unit tests.
+- Every behavior change must add or update tests in the same change when needed.
+- No parser or schema change ships without matching fixture coverage.
+- Unit tests must be network-free and deterministic.
+- Live source checks may exist later as smoke coverage, but they must not replace unit coverage.
+
 Execution rules:
 
 - Local hooks must be version-controlled under `.githooks/`.

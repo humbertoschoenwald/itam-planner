@@ -57,3 +57,6 @@ Current high-impact derived files include:
 - `0006-quality-gates-and-automation.md`
 - `0007-frontend-experience.md`
 - `0008-legal-originality-and-bibliography.md`
+- `0009-ingestion-and-snapshot-lifecycle.md`
+- `0010-academic-catalog-schema-and-applicability.md`
+- `0011-public-artifact-publishing-model.md`

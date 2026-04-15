@@ -5,55 +5,61 @@
 
 ## Context
 
-The repository has to establish a high-rigor foundation before technical scaffolding expands. Without a hard scope boundary, agents will overbuild product logic, mix runtime decisions with governance, and create irreversible structure too early.
+The repository already established its doctrine-first baseline. The next step is to build the first real implementation slice without collapsing the architecture into a premature full-product build.
+
+This slice needs to create the public academic data foundation that later UI and integration work will consume.
 
 ## Decision
 
-The current phase is the doctrine and governance baseline.
+The current phase is the core academic data ingestion and publication slice.
 
 The current implementation slice includes:
 
-- `AGENTS.md`
-- ADR doctrine
-- derived `.cursor/rules`
-- derived repository configs
-- legal and bibliography documentation
+- doctrine updates required by the new slice
+- `apps/api` as the first real runtime package
+- source fetchers for public academic data
+- deterministic HTML and PDF parsers
+- normalized SQLite persistence
+- JSON export generation from SQLite
+- unit tests and local fixtures for every parser family and repository/exporter surface
+- promotion logic for publishing a validated public snapshot
 
 The current implementation slice does not include:
 
-- full `apps/web` scaffolding
-- full `apps/api` scaffolding
-- scraping logic
-- schedule-building logic
-- data model implementation beyond policy level
-- CI pipelines
-- Git hooks
-- package manager bootstrapping
-- deployment manifests
+- `apps/web`
+- onboarding UI
+- student-local profile UX
+- ITAM map UX
+- authenticated scraping
+- AI integration
+- extra service modules beyond source discovery
+- semantic interpretation of free-text comments beyond raw preservation
 
 The artifact pipeline for the current phase is:
 
-1. write ADR
+1. update ADR
 2. derive rules
-3. derive configs
-4. only then start technical scaffold work in a later slice
+3. derive configs if doctrine changes require them
+4. implement `apps/api`
+5. add fixtures and unit tests
+6. run ingestion and promote only validated public artifacts
 
 ## Consequences
 
-- The repository gets a clean doctrine baseline before structural code lands.
-- Future scaffold work has a smaller decision surface.
-- The current repository remains intentionally incomplete at runtime level.
+- The repository moves from doctrine-only into a real backend/data implementation slice.
+- Later UI work can consume a stable public data foundation instead of scraping directly.
+- Scope remains bounded enough to avoid overbuilding the full product.
 
 ## Alternatives Considered
 
-### Start by generating the full monorepo scaffold immediately
+### Jump directly to the full product
 
-Rejected. That would mix architecture decisions with implementation details before doctrine is locked.
+Rejected. The repository still needs a staged rollout from data foundation to UX.
 
-### Delay doctrine until after the first runnable prototype
+### Keep the repository doctrine-only for longer
 
-Rejected. The repository is specifically meant to be future-proof and agent-friendly from the start.
+Rejected. The project now has enough architectural clarity to build the backend/public-data core.
 
 ## Open Questions
 
-- Whether the next implementation slice should include the monorepo root first or the documentation-to-config automation layer first.
+- Whether the next slice after the public-data backend should start with the web onboarding flow or the read-only catalog browsing UI.

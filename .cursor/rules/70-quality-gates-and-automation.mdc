@@ -15,4 +15,6 @@ alwaysApply: true
 - RULE: The repository currently runs in single-maintainer mode.
 - RULE: `main` is the default working branch and default integration branch for routine development.
 - RULE: Short-lived branches and pull requests are optional tools for risky, disruptive, or experimental work, not mandatory workflow steps.
+- RULE: Every parser, normalizer, repository, exporter, and applicability resolver must have unit tests.
+- RULE: Behavior changes must add or update tests when needed.
 - RULE: Use SSH for Git remotes and push operations.
