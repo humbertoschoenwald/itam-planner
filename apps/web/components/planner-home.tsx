@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 import { CatalogFreshnessCard } from "@/components/catalog-freshness-card";
 import { CommunityLinks } from "@/components/community-links";
@@ -11,12 +11,6 @@ import { StudentCodeCard } from "@/components/student-code-card";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { getUiCopy } from "@/lib/copy";
-import {
-  fetchBulletinIndex,
-  fetchSchedulePeriodDetail,
-  fetchSchedulePeriods,
-  fetchSourcesMetadata,
-} from "@/lib/api";
 import type {
   BulletinSummary,
   SchedulePeriodDetail,
@@ -37,12 +31,23 @@ const LOCALE_OPTIONS = [
 
 const INPUT_CLASS_NAME = "field-shell text-sm";
 
-export function PlannerHome() {
+interface PlannerHomeProps {
+  periodDetailsById: Record<string, SchedulePeriodDetail>;
+  plans: BulletinSummary[];
+  periods: SchedulePeriodSummary[];
+  sourcesMetadata: SourcesMetadata | null;
+}
+
+export function PlannerHome({
+  periodDetailsById,
+  plans,
+  periods,
+  sourcesMetadata,
+}: PlannerHomeProps) {
   useSyncStudentCode();
 
   const profile = useStudentProfileStore((state) => state.profile);
   const copy = getUiCopy(profile.locale);
-  const plannerErrorFallback = copy.plannerHome.noErrorFallback;
   const setEntryTerm = useStudentProfileStore((state) => state.setEntryTerm);
   const setLocale = useStudentProfileStore((state) => state.setLocale);
   const togglePlan = useStudentProfileStore((state) => state.toggleActivePlanId);
@@ -53,88 +58,15 @@ export function PlannerHome() {
   const toggleOfferingId = usePlannerStore((state) => state.toggleOfferingId);
   const resetPlanner = usePlannerStore((state) => state.resetPlanner);
 
-  const [plans, setPlans] = useState<BulletinSummary[]>([]);
-  const [periods, setPeriods] = useState<SchedulePeriodSummary[]>([]);
-  const [sourcesMetadata, setSourcesMetadata] = useState<SourcesMetadata | null>(null);
-  const [selectedPeriod, setSelectedPeriod] = useState<SchedulePeriodDetail | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [detailLoading, setDetailLoading] = useState(false);
-  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const defaultPeriodId = periods[0]?.period_id ?? null;
+  const activePeriodId = plannerState.selectedPeriodId ?? defaultPeriodId;
+  const selectedPeriod = activePeriodId ? periodDetailsById[activePeriodId] ?? null : null;
 
   useEffect(() => {
-    let cancelled = false;
-
-    async function loadCatalog() {
-      try {
-        setLoading(true);
-        setErrorMessage(null);
-        const [bulletinIndex, periodIndex, publishedSources] = await Promise.all([
-          fetchBulletinIndex(),
-          fetchSchedulePeriods(),
-          fetchSourcesMetadata(),
-        ]);
-        if (cancelled) {
-          return;
-        }
-        setPlans(bulletinIndex);
-        setPeriods(periodIndex);
-        setSourcesMetadata(publishedSources);
-        if (!plannerState.selectedPeriodId && periodIndex.length > 0) {
-          setSelectedPeriodId(periodIndex[0].period_id);
-        }
-      } catch (error) {
-        if (!cancelled) {
-          setErrorMessage(error instanceof Error ? error.message : plannerErrorFallback);
-        }
-      } finally {
-        if (!cancelled) {
-          setLoading(false);
-        }
-      }
+    if (!plannerState.selectedPeriodId && defaultPeriodId) {
+      setSelectedPeriodId(defaultPeriodId);
     }
-
-    void loadCatalog();
-
-    return () => {
-      cancelled = true;
-    };
-  }, [plannerErrorFallback, plannerState.selectedPeriodId, setSelectedPeriodId]);
-
-  useEffect(() => {
-    const selectedPeriodId = plannerState.selectedPeriodId;
-
-    if (selectedPeriodId === null) {
-      setSelectedPeriod(null);
-      return;
-    }
-
-    const currentPeriodId = selectedPeriodId;
-    let cancelled = false;
-
-    async function loadPeriod() {
-      try {
-        setDetailLoading(true);
-        const period = await fetchSchedulePeriodDetail(currentPeriodId);
-        if (!cancelled) {
-          setSelectedPeriod(period);
-        }
-      } catch (error) {
-        if (!cancelled) {
-          setErrorMessage(error instanceof Error ? error.message : "Unable to load the period.");
-        }
-      } finally {
-        if (!cancelled) {
-          setDetailLoading(false);
-        }
-      }
-    }
-
-    void loadPeriod();
-
-    return () => {
-      cancelled = true;
-    };
-  }, [plannerState.selectedPeriodId]);
+  }, [defaultPeriodId, plannerState.selectedPeriodId, setSelectedPeriodId]);
 
   const selectedOfferings =
     selectedPeriod?.offerings.filter((offering) =>
@@ -146,12 +78,12 @@ export function PlannerHome() {
   const currentLocaleLabel =
     LOCALE_OPTIONS.find((option) => option.value === profile.locale)?.label ?? profile.locale;
   const activePeriodLabel =
-    periods.find((period) => period.period_id === plannerState.selectedPeriodId)?.label ??
+    periods.find((period) => period.period_id === activePeriodId)?.label ??
     copy.plannerHome.activePeriodFallback;
 
   const heroMetrics = [
-    { label: copy.plannerHome.plansMetric, value: loading ? "..." : String(plans.length) },
-    { label: copy.plannerHome.periodsMetric, value: loading ? "..." : String(periods.length) },
+    { label: copy.plannerHome.plansMetric, value: String(plans.length) },
+    { label: copy.plannerHome.periodsMetric, value: String(periods.length) },
     { label: copy.plannerHome.groupsSelected, value: String(selectedOfferings.length) },
     { label: copy.plannerHome.currentLocale, value: currentLocaleLabel },
   ] as const;
@@ -239,14 +171,6 @@ export function PlannerHome() {
         </div>
       </section>
 
-      {errorMessage ? (
-        <Card className="border-amber-300 bg-amber-50">
-          <CardContent className="pt-6 text-sm leading-6 text-amber-900">
-            {errorMessage}
-          </CardContent>
-        </Card>
-      ) : null}
-
       <InstallGuideCard locale={profile.locale} />
 
       <section className="page-grid">
@@ -306,33 +230,29 @@ export function PlannerHome() {
                 </p>
               </div>
 
-              {loading ? (
-                <p className="text-sm text-muted">{copy.plannerHome.loadPlans}</p>
-              ) : (
-                <div className="grid gap-3">
-                  {plans.map((plan) => {
-                    const checked = profile.activePlanIds.includes(plan.plan_id);
-                    return (
-                      <label key={plan.bulletin_id} className="choice-card cursor-pointer items-start text-sm">
-                        <input
-                          checked={checked}
-                          className="mt-1 h-4 w-4 accent-accent"
-                          onChange={() => togglePlan(plan.plan_id)}
-                          type="checkbox"
-                        />
-                        <span>
-                          <span className="block font-semibold text-foreground">
-                            {plan.program_title} · {plan.plan_code}
-                          </span>
-                          <span className="mt-1 block text-xs leading-5 text-muted">
-                            {plan.title}
-                          </span>
+              <div className="grid gap-3">
+                {plans.map((plan) => {
+                  const checked = profile.activePlanIds.includes(plan.plan_id);
+                  return (
+                    <label key={plan.bulletin_id} className="choice-card cursor-pointer items-start text-sm">
+                      <input
+                        checked={checked}
+                        className="mt-1 h-4 w-4 accent-accent"
+                        onChange={() => togglePlan(plan.plan_id)}
+                        type="checkbox"
+                      />
+                      <span>
+                        <span className="block font-semibold text-foreground">
+                          {plan.program_title} · {plan.plan_code}
                         </span>
-                      </label>
-                    );
-                  })}
-                </div>
-              )}
+                        <span className="mt-1 block text-xs leading-5 text-muted">
+                          {plan.title}
+                        </span>
+                      </span>
+                    </label>
+                  );
+                })}
+              </div>
             </div>
 
             <div className="flex flex-wrap gap-3">
@@ -369,7 +289,7 @@ export function PlannerHome() {
                 id="period"
                 className={INPUT_CLASS_NAME}
                 onChange={(event) => setSelectedPeriodId(event.target.value)}
-                value={plannerState.selectedPeriodId ?? ""}
+                value={activePeriodId ?? ""}
               >
                 <option value="">{copy.plannerHome.selectPeriod}</option>
                 {periods.map((period) => (
@@ -380,9 +300,7 @@ export function PlannerHome() {
               </select>
             </div>
 
-            {detailLoading ? (
-              <p className="text-sm text-muted">{copy.plannerHome.loadOfferings}</p>
-            ) : selectedPeriod ? (
+            {selectedPeriod ? (
               <>
                 <div className="rounded-[1.35rem] bg-surface-strong px-4 py-3 text-sm text-foreground">
                   <p className="font-semibold">{selectedPeriod.label}</p>
@@ -474,7 +392,7 @@ export function PlannerHome() {
 
       <section className="page-grid">
         <CatalogFreshnessCard
-          isLoading={loading}
+          isLoading={false}
           locale={profile.locale}
           metadata={sourcesMetadata}
         />
