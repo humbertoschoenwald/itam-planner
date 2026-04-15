@@ -41,7 +41,11 @@ Initial product-surface rules:
 
 - The home experience starts with onboarding rather than account creation.
 - The onboarding flow must explicitly state that no account is required.
-- The first stable user-facing routes are the home planner entry and a community/help surface.
+- The first stable user-facing routes are `/`, `/onboarding`, `/planner`, and a community/help surface.
+- `/` is a lightweight public home and must not be the primary planner shell.
+- `/onboarding` is the dedicated profile bootstrap route for browser-local student context.
+- `/planner` is the dedicated planner shell route.
+- `/planner` must redirect browser-side to `/onboarding` whenever the required onboarding state is incomplete.
 - The Connect to ChatGPT flow comes after the planner state exists and may be teased earlier, but its final route contract is deferred until that slice begins.
 
 ## Consequences

@@ -15,5 +15,7 @@ alwaysApply: true
 - RULE: Support both light and dark presentation and default to the system color-scheme preference.
 - RULE: Target WCAG 2.2 AA in product decisions and avoid public conformance claims until the relevant UI slice is actually audited.
 - RULE: Start the product flow with onboarding and a real planner shell, not an account wall.
+- RULE: Keep `/` lightweight, use `/onboarding` for profile bootstrap, and use `/planner` as the dedicated planner shell route.
+- RULE: Redirect `/planner` browser-side to `/onboarding` when the required onboarding state is incomplete.
 - RULE: State clearly that no account is required.
 - RULE: Treat the final Connect to ChatGPT route and setup flow as a follow-up slice after planner state exists.
