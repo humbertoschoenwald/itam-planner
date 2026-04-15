@@ -1,0 +1,22 @@
+[
+  {
+    "regulation_id": "regulation:post-2025",
+    "source_snapshot_id": "regulation-post-2025:5a9c85bdd8dabb12",
+    "regulation_type": "post-2025",
+    "title": "Reglamentos de Estudios",
+    "active_from": "2025-08-01",
+    "active_to": null,
+    "entry_from_term": "OTOÑO 2025",
+    "entry_to_term": null
+  },
+  {
+    "regulation_id": "regulation:pre-2025",
+    "source_snapshot_id": "regulation-pre-2025:cb3f18637f51679e",
+    "regulation_type": "pre-2025",
+    "title": "Reglamento deReglamento de",
+    "active_from": null,
+    "active_to": "2025-07-31",
+    "entry_from_term": null,
+    "entry_to_term": "OTOÑO 2025"
+  }
+]

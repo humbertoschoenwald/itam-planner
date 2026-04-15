@@ -1,0 +1,838 @@
+{
+  "calendar_id": "school-calendar-2026",
+  "source_snapshot_id": "school-calendar-2026:97e4c440b87897b9",
+  "calendar_kind": "school",
+  "title": "CALENDARIO ESCOLAR LICENCIATURAS 2026",
+  "period_label": "2026",
+  "active_from": "2026-01-01",
+  "active_to": "2026-12-31",
+  "legend": [
+    {
+      "symbol": "+",
+      "label": "Examen de Clasificación de Inglés",
+      "notes": null
+    },
+    {
+      "symbol": "A",
+      "label": "Asueto",
+      "notes": null
+    },
+    {
+      "symbol": "B",
+      "label": "Jornada de Bienvenida",
+      "notes": null
+    },
+    {
+      "symbol": "C",
+      "label": "Se puede solicitar cambio de carrera",
+      "notes": null
+    },
+    {
+      "symbol": "D",
+      "label": "Descanso Obligatorio",
+      "notes": null
+    },
+    {
+      "symbol": "F",
+      "label": "Exámenes Finales",
+      "notes": null
+    },
+    {
+      "symbol": "G",
+      "label": "Ceremonia de Graduación",
+      "notes": null
+    },
+    {
+      "symbol": "Iw",
+      "label": "Inscripción por Internet",
+      "notes": null
+    },
+    {
+      "symbol": "M",
+      "label": "Modificaciones de horario",
+      "notes": null
+    },
+    {
+      "symbol": "S",
+      "label": "Suspensión actividades licenciatura",
+      "notes": null
+    },
+    {
+      "symbol": "p",
+      "label": "Inicio de Cursos",
+      "notes": null
+    },
+    {
+      "symbol": "q",
+      "label": "Fin de Cursos",
+      "notes": null
+    },
+    {
+      "symbol": "v",
+      "label": "Último día para darse de Baja en materias",
+      "notes": null
+    },
+    {
+      "symbol": "₪",
+      "label": "Feria de Empleo",
+      "notes": null
+    },
+    {
+      "symbol": "₵",
+      "label": "Último día para cambio de carrera",
+      "notes": null
+    },
+    {
+      "symbol": "",
+      "label": "Inscripción a los Exámenes de Clasificación",
+      "notes": null
+    }
+  ],
+  "events": [
+    {
+      "event_date": "2026-01-01",
+      "legend_symbol": "D",
+      "label": "Descanso Obligatorio",
+      "notes": null,
+      "active_from": "2026-01-01",
+      "active_to": "2026-01-01"
+    },
+    {
+      "event_date": "2026-01-02",
+      "legend_symbol": "A",
+      "label": "Asueto",
+      "notes": null,
+      "active_from": "2026-01-02",
+      "active_to": "2026-01-02"
+    },
+    {
+      "event_date": "2026-01-06",
+      "legend_symbol": "B",
+      "label": "Jornada de Bienvenida",
+      "notes": null,
+      "active_from": "2026-01-06",
+      "active_to": "2026-01-06"
+    },
+    {
+      "event_date": "2026-01-07",
+      "legend_symbol": "Iw",
+      "label": "Inscripción por Internet",
+      "notes": null,
+      "active_from": "2026-01-07",
+      "active_to": "2026-01-07"
+    },
+    {
+      "event_date": "2026-01-08",
+      "legend_symbol": "M",
+      "label": "Modificaciones de horario",
+      "notes": null,
+      "active_from": "2026-01-08",
+      "active_to": "2026-01-08"
+    },
+    {
+      "event_date": "2026-01-12",
+      "legend_symbol": "p",
+      "label": "Inicio de Cursos",
+      "notes": null,
+      "active_from": "2026-01-12",
+      "active_to": "2026-01-12"
+    },
+    {
+      "event_date": "2026-01-19",
+      "legend_symbol": "C",
+      "label": "Se puede solicitar cambio de carrera",
+      "notes": null,
+      "active_from": "2026-01-19",
+      "active_to": "2026-01-19"
+    },
+    {
+      "event_date": "2026-02-02",
+      "legend_symbol": "D",
+      "label": "Descanso Obligatorio",
+      "notes": null,
+      "active_from": "2026-02-02",
+      "active_to": "2026-02-02"
+    },
+    {
+      "event_date": "2026-02-26",
+      "legend_symbol": "₪",
+      "label": "Feria de Empleo",
+      "notes": null,
+      "active_from": "2026-02-26",
+      "active_to": "2026-02-26"
+    },
+    {
+      "event_date": "2026-03-16",
+      "legend_symbol": "D",
+      "label": "Descanso Obligatorio",
+      "notes": null,
+      "active_from": "2026-03-16",
+      "active_to": "2026-03-16"
+    },
+    {
+      "event_date": "2026-03-30",
+      "legend_symbol": "A",
+      "label": "Asueto",
+      "notes": null,
+      "active_from": "2026-03-30",
+      "active_to": "2026-03-30"
+    },
+    {
+      "event_date": "2026-03-31",
+      "legend_symbol": "A",
+      "label": "Asueto",
+      "notes": null,
+      "active_from": "2026-03-31",
+      "active_to": "2026-03-31"
+    },
+    {
+      "event_date": "2026-04-29",
+      "legend_symbol": "v",
+      "label": "Último día para darse de Baja en materias",
+      "notes": null,
+      "active_from": "2026-04-29",
+      "active_to": "2026-04-29"
+    },
+    {
+      "event_date": "2026-05-04",
+      "legend_symbol": "",
+      "label": "Inscripción a los Exámenes de Clasificación",
+      "notes": null,
+      "active_from": "2026-05-04",
+      "active_to": "2026-05-04"
+    },
+    {
+      "event_date": "2026-05-05",
+      "legend_symbol": "",
+      "label": "Inscripción a los Exámenes de Clasificación",
+      "notes": null,
+      "active_from": "2026-05-05",
+      "active_to": "2026-05-05"
+    },
+    {
+      "event_date": "2026-05-06",
+      "legend_symbol": "",
+      "label": "Inscripción a los Exámenes de Clasificación",
+      "notes": null,
+      "active_from": "2026-05-06",
+      "active_to": "2026-05-06"
+    },
+    {
+      "event_date": "2026-05-07",
+      "legend_symbol": "",
+      "label": "Inscripción a los Exámenes de Clasificación",
+      "notes": null,
+      "active_from": "2026-05-07",
+      "active_to": "2026-05-07"
+    },
+    {
+      "event_date": "2026-05-08",
+      "legend_symbol": "",
+      "label": "Inscripción a los Exámenes de Clasificación",
+      "notes": null,
+      "active_from": "2026-05-08",
+      "active_to": "2026-05-08"
+    },
+    {
+      "event_date": "2026-05-13",
+      "legend_symbol": "q",
+      "label": "Fin de Cursos",
+      "notes": null,
+      "active_from": "2026-05-13",
+      "active_to": "2026-05-13"
+    },
+    {
+      "event_date": "2026-05-13",
+      "legend_symbol": "₵",
+      "label": "Último día para cambio de carrera",
+      "notes": null,
+      "active_from": "2026-05-13",
+      "active_to": "2026-05-13"
+    },
+    {
+      "event_date": "2026-05-14",
+      "legend_symbol": "S",
+      "label": "Suspensión actividades licenciatura",
+      "notes": null,
+      "active_from": "2026-05-14",
+      "active_to": "2026-05-14"
+    },
+    {
+      "event_date": "2026-05-15",
+      "legend_symbol": "S",
+      "label": "Suspensión actividades licenciatura",
+      "notes": null,
+      "active_from": "2026-05-15",
+      "active_to": "2026-05-15"
+    },
+    {
+      "event_date": "2026-05-16",
+      "legend_symbol": "S",
+      "label": "Suspensión actividades licenciatura",
+      "notes": null,
+      "active_from": "2026-05-16",
+      "active_to": "2026-05-16"
+    },
+    {
+      "event_date": "2026-05-18",
+      "legend_symbol": "F",
+      "label": "Exámenes Finales",
+      "notes": null,
+      "active_from": "2026-05-18",
+      "active_to": "2026-05-18"
+    },
+    {
+      "event_date": "2026-05-19",
+      "legend_symbol": "F",
+      "label": "Exámenes Finales",
+      "notes": null,
+      "active_from": "2026-05-19",
+      "active_to": "2026-05-19"
+    },
+    {
+      "event_date": "2026-05-20",
+      "legend_symbol": "F",
+      "label": "Exámenes Finales",
+      "notes": null,
+      "active_from": "2026-05-20",
+      "active_to": "2026-05-20"
+    },
+    {
+      "event_date": "2026-05-21",
+      "legend_symbol": "F",
+      "label": "Exámenes Finales",
+      "notes": null,
+      "active_from": "2026-05-21",
+      "active_to": "2026-05-21"
+    },
+    {
+      "event_date": "2026-05-22",
+      "legend_symbol": "F",
+      "label": "Exámenes Finales",
+      "notes": null,
+      "active_from": "2026-05-22",
+      "active_to": "2026-05-22"
+    },
+    {
+      "event_date": "2026-05-23",
+      "legend_symbol": "F",
+      "label": "Exámenes Finales",
+      "notes": null,
+      "active_from": "2026-05-23",
+      "active_to": "2026-05-23"
+    },
+    {
+      "event_date": "2026-05-25",
+      "legend_symbol": "F",
+      "label": "Exámenes Finales",
+      "notes": null,
+      "active_from": "2026-05-25",
+      "active_to": "2026-05-25"
+    },
+    {
+      "event_date": "2026-05-26",
+      "legend_symbol": "F",
+      "label": "Exámenes Finales",
+      "notes": null,
+      "active_from": "2026-05-26",
+      "active_to": "2026-05-26"
+    },
+    {
+      "event_date": "2026-05-27",
+      "legend_symbol": "F",
+      "label": "Exámenes Finales",
+      "notes": null,
+      "active_from": "2026-05-27",
+      "active_to": "2026-05-27"
+    },
+    {
+      "event_date": "2026-05-28",
+      "legend_symbol": "F",
+      "label": "Exámenes Finales",
+      "notes": null,
+      "active_from": "2026-05-28",
+      "active_to": "2026-05-28"
+    },
+    {
+      "event_date": "2026-05-29",
+      "legend_symbol": "F",
+      "label": "Exámenes Finales",
+      "notes": null,
+      "active_from": "2026-05-29",
+      "active_to": "2026-05-29"
+    },
+    {
+      "event_date": "2026-05-30",
+      "legend_symbol": "F",
+      "label": "Exámenes Finales",
+      "notes": null,
+      "active_from": "2026-05-30",
+      "active_to": "2026-05-30"
+    },
+    {
+      "event_date": "2026-06-09",
+      "legend_symbol": "Iw",
+      "label": "Inscripción por Internet",
+      "notes": null,
+      "active_from": "2026-06-09",
+      "active_to": "2026-06-09"
+    },
+    {
+      "event_date": "2026-06-15",
+      "legend_symbol": "p",
+      "label": "Inicio de Cursos",
+      "notes": null,
+      "active_from": "2026-06-15",
+      "active_to": "2026-06-15"
+    },
+    {
+      "event_date": "2026-06-22",
+      "legend_symbol": "C",
+      "label": "Se puede solicitar cambio de carrera",
+      "notes": null,
+      "active_from": "2026-06-22",
+      "active_to": "2026-06-22"
+    },
+    {
+      "event_date": "2026-07-06",
+      "legend_symbol": "",
+      "label": "Inscripción a los Exámenes de Clasificación",
+      "notes": null,
+      "active_from": "2026-07-06",
+      "active_to": "2026-07-06"
+    },
+    {
+      "event_date": "2026-07-07",
+      "legend_symbol": "",
+      "label": "Inscripción a los Exámenes de Clasificación",
+      "notes": null,
+      "active_from": "2026-07-07",
+      "active_to": "2026-07-07"
+    },
+    {
+      "event_date": "2026-07-08",
+      "legend_symbol": "",
+      "label": "Inscripción a los Exámenes de Clasificación",
+      "notes": null,
+      "active_from": "2026-07-08",
+      "active_to": "2026-07-08"
+    },
+    {
+      "event_date": "2026-07-09",
+      "legend_symbol": "",
+      "label": "Inscripción a los Exámenes de Clasificación",
+      "notes": null,
+      "active_from": "2026-07-09",
+      "active_to": "2026-07-09"
+    },
+    {
+      "event_date": "2026-07-10",
+      "legend_symbol": "",
+      "label": "Inscripción a los Exámenes de Clasificación",
+      "notes": null,
+      "active_from": "2026-07-10",
+      "active_to": "2026-07-10"
+    },
+    {
+      "event_date": "2026-07-17",
+      "legend_symbol": "v",
+      "label": "Último día para darse de Baja en materias",
+      "notes": null,
+      "active_from": "2026-07-17",
+      "active_to": "2026-07-17"
+    },
+    {
+      "event_date": "2026-07-18",
+      "legend_symbol": "+",
+      "label": "Examen de Clasificación de Inglés",
+      "notes": null,
+      "active_from": "2026-07-18",
+      "active_to": "2026-07-18"
+    },
+    {
+      "event_date": "2026-07-24",
+      "legend_symbol": "q",
+      "label": "Fin de Cursos",
+      "notes": null,
+      "active_from": "2026-07-24",
+      "active_to": "2026-07-24"
+    },
+    {
+      "event_date": "2026-07-24",
+      "legend_symbol": "₵",
+      "label": "Último día para cambio de carrera",
+      "notes": null,
+      "active_from": "2026-07-24",
+      "active_to": "2026-07-24"
+    },
+    {
+      "event_date": "2026-07-25",
+      "legend_symbol": "F",
+      "label": "Exámenes Finales",
+      "notes": null,
+      "active_from": "2026-07-25",
+      "active_to": "2026-07-25"
+    },
+    {
+      "event_date": "2026-07-27",
+      "legend_symbol": "F",
+      "label": "Exámenes Finales",
+      "notes": null,
+      "active_from": "2026-07-27",
+      "active_to": "2026-07-27"
+    },
+    {
+      "event_date": "2026-07-28",
+      "legend_symbol": "F",
+      "label": "Exámenes Finales",
+      "notes": null,
+      "active_from": "2026-07-28",
+      "active_to": "2026-07-28"
+    },
+    {
+      "event_date": "2026-08-04",
+      "legend_symbol": "B",
+      "label": "Jornada de Bienvenida",
+      "notes": null,
+      "active_from": "2026-08-04",
+      "active_to": "2026-08-04"
+    },
+    {
+      "event_date": "2026-08-05",
+      "legend_symbol": "Iw",
+      "label": "Inscripción por Internet",
+      "notes": null,
+      "active_from": "2026-08-05",
+      "active_to": "2026-08-05"
+    },
+    {
+      "event_date": "2026-08-06",
+      "legend_symbol": "M",
+      "label": "Modificaciones de horario",
+      "notes": null,
+      "active_from": "2026-08-06",
+      "active_to": "2026-08-06"
+    },
+    {
+      "event_date": "2026-08-10",
+      "legend_symbol": "p",
+      "label": "Inicio de Cursos",
+      "notes": null,
+      "active_from": "2026-08-10",
+      "active_to": "2026-08-10"
+    },
+    {
+      "event_date": "2026-08-17",
+      "legend_symbol": "C",
+      "label": "Se puede solicitar cambio de carrera",
+      "notes": null,
+      "active_from": "2026-08-17",
+      "active_to": "2026-08-17"
+    },
+    {
+      "event_date": "2026-09-15",
+      "legend_symbol": "A",
+      "label": "Asueto",
+      "notes": null,
+      "active_from": "2026-09-15",
+      "active_to": "2026-09-15"
+    },
+    {
+      "event_date": "2026-09-16",
+      "legend_symbol": "D",
+      "label": "Descanso Obligatorio",
+      "notes": null,
+      "active_from": "2026-09-16",
+      "active_to": "2026-09-16"
+    },
+    {
+      "event_date": "2026-11-02",
+      "legend_symbol": "A",
+      "label": "Asueto",
+      "notes": null,
+      "active_from": "2026-11-02",
+      "active_to": "2026-11-02"
+    },
+    {
+      "event_date": "2026-11-09",
+      "legend_symbol": "",
+      "label": "Inscripción a los Exámenes de Clasificación",
+      "notes": null,
+      "active_from": "2026-11-09",
+      "active_to": "2026-11-09"
+    },
+    {
+      "event_date": "2026-11-10",
+      "legend_symbol": "",
+      "label": "Inscripción a los Exámenes de Clasificación",
+      "notes": null,
+      "active_from": "2026-11-10",
+      "active_to": "2026-11-10"
+    },
+    {
+      "event_date": "2026-11-11",
+      "legend_symbol": "",
+      "label": "Inscripción a los Exámenes de Clasificación",
+      "notes": null,
+      "active_from": "2026-11-11",
+      "active_to": "2026-11-11"
+    },
+    {
+      "event_date": "2026-11-12",
+      "legend_symbol": "",
+      "label": "Inscripción a los Exámenes de Clasificación",
+      "notes": null,
+      "active_from": "2026-11-12",
+      "active_to": "2026-11-12"
+    },
+    {
+      "event_date": "2026-11-13",
+      "legend_symbol": "",
+      "label": "Inscripción a los Exámenes de Clasificación",
+      "notes": null,
+      "active_from": "2026-11-13",
+      "active_to": "2026-11-13"
+    },
+    {
+      "event_date": "2026-11-16",
+      "legend_symbol": "D",
+      "label": "Descanso Obligatorio",
+      "notes": null,
+      "active_from": "2026-11-16",
+      "active_to": "2026-11-16"
+    },
+    {
+      "event_date": "2026-11-18",
+      "legend_symbol": "v",
+      "label": "Último día para darse de Baja en materias",
+      "notes": null,
+      "active_from": "2026-11-18",
+      "active_to": "2026-11-18"
+    },
+    {
+      "event_date": "2026-11-28",
+      "legend_symbol": "+",
+      "label": "Examen de Clasificación de Inglés",
+      "notes": null,
+      "active_from": "2026-11-28",
+      "active_to": "2026-11-28"
+    },
+    {
+      "event_date": "2026-12-02",
+      "legend_symbol": "q",
+      "label": "Fin de Cursos",
+      "notes": null,
+      "active_from": "2026-12-02",
+      "active_to": "2026-12-02"
+    },
+    {
+      "event_date": "2026-12-02",
+      "legend_symbol": "₵",
+      "label": "Último día para cambio de carrera",
+      "notes": null,
+      "active_from": "2026-12-02",
+      "active_to": "2026-12-02"
+    },
+    {
+      "event_date": "2026-12-03",
+      "legend_symbol": "S",
+      "label": "Suspensión actividades licenciatura",
+      "notes": null,
+      "active_from": "2026-12-03",
+      "active_to": "2026-12-03"
+    },
+    {
+      "event_date": "2026-12-04",
+      "legend_symbol": "S",
+      "label": "Suspensión actividades licenciatura",
+      "notes": null,
+      "active_from": "2026-12-04",
+      "active_to": "2026-12-04"
+    },
+    {
+      "event_date": "2026-12-05",
+      "legend_symbol": "S",
+      "label": "Suspensión actividades licenciatura",
+      "notes": null,
+      "active_from": "2026-12-05",
+      "active_to": "2026-12-05"
+    },
+    {
+      "event_date": "2026-12-07",
+      "legend_symbol": "F",
+      "label": "Exámenes Finales",
+      "notes": null,
+      "active_from": "2026-12-07",
+      "active_to": "2026-12-07"
+    },
+    {
+      "event_date": "2026-12-08",
+      "legend_symbol": "F",
+      "label": "Exámenes Finales",
+      "notes": null,
+      "active_from": "2026-12-08",
+      "active_to": "2026-12-08"
+    },
+    {
+      "event_date": "2026-12-09",
+      "legend_symbol": "F",
+      "label": "Exámenes Finales",
+      "notes": null,
+      "active_from": "2026-12-09",
+      "active_to": "2026-12-09"
+    },
+    {
+      "event_date": "2026-12-10",
+      "legend_symbol": "F",
+      "label": "Exámenes Finales",
+      "notes": null,
+      "active_from": "2026-12-10",
+      "active_to": "2026-12-10"
+    },
+    {
+      "event_date": "2026-12-11",
+      "legend_symbol": "F",
+      "label": "Exámenes Finales",
+      "notes": null,
+      "active_from": "2026-12-11",
+      "active_to": "2026-12-11"
+    },
+    {
+      "event_date": "2026-12-12",
+      "legend_symbol": "F",
+      "label": "Exámenes Finales",
+      "notes": null,
+      "active_from": "2026-12-12",
+      "active_to": "2026-12-12"
+    },
+    {
+      "event_date": "2026-12-14",
+      "legend_symbol": "F",
+      "label": "Exámenes Finales",
+      "notes": null,
+      "active_from": "2026-12-14",
+      "active_to": "2026-12-14"
+    },
+    {
+      "event_date": "2026-12-15",
+      "legend_symbol": "F",
+      "label": "Exámenes Finales",
+      "notes": null,
+      "active_from": "2026-12-15",
+      "active_to": "2026-12-15"
+    },
+    {
+      "event_date": "2026-12-16",
+      "legend_symbol": "F",
+      "label": "Exámenes Finales",
+      "notes": null,
+      "active_from": "2026-12-16",
+      "active_to": "2026-12-16"
+    },
+    {
+      "event_date": "2026-12-17",
+      "legend_symbol": "F",
+      "label": "Exámenes Finales",
+      "notes": null,
+      "active_from": "2026-12-17",
+      "active_to": "2026-12-17"
+    },
+    {
+      "event_date": "2026-12-18",
+      "legend_symbol": "F",
+      "label": "Exámenes Finales",
+      "notes": null,
+      "active_from": "2026-12-18",
+      "active_to": "2026-12-18"
+    },
+    {
+      "event_date": "2026-12-19",
+      "legend_symbol": "F",
+      "label": "Exámenes Finales",
+      "notes": null,
+      "active_from": "2026-12-19",
+      "active_to": "2026-12-19"
+    },
+    {
+      "event_date": "2026-12-21",
+      "legend_symbol": "A",
+      "label": "Asueto",
+      "notes": null,
+      "active_from": "2026-12-21",
+      "active_to": "2026-12-21"
+    },
+    {
+      "event_date": "2026-12-22",
+      "legend_symbol": "A",
+      "label": "Asueto",
+      "notes": null,
+      "active_from": "2026-12-22",
+      "active_to": "2026-12-22"
+    },
+    {
+      "event_date": "2026-12-23",
+      "legend_symbol": "A",
+      "label": "Asueto",
+      "notes": null,
+      "active_from": "2026-12-23",
+      "active_to": "2026-12-23"
+    },
+    {
+      "event_date": "2026-12-24",
+      "legend_symbol": "A",
+      "label": "Asueto",
+      "notes": null,
+      "active_from": "2026-12-24",
+      "active_to": "2026-12-24"
+    },
+    {
+      "event_date": "2026-12-25",
+      "legend_symbol": "A",
+      "label": "Asueto",
+      "notes": null,
+      "active_from": "2026-12-25",
+      "active_to": "2026-12-25"
+    },
+    {
+      "event_date": "2026-12-26",
+      "legend_symbol": "A",
+      "label": "Asueto",
+      "notes": null,
+      "active_from": "2026-12-26",
+      "active_to": "2026-12-26"
+    },
+    {
+      "event_date": "2026-12-28",
+      "legend_symbol": "A",
+      "label": "Asueto",
+      "notes": null,
+      "active_from": "2026-12-28",
+      "active_to": "2026-12-28"
+    },
+    {
+      "event_date": "2026-12-29",
+      "legend_symbol": "A",
+      "label": "Asueto",
+      "notes": null,
+      "active_from": "2026-12-29",
+      "active_to": "2026-12-29"
+    },
+    {
+      "event_date": "2026-12-30",
+      "legend_symbol": "A",
+      "label": "Asueto",
+      "notes": null,
+      "active_from": "2026-12-30",
+      "active_to": "2026-12-30"
+    },
+    {
+      "event_date": "2026-12-31",
+      "legend_symbol": "A",
+      "label": "Asueto",
+      "notes": null,
+      "active_from": "2026-12-31",
+      "active_to": "2026-12-31"
+    }
+  ],
+  "payment_events": []
+}

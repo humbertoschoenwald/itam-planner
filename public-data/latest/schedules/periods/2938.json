@@ -1,0 +1,3152 @@
+{
+  "period_id": "2938",
+  "source_snapshot_id": "schedule-menu:7c67fbf32b63c555",
+  "label": "(PRIMAVERA 2026 LICENCIATURA)",
+  "level": "LICENCIATURA",
+  "year": 2026,
+  "term": "PRIMAVERA",
+  "active_from": "2026-01-01",
+  "active_to": "2026-05-31",
+  "subjects": [
+    {
+      "subject_id": "2938:ACT-11300",
+      "raw_value": "ACT-11300-CALCULO ACTUARIAL I",
+      "course_code": "ACT-11300",
+      "canonical_title": "CALCULO ACTUARIAL I"
+    },
+    {
+      "subject_id": "2938:ACT-11301",
+      "raw_value": "ACT-11301-CALCULO ACTUARIAL II",
+      "course_code": "ACT-11301",
+      "canonical_title": "CALCULO ACTUARIAL II"
+    },
+    {
+      "subject_id": "2938:ACT-11302",
+      "raw_value": "ACT-11302-CALCULO ACTUARIAL III",
+      "course_code": "ACT-11302",
+      "canonical_title": "CALCULO ACTUARIAL III"
+    },
+    {
+      "subject_id": "2938:ACT-11303",
+      "raw_value": "ACT-11303-MODELOS ACTUARIALES I",
+      "course_code": "ACT-11303",
+      "canonical_title": "MODELOS ACTUARIALES I"
+    },
+    {
+      "subject_id": "2938:ACT-11310",
+      "raw_value": "ACT-11310-INTROD. AL CALCULO ACTUARIAL",
+      "course_code": "ACT-11310",
+      "canonical_title": "INTROD. AL CALCULO ACTUARIAL"
+    },
+    {
+      "subject_id": "2938:ACT-13307",
+      "raw_value": "ACT-13307-ESTAD. APLICADA A LA ACTUARIA",
+      "course_code": "ACT-13307",
+      "canonical_title": "ESTAD. APLICADA A LA ACTUARIA"
+    },
+    {
+      "subject_id": "2938:ACT-15352",
+      "raw_value": "ACT-15352-PLANES DE BENEFICIOS",
+      "course_code": "ACT-15352",
+      "canonical_title": "PLANES DE BENEFICIOS"
+    },
+    {
+      "subject_id": "2938:ACT-15353",
+      "raw_value": "ACT-15353-PRACTICA ACTUAR. Y MARCO INST.",
+      "course_code": "ACT-15353",
+      "canonical_title": "PRACTICA ACTUAR. Y MARCO INST."
+    },
+    {
+      "subject_id": "2938:ACT-15357",
+      "raw_value": "ACT-15357-PRINCIPIOS DEL SEGURO",
+      "course_code": "ACT-15357",
+      "canonical_title": "PRINCIPIOS DEL SEGURO"
+    },
+    {
+      "subject_id": "2938:ACT-15358",
+      "raw_value": "ACT-15358-SISTEMAS DE SEGUROS",
+      "course_code": "ACT-15358",
+      "canonical_title": "SISTEMAS DE SEGUROS"
+    },
+    {
+      "subject_id": "2938:ACT-15360",
+      "raw_value": "ACT-15360-INTRODUCCION A LA ACTUARIA",
+      "course_code": "ACT-15360",
+      "canonical_title": "INTRODUCCION A LA ACTUARIA"
+    },
+    {
+      "subject_id": "2938:ACT-22306",
+      "raw_value": "ACT-22306-MATEMATICAS FINANCIERAS II",
+      "course_code": "ACT-22306",
+      "canonical_title": "MATEMATICAS FINANCIERAS II"
+    },
+    {
+      "subject_id": "2938:ACT-22309",
+      "raw_value": "ACT-22309-MATEMATICAS FINANCIERAS, III",
+      "course_code": "ACT-22309",
+      "canonical_title": "MATEMATICAS FINANCIERAS, III"
+    },
+    {
+      "subject_id": "2938:ACT-25354",
+      "raw_value": "ACT-25354-ADMON. CUANTITATIVA DE RIESGOS",
+      "course_code": "ACT-25354",
+      "canonical_title": "ADMON. CUANTITATIVA DE RIESGOS"
+    },
+    {
+      "subject_id": "2938:ACT-25360",
+      "raw_value": "ACT-25360-TEMAS SELECTOS DE ACTUARIA I",
+      "course_code": "ACT-25360",
+      "canonical_title": "TEMAS SELECTOS DE ACTUARIA I"
+    },
+    {
+      "subject_id": "2938:ACT-25361",
+      "raw_value": "ACT-25361-TEMAS SELECTOS DE ACTUARIA II",
+      "course_code": "ACT-25361",
+      "canonical_title": "TEMAS SELECTOS DE ACTUARIA II"
+    },
+    {
+      "subject_id": "2938:ADM-11002",
+      "raw_value": "ADM-11002-INNOV Y DISEÑO DE MODEL DE NEG",
+      "course_code": "ADM-11002",
+      "canonical_title": "INNOV Y DISEÑO DE MODEL DE NEG"
+    },
+    {
+      "subject_id": "2938:ADM-11013",
+      "raw_value": "ADM-11013-ADMON. INTERNACIONAL",
+      "course_code": "ADM-11013",
+      "canonical_title": "ADMON. INTERNACIONAL"
+    },
+    {
+      "subject_id": "2938:ADM-11017",
+      "raw_value": "ADM-11017-METODOS DE PRONOSTICO",
+      "course_code": "ADM-11017",
+      "canonical_title": "METODOS DE PRONOSTICO"
+    },
+    {
+      "subject_id": "2938:ADM-11018",
+      "raw_value": "ADM-11018-SEMINARIO DE DIRECCION",
+      "course_code": "ADM-11018",
+      "canonical_title": "SEMINARIO DE DIRECCION"
+    },
+    {
+      "subject_id": "2938:ADM-11101",
+      "raw_value": "ADM-11101-PRONOSTICOS DE NEGOCIOS",
+      "course_code": "ADM-11101",
+      "canonical_title": "PRONOSTICOS DE NEGOCIOS"
+    },
+    {
+      "subject_id": "2938:ADM-11120",
+      "raw_value": "ADM-11120-TRAYECT. EN ADM: PROPOS Y PROG",
+      "course_code": "ADM-11120",
+      "canonical_title": "TRAYECT. EN ADM: PROPOS Y PROG"
+    },
+    {
+      "subject_id": "2938:ADM-12013",
+      "raw_value": "ADM-12013-DISEÑO Y CAMBIO ORGANIZACIONAL",
+      "course_code": "ADM-12013",
+      "canonical_title": "DISEÑO Y CAMBIO ORGANIZACIONAL"
+    },
+    {
+      "subject_id": "2938:ADM-12022",
+      "raw_value": "ADM-12022-ESTRATEGIA GLOBAL",
+      "course_code": "ADM-12022",
+      "canonical_title": "ESTRATEGIA GLOBAL"
+    },
+    {
+      "subject_id": "2938:ADM-12092",
+      "raw_value": "ADM-12092-CONSULTORIA (OP)",
+      "course_code": "ADM-12092",
+      "canonical_title": "CONSULTORIA (OP)"
+    },
+    {
+      "subject_id": "2938:ADM-12103",
+      "raw_value": "ADM-12103-ESTRATEGIA EMPRESARIAL",
+      "course_code": "ADM-12103",
+      "canonical_title": "ESTRATEGIA EMPRESARIAL"
+    },
+    {
+      "subject_id": "2938:ADM-12107",
+      "raw_value": "ADM-12107-ESTRATEGIA DE NEGOCIOS I",
+      "course_code": "ADM-12107",
+      "canonical_title": "ESTRATEGIA DE NEGOCIOS I"
+    },
+    {
+      "subject_id": "2938:ADM-12108",
+      "raw_value": "ADM-12108-ESTRATEGIA DE NEGOCIOS II",
+      "course_code": "ADM-12108",
+      "canonical_title": "ESTRATEGIA DE NEGOCIOS II"
+    },
+    {
+      "subject_id": "2938:ADM-12251",
+      "raw_value": "ADM-12251-PLANEAC. Y EJECUCION DE ESTRAT",
+      "course_code": "ADM-12251",
+      "canonical_title": "PLANEAC. Y EJECUCION DE ESTRAT"
+    },
+    {
+      "subject_id": "2938:ADM-12301",
+      "raw_value": "ADM-12301-TOPICOS DE NEGOCIOS I",
+      "course_code": "ADM-12301",
+      "canonical_title": "TOPICOS DE NEGOCIOS I"
+    },
+    {
+      "subject_id": "2938:ADM-12312",
+      "raw_value": "ADM-12312-TRAYECTORIAS EN NEGOCIOS II",
+      "course_code": "ADM-12312",
+      "canonical_title": "TRAYECTORIAS EN NEGOCIOS II"
+    },
+    {
+      "subject_id": "2938:ADM-12350",
+      "raw_value": "ADM-12350-DECIS. NEGOC. BASADAS EN DATOS",
+      "course_code": "ADM-12350",
+      "canonical_title": "DECIS. NEGOC. BASADAS EN DATOS"
+    },
+    {
+      "subject_id": "2938:ADM-12360",
+      "raw_value": "ADM-12360-NEG. SUSTENTABLES Y RESP. SOC.",
+      "course_code": "ADM-12360",
+      "canonical_title": "NEG. SUSTENTABLES Y RESP. SOC."
+    },
+    {
+      "subject_id": "2938:ADM-12460",
+      "raw_value": "ADM-12460-DIVERSID E INCLUS. EN LAS ORG",
+      "course_code": "ADM-12460",
+      "canonical_title": "DIVERSID E INCLUS. EN LAS ORG"
+    },
+    {
+      "subject_id": "2938:ADM-13101",
+      "raw_value": "ADM-13101-DESARROLLO EMPRESARIAL",
+      "course_code": "ADM-13101",
+      "canonical_title": "DESARROLLO EMPRESARIAL"
+    },
+    {
+      "subject_id": "2938:ADM-13115",
+      "raw_value": "ADM-13115-ADMON. DE EMPRESAS FAMILIARES",
+      "course_code": "ADM-13115",
+      "canonical_title": "ADMON. DE EMPRESAS FAMILIARES"
+    },
+    {
+      "subject_id": "2938:ADM-13450",
+      "raw_value": "ADM-13450-EMPRENDIMIENTO",
+      "course_code": "ADM-13450",
+      "canonical_title": "EMPRENDIMIENTO"
+    },
+    {
+      "subject_id": "2938:ADM-14401",
+      "raw_value": "ADM-14401-COMPORTAMIENTO HUMANO, I",
+      "course_code": "ADM-14401",
+      "canonical_title": "COMPORTAMIENTO HUMANO, I"
+    },
+    {
+      "subject_id": "2938:ADM-14402",
+      "raw_value": "ADM-14402-COMPORTAMIENTO HUMANO, II",
+      "course_code": "ADM-14402",
+      "canonical_title": "COMPORTAMIENTO HUMANO, II"
+    },
+    {
+      "subject_id": "2938:ADM-14405",
+      "raw_value": "ADM-14405-ESTRUC.,PROC. Y COMPORT.ORG I",
+      "course_code": "ADM-14405",
+      "canonical_title": "ESTRUC.,PROC. Y COMPORT.ORG I"
+    },
+    {
+      "subject_id": "2938:ADM-14413",
+      "raw_value": "ADM-14413-DESAR. DE HABILID. GERENCIALES",
+      "course_code": "ADM-14413",
+      "canonical_title": "DESAR. DE HABILID. GERENCIALES"
+    },
+    {
+      "subject_id": "2938:ADM-14431",
+      "raw_value": "ADM-14431-COMPORTAMIENTO ORGANIZACIONAL",
+      "course_code": "ADM-14431",
+      "canonical_title": "COMPORTAMIENTO ORGANIZACIONAL"
+    },
+    {
+      "subject_id": "2938:ADM-15501",
+      "raw_value": "ADM-15501-FINANZAS, I",
+      "course_code": "ADM-15501",
+      "canonical_title": "FINANZAS, I"
+    },
+    {
+      "subject_id": "2938:ADM-15502",
+      "raw_value": "ADM-15502-FINANZAS, II",
+      "course_code": "ADM-15502",
+      "canonical_title": "FINANZAS, II"
+    },
+    {
+      "subject_id": "2938:ADM-15503",
+      "raw_value": "ADM-15503-FINANZAS.,III",
+      "course_code": "ADM-15503",
+      "canonical_title": "FINANZAS.,III"
+    },
+    {
+      "subject_id": "2938:ADM-15505",
+      "raw_value": "ADM-15505-BANCA DE INVERSION",
+      "course_code": "ADM-15505",
+      "canonical_title": "BANCA DE INVERSION"
+    },
+    {
+      "subject_id": "2938:ADM-15507",
+      "raw_value": "ADM-15507-FUNDAMENTOS DE FINANZAS",
+      "course_code": "ADM-15507",
+      "canonical_title": "FUNDAMENTOS DE FINANZAS"
+    },
+    {
+      "subject_id": "2938:ADM-15510",
+      "raw_value": "ADM-15510-INVERSIONES",
+      "course_code": "ADM-15510",
+      "canonical_title": "INVERSIONES"
+    },
+    {
+      "subject_id": "2938:ADM-15514",
+      "raw_value": "ADM-15514-ADMON. DE PORTAF. DE INVERSION",
+      "course_code": "ADM-15514",
+      "canonical_title": "ADMON. DE PORTAF. DE INVERSION"
+    },
+    {
+      "subject_id": "2938:ADM-15517",
+      "raw_value": "ADM-15517-METODOS EMPIRICOS EN FINANZAS",
+      "course_code": "ADM-15517",
+      "canonical_title": "METODOS EMPIRICOS EN FINANZAS"
+    },
+    {
+      "subject_id": "2938:ADM-15522",
+      "raw_value": "ADM-15522-TEORIA DE LAS FINANZAS",
+      "course_code": "ADM-15522",
+      "canonical_title": "TEORIA DE LAS FINANZAS"
+    },
+    {
+      "subject_id": "2938:ADM-15528",
+      "raw_value": "ADM-15528-INSTRUMENTOS FINANCIEROS",
+      "course_code": "ADM-15528",
+      "canonical_title": "INSTRUMENTOS FINANCIEROS"
+    },
+    {
+      "subject_id": "2938:ADM-15531",
+      "raw_value": "ADM-15531-MERCADOS E INSTITUCS. FINANCS.",
+      "course_code": "ADM-15531",
+      "canonical_title": "MERCADOS E INSTITUCS. FINANCS."
+    },
+    {
+      "subject_id": "2938:ADM-15532",
+      "raw_value": "ADM-15532-FINANZAS CORPORATIVAS",
+      "course_code": "ADM-15532",
+      "canonical_title": "FINANZAS CORPORATIVAS"
+    },
+    {
+      "subject_id": "2938:ADM-15533",
+      "raw_value": "ADM-15533-MODELOS FINANCIEROS I",
+      "course_code": "ADM-15533",
+      "canonical_title": "MODELOS FINANCIEROS I"
+    },
+    {
+      "subject_id": "2938:ADM-15534",
+      "raw_value": "ADM-15534-MODELOS FINANCIEROS II",
+      "course_code": "ADM-15534",
+      "canonical_title": "MODELOS FINANCIEROS II"
+    },
+    {
+      "subject_id": "2938:ADM-15535",
+      "raw_value": "ADM-15535-DERIVADOS",
+      "course_code": "ADM-15535",
+      "canonical_title": "DERIVADOS"
+    },
+    {
+      "subject_id": "2938:ADM-15560",
+      "raw_value": "ADM-15560-INTRO A FINA E INTERMED FINANC",
+      "course_code": "ADM-15560",
+      "canonical_title": "INTRO A FINA E INTERMED FINANC"
+    },
+    {
+      "subject_id": "2938:ADM-15561",
+      "raw_value": "ADM-15561-FINANZAS EN LOS NEGOCIOS I",
+      "course_code": "ADM-15561",
+      "canonical_title": "FINANZAS EN LOS NEGOCIOS I"
+    },
+    {
+      "subject_id": "2938:ADM-15566",
+      "raw_value": "ADM-15566-CAPITAL PRIVAD Y FIN EMPRENDED",
+      "course_code": "ADM-15566",
+      "canonical_title": "CAPITAL PRIVAD Y FIN EMPRENDED"
+    },
+    {
+      "subject_id": "2938:ADM-15568",
+      "raw_value": "ADM-15568-TRAYECT EN FINAN: PROP Y PROGR",
+      "course_code": "ADM-15568",
+      "canonical_title": "TRAYECT EN FINAN: PROP Y PROGR"
+    },
+    {
+      "subject_id": "2938:ADM-15569",
+      "raw_value": "ADM-15569-MODELAJE PARA CONTA Y FINANZAS",
+      "course_code": "ADM-15569",
+      "canonical_title": "MODELAJE PARA CONTA Y FINANZAS"
+    },
+    {
+      "subject_id": "2938:ADM-15571",
+      "raw_value": "ADM-15571-RENTA FIJA",
+      "course_code": "ADM-15571",
+      "canonical_title": "RENTA FIJA"
+    },
+    {
+      "subject_id": "2938:ADM-15582",
+      "raw_value": "ADM-15582-FINZS. CORPORA. AVANZADAS",
+      "course_code": "ADM-15582",
+      "canonical_title": "FINZS. CORPORA. AVANZADAS"
+    },
+    {
+      "subject_id": "2938:ADM-15593",
+      "raw_value": "ADM-15593-INGENIERIA FINANCIERA",
+      "course_code": "ADM-15593",
+      "canonical_title": "INGENIERIA FINANCIERA"
+    },
+    {
+      "subject_id": "2938:ADM-15700",
+      "raw_value": "ADM-15700-FINANC. DE LA INNOVAC Y CAPITA",
+      "course_code": "ADM-15700",
+      "canonical_title": "FINANC. DE LA INNOVAC Y CAPITA"
+    },
+    {
+      "subject_id": "2938:ADM-15750",
+      "raw_value": "ADM-15750-FINANZAS Y SISTEM FINANC. MEX.",
+      "course_code": "ADM-15750",
+      "canonical_title": "FINANZAS Y SISTEM FINANC. MEX."
+    },
+    {
+      "subject_id": "2938:ADM-16601",
+      "raw_value": "ADM-16601-MERCADOTECNIA, I",
+      "course_code": "ADM-16601",
+      "canonical_title": "MERCADOTECNIA, I"
+    },
+    {
+      "subject_id": "2938:ADM-16602",
+      "raw_value": "ADM-16602-MERCADOTECNIA, II",
+      "course_code": "ADM-16602",
+      "canonical_title": "MERCADOTECNIA, II"
+    },
+    {
+      "subject_id": "2938:ADM-16603",
+      "raw_value": "ADM-16603-MERCADOTECNIA.,III",
+      "course_code": "ADM-16603",
+      "canonical_title": "MERCADOTECNIA.,III"
+    },
+    {
+      "subject_id": "2938:ADM-16608",
+      "raw_value": "ADM-16608-PRINCIPIOS DE MERCADOTECNIA",
+      "course_code": "ADM-16608",
+      "canonical_title": "PRINCIPIOS DE MERCADOTECNIA"
+    },
+    {
+      "subject_id": "2938:ADM-16610",
+      "raw_value": "ADM-16610-INVESTIGACION DE MERCADOS",
+      "course_code": "ADM-16610",
+      "canonical_title": "INVESTIGACION DE MERCADOS"
+    },
+    {
+      "subject_id": "2938:ADM-16611",
+      "raw_value": "ADM-16611-COMPORTAMIENTO DEL CONSUMIDOR",
+      "course_code": "ADM-16611",
+      "canonical_title": "COMPORTAMIENTO DEL CONSUMIDOR"
+    },
+    {
+      "subject_id": "2938:ADM-16644",
+      "raw_value": "ADM-16644-MODELOS DE MERCADOTECNIA",
+      "course_code": "ADM-16644",
+      "canonical_title": "MODELOS DE MERCADOTECNIA"
+    },
+    {
+      "subject_id": "2938:ADM-16732",
+      "raw_value": "ADM-16732-CREATIVID Y DESARR DE CONTENID",
+      "course_code": "ADM-16732",
+      "canonical_title": "CREATIVID Y DESARR DE CONTENID"
+    },
+    {
+      "subject_id": "2938:ADM-16734",
+      "raw_value": "ADM-16734-ANAL ESTRAT DE REDES SOCIALES",
+      "course_code": "ADM-16734",
+      "canonical_title": "ANAL ESTRAT DE REDES SOCIALES"
+    },
+    {
+      "subject_id": "2938:CEB-10001",
+      "raw_value": "CEB-10001-SEMINARIO DE BIENESTAR: PSICO",
+      "course_code": "CEB-10001",
+      "canonical_title": "SEMINARIO DE BIENESTAR: PSICO"
+    },
+    {
+      "subject_id": "2938:CLE-10131",
+      "raw_value": "CLE-10131-SEMINARIO DE ENSAYO (6)",
+      "course_code": "CLE-10131",
+      "canonical_title": "SEMINARIO DE ENSAYO (6)"
+    },
+    {
+      "subject_id": "2938:CLE-10132",
+      "raw_value": "CLE-10132-SEMINARIO DE ENSAYO (12)",
+      "course_code": "CLE-10132",
+      "canonical_title": "SEMINARIO DE ENSAYO (12)"
+    },
+    {
+      "subject_id": "2938:CLE-10516",
+      "raw_value": "CLE-10516-COMMUNICATION IN SPANISH I",
+      "course_code": "CLE-10516",
+      "canonical_title": "COMMUNICATION IN SPANISH I"
+    },
+    {
+      "subject_id": "2938:CLE-10517",
+      "raw_value": "CLE-10517-COMMUNICATION IN SPANISH II",
+      "course_code": "CLE-10517",
+      "canonical_title": "COMMUNICATION IN SPANISH II"
+    },
+    {
+      "subject_id": "2938:CLE-10518",
+      "raw_value": "CLE-10518-COMMUNICATION IN SPANISH III",
+      "course_code": "CLE-10518",
+      "canonical_title": "COMMUNICATION IN SPANISH III"
+    },
+    {
+      "subject_id": "2938:CLE-10603",
+      "raw_value": "CLE-10603-ESTUDIA CON EXITO EN EL ITAM",
+      "course_code": "CLE-10603",
+      "canonical_title": "ESTUDIA CON EXITO EN EL ITAM"
+    },
+    {
+      "subject_id": "2938:COM-11102",
+      "raw_value": "COM-11102-ESTRUCTURAS DE DATOS",
+      "course_code": "COM-11102",
+      "canonical_title": "ESTRUCTURAS DE DATOS"
+    },
+    {
+      "subject_id": "2938:COM-11103",
+      "raw_value": "COM-11103-ESTRUCTURAS DE DATOS AVANZADAS",
+      "course_code": "COM-11103",
+      "canonical_title": "ESTRUCTURAS DE DATOS AVANZADAS"
+    },
+    {
+      "subject_id": "2938:COM-11111",
+      "raw_value": "COM-11111-ORG. Y ARQ. DE COMPUTADORAS",
+      "course_code": "COM-11111",
+      "canonical_title": "ORG. Y ARQ. DE COMPUTADORAS"
+    },
+    {
+      "subject_id": "2938:COM-11112",
+      "raw_value": "COM-11112-ESTRUCTURAS DE DATOS AVANZADAS",
+      "course_code": "COM-11112",
+      "canonical_title": "ESTRUCTURAS DE DATOS AVANZADAS"
+    },
+    {
+      "subject_id": "2938:COM-11113",
+      "raw_value": "COM-11113-ANAL ALGORITM Y COMPLEJ COMPUT",
+      "course_code": "COM-11113",
+      "canonical_title": "ANAL ALGORITM Y COMPLEJ COMPUT"
+    },
+    {
+      "subject_id": "2938:COM-11114",
+      "raw_value": "COM-11114-ALGORITMOS Y ESTRUCT. DE DATOS",
+      "course_code": "COM-11114",
+      "canonical_title": "ALGORITMOS Y ESTRUCT. DE DATOS"
+    },
+    {
+      "subject_id": "2938:COM-11117",
+      "raw_value": "COM-11117-INTROD AL DESARROLLO WEB",
+      "course_code": "COM-11117",
+      "canonical_title": "INTROD AL DESARROLLO WEB"
+    },
+    {
+      "subject_id": "2938:COM-11302",
+      "raw_value": "COM-11302-ALGORITMICA Y PROGRAMACION",
+      "course_code": "COM-11302",
+      "canonical_title": "ALGORITMICA Y PROGRAMACION"
+    },
+    {
+      "subject_id": "2938:COM-11308",
+      "raw_value": "COM-11308-INTR. A LA INTELIGENC ARTIFIC",
+      "course_code": "COM-11308",
+      "canonical_title": "INTR. A LA INTELIGENC ARTIFIC"
+    },
+    {
+      "subject_id": "2938:COM-12101",
+      "raw_value": "COM-12101-BASES DE DATOS",
+      "course_code": "COM-12101",
+      "canonical_title": "BASES DE DATOS"
+    },
+    {
+      "subject_id": "2938:COM-12102",
+      "raw_value": "COM-12102-ANALISIS Y DIS. DE SIS.DE INFO",
+      "course_code": "COM-12102",
+      "canonical_title": "ANALISIS Y DIS. DE SIS.DE INFO"
+    },
+    {
+      "subject_id": "2938:COM-12103",
+      "raw_value": "COM-12103-FUENTES DE DATOS",
+      "course_code": "COM-12103",
+      "canonical_title": "FUENTES DE DATOS"
+    },
+    {
+      "subject_id": "2938:COM-12104",
+      "raw_value": "COM-12104-VISUALIZACION DE INFORMACION",
+      "course_code": "COM-12104",
+      "canonical_title": "VISUALIZACION DE INFORMACION"
+    },
+    {
+      "subject_id": "2938:COM-12109",
+      "raw_value": "COM-12109-FUENTES DE DATOS EMPRESARIALES",
+      "course_code": "COM-12109",
+      "canonical_title": "FUENTES DE DATOS EMPRESARIALES"
+    },
+    {
+      "subject_id": "2938:COM-14101",
+      "raw_value": "COM-14101-FUNDAMENTOS MAT. DE LA COMPU.",
+      "course_code": "COM-14101",
+      "canonical_title": "FUNDAMENTOS MAT. DE LA COMPU."
+    },
+    {
+      "subject_id": "2938:COM-14104",
+      "raw_value": "COM-14104-SISTEMAS OPERATIVOS",
+      "course_code": "COM-14104",
+      "canonical_title": "SISTEMAS OPERATIVOS"
+    },
+    {
+      "subject_id": "2938:COM-14105",
+      "raw_value": "COM-14105-ALGORITMOS NUM. POR COMPU.",
+      "course_code": "COM-14105",
+      "canonical_title": "ALGORITMOS NUM. POR COMPU."
+    },
+    {
+      "subject_id": "2938:COM-14113",
+      "raw_value": "COM-14113-FUNDAMENTOS DE PROGRAMACION",
+      "course_code": "COM-14113",
+      "canonical_title": "FUNDAMENTOS DE PROGRAMACION"
+    },
+    {
+      "subject_id": "2938:COM-15112",
+      "raw_value": "COM-15112-COMPUTO PARALELO Y EN LA NUBE",
+      "course_code": "COM-15112",
+      "canonical_title": "COMPUTO PARALELO Y EN LA NUBE"
+    },
+    {
+      "subject_id": "2938:COM-15126",
+      "raw_value": "COM-15126-CCIA DATOS Y TRANSF DE LA SOC",
+      "course_code": "COM-15126",
+      "canonical_title": "CCIA DATOS Y TRANSF DE LA SOC"
+    },
+    {
+      "subject_id": "2938:COM-16203",
+      "raw_value": "COM-16203-DES. DE APLICACS. INFORMATICAS",
+      "course_code": "COM-16203",
+      "canonical_title": "DES. DE APLICACS. INFORMATICAS"
+    },
+    {
+      "subject_id": "2938:COM-16301",
+      "raw_value": "COM-16301-HERRAMIENTAS COMPU. Y ALGORIT.",
+      "course_code": "COM-16301",
+      "canonical_title": "HERRAMIENTAS COMPU. Y ALGORIT."
+    },
+    {
+      "subject_id": "2938:COM-16303",
+      "raw_value": "COM-16303-MODELADO COMPUT. PARA NEGOCIOS",
+      "course_code": "COM-16303",
+      "canonical_title": "MODELADO COMPUT. PARA NEGOCIOS"
+    },
+    {
+      "subject_id": "2938:COM-16305",
+      "raw_value": "COM-16305-GESTION DE DATOS",
+      "course_code": "COM-16305",
+      "canonical_title": "GESTION DE DATOS"
+    },
+    {
+      "subject_id": "2938:COM-16306",
+      "raw_value": "COM-16306-RAZONAMIENTO ALGORITMICO",
+      "course_code": "COM-16306",
+      "canonical_title": "RAZONAMIENTO ALGORITMICO"
+    },
+    {
+      "subject_id": "2938:COM-16307",
+      "raw_value": "COM-16307-MODELADO ANALITICO DE NEGOCIOS",
+      "course_code": "COM-16307",
+      "canonical_title": "MODELADO ANALITICO DE NEGOCIOS"
+    },
+    {
+      "subject_id": "2938:COM-16401",
+      "raw_value": "COM-16401-COMPUTACION I, INTENSIVA",
+      "course_code": "COM-16401",
+      "canonical_title": "COMPUTACION I, INTENSIVA"
+    },
+    {
+      "subject_id": "2938:COM-16412",
+      "raw_value": "COM-16412-HERR. COMP. Y PROD. EMPRESAR.",
+      "course_code": "COM-16412",
+      "canonical_title": "HERR. COMP. Y PROD. EMPRESAR."
+    },
+    {
+      "subject_id": "2938:COM-16413",
+      "raw_value": "COM-16413-INTELIGENCIA DE NEGOCIOS",
+      "course_code": "COM-16413",
+      "canonical_title": "INTELIGENCIA DE NEGOCIOS"
+    },
+    {
+      "subject_id": "2938:COM-16414",
+      "raw_value": "COM-16414-APLIC. TI EN LOS NEGOCIOS",
+      "course_code": "COM-16414",
+      "canonical_title": "APLIC. TI EN LOS NEGOCIOS"
+    },
+    {
+      "subject_id": "2938:COM-22102",
+      "raw_value": "COM-22102-BASES DE DATOS NO RELACIONALES",
+      "course_code": "COM-22102",
+      "canonical_title": "BASES DE DATOS NO RELACIONALES"
+    },
+    {
+      "subject_id": "2938:COM-22105",
+      "raw_value": "COM-22105-SISTEMAS DISTRIBUIDOS",
+      "course_code": "COM-22105",
+      "canonical_title": "SISTEMAS DISTRIBUIDOS"
+    },
+    {
+      "subject_id": "2938:COM-22108",
+      "raw_value": "COM-22108-MINERIA Y ANALISIS DE DATOS",
+      "course_code": "COM-22108",
+      "canonical_title": "MINERIA Y ANALISIS DE DATOS"
+    },
+    {
+      "subject_id": "2938:COM-23101",
+      "raw_value": "COM-23101-INTELIGENCIA ARTIFICIAL",
+      "course_code": "COM-23101",
+      "canonical_title": "INTELIGENCIA ARTIFICIAL"
+    },
+    {
+      "subject_id": "2938:COM-23106",
+      "raw_value": "COM-23106-MINERIA DE DATOS",
+      "course_code": "COM-23106",
+      "canonical_title": "MINERIA DE DATOS"
+    },
+    {
+      "subject_id": "2938:COM-23114",
+      "raw_value": "COM-23114-ARQ. PARA GDES VOLUM. DE DATOS",
+      "course_code": "COM-23114",
+      "canonical_title": "ARQ. PARA GDES VOLUM. DE DATOS"
+    },
+    {
+      "subject_id": "2938:COM-23115",
+      "raw_value": "COM-23115-CIENCIA DE DATOS APLICADA I",
+      "course_code": "COM-23115",
+      "canonical_title": "CIENCIA DE DATOS APLICADA I"
+    },
+    {
+      "subject_id": "2938:COM-23116",
+      "raw_value": "COM-23116-CIENCIA DE DATOS APLICADA II",
+      "course_code": "COM-23116",
+      "canonical_title": "CIENCIA DE DATOS APLICADA II"
+    },
+    {
+      "subject_id": "2938:COM-23122",
+      "raw_value": "COM-23122-MARK DEPORT BASADO EN DATOS",
+      "course_code": "COM-23122",
+      "canonical_title": "MARK DEPORT BASADO EN DATOS"
+    },
+    {
+      "subject_id": "2938:COM-23701",
+      "raw_value": "COM-23701-APRENDIZAJE DE MAQUINA",
+      "course_code": "COM-23701",
+      "canonical_title": "APRENDIZAJE DE MAQUINA"
+    },
+    {
+      "subject_id": "2938:COM-25705",
+      "raw_value": "COM-25705-SEG INFORMATICA Y HACKEO ETICO",
+      "course_code": "COM-25705",
+      "canonical_title": "SEG INFORMATICA Y HACKEO ETICO"
+    },
+    {
+      "subject_id": "2938:CON-10001",
+      "raw_value": "CON-10001-PROCESO CONTABLE",
+      "course_code": "CON-10001",
+      "canonical_title": "PROCESO CONTABLE"
+    },
+    {
+      "subject_id": "2938:CON-10002",
+      "raw_value": "CON-10002-CONTABILIDAD INTERMEDIA, I",
+      "course_code": "CON-10002",
+      "canonical_title": "CONTABILIDAD INTERMEDIA, I"
+    },
+    {
+      "subject_id": "2938:CON-10003",
+      "raw_value": "CON-10003-CONTABILIDAD INTERMEDIA, II",
+      "course_code": "CON-10003",
+      "canonical_title": "CONTABILIDAD INTERMEDIA, II"
+    },
+    {
+      "subject_id": "2938:CON-10004",
+      "raw_value": "CON-10004-COMBINACION DE NEGOCIOS",
+      "course_code": "CON-10004",
+      "canonical_title": "COMBINACION DE NEGOCIOS"
+    },
+    {
+      "subject_id": "2938:CON-10005",
+      "raw_value": "CON-10005-ANAL. FINANCIERO DE LA EMPRESA",
+      "course_code": "CON-10005",
+      "canonical_title": "ANAL. FINANCIERO DE LA EMPRESA"
+    },
+    {
+      "subject_id": "2938:CON-10011",
+      "raw_value": "CON-10011-CONT.Y VALUAC. DE INSTR. FINAN",
+      "course_code": "CON-10011",
+      "canonical_title": "CONT.Y VALUAC. DE INSTR. FINAN"
+    },
+    {
+      "subject_id": "2938:CON-10100",
+      "raw_value": "CON-10100-CONTABILIDAD, I",
+      "course_code": "CON-10100",
+      "canonical_title": "CONTABILIDAD, I"
+    },
+    {
+      "subject_id": "2938:CON-10110",
+      "raw_value": "CON-10110-FUNDAMEN. DE CONTABILID FINANC",
+      "course_code": "CON-10110",
+      "canonical_title": "FUNDAMEN. DE CONTABILID FINANC"
+    },
+    {
+      "subject_id": "2938:CON-10111",
+      "raw_value": "CON-10111-CONTABILIDAD FINANCIERA I",
+      "course_code": "CON-10111",
+      "canonical_title": "CONTABILIDAD FINANCIERA I"
+    },
+    {
+      "subject_id": "2938:CON-10112",
+      "raw_value": "CON-10112-CONTABILIDAD FINANCIERA II",
+      "course_code": "CON-10112",
+      "canonical_title": "CONTABILIDAD FINANCIERA II"
+    },
+    {
+      "subject_id": "2938:CON-11001",
+      "raw_value": "CON-11001-AUDITORIA DE ESTADOS FINANCS.",
+      "course_code": "CON-11001",
+      "canonical_title": "AUDITORIA DE ESTADOS FINANCS."
+    },
+    {
+      "subject_id": "2938:CON-12001",
+      "raw_value": "CON-12001-CONTABILIDAD DE COSTOS",
+      "course_code": "CON-12001",
+      "canonical_title": "CONTABILIDAD DE COSTOS"
+    },
+    {
+      "subject_id": "2938:CON-12002",
+      "raw_value": "CON-12002-COSTOS PARA TOMA DE DECISIONES",
+      "course_code": "CON-12002",
+      "canonical_title": "COSTOS PARA TOMA DE DECISIONES"
+    },
+    {
+      "subject_id": "2938:CON-12003",
+      "raw_value": "CON-12003-ADMON. ESTRATEGICA DE COSTOS",
+      "course_code": "CON-12003",
+      "canonical_title": "ADMON. ESTRATEGICA DE COSTOS"
+    },
+    {
+      "subject_id": "2938:CON-12110",
+      "raw_value": "CON-12110-CONTABILIDAD DE COSTOS P/ING.",
+      "course_code": "CON-12110",
+      "canonical_title": "CONTABILIDAD DE COSTOS P/ING."
+    },
+    {
+      "subject_id": "2938:CON-14100",
+      "raw_value": "CON-14100-CONTABILIDAD ADMINISTRATIVA, I",
+      "course_code": "CON-14100",
+      "canonical_title": "CONTABILIDAD ADMINISTRATIVA, I"
+    },
+    {
+      "subject_id": "2938:CON-14101",
+      "raw_value": "CON-14101-CONTABILIDAD ADMINISTRATIVA,II",
+      "course_code": "CON-14101",
+      "canonical_title": "CONTABILIDAD ADMINISTRATIVA,II"
+    },
+    {
+      "subject_id": "2938:CON-14109",
+      "raw_value": "CON-14109-CONTABILIDAD GERENCIAL",
+      "course_code": "CON-14109",
+      "canonical_title": "CONTABILIDAD GERENCIAL"
+    },
+    {
+      "subject_id": "2938:CON-14111",
+      "raw_value": "CON-14111-INTROD A CONTADURIA ANALITICA",
+      "course_code": "CON-14111",
+      "canonical_title": "INTROD A CONTADURIA ANALITICA"
+    },
+    {
+      "subject_id": "2938:CON-14112",
+      "raw_value": "CON-14112-CONTADUR ANALITICA CORPORATIVA",
+      "course_code": "CON-14112",
+      "canonical_title": "CONTADUR ANALITICA CORPORATIVA"
+    },
+    {
+      "subject_id": "2938:CON-15001",
+      "raw_value": "CON-15001-IMPUESTOS CORPORATIVOS, I",
+      "course_code": "CON-15001",
+      "canonical_title": "IMPUESTOS CORPORATIVOS, I"
+    },
+    {
+      "subject_id": "2938:CON-15002",
+      "raw_value": "CON-15002-IMPUESTOS CORPORATIVOS, II",
+      "course_code": "CON-15002",
+      "canonical_title": "IMPUESTOS CORPORATIVOS, II"
+    },
+    {
+      "subject_id": "2938:CON-15003",
+      "raw_value": "CON-15003-IMPUESTOS P/ PERSONAS FISICAS",
+      "course_code": "CON-15003",
+      "canonical_title": "IMPUESTOS P/ PERSONAS FISICAS"
+    },
+    {
+      "subject_id": "2938:CON-15125",
+      "raw_value": "CON-15125-CONTABILIDAD FISCAL",
+      "course_code": "CON-15125",
+      "canonical_title": "CONTABILIDAD FISCAL"
+    },
+    {
+      "subject_id": "2938:CON-16100",
+      "raw_value": "CON-16100-SISTEMAS DE INFO. CONTABLE",
+      "course_code": "CON-16100",
+      "canonical_title": "SISTEMAS DE INFO. CONTABLE"
+    },
+    {
+      "subject_id": "2938:CON-17100",
+      "raw_value": "CON-17100-SEMINAR. DE INVEST. CONTABLE,I",
+      "course_code": "CON-17100",
+      "canonical_title": "SEMINAR. DE INVEST. CONTABLE,I"
+    },
+    {
+      "subject_id": "2938:CON-17102",
+      "raw_value": "CON-17102-TRAYECTORIAS EN CONTADURIA",
+      "course_code": "CON-17102",
+      "canonical_title": "TRAYECTORIAS EN CONTADURIA"
+    },
+    {
+      "subject_id": "2938:CON-18002",
+      "raw_value": "CON-18002-ESTR. Y CONTROL DE RIESGOS FIN",
+      "course_code": "CON-18002",
+      "canonical_title": "ESTR. Y CONTROL DE RIESGOS FIN"
+    },
+    {
+      "subject_id": "2938:CSO-10001",
+      "raw_value": "CSO-10001-INTRO. A LA CIENCIA POLITICA",
+      "course_code": "CSO-10001",
+      "canonical_title": "INTRO. A LA CIENCIA POLITICA"
+    },
+    {
+      "subject_id": "2938:CSO-10100",
+      "raw_value": "CSO-10100-ESTADO Y SOCIEDAD I",
+      "course_code": "CSO-10100",
+      "canonical_title": "ESTADO Y SOCIEDAD I"
+    },
+    {
+      "subject_id": "2938:CSO-10101",
+      "raw_value": "CSO-10101-ESTADO Y SOCIEDAD II",
+      "course_code": "CSO-10101",
+      "canonical_title": "ESTADO Y SOCIEDAD II"
+    },
+    {
+      "subject_id": "2938:CSO-10106",
+      "raw_value": "CSO-10106-INSTITUCS POLITICAS COMPARADAS",
+      "course_code": "CSO-10106",
+      "canonical_title": "INSTITUCS POLITICAS COMPARADAS"
+    },
+    {
+      "subject_id": "2938:CSO-10110",
+      "raw_value": "CSO-10110-HERRAM DE ANALISIS CUANTITATIV",
+      "course_code": "CSO-10110",
+      "canonical_title": "HERRAM DE ANALISIS CUANTITATIV"
+    },
+    {
+      "subject_id": "2938:CSO-10130",
+      "raw_value": "CSO-10130-HIST POL DE MEX EN EL SIGLO XX",
+      "course_code": "CSO-10130",
+      "canonical_title": "HIST POL DE MEX EN EL SIGLO XX"
+    },
+    {
+      "subject_id": "2938:CSO-10143",
+      "raw_value": "CSO-10143-ACCIÓN COLECTIVA",
+      "course_code": "CSO-10143",
+      "canonical_title": "ACCIÓN COLECTIVA"
+    },
+    {
+      "subject_id": "2938:CSO-11011",
+      "raw_value": "CSO-11011-TEORIA POLITICA CLASICA, I",
+      "course_code": "CSO-11011",
+      "canonical_title": "TEORIA POLITICA CLASICA, I"
+    },
+    {
+      "subject_id": "2938:CSO-11012",
+      "raw_value": "CSO-11012-TEORIA POLITICA CLASICA, II",
+      "course_code": "CSO-11012",
+      "canonical_title": "TEORIA POLITICA CLASICA, II"
+    },
+    {
+      "subject_id": "2938:CSO-11021",
+      "raw_value": "CSO-11021-TEORIA POLITICA CONTEMPORANEA",
+      "course_code": "CSO-11021",
+      "canonical_title": "TEORIA POLITICA CONTEMPORANEA"
+    },
+    {
+      "subject_id": "2938:CSO-12013",
+      "raw_value": "CSO-12013-HISTORIA POLITICA CONTEMPORAN.",
+      "course_code": "CSO-12013",
+      "canonical_title": "HISTORIA POLITICA CONTEMPORAN."
+    },
+    {
+      "subject_id": "2938:CSO-12042",
+      "raw_value": "CSO-12042-HISTORIA DE MEXICO,II",
+      "course_code": "CSO-12042",
+      "canonical_title": "HISTORIA DE MEXICO,II"
+    },
+    {
+      "subject_id": "2938:CSO-12049",
+      "raw_value": "CSO-12049-HISTORIA DE MEXICO III",
+      "course_code": "CSO-12049",
+      "canonical_title": "HISTORIA DE MEXICO III"
+    },
+    {
+      "subject_id": "2938:CSO-13041",
+      "raw_value": "CSO-13041-POL. MEXICANA CONTEMPORANEA",
+      "course_code": "CSO-13041",
+      "canonical_title": "POL. MEXICANA CONTEMPORANEA"
+    },
+    {
+      "subject_id": "2938:CSO-13046",
+      "raw_value": "CSO-13046-CULTURA POPULAR Y POLITICA",
+      "course_code": "CSO-13046",
+      "canonical_title": "CULTURA POPULAR Y POLITICA"
+    },
+    {
+      "subject_id": "2938:CSO-14016",
+      "raw_value": "CSO-14016-JUECES Y POL. EN PERSPEC. COMP",
+      "course_code": "CSO-14016",
+      "canonical_title": "JUECES Y POL. EN PERSPEC. COMP"
+    },
+    {
+      "subject_id": "2938:CSO-14021",
+      "raw_value": "CSO-14021-POLITICA COMPARADA,I",
+      "course_code": "CSO-14021",
+      "canonical_title": "POLITICA COMPARADA,I"
+    },
+    {
+      "subject_id": "2938:CSO-14041",
+      "raw_value": "CSO-14041-POLITICA COMPARADA,II",
+      "course_code": "CSO-14041",
+      "canonical_title": "POLITICA COMPARADA,II"
+    },
+    {
+      "subject_id": "2938:CSO-14042",
+      "raw_value": "CSO-14042-POLITICA COMPARADA III",
+      "course_code": "CSO-14042",
+      "canonical_title": "POLITICA COMPARADA III"
+    },
+    {
+      "subject_id": "2938:CSO-14045",
+      "raw_value": "CSO-14045-POLITICA Y GOBIERNO DE MEXICO",
+      "course_code": "CSO-14045",
+      "canonical_title": "POLITICA Y GOBIERNO DE MEXICO"
+    },
+    {
+      "subject_id": "2938:CSO-14051",
+      "raw_value": "CSO-14051-OPINION PUBLICA",
+      "course_code": "CSO-14051",
+      "canonical_title": "OPINION PUBLICA"
+    },
+    {
+      "subject_id": "2938:CSO-15022",
+      "raw_value": "CSO-15022-ELECCION PUBLICA,II",
+      "course_code": "CSO-15022",
+      "canonical_title": "ELECCION PUBLICA,II"
+    },
+    {
+      "subject_id": "2938:CSO-15024",
+      "raw_value": "CSO-15024-ELECCION PUBLICA III",
+      "course_code": "CSO-15024",
+      "canonical_title": "ELECCION PUBLICA III"
+    },
+    {
+      "subject_id": "2938:CSO-15041",
+      "raw_value": "CSO-15041-ECONOMIA POLITICA, I",
+      "course_code": "CSO-15041",
+      "canonical_title": "ECONOMIA POLITICA, I"
+    },
+    {
+      "subject_id": "2938:CSO-15043",
+      "raw_value": "CSO-15043-ECONOMIA POLITICA II",
+      "course_code": "CSO-15043",
+      "canonical_title": "ECONOMIA POLITICA II"
+    },
+    {
+      "subject_id": "2938:CSO-16042",
+      "raw_value": "CSO-16042-POLITICAS PUBLICAS",
+      "course_code": "CSO-16042",
+      "canonical_title": "POLITICAS PUBLICAS"
+    },
+    {
+      "subject_id": "2938:CSO-16048",
+      "raw_value": "CSO-16048-TOPICOS DE POLIT. PUBLICAS I",
+      "course_code": "CSO-16048",
+      "canonical_title": "TOPICOS DE POLIT. PUBLICAS I"
+    },
+    {
+      "subject_id": "2938:CSO-16049",
+      "raw_value": "CSO-16049-TOPICOS DE POL. PUBLICAS II",
+      "course_code": "CSO-16049",
+      "canonical_title": "TOPICOS DE POL. PUBLICAS II"
+    },
+    {
+      "subject_id": "2938:CSO-17041",
+      "raw_value": "CSO-17041-METODOS DE INVEST. APLICADA",
+      "course_code": "CSO-17041",
+      "canonical_title": "METODOS DE INVEST. APLICADA"
+    },
+    {
+      "subject_id": "2938:CSO-17042",
+      "raw_value": "CSO-17042-METODOL. POL. AVANZADA",
+      "course_code": "CSO-17042",
+      "canonical_title": "METODOL. POL. AVANZADA"
+    },
+    {
+      "subject_id": "2938:CSO-19077",
+      "raw_value": "CSO-19077-SEMIN. DE TITULACION POR CASO",
+      "course_code": "CSO-19077",
+      "canonical_title": "SEMIN. DE TITULACION POR CASO"
+    },
+    {
+      "subject_id": "2938:CSO-19085",
+      "raw_value": "CSO-19085-SEMINARIO DE INV. POLITICA E",
+      "course_code": "CSO-19085",
+      "canonical_title": "SEMINARIO DE INV. POLITICA E"
+    },
+    {
+      "subject_id": "2938:CSO-19093",
+      "raw_value": "CSO-19093-SEMINARIO DE INV. POLITICA A-1",
+      "course_code": "CSO-19093",
+      "canonical_title": "SEMINARIO DE INV. POLITICA A-1"
+    },
+    {
+      "subject_id": "2938:DER-10003",
+      "raw_value": "DER-10003-INST. DE DERECHO PUB. MEX.,I",
+      "course_code": "DER-10003",
+      "canonical_title": "INST. DE DERECHO PUB. MEX.,I"
+    },
+    {
+      "subject_id": "2938:DER-10005",
+      "raw_value": "DER-10005-DER. INTERNACIONAL PUBLICO,I",
+      "course_code": "DER-10005",
+      "canonical_title": "DER. INTERNACIONAL PUBLICO,I"
+    },
+    {
+      "subject_id": "2938:DER-10006",
+      "raw_value": "DER-10006-DER. INTERNACIONAL PUBLICO,II",
+      "course_code": "DER-10006",
+      "canonical_title": "DER. INTERNACIONAL PUBLICO,II"
+    },
+    {
+      "subject_id": "2938:DER-10008",
+      "raw_value": "DER-10008-REGIMEN LABORAL MEXICANO",
+      "course_code": "DER-10008",
+      "canonical_title": "REGIMEN LABORAL MEXICANO"
+    },
+    {
+      "subject_id": "2938:DER-10011",
+      "raw_value": "DER-10011-REGIMEN FISCAL MEXICANO (CP)",
+      "course_code": "DER-10011",
+      "canonical_title": "REGIMEN FISCAL MEXICANO (CP)"
+    },
+    {
+      "subject_id": "2938:DER-10013",
+      "raw_value": "DER-10013-FUNDAMENTOS JURIDICOS",
+      "course_code": "DER-10013",
+      "canonical_title": "FUNDAMENTOS JURIDICOS"
+    },
+    {
+      "subject_id": "2938:DER-10015",
+      "raw_value": "DER-10015-DERECHO EMPRESARIAL",
+      "course_code": "DER-10015",
+      "canonical_title": "DERECHO EMPRESARIAL"
+    },
+    {
+      "subject_id": "2938:DER-10016",
+      "raw_value": "DER-10016-INTROD. AL DERECHO CORPORATIVO",
+      "course_code": "DER-10016",
+      "canonical_title": "INTROD. AL DERECHO CORPORATIVO"
+    },
+    {
+      "subject_id": "2938:DER-10017",
+      "raw_value": "DER-10017-CONTRATOS FINANC. COMPARADOS",
+      "course_code": "DER-10017",
+      "canonical_title": "CONTRATOS FINANC. COMPARADOS"
+    },
+    {
+      "subject_id": "2938:DER-10018",
+      "raw_value": "DER-10018-DERECHO EMPRESARIAL I",
+      "course_code": "DER-10018",
+      "canonical_title": "DERECHO EMPRESARIAL I"
+    },
+    {
+      "subject_id": "2938:DER-10019",
+      "raw_value": "DER-10019-DERECHO EMPRESARIAL II",
+      "course_code": "DER-10019",
+      "canonical_title": "DERECHO EMPRESARIAL II"
+    },
+    {
+      "subject_id": "2938:DER-10021",
+      "raw_value": "DER-10021-DERECHO EMPRESARIAL III",
+      "course_code": "DER-10021",
+      "canonical_title": "DERECHO EMPRESARIAL III"
+    },
+    {
+      "subject_id": "2938:DER-10022",
+      "raw_value": "DER-10022-DERECHO EMPRESARIAL",
+      "course_code": "DER-10022",
+      "canonical_title": "DERECHO EMPRESARIAL"
+    },
+    {
+      "subject_id": "2938:DER-10026",
+      "raw_value": "DER-10026-DERECHO CORPORATIVO",
+      "course_code": "DER-10026",
+      "canonical_title": "DERECHO CORPORATIVO"
+    },
+    {
+      "subject_id": "2938:DER-10113",
+      "raw_value": "DER-10113-DERECHO PUBLICO",
+      "course_code": "DER-10113",
+      "canonical_title": "DERECHO PUBLICO"
+    },
+    {
+      "subject_id": "2938:DER-10114",
+      "raw_value": "DER-10114-SEM LEG Y ETICA EN CIENC DATOS",
+      "course_code": "DER-10114",
+      "canonical_title": "SEM LEG Y ETICA EN CIENC DATOS"
+    },
+    {
+      "subject_id": "2938:DER-11101",
+      "raw_value": "DER-11101-TEORIA DEL DERECHO, I",
+      "course_code": "DER-11101",
+      "canonical_title": "TEORIA DEL DERECHO, I"
+    },
+    {
+      "subject_id": "2938:DER-11106",
+      "raw_value": "DER-11106-METODOL. DE LA DISERTAC JURID.",
+      "course_code": "DER-11106",
+      "canonical_title": "METODOL. DE LA DISERTAC JURID."
+    },
+    {
+      "subject_id": "2938:DER-11107",
+      "raw_value": "DER-11107-TALLER EN BIENES Y DER REALES",
+      "course_code": "DER-11107",
+      "canonical_title": "TALLER EN BIENES Y DER REALES"
+    },
+    {
+      "subject_id": "2938:DER-11109",
+      "raw_value": "DER-11109-TALLER DE DISER JURID EN OBLIG",
+      "course_code": "DER-11109",
+      "canonical_title": "TALLER DE DISER JURID EN OBLIG"
+    },
+    {
+      "subject_id": "2938:DER-11110",
+      "raw_value": "DER-11110-TALLER DISERT JURID CONSTIT. I",
+      "course_code": "DER-11110",
+      "canonical_title": "TALLER DISERT JURID CONSTIT. I"
+    },
+    {
+      "subject_id": "2938:DER-11111",
+      "raw_value": "DER-11111-HABILIDADES JURID. GLOBALES I",
+      "course_code": "DER-11111",
+      "canonical_title": "HABILIDADES JURID. GLOBALES I"
+    },
+    {
+      "subject_id": "2938:DER-11112",
+      "raw_value": "DER-11112-TALLER DISERT JURID EN CONTRAT",
+      "course_code": "DER-11112",
+      "canonical_title": "TALLER DISERT JURID EN CONTRAT"
+    },
+    {
+      "subject_id": "2938:DER-11113",
+      "raw_value": "DER-11113-TALLER DISERT JUR CONSTITU. II",
+      "course_code": "DER-11113",
+      "canonical_title": "TALLER DISERT JUR CONSTITU. II"
+    },
+    {
+      "subject_id": "2938:DER-11114",
+      "raw_value": "DER-11114-HABILIDADES JURID. GLOBALES II",
+      "course_code": "DER-11114",
+      "canonical_title": "HABILIDADES JURID. GLOBALES II"
+    },
+    {
+      "subject_id": "2938:DER-11115",
+      "raw_value": "DER-11115-TALLER DISERT. JUR. CONST. III",
+      "course_code": "DER-11115",
+      "canonical_title": "TALLER DISERT. JUR. CONST. III"
+    },
+    {
+      "subject_id": "2938:DER-11116",
+      "raw_value": "DER-11116-TALLER DISERT. JUR. ADMIVO. I",
+      "course_code": "DER-11116",
+      "canonical_title": "TALLER DISERT. JUR. ADMIVO. I"
+    },
+    {
+      "subject_id": "2938:DER-11117",
+      "raw_value": "DER-11117-HABILIDADES JURID GLOBALES III",
+      "course_code": "DER-11117",
+      "canonical_title": "HABILIDADES JURID GLOBALES III"
+    },
+    {
+      "subject_id": "2938:DER-11118",
+      "raw_value": "DER-11118-CONCURSOS INTERNACIONALES",
+      "course_code": "DER-11118",
+      "canonical_title": "CONCURSOS INTERNACIONALES"
+    },
+    {
+      "subject_id": "2938:DER-11119",
+      "raw_value": "DER-11119-FILOSOFIA DEL DERECHO",
+      "course_code": "DER-11119",
+      "canonical_title": "FILOSOFIA DEL DERECHO"
+    },
+    {
+      "subject_id": "2938:DER-11120",
+      "raw_value": "DER-11120-TALLER DISER JUR TEC ARGUM JUR",
+      "course_code": "DER-11120",
+      "canonical_title": "TALLER DISER JUR TEC ARGUM JUR"
+    },
+    {
+      "subject_id": "2938:DER-11121",
+      "raw_value": "DER-11121-CULTURA DE LA LEGALIDAD",
+      "course_code": "DER-11121",
+      "canonical_title": "CULTURA DE LA LEGALIDAD"
+    },
+    {
+      "subject_id": "2938:DER-11122",
+      "raw_value": "DER-11122-TEORÍA DEL DERECHO I",
+      "course_code": "DER-11122",
+      "canonical_title": "TEORÍA DEL DERECHO I"
+    },
+    {
+      "subject_id": "2938:DER-11123",
+      "raw_value": "DER-11123-CONCURSOS INTERNAC. (CLINICA)",
+      "course_code": "DER-11123",
+      "canonical_title": "CONCURSOS INTERNAC. (CLINICA)"
+    },
+    {
+      "subject_id": "2938:DER-11202",
+      "raw_value": "DER-11202-TEORIA DEL DERECHO II",
+      "course_code": "DER-11202",
+      "canonical_title": "TEORIA DEL DERECHO II"
+    },
+    {
+      "subject_id": "2938:DER-11203",
+      "raw_value": "DER-11203-INVESTIG. Y REDACCION JURIDICA",
+      "course_code": "DER-11203",
+      "canonical_title": "INVESTIG. Y REDACCION JURIDICA"
+    },
+    {
+      "subject_id": "2938:DER-11206",
+      "raw_value": "DER-11206-TEORÍA DEL DERECHO II",
+      "course_code": "DER-11206",
+      "canonical_title": "TEORÍA DEL DERECHO II"
+    },
+    {
+      "subject_id": "2938:DER-11207",
+      "raw_value": "DER-11207-ESCRITURA JURIDICA",
+      "course_code": "DER-11207",
+      "canonical_title": "ESCRITURA JURIDICA"
+    },
+    {
+      "subject_id": "2938:DER-11307",
+      "raw_value": "DER-11307-TALLER ESCRIT P/ DER PRIVADO",
+      "course_code": "DER-11307",
+      "canonical_title": "TALLER ESCRIT P/ DER PRIVADO"
+    },
+    {
+      "subject_id": "2938:DER-11400",
+      "raw_value": "DER-11400-TALLER ESCRIT. P/ DER PUBLICO",
+      "course_code": "DER-11400",
+      "canonical_title": "TALLER ESCRIT. P/ DER PUBLICO"
+    },
+    {
+      "subject_id": "2938:DER-11805",
+      "raw_value": "DER-11805-FILOSOFIA DEL DERECHO",
+      "course_code": "DER-11805",
+      "canonical_title": "FILOSOFIA DEL DERECHO"
+    },
+    {
+      "subject_id": "2938:DER-11907",
+      "raw_value": "DER-11907-TECNICAS DE ARGUM. JURID.",
+      "course_code": "DER-11907",
+      "canonical_title": "TECNICAS DE ARGUM. JURID."
+    },
+    {
+      "subject_id": "2938:DER-12103",
+      "raw_value": "DER-12103-HISTORIA DEL DERECHO",
+      "course_code": "DER-12103",
+      "canonical_title": "HISTORIA DEL DERECHO"
+    },
+    {
+      "subject_id": "2938:DER-12202",
+      "raw_value": "DER-12202-HISTORIA DEL DERECHO MEXICANO",
+      "course_code": "DER-12202",
+      "canonical_title": "HISTORIA DEL DERECHO MEXICANO"
+    },
+    {
+      "subject_id": "2938:DER-12204",
+      "raw_value": "DER-12204-INTROD. AL DERECHO MEXICANO",
+      "course_code": "DER-12204",
+      "canonical_title": "INTROD. AL DERECHO MEXICANO"
+    },
+    {
+      "subject_id": "2938:DER-13026",
+      "raw_value": "DER-13026-CLINICAL LEGAL CTRO ACCESO JUS",
+      "course_code": "DER-13026",
+      "canonical_title": "CLINICAL LEGAL CTRO ACCESO JUS"
+    },
+    {
+      "subject_id": "2938:DER-13031",
+      "raw_value": "DER-13031-CLIN MEDIACION Y JUSTIC RESTAU",
+      "course_code": "DER-13031",
+      "canonical_title": "CLIN MEDIACION Y JUSTIC RESTAU"
+    },
+    {
+      "subject_id": "2938:DER-13108",
+      "raw_value": "DER-13108-BIENES Y DERECHOS REALES",
+      "course_code": "DER-13108",
+      "canonical_title": "BIENES Y DERECHOS REALES"
+    },
+    {
+      "subject_id": "2938:DER-13201",
+      "raw_value": "DER-13201-PERSONAS Y FAMILIA",
+      "course_code": "DER-13201",
+      "canonical_title": "PERSONAS Y FAMILIA"
+    },
+    {
+      "subject_id": "2938:DER-13203",
+      "raw_value": "DER-13203-NEGOCIO JURIDICO Y PERSONAS",
+      "course_code": "DER-13203",
+      "canonical_title": "NEGOCIO JURIDICO Y PERSONAS"
+    },
+    {
+      "subject_id": "2938:DER-13302",
+      "raw_value": "DER-13302-BIENES Y DERECHOS REALES",
+      "course_code": "DER-13302",
+      "canonical_title": "BIENES Y DERECHOS REALES"
+    },
+    {
+      "subject_id": "2938:DER-13403",
+      "raw_value": "DER-13403-OBLIGACIONES",
+      "course_code": "DER-13403",
+      "canonical_title": "OBLIGACIONES"
+    },
+    {
+      "subject_id": "2938:DER-13406",
+      "raw_value": "DER-13406-TEORIA GENERAL DEL PROCESO",
+      "course_code": "DER-13406",
+      "canonical_title": "TEORIA GENERAL DEL PROCESO"
+    },
+    {
+      "subject_id": "2938:DER-13407",
+      "raw_value": "DER-13407-TEO GRAL PROC Y SEM DE PRUEBA",
+      "course_code": "DER-13407",
+      "canonical_title": "TEO GRAL PROC Y SEM DE PRUEBA"
+    },
+    {
+      "subject_id": "2938:DER-13504",
+      "raw_value": "DER-13504-CONTRATOS",
+      "course_code": "DER-13504",
+      "canonical_title": "CONTRATOS"
+    },
+    {
+      "subject_id": "2938:DER-13607",
+      "raw_value": "DER-13607-PROCE. CIVILES Y MERCANTILES",
+      "course_code": "DER-13607",
+      "canonical_title": "PROCE. CIVILES Y MERCANTILES"
+    },
+    {
+      "subject_id": "2938:DER-13614",
+      "raw_value": "DER-13614-FAMILIA Y SUCESIONES",
+      "course_code": "DER-13614",
+      "canonical_title": "FAMILIA Y SUCESIONES"
+    },
+    {
+      "subject_id": "2938:DER-13615",
+      "raw_value": "DER-13615-JUICIO ORAL CIVIL Y FAMILIAR",
+      "course_code": "DER-13615",
+      "canonical_title": "JUICIO ORAL CIVIL Y FAMILIAR"
+    },
+    {
+      "subject_id": "2938:DER-14402",
+      "raw_value": "DER-14402-TEORIAS DEL DELITO",
+      "course_code": "DER-14402",
+      "canonical_title": "TEORIAS DEL DELITO"
+    },
+    {
+      "subject_id": "2938:DER-14505",
+      "raw_value": "DER-14505-DELITOS",
+      "course_code": "DER-14505",
+      "canonical_title": "DELITOS"
+    },
+    {
+      "subject_id": "2938:DER-14603",
+      "raw_value": "DER-14603-DERECHO PROCESAL PENAL",
+      "course_code": "DER-14603",
+      "canonical_title": "DERECHO PROCESAL PENAL"
+    },
+    {
+      "subject_id": "2938:DER-14606",
+      "raw_value": "DER-14606-DERECHO PROCESAL PENAL",
+      "course_code": "DER-14606",
+      "canonical_title": "DERECHO PROCESAL PENAL"
+    },
+    {
+      "subject_id": "2938:DER-14607",
+      "raw_value": "DER-14607-JUICIO ORAL PENAL",
+      "course_code": "DER-14607",
+      "canonical_title": "JUICIO ORAL PENAL"
+    },
+    {
+      "subject_id": "2938:DER-15063",
+      "raw_value": "DER-15063-JUECES Y POL. EN PERSP. COMPAR",
+      "course_code": "DER-15063",
+      "canonical_title": "JUECES Y POL. EN PERSP. COMPAR"
+    },
+    {
+      "subject_id": "2938:DER-15070",
+      "raw_value": "DER-15070-SEM. ESTUDIOS GENERO Y DERECHO",
+      "course_code": "DER-15070",
+      "canonical_title": "SEM. ESTUDIOS GENERO Y DERECHO"
+    },
+    {
+      "subject_id": "2938:DER-15074",
+      "raw_value": "DER-15074-SEMINARIO HERMILA GALINDO",
+      "course_code": "DER-15074",
+      "canonical_title": "SEMINARIO HERMILA GALINDO"
+    },
+    {
+      "subject_id": "2938:DER-15075",
+      "raw_value": "DER-15075-JUECES Y POL. EN PERSP. COMPAR",
+      "course_code": "DER-15075",
+      "canonical_title": "JUECES Y POL. EN PERSP. COMPAR"
+    },
+    {
+      "subject_id": "2938:DER-15076",
+      "raw_value": "DER-15076-CLIN. LITIGIO PENAL VIOL. DDHH",
+      "course_code": "DER-15076",
+      "canonical_title": "CLIN. LITIGIO PENAL VIOL. DDHH"
+    },
+    {
+      "subject_id": "2938:DER-15080",
+      "raw_value": "DER-15080-CLIN ATN A PERSONAS REFUGIADAS",
+      "course_code": "DER-15080",
+      "canonical_title": "CLIN ATN A PERSONAS REFUGIADAS"
+    },
+    {
+      "subject_id": "2938:DER-15303",
+      "raw_value": "DER-15303-DER CONST. I Y SEM DE TEO POL",
+      "course_code": "DER-15303",
+      "canonical_title": "DER CONST. I Y SEM DE TEO POL"
+    },
+    {
+      "subject_id": "2938:DER-15402",
+      "raw_value": "DER-15402-DERECHO CONSTITUCIONAL,I",
+      "course_code": "DER-15402",
+      "canonical_title": "DERECHO CONSTITUCIONAL,I"
+    },
+    {
+      "subject_id": "2938:DER-15403",
+      "raw_value": "DER-15403-DERECHO CONSTITUCIONAL I",
+      "course_code": "DER-15403",
+      "canonical_title": "DERECHO CONSTITUCIONAL I"
+    },
+    {
+      "subject_id": "2938:DER-15504",
+      "raw_value": "DER-15504-DERECHO CONSTITUCIONAL II",
+      "course_code": "DER-15504",
+      "canonical_title": "DERECHO CONSTITUCIONAL II"
+    },
+    {
+      "subject_id": "2938:DER-15506",
+      "raw_value": "DER-15506-DERECHO CONSTITUCIONAL, III",
+      "course_code": "DER-15506",
+      "canonical_title": "DERECHO CONSTITUCIONAL, III"
+    },
+    {
+      "subject_id": "2938:DER-15600",
+      "raw_value": "DER-15600-DERECHO CONSTITUCIONAL III",
+      "course_code": "DER-15600",
+      "canonical_title": "DERECHO CONSTITUCIONAL III"
+    },
+    {
+      "subject_id": "2938:DER-15704",
+      "raw_value": "DER-15704-PROCEDIM. CONSTITUCIONALES",
+      "course_code": "DER-15704",
+      "canonical_title": "PROCEDIM. CONSTITUCIONALES"
+    },
+    {
+      "subject_id": "2938:DER-16019",
+      "raw_value": "DER-16019-DERECHO DEL SIST. FINANCIERO",
+      "course_code": "DER-16019",
+      "canonical_title": "DERECHO DEL SIST. FINANCIERO"
+    },
+    {
+      "subject_id": "2938:DER-16059",
+      "raw_value": "DER-16059-CLIN JURIDICA PARA EMPRESAS",
+      "course_code": "DER-16059",
+      "canonical_title": "CLIN JURIDICA PARA EMPRESAS"
+    },
+    {
+      "subject_id": "2938:DER-16066",
+      "raw_value": "DER-16066-DER ENTRET E IND CREAT",
+      "course_code": "DER-16066",
+      "canonical_title": "DER ENTRET E IND CREAT"
+    },
+    {
+      "subject_id": "2938:DER-16501",
+      "raw_value": "DER-16501-DERECHO MERCANTIL, I",
+      "course_code": "DER-16501",
+      "canonical_title": "DERECHO MERCANTIL, I"
+    },
+    {
+      "subject_id": "2938:DER-16502",
+      "raw_value": "DER-16502-DERECHO MERCANTIL I",
+      "course_code": "DER-16502",
+      "canonical_title": "DERECHO MERCANTIL I"
+    },
+    {
+      "subject_id": "2938:DER-16503",
+      "raw_value": "DER-16503-DERECHO MERCANTIL II",
+      "course_code": "DER-16503",
+      "canonical_title": "DERECHO MERCANTIL II"
+    },
+    {
+      "subject_id": "2938:DER-16702",
+      "raw_value": "DER-16702-DERECHO MERCANTIL III",
+      "course_code": "DER-16702",
+      "canonical_title": "DERECHO MERCANTIL III"
+    },
+    {
+      "subject_id": "2938:DER-16922",
+      "raw_value": "DER-16922-LAB. DERECHO PRIVADO (CLINICA)",
+      "course_code": "DER-16922",
+      "canonical_title": "LAB. DERECHO PRIVADO (CLINICA)"
+    },
+    {
+      "subject_id": "2938:DER-17047",
+      "raw_value": "DER-17047-CLINICA EN DER Y POL PUBLICA",
+      "course_code": "DER-17047",
+      "canonical_title": "CLINICA EN DER Y POL PUBLICA"
+    },
+    {
+      "subject_id": "2938:DER-17048",
+      "raw_value": "DER-17048-CLIN DES SUST Y DER AMBIENTAL",
+      "course_code": "DER-17048",
+      "canonical_title": "CLIN DES SUST Y DER AMBIENTAL"
+    },
+    {
+      "subject_id": "2938:DER-17601",
+      "raw_value": "DER-17601-DERECHO ADMINISTRATIVO I",
+      "course_code": "DER-17601",
+      "canonical_title": "DERECHO ADMINISTRATIVO I"
+    },
+    {
+      "subject_id": "2938:DER-17702",
+      "raw_value": "DER-17702-DERECHO ADMINISTRATIVO II",
+      "course_code": "DER-17702",
+      "canonical_title": "DERECHO ADMINISTRATIVO II"
+    },
+    {
+      "subject_id": "2938:DER-17703",
+      "raw_value": "DER-17703-DERECHO FISCAL I",
+      "course_code": "DER-17703",
+      "canonical_title": "DERECHO FISCAL I"
+    },
+    {
+      "subject_id": "2938:DER-17804",
+      "raw_value": "DER-17804-DERECHO FISCAL II",
+      "course_code": "DER-17804",
+      "canonical_title": "DERECHO FISCAL II"
+    },
+    {
+      "subject_id": "2938:DER-17806",
+      "raw_value": "DER-17806-DERECHO FISCAL II",
+      "course_code": "DER-17806",
+      "canonical_title": "DERECHO FISCAL II"
+    },
+    {
+      "subject_id": "2938:DER-17807",
+      "raw_value": "DER-17807-DERECHO FISCAL I",
+      "course_code": "DER-17807",
+      "canonical_title": "DERECHO FISCAL I"
+    },
+    {
+      "subject_id": "2938:DER-18600",
+      "raw_value": "DER-18600-DERECHO INTERNACIONAL I",
+      "course_code": "DER-18600",
+      "canonical_title": "DERECHO INTERNACIONAL I"
+    },
+    {
+      "subject_id": "2938:DER-18601",
+      "raw_value": "DER-18601-DERECHO INTERNACIONAL II",
+      "course_code": "DER-18601",
+      "canonical_title": "DERECHO INTERNACIONAL II"
+    },
+    {
+      "subject_id": "2938:DER-18802",
+      "raw_value": "DER-18802-DERECHO INTERNACIONAL PRIVADO",
+      "course_code": "DER-18802",
+      "canonical_title": "DERECHO INTERNACIONAL PRIVADO"
+    },
+    {
+      "subject_id": "2938:DER-19005",
+      "raw_value": "DER-19005-CLIN.MEJORA DE LA JUSTICIA LAB",
+      "course_code": "DER-19005",
+      "canonical_title": "CLIN.MEJORA DE LA JUSTICIA LAB"
+    },
+    {
+      "subject_id": "2938:DER-19501",
+      "raw_value": "DER-19501-DERECHO LABORAL I",
+      "course_code": "DER-19501",
+      "canonical_title": "DERECHO LABORAL I"
+    },
+    {
+      "subject_id": "2938:DER-19602",
+      "raw_value": "DER-19602-DERECHO LABORAL II",
+      "course_code": "DER-19602",
+      "canonical_title": "DERECHO LABORAL II"
+    },
+    {
+      "subject_id": "2938:ECO-10202",
+      "raw_value": "ECO-10202-SEM. DE INVEST. ECONOMICA II",
+      "course_code": "ECO-10202",
+      "canonical_title": "SEM. DE INVEST. ECONOMICA II"
+    },
+    {
+      "subject_id": "2938:ECO-10204",
+      "raw_value": "ECO-10204-SEMINARIO DE INV. ECONOMICA",
+      "course_code": "ECO-10204",
+      "canonical_title": "SEMINARIO DE INV. ECONOMICA"
+    },
+    {
+      "subject_id": "2938:ECO-10300",
+      "raw_value": "ECO-10300-PENSAMIENTO ECONOMICO",
+      "course_code": "ECO-10300",
+      "canonical_title": "PENSAMIENTO ECONOMICO"
+    },
+    {
+      "subject_id": "2938:ECO-10301",
+      "raw_value": "ECO-10301-HISTORIA DEL ANALISIS ECO.",
+      "course_code": "ECO-10301",
+      "canonical_title": "HISTORIA DEL ANALISIS ECO."
+    },
+    {
+      "subject_id": "2938:ECO-10506",
+      "raw_value": "ECO-10506-ECONOMETR. Y ANALISIS DE DATOS",
+      "course_code": "ECO-10506",
+      "canonical_title": "ECONOMETR. Y ANALISIS DE DATOS"
+    },
+    {
+      "subject_id": "2938:ECO-10516",
+      "raw_value": "ECO-10516-MICROECONOMETRIA APLICADA",
+      "course_code": "ECO-10516",
+      "canonical_title": "MICROECONOMETRIA APLICADA"
+    },
+    {
+      "subject_id": "2938:ECO-10517",
+      "raw_value": "ECO-10517-MACROECONOMETRIA APLICADA",
+      "course_code": "ECO-10517",
+      "canonical_title": "MACROECONOMETRIA APLICADA"
+    },
+    {
+      "subject_id": "2938:ECO-10518",
+      "raw_value": "ECO-10518-TOPICOS DE ECONOMETRIA",
+      "course_code": "ECO-10518",
+      "canonical_title": "TOPICOS DE ECONOMETRIA"
+    },
+    {
+      "subject_id": "2938:ECO-10521",
+      "raw_value": "ECO-10521-INFERENCIA CAUSAL",
+      "course_code": "ECO-10521",
+      "canonical_title": "INFERENCIA CAUSAL"
+    },
+    {
+      "subject_id": "2938:ECO-11000",
+      "raw_value": "ECO-11000-INTRODUCCION A LA ECONOMIA",
+      "course_code": "ECO-11000",
+      "canonical_title": "INTRODUCCION A LA ECONOMIA"
+    },
+    {
+      "subject_id": "2938:ECO-11001",
+      "raw_value": "ECO-11001-SEM. DE MICROECONOMIA APLICADA",
+      "course_code": "ECO-11001",
+      "canonical_title": "SEM. DE MICROECONOMIA APLICADA"
+    },
+    {
+      "subject_id": "2938:ECO-11002",
+      "raw_value": "ECO-11002-SEMINARIO DE ANALISIS EMPIRICO",
+      "course_code": "ECO-11002",
+      "canonical_title": "SEMINARIO DE ANALISIS EMPIRICO"
+    },
+    {
+      "subject_id": "2938:ECO-11010",
+      "raw_value": "ECO-11010-PRINCIPIOS DE MICROECONOMIA",
+      "course_code": "ECO-11010",
+      "canonical_title": "PRINCIPIOS DE MICROECONOMIA"
+    },
+    {
+      "subject_id": "2938:ECO-11011",
+      "raw_value": "ECO-11011-MICROECONOMIA APLICADA I",
+      "course_code": "ECO-11011",
+      "canonical_title": "MICROECONOMIA APLICADA I"
+    },
+    {
+      "subject_id": "2938:ECO-11021",
+      "raw_value": "ECO-11021-MICROECONOMIA I",
+      "course_code": "ECO-11021",
+      "canonical_title": "MICROECONOMIA I"
+    },
+    {
+      "subject_id": "2938:ECO-11022",
+      "raw_value": "ECO-11022-MICROECONOMIA II",
+      "course_code": "ECO-11022",
+      "canonical_title": "MICROECONOMIA II"
+    },
+    {
+      "subject_id": "2938:ECO-11101",
+      "raw_value": "ECO-11101-ECONOMIA, I",
+      "course_code": "ECO-11101",
+      "canonical_title": "ECONOMIA, I"
+    },
+    {
+      "subject_id": "2938:ECO-11103",
+      "raw_value": "ECO-11103-ECONOMIA, III",
+      "course_code": "ECO-11103",
+      "canonical_title": "ECONOMIA, III"
+    },
+    {
+      "subject_id": "2938:ECO-11104",
+      "raw_value": "ECO-11104-ECONOMIA, IV",
+      "course_code": "ECO-11104",
+      "canonical_title": "ECONOMIA, IV"
+    },
+    {
+      "subject_id": "2938:ECO-11121",
+      "raw_value": "ECO-11121-MICROECONOMIA AVANZADA I",
+      "course_code": "ECO-11121",
+      "canonical_title": "MICROECONOMIA AVANZADA I"
+    },
+    {
+      "subject_id": "2938:ECO-11122",
+      "raw_value": "ECO-11122-MICROECONOMIA AVANZADA II",
+      "course_code": "ECO-11122",
+      "canonical_title": "MICROECONOMIA AVANZADA II"
+    },
+    {
+      "subject_id": "2938:ECO-11227",
+      "raw_value": "ECO-11227-DISEÑO DE MERCADOS",
+      "course_code": "ECO-11227",
+      "canonical_title": "DISEÑO DE MERCADOS"
+    },
+    {
+      "subject_id": "2938:ECO-12010",
+      "raw_value": "ECO-12010-PRINCIPIOS DE MACROECONOMIA",
+      "course_code": "ECO-12010",
+      "canonical_title": "PRINCIPIOS DE MACROECONOMIA"
+    },
+    {
+      "subject_id": "2938:ECO-12011",
+      "raw_value": "ECO-12011-MACROECONOMIA I",
+      "course_code": "ECO-12011",
+      "canonical_title": "MACROECONOMIA I"
+    },
+    {
+      "subject_id": "2938:ECO-12102",
+      "raw_value": "ECO-12102-ECONOMIA, II",
+      "course_code": "ECO-12102",
+      "canonical_title": "ECONOMIA, II"
+    },
+    {
+      "subject_id": "2938:ECO-12105",
+      "raw_value": "ECO-12105-ECONOMIA, V",
+      "course_code": "ECO-12105",
+      "canonical_title": "ECONOMIA, V"
+    },
+    {
+      "subject_id": "2938:ECO-12121",
+      "raw_value": "ECO-12121-MACROECONOMIA AVANZADA",
+      "course_code": "ECO-12121",
+      "canonical_title": "MACROECONOMIA AVANZADA"
+    },
+    {
+      "subject_id": "2938:ECO-12133",
+      "raw_value": "ECO-12133-MACROECONOMIA INTERMEDIA",
+      "course_code": "ECO-12133",
+      "canonical_title": "MACROECONOMIA INTERMEDIA"
+    },
+    {
+      "subject_id": "2938:ECO-12201",
+      "raw_value": "ECO-12201-TEORIA Y POLITICA MONETARIA",
+      "course_code": "ECO-12201",
+      "canonical_title": "TEORIA Y POLITICA MONETARIA"
+    },
+    {
+      "subject_id": "2938:ECO-13101",
+      "raw_value": "ECO-13101-ECONOMIA INTERNACIONAL, I",
+      "course_code": "ECO-13101",
+      "canonical_title": "ECONOMIA INTERNACIONAL, I"
+    },
+    {
+      "subject_id": "2938:ECO-13102",
+      "raw_value": "ECO-13102-ECONOMIA INTERNACIONAL, II",
+      "course_code": "ECO-13102",
+      "canonical_title": "ECONOMIA INTERNACIONAL, II"
+    },
+    {
+      "subject_id": "2938:ECO-13111",
+      "raw_value": "ECO-13111-TOPICOS EN COM. INTERNACIONAL",
+      "course_code": "ECO-13111",
+      "canonical_title": "TOPICOS EN COM. INTERNACIONAL"
+    },
+    {
+      "subject_id": "2938:ECO-14207",
+      "raw_value": "ECO-14207-ANAL. ECONOMICO DEL DERECHO I",
+      "course_code": "ECO-14207",
+      "canonical_title": "ANAL. ECONOMICO DEL DERECHO I"
+    },
+    {
+      "subject_id": "2938:ECO-14208",
+      "raw_value": "ECO-14208-ANAL. ECON. DEL DER. II",
+      "course_code": "ECO-14208",
+      "canonical_title": "ANAL. ECON. DEL DER. II"
+    },
+    {
+      "subject_id": "2938:ECO-14301",
+      "raw_value": "ECO-14301-ORGANIZACION INDUSTRIAL",
+      "course_code": "ECO-14301",
+      "canonical_title": "ORGANIZACION INDUSTRIAL"
+    },
+    {
+      "subject_id": "2938:ECO-14303",
+      "raw_value": "ECO-14303-ECONOMIA DE LA REGULACION",
+      "course_code": "ECO-14303",
+      "canonical_title": "ECONOMIA DE LA REGULACION"
+    },
+    {
+      "subject_id": "2938:ECO-14501",
+      "raw_value": "ECO-14501-ECONOMIA DE LA EMPRESA",
+      "course_code": "ECO-14501",
+      "canonical_title": "ECONOMIA DE LA EMPRESA"
+    },
+    {
+      "subject_id": "2938:ECO-14502",
+      "raw_value": "ECO-14502-ECONOMIA GERENCIAL",
+      "course_code": "ECO-14502",
+      "canonical_title": "ECONOMIA GERENCIAL"
+    },
+    {
+      "subject_id": "2938:ECO-15101",
+      "raw_value": "ECO-15101-FINANZAS PUBLICAS",
+      "course_code": "ECO-15101",
+      "canonical_title": "FINANZAS PUBLICAS"
+    },
+    {
+      "subject_id": "2938:ECO-15110",
+      "raw_value": "ECO-15110-EVALUACION DE PROYECTOS",
+      "course_code": "ECO-15110",
+      "canonical_title": "EVALUACION DE PROYECTOS"
+    },
+    {
+      "subject_id": "2938:ECO-15111",
+      "raw_value": "ECO-15111-ECONOMIA POLITICA",
+      "course_code": "ECO-15111",
+      "canonical_title": "ECONOMIA POLITICA"
+    },
+    {
+      "subject_id": "2938:ECO-15112",
+      "raw_value": "ECO-15112-TOPICOS SELECTOS EN ECO. POL.",
+      "course_code": "ECO-15112",
+      "canonical_title": "TOPICOS SELECTOS EN ECO. POL."
+    },
+    {
+      "subject_id": "2938:ECO-17100",
+      "raw_value": "ECO-17100-HISTORIA ECONOMICA DE MEXICO",
+      "course_code": "ECO-17100",
+      "canonical_title": "HISTORIA ECONOMICA DE MEXICO"
+    },
+    {
+      "subject_id": "2938:ECO-17103",
+      "raw_value": "ECO-17103-SEMINARIO DE LA ECO. DE MEX.",
+      "course_code": "ECO-17103",
+      "canonical_title": "SEMINARIO DE LA ECO. DE MEX."
+    },
+    {
+      "subject_id": "2938:ECO-17220",
+      "raw_value": "ECO-17220-HISTORIA ECONOMICA MODERNA",
+      "course_code": "ECO-17220",
+      "canonical_title": "HISTORIA ECONOMICA MODERNA"
+    },
+    {
+      "subject_id": "2938:ECO-18101",
+      "raw_value": "ECO-18101-DESARROLLO ECONOMICO I",
+      "course_code": "ECO-18101",
+      "canonical_title": "DESARROLLO ECONOMICO I"
+    },
+    {
+      "subject_id": "2938:ECO-18300",
+      "raw_value": "ECO-18300-CRECIMIENTO ECONOMICO",
+      "course_code": "ECO-18300",
+      "canonical_title": "CRECIMIENTO ECONOMICO"
+    },
+    {
+      "subject_id": "2938:ECO-20513",
+      "raw_value": "ECO-20513-MICROECONOMETRIA AVANZADA",
+      "course_code": "ECO-20513",
+      "canonical_title": "MICROECONOMETRIA AVANZADA"
+    },
+    {
+      "subject_id": "2938:ECO-21103",
+      "raw_value": "ECO-21103-ECONOMIA III",
+      "course_code": "ECO-21103",
+      "canonical_title": "ECONOMIA III"
+    },
+    {
+      "subject_id": "2938:ECO-21104",
+      "raw_value": "ECO-21104-ECONOMIA IV",
+      "course_code": "ECO-21104",
+      "canonical_title": "ECONOMIA IV"
+    },
+    {
+      "subject_id": "2938:ECO-21111",
+      "raw_value": "ECO-21111-TEO. DEL PROD. Y CONSUMIDOR",
+      "course_code": "ECO-21111",
+      "canonical_title": "TEO. DEL PROD. Y CONSUMIDOR"
+    },
+    {
+      "subject_id": "2938:ECO-21113",
+      "raw_value": "ECO-21113-TEORIA DE JUEGOS",
+      "course_code": "ECO-21113",
+      "canonical_title": "TEORIA DE JUEGOS"
+    },
+    {
+      "subject_id": "2938:ECO-22105",
+      "raw_value": "ECO-22105-ECONOMIA V",
+      "course_code": "ECO-22105",
+      "canonical_title": "ECONOMIA V"
+    },
+    {
+      "subject_id": "2938:ECO-22112",
+      "raw_value": "ECO-22112-MACROECONOMÍA DINÁMICA I",
+      "course_code": "ECO-22112",
+      "canonical_title": "MACROECONOMÍA DINÁMICA I"
+    },
+    {
+      "subject_id": "2938:EGN-11163",
+      "raw_value": "EGN-11163-NEW HISTORIC PERSPECT. OF MEX.",
+      "course_code": "EGN-11163",
+      "canonical_title": "NEW HISTORIC PERSPECT. OF MEX."
+    },
+    {
+      "subject_id": "2938:EGN-11164",
+      "raw_value": "EGN-11164-EL ARTE DE VIVIR",
+      "course_code": "EGN-11164",
+      "canonical_title": "EL ARTE DE VIVIR"
+    },
+    {
+      "subject_id": "2938:EGN-17121",
+      "raw_value": "EGN-17121-IDEAS E INST. POL. Y SOC. I",
+      "course_code": "EGN-17121",
+      "canonical_title": "IDEAS E INST. POL. Y SOC. I"
+    },
+    {
+      "subject_id": "2938:EGN-17122",
+      "raw_value": "EGN-17122-IDEAS E INST. POL. Y SOC. II",
+      "course_code": "EGN-17122",
+      "canonical_title": "IDEAS E INST. POL. Y SOC. II"
+    },
+    {
+      "subject_id": "2938:EGN-17123",
+      "raw_value": "EGN-17123-IDEAS E INST. POL. Y SOC. III",
+      "course_code": "EGN-17123",
+      "canonical_title": "IDEAS E INST. POL. Y SOC. III"
+    },
+    {
+      "subject_id": "2938:EGN-17141",
+      "raw_value": "EGN-17141-PROB. DE LA CIV. CONTEMP., I",
+      "course_code": "EGN-17141",
+      "canonical_title": "PROB. DE LA CIV. CONTEMP., I"
+    },
+    {
+      "subject_id": "2938:EGN-17142",
+      "raw_value": "EGN-17142-PROB. DE LA CIV. CONTEMP., II",
+      "course_code": "EGN-17142",
+      "canonical_title": "PROB. DE LA CIV. CONTEMP., II"
+    },
+    {
+      "subject_id": "2938:EGN-17161",
+      "raw_value": "EGN-17161-HISTORIA SOC.-POL. DE MEXICO",
+      "course_code": "EGN-17161",
+      "canonical_title": "HISTORIA SOC.-POL. DE MEXICO"
+    },
+    {
+      "subject_id": "2938:EGN-17162",
+      "raw_value": "EGN-17162-PROBLEMAS DE LA REALIDAD MEX.",
+      "course_code": "EGN-17162",
+      "canonical_title": "PROBLEMAS DE LA REALIDAD MEX."
+    },
+    {
+      "subject_id": "2938:EIN-11101",
+      "raw_value": "EIN-11101-INT. A LAS R. INTERNACIONALES",
+      "course_code": "EIN-11101",
+      "canonical_title": "INT. A LAS R. INTERNACIONALES"
+    },
+    {
+      "subject_id": "2938:EIN-12201",
+      "raw_value": "EIN-12201-HIST. DE LAS RELACS. INTER. I",
+      "course_code": "EIN-12201",
+      "canonical_title": "HIST. DE LAS RELACS. INTER. I"
+    },
+    {
+      "subject_id": "2938:EIN-13104",
+      "raw_value": "EIN-13104-METODOS DE INV. EN REL. INT.",
+      "course_code": "EIN-13104",
+      "canonical_title": "METODOS DE INV. EN REL. INT."
+    },
+    {
+      "subject_id": "2938:EIN-13202",
+      "raw_value": "EIN-13202-HISTORIA DE LAS R.I. II",
+      "course_code": "EIN-13202",
+      "canonical_title": "HISTORIA DE LAS R.I. II"
+    },
+    {
+      "subject_id": "2938:EIN-14102",
+      "raw_value": "EIN-14102-TEORIA DE LAS REL. INT.",
+      "course_code": "EIN-14102",
+      "canonical_title": "TEORIA DE LAS REL. INT."
+    },
+    {
+      "subject_id": "2938:EIN-14303",
+      "raw_value": "EIN-14303-POL. Y GOB. DE ESTADOS UNIDOS",
+      "course_code": "EIN-14303",
+      "canonical_title": "POL. Y GOB. DE ESTADOS UNIDOS"
+    },
+    {
+      "subject_id": "2938:EIN-15105",
+      "raw_value": "EIN-15105-POL. DE LAS REL. ECONOM. INT.",
+      "course_code": "EIN-15105",
+      "canonical_title": "POL. DE LAS REL. ECONOM. INT."
+    },
+    {
+      "subject_id": "2938:EIN-15302",
+      "raw_value": "EIN-15302-PROCESO POL. EN E.U.A.:DIMENS.",
+      "course_code": "EIN-15302",
+      "canonical_title": "PROCESO POL. EN E.U.A.:DIMENS."
+    },
+    {
+      "subject_id": "2938:EIN-16402",
+      "raw_value": "EIN-16402-EUROPA CONTEMPORANEA",
+      "course_code": "EIN-16402",
+      "canonical_title": "EUROPA CONTEMPORANEA"
+    },
+    {
+      "subject_id": "2938:EIN-16403",
+      "raw_value": "EIN-16403-AMERICA LATINA",
+      "course_code": "EIN-16403",
+      "canonical_title": "AMERICA LATINA"
+    },
+    {
+      "subject_id": "2938:EIN-17303",
+      "raw_value": "EIN-17303-RELACIONES MEXICO-E.U.A.-CANAD",
+      "course_code": "EIN-17303",
+      "canonical_title": "RELACIONES MEXICO-E.U.A.-CANAD"
+    },
+    {
+      "subject_id": "2938:EIN-17304",
+      "raw_value": "EIN-17304-FORMUL. DE LA POL. EXT. DE MEX",
+      "course_code": "EIN-17304",
+      "canonical_title": "FORMUL. DE LA POL. EXT. DE MEX"
+    },
+    {
+      "subject_id": "2938:EIN-17403",
+      "raw_value": "EIN-17403-JAPON, CHINA Y EL SUDESTE ASIA",
+      "course_code": "EIN-17403",
+      "canonical_title": "JAPON, CHINA Y EL SUDESTE ASIA"
+    },
+    {
+      "subject_id": "2938:EIN-18602",
+      "raw_value": "EIN-18602-SEMINARIO DE TITULACION",
+      "course_code": "EIN-18602",
+      "canonical_title": "SEMINARIO DE TITULACION"
+    },
+    {
+      "subject_id": "2938:EIN-19133",
+      "raw_value": "EIN-19133-AGENDA GLOBAL DE DESARROLLO",
+      "course_code": "EIN-19133",
+      "canonical_title": "AGENDA GLOBAL DE DESARROLLO"
+    },
+    {
+      "subject_id": "2938:EIN-19140",
+      "raw_value": "EIN-19140-GOBERNANZA GLOBAL Y MULTILATER",
+      "course_code": "EIN-19140",
+      "canonical_title": "GOBERNANZA GLOBAL Y MULTILATER"
+    },
+    {
+      "subject_id": "2938:EIN-19315",
+      "raw_value": "EIN-19315-MIGRACION INTERNACIONAL (OP)",
+      "course_code": "EIN-19315",
+      "canonical_title": "MIGRACION INTERNACIONAL (OP)"
+    },
+    {
+      "subject_id": "2938:EIN-19414",
+      "raw_value": "EIN-19414-MEDIO ORIENTE",
+      "course_code": "EIN-19414",
+      "canonical_title": "MEDIO ORIENTE"
+    },
+    {
+      "subject_id": "2938:EIN-19552",
+      "raw_value": "EIN-19552-CAMBIO CLIMATICO",
+      "course_code": "EIN-19552",
+      "canonical_title": "CAMBIO CLIMATICO"
+    },
+    {
+      "subject_id": "2938:EST-10101",
+      "raw_value": "EST-10101-ESTADISTICA.,I",
+      "course_code": "EST-10101",
+      "canonical_title": "ESTADISTICA.,I"
+    },
+    {
+      "subject_id": "2938:EST-10102",
+      "raw_value": "EST-10102-ESTADISTICA.,II",
+      "course_code": "EST-10102",
+      "canonical_title": "ESTADISTICA.,II"
+    },
+    {
+      "subject_id": "2938:EST-11101",
+      "raw_value": "EST-11101-PROBABILIDAD",
+      "course_code": "EST-11101",
+      "canonical_title": "PROBABILIDAD"
+    },
+    {
+      "subject_id": "2938:EST-11102",
+      "raw_value": "EST-11102-INFERENCIA ESTADISTICA",
+      "course_code": "EST-11102",
+      "canonical_title": "INFERENCIA ESTADISTICA"
+    },
+    {
+      "subject_id": "2938:EST-11103",
+      "raw_value": "EST-11103-ECONOMETRIA I",
+      "course_code": "EST-11103",
+      "canonical_title": "ECONOMETRIA I"
+    },
+    {
+      "subject_id": "2938:EST-11104",
+      "raw_value": "EST-11104-ECONOMETRIA",
+      "course_code": "EST-11104",
+      "canonical_title": "ECONOMETRIA"
+    },
+    {
+      "subject_id": "2938:EST-13101",
+      "raw_value": "EST-13101-MET. ESTADIST. P/C.POL. Y R.I.",
+      "course_code": "EST-13101",
+      "canonical_title": "MET. ESTADIST. P/C.POL. Y R.I."
+    },
+    {
+      "subject_id": "2938:EST-14101",
+      "raw_value": "EST-14101-CALCULO DE PROBABILIDADES.,I",
+      "course_code": "EST-14101",
+      "canonical_title": "CALCULO DE PROBABILIDADES.,I"
+    },
+    {
+      "subject_id": "2938:EST-14102",
+      "raw_value": "EST-14102-CALCULO DE PROBABILIDADES.,II",
+      "course_code": "EST-14102",
+      "canonical_title": "CALCULO DE PROBABILIDADES.,II"
+    },
+    {
+      "subject_id": "2938:EST-14103",
+      "raw_value": "EST-14103-ESTADISTICA MATEMATICA",
+      "course_code": "EST-14103",
+      "canonical_title": "ESTADISTICA MATEMATICA"
+    },
+    {
+      "subject_id": "2938:EST-14107",
+      "raw_value": "EST-14107-PROCESOS ESTOCASTICOS,I",
+      "course_code": "EST-14107",
+      "canonical_title": "PROCESOS ESTOCASTICOS,I"
+    },
+    {
+      "subject_id": "2938:EST-21104",
+      "raw_value": "EST-21104-FUNDAMENTOS DE ECONOMETRIA",
+      "course_code": "EST-21104",
+      "canonical_title": "FUNDAMENTOS DE ECONOMETRIA"
+    },
+    {
+      "subject_id": "2938:EST-24104",
+      "raw_value": "EST-24104-ESTADISTICA APLICADA, I",
+      "course_code": "EST-24104",
+      "canonical_title": "ESTADISTICA APLICADA, I"
+    },
+    {
+      "subject_id": "2938:EST-24105",
+      "raw_value": "EST-24105-ESTADISTICA APLICADA, II",
+      "course_code": "EST-24105",
+      "canonical_title": "ESTADISTICA APLICADA, II"
+    },
+    {
+      "subject_id": "2938:EST-24106",
+      "raw_value": "EST-24106-ESTADISTICA APLICADA, III",
+      "course_code": "EST-24106",
+      "canonical_title": "ESTADISTICA APLICADA, III"
+    },
+    {
+      "subject_id": "2938:EST-24107",
+      "raw_value": "EST-24107-SIMULACION",
+      "course_code": "EST-24107",
+      "canonical_title": "SIMULACION"
+    },
+    {
+      "subject_id": "2938:EST-24108",
+      "raw_value": "EST-24108-REGRESION AVANZADA",
+      "course_code": "EST-24108",
+      "canonical_title": "REGRESION AVANZADA"
+    },
+    {
+      "subject_id": "2938:EST-24112",
+      "raw_value": "EST-24112-ESTADISTICA BAYESIANA",
+      "course_code": "EST-24112",
+      "canonical_title": "ESTADISTICA BAYESIANA"
+    },
+    {
+      "subject_id": "2938:EST-24124",
+      "raw_value": "EST-24124-METODOS LINEALES",
+      "course_code": "EST-24124",
+      "canonical_title": "METODOS LINEALES"
+    },
+    {
+      "subject_id": "2938:EST-24125",
+      "raw_value": "EST-24125-METODOS MULTIVARIADOS",
+      "course_code": "EST-24125",
+      "canonical_title": "METODOS MULTIVARIADOS"
+    },
+    {
+      "subject_id": "2938:EST-24126",
+      "raw_value": "EST-24126-CALCULO DE PROBABILIDADES I",
+      "course_code": "EST-24126",
+      "canonical_title": "CALCULO DE PROBABILIDADES I"
+    },
+    {
+      "subject_id": "2938:EST-24127",
+      "raw_value": "EST-24127-CALCULO DE PROBABILIDADES II",
+      "course_code": "EST-24127",
+      "canonical_title": "CALCULO DE PROBABILIDADES II"
+    },
+    {
+      "subject_id": "2938:EST-25146",
+      "raw_value": "EST-25146-ECONOMET. FINANCIERA ACTUARIAL",
+      "course_code": "EST-25146",
+      "canonical_title": "ECONOMET. FINANCIERA ACTUARIAL"
+    },
+    {
+      "subject_id": "2938:IIO-12170",
+      "raw_value": "IIO-12170-AUTOMAT. Y CONTROL DE PROCESOS",
+      "course_code": "IIO-12170",
+      "canonical_title": "AUTOMAT. Y CONTROL DE PROCESOS"
+    },
+    {
+      "subject_id": "2938:IIO-12172",
+      "raw_value": "IIO-12172-TALLER PROGR DE DISPOS DE ING.",
+      "course_code": "IIO-12172",
+      "canonical_title": "TALLER PROGR DE DISPOS DE ING."
+    },
+    {
+      "subject_id": "2938:IIO-12182",
+      "raw_value": "IIO-12182-AUTOMAT. Y ROBOTICA INDUSTRIAL",
+      "course_code": "IIO-12182",
+      "canonical_title": "AUTOMAT. Y ROBOTICA INDUSTRIAL"
+    },
+    {
+      "subject_id": "2938:IIO-12190",
+      "raw_value": "IIO-12190-MANUFACTURA INTEGRADA P/COMP.",
+      "course_code": "IIO-12190",
+      "canonical_title": "MANUFACTURA INTEGRADA P/COMP."
+    },
+    {
+      "subject_id": "2938:IIO-13150",
+      "raw_value": "IIO-13150-MODELADO Y OPTIMIZACION I",
+      "course_code": "IIO-13150",
+      "canonical_title": "MODELADO Y OPTIMIZACION I"
+    },
+    {
+      "subject_id": "2938:IIO-13151",
+      "raw_value": "IIO-13151-MODELADO DE REDES INTELIGENTES",
+      "course_code": "IIO-13151",
+      "canonical_title": "MODELADO DE REDES INTELIGENTES"
+    },
+    {
+      "subject_id": "2938:IIO-13160",
+      "raw_value": "IIO-13160-MODELADO Y OPTIMIZACION II",
+      "course_code": "IIO-13160",
+      "canonical_title": "MODELADO Y OPTIMIZACION II"
+    },
+    {
+      "subject_id": "2938:IIO-13180",
+      "raw_value": "IIO-13180-SIMULACION DE SISTEMAS",
+      "course_code": "IIO-13180",
+      "canonical_title": "SIMULACION DE SISTEMAS"
+    },
+    {
+      "subject_id": "2938:IIO-14160",
+      "raw_value": "IIO-14160-DISEÑO DE PLANTA",
+      "course_code": "IIO-14160",
+      "canonical_title": "DISEÑO DE PLANTA"
+    },
+    {
+      "subject_id": "2938:IIO-14162",
+      "raw_value": "IIO-14162-ING. Y CONTROL DE LA CALIDAD",
+      "course_code": "IIO-14162",
+      "canonical_title": "ING. Y CONTROL DE LA CALIDAD"
+    },
+    {
+      "subject_id": "2938:IIO-14180",
+      "raw_value": "IIO-14180-ADMON. Y EVALUA. DE PROYECTOS",
+      "course_code": "IIO-14180",
+      "canonical_title": "ADMON. Y EVALUA. DE PROYECTOS"
+    },
+    {
+      "subject_id": "2938:IIO-14193",
+      "raw_value": "IIO-14193-ING. DE PROCESOS DE NEGOCIOS",
+      "course_code": "IIO-14193",
+      "canonical_title": "ING. DE PROCESOS DE NEGOCIOS"
+    },
+    {
+      "subject_id": "2938:IIO-14278",
+      "raw_value": "IIO-14278-ADMON. CADENA DE SUMINISTRO",
+      "course_code": "IIO-14278",
+      "canonical_title": "ADMON. CADENA DE SUMINISTRO"
+    },
+    {
+      "subject_id": "2938:IIO-15130",
+      "raw_value": "IIO-15130-FUNDAMENTOS DE QUIMICA",
+      "course_code": "IIO-15130",
+      "canonical_title": "FUNDAMENTOS DE QUIMICA"
+    },
+    {
+      "subject_id": "2938:IIO-15132",
+      "raw_value": "IIO-15132-FISICOQUIMICA",
+      "course_code": "IIO-15132",
+      "canonical_title": "FISICOQUIMICA"
+    },
+    {
+      "subject_id": "2938:IIO-15141",
+      "raw_value": "IIO-15141-CIENC DE LOS MATERIALES Y COMP",
+      "course_code": "IIO-15141",
+      "canonical_title": "CIENC DE LOS MATERIALES Y COMP"
+    },
+    {
+      "subject_id": "2938:IIO-15150",
+      "raw_value": "IIO-15150-PROCESOS DE MANUFACTURA I",
+      "course_code": "IIO-15150",
+      "canonical_title": "PROCESOS DE MANUFACTURA I"
+    },
+    {
+      "subject_id": "2938:IIO-15170",
+      "raw_value": "IIO-15170-DISEÑO ASISTIDO POR COMPUTAD.",
+      "course_code": "IIO-15170",
+      "canonical_title": "DISEÑO ASISTIDO POR COMPUTAD."
+    },
+    {
+      "subject_id": "2938:IIO-15171",
+      "raw_value": "IIO-15171-MECANICA DE SOLIDOS",
+      "course_code": "IIO-15171",
+      "canonical_title": "MECANICA DE SOLIDOS"
+    },
+    {
+      "subject_id": "2938:IIO-15174",
+      "raw_value": "IIO-15174-CINEMATICA Y DINAMICA",
+      "course_code": "IIO-15174",
+      "canonical_title": "CINEMATICA Y DINAMICA"
+    },
+    {
+      "subject_id": "2938:IIO-15175",
+      "raw_value": "IIO-15175-DISEÑO E IMPRESION 3D POR COMP",
+      "course_code": "IIO-15175",
+      "canonical_title": "DISEÑO E IMPRESION 3D POR COMP"
+    },
+    {
+      "subject_id": "2938:IIO-15195",
+      "raw_value": "IIO-15195-CELDAS ROBOTICAS",
+      "course_code": "IIO-15195",
+      "canonical_title": "CELDAS ROBOTICAS"
+    },
+    {
+      "subject_id": "2938:IIO-15196",
+      "raw_value": "IIO-15196-SISTEMAS MECATRONICOS",
+      "course_code": "IIO-15196",
+      "canonical_title": "SISTEMAS MECATRONICOS"
+    },
+    {
+      "subject_id": "2938:IIO-16111",
+      "raw_value": "IIO-16111-TRAYEC DE NEG. I: ING Y TECNOL",
+      "course_code": "IIO-16111",
+      "canonical_title": "TRAYEC DE NEG. I: ING Y TECNOL"
+    },
+    {
+      "subject_id": "2938:IIO-16180",
+      "raw_value": "IIO-16180-SEMINARIO DE TITULACION",
+      "course_code": "IIO-16180",
+      "canonical_title": "SEMINARIO DE TITULACION"
+    },
+    {
+      "subject_id": "2938:LEN-10132",
+      "raw_value": "LEN-10132-SEM. DE COMUNICACION ESCRITA",
+      "course_code": "LEN-10132",
+      "canonical_title": "SEM. DE COMUNICACION ESCRITA"
+    },
+    {
+      "subject_id": "2938:LEN-10142",
+      "raw_value": "LEN-10142-COM. ESCRITA PARA ING. COMP.",
+      "course_code": "LEN-10142",
+      "canonical_title": "COM. ESCRITA PARA ING. COMP."
+    },
+    {
+      "subject_id": "2938:LEN-12701",
+      "raw_value": "LEN-12701-ESTRATEGIAS DE COMUNIC ESCRITA",
+      "course_code": "LEN-12701",
+      "canonical_title": "ESTRATEGIAS DE COMUNIC ESCRITA"
+    },
+    {
+      "subject_id": "2938:LEN-12702",
+      "raw_value": "LEN-12702-SEMIN. DE COMUNICAC. ESCRITA",
+      "course_code": "LEN-12702",
+      "canonical_title": "SEMIN. DE COMUNICAC. ESCRITA"
+    },
+    {
+      "subject_id": "2938:LEN-12711",
+      "raw_value": "LEN-12711-COMUNIC. ESCRITA PARA DERECHO",
+      "course_code": "LEN-12711",
+      "canonical_title": "COMUNIC. ESCRITA PARA DERECHO"
+    },
+    {
+      "subject_id": "2938:LEN-12713",
+      "raw_value": "LEN-12713-COMUNIC. ESCRITA PARA ACTUARIA",
+      "course_code": "LEN-12713",
+      "canonical_title": "COMUNIC. ESCRITA PARA ACTUARIA"
+    },
+    {
+      "subject_id": "2938:LEN-12714",
+      "raw_value": "LEN-12714-COMUNICA. ESCRITA PARA ADMON.",
+      "course_code": "LEN-12714",
+      "canonical_title": "COMUNICA. ESCRITA PARA ADMON."
+    },
+    {
+      "subject_id": "2938:LEN-12715",
+      "raw_value": "LEN-12715-COMUNIC. ESCRITA PARA C. POL.",
+      "course_code": "LEN-12715",
+      "canonical_title": "COMUNIC. ESCRITA PARA C. POL."
+    },
+    {
+      "subject_id": "2938:LEN-12716",
+      "raw_value": "LEN-12716-COMUNIC ESCRITA PARA C.P Y E.F",
+      "course_code": "LEN-12716",
+      "canonical_title": "COMUNIC ESCRITA PARA C.P Y E.F"
+    },
+    {
+      "subject_id": "2938:LEN-12717",
+      "raw_value": "LEN-12717-COMUNIC. ESCRITA PARA DIR. FIN",
+      "course_code": "LEN-12717",
+      "canonical_title": "COMUNIC. ESCRITA PARA DIR. FIN"
+    },
+    {
+      "subject_id": "2938:LEN-12718",
+      "raw_value": "LEN-12718-COMUNIC. ESCRITA PARA ECONOMIA",
+      "course_code": "LEN-12718",
+      "canonical_title": "COMUNIC. ESCRITA PARA ECONOMIA"
+    },
+    {
+      "subject_id": "2938:LEN-12719",
+      "raw_value": "LEN-12719-COMUNIC ESCRITA PARA MATE. APL",
+      "course_code": "LEN-12719",
+      "canonical_title": "COMUNIC ESCRITA PARA MATE. APL"
+    },
+    {
+      "subject_id": "2938:LEN-12721",
+      "raw_value": "LEN-12721-COMUNIC. ESCRITA PARA REL. INT",
+      "course_code": "LEN-12721",
+      "canonical_title": "COMUNIC. ESCRITA PARA REL. INT"
+    },
+    {
+      "subject_id": "2938:LEN-12722",
+      "raw_value": "LEN-12722-COM. ESCRITA CIENCIA DE DATOS",
+      "course_code": "LEN-12722",
+      "canonical_title": "COM. ESCRITA CIENCIA DE DATOS"
+    },
+    {
+      "subject_id": "2938:LEN-12724",
+      "raw_value": "LEN-12724-COM. ESCRITA PARA ING EN COMP.",
+      "course_code": "LEN-12724",
+      "canonical_title": "COM. ESCRITA PARA ING EN COMP."
+    },
+    {
+      "subject_id": "2938:LEN-12725",
+      "raw_value": "LEN-12725-COM. ESCRITA PARA ING MECATRO.",
+      "course_code": "LEN-12725",
+      "canonical_title": "COM. ESCRITA PARA ING MECATRO."
+    },
+    {
+      "subject_id": "2938:LEN-12726",
+      "raw_value": "LEN-12726-COM. ESCRITA PARA ING EN NEGOC",
+      "course_code": "LEN-12726",
+      "canonical_title": "COM. ESCRITA PARA ING EN NEGOC"
+    },
+    {
+      "subject_id": "2938:LEN-12751",
+      "raw_value": "LEN-12751-COMUNIC. PROFESIONAL PARA DER.",
+      "course_code": "LEN-12751",
+      "canonical_title": "COMUNIC. PROFESIONAL PARA DER."
+    },
+    {
+      "subject_id": "2938:LEN-12753",
+      "raw_value": "LEN-12753-COMUNIC. PROFESIONAL PARA ACT.",
+      "course_code": "LEN-12753",
+      "canonical_title": "COMUNIC. PROFESIONAL PARA ACT."
+    },
+    {
+      "subject_id": "2938:LEN-12754",
+      "raw_value": "LEN-12754-COMUNIC PROFESIONAL PARA ADMON",
+      "course_code": "LEN-12754",
+      "canonical_title": "COMUNIC PROFESIONAL PARA ADMON"
+    },
+    {
+      "subject_id": "2938:LEN-12755",
+      "raw_value": "LEN-12755-COMUN. PROFESIONAL PARA C. POL",
+      "course_code": "LEN-12755",
+      "canonical_title": "COMUN. PROFESIONAL PARA C. POL"
+    },
+    {
+      "subject_id": "2938:LEN-12756",
+      "raw_value": "LEN-12756-COMUN. PROF. PARA C.P Y E.F.",
+      "course_code": "LEN-12756",
+      "canonical_title": "COMUN. PROF. PARA C.P Y E.F."
+    },
+    {
+      "subject_id": "2938:LEN-12757",
+      "raw_value": "LEN-12757-COMUNIC. PROFES. PARA DIR. FIN",
+      "course_code": "LEN-12757",
+      "canonical_title": "COMUNIC. PROFES. PARA DIR. FIN"
+    },
+    {
+      "subject_id": "2938:LEN-12758",
+      "raw_value": "LEN-12758-COMUNIC. PROFESIONAL PARA ECON",
+      "course_code": "LEN-12758",
+      "canonical_title": "COMUNIC. PROFESIONAL PARA ECON"
+    },
+    {
+      "subject_id": "2938:LEN-12759",
+      "raw_value": "LEN-12759-COMUNIC. PROFES. PARA MAT. APL",
+      "course_code": "LEN-12759",
+      "canonical_title": "COMUNIC. PROFES. PARA MAT. APL"
+    },
+    {
+      "subject_id": "2938:LEN-12761",
+      "raw_value": "LEN-12761-COMUNIC. PROFES. PARA REL. INT",
+      "course_code": "LEN-12761",
+      "canonical_title": "COMUNIC. PROFES. PARA REL. INT"
+    },
+    {
+      "subject_id": "2938:LEN-12762",
+      "raw_value": "LEN-12762-COMUN. PROFE. CIENCIA DE DATOS",
+      "course_code": "LEN-12762",
+      "canonical_title": "COMUN. PROFE. CIENCIA DE DATOS"
+    },
+    {
+      "subject_id": "2938:LEN-12764",
+      "raw_value": "LEN-12764-COM. PROFES. PARA ING. EN COMP",
+      "course_code": "LEN-12764",
+      "canonical_title": "COM. PROFES. PARA ING. EN COMP"
+    },
+    {
+      "subject_id": "2938:LEN-12765",
+      "raw_value": "LEN-12765-COM. PROFES. PARA ING. EN MECA",
+      "course_code": "LEN-12765",
+      "canonical_title": "COM. PROFES. PARA ING. EN MECA"
+    },
+    {
+      "subject_id": "2938:LEN-12766",
+      "raw_value": "LEN-12766-COM. PROFES. PARA ING. EN NEG.",
+      "course_code": "LEN-12766",
+      "canonical_title": "COM. PROFES. PARA ING. EN NEG."
+    },
+    {
+      "subject_id": "2938:LEN-13101",
+      "raw_value": "LEN-13101-COMUNICAC. ESCRITA PARA ADMON.",
+      "course_code": "LEN-13101",
+      "canonical_title": "COMUNICAC. ESCRITA PARA ADMON."
+    },
+    {
+      "subject_id": "2938:LEN-14051",
+      "raw_value": "LEN-14051-COMUNIC. ESCRITA PARA C. POL.",
+      "course_code": "LEN-14051",
+      "canonical_title": "COMUNIC. ESCRITA PARA C. POL."
+    },
+    {
+      "subject_id": "2938:LEN-14208",
+      "raw_value": "LEN-14208-COMUNICA. ESCRITA PARA DERECHO",
+      "course_code": "LEN-14208",
+      "canonical_title": "COMUNICA. ESCRITA PARA DERECHO"
+    },
+    {
+      "subject_id": "2938:LEN-15358",
+      "raw_value": "LEN-15358-COMUNIC. ESCRITA PARA ACTUARIA",
+      "course_code": "LEN-15358",
+      "canonical_title": "COMUNIC. ESCRITA PARA ACTUARIA"
+    },
+    {
+      "subject_id": "2938:LEN-16403",
+      "raw_value": "LEN-16403-COMUNIC. ESCRITA PARA REL. INT",
+      "course_code": "LEN-16403",
+      "canonical_title": "COMUNIC. ESCRITA PARA REL. INT"
+    },
+    {
+      "subject_id": "2938:LEN-17103",
+      "raw_value": "LEN-17103-COMUNICAC. ESCRITA PARA ECONOM",
+      "course_code": "LEN-17103",
+      "canonical_title": "COMUNICAC. ESCRITA PARA ECONOM"
+    },
+    {
+      "subject_id": "2938:MAT-10101",
+      "raw_value": "MAT-10101-MET. CUANTITATIVOS PARA DER.",
+      "course_code": "MAT-10101",
+      "canonical_title": "MET. CUANTITATIVOS PARA DER."
+    },
+    {
+      "subject_id": "2938:MAT-11100",
+      "raw_value": "MAT-11100-MATEMATICAS, I",
+      "course_code": "MAT-11100",
+      "canonical_title": "MATEMATICAS, I"
+    },
+    {
+      "subject_id": "2938:MAT-11101",
+      "raw_value": "MAT-11101-MATEMATICAS, II",
+      "course_code": "MAT-11101",
+      "canonical_title": "MATEMATICAS, II"
+    },
+    {
+      "subject_id": "2938:MAT-11310",
+      "raw_value": "MAT-11310-MATEMATICAS, III",
+      "course_code": "MAT-11310",
+      "canonical_title": "MATEMATICAS, III"
+    },
+    {
+      "subject_id": "2938:MAT-12100",
+      "raw_value": "MAT-12100-CALCULO I",
+      "course_code": "MAT-12100",
+      "canonical_title": "CALCULO I"
+    },
+    {
+      "subject_id": "2938:MAT-12101",
+      "raw_value": "MAT-12101-CALCULO, II",
+      "course_code": "MAT-12101",
+      "canonical_title": "CALCULO, II"
+    },
+    {
+      "subject_id": "2938:MAT-12102",
+      "raw_value": "MAT-12102-CALCULO, III",
+      "course_code": "MAT-12102",
+      "canonical_title": "CALCULO, III"
+    },
+    {
+      "subject_id": "2938:MAT-12200",
+      "raw_value": "MAT-12200-CALCULO UNIVARIADO",
+      "course_code": "MAT-12200",
+      "canonical_title": "CALCULO UNIVARIADO"
+    },
+    {
+      "subject_id": "2938:MAT-12201",
+      "raw_value": "MAT-12201-CALCULO MULTIVARIADO",
+      "course_code": "MAT-12201",
+      "canonical_title": "CALCULO MULTIVARIADO"
+    },
+    {
+      "subject_id": "2938:MAT-12202",
+      "raw_value": "MAT-12202-CALCULO VECTORIAL",
+      "course_code": "MAT-12202",
+      "canonical_title": "CALCULO VECTORIAL"
+    },
+    {
+      "subject_id": "2938:MAT-12210",
+      "raw_value": "MAT-12210-SIST. DINAMICOS",
+      "course_code": "MAT-12210",
+      "canonical_title": "SIST. DINAMICOS"
+    },
+    {
+      "subject_id": "2938:MAT-12220",
+      "raw_value": "MAT-12220-CALCULO EN UNA VARIABLE",
+      "course_code": "MAT-12220",
+      "canonical_title": "CALCULO EN UNA VARIABLE"
+    },
+    {
+      "subject_id": "2938:MAT-12221",
+      "raw_value": "MAT-12221-CALCULO EN VARIAS VARIABLES",
+      "course_code": "MAT-12221",
+      "canonical_title": "CALCULO EN VARIAS VARIABLES"
+    },
+    {
+      "subject_id": "2938:MAT-12250",
+      "raw_value": "MAT-12250-CALCULO APLICADO",
+      "course_code": "MAT-12250",
+      "canonical_title": "CALCULO APLICADO"
+    },
+    {
+      "subject_id": "2938:MAT-12310",
+      "raw_value": "MAT-12310-ALGEBRA MATRICIAL",
+      "course_code": "MAT-12310",
+      "canonical_title": "ALGEBRA MATRICIAL"
+    },
+    {
+      "subject_id": "2938:MAT-12349",
+      "raw_value": "MAT-12349-PRINCIPIOS DE ALGEBRA LINEAL",
+      "course_code": "MAT-12349",
+      "canonical_title": "PRINCIPIOS DE ALGEBRA LINEAL"
+    },
+    {
+      "subject_id": "2938:MAT-12350",
+      "raw_value": "MAT-12350-ALGEBRA LINEAL APLICADA",
+      "course_code": "MAT-12350",
+      "canonical_title": "ALGEBRA LINEAL APLICADA"
+    },
+    {
+      "subject_id": "2938:MAT-12351",
+      "raw_value": "MAT-12351-ALGEBRA LINEAL",
+      "course_code": "MAT-12351",
+      "canonical_title": "ALGEBRA LINEAL"
+    },
+    {
+      "subject_id": "2938:MAT-14100",
+      "raw_value": "MAT-14100-CALCULO DIF. E INT., I",
+      "course_code": "MAT-14100",
+      "canonical_title": "CALCULO DIF. E INT., I"
+    },
+    {
+      "subject_id": "2938:MAT-14101",
+      "raw_value": "MAT-14101-CALCULO DIF. E INT., II",
+      "course_code": "MAT-14101",
+      "canonical_title": "CALCULO DIF. E INT., II"
+    },
+    {
+      "subject_id": "2938:MAT-14102",
+      "raw_value": "MAT-14102-CALCULO DIF. E INT., III",
+      "course_code": "MAT-14102",
+      "canonical_title": "CALCULO DIF. E INT., III"
+    },
+    {
+      "subject_id": "2938:MAT-14201",
+      "raw_value": "MAT-14201-ALGEB. LINEAL, I (GEO ANA. II)",
+      "course_code": "MAT-14201",
+      "canonical_title": "ALGEB. LINEAL, I (GEO ANA. II)"
+    },
+    {
+      "subject_id": "2938:MAT-14250",
+      "raw_value": "MAT-14250-GEOMETRIA VECTORIAL",
+      "course_code": "MAT-14250",
+      "canonical_title": "GEOMETRIA VECTORIAL"
+    },
+    {
+      "subject_id": "2938:MAT-14280",
+      "raw_value": "MAT-14280-PENSAMIENTO MATEMATICO",
+      "course_code": "MAT-14280",
+      "canonical_title": "PENSAMIENTO MATEMATICO"
+    },
+    {
+      "subject_id": "2938:MAT-14281",
+      "raw_value": "MAT-14281-MATEMATICAS DISCRETAS",
+      "course_code": "MAT-14281",
+      "canonical_title": "MATEMATICAS DISCRETAS"
+    },
+    {
+      "subject_id": "2938:MAT-14300",
+      "raw_value": "MAT-14300-ALGEBRA SUPERIOR, I",
+      "course_code": "MAT-14300",
+      "canonical_title": "ALGEBRA SUPERIOR, I"
+    },
+    {
+      "subject_id": "2938:MAT-14301",
+      "raw_value": "MAT-14301-ALGEBRA SUPERIOR, II",
+      "course_code": "MAT-14301",
+      "canonical_title": "ALGEBRA SUPERIOR, II"
+    },
+    {
+      "subject_id": "2938:MAT-14310",
+      "raw_value": "MAT-14310-ALG. LINEAL, II (ALG. LINEAL)",
+      "course_code": "MAT-14310",
+      "canonical_title": "ALG. LINEAL, II (ALG. LINEAL)"
+    },
+    {
+      "subject_id": "2938:MAT-14390",
+      "raw_value": "MAT-14390-MATEMATICA COMPUTACIONAL",
+      "course_code": "MAT-14390",
+      "canonical_title": "MATEMATICA COMPUTACIONAL"
+    },
+    {
+      "subject_id": "2938:MAT-14400",
+      "raw_value": "MAT-14400-CALCULO NUMERICO,I",
+      "course_code": "MAT-14400",
+      "canonical_title": "CALCULO NUMERICO,I"
+    },
+    {
+      "subject_id": "2938:MAT-22600",
+      "raw_value": "MAT-22600-MATEMATICAS FINANCIERAS I",
+      "course_code": "MAT-22600",
+      "canonical_title": "MATEMATICAS FINANCIERAS I"
+    },
+    {
+      "subject_id": "2938:MAT-24100",
+      "raw_value": "MAT-24100-PRINCIPIOS DE ANALISIS REAL",
+      "course_code": "MAT-24100",
+      "canonical_title": "PRINCIPIOS DE ANALISIS REAL"
+    },
+    {
+      "subject_id": "2938:MAT-24110",
+      "raw_value": "MAT-24110-ANALISIS MATEMATICO, I",
+      "course_code": "MAT-24110",
+      "canonical_title": "ANALISIS MATEMATICO, I"
+    },
+    {
+      "subject_id": "2938:MAT-24111",
+      "raw_value": "MAT-24111-ANALISIS MATEMATICO II",
+      "course_code": "MAT-24111",
+      "canonical_title": "ANALISIS MATEMATICO II"
+    },
+    {
+      "subject_id": "2938:MAT-24120",
+      "raw_value": "MAT-24120-VARIABLE COMPLEJA",
+      "course_code": "MAT-24120",
+      "canonical_title": "VARIABLE COMPLEJA"
+    },
+    {
+      "subject_id": "2938:MAT-24210",
+      "raw_value": "MAT-24210-SISTEMAS DINAMICOS,I",
+      "course_code": "MAT-24210",
+      "canonical_title": "SISTEMAS DINAMICOS,I"
+    },
+    {
+      "subject_id": "2938:MAT-24211",
+      "raw_value": "MAT-24211-SISTEMAS DINAMICOS,II",
+      "course_code": "MAT-24211",
+      "canonical_title": "SISTEMAS DINAMICOS,II"
+    },
+    {
+      "subject_id": "2938:MAT-24406",
+      "raw_value": "MAT-24406-ANALISIS NUMERICO I",
+      "course_code": "MAT-24406",
+      "canonical_title": "ANALISIS NUMERICO I"
+    },
+    {
+      "subject_id": "2938:MAT-24407",
+      "raw_value": "MAT-24407-ANALISIS NUMERICO II",
+      "course_code": "MAT-24407",
+      "canonical_title": "ANALISIS NUMERICO II"
+    },
+    {
+      "subject_id": "2938:MAT-24410",
+      "raw_value": "MAT-24410-PROGRAMACION LINEAL",
+      "course_code": "MAT-24410",
+      "canonical_title": "PROGRAMACION LINEAL"
+    },
+    {
+      "subject_id": "2938:MAT-24430",
+      "raw_value": "MAT-24430-ANALISIS APLICADO, I",
+      "course_code": "MAT-24430",
+      "canonical_title": "ANALISIS APLICADO, I"
+    },
+    {
+      "subject_id": "2938:MAT-24431",
+      "raw_value": "MAT-24431-OPTIMIZACION NUMERICA, I",
+      "course_code": "MAT-24431",
+      "canonical_title": "OPTIMIZACION NUMERICA, I"
+    },
+    {
+      "subject_id": "2938:MAT-24500",
+      "raw_value": "MAT-24500-INVESTIGACION DE OPER.,I",
+      "course_code": "MAT-24500",
+      "canonical_title": "INVESTIGACION DE OPER.,I"
+    },
+    {
+      "subject_id": "2938:MAT-24630",
+      "raw_value": "MAT-24630-MATEM. APLICADAS A LA ECONOMIA",
+      "course_code": "MAT-24630",
+      "canonical_title": "MATEM. APLICADAS A LA ECONOMIA"
+    },
+    {
+      "subject_id": "2938:MAT-24632",
+      "raw_value": "MAT-24632-METODOS DINAMICOS PARA LA ECON",
+      "course_code": "MAT-24632",
+      "canonical_title": "METODOS DINAMICOS PARA LA ECON"
+    },
+    {
+      "subject_id": "2938:SDI-11120",
+      "raw_value": "SDI-11120-ELEMENTOS DE FISICA",
+      "course_code": "SDI-11120",
+      "canonical_title": "ELEMENTOS DE FISICA"
+    },
+    {
+      "subject_id": "2938:SDI-11221",
+      "raw_value": "SDI-11221-ELEMENTOS DE ELECTRONICA",
+      "course_code": "SDI-11221",
+      "canonical_title": "ELEMENTOS DE ELECTRONICA"
+    },
+    {
+      "subject_id": "2938:SDI-11322",
+      "raw_value": "SDI-11322-CIRCUITOS LOGICOS",
+      "course_code": "SDI-11322",
+      "canonical_title": "CIRCUITOS LOGICOS"
+    },
+    {
+      "subject_id": "2938:SDI-11561",
+      "raw_value": "SDI-11561-PRINCIPIOS DE MECATRONICA",
+      "course_code": "SDI-11561",
+      "canonical_title": "PRINCIPIOS DE MECATRONICA"
+    },
+    {
+      "subject_id": "2938:SDI-11671",
+      "raw_value": "SDI-11671-TEORIA DE CONTROL",
+      "course_code": "SDI-11671",
+      "canonical_title": "TEORIA DE CONTROL"
+    },
+    {
+      "subject_id": "2938:SDI-12625",
+      "raw_value": "SDI-12625-PROCESAMIENTO DIGITAL DE SENAL",
+      "course_code": "SDI-12625",
+      "canonical_title": "PROCESAMIENTO DIGITAL DE SENAL"
+    },
+    {
+      "subject_id": "2938:SDI-13782",
+      "raw_value": "SDI-13782-DISEÑO Y ARQUITECT. DE REDES",
+      "course_code": "SDI-13782",
+      "canonical_title": "DISEÑO Y ARQUITECT. DE REDES"
+    },
+    {
+      "subject_id": "2938:SDI-15816",
+      "raw_value": "SDI-15816-SEMINARIO DE TITULACION",
+      "course_code": "SDI-15816",
+      "canonical_title": "SEMINARIO DE TITULACION"
+    },
+    {
+      "subject_id": "2938:SDI-17306",
+      "raw_value": "SDI-17306-ESTAT, ELECTRICIDAD Y MAGNETIS",
+      "course_code": "SDI-17306",
+      "canonical_title": "ESTAT, ELECTRICIDAD Y MAGNETIS"
+    },
+    {
+      "subject_id": "2938:SDI-17504",
+      "raw_value": "SDI-17504-SIST DIGITA Y DISEÑO DE PROCES",
+      "course_code": "SDI-17504",
+      "canonical_title": "SIST DIGITA Y DISEÑO DE PROCES"
+    },
+    {
+      "subject_id": "2938:SDI-25916",
+      "raw_value": "SDI-25916-SISTEMAS EMPRESARIALES",
+      "course_code": "SDI-25916",
+      "canonical_title": "SISTEMAS EMPRESARIALES"
+    },
+    {
+      "subject_id": "2938:VIE-20001",
+      "raw_value": "VIE-20001-MATERIA 1",
+      "course_code": "VIE-20001",
+      "canonical_title": "MATERIA 1"
+    },
+    {
+      "subject_id": "2938:VIE-20002",
+      "raw_value": "VIE-20002-MATERIA 2",
+      "course_code": "VIE-20002",
+      "canonical_title": "MATERIA 2"
+    },
+    {
+      "subject_id": "2938:VIE-20003",
+      "raw_value": "VIE-20003-MATERIA 3",
+      "course_code": "VIE-20003",
+      "canonical_title": "MATERIA 3"
+    }
+  ],
+  "offerings": [
+    {
+      "offering_id": "2938:ACT-11300:001:1521",
+      "period_id": "2938",
+      "course_code": "ACT-11300",
+      "group_code": "001",
+      "crn": "1521",
+      "section_type": "T",
+      "display_title": "CALCULO ACTUARIAL I",
+      "instructor_name": "SERGIO GARCIA ALQUICIRA",
+      "credits": 6,
+      "room_code": "RH105",
+      "campus_name": "RIO HONDO",
+      "raw_comments": "Habrá 3 exámenes departamentales: Viernes 27 de febrero de 14 a 16 hrs Viernes 27 de marzo de 14 a 16 hrs Lunes 27 de abril de 14 a 16 hrs",
+      "meetings": [
+        {
+          "weekday_code": "JU",
+          "start_time": "17:30:00",
+          "end_time": "19:00:00",
+          "room_code": "RH105",
+          "campus_name": "RIO HONDO"
+        },
+        {
+          "weekday_code": "MA",
+          "start_time": "17:30:00",
+          "end_time": "19:00:00",
+          "room_code": "RH105",
+          "campus_name": "RIO HONDO"
+        }
+      ]
+    },
+    {
+      "offering_id": "2938:ACT-11300:002:1527",
+      "period_id": "2938",
+      "course_code": "ACT-11300",
+      "group_code": "002",
+      "crn": "1527",
+      "section_type": "T",
+      "display_title": "CALCULO ACTUARIAL I",
+      "instructor_name": "PEDRO DANIEL TREJO SOLIS",
+      "credits": 6,
+      "room_code": "RH104",
+      "campus_name": "RIO HONDO",
+      "raw_comments": "Habrá 3 exámenes departamentales Viernes 27 de febrero de 14 a 16 hrs Viernes 27 de marzo de 14 a 16 hrs Lune 27 de abril de 14 a 16 hrs",
+      "meetings": [
+        {
+          "weekday_code": "LU",
+          "start_time": "18:00:00",
+          "end_time": "19:30:00",
+          "room_code": "RH104",
+          "campus_name": "RIO HONDO"
+        },
+        {
+          "weekday_code": "MI",
+          "start_time": "18:00:00",
+          "end_time": "19:30:00",
+          "room_code": "RH104",
+          "campus_name": "RIO HONDO"
+        }
+      ]
+    },
+    {
+      "offering_id": "2938:ACT-11300:003:1528",
+      "period_id": "2938",
+      "course_code": "ACT-11300",
+      "group_code": "003",
+      "crn": "1528",
+      "section_type": "T",
+      "display_title": "CALCULO ACTUARIAL I",
+      "instructor_name": "PEDRO DANIEL TREJO SOLIS",
+      "credits": 6,
+      "room_code": "RH104",
+      "campus_name": "RIO HONDO",
+      "raw_comments": "Habrá 3 exámenes departamentales Viernes 27 de febrero de 14 a 16 hrs Viernes 27 de marzo de 14 a 16 hrs Lunes 27 de abril de 14 a 16 hrs",
+      "meetings": [
+        {
+          "weekday_code": "LU",
+          "start_time": "19:30:00",
+          "end_time": "21:00:00",
+          "room_code": "RH104",
+          "campus_name": "RIO HONDO"
+        },
+        {
+          "weekday_code": "MI",
+          "start_time": "19:30:00",
+          "end_time": "21:00:00",
+          "room_code": "RH104",
+          "campus_name": "RIO HONDO"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+[
+  {
+    "period_id": "2925",
+    "source_snapshot_id": "schedule-menu:7c67fbf32b63c555",
+    "label": "PRIMAVERA 2026 MAESTRIA",
+    "level": "MAESTRIA",
+    "year": 2026,
+    "term": "PRIMAVERA",
+    "active_from": "2026-01-01",
+    "active_to": "2026-05-31"
+  },
+  {
+    "period_id": "2938",
+    "source_snapshot_id": "schedule-menu:7c67fbf32b63c555",
+    "label": "(PRIMAVERA 2026 LICENCIATURA)",
+    "level": "LICENCIATURA",
+    "year": 2026,
+    "term": "PRIMAVERA",
+    "active_from": "2026-01-01",
+    "active_to": "2026-05-31"
+  },
+  {
+    "period_id": "2975",
+    "source_snapshot_id": "schedule-menu:7c67fbf32b63c555",
+    "label": "ABRIL-JUNIO 2026 MAESTRIA",
+    "level": "MAESTRIA",
+    "year": 2026,
+    "term": "ABRIL-JUNIO",
+    "active_from": "2026-04-01",
+    "active_to": "2026-06-30"
+  },
+  {
+    "period_id": "2976",
+    "source_snapshot_id": "schedule-menu:7c67fbf32b63c555",
+    "label": "ABRIL-JUNIO 2026 HIBRIDO",
+    "level": "HIBRIDO",
+    "year": 2026,
+    "term": "ABRIL-JUNIO",
+    "active_from": "2026-04-01",
+    "active_to": "2026-06-30"
+  }
+]
