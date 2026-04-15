@@ -1,11 +1,16 @@
 # Derived from ADR-0002 and ADR-0006.
 # This repository uses uv as the only supported Python environment and package workflow.
 
+[project]
+name = "itam-planner-workspace"
+version = "26.04.0"
+requires-python = ">=3.14"
+
 [tool.uv]
 package = false
 
 [tool.ruff]
-target-version = "py312"
+target-version = "py314"
 line-length = 100
 src = ["apps", "packages", "scripts", "tests"]
 
@@ -18,8 +23,8 @@ indent-style = "space"
 
 [tool.basedpyright]
 typeCheckingMode = "strict"
-pythonVersion = "3.12"
-include = ["apps", "packages", "scripts", "tests"]
+pythonVersion = "3.14"
+include = ["apps/api/src"]
 exclude = [
   "**/__pycache__",
   ".venv",
@@ -27,4 +32,7 @@ exclude = [
   "dist",
   "build"
 ]
+extraPaths = ["apps/api/src"]
+venvPath = "apps/api"
+venv = ".venv"
 reportMissingTypeStubs = false

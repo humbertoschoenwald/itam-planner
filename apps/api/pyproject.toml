@@ -1,0 +1,36 @@
+[project]
+name = "itam-planner-api"
+version = "26.04.0"
+description = "Public academic data ingestion and publication pipeline for itam-planner."
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+  "beautifulsoup4",
+  "fastapi",
+  "httpx",
+  "lxml",
+  "pdfplumber",
+  "pydantic",
+  "pydantic-settings",
+  "pypdf",
+  "typer",
+  "uvicorn",
+]
+
+[dependency-groups]
+dev = [
+  "basedpyright",
+  "pytest",
+  "ruff",
+]
+
+[project.scripts]
+itam-planner-api = "itam_planner_api.cli:app"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

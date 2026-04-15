@@ -1,0 +1,14 @@
+# Derived from ADR-0006, ADR-0009, and ADR-0011.
+
+.venv/
+**/.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.basedpyright/
+.mypy_cache/
+
+public-data/working/
+apps/api/.coverage
+apps/api/htmlcov/

@@ -1,0 +1,672 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/transitional.dtd">
+<HTML lang="en">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Pragma" name="Cache-Control" content="no-cache">
+<meta http-equiv="Cache-Control" name="Cache-Control" content="no-cache">
+<LINK REL="stylesheet" HREF="/css/web_defaultapp.css" TYPE="text/css">
+<LINK REL="stylesheet" HREF="/css/web_defaultprint.css" TYPE="text/css" media="print">
+<link rel="stylesheet" type="text/css" href="/css/app-overrides.css">
+<link rel="stylesheet" type="text/css" href="/css/common-platform.css">
+<link rel="stylesheet" type="text/css" href="/css/common-controls.css">
+<LINK REL="stylesheet" type="text/css" href="/css/jquery/jquery.autocomplete.css">
+<LINK REL="stylesheet" type="text/css" href="/css/cascade.css">
+<!--[if IE 6]><link href="/css/ie6.css" rel="stylesheet" type="text/css"><![endif]-->
+<!--[if IE 7]><link href="/css/ie7.css" rel="stylesheet" type="text/css"><![endif]-->
+<!--[if IE 8]><link href="/css/ie8.css" rel="stylesheet" type="text/css"><![endif]-->
+<LINK REL="stylesheet" type="text/css" href="/css/cascade-print.css" media="print">
+<script type="text/javascript" src="/js/jquery-1.6.1.min.js"></script>
+<script type="text/javascript" src="/js/jquery/jquery.includeMany-1.2.0.js"></script>
+<script type="text/javascript" src="/js/jquery/jquery.history.js"></script>
+<script type="text/javascript" src="/js/jquery/jquery-ui-personalized-1.5.3.js"></script>
+<script type="text/javascript" src="/js/jquery/jquery.colorpicker.js"></script>
+<script type="text/javascript" src="/js/jquery/jquery.autocomplete.js"></script>
+<script type="text/javascript" src="/js/jquery/jquery.form.js"></script>
+<script type="text/javascript" src="/js/jquery/json2xml.js"></script>
+<script type="text/javascript" src="/js/jquery/jquery.jsonp-2.1.3.min.js"></script>
+<script type="text/javascript" src="/js/serviceProperties.js"></script>
+<script type="text/javascript" src="/js/common-controls-min.js"></script>
+<script type="text/javascript" src="/js/common-integrate-min.js"></script>
+<script type="text/javascript" src="/js/common-navigation-min.js"></script>
+<script type="text/javascript" src="/js/common-platform-min.js"></script>
+<script type="text/javascript" src="/js/cascade-utils-min.js"></script>
+<script type="text/javascript" src="/js/cascade-controls-min.js"></script>
+<script type="text/javascript" src="/js/udcxml-service-min.js"></script>
+<script type="text/javascript" src="/js/cascade-parser-min.js"></script>
+<script type="text/javascript" src="/js/cascade-ext-min.js"></script>
+<title>Horarios de clase</title>
+<meta http-equiv="Content-Script-Type" name="Default_Script_Language" content="text/javascript">
+<SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript">
+<!-- Hide JavaScript from older browsers 
+window.onunload = function() {submitcount=0;}
+var submitcount=0;
+function checkSubmit() {
+if (submitcount == 0)
+   {
+   submitcount++;
+   return true;
+   }
+else
+   {
+alert("Your changes have already been submitted.");
+   return false;
+   }
+}
+//  End script hiding -->
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript">
+<!-- Hide JavaScript from older browsers 
+//  Function to open a window
+function windowOpen(window_url) {
+   helpWin = window.open(window_url,'','toolbar=yes,status=no,scrollbars=yes,menubar=yes,resizable=yes,directories=no,location=no,width=350,height=400');
+   if (document.images) { 
+       if (helpWin) helpWin.focus()
+   }
+}
+//  End script hiding -->
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript">
+<!-- Hide JavaScript from older browsers 
+var level_depth = "0";
+var userDetails = "";
+var wcMessage = "";
+var locale_val = "AMERICAN_AMERICA";
+var locale_lang = "en_US";
+var help_width= "450";
+var help_height = "500";
+//  End script hiding -->
+</SCRIPT>
+</head>
+<body>
+<div class="headerwrapperdiv">
+<div class="pageheaderdiv1">
+<a href="#main_content" onMouseover="window.status='Go to Main Content'; return true" onMouseout="window.status=''; return true" OnFocus="window.status='Go to Main Content'; return true" onBlur="window.status=''; return true" class="skiplinks">Go to Main Content</a>
+<h1>Instituto Tecnológico Autónomo de México</h1></DIV><div class="headerlinksdiv">
+</DIV>
+<table  CLASS="plaintable" SUMMARY="This table displays Menu Items and Banner Search textbox."
+         WIDTH="100%">
+<tr>
+<TD CLASS="pldefault">
+<div class="headerlinksdiv2">
+&nbsp;
+</div>
+</TD>
+<TD CLASS="pldefault"><p class="rightaligntext" /p>
+<SPAN class="pageheaderlinks">
+<a href="/wtlhelp/twbhhelp.htm" accesskey="H" onClick="popup = window.open('/wtlhelp/twbhhelp.htm', 'PopupPage','height=500,width=450,scrollbars=yes,resizable=yes'); return false" target="_blank" onMouseOver="window.status='';  return true" onMouseOut="window.status=''; return true"onFocus="window.status='';  return true" onBlur="window.status=''; return true"  class="submenulinktext2">HELP</a>
+|
+<a href="twbkwbis.P_Logout" accesskey="3" class="submenulinktext2">EXIT</a>
+</span>
+</TD>
+</tr>
+</table>
+</DIV>
+<div class="pagetitlediv">
+<table  CLASS="plaintable" SUMMARY="This table displays title and static header displays."
+   WIDTH="100%">
+<tr>
+<TD CLASS="pldefault">
+<h2>Horarios de clase</h2>
+</TD>
+<TD CLASS="pldefault">
+&nbsp;
+</TD>
+<TD CLASS="pldefault"><p class="rightaligntext" /p>
+<div class="staticheaders">
+Your current Institution is EDSUP
+</div>
+</TD>
+</tr>
+<tr>
+<TD class="bg3" width="100%" colSpan=3><img src="/wtlgifs/web_transparent.gif" alt="Transparent Image" CLASS="headerImg" TITLE="Transparent Image"  NAME="web_transparent" HSPACE=0 VSPACE=0 BORDER=0 HEIGHT=3 WIDTH=10 /></TD>
+</tr>
+</table>
+<a name="main_content"></a>
+</DIV>
+<div class="pagebodydiv">
+<!--  ** END OF twbkwbis.P_OpenDoc **  -->
+
+<h3>Selecciona una de las materias que se impartiran en el período PRIMAVERA 2026 LICENCIATURA</h3>
+<form action="BWZKSENP.P_Horarios2" method="POST">
+<input type="hidden" name="s" value="2938" />
+<select name=txt_materia>
+<option>ACT-11300-CALCULO ACTUARIAL I</option>
+<option>ACT-11301-CALCULO ACTUARIAL II</option>
+<option>ACT-11302-CALCULO ACTUARIAL III</option>
+<option>ACT-11303-MODELOS ACTUARIALES I</option>
+<option>ACT-11310-INTROD. AL CALCULO ACTUARIAL</option>
+<option>ACT-13307-ESTAD. APLICADA A LA ACTUARIA</option>
+<option>ACT-15352-PLANES DE BENEFICIOS</option>
+<option>ACT-15353-PRACTICA ACTUAR. Y MARCO INST.</option>
+<option>ACT-15357-PRINCIPIOS DEL SEGURO</option>
+<option>ACT-15358-SISTEMAS DE SEGUROS</option>
+<option>ACT-15360-INTRODUCCION A LA ACTUARIA</option>
+<option>ACT-22306-MATEMATICAS FINANCIERAS II</option>
+<option>ACT-22309-MATEMATICAS FINANCIERAS, III</option>
+<option>ACT-25354-ADMON. CUANTITATIVA DE RIESGOS</option>
+<option>ACT-25360-TEMAS SELECTOS DE ACTUARIA I</option>
+<option>ACT-25361-TEMAS SELECTOS DE ACTUARIA II</option>
+<option>ADM-11002-INNOV Y DISEÑO DE MODEL DE NEG</option>
+<option>ADM-11013-ADMON. INTERNACIONAL</option>
+<option>ADM-11017-METODOS DE PRONOSTICO</option>
+<option>ADM-11018-SEMINARIO DE DIRECCION</option>
+<option>ADM-11101-PRONOSTICOS DE NEGOCIOS</option>
+<option>ADM-11120-TRAYECT. EN ADM: PROPOS Y PROG</option>
+<option>ADM-12013-DISEÑO Y CAMBIO ORGANIZACIONAL</option>
+<option>ADM-12022-ESTRATEGIA GLOBAL</option>
+<option>ADM-12092-CONSULTORIA (OP)</option>
+<option>ADM-12103-ESTRATEGIA EMPRESARIAL</option>
+<option>ADM-12107-ESTRATEGIA DE NEGOCIOS I</option>
+<option>ADM-12108-ESTRATEGIA DE NEGOCIOS II</option>
+<option>ADM-12251-PLANEAC. Y EJECUCION DE ESTRAT</option>
+<option>ADM-12301-TOPICOS DE NEGOCIOS I</option>
+<option>ADM-12312-TRAYECTORIAS EN NEGOCIOS II</option>
+<option>ADM-12350-DECIS. NEGOC. BASADAS EN DATOS</option>
+<option>ADM-12360-NEG. SUSTENTABLES Y RESP. SOC.</option>
+<option>ADM-12460-DIVERSID E INCLUS. EN LAS ORG</option>
+<option>ADM-13101-DESARROLLO EMPRESARIAL</option>
+<option>ADM-13115-ADMON. DE EMPRESAS FAMILIARES</option>
+<option>ADM-13450-EMPRENDIMIENTO</option>
+<option>ADM-14401-COMPORTAMIENTO HUMANO, I</option>
+<option>ADM-14402-COMPORTAMIENTO HUMANO, II</option>
+<option>ADM-14405-ESTRUC.,PROC. Y COMPORT.ORG I</option>
+<option>ADM-14413-DESAR. DE HABILID. GERENCIALES</option>
+<option>ADM-14431-COMPORTAMIENTO ORGANIZACIONAL</option>
+<option>ADM-15501-FINANZAS, I</option>
+<option>ADM-15502-FINANZAS, II</option>
+<option>ADM-15503-FINANZAS.,III</option>
+<option>ADM-15505-BANCA DE INVERSION</option>
+<option>ADM-15507-FUNDAMENTOS DE FINANZAS</option>
+<option>ADM-15510-INVERSIONES</option>
+<option>ADM-15514-ADMON. DE PORTAF. DE INVERSION</option>
+<option>ADM-15517-METODOS EMPIRICOS EN FINANZAS</option>
+<option>ADM-15522-TEORIA DE LAS FINANZAS</option>
+<option>ADM-15528-INSTRUMENTOS FINANCIEROS</option>
+<option>ADM-15531-MERCADOS E INSTITUCS. FINANCS.</option>
+<option>ADM-15532-FINANZAS CORPORATIVAS</option>
+<option>ADM-15533-MODELOS FINANCIEROS I</option>
+<option>ADM-15534-MODELOS FINANCIEROS II</option>
+<option>ADM-15535-DERIVADOS</option>
+<option>ADM-15560-INTRO A FINA E INTERMED FINANC</option>
+<option>ADM-15561-FINANZAS EN LOS NEGOCIOS I</option>
+<option>ADM-15566-CAPITAL PRIVAD Y FIN EMPRENDED</option>
+<option>ADM-15568-TRAYECT EN FINAN: PROP Y PROGR</option>
+<option>ADM-15569-MODELAJE PARA CONTA Y FINANZAS</option>
+<option>ADM-15571-RENTA FIJA</option>
+<option>ADM-15582-FINZS. CORPORA. AVANZADAS</option>
+<option>ADM-15593-INGENIERIA FINANCIERA</option>
+<option>ADM-15700-FINANC. DE LA INNOVAC Y CAPITA</option>
+<option>ADM-15750-FINANZAS Y SISTEM FINANC. MEX.</option>
+<option>ADM-16601-MERCADOTECNIA, I</option>
+<option>ADM-16602-MERCADOTECNIA, II</option>
+<option>ADM-16603-MERCADOTECNIA.,III</option>
+<option>ADM-16608-PRINCIPIOS DE MERCADOTECNIA</option>
+<option>ADM-16610-INVESTIGACION DE MERCADOS</option>
+<option>ADM-16611-COMPORTAMIENTO DEL CONSUMIDOR</option>
+<option>ADM-16644-MODELOS DE MERCADOTECNIA</option>
+<option>ADM-16732-CREATIVID Y DESARR DE CONTENID</option>
+<option>ADM-16734-ANAL ESTRAT DE REDES SOCIALES</option>
+<option>CEB-10001-SEMINARIO DE BIENESTAR:  PSICO</option>
+<option>CLE-10131-SEMINARIO DE ENSAYO (6)</option>
+<option>CLE-10132-SEMINARIO DE ENSAYO (12)</option>
+<option>CLE-10516-COMMUNICATION IN SPANISH I</option>
+<option>CLE-10517-COMMUNICATION IN SPANISH II</option>
+<option>CLE-10518-COMMUNICATION IN SPANISH III</option>
+<option>CLE-10603-ESTUDIA CON EXITO EN EL ITAM</option>
+<option>COM-11102-ESTRUCTURAS DE DATOS</option>
+<option>COM-11103-ESTRUCTURAS DE DATOS AVANZADAS</option>
+<option>COM-11111-ORG. Y ARQ. DE COMPUTADORAS</option>
+<option>COM-11112-ESTRUCTURAS DE DATOS AVANZADAS</option>
+<option>COM-11113-ANAL ALGORITM Y COMPLEJ COMPUT</option>
+<option>COM-11114-ALGORITMOS Y ESTRUCT. DE DATOS</option>
+<option>COM-11117-INTROD AL DESARROLLO WEB</option>
+<option>COM-11302-ALGORITMICA Y PROGRAMACION</option>
+<option>COM-11308-INTR. A LA INTELIGENC ARTIFIC</option>
+<option>COM-12101-BASES DE DATOS</option>
+<option>COM-12102-ANALISIS Y DIS. DE SIS.DE INFO</option>
+<option>COM-12103-FUENTES DE DATOS</option>
+<option>COM-12104-VISUALIZACION DE INFORMACION</option>
+<option>COM-12109-FUENTES DE DATOS EMPRESARIALES</option>
+<option>COM-14101-FUNDAMENTOS MAT. DE LA COMPU.</option>
+<option>COM-14104-SISTEMAS OPERATIVOS</option>
+<option>COM-14105-ALGORITMOS NUM. POR COMPU.</option>
+<option>COM-14113-FUNDAMENTOS DE PROGRAMACION</option>
+<option>COM-15112-COMPUTO PARALELO Y EN LA NUBE</option>
+<option>COM-15126-CCIA DATOS Y TRANSF DE LA SOC</option>
+<option>COM-16203-DES. DE APLICACS. INFORMATICAS</option>
+<option>COM-16301-HERRAMIENTAS COMPU. Y ALGORIT.</option>
+<option>COM-16303-MODELADO COMPUT. PARA NEGOCIOS</option>
+<option>COM-16305-GESTION DE DATOS</option>
+<option>COM-16306-RAZONAMIENTO ALGORITMICO</option>
+<option>COM-16307-MODELADO ANALITICO DE NEGOCIOS</option>
+<option>COM-16401-COMPUTACION I, INTENSIVA</option>
+<option>COM-16412-HERR. COMP. Y PROD. EMPRESAR.</option>
+<option>COM-16413-INTELIGENCIA DE NEGOCIOS</option>
+<option>COM-16414-APLIC. TI EN LOS NEGOCIOS</option>
+<option>COM-22102-BASES DE DATOS NO RELACIONALES</option>
+<option>COM-22105-SISTEMAS DISTRIBUIDOS</option>
+<option>COM-22108-MINERIA Y ANALISIS DE DATOS</option>
+<option>COM-23101-INTELIGENCIA  ARTIFICIAL</option>
+<option>COM-23106-MINERIA DE DATOS</option>
+<option>COM-23114-ARQ. PARA GDES VOLUM. DE DATOS</option>
+<option>COM-23115-CIENCIA DE DATOS APLICADA I</option>
+<option>COM-23116-CIENCIA DE DATOS APLICADA II</option>
+<option>COM-23122-MARK DEPORT BASADO EN DATOS</option>
+<option>COM-23701-APRENDIZAJE DE MAQUINA</option>
+<option>COM-25705-SEG INFORMATICA Y HACKEO ETICO</option>
+<option>CON-10001-PROCESO CONTABLE</option>
+<option>CON-10002-CONTABILIDAD INTERMEDIA, I</option>
+<option>CON-10003-CONTABILIDAD INTERMEDIA, II</option>
+<option>CON-10004-COMBINACION DE NEGOCIOS</option>
+<option>CON-10005-ANAL. FINANCIERO DE LA EMPRESA</option>
+<option>CON-10011-CONT.Y VALUAC. DE INSTR. FINAN</option>
+<option>CON-10100-CONTABILIDAD, I</option>
+<option>CON-10110-FUNDAMEN. DE CONTABILID FINANC</option>
+<option>CON-10111-CONTABILIDAD FINANCIERA I</option>
+<option>CON-10112-CONTABILIDAD FINANCIERA II</option>
+<option>CON-11001-AUDITORIA DE ESTADOS FINANCS.</option>
+<option>CON-12001-CONTABILIDAD DE COSTOS</option>
+<option>CON-12002-COSTOS PARA TOMA DE DECISIONES</option>
+<option>CON-12003-ADMON. ESTRATEGICA DE COSTOS</option>
+<option>CON-12110-CONTABILIDAD DE COSTOS P/ING.</option>
+<option>CON-14100-CONTABILIDAD ADMINISTRATIVA, I</option>
+<option>CON-14101-CONTABILIDAD ADMINISTRATIVA,II</option>
+<option>CON-14109-CONTABILIDAD GERENCIAL</option>
+<option>CON-14111-INTROD A CONTADURIA ANALITICA</option>
+<option>CON-14112-CONTADUR ANALITICA CORPORATIVA</option>
+<option>CON-15001-IMPUESTOS CORPORATIVOS, I</option>
+<option>CON-15002-IMPUESTOS CORPORATIVOS, II</option>
+<option>CON-15003-IMPUESTOS P/ PERSONAS FISICAS</option>
+<option>CON-15125-CONTABILIDAD FISCAL</option>
+<option>CON-16100-SISTEMAS DE INFO. CONTABLE</option>
+<option>CON-17100-SEMINAR. DE INVEST. CONTABLE,I</option>
+<option>CON-17102-TRAYECTORIAS EN CONTADURIA</option>
+<option>CON-18002-ESTR. Y CONTROL DE RIESGOS FIN</option>
+<option>CSO-10001-INTRO. A LA CIENCIA POLITICA</option>
+<option>CSO-10100-ESTADO Y SOCIEDAD I</option>
+<option>CSO-10101-ESTADO Y SOCIEDAD II</option>
+<option>CSO-10106-INSTITUCS POLITICAS COMPARADAS</option>
+<option>CSO-10110-HERRAM DE ANALISIS CUANTITATIV</option>
+<option>CSO-10130-HIST POL DE MEX EN EL SIGLO XX</option>
+<option>CSO-10143-ACCIÓN COLECTIVA</option>
+<option>CSO-11011-TEORIA POLITICA CLASICA, I</option>
+<option>CSO-11012-TEORIA POLITICA CLASICA, II</option>
+<option>CSO-11021-TEORIA POLITICA CONTEMPORANEA</option>
+<option>CSO-12013-HISTORIA POLITICA CONTEMPORAN.</option>
+<option>CSO-12042-HISTORIA DE MEXICO,II</option>
+<option>CSO-12049-HISTORIA DE MEXICO III</option>
+<option>CSO-13041-POL. MEXICANA CONTEMPORANEA</option>
+<option>CSO-13046-CULTURA POPULAR Y POLITICA</option>
+<option>CSO-14016-JUECES Y POL. EN PERSPEC. COMP</option>
+<option>CSO-14021-POLITICA COMPARADA,I</option>
+<option>CSO-14041-POLITICA COMPARADA,II</option>
+<option>CSO-14042-POLITICA COMPARADA III</option>
+<option>CSO-14045-POLITICA Y GOBIERNO DE MEXICO</option>
+<option>CSO-14051-OPINION PUBLICA</option>
+<option>CSO-15022-ELECCION PUBLICA,II</option>
+<option>CSO-15024-ELECCION PUBLICA III</option>
+<option>CSO-15041-ECONOMIA POLITICA, I</option>
+<option>CSO-15043-ECONOMIA POLITICA II</option>
+<option>CSO-16042-POLITICAS PUBLICAS</option>
+<option>CSO-16048-TOPICOS DE POLIT. PUBLICAS I</option>
+<option>CSO-16049-TOPICOS DE POL. PUBLICAS II</option>
+<option>CSO-17041-METODOS DE INVEST. APLICADA</option>
+<option>CSO-17042-METODOL. POL. AVANZADA</option>
+<option>CSO-19077-SEMIN. DE TITULACION POR CASO</option>
+<option>CSO-19085-SEMINARIO DE INV. POLITICA E</option>
+<option>CSO-19093-SEMINARIO DE INV. POLITICA A-1</option>
+<option>DER-10003-INST. DE DERECHO PUB. MEX.,I</option>
+<option>DER-10005-DER. INTERNACIONAL PUBLICO,I</option>
+<option>DER-10006-DER. INTERNACIONAL PUBLICO,II</option>
+<option>DER-10008-REGIMEN LABORAL MEXICANO</option>
+<option>DER-10011-REGIMEN FISCAL MEXICANO (CP)</option>
+<option>DER-10013-FUNDAMENTOS JURIDICOS</option>
+<option>DER-10015-DERECHO EMPRESARIAL</option>
+<option>DER-10016-INTROD. AL DERECHO CORPORATIVO</option>
+<option>DER-10017-CONTRATOS FINANC. COMPARADOS</option>
+<option>DER-10018-DERECHO EMPRESARIAL I</option>
+<option>DER-10019-DERECHO EMPRESARIAL II</option>
+<option>DER-10021-DERECHO EMPRESARIAL III</option>
+<option>DER-10022-DERECHO EMPRESARIAL</option>
+<option>DER-10026-DERECHO CORPORATIVO</option>
+<option>DER-10113-DERECHO PUBLICO</option>
+<option>DER-10114-SEM LEG Y ETICA EN CIENC DATOS</option>
+<option>DER-11101-TEORIA DEL DERECHO, I</option>
+<option>DER-11106-METODOL. DE LA DISERTAC JURID.</option>
+<option>DER-11107-TALLER EN BIENES Y DER REALES</option>
+<option>DER-11109-TALLER DE DISER JURID EN OBLIG</option>
+<option>DER-11110-TALLER DISERT JURID CONSTIT. I</option>
+<option>DER-11111-HABILIDADES JURID. GLOBALES I</option>
+<option>DER-11112-TALLER DISERT JURID EN CONTRAT</option>
+<option>DER-11113-TALLER DISERT JUR CONSTITU. II</option>
+<option>DER-11114-HABILIDADES JURID. GLOBALES II</option>
+<option>DER-11115-TALLER DISERT. JUR. CONST. III</option>
+<option>DER-11116-TALLER DISERT. JUR. ADMIVO. I</option>
+<option>DER-11117-HABILIDADES JURID GLOBALES III</option>
+<option>DER-11118-CONCURSOS INTERNACIONALES</option>
+<option>DER-11119-FILOSOFIA DEL DERECHO</option>
+<option>DER-11120-TALLER DISER JUR TEC ARGUM JUR</option>
+<option>DER-11121-CULTURA DE LA LEGALIDAD</option>
+<option>DER-11122-TEORÍA DEL DERECHO I</option>
+<option>DER-11123-CONCURSOS INTERNAC. (CLINICA)</option>
+<option>DER-11202-TEORIA DEL DERECHO II</option>
+<option>DER-11203-INVESTIG. Y REDACCION JURIDICA</option>
+<option>DER-11206-TEORÍA DEL DERECHO II</option>
+<option>DER-11207-ESCRITURA JURIDICA</option>
+<option>DER-11307-TALLER ESCRIT  P/ DER PRIVADO</option>
+<option>DER-11400-TALLER ESCRIT. P/ DER PUBLICO</option>
+<option>DER-11805-FILOSOFIA DEL DERECHO</option>
+<option>DER-11907-TECNICAS DE ARGUM. JURID.</option>
+<option>DER-12103-HISTORIA DEL DERECHO</option>
+<option>DER-12202-HISTORIA DEL DERECHO MEXICANO</option>
+<option>DER-12204-INTROD. AL DERECHO MEXICANO</option>
+<option>DER-13026-CLINICAL LEGAL CTRO ACCESO JUS</option>
+<option>DER-13031-CLIN MEDIACION Y JUSTIC RESTAU</option>
+<option>DER-13108-BIENES Y DERECHOS REALES</option>
+<option>DER-13201-PERSONAS Y FAMILIA</option>
+<option>DER-13203-NEGOCIO JURIDICO Y PERSONAS</option>
+<option>DER-13302-BIENES Y DERECHOS REALES</option>
+<option>DER-13403-OBLIGACIONES</option>
+<option>DER-13406-TEORIA GENERAL DEL PROCESO</option>
+<option>DER-13407-TEO GRAL PROC Y SEM DE PRUEBA</option>
+<option>DER-13504-CONTRATOS</option>
+<option>DER-13607-PROCE. CIVILES Y MERCANTILES</option>
+<option>DER-13614-FAMILIA Y SUCESIONES</option>
+<option>DER-13615-JUICIO ORAL CIVIL Y FAMILIAR</option>
+<option>DER-14402-TEORIAS DEL DELITO</option>
+<option>DER-14505-DELITOS</option>
+<option>DER-14603-DERECHO PROCESAL PENAL</option>
+<option>DER-14606-DERECHO PROCESAL PENAL</option>
+<option>DER-14607-JUICIO ORAL PENAL</option>
+<option>DER-15063-JUECES Y POL. EN PERSP. COMPAR</option>
+<option>DER-15070-SEM. ESTUDIOS GENERO Y DERECHO</option>
+<option>DER-15074-SEMINARIO HERMILA GALINDO</option>
+<option>DER-15075-JUECES Y POL. EN PERSP. COMPAR</option>
+<option>DER-15076-CLIN. LITIGIO PENAL VIOL. DDHH</option>
+<option>DER-15080-CLIN ATN A PERSONAS REFUGIADAS</option>
+<option>DER-15303-DER CONST. I Y SEM DE TEO POL</option>
+<option>DER-15402-DERECHO CONSTITUCIONAL,I</option>
+<option>DER-15403-DERECHO CONSTITUCIONAL I</option>
+<option>DER-15504-DERECHO CONSTITUCIONAL II</option>
+<option>DER-15506-DERECHO CONSTITUCIONAL, III</option>
+<option>DER-15600-DERECHO CONSTITUCIONAL III</option>
+<option>DER-15704-PROCEDIM. CONSTITUCIONALES</option>
+<option>DER-16019-DERECHO DEL SIST. FINANCIERO</option>
+<option>DER-16059-CLIN JURIDICA PARA EMPRESAS</option>
+<option>DER-16066-DER ENTRET E IND CREAT</option>
+<option>DER-16501-DERECHO MERCANTIL, I</option>
+<option>DER-16502-DERECHO MERCANTIL I</option>
+<option>DER-16503-DERECHO MERCANTIL II</option>
+<option>DER-16702-DERECHO MERCANTIL III</option>
+<option>DER-16922-LAB. DERECHO PRIVADO (CLINICA)</option>
+<option>DER-17047-CLINICA EN DER Y POL PUBLICA</option>
+<option>DER-17048-CLIN  DES SUST Y DER AMBIENTAL</option>
+<option>DER-17601-DERECHO ADMINISTRATIVO I</option>
+<option>DER-17702-DERECHO ADMINISTRATIVO II</option>
+<option>DER-17703-DERECHO FISCAL I</option>
+<option>DER-17804-DERECHO FISCAL II</option>
+<option>DER-17806-DERECHO FISCAL II</option>
+<option>DER-17807-DERECHO FISCAL I</option>
+<option>DER-18600-DERECHO INTERNACIONAL I</option>
+<option>DER-18601-DERECHO INTERNACIONAL II</option>
+<option>DER-18802-DERECHO INTERNACIONAL PRIVADO</option>
+<option>DER-19005-CLIN.MEJORA DE LA JUSTICIA LAB</option>
+<option>DER-19501-DERECHO LABORAL I</option>
+<option>DER-19602-DERECHO LABORAL II</option>
+<option>ECO-10202-SEM. DE INVEST. ECONOMICA II</option>
+<option>ECO-10204-SEMINARIO DE INV. ECONOMICA</option>
+<option>ECO-10300-PENSAMIENTO ECONOMICO</option>
+<option>ECO-10301-HISTORIA DEL ANALISIS ECO.</option>
+<option>ECO-10506-ECONOMETR. Y ANALISIS DE DATOS</option>
+<option>ECO-10516-MICROECONOMETRIA APLICADA</option>
+<option>ECO-10517-MACROECONOMETRIA APLICADA</option>
+<option>ECO-10518-TOPICOS DE ECONOMETRIA</option>
+<option>ECO-10521-INFERENCIA CAUSAL</option>
+<option>ECO-11000-INTRODUCCION A LA ECONOMIA</option>
+<option>ECO-11001-SEM. DE MICROECONOMIA APLICADA</option>
+<option>ECO-11002-SEMINARIO DE ANALISIS EMPIRICO</option>
+<option>ECO-11010-PRINCIPIOS DE MICROECONOMIA</option>
+<option>ECO-11011-MICROECONOMIA APLICADA I</option>
+<option>ECO-11021-MICROECONOMIA I</option>
+<option>ECO-11022-MICROECONOMIA II</option>
+<option>ECO-11101-ECONOMIA, I</option>
+<option>ECO-11103-ECONOMIA, III</option>
+<option>ECO-11104-ECONOMIA, IV</option>
+<option>ECO-11121-MICROECONOMIA AVANZADA I</option>
+<option>ECO-11122-MICROECONOMIA AVANZADA II</option>
+<option>ECO-11227-DISEÑO DE MERCADOS</option>
+<option>ECO-12010-PRINCIPIOS DE MACROECONOMIA</option>
+<option>ECO-12011-MACROECONOMIA I</option>
+<option>ECO-12102-ECONOMIA, II</option>
+<option>ECO-12105-ECONOMIA, V</option>
+<option>ECO-12121-MACROECONOMIA AVANZADA</option>
+<option>ECO-12133-MACROECONOMIA INTERMEDIA</option>
+<option>ECO-12201-TEORIA Y POLITICA MONETARIA</option>
+<option>ECO-13101-ECONOMIA INTERNACIONAL, I</option>
+<option>ECO-13102-ECONOMIA INTERNACIONAL, II</option>
+<option>ECO-13111-TOPICOS EN COM. INTERNACIONAL</option>
+<option>ECO-14207-ANAL. ECONOMICO DEL DERECHO I</option>
+<option>ECO-14208-ANAL. ECON. DEL DER. II</option>
+<option>ECO-14301-ORGANIZACION INDUSTRIAL</option>
+<option>ECO-14303-ECONOMIA DE LA REGULACION</option>
+<option>ECO-14501-ECONOMIA DE LA EMPRESA</option>
+<option>ECO-14502-ECONOMIA GERENCIAL</option>
+<option>ECO-15101-FINANZAS PUBLICAS</option>
+<option>ECO-15110-EVALUACION DE PROYECTOS</option>
+<option>ECO-15111-ECONOMIA POLITICA</option>
+<option>ECO-15112-TOPICOS SELECTOS EN ECO. POL.</option>
+<option>ECO-17100-HISTORIA ECONOMICA DE MEXICO</option>
+<option>ECO-17103-SEMINARIO DE LA ECO. DE MEX.</option>
+<option>ECO-17220-HISTORIA ECONOMICA MODERNA</option>
+<option>ECO-18101-DESARROLLO ECONOMICO I</option>
+<option>ECO-18300-CRECIMIENTO ECONOMICO</option>
+<option>ECO-20513-MICROECONOMETRIA AVANZADA</option>
+<option>ECO-21103-ECONOMIA III</option>
+<option>ECO-21104-ECONOMIA IV</option>
+<option>ECO-21111-TEO. DEL PROD. Y CONSUMIDOR</option>
+<option>ECO-21113-TEORIA DE JUEGOS</option>
+<option>ECO-22105-ECONOMIA V</option>
+<option>ECO-22112-MACROECONOMÍA DINÁMICA I</option>
+<option>EGN-11163-NEW HISTORIC PERSPECT. OF MEX.</option>
+<option>EGN-11164-EL ARTE DE VIVIR</option>
+<option>EGN-17121-IDEAS E INST. POL. Y SOC. I</option>
+<option>EGN-17122-IDEAS E INST. POL. Y SOC. II</option>
+<option>EGN-17123-IDEAS E INST. POL. Y SOC. III</option>
+<option>EGN-17141-PROB. DE LA CIV. CONTEMP., I</option>
+<option>EGN-17142-PROB. DE LA CIV. CONTEMP., II</option>
+<option>EGN-17161-HISTORIA SOC.-POL. DE MEXICO</option>
+<option>EGN-17162-PROBLEMAS DE LA REALIDAD MEX.</option>
+<option>EIN-11101-INT. A LAS R. INTERNACIONALES</option>
+<option>EIN-12201-HIST. DE LAS RELACS. INTER. I</option>
+<option>EIN-13104-METODOS DE INV. EN REL. INT.</option>
+<option>EIN-13202-HISTORIA DE LAS R.I. II</option>
+<option>EIN-14102-TEORIA DE LAS REL. INT.</option>
+<option>EIN-14303-POL. Y GOB. DE ESTADOS UNIDOS</option>
+<option>EIN-15105-POL. DE LAS REL. ECONOM. INT.</option>
+<option>EIN-15302-PROCESO POL. EN E.U.A.:DIMENS.</option>
+<option>EIN-16402-EUROPA CONTEMPORANEA</option>
+<option>EIN-16403-AMERICA LATINA</option>
+<option>EIN-17303-RELACIONES MEXICO-E.U.A.-CANAD</option>
+<option>EIN-17304-FORMUL. DE LA POL. EXT. DE MEX</option>
+<option>EIN-17403-JAPON, CHINA Y EL SUDESTE ASIA</option>
+<option>EIN-18602-SEMINARIO DE TITULACION</option>
+<option>EIN-19133-AGENDA GLOBAL DE DESARROLLO</option>
+<option>EIN-19140-GOBERNANZA GLOBAL Y MULTILATER</option>
+<option>EIN-19315-MIGRACION INTERNACIONAL (OP)</option>
+<option>EIN-19414-MEDIO ORIENTE</option>
+<option>EIN-19552-CAMBIO CLIMATICO</option>
+<option>EST-10101-ESTADISTICA.,I</option>
+<option>EST-10102-ESTADISTICA.,II</option>
+<option>EST-11101-PROBABILIDAD</option>
+<option>EST-11102-INFERENCIA ESTADISTICA</option>
+<option>EST-11103-ECONOMETRIA I</option>
+<option>EST-11104-ECONOMETRIA</option>
+<option>EST-13101-MET. ESTADIST. P/C.POL. Y R.I.</option>
+<option>EST-14101-CALCULO DE PROBABILIDADES.,I</option>
+<option>EST-14102-CALCULO DE PROBABILIDADES.,II</option>
+<option>EST-14103-ESTADISTICA MATEMATICA</option>
+<option>EST-14107-PROCESOS ESTOCASTICOS,I</option>
+<option>EST-21104-FUNDAMENTOS DE ECONOMETRIA</option>
+<option>EST-24104-ESTADISTICA APLICADA, I</option>
+<option>EST-24105-ESTADISTICA APLICADA, II</option>
+<option>EST-24106-ESTADISTICA APLICADA, III</option>
+<option>EST-24107-SIMULACION</option>
+<option>EST-24108-REGRESION AVANZADA</option>
+<option>EST-24112-ESTADISTICA BAYESIANA</option>
+<option>EST-24124-METODOS LINEALES</option>
+<option>EST-24125-METODOS MULTIVARIADOS</option>
+<option>EST-24126-CALCULO DE PROBABILIDADES I</option>
+<option>EST-24127-CALCULO DE PROBABILIDADES II</option>
+<option>EST-25146-ECONOMET. FINANCIERA ACTUARIAL</option>
+<option>IIO-12170-AUTOMAT. Y CONTROL DE PROCESOS</option>
+<option>IIO-12172-TALLER PROGR DE DISPOS DE ING.</option>
+<option>IIO-12182-AUTOMAT. Y ROBOTICA INDUSTRIAL</option>
+<option>IIO-12190-MANUFACTURA INTEGRADA P/COMP.</option>
+<option>IIO-13150-MODELADO Y OPTIMIZACION I</option>
+<option>IIO-13151-MODELADO DE REDES INTELIGENTES</option>
+<option>IIO-13160-MODELADO Y OPTIMIZACION II</option>
+<option>IIO-13180-SIMULACION DE SISTEMAS</option>
+<option>IIO-14160-DISEÑO DE PLANTA</option>
+<option>IIO-14162-ING. Y CONTROL DE LA CALIDAD</option>
+<option>IIO-14180-ADMON. Y EVALUA. DE PROYECTOS</option>
+<option>IIO-14193-ING. DE PROCESOS DE NEGOCIOS</option>
+<option>IIO-14278-ADMON. CADENA DE SUMINISTRO</option>
+<option>IIO-15130-FUNDAMENTOS DE QUIMICA</option>
+<option>IIO-15132-FISICOQUIMICA</option>
+<option>IIO-15141-CIENC DE LOS MATERIALES Y COMP</option>
+<option>IIO-15150-PROCESOS DE MANUFACTURA I</option>
+<option>IIO-15170-DISEÑO ASISTIDO POR COMPUTAD.</option>
+<option>IIO-15171-MECANICA DE SOLIDOS</option>
+<option>IIO-15174-CINEMATICA Y DINAMICA</option>
+<option>IIO-15175-DISEÑO E IMPRESION 3D POR COMP</option>
+<option>IIO-15195-CELDAS ROBOTICAS</option>
+<option>IIO-15196-SISTEMAS MECATRONICOS</option>
+<option>IIO-16111-TRAYEC DE NEG. I: ING Y TECNOL</option>
+<option>IIO-16180-SEMINARIO DE TITULACION</option>
+<option>LEN-10132-SEM. DE COMUNICACION ESCRITA</option>
+<option>LEN-10142-COM. ESCRITA PARA ING. COMP.</option>
+<option>LEN-12701-ESTRATEGIAS DE COMUNIC ESCRITA</option>
+<option>LEN-12702-SEMIN. DE COMUNICAC. ESCRITA</option>
+<option>LEN-12711-COMUNIC. ESCRITA PARA DERECHO</option>
+<option>LEN-12713-COMUNIC. ESCRITA PARA ACTUARIA</option>
+<option>LEN-12714-COMUNICA. ESCRITA PARA ADMON.</option>
+<option>LEN-12715-COMUNIC. ESCRITA PARA C. POL.</option>
+<option>LEN-12716-COMUNIC ESCRITA PARA C.P Y E.F</option>
+<option>LEN-12717-COMUNIC. ESCRITA PARA DIR. FIN</option>
+<option>LEN-12718-COMUNIC. ESCRITA PARA ECONOMIA</option>
+<option>LEN-12719-COMUNIC ESCRITA PARA MATE. APL</option>
+<option>LEN-12721-COMUNIC. ESCRITA PARA REL. INT</option>
+<option>LEN-12722-COM. ESCRITA CIENCIA DE DATOS</option>
+<option>LEN-12724-COM. ESCRITA PARA ING EN COMP.</option>
+<option>LEN-12725-COM. ESCRITA PARA ING MECATRO.</option>
+<option>LEN-12726-COM. ESCRITA PARA ING EN NEGOC</option>
+<option>LEN-12751-COMUNIC. PROFESIONAL PARA DER.</option>
+<option>LEN-12753-COMUNIC. PROFESIONAL PARA ACT.</option>
+<option>LEN-12754-COMUNIC PROFESIONAL PARA ADMON</option>
+<option>LEN-12755-COMUN. PROFESIONAL PARA C. POL</option>
+<option>LEN-12756-COMUN. PROF. PARA C.P Y E.F.</option>
+<option>LEN-12757-COMUNIC. PROFES. PARA DIR. FIN</option>
+<option>LEN-12758-COMUNIC. PROFESIONAL PARA ECON</option>
+<option>LEN-12759-COMUNIC. PROFES. PARA MAT. APL</option>
+<option>LEN-12761-COMUNIC. PROFES. PARA REL. INT</option>
+<option>LEN-12762-COMUN. PROFE. CIENCIA DE DATOS</option>
+<option>LEN-12764-COM. PROFES. PARA ING. EN COMP</option>
+<option>LEN-12765-COM. PROFES. PARA ING. EN MECA</option>
+<option>LEN-12766-COM. PROFES. PARA ING. EN NEG.</option>
+<option>LEN-13101-COMUNICAC. ESCRITA PARA ADMON.</option>
+<option>LEN-14051-COMUNIC. ESCRITA PARA C. POL.</option>
+<option>LEN-14208-COMUNICA. ESCRITA PARA DERECHO</option>
+<option>LEN-15358-COMUNIC. ESCRITA PARA ACTUARIA</option>
+<option>LEN-16403-COMUNIC. ESCRITA PARA REL. INT</option>
+<option>LEN-17103-COMUNICAC. ESCRITA PARA ECONOM</option>
+<option>MAT-10101-MET. CUANTITATIVOS PARA DER.</option>
+<option>MAT-11100-MATEMATICAS, I</option>
+<option>MAT-11101-MATEMATICAS, II</option>
+<option>MAT-11310-MATEMATICAS, III</option>
+<option>MAT-12100-CALCULO I</option>
+<option>MAT-12101-CALCULO, II</option>
+<option>MAT-12102-CALCULO, III</option>
+<option>MAT-12200-CALCULO UNIVARIADO</option>
+<option>MAT-12201-CALCULO MULTIVARIADO</option>
+<option>MAT-12202-CALCULO VECTORIAL</option>
+<option>MAT-12210-SIST. DINAMICOS</option>
+<option>MAT-12220-CALCULO EN UNA VARIABLE</option>
+<option>MAT-12221-CALCULO EN VARIAS VARIABLES</option>
+<option>MAT-12250-CALCULO APLICADO</option>
+<option>MAT-12310-ALGEBRA MATRICIAL</option>
+<option>MAT-12349-PRINCIPIOS DE ALGEBRA LINEAL</option>
+<option>MAT-12350-ALGEBRA LINEAL APLICADA</option>
+<option>MAT-12351-ALGEBRA LINEAL</option>
+<option>MAT-14100-CALCULO DIF. E INT., I</option>
+<option>MAT-14101-CALCULO DIF. E INT., II</option>
+<option>MAT-14102-CALCULO DIF. E INT., III</option>
+<option>MAT-14201-ALGEB. LINEAL, I (GEO ANA. II)</option>
+<option>MAT-14250-GEOMETRIA VECTORIAL</option>
+<option>MAT-14280-PENSAMIENTO MATEMATICO</option>
+<option>MAT-14281-MATEMATICAS DISCRETAS</option>
+<option>MAT-14300-ALGEBRA SUPERIOR, I</option>
+<option>MAT-14301-ALGEBRA SUPERIOR, II</option>
+<option>MAT-14310-ALG. LINEAL, II (ALG. LINEAL)</option>
+<option>MAT-14390-MATEMATICA COMPUTACIONAL</option>
+<option>MAT-14400-CALCULO  NUMERICO,I</option>
+<option>MAT-22600-MATEMATICAS FINANCIERAS I</option>
+<option>MAT-24100-PRINCIPIOS DE ANALISIS REAL</option>
+<option>MAT-24110-ANALISIS MATEMATICO, I</option>
+<option>MAT-24111-ANALISIS MATEMATICO II</option>
+<option>MAT-24120-VARIABLE COMPLEJA</option>
+<option>MAT-24210-SISTEMAS DINAMICOS,I</option>
+<option>MAT-24211-SISTEMAS DINAMICOS,II</option>
+<option>MAT-24406-ANALISIS NUMERICO I</option>
+<option>MAT-24407-ANALISIS NUMERICO II</option>
+<option>MAT-24410-PROGRAMACION LINEAL</option>
+<option>MAT-24430-ANALISIS APLICADO, I</option>
+<option>MAT-24431-OPTIMIZACION NUMERICA, I</option>
+<option>MAT-24500-INVESTIGACION DE OPER.,I</option>
+<option>MAT-24630-MATEM. APLICADAS A LA ECONOMIA</option>
+<option>MAT-24632-METODOS DINAMICOS PARA LA ECON</option>
+<option>SDI-11120-ELEMENTOS DE FISICA</option>
+<option>SDI-11221-ELEMENTOS DE ELECTRONICA</option>
+<option>SDI-11322-CIRCUITOS LOGICOS</option>
+<option>SDI-11561-PRINCIPIOS DE MECATRONICA</option>
+<option>SDI-11671-TEORIA DE CONTROL</option>
+<option>SDI-12625-PROCESAMIENTO DIGITAL DE SENAL</option>
+<option>SDI-13782-DISEÑO Y ARQUITECT. DE REDES</option>
+<option>SDI-15816-SEMINARIO DE TITULACION</option>
+<option>SDI-17306-ESTAT, ELECTRICIDAD Y MAGNETIS</option>
+<option>SDI-17504-SIST DIGITA Y DISEÑO DE PROCES</option>
+<option>SDI-25916-SISTEMAS EMPRESARIALES</option>
+<option>VIE-20001-MATERIA 1</option>
+<option>VIE-20002-MATERIA 2</option>
+<option>VIE-20003-MATERIA 3</option>
+</select>
+<input type="submit" value="Selecciona" />
+</form>
+
+<!--  ** START OF twbkwbis.P_CloseDoc **  -->
+<table  CLASS="plaintable" SUMMARY="This is table displays line separator at end of the page."
+                                             WIDTH="100%" cellSpacing=0 cellPadding=0 border=0><tr><TD class="bgtabon" width="100%" colSpan=2><img src="/wtlgifs/web_transparent.gif" alt="Transparent Image" CLASS="headerImg" TITLE="Transparent Image"  NAME="web_transparent" HSPACE=0 VSPACE=0 BORDER=0 HEIGHT=3 WIDTH=10 /></TD></tr></table>
+<a href="#top" onMouseover="window.status='Skip to top of page'; return true" onMouseout="window.status=''; return true" OnFocus="window.status='Skip to top of page'; return true" onBlur="window.status=''; return true" class="skiplinks">Skip to top of page</a>
+</DIV>
+<div class="footerafterdiv">
+
+</DIV>
+<div class="globalafterdiv">
+
+</DIV>
+<div class="globalfooterdiv">
+
+</DIV>
+<div class="pagefooterdiv">
+<SPAN class="releasetext">Release: 8.9.2</SPAN>
+</DIV>
+<div class="poweredbydiv">
+</DIV>
+<DIV class="div1"></DIV>
+<DIV class="div2"></DIV>
+<DIV class="div3"></DIV>
+<DIV class="div4"></DIV>
+<DIV class="div5"></DIV>
+<DIV class="div6"></DIV>
+<div class="banner_copyright"> <br><h5>© 2026 Ellucian Company L.P. and its affiliates.<br></h5></div>
+</body>
+</html>
