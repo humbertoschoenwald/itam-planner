@@ -33,7 +33,8 @@ def _export_boletines(repository: CatalogRepository, boletines_root: Path) -> No
                 bulletin_documents.entry_from_term,
                 bulletin_documents.entry_to_term,
                 programs.title AS program_title,
-                plans.plan_code
+                plans.plan_code,
+                plans.plan_id
             FROM bulletin_documents
             JOIN programs ON programs.program_id = bulletin_documents.program_id
             JOIN plans ON plans.plan_id = bulletin_documents.plan_id
@@ -87,6 +88,7 @@ def _export_boletines(repository: CatalogRepository, boletines_root: Path) -> No
             "title": document["title"],
             "program_title": document["program_title"],
             "plan_code": document["plan_code"],
+            "plan_id": document["plan_id"],
             "application_term": document["application_term"],
             "application_year": document["application_year"],
             "active_from": document["active_from"],
@@ -236,6 +238,12 @@ def _build_sources_projection(repository: CatalogRepository) -> dict[str, object
         _row_to_dict(row)
         for row in repository.connection.execute("SELECT * FROM scrape_runs ORDER BY started_at")
     ]
+    promoted_releases = [
+        _row_to_dict(row)
+        for row in repository.connection.execute(
+            "SELECT * FROM promoted_releases ORDER BY promoted_at"
+        )
+    ]
     snapshots = [
         _row_to_dict(row)
         for row in repository.connection.execute(
@@ -248,7 +256,11 @@ def _build_sources_projection(repository: CatalogRepository) -> dict[str, object
             """
         )
     ]
-    return {"scrape_runs": runs, "source_snapshots": snapshots}
+    return {
+        "scrape_runs": runs,
+        "promoted_releases": promoted_releases,
+        "source_snapshots": snapshots,
+    }
 
 
 def _write_json(path: Path, payload: object) -> None:

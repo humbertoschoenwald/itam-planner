@@ -10,3 +10,4 @@ class Settings(BaseSettings):
 
     api_title: str = "itam-planner public catalog api"
     public_data_root: Path = Path(__file__).resolve().parents[4] / "public-data"
+    cors_origins: tuple[str, ...] = ("http://127.0.0.1:3000", "http://localhost:3000")

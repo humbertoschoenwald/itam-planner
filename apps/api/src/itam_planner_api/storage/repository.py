@@ -41,6 +41,12 @@ class CatalogRepository:
                 status TEXT NOT NULL,
                 notes TEXT
             );
+            CREATE TABLE IF NOT EXISTS promoted_releases (
+                release_id TEXT PRIMARY KEY,
+                run_id TEXT NOT NULL REFERENCES scrape_runs(run_id),
+                promoted_at TEXT NOT NULL,
+                notes TEXT
+            );
             CREATE TABLE IF NOT EXISTS source_snapshots (
                 snapshot_id TEXT PRIMARY KEY,
                 run_id TEXT NOT NULL REFERENCES scrape_runs(run_id),
@@ -240,6 +246,18 @@ class CatalogRepository:
             (datetime.now(tz=UTC).isoformat(), status, notes, run_id),
         )
         self.connection.commit()
+
+    def mark_promoted_release(self, run_id: str, *, notes: str | None = None) -> str:
+        release_id = run_id
+        self.connection.execute(
+            """
+            INSERT OR REPLACE INTO promoted_releases(release_id, run_id, promoted_at, notes)
+            VALUES(?, ?, ?, ?)
+            """,
+            (release_id, run_id, datetime.now(tz=UTC).isoformat(), notes),
+        )
+        self.connection.commit()
+        return release_id
 
     def record_source_snapshot(self, snapshot: SourceSnapshot, run_id: str, size_bytes: int) -> str:
         snapshot_id = f"{snapshot.source_id}:{snapshot.content_hash[:16]}"

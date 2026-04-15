@@ -12,7 +12,7 @@ class SourceSnapshot(BaseModel):
     upstream_url: str
     observed_at: datetime
     content_hash: str
-    parse_status: Literal["parsed", "skipped", "failed"]
+    parse_status: Literal["parsed", "skipped", "failed", "unchanged"]
     media_type: str
     artifact_path: str | None = None
 
