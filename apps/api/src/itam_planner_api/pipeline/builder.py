@@ -35,6 +35,10 @@ CALENDARS_URL = "https://escolar.itam.mx/servicios_escolares/servicios_calendari
 BOLETINES_URL = "https://horariositam.com/boletines.html"
 MENU_URL = "https://itaca2.itam.mx:8443/b9prod/edsup/BWZKSENP.P_MenuServNoPers"
 HORARIOS_FORM_URL = "https://itaca2.itam.mx:8443/b9prod/edsup/BWZKSENP.P_Horarios2"
+FIXTURE_RUN_STARTED_AT = datetime(2026, 4, 15, 11, 36, 0, tzinfo=UTC)
+FIXTURE_RUN_COMPLETED_AT = datetime(2026, 4, 15, 11, 36, 2, tzinfo=UTC)
+FIXTURE_PROMOTED_AT = datetime(2026, 4, 15, 11, 36, 3, tzinfo=UTC)
+FIXTURE_OBSERVED_AT = datetime(2026, 4, 15, 11, 36, 1, tzinfo=UTC)
 
 
 class ValidationError(RuntimeError):
@@ -75,17 +79,35 @@ def build_from_fixtures(fixtures_root: Path, public_data_root: Path | None = Non
     repository = CatalogRepository(working_root / "catalog.sqlite")
     repository.initialize()
     run_id = "fixtures"
-    repository.create_scrape_run(run_id, status="running", notes="fixture ingestion")
+    repository.create_scrape_run(
+        run_id,
+        status="running",
+        notes="fixture ingestion",
+        started_at=FIXTURE_RUN_STARTED_AT,
+    )
     try:
         _ingest_fixture_sources(repository, run_id, fixtures_root)
         _validate_catalog(repository)
-        repository.complete_scrape_run(run_id, status="succeeded")
-        repository.mark_promoted_release(run_id, notes="fixture promotion")
+        repository.complete_scrape_run(
+            run_id,
+            status="succeeded",
+            completed_at=FIXTURE_RUN_COMPLETED_AT,
+        )
+        repository.mark_promoted_release(
+            run_id,
+            notes="fixture promotion",
+            promoted_at=FIXTURE_PROMOTED_AT,
+        )
         export_public_dataset(repository, working_root)
         promote_public_snapshot(working_root, root / "latest")
         return root / "latest"
     except Exception as exc:
-        repository.complete_scrape_run(run_id, status="failed", notes=str(exc))
+        repository.complete_scrape_run(
+            run_id,
+            status="failed",
+            notes=str(exc),
+            completed_at=FIXTURE_RUN_COMPLETED_AT,
+        )
         raise
     finally:
         repository.close()
@@ -217,7 +239,7 @@ def _ingest_fixture_sources(
 def _build_fixture_live_bundle(fixtures_root: Path) -> LiveSourceBundle:
     html_root = fixtures_root / "html"
     pdf_root = fixtures_root / "pdfs"
-    observed_at = datetime.now(tz=UTC)
+    observed_at = FIXTURE_OBSERVED_AT
 
     services_payload = (html_root / "servicios_itam.html").read_bytes()
     services_html = services_payload.decode("utf-8")

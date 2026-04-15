@@ -226,35 +226,51 @@ class CatalogRepository:
         )
         self.connection.commit()
 
-    def create_scrape_run(self, run_id: str, *, status: str, notes: str | None = None) -> None:
+    def create_scrape_run(
+        self,
+        run_id: str,
+        *,
+        status: str,
+        notes: str | None = None,
+        started_at: datetime | None = None,
+    ) -> None:
         self.connection.execute(
             """
             INSERT OR REPLACE INTO scrape_runs(run_id, started_at, status, notes)
             VALUES(?, ?, ?, ?)
             """,
-            (run_id, datetime.now(tz=UTC).isoformat(), status, notes),
+            (run_id, (started_at or datetime.now(tz=UTC)).isoformat(), status, notes),
         )
         self.connection.commit()
 
-    def complete_scrape_run(self, run_id: str, *, status: str, notes: str | None = None) -> None:
+    def complete_scrape_run(
+        self,
+        run_id: str,
+        *,
+        status: str,
+        notes: str | None = None,
+        completed_at: datetime | None = None,
+    ) -> None:
         self.connection.execute(
             """
             UPDATE scrape_runs
             SET completed_at = ?, status = ?, notes = COALESCE(?, notes)
             WHERE run_id = ?
             """,
-            (datetime.now(tz=UTC).isoformat(), status, notes, run_id),
+            ((completed_at or datetime.now(tz=UTC)).isoformat(), status, notes, run_id),
         )
         self.connection.commit()
 
-    def mark_promoted_release(self, run_id: str, *, notes: str | None = None) -> str:
+    def mark_promoted_release(
+        self, run_id: str, *, notes: str | None = None, promoted_at: datetime | None = None
+    ) -> str:
         release_id = run_id
         self.connection.execute(
             """
             INSERT OR REPLACE INTO promoted_releases(release_id, run_id, promoted_at, notes)
             VALUES(?, ?, ?, ?)
             """,
-            (release_id, run_id, datetime.now(tz=UTC).isoformat(), notes),
+            (release_id, run_id, (promoted_at or datetime.now(tz=UTC)).isoformat(), notes),
         )
         self.connection.commit()
         return release_id

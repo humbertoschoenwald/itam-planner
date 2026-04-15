@@ -47,6 +47,20 @@ def test_build_from_fixtures_creates_sqlite_and_json_exports(fixtures_root, tmp_
 
     sources_payload = json.loads((latest_root / "sources.json").read_text(encoding="utf-8"))
     assert sources_payload["promoted_releases"][0]["release_id"] == "fixtures"
+    assert sources_payload["scrape_runs"][0]["started_at"] == "2026-04-15T11:36:00+00:00"
+
+
+def test_fixture_build_is_deterministic(fixtures_root, tmp_path) -> None:
+    public_data_root = tmp_path / "public-data"
+
+    latest_root = build_from_fixtures(fixtures_root, public_data_root)
+    first_sources = (latest_root / "sources.json").read_text(encoding="utf-8")
+    first_database = (latest_root / "catalog.sqlite").read_bytes()
+
+    latest_root = build_from_fixtures(fixtures_root, public_data_root)
+
+    assert (latest_root / "sources.json").read_text(encoding="utf-8") == first_sources
+    assert (latest_root / "catalog.sqlite").read_bytes() == first_database
 
 
 def test_failed_fixture_build_does_not_overwrite_latest_snapshot(tmp_path) -> None:
