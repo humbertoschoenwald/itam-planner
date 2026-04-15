@@ -28,7 +28,7 @@ The repository also relies on public academic source material published by ITAM,
 ## Architecture Summary
 
 - `apps/api`: public academic data ingestion, normalization, SQLite persistence, JSON export generation, and read-only API endpoints
-- `apps/web`: the Next.js planner shell, onboarding flow, community/help surfaces, and future browser-local student code flow
+- `apps/web`: the Next.js planner shell, onboarding flow, community/help surfaces, browser-local student code flow, and published-catalog delivery surface
 - `docs/adr`: canonical doctrine
 - `.cursor/rules`: operational rules derived from ADR
 - `public-data/latest`: the promoted normalized public catalog and generated JSON projections
@@ -85,7 +85,9 @@ pnpm test:web
 pnpm typecheck:web
 ```
 
-The web app expects the API to be reachable through `NEXT_PUBLIC_ITAM_PLANNER_API_BASE_URL`. See `apps/web/.env.example`.
+The web app can read the published catalog directly from its own static build artifact. Set `NEXT_PUBLIC_ITAM_PLANNER_API_BASE_URL` only when you intentionally want the web client to talk to a separate API origin. See `apps/web/.env.example`.
+
+Root delivery secrets for Vercel and Cloudflare should live in a local `.env` file that follows `.env.example`. Never commit those secrets.
 
 ### Repository-Wide Commands
 
@@ -104,6 +106,7 @@ pnpm verify
 - Node 25 runs as a non-blocking compatibility canary.
 - Vercel is the default web deployment target.
 - Cloudflare is reserved for DNS and hostname management around `itam.humbertoschoenwald.com`.
+- The default production web build should stay self-sufficient by shipping the published JSON catalog with the deployed site unless an explicit external API origin is configured.
 
 See `docs/deployment/vercel-cloudflare.md` for the current delivery plan and required secrets.
 

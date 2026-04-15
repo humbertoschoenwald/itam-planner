@@ -27,6 +27,7 @@ Runtime separation:
 - `web` and `api` are independently deployable units.
 - GitHub Actions is the default automation surface for scheduled catalog refresh and public-data publishing.
 - Public catalog snapshots should be generated or refreshed outside the Vercel runtime when SQLite is involved.
+- The default production web deployment may serve generated JSON projections directly from the published artifact bundle so that the site stays functional without a mandatory separate API runtime.
 
 Operational scheduling:
 
@@ -39,6 +40,7 @@ Operational scheduling:
 - The web path stays modern and low-friction.
 - The app remains portable beyond Vercel.
 - Public-data refresh stays decoupled from request-time infrastructure.
+- The public site can stay deployable even when the Python API is not exposed as a separate public service.
 - Deployment assumptions remain visible and explicit.
 
 ## Alternatives Considered

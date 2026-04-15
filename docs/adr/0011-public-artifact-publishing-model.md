@@ -34,12 +34,14 @@ Consumer rules:
 
 - the web application should read stable JSON or read-only API projections derived from the promoted SQLite snapshot
 - external AI consumers should read JSON or read-only endpoints, not scrape upstream public sources themselves
+- the first production web deployment is allowed to ship those published JSON projections as part of the web artifact bundle
 
 ## Consequences
 
 - SQLite gives the project a normalized internal backbone.
 - JSON exports keep the eventual frontend lightweight and decoupled.
 - Publication remains simple enough for repository-hosted artifacts and low-cost deployment paths.
+- The web deployment no longer depends on a separate API runtime just to read the public catalog.
 
 ## Alternatives Considered
 
@@ -53,4 +55,4 @@ Rejected. That weakens normalization, validation, and cross-source joins.
 
 ## Open Questions
 
-- Whether later slices should expose the JSON exports directly from static hosting, read them through the API, or support both paths.
+- Whether later slices should keep static JSON and read-only API projections in parallel for the same datasets or specialize those paths further.

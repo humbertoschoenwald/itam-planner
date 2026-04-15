@@ -26,7 +26,6 @@ jobs:
     runs-on: ubuntu-latest
     environment: production
     env:
-      NEXT_PUBLIC_ITAM_PLANNER_API_BASE_URL: ${{ vars.NEXT_PUBLIC_ITAM_PLANNER_API_BASE_URL }}
       VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
       VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
 
@@ -47,6 +46,9 @@ jobs:
 
       - name: Install workspace dependencies
         run: pnpm install --frozen-lockfile
+
+      - name: Sync published catalog into the web artifact
+        run: pnpm catalog:sync:web
 
       - name: Pull Vercel environment
         run: pnpm dlx vercel@latest pull --cwd apps/web --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}

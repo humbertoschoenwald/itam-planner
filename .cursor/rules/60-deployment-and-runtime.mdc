@@ -11,4 +11,5 @@ alwaysApply: true
 - RULE: Keep the runtime host-agnostic even when optimizing for Vercel.
 - RULE: Prefer `itam.humbertoschoenwald.com` over a path-prefixed deployment.
 - RULE: Use GitHub Actions for scheduled refresh and public-data publishing.
+- RULE: The first production web deployment may serve the promoted JSON catalog from the same web artifact bundle.
 - RULE: Do not treat SQLite as durable storage inside the Vercel runtime.
