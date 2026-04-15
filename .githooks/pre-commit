@@ -1,0 +1,16 @@
+#!/bin/sh
+
+set -eu
+
+staged_files="$(git diff --cached --name-only --diff-filter=ACMR)"
+
+if [ -z "$staged_files" ]; then
+  exit 0
+fi
+
+for path in $staged_files; do
+  if [ -f "$path" ] && [ ! -s "$path" ]; then
+    echo "pre-commit: empty files are not allowed: $path" >&2
+    exit 1
+  fi
+done

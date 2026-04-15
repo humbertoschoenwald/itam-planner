@@ -1,0 +1,31 @@
+#!/bin/sh
+
+set -eu
+
+required_files="
+AGENTS.md
+docs/adr/README.md
+docs/adr/0000-repository-doctrine.md
+docs/adr/0006-quality-gates-and-automation.md
+.cursor/rules/00-bootstrap-and-authority.mdc
+"
+
+for path in $required_files; do
+  if [ ! -f "$path" ]; then
+    echo "pre-push: required doctrine artifact is missing: $path" >&2
+    exit 1
+  fi
+done
+
+tracked_files="$(git ls-files)"
+
+if [ -z "$tracked_files" ]; then
+  exit 0
+fi
+
+for path in $tracked_files; do
+  if [ -f "$path" ] && [ ! -s "$path" ]; then
+    echo "pre-push: tracked empty file is not allowed: $path" >&2
+    exit 1
+  fi
+done
