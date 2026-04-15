@@ -28,7 +28,8 @@
     "typecheck:api": "uv run --project apps/api --group dev basedpyright apps/api/src",
     "test": "pnpm test:web && pnpm test:api",
     "typecheck": "pnpm typecheck:web && pnpm typecheck:api",
-    "verify": "pnpm lint && pnpm typecheck && pnpm test && pnpm build && pnpm catalog:fixtures && git diff --exit-code -- public-data/latest"
+    "verify:catalog": "node scripts/verify-published-catalog-diff.mjs",
+    "verify": "pnpm lint && pnpm typecheck && pnpm test && pnpm build && pnpm catalog:fixtures && pnpm verify:catalog"
   },
   "devDependencies": {
     "@commitlint/cli": "^20.1.0",

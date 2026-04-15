@@ -97,7 +97,7 @@ jobs:
         run: uv run --project apps/api python -m itam_planner_api.cli ingest-fixtures --fixtures-root apps/api/tests/fixtures --public-data-root public-data
 
       - name: Verify promoted snapshot is committed
-        run: git diff --exit-code -- public-data/latest
+        run: pnpm verify:catalog
 
   web-stable:
     name: Web checks (Node 24)
