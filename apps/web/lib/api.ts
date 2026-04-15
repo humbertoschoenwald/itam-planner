@@ -12,6 +12,7 @@ const EXTERNAL_API_BASE_URL = normalizeApiBaseUrl(
 
 async function readJson<T>(path: string): Promise<T> {
   const response = await fetch(resolveCatalogUrl(path), {
+    cache: "force-cache",
     headers: { Accept: "application/json" },
   });
   if (!response.ok) {

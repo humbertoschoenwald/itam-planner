@@ -1,6 +1,7 @@
 "use client";
 
 import { ConnectChatGptPanel } from "@/components/connect-chatgpt-panel";
+import { InstallGuideCard } from "@/components/install-guide-card";
 import { getUiCopy } from "@/lib/copy";
 import { useStudentProfileStore } from "@/stores/student-profile-store";
 
@@ -21,6 +22,7 @@ export default function ConnectChatGptPage() {
       </div>
 
       <ConnectChatGptPanel />
+      <InstallGuideCard locale={locale} />
     </main>
   );
 }

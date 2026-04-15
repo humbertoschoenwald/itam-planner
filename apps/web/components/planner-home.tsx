@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 
 import { CatalogFreshnessCard } from "@/components/catalog-freshness-card";
 import { CommunityLinks } from "@/components/community-links";
+import { InstallGuideCard } from "@/components/install-guide-card";
 import { SelectedWeekBoard } from "@/components/selected-week-board";
 import { StudentCodeCard } from "@/components/student-code-card";
 import { Button } from "@/components/ui/button";
@@ -241,6 +242,8 @@ export function PlannerHome() {
           </CardContent>
         </Card>
       ) : null}
+
+      <InstallGuideCard locale={profile.locale} />
 
       <section className="page-grid">
         <Card>

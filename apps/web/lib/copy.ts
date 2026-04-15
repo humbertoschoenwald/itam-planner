@@ -191,6 +191,26 @@ const uiCopy = {
     siteHeader: {
       badge: "Browser-local beta",
     },
+    installGuide: {
+      eyebrow: "Installable web app",
+      title: "Save the planner to your home screen",
+      description:
+        "The canonical secure URL is https://itam.humbertoschoenwald.com/. Once you open the site there, the planner can behave like a lightweight installed web app.",
+      iosTitle: "On iPhone and iPad",
+      iosSteps: [
+        "Open the site in Safari.",
+        "Tap Share.",
+        "Choose Add to Home Screen.",
+        "Launch it from the new icon to keep a cleaner, app-like planner experience.",
+      ],
+      browserTitle: "In desktop and other browsers",
+      browserBody:
+        "Use the secure canonical URL and install it from the browser menu when the browser offers that option. If there is no install entry yet, keep it as a bookmark until the broader app-install slice lands.",
+      cacheTitle: "Precomputed catalog cache",
+      cacheBody:
+        "Course relationships, schedules, and supporting catalog data are served from precomputed JSON artifacts with HTTP caching. They are not recalculated on every visit.",
+      openCanonicalSite: "Open the secure canonical URL",
+    },
     studentCode: {
       browserOwned: "Browser-owned",
       copied: "Copied",
@@ -396,6 +416,26 @@ const uiCopy = {
     },
     siteHeader: {
       badge: "Beta local en navegador",
+    },
+    installGuide: {
+      eyebrow: "Web app instalable",
+      title: "Guarda el planner en tu pantalla de inicio",
+      description:
+        "La URL canónica y segura es https://itam.humbertoschoenwald.com/. Cuando abras la web ahí, el planner podrá comportarse como una app web ligera instalada.",
+      iosTitle: "En iPhone y iPad",
+      iosSteps: [
+        "Abre la web en Safari.",
+        "Toca Compartir.",
+        "Elige Agregar a pantalla de inicio.",
+        "Ábrela desde el nuevo ícono para tener una experiencia más limpia y tipo app.",
+      ],
+      browserTitle: "En desktop y otros navegadores",
+      browserBody:
+        "Usa la URL segura canónica e instálala desde el menú del navegador cuando esa opción aparezca. Si todavía no ves la opción, guárdala como bookmark mientras aterriza el slice más amplio de instalación.",
+      cacheTitle: "Cache precalculado del catálogo",
+      cacheBody:
+        "Las relaciones entre materias, horarios y datos de soporte se sirven desde archivos JSON precalculados y cacheados por HTTP. No se recalculan en cada visita.",
+      openCanonicalSite: "Abrir la URL canónica segura",
     },
     studentCode: {
       browserOwned: "Solo de este navegador",

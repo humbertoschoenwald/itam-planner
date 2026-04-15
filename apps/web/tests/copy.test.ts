@@ -10,4 +10,8 @@ describe("getUiCopy", () => {
   it("returns English copy when requested", () => {
     expect(getUiCopy("en").common.community).toBe("Community");
   });
+
+  it("includes the iOS install guidance in Spanish-first copy", () => {
+    expect(getUiCopy("es-MX").installGuide.iosSteps[2]).toMatch(/Agregar a pantalla de inicio/u);
+  });
 });
