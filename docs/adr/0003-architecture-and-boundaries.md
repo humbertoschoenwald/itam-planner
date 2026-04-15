@@ -1,0 +1,60 @@
+# ADR-0003: Architecture and Boundaries
+
+- Status: Accepted
+- Date: 2026-04-15
+
+## Context
+
+The product must remain modular enough that the frontend can consume any compliant data source, and the backend can ingest data from any compliant extraction adapter. The user also wants the system decoupled enough that institutional adopters could take a slice of the codebase and integrate it into their own infrastructure without rewriting everything.
+
+## Decision
+
+The canonical architecture is layered and contract-driven.
+
+Primary boundaries:
+
+- `web` is a standalone frontend application.
+- `api` is a standalone backend application.
+- data extraction adapters are separate from backend framework glue.
+- public catalog persistence is separate from both web rendering and user state.
+
+Hard rules:
+
+- `web` must never depend on scraper internals.
+- `web` must consume stable contracts, not database schema details.
+- `api` must depend on interfaces or internal service boundaries, not on one specific source site.
+- scraper logic must be replaceable without rewriting the core API surface.
+- deployment adapters must not leak into core runtime logic.
+
+Embeddability requirement:
+
+The backend must be shaped so that a future adopter can mount, reuse, or port the service layer into an existing server environment with minimal coupling to repository-specific deployment assumptions.
+
+Contract requirement:
+
+Frontend and backend must converge through OpenAPI-derived contracts rather than duplicated handwritten DTOs.
+
+## Consequences
+
+- The repository stays modular and easier to adapt.
+- Source-site migration becomes cheaper.
+- The web application remains portable across deployment environments.
+- More interfaces and adapters may be needed later, but that complexity is intentional.
+
+## Alternatives Considered
+
+### Let the frontend read scraper outputs directly
+
+Rejected. That creates brittle coupling and makes future backend evolution harder.
+
+### Bind the backend tightly to one source site
+
+Rejected. The data source is an adapter concern, not a core platform concern.
+
+### Use a single monolithic app boundary
+
+Rejected. The repository needs clear separation between user experience, public API, and extraction logic.
+
+## Open Questions
+
+- Whether the public catalog pipeline should expose both JSON artifacts and live API reads in the first runnable scaffold.
