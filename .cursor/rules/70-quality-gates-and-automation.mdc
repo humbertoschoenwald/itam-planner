@@ -18,3 +18,5 @@ alwaysApply: true
 - RULE: Every parser, normalizer, repository, exporter, and applicability resolver must have unit tests.
 - RULE: Behavior changes must add or update tests when needed.
 - RULE: Use SSH for Git remotes and push operations.
+- RULE: GitHub Actions may use `GITHUB_TOKEN` for repository automation when hosted runners cannot use SSH.
+- RULE: Stable CI must stay green on `Node.js 24`, while current-line compatibility may run as a non-blocking canary.

@@ -3,8 +3,10 @@
 # brands, organizations, products, and places that are valid for this codebase
 # but should not weaken the general English dictionary.
 
+Fraunces
 Humbe
 Humberto
 HumbertoSchoenwald
+humbertoschoenwald
 Schoenwald
 ITAM

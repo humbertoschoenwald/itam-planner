@@ -3,14 +3,35 @@
   "private": true,
   "version": "26.04.0",
   "packageManager": "pnpm@10.33.0",
+  "engines": {
+    "node": ">=24 <26",
+    "pnpm": ">=10.33.0"
+  },
   "scripts": {
+    "build": "pnpm build:web",
     "dev:web": "pnpm --filter @itam-planner/web dev",
+    "catalog:fixtures": "uv run --project apps/api python -m itam_planner_api.cli ingest-fixtures --fixtures-root apps/api/tests/fixtures --public-data-root public-data",
+    "catalog:live": "uv run --project apps/api python -m itam_planner_api.cli ingest-live --public-data-root public-data",
+    "lint": "pnpm lint:repo && pnpm lint:web && pnpm lint:api",
+    "lint:commit-range": "commitlint --from=HEAD~10 --to=HEAD",
+    "lint:repo": "pnpm lint:repo:markdown && pnpm lint:repo:spelling",
+    "lint:repo:markdown": "markdownlint-cli2 \"*.md\" \"docs/**/*.md\" \".github/**/*.md\"",
+    "lint:repo:spelling": "cspell lint --config cspell.jsonc --gitignore README.md CONTRIBUTING.md AGENTS.md docs/**/*.md apps/**/*.ts apps/**/*.tsx .github/**/*.yml .cursor/rules/*.mdc",
     "build:web": "pnpm --filter @itam-planner/web build",
     "lint:web": "pnpm --filter @itam-planner/web lint",
     "test:web": "pnpm --filter @itam-planner/web test",
     "typecheck:web": "pnpm --filter @itam-planner/web typecheck",
     "test:api": "uv run --project apps/api --group dev pytest",
     "lint:api": "uv run --project apps/api --group dev ruff check apps/api",
-    "typecheck:api": "uv run --project apps/api --group dev basedpyright apps/api/src"
+    "typecheck:api": "uv run --project apps/api --group dev basedpyright apps/api/src",
+    "test": "pnpm test:web && pnpm test:api",
+    "typecheck": "pnpm typecheck:web && pnpm typecheck:api",
+    "verify": "pnpm lint && pnpm typecheck && pnpm test && pnpm build && pnpm catalog:fixtures && git diff --exit-code -- public-data/latest"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^20.1.0",
+    "@commitlint/config-conventional": "^20.0.0",
+    "cspell": "^10.0.0",
+    "markdownlint-cli2": "^0.22.0"
   }
 }

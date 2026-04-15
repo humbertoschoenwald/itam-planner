@@ -3,3 +3,16 @@
 # The goal is to preserve strict English spell-checking while still allowing
 # approved Spanish terms that are intentionally present in the repository.
 # Add only stable words that are expected to survive refactors and reviews.
+
+Autónomo
+Boletines
+boletines
+Calendarios
+Español
+Horarios
+Instituto
+México
+OTOÑO
+Reglamentos
+Servicios
+Tecnológico

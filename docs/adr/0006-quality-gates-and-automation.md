@@ -49,6 +49,8 @@ Execution rules:
 - CI must enforce the same policy classes as local tooling.
 - Repository settings and tool configs must not silently relax these rules.
 - Local workflow must not introduce artificial PR or branch overhead for a single maintainer.
+- GitHub Actions may use the repository `GITHUB_TOKEN` for repository automation such as scheduled public-data refresh commits when SSH is not available in the hosted runner context.
+- Required checks should stay green on the stable Node baseline, while current-line Node compatibility may run as a non-blocking canary.
 
 Text normalization rules:
 

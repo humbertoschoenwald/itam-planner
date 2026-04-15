@@ -1,0 +1,11 @@
+{
+  "config": {
+    "line-length": false,
+    "no-inline-html": false
+  },
+  "globs": [
+    "*.md",
+    "docs/**/*.md",
+    ".github/**/*.md"
+  ]
+}

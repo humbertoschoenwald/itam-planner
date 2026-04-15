@@ -2,6 +2,21 @@
 
 set -eu
 
+run_pnpm() {
+  if command -v pnpm >/dev/null 2>&1; then
+    pnpm "$@"
+    return
+  fi
+
+  if command -v npx >/dev/null 2>&1; then
+    npx pnpm@10.33.0 "$@"
+    return
+  fi
+
+  echo "pre-commit: pnpm or npx is required to run repository lint checks." >&2
+  exit 1
+}
+
 staged_files="$(git diff --cached --name-only --diff-filter=ACMR)"
 
 if [ -z "$staged_files" ]; then
@@ -14,3 +29,5 @@ for path in $staged_files; do
     exit 1
   fi
 done
+
+run_pnpm lint:repo

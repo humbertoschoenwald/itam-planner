@@ -2,6 +2,21 @@
 
 set -eu
 
+run_pnpm() {
+  if command -v pnpm >/dev/null 2>&1; then
+    pnpm "$@"
+    return
+  fi
+
+  if command -v npx >/dev/null 2>&1; then
+    npx pnpm@10.33.0 "$@"
+    return
+  fi
+
+  echo "pre-push: pnpm or npx is required." >&2
+  exit 1
+}
+
 origin_push_url="$(git remote get-url --push origin 2>/dev/null || true)"
 
 case "$origin_push_url" in
@@ -43,3 +58,10 @@ for path in $tracked_files; do
     exit 1
   fi
 done
+
+if ! command -v uv >/dev/null 2>&1; then
+  echo "pre-push: uv is required." >&2
+  exit 1
+fi
+
+run_pnpm verify

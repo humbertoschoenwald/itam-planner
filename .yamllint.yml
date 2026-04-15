@@ -1,0 +1,16 @@
+extends: default
+
+ignore: |
+  node_modules/
+  apps/web/node_modules/
+  apps/web/.next/
+
+rules:
+  document-start: disable
+  line-length: disable
+  truthy:
+    allowed-values:
+      - "true"
+      - "false"
+      - "on"
+      - "off"
