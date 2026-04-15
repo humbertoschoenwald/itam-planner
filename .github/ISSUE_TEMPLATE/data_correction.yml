@@ -1,0 +1,32 @@
+name: Data correction
+description: Report incorrect academic data in the normalized catalog.
+title: "[Data]: "
+labels:
+  - data
+body:
+  - type: textarea
+    id: source
+    attributes:
+      label: Source URL
+      description: Link the public ITAM source or copied source text.
+    validations:
+      required: true
+  - type: input
+    id: document
+    attributes:
+      label: Document or period
+      description: Bulletin, regulation, calendar, or schedule period.
+    validations:
+      required: true
+  - type: textarea
+    id: incorrect
+    attributes:
+      label: Incorrect normalized data
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Correct data
+    validations:
+      required: true

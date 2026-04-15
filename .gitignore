@@ -12,3 +12,11 @@ __pycache__/
 public-data/working/
 apps/api/.coverage
 apps/api/htmlcov/
+node_modules/
+apps/web/node_modules/
+apps/web/.next/
+apps/web/coverage/
+apps/web/.vercel/
+apps/web/.env.local
+apps/web/.env.*.local
+*.tsbuildinfo

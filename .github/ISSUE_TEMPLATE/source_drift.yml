@@ -1,0 +1,30 @@
+name: Source drift
+description: Report upstream source changes that break or threaten parsing and validation.
+title: "[Drift]: "
+labels:
+  - source-drift
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this template when a public ITAM page or document changed shape and the parser or validation logic no longer matches it.
+  - type: input
+    id: upstream_url
+    attributes:
+      label: Upstream URL
+    validations:
+      required: true
+  - type: textarea
+    id: changed
+    attributes:
+      label: What changed
+      description: Describe the upstream layout, schema, or content change.
+    validations:
+      required: true
+  - type: textarea
+    id: impact
+    attributes:
+      label: Observed impact
+      description: Parser failure, validation failure, missing data, or changed output.
+    validations:
+      required: true
