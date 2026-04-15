@@ -23,6 +23,7 @@ Do not edit it manually.
 - web: disable route prefetch on public shell (`2fdfecb`)
 - web: serve planner bootstrap from published catalog (`1628a45`)
 - web: split home onboarding and planner routes (`1fabc1d`)
+- web: explain planner onboarding redirect (`a645a48`)
 
 ### Documentation
 
