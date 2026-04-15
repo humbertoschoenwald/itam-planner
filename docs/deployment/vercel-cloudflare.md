@@ -34,6 +34,20 @@ Optional repository variable:
 
 Do not hardcode a generic CNAME target here. Vercel may request verification or target values that should be copied exactly from the domain setup UI at configuration time.
 
+## Current Vercel Record
+
+The current Vercel domain inspection for `itam.humbertoschoenwald.com` expects this DNS record:
+
+- `A itam.humbertoschoenwald.com 76.76.21.21`
+
+If Vercel changes that requirement later, prefer the current Vercel domain-inspection output over this note.
+
+## HTTPS and Browser Installability
+
+- The public site should only be treated as canonical over `https://`.
+- The web app now publishes a manifest, Apple web-app metadata, generated app icons, transport-security headers, and cache headers for the promoted JSON catalog.
+- The custom-domain TLS handshake will not complete until the `itam` DNS record exists and Vercel finishes domain verification.
+
 ## API Origin
 
 The public API origin is intentionally optional from the web runtime contract.
