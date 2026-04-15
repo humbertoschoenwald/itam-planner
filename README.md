@@ -87,9 +87,34 @@ pnpm typecheck:web
 
 The web app expects the API to be reachable through `NEXT_PUBLIC_ITAM_PLANNER_API_BASE_URL`. See `apps/web/.env.example`.
 
-## Community and Feedback
+### Repository-Wide Commands
 
-- Open issues on GitHub for bugs, source drift, data corrections, and feature requests.
-- Creator contact and feedback: [Instagram](https://www.instagram.com/humbertoschoenwald/)
+```sh
+pnpm lint
+pnpm typecheck
+pnpm test
+pnpm build
+pnpm verify
+```
 
-See `CONTRIBUTING.md` for reporting workflow, issue templates, and contribution expectations.
+## CI/CD and Delivery
+
+- GitHub Actions is the canonical automation surface for validation, deployment, and scheduled refresh.
+- Node 24 is the required stable baseline for the web workspace.
+- Node 25 runs as a non-blocking compatibility canary.
+- Vercel is the default web deployment target.
+- Cloudflare is reserved for DNS and hostname management around `itam.humbertoschoenwald.com`.
+
+See `docs/deployment/vercel-cloudflare.md` for the current delivery plan and required secrets.
+
+## Community and Contact
+
+- GitHub Issues are the only support and bug-reporting path.
+- The web app exposes the issue flows directly in its community section.
+- Creator profile: [Instagram](https://www.instagram.com/humbertoschoenwald/)
+
+The Instagram link exists for creator visibility and project updates. It is not a support channel and is not affiliated with ITAM.
+
+## Contributing Code
+
+See `CONTRIBUTING.md` for contribution quality rules, required checks, and rejection conditions.

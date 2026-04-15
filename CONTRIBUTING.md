@@ -1,73 +1,74 @@
 # Contributing to `itam-planner`
 
-Thank you for helping improve `itam-planner`.
+`itam-planner` is ADR-first, test-driven, and intentionally strict.
 
-## Before You Start
+This file is for contribution quality only. User support, bug reports, and issue-template guidance belong in the web app and the GitHub issue UI, not here.
 
-This repository is documentation-driven and ADR-first.
+## Read Before Changing Anything
 
-Before making structural changes:
+Before a structural or behavioral change:
 
 1. read `AGENTS.md`
 2. read the relevant `.cursor/rules/*.mdc`
 3. read the cited ADRs in `docs/adr/`
 
-## If You Need a GitHub Account
+If your change conflicts with doctrine, update doctrine first or stop.
 
-If you do not already have a GitHub account:
+## Quality Bar
 
-1. go to [GitHub Sign Up](https://github.com/signup)
-2. create your account
-3. verify your email address
-4. return to this repository and open an issue or fork the project
+Every accepted contribution must satisfy all of the following:
 
-## How to Report Something
+- Repository-facing content stays in English.
+- Changes remain atomic and traceable.
+- Conventional Commits are required.
+- Behavior changes add or update tests in the same change when needed.
+- Parser, schema, repository, exporter, and applicability logic changes require deterministic unit coverage.
+- No copied code, copied documentation, or lightly modified third-party code is allowed.
+- No auth, telemetry, analytics, tracking cookies, or backend user-state storage may be introduced.
+- `uv` is the only supported Python workflow.
+- The web and API paths must stay mainstream and maintainable.
 
-Use the GitHub issue templates in this repository:
+## Required Local Checks
 
-- `Bug Report`: broken behavior in the app or pipeline
-- `Data Correction`: incorrect normalized academic data
-- `Source Drift`: upstream public source changed and parsing or validation broke
-- `Feature Request`: new capability or UX proposal
-
-When possible, include:
-
-- the URL of the upstream source
-- the academic period or document involved
-- screenshots or copied text from the public source
-- expected behavior
-- actual behavior
-
-## Contribution Expectations
-
-- Keep repository-facing content in English.
-- Use Conventional Commits.
-- Keep changes atomic.
-- Update or add tests whenever behavior changes.
-- Do not add copied code or copied documentation from third-party repositories.
-- Do not introduce auth, telemetry, or backend user-state storage.
-
-## Local Quality Bar
-
-For Python changes:
-
-```sh
-uv run --project apps/api --group dev pytest
-uv run --project apps/api --group dev ruff check apps/api
-uv run --project apps/api --group dev basedpyright apps/api/src
-```
-
-For web changes:
+Run the full repository gate before pushing:
 
 ```sh
 pnpm install
-pnpm lint:web
-pnpm test:web
-pnpm typecheck:web
+pnpm verify
 ```
 
-## Community Contact
+The gate currently includes repository linting, web lint/typecheck/test/build, API lint/typecheck/test, and deterministic fixture regeneration for the public catalog snapshot.
 
-If you want to report something informally before opening an issue, creator contact is available on [Instagram](https://www.instagram.com/humbertoschoenwald/).
+## Focus Areas
 
-That contact path is community-facing only and is not official ITAM support.
+Good contributions usually fall into one of these categories:
+
+- parser fixes for public ITAM sources
+- normalization improvements for the public catalog
+- browser-local planner UX improvements
+- accessibility and Safari-first usability fixes
+- documentation and doctrine improvements
+- tests that prevent regressions in parsing, exports, and planner state
+
+## Rejection Conditions
+
+The maintainers should reject or request changes for contributions that:
+
+- skip doctrine updates when the architecture changed
+- weaken privacy guarantees
+- lower the test bar
+- mix unrelated concerns in one change
+- add stale, niche, or unnecessary tooling
+- hardcode deployment-specific assumptions into the core runtime
+- blur the boundary between public academic data and student-local state
+
+## Commit Shape
+
+Prefer one concern per commit.
+
+Examples:
+
+- `fix(api): handle unchanged source snapshots in live refresh`
+- `test(web): cover student-code regeneration on planner changes`
+- `docs(adr): clarify deployment invariants for ai context`
+- `ci(repo): add Node 24 baseline and Node 25 canary checks`

@@ -58,6 +58,8 @@ This bibliography lists the primary official references for the tools and standa
 - [GitHub Actions](https://docs.github.com/en/actions)
 - [GitHub Actions Workflow Syntax](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax)
 - [GitHub Actions Events](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows)
+- [Cloudflare DNS Documentation](https://developers.cloudflare.com/dns/)
+- [Cloudflare Workers Custom Domains](https://developers.cloudflare.com/workers/configuration/routing/custom-domains/)
 
 ## Product Context
 
