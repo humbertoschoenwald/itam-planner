@@ -1,8 +1,9 @@
 "use client";
 
 import { create } from "zustand";
-import { createJSONStorage, persist } from "zustand/middleware";
+import { persist } from "zustand/middleware";
 
+import { createSafeJsonStorage } from "@/lib/browser-storage";
 import { STORAGE_KEYS } from "@/lib/storage-keys";
 import type { PlannerState } from "@/lib/types";
 
@@ -18,15 +19,7 @@ interface PlannerStoreState {
   toggleOfferingId: (offeringId: string) => void;
 }
 
-const storage = createJSONStorage<PlannerStoreState>(() =>
-  typeof window === "undefined"
-    ? {
-        getItem: () => null,
-        setItem: () => undefined,
-        removeItem: () => undefined,
-      }
-    : window.localStorage,
-);
+const storage = createSafeJsonStorage<PlannerStoreState>();
 
 export const usePlannerStore = create<PlannerStoreState>()(
   persist(

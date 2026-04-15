@@ -1,8 +1,9 @@
 "use client";
 
 import { create } from "zustand";
-import { createJSONStorage, persist } from "zustand/middleware";
+import { persist } from "zustand/middleware";
 
+import { createSafeJsonStorage } from "@/lib/browser-storage";
 import { STORAGE_KEYS } from "@/lib/storage-keys";
 import type { LocaleCode, StudentProfile } from "@/lib/types";
 
@@ -20,15 +21,7 @@ interface StudentProfileStoreState {
   toggleActivePlanId: (planId: string) => void;
 }
 
-const storage = createJSONStorage<StudentProfileStoreState>(() =>
-  typeof window === "undefined"
-    ? {
-        getItem: () => null,
-        setItem: () => undefined,
-        removeItem: () => undefined,
-      }
-    : window.localStorage,
-);
+const storage = createSafeJsonStorage<StudentProfileStoreState>();
 
 export const useStudentProfileStore = create<StudentProfileStoreState>()(
   persist(

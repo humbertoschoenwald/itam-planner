@@ -1,8 +1,9 @@
 "use client";
 
 import { create } from "zustand";
-import { createJSONStorage, persist } from "zustand/middleware";
+import { persist } from "zustand/middleware";
 
+import { createSafeJsonStorage } from "@/lib/browser-storage";
 import { STORAGE_KEYS } from "@/lib/storage-keys";
 
 interface StudentCodeStoreState {
@@ -11,15 +12,7 @@ interface StudentCodeStoreState {
   setCode: (code: string) => void;
 }
 
-const storage = createJSONStorage<StudentCodeStoreState>(() =>
-  typeof window === "undefined"
-    ? {
-        getItem: () => null,
-        setItem: () => undefined,
-        removeItem: () => undefined,
-      }
-    : window.localStorage,
-);
+const storage = createSafeJsonStorage<StudentCodeStoreState>();
 
 export const useStudentCodeStore = create<StudentCodeStoreState>()(
   persist(
