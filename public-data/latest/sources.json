@@ -2,10 +2,18 @@
   "scrape_runs": [
     {
       "run_id": "fixtures",
-      "started_at": "2026-04-15T10:51:29.886684+00:00",
-      "completed_at": null,
-      "status": "running",
+      "started_at": "2026-04-15T11:35:57.887213+00:00",
+      "completed_at": "2026-04-15T11:36:02.100270+00:00",
+      "status": "succeeded",
       "notes": "fixture ingestion"
+    }
+  ],
+  "promoted_releases": [
+    {
+      "release_id": "fixtures",
+      "run_id": "fixtures",
+      "promoted_at": "2026-04-15T11:36:02.103843+00:00",
+      "notes": "fixture promotion"
     }
   ],
   "source_snapshots": [
@@ -25,8 +33,8 @@
       "snapshot_id": "bulletin-act-g:deeee4d2bda1e0d4",
       "run_id": "fixtures",
       "source_id": "bulletin-act-g",
-      "upstream_url": "https://horariositam.com/boletines.html/bulletin_sample_act_g.pdf",
-      "observed_at": "2026-04-15T10:51:29.890512+00:00",
+      "upstream_url": "https://horariositam.com/assets/boletines/ACT-G.pdf",
+      "observed_at": "2026-04-15T11:35:57.890568+00:00",
       "content_hash": "deeee4d2bda1e0d41af72d77d9f8db5daa1f8ef05ec2699ae960e6430d377f4f",
       "parse_status": "parsed",
       "media_type": "application/pdf",
@@ -37,8 +45,8 @@
       "snapshot_id": "bulletin-ma-e:41a2c68970220780",
       "run_id": "fixtures",
       "source_id": "bulletin-ma-e",
-      "upstream_url": "https://horariositam.com/boletines.html/bulletin_sample_ma_e.pdf",
-      "observed_at": "2026-04-15T10:51:29.890512+00:00",
+      "upstream_url": "https://horariositam.com/assets/boletines/MA-E.pdf",
+      "observed_at": "2026-04-15T11:35:57.890568+00:00",
       "content_hash": "41a2c689702207808fe1b7331a329158710987e0a26f63d68c700d38ae26976c",
       "parse_status": "parsed",
       "media_type": "application/pdf",
@@ -46,23 +54,23 @@
       "size_bytes": 412515
     },
     {
-      "snapshot_id": "calendar-links:f0877000941dbcfd",
+      "snapshot_id": "calendar-links:19e60e354bfdf37a",
       "run_id": "fixtures",
       "source_id": "calendar-links",
       "upstream_url": "https://escolar.itam.mx/servicios_escolares/servicios_calendarios.php",
-      "observed_at": "2026-04-15T10:51:29.890512+00:00",
-      "content_hash": "f0877000941dbcfdf07b3a28961d809cde50792daf949d215c164944060830a5",
+      "observed_at": "2026-04-15T11:35:57.890568+00:00",
+      "content_hash": "19e60e354bfdf37a1e6fc283d2e560b016f6803a5a1abe32c208c9998de60303",
       "parse_status": "parsed",
       "media_type": "text/html",
       "relative_path": null,
-      "size_bytes": 12271
+      "size_bytes": 12522
     },
     {
       "snapshot_id": "payment-calendar-2026:d886ad03e28e69bc",
       "run_id": "fixtures",
       "source_id": "payment-calendar-2026",
       "upstream_url": "https://escolar.itam.mx/servicios_escolares/calendarios/Lic-2026 Pagos.pdf",
-      "observed_at": "2026-04-15T10:51:29.890512+00:00",
+      "observed_at": "2026-04-15T11:35:57.890568+00:00",
       "content_hash": "d886ad03e28e69bc40e2dccfd4d9b5b673c799d026e14670b2aefe506d7a4836",
       "parse_status": "parsed",
       "media_type": "application/pdf",
@@ -74,7 +82,7 @@
       "run_id": "fixtures",
       "source_id": "regulation-post-2025",
       "upstream_url": "https://escolar.itam.mx/documentos/reg_licenciatura.pdf",
-      "observed_at": "2026-04-15T10:51:29.890512+00:00",
+      "observed_at": "2026-04-15T11:35:57.890568+00:00",
       "content_hash": "5a9c85bdd8dabb126b5a58cb14cdf4e4dcd72214c58bbb9f405d251a8ac7fb56",
       "parse_status": "parsed",
       "media_type": "application/pdf",
@@ -86,7 +94,7 @@
       "run_id": "fixtures",
       "source_id": "regulation-pre-2025",
       "upstream_url": "https://escolar.itam.mx/documentos/reg_lic.pdf",
-      "observed_at": "2026-04-15T10:51:29.890512+00:00",
+      "observed_at": "2026-04-15T11:35:57.890568+00:00",
       "content_hash": "cb3f18637f51679e808e96b9dc0d96cc1db76e44533e97a0769fe9fb71c8b20d",
       "parse_status": "parsed",
       "media_type": "application/pdf",
@@ -94,23 +102,47 @@
       "size_bytes": 803781
     },
     {
-      "snapshot_id": "schedule-menu:7c67fbf32b63c555",
+      "snapshot_id": "schedule-menu:f6c2a4a8efba99db",
       "run_id": "fixtures",
       "source_id": "schedule-menu",
       "upstream_url": "https://itaca2.itam.mx:8443/b9prod/edsup/BWZKSENP.P_MenuServNoPers",
-      "observed_at": "2026-04-15T10:51:29.890512+00:00",
-      "content_hash": "7c67fbf32b63c555fe2d4cf0ec2e9c344bf3bed9151a042033f1c33ab4c2b4fa",
+      "observed_at": "2026-04-15T11:35:57.890568+00:00",
+      "content_hash": "f6c2a4a8efba99db25bcb102a658aab110af1f8864de65f8179b80f89a911dd2",
       "parse_status": "parsed",
       "media_type": "text/html",
       "relative_path": null,
-      "size_bytes": 8236
+      "size_bytes": 8237
+    },
+    {
+      "snapshot_id": "schedule-offering-2938-act-11300:a2c474d2e8b709b3",
+      "run_id": "fixtures",
+      "source_id": "schedule-offering-2938-act-11300",
+      "upstream_url": "https://itaca2.itam.mx:8443/b9prod/edsup/BWZKSENP.P_Horarios2",
+      "observed_at": "2026-04-15T11:35:57.890568+00:00",
+      "content_hash": "a2c474d2e8b709b3b05571465cb83e090eb32819e22f85e01c917f1070ac6dc5",
+      "parse_status": "parsed",
+      "media_type": "text/html",
+      "relative_path": null,
+      "size_bytes": 8773
+    },
+    {
+      "snapshot_id": "schedule-period-2938:5471465fbd1e85a0",
+      "run_id": "fixtures",
+      "source_id": "schedule-period-2938",
+      "upstream_url": "https://itaca2.itam.mx:8443/b9prod/edsup/BWZKSENP.P_Horarios1?s=2938",
+      "observed_at": "2026-04-15T11:35:57.890568+00:00",
+      "content_hash": "5471465fbd1e85a0d090929083809d5f988ce56018c64a790022f08d809d3df5",
+      "parse_status": "parsed",
+      "media_type": "text/html",
+      "relative_path": null,
+      "size_bytes": 33929
     },
     {
       "snapshot_id": "school-calendar-2026:97e4c440b87897b9",
       "run_id": "fixtures",
       "source_id": "school-calendar-2026",
       "upstream_url": "https://escolar.itam.mx/servicios_escolares/calendarios/calesc2026.pdf",
-      "observed_at": "2026-04-15T10:51:29.890512+00:00",
+      "observed_at": "2026-04-15T11:35:57.890568+00:00",
       "content_hash": "97e4c440b87897b9bc6fde74b8418a456d9503c218a0feaaca5fe053ccf94764",
       "parse_status": "parsed",
       "media_type": "application/pdf",
@@ -122,7 +154,7 @@
       "run_id": "fixtures",
       "source_id": "services-home",
       "upstream_url": "https://servicios.itam.mx/",
-      "observed_at": "2026-04-15T10:51:29.890512+00:00",
+      "observed_at": "2026-04-15T11:35:57.890568+00:00",
       "content_hash": "ba5f42be0475c7e8fa1d0cfcc2e4d8e42e7a08e1ac21757a3f1b6b5e93eb3319",
       "parse_status": "parsed",
       "media_type": "text/html",
@@ -134,11 +166,11 @@
       "run_id": "fixtures",
       "source_id": "services-manual",
       "upstream_url": "https://servicios.itam.mx/template/image/Manual%20Restablecer%20Contrasenia%20Correo.pdf",
-      "observed_at": "2026-04-15T10:51:29.890512+00:00",
+      "observed_at": "2026-04-15T11:35:57.890568+00:00",
       "content_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "parse_status": "parsed",
+      "parse_status": "skipped",
       "media_type": "application/pdf",
-      "relative_path": "skipped",
+      "relative_path": null,
       "size_bytes": 0
     }
   ]
