@@ -16,7 +16,11 @@ export default function CommunityPage() {
   return (
     <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col gap-6 px-5 py-8 sm:px-8 sm:py-12">
       <div className="flex flex-col gap-3">
-        <Link className="text-sm font-medium text-accent underline-offset-4 hover:underline" href="/">
+        <Link
+          className="text-sm font-medium text-accent underline-offset-4 hover:underline"
+          href="/"
+          prefetch={false}
+        >
           {copy.common.backToPlanner}
         </Link>
         <p className="eyebrow">{copy.communityPage.eyebrow}</p>

@@ -173,10 +173,14 @@ export function PlannerHome() {
 
             <div className="flex flex-wrap gap-3">
               <Button asChild>
-                <Link href="/connect-chatgpt">{copy.common.connectToChatGpt}</Link>
+                <Link href="/connect-chatgpt" prefetch={false}>
+                  {copy.common.connectToChatGpt}
+                </Link>
               </Button>
               <Button asChild variant="secondary">
-                <Link href="/community">{copy.common.community}</Link>
+                <Link href="/community" prefetch={false}>
+                  {copy.common.community}
+                </Link>
               </Button>
               <Button asChild variant="secondary">
                 <a

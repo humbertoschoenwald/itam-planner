@@ -20,7 +20,7 @@ export function SiteHeader() {
     <header className="sticky top-0 z-40 border-b border-border/70 bg-surface/84 backdrop-blur-xl">
       <div className="mx-auto flex w-full max-w-7xl flex-col gap-4 px-5 py-4 sm:px-8 lg:flex-row lg:items-center lg:justify-between">
         <div className="flex flex-wrap items-center gap-3">
-          <Link className="font-display text-2xl text-foreground" href="/">
+          <Link className="font-display text-2xl text-foreground" href="/" prefetch={false}>
             ITAM Planner
           </Link>
           <span className="rounded-full border border-accent/12 bg-accent-soft px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-accent">
@@ -39,6 +39,7 @@ export function SiteHeader() {
                   : "hover:bg-surface-elevated hover:text-foreground",
               ].join(" ")}
               href={link.href}
+              prefetch={false}
             >
               {link.label}
             </Link>
