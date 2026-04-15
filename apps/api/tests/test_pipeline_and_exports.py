@@ -140,3 +140,15 @@ def test_live_build_records_drift_and_preserves_latest(
     )
     assert drift_report["status"] == "drift_detected"
     assert "services-home" in drift_report["changed_source_ids"]
+
+
+def test_fixture_text_payload_normalization_is_platform_stable(tmp_path) -> None:
+    windows_path = tmp_path / "windows.html"
+    unix_path = tmp_path / "unix.html"
+
+    windows_path.write_text("alpha\r\nbeta\r\n", encoding="utf-8", newline="")
+    unix_path.write_text("alpha\nbeta\n", encoding="utf-8", newline="")
+
+    assert builder._read_fixture_text_payload(windows_path) == builder._read_fixture_text_payload(
+        unix_path
+    )

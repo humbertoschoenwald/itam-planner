@@ -241,22 +241,24 @@ def _build_fixture_live_bundle(fixtures_root: Path) -> LiveSourceBundle:
     pdf_root = fixtures_root / "pdfs"
     observed_at = FIXTURE_OBSERVED_AT
 
-    services_payload = (html_root / "servicios_itam.html").read_bytes()
+    services_payload = _read_fixture_text_payload(html_root / "servicios_itam.html")
     services_html = services_payload.decode("utf-8")
     _, manual_url = parse_services_page(services_html, SERVICES_URL)
 
-    calendars_payload = (html_root / "servicios_calendarios.html").read_bytes()
+    calendars_payload = _read_fixture_text_payload(html_root / "servicios_calendarios.html")
     calendar_links = parse_calendars_page(calendars_payload.decode("utf-8"), CALENDARS_URL)
 
-    boletines_payload = (html_root / "boletines_index.html").read_bytes()
+    boletines_payload = _read_fixture_text_payload(html_root / "boletines_index.html")
     boletines_observed_at, bulletin_links = parse_boletines_index(
         boletines_payload.decode("utf-8"), BOLETINES_URL
     )
     bulletin_url_by_code = {bulletin.code: bulletin.url for bulletin in bulletin_links}
 
-    schedule_menu_payload = (html_root / "menu_servicios_no_personalizados.html").read_bytes()
-    schedule_period_payload = (html_root / "horarios_period_2938.html").read_bytes()
-    schedule_offering_payload = (html_root / "horarios_act_11300.html").read_bytes()
+    schedule_menu_payload = _read_fixture_text_payload(
+        html_root / "menu_servicios_no_personalizados.html"
+    )
+    schedule_period_payload = _read_fixture_text_payload(html_root / "horarios_period_2938.html")
+    schedule_offering_payload = _read_fixture_text_payload(html_root / "horarios_act_11300.html")
 
     return LiveSourceBundle(
         services_page=_material(
@@ -598,6 +600,10 @@ def _collect_live_source_bundle(client: httpx.Client, raw_root: Path) -> LiveSou
         schedule_period_pages=schedule_period_pages,
         schedule_offering_pages=schedule_offering_pages,
     )
+
+
+def _read_fixture_text_payload(path: Path) -> bytes:
+    return path.read_text(encoding="utf-8").replace("\r\n", "\n").encode("utf-8")
 
 
 def _record_live_bundle_snapshots(

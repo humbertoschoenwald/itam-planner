@@ -54,16 +54,16 @@
       "size_bytes": 412515
     },
     {
-      "snapshot_id": "calendar-links:19e60e354bfdf37a",
+      "snapshot_id": "calendar-links:f0877000941dbcfd",
       "run_id": "fixtures",
       "source_id": "calendar-links",
       "upstream_url": "https://escolar.itam.mx/servicios_escolares/servicios_calendarios.php",
       "observed_at": "2026-04-15T11:36:01+00:00",
-      "content_hash": "19e60e354bfdf37a1e6fc283d2e560b016f6803a5a1abe32c208c9998de60303",
+      "content_hash": "f0877000941dbcfdf07b3a28961d809cde50792daf949d215c164944060830a5",
       "parse_status": "parsed",
       "media_type": "text/html",
       "relative_path": null,
-      "size_bytes": 12522
+      "size_bytes": 12271
     },
     {
       "snapshot_id": "payment-calendar-2026:d886ad03e28e69bc",
@@ -102,40 +102,40 @@
       "size_bytes": 803781
     },
     {
-      "snapshot_id": "schedule-menu:f6c2a4a8efba99db",
+      "snapshot_id": "schedule-menu:7c67fbf32b63c555",
       "run_id": "fixtures",
       "source_id": "schedule-menu",
       "upstream_url": "https://itaca2.itam.mx:8443/b9prod/edsup/BWZKSENP.P_MenuServNoPers",
       "observed_at": "2026-04-15T11:36:01+00:00",
-      "content_hash": "f6c2a4a8efba99db25bcb102a658aab110af1f8864de65f8179b80f89a911dd2",
+      "content_hash": "7c67fbf32b63c555fe2d4cf0ec2e9c344bf3bed9151a042033f1c33ab4c2b4fa",
       "parse_status": "parsed",
       "media_type": "text/html",
       "relative_path": null,
-      "size_bytes": 8237
+      "size_bytes": 8236
     },
     {
-      "snapshot_id": "schedule-offering-2938-act-11300:a2c474d2e8b709b3",
+      "snapshot_id": "schedule-offering-2938-act-11300:3df34e819457e8f7",
       "run_id": "fixtures",
       "source_id": "schedule-offering-2938-act-11300",
       "upstream_url": "https://itaca2.itam.mx:8443/b9prod/edsup/BWZKSENP.P_Horarios2",
       "observed_at": "2026-04-15T11:36:01+00:00",
-      "content_hash": "a2c474d2e8b709b3b05571465cb83e090eb32819e22f85e01c917f1070ac6dc5",
+      "content_hash": "3df34e819457e8f72e99d60fd60c70c4545e3e8ec34cc4a5a7f58ff5320115e2",
       "parse_status": "parsed",
       "media_type": "text/html",
       "relative_path": null,
-      "size_bytes": 8773
+      "size_bytes": 8772
     },
     {
-      "snapshot_id": "schedule-period-2938:5471465fbd1e85a0",
+      "snapshot_id": "schedule-period-2938:4df878ec2ae84593",
       "run_id": "fixtures",
       "source_id": "schedule-period-2938",
       "upstream_url": "https://itaca2.itam.mx:8443/b9prod/edsup/BWZKSENP.P_Horarios1?s=2938",
       "observed_at": "2026-04-15T11:36:01+00:00",
-      "content_hash": "5471465fbd1e85a0d090929083809d5f988ce56018c64a790022f08d809d3df5",
+      "content_hash": "4df878ec2ae8459379420c40207720f430dab52cf3b6e0478f3fe25751caa56b",
       "parse_status": "parsed",
       "media_type": "text/html",
       "relative_path": null,
-      "size_bytes": 33929
+      "size_bytes": 33928
     },
     {
       "snapshot_id": "school-calendar-2026:97e4c440b87897b9",
