@@ -38,7 +38,7 @@ Applicability rules:
 
 Source-specific schema requirements:
 
-- boletines must normalize program, plan, cohort applicability, course requirements, and prerequisite references
+- boletines discovery may include PDFs outside the current v1 curricular-plan shape; only compatible plan-structured PDFs populate the canonical bulletin documents, requirements, and prerequisite references tables
 - calendars must normalize document metadata, legend symbols, and event rows
 - regulations must normalize document metadata plus searchable sections
 - schedules must normalize periods, subjects, offerings, meetings, campuses, rooms, instructors, and raw comments

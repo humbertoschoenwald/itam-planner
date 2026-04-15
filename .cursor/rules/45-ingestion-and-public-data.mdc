@@ -14,6 +14,7 @@ alwaysApply: true
 - RULE: Compare live source hashes and discovered source sets against the last promoted release before rebuilding.
 - RULE: If nothing changed, stop with `no_changes` and do not promote a new dataset.
 - RULE: If a changed run fails validation, preserve the last promoted release and emit drift diagnostics under `public-data/working/`.
+- RULE: When a discovered bulletin PDF does not fit the current canonical academic-plan schema, record the source snapshot as `failed` and exclude it from canonical bulletin exports instead of promoting malformed plan data.
 - RULE: Use SQLite as the canonical normalized public data store and JSON as the read-only export layer.
 - RULE: The first production web deployment may ship the published JSON projections directly as static artifacts.
 - RULE: Preserve `active_from`, `active_to`, `entry_from_term`, and `entry_to_term` wherever they meaningfully apply.

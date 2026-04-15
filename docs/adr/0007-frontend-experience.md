@@ -41,6 +41,7 @@ Initial product-surface rules:
 
 - The home experience starts with onboarding rather than account creation.
 - The onboarding flow must explicitly state that no account is required.
+- The onboarding flow must collect entry term through structured selectors for academic season and year rather than a free-text input.
 - The first stable user-facing routes are `/`, `/onboarding`, `/planner`, and a community/help surface.
 - `/` is a lightweight public home and must not be the primary planner shell.
 - `/onboarding` is the dedicated profile bootstrap route for browser-local student context.
@@ -48,6 +49,7 @@ Initial product-surface rules:
 - `/planner` must degrade safely when onboarding state is incomplete.
 - Standard browser tabs may redirect browser-side from `/planner` to `/onboarding`, but the route must remain usable even if that redirect is blocked or unstable in a constrained client such as an installed web app.
 - The dedicated planner route must keep the initial document lean. Heavy schedule detail payloads belong in precomputed JSON artifacts fetched on demand, not embedded wholesale into the initial HTML shell.
+- The public runtime should expose a local recovery surface for fatal route errors that explains the failure path and lets the user clear browser-owned planner state before restarting onboarding.
 - The Connect to ChatGPT flow comes after the planner state exists and may be teased earlier, but its final route contract is deferred until that slice begins.
 
 ## Consequences
