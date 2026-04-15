@@ -12,11 +12,13 @@ The repository needs a deterministic ingestion lifecycle for public academic sou
 The ingestion lifecycle is:
 
 1. fetch public source content into a working area
-2. record a scrape run and source snapshots with content hashes
-3. parse into a staging SQLite database
-4. validate required counts, required fields, and schema invariants
-5. generate JSON exports from the staging SQLite database
-6. atomically promote the SQLite snapshot and JSON exports only if validation passes
+2. compare hashes and discovered source sets against the last promoted release
+3. if nothing changed, record `no_changes` and stop
+4. if anything changed, record a scrape run and source snapshots with content hashes
+5. parse into a staging SQLite database
+6. validate required counts, required fields, and schema invariants
+7. generate JSON exports from the staging SQLite database
+8. atomically promote the SQLite snapshot and JSON exports only if validation passes
 
 Source lifecycle rules:
 
@@ -24,6 +26,14 @@ Source lifecycle rules:
 - Every snapshot must keep upstream URL, observed time, content hash, and parse status.
 - Source artifacts may be cached temporarily for parsing, but cached raw files are not the canonical public artifact.
 - Failed parsing or failed validation must leave the last promoted public dataset untouched.
+- Source snapshot status values may include `unchanged` when a live comparison determines that the upstream content did not change.
+
+Change-handling rules:
+
+- Comparison must always target the last promoted release, not merely the last attempted run.
+- A live run with identical content hashes and identical discovered source sets must not rebuild or promote a new dataset.
+- A changed run that fails validation must emit drift diagnostics to a machine-readable file under `public-data/working/`.
+- The repository does not auto-rewrite or auto-learn new parser logic in v1. Parser updates remain manual and test-backed.
 
 Scheduling rules:
 
@@ -35,6 +45,7 @@ Scheduling rules:
 - Publication becomes safer and auditable.
 - The pipeline can evolve source by source without risking a broken public dataset.
 - Scrape drift is visible through snapshot metadata and validation failures.
+- Upstream polling becomes cheaper because unchanged runs can stop before the expensive parsing and promotion phases.
 
 ## Alternatives Considered
 
@@ -45,6 +56,10 @@ Rejected. That makes failed or partial runs too dangerous.
 ### Publish raw artifacts as the main dataset
 
 Rejected. Raw artifacts are useful inputs, not the final public data contract.
+
+### Rebuild on every live run even when nothing changed
+
+Rejected. That adds unnecessary work and noise while making drift harder to distinguish from ordinary refreshes.
 
 ## Open Questions
 

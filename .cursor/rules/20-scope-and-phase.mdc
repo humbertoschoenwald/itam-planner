@@ -7,7 +7,6 @@ alwaysApply: true
 
 # Scope And Phase
 
-- RULE: The current slice is the backend public-data foundation.
-- RULE: Implement `apps/api`, deterministic ingestion, normalized SQLite persistence, JSON exports, and tests.
-- RULE: Do not jump ahead into `apps/web`, onboarding UX, maps, authenticated scraping, or AI features unless directly instructed.
-- RULE: Keep the slice bounded to public academic data ingestion and publication.
+- RULE: Follow the current ordered slices: community surfaces, web planner shell, browser-local planner state, then the external AI connection flow.
+- RULE: Implement `apps/api`, `apps/web`, onboarding, planner-local state, and student-code foundations before freezing the final AI route contract.
+- RULE: Keep authenticated scraping, maps, and parser self-repair out of the current runtime slice unless doctrine changes first.

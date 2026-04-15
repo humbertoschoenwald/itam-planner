@@ -63,3 +63,10 @@ This bibliography lists the primary official references for the tools and standa
 
 - [Cloudflare](https://developers.cloudflare.com/)
 - [WebKit](https://webkit.org/)
+
+## Inspiration and Public Sources
+
+- [Horarios-ITAM](https://github.com/Horarios-ITAM/horariosITAM)
+- [ITAM Servicios](https://servicios.itam.mx/)
+- [ITAM Reglamentos y Calendarios](https://escolar.itam.mx/servicios_escolares/servicios_calendarios.php)
+- [Horarios ITAM Boletines](https://horariositam.com/boletines.html)

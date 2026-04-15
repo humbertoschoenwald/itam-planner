@@ -4,12 +4,16 @@ alwaysApply: true
 ---
 
 @file ../../docs/adr/0009-ingestion-and-snapshot-lifecycle.md
+@file ../../docs/adr/0012-source-change-detection-and-drift-handling.md
 @file ../../docs/adr/0010-academic-catalog-schema-and-applicability.md
 @file ../../docs/adr/0011-public-artifact-publishing-model.md
 
 # Ingestion And Public Data
 
 - RULE: Fetch to a working area, parse into staging SQLite, validate, generate JSON, and only then promote public artifacts.
+- RULE: Compare live source hashes and discovered source sets against the last promoted release before rebuilding.
+- RULE: If nothing changed, stop with `no_changes` and do not promote a new dataset.
+- RULE: If a changed run fails validation, preserve the last promoted release and emit drift diagnostics under `public-data/working/`.
 - RULE: Use SQLite as the canonical normalized public data store and JSON as the read-only export layer.
 - RULE: Preserve `active_from`, `active_to`, `entry_from_term`, and `entry_to_term` wherever they meaningfully apply.
 - RULE: Keep raw source files as inputs, not as the canonical public read model.

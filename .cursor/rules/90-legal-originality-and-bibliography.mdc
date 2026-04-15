@@ -12,3 +12,5 @@ alwaysApply: true
 - RULE: All implementation must be original and written from scratch.
 - RULE: Do not copy code, proprietary assets, or unique documentation strings from prior repositories.
 - RULE: Keep the bibliography current when doctrine adopts or removes a major tool or standard.
+- RULE: Credit `Horarios-ITAM` as inspiration where repository docs describe project lineage.
+- RULE: Acknowledge public ITAM source material where repository docs describe data provenance.

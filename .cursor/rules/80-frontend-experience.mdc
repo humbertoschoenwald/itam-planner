@@ -4,6 +4,7 @@ alwaysApply: true
 ---
 
 @file ../../docs/adr/0007-frontend-experience.md
+@file ../../docs/adr/0013-portable-student-code-and-external-ai-context.md
 
 # Frontend Experience
 
@@ -11,3 +12,6 @@ alwaysApply: true
 - RULE: Keep product UI Spanish-first with English as the secondary locale.
 - RULE: Keep repository-facing content in English.
 - RULE: Favor stable browser APIs and lightweight frontend decisions that work well on WebKit.
+- RULE: Start the product flow with onboarding and a real planner shell, not an account wall.
+- RULE: State clearly that no account is required.
+- RULE: Treat the final Connect to ChatGPT route and setup flow as a follow-up slice after planner state exists.

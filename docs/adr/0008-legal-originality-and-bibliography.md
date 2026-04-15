@@ -23,24 +23,32 @@ Originality rules:
 - No source code may be copied, translated, ported, lightly modified, or reused from prior repositories.
 - Third-party repositories may be used for inspiration, requirements analysis, and behavioral research only.
 - Do not copy proprietary assets, unique strings, or documentation text line by line.
+- Repository-facing docs must explicitly credit `Horarios-ITAM` as inspiration when describing project lineage or problem-space context.
+- Public academic ITAM source pages and documents must be acknowledged as source material for ingestion when repository docs describe data provenance.
 
 Bibliography rules:
 
 - A maintained bibliography document must exist under `docs/bibliography/`.
 - Major tools, standards, and external references used by repository doctrine must be listed there with official links.
 - ADRs may reference those materials rather than duplicating link lists in every file.
+- The bibliography may include inspiration and public-source references in addition to tooling references when they materially shape repository doctrine.
 
 ## Consequences
 
 - The repository gets a clear legal posture.
 - Future contributors have a documented standard for originality.
 - Tooling and standards remain auditable over time.
+- Attribution stays explicit without weakening the from-scratch authorship position.
 
 ## Alternatives Considered
 
 ### Omit a bibliography and rely on scattered links
 
 Rejected. That would make doctrine harder to review and update.
+
+### Omit explicit inspiration credit
+
+Rejected. The repository wants clear attribution without any ambiguity about code originality.
 
 ### Use a softer originality statement
 

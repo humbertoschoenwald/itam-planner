@@ -4,6 +4,7 @@ alwaysApply: true
 ---
 
 @file ../../docs/adr/0004-state-privacy-and-public-data.md
+@file ../../docs/adr/0013-portable-student-code-and-external-ai-context.md
 
 # State Privacy And Public Data
 
@@ -11,3 +12,5 @@ alwaysApply: true
 - RULE: Do not add auth, user accounts, sessions, analytics, tracking cookies, or personal telemetry.
 - RULE: Public catalog persistence is allowed, but it must stay strictly separate from user state.
 - RULE: Never use public-data persistence as a side channel for identity, preferences, or schedules.
+- RULE: Student code must stay browser-owned, self-contained, and free of identity data.
+- RULE: Any future AI-context endpoint must derive read-only context on demand without persisting the token or the response.

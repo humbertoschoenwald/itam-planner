@@ -32,12 +32,17 @@ Token portability:
 
 - Import and export mechanisms for personal schedules may exist later.
 - Any such mechanism must remain client-driven and privacy-preserving.
+- The repository now adopts a portable browser-owned student code as a future-facing contract.
+- The student code must be self-contained and must not act as a backend record locator.
+- The student code may carry planner profile and planner state, but it must never carry identity fields such as name, email, phone number, or student ID.
+- Any future AI context endpoint must derive personalized read-only context on demand from the student code plus the promoted public dataset, without persisting the token or the derived response.
 
 ## Consequences
 
 - The privacy model stays simple and defensible.
 - Public data can be cached and normalized without compromising users.
 - The repository avoids legal and operational complexity tied to personal data storage.
+- Future AI usage can stay external and read-only without weakening the privacy model.
 
 ## Alternatives Considered
 
@@ -52,6 +57,10 @@ Rejected. Public data persistence is operationally useful and does not violate t
 ### Use cookies or IndexedDB as canonical personal state
 
 Rejected. The canonical v1 personal state store is `localStorage`.
+
+### Use the student code as a backend lookup key
+
+Rejected. That would turn a portable browser-owned token into server-side personal storage by indirection.
 
 ## Open Questions
 

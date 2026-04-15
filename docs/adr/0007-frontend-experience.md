@@ -32,11 +32,19 @@ Framework discipline:
 - Do not couple the runtime to a host-specific routing scheme.
 - Keep server-side dependencies disciplined so the frontend remains portable and independently deployable.
 
+Initial product-surface rules:
+
+- The home experience starts with onboarding rather than account creation.
+- The onboarding flow must explicitly state that no account is required.
+- The first stable user-facing routes are the home planner entry and a community/help surface.
+- The Connect to ChatGPT flow comes after the planner state exists and may be teased earlier, but its final route contract is deferred until that slice begins.
+
 ## Consequences
 
 - The user experience target is explicit before UI work begins.
 - The repository avoids mixing documentation language with product language.
 - Frontend architecture remains compatible with a refined Vercel deployment path without depending on it.
+- The first runtime shell is forced toward a practical onboarding and planner flow instead of an empty marketing landing page.
 
 ## Alternatives Considered
 
@@ -54,4 +62,4 @@ Rejected. The repository needs a mainstream, concrete frontend baseline now.
 
 ## Open Questions
 
-- Whether the first runtime scaffold should include a PWA shell and iOS install guidance or leave that for a later slice.
+- Whether the first Connect to ChatGPT slice should initially prioritize browser instructions, iPhone instructions, or both at once.

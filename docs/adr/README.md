@@ -60,3 +60,5 @@ Current high-impact derived files include:
 - `0009-ingestion-and-snapshot-lifecycle.md`
 - `0010-academic-catalog-schema-and-applicability.md`
 - `0011-public-artifact-publishing-model.md`
+- `0012-source-change-detection-and-drift-handling.md`
+- `0013-portable-student-code-and-external-ai-context.md`
