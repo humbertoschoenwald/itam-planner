@@ -12,6 +12,8 @@ alwaysApply: true
 - RULE: Keep product UI Spanish-first with English as the secondary locale.
 - RULE: Keep repository-facing content in English.
 - RULE: Favor stable browser APIs and lightweight frontend decisions that work well on WebKit.
+- RULE: Support both light and dark presentation and default to the system color-scheme preference.
+- RULE: Target WCAG 2.2 AA in product decisions and avoid public conformance claims until the relevant UI slice is actually audited.
 - RULE: Start the product flow with onboarding and a real planner shell, not an account wall.
 - RULE: State clearly that no account is required.
 - RULE: Treat the final Connect to ChatGPT route and setup flow as a follow-up slice after planner state exists.

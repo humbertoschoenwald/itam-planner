@@ -18,7 +18,12 @@ Frontend experience rules:
 - Support iPad, macOS, Windows, Chrome, and other evergreen browsers as secondary targets.
 - Prefer stable browser APIs with good WebKit behavior.
 - Keep the frontend lightweight and visually polished.
+- Support both light and dark presentation from the beginning of runtime work.
+- Detect the preferred color scheme from the operating system by default rather than requiring account-backed preferences.
 - Optimize for touch ergonomics, responsive behavior, and accessibility from the beginning of runtime scaffold work.
+- Target WCAG 2.2 Level AA for the public product experience.
+- Do not claim WCAG conformance publicly until the relevant UI slice has been audited against the applicable success criteria.
+- Treat contrast, keyboard access, focus visibility, semantics, and touch-target sizing as explicit product requirements rather than optional polish.
 
 Language rules:
 
@@ -63,3 +68,4 @@ Rejected. The repository needs a mainstream, concrete frontend baseline now.
 ## Open Questions
 
 - Whether the first Connect to ChatGPT slice should initially prioritize browser instructions, iPhone instructions, or both at once.
+- When the first dedicated branding pass should replace the provisional scaffold icons and visual marks.

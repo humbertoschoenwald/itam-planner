@@ -30,6 +30,7 @@ The current active implementation slice includes:
 - browser-local planner state
 - portable student code generation
 - tests for new planner, state, and ingestion behavior
+- accessibility doctrine that targets modern web conformance without making premature conformance claims
 
 The current active implementation slice does not yet include:
 
@@ -40,6 +41,7 @@ The current active implementation slice does not yet include:
 - the ITAM map UX
 - semantic interpretation of free-text comments beyond raw preservation
 - automated parser self-repair
+- a completed accessibility audit or a formal public conformance claim
 
 The artifact pipeline for the current phase is:
 
@@ -49,7 +51,8 @@ The artifact pipeline for the current phase is:
 4. implement repository and community entry files
 5. implement runtime packages and local-state scaffolding
 6. add fixtures and unit tests
-7. run ingestion and promote only validated public artifacts
+7. perform dedicated accessibility review work against the current UI slice
+8. run ingestion and promote only validated public artifacts
 
 ## Consequences
 
@@ -70,3 +73,4 @@ Rejected. The project now has enough architectural clarity to add community surf
 ## Open Questions
 
 - Whether the first public Connect to ChatGPT slice should use a path parameter, query parameter, or nested route for the AI context endpoint.
+- Which automated contrast and accessibility tooling should become mandatory in CI once the first substantial UI pass stabilizes.

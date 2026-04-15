@@ -9,6 +9,7 @@ This bibliography lists the primary official references for the tools and standa
 - [Conventional Commits](https://www.conventionalcommits.org/)
 - [MIT License](https://opensource.org/license/mit)
 - [EditorConfig](https://editorconfig.org/)
+- [Web Content Accessibility Guidelines (WCAG) 2.2](https://www.w3.org/TR/WCAG22/)
 
 ## JavaScript and TypeScript
 

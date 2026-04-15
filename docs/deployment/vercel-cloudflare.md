@@ -47,6 +47,9 @@ If Vercel changes that requirement later, prefer the current Vercel domain-inspe
 - The public site should only be treated as canonical over `https://`.
 - The web app now publishes a manifest, Apple web-app metadata, generated app icons, transport-security headers, and cache headers for the promoted JSON catalog.
 - The custom-domain TLS handshake will not complete until the `itam` DNS record exists and Vercel finishes domain verification.
+- Keep Cloudflare SSL/TLS encryption mode on `Full` when proxying the subdomain through Cloudflare.
+- If Cloudflare serves a temporary `525` during first-time propagation, wait for Vercel domain validation to settle or temporarily switch the `itam` record to `DNS only` while confirming direct Vercel HTTPS.
+- Do not paste, commit, or upload Cloudflare Origin Server certificates or private keys into this repository or the Vercel project for this hostname. This deployment relies on Vercel-managed TLS for the custom domain.
 
 ## API Origin
 

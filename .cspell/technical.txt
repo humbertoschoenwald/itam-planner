@@ -39,6 +39,7 @@ uv
 Vercel
 Vitest
 WebKit
+WCAG
 Yamllint
 Zustand
 fraunces

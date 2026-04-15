@@ -9,4 +9,5 @@ alwaysApply: true
 
 - RULE: Follow the current ordered slices: community surfaces, web planner shell, browser-local planner state, then the external AI connection flow.
 - RULE: Implement `apps/api`, `apps/web`, onboarding, planner-local state, and student-code foundations before freezing the final AI route contract.
+- RULE: Keep accessibility review and WCAG-aligned product hardening inside the active web-runtime scope even before a formal conformance claim exists.
 - RULE: Keep authenticated scraping, maps, and parser self-repair out of the current runtime slice unless doctrine changes first.

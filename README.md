@@ -10,6 +10,7 @@ The repository currently includes:
 - a Python public-data ingestion pipeline under `apps/api`
 - a promoted fixture-backed public catalog snapshot under `public-data/latest`
 - the first `apps/web` planner shell foundation
+- provisional visual branding; a dedicated logo and icon design pass still remains future work
 
 The repository does not yet claim full product completeness.
 
