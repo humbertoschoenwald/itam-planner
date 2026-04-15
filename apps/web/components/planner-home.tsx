@@ -202,31 +202,31 @@ export function PlannerHome() {
           </div>
 
           <div className="glass-accent rounded-[1.9rem] border border-white/10 px-5 py-5 shadow-[0_24px_50px_rgba(18,40,33,0.26)]">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-white/72">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-inverse-muted">
               {copy.plannerHome.independentProject}
             </p>
-            <p className="mt-3 text-sm leading-6 text-white/82">
+            <p className="mt-3 text-sm leading-6 text-inverse-muted">
               {copy.plannerHome.legal}
             </p>
 
             <div className="mt-5 space-y-3">
-              <div className="rounded-2xl bg-white/10 p-4 text-sm leading-6 text-white/86">
-                <p className="font-semibold text-white">{copy.plannerHome.noAccountRequired}</p>
+              <div className="rounded-2xl bg-white/10 p-4 text-sm leading-6 text-inverse-muted">
+                <p className="font-semibold text-accent-contrast">{copy.plannerHome.noAccountRequired}</p>
                 <p className="mt-2">{copy.plannerHome.noAccountRequiredText}</p>
               </div>
-              <div className="rounded-2xl bg-white/8 p-4 text-sm leading-6 text-white/84">
-                <p className="font-semibold text-white">{copy.plannerHome.browserOnlyLabel}</p>
+              <div className="rounded-2xl bg-white/8 p-4 text-sm leading-6 text-inverse-muted">
+                <p className="font-semibold text-accent-contrast">{copy.plannerHome.browserOnlyLabel}</p>
                 <p className="mt-2">{copy.plannerHome.browserOnlyText}</p>
               </div>
             </div>
 
             <div className="mt-5 grid gap-3 sm:grid-cols-3">
               {copy.plannerHome.timeline.map((step, index) => (
-                <div key={step.title} className="rounded-2xl bg-white/8 p-4 text-sm leading-6 text-white/84">
-                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/62">
+                <div key={step.title} className="rounded-2xl bg-white/8 p-4 text-sm leading-6 text-inverse-muted">
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-inverse-muted">
                     0{index + 1}
                   </p>
-                  <p className="mt-2 font-semibold text-white">{step.title}</p>
+                  <p className="mt-2 font-semibold text-accent-contrast">{step.title}</p>
                   <p className="mt-2">{step.body}</p>
                 </div>
               ))}
@@ -338,7 +338,7 @@ export function PlannerHome() {
               <span className="rounded-full bg-accent-soft px-3 py-2 text-xs font-medium text-accent">
                 {profile.entryTerm || DEFAULT_STUDENT_PROFILE.entryTerm || copy.plannerHome.noTermYet}
               </span>
-              <span className="rounded-full border border-border bg-white px-3 py-2 text-xs font-medium text-muted">
+              <span className="rounded-full border border-border bg-surface-elevated px-3 py-2 text-xs font-medium text-muted">
                 {profile.activePlanIds.length} {copy.plannerHome.activePlansShort}
                 {profile.activePlanIds.length === 1 ? "" : "s"}
               </span>
@@ -418,7 +418,7 @@ export function PlannerHome() {
                   })}
                 </div>
 
-                <div className="rounded-[1.35rem] border border-border bg-white px-4 py-4">
+                <div className="rounded-[1.35rem] border border-border bg-surface-elevated px-4 py-4">
                   <p className="text-sm font-semibold text-foreground">
                     {copy.plannerHome.groupsSelected}: {selectedOfferings.length}
                   </p>
@@ -460,7 +460,7 @@ export function PlannerHome() {
               <Button onClick={() => resetPlanner()} variant="secondary">
                 {copy.plannerHome.resetPlanner}
               </Button>
-              <span className="rounded-full border border-border bg-white px-3 py-2 text-xs font-medium text-muted">
+              <span className="rounded-full border border-border bg-surface-elevated px-3 py-2 text-xs font-medium text-muted">
                 {hasPlannerData ? copy.plannerHome.plannerExists : copy.plannerHome.noPlannerData}
               </span>
             </div>

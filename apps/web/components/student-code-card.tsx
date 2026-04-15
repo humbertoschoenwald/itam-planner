@@ -39,18 +39,18 @@ export function StudentCodeCard() {
           <span className="rounded-full bg-accent-soft px-3 py-2 text-xs font-semibold text-accent">
             {copy.studentCode.browserOwned}
           </span>
-          <span className="rounded-full border border-border bg-white px-3 py-2 text-xs font-semibold text-muted">
+          <span className="rounded-full border border-border bg-surface-elevated px-3 py-2 text-xs font-semibold text-muted">
             {code ? `${codeLength} ${copy.studentCode.lengthSuffix}` : copy.studentCode.waitingForPlannerData}
           </span>
         </div>
 
-        <div className="overflow-x-auto rounded-[1.4rem] border border-border bg-white px-4 py-4 font-mono text-xs leading-6 text-foreground">
+        <div className="overflow-x-auto rounded-[1.4rem] border border-border bg-surface-code px-4 py-4 font-mono text-xs leading-6 text-foreground">
           {code || copy.studentCode.waitingForStudentCode}
         </div>
 
         <div className="flex flex-wrap gap-3">
           <button
-            className="rounded-full bg-accent px-4 py-2 text-sm font-semibold text-white transition hover:bg-accent/92 disabled:cursor-not-allowed disabled:bg-accent/35"
+            className="rounded-full bg-accent px-4 py-2 text-sm font-semibold text-accent-contrast transition hover:bg-accent/92 disabled:cursor-not-allowed disabled:bg-accent/35"
             disabled={!code}
             onClick={() => void copyCode()}
             type="button"
@@ -59,7 +59,7 @@ export function StudentCodeCard() {
           </button>
 
           <Link
-            className="inline-flex items-center rounded-full border border-border bg-white px-4 py-2 text-sm font-semibold text-foreground transition hover:-translate-y-0.5 hover:border-accent/35"
+            className="inline-flex items-center rounded-full border border-border bg-surface-elevated px-4 py-2 text-sm font-semibold text-foreground transition hover:-translate-y-0.5 hover:border-accent/35 hover:bg-surface-hover"
             href="/connect-chatgpt"
           >
             {copy.studentCode.openChatGpt}

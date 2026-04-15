@@ -70,7 +70,7 @@ export function CatalogFreshnessCard({
           ))}
         </div>
 
-        <div className="flex flex-wrap items-center gap-3 rounded-[1.35rem] border border-border bg-white px-4 py-4">
+        <div className="flex flex-wrap items-center gap-3 rounded-[1.35rem] border border-border bg-surface-elevated px-4 py-4">
           <span
             className={[
               "rounded-full px-3 py-2 text-xs font-semibold uppercase tracking-[0.18em]",

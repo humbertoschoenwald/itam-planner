@@ -35,8 +35,8 @@ export function SiteHeader() {
               className={[
                 "rounded-full px-3 py-2 transition",
                 pathname === link.href
-                  ? "bg-accent text-white shadow-[0_10px_24px_rgba(31,77,63,0.14)]"
-                  : "hover:bg-white hover:text-foreground",
+                  ? "bg-accent text-accent-contrast shadow-[0_10px_24px_rgba(31,77,63,0.14)]"
+                  : "hover:bg-surface-elevated hover:text-foreground",
               ].join(" ")}
               href={link.href}
             >

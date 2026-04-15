@@ -5,10 +5,43 @@
   --foreground: #182017;
   --surface: rgba(255, 250, 243, 0.92);
   --surface-strong: #ead8b8;
+  --surface-elevated: rgba(255, 255, 255, 0.9);
+  --surface-code: rgba(255, 255, 255, 0.94);
+  --surface-hover: rgba(255, 255, 255, 0.98);
   --muted: #677063;
   --accent: #1f4d3f;
   --accent-soft: #d8ece2;
+  --accent-contrast: #f4fbf8;
+  --inverse-muted: rgba(244, 251, 248, 0.82);
   --border: rgba(24, 32, 23, 0.1);
+  --page-overlay-top-left: rgba(255, 255, 255, 0.82);
+  --page-overlay-top-right: rgba(31, 77, 63, 0.09);
+  --page-background-start: #f7f1e6;
+  --page-background-mid: #f4ede0;
+  --page-background-end: #eeddc2;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0d1614;
+    --foreground: #eff5f1;
+    --surface: rgba(19, 28, 25, 0.92);
+    --surface-strong: #18312c;
+    --surface-elevated: rgba(24, 34, 30, 0.94);
+    --surface-code: rgba(17, 26, 23, 0.98);
+    --surface-hover: rgba(29, 42, 37, 0.98);
+    --muted: #9fb0a5;
+    --accent: #82c7a5;
+    --accent-soft: rgba(34, 70, 56, 0.7);
+    --accent-contrast: #08110f;
+    --inverse-muted: rgba(232, 244, 237, 0.74);
+    --border: rgba(239, 245, 241, 0.12);
+    --page-overlay-top-left: rgba(140, 199, 168, 0.08);
+    --page-overlay-top-right: rgba(110, 189, 145, 0.12);
+    --page-background-start: #0f1b18;
+    --page-background-mid: #0d1614;
+    --page-background-end: #13211d;
+  }
 }
 
 @theme inline {
@@ -16,9 +49,14 @@
   --color-foreground: var(--foreground);
   --color-surface: var(--surface);
   --color-surface-strong: var(--surface-strong);
+  --color-surface-elevated: var(--surface-elevated);
+  --color-surface-code: var(--surface-code);
+  --color-surface-hover: var(--surface-hover);
   --color-muted: var(--muted);
   --color-accent: var(--accent);
   --color-accent-soft: var(--accent-soft);
+  --color-accent-contrast: var(--accent-contrast);
+  --color-inverse-muted: var(--inverse-muted);
   --color-border: var(--border);
   --font-sans: var(--font-space-grotesk);
   --font-display: var(--font-fraunces);
@@ -29,14 +67,26 @@
 }
 
 html {
+  color-scheme: light;
   scroll-behavior: smooth;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
 }
 
 body {
   background:
-    radial-gradient(circle at top left, rgba(255, 255, 255, 0.82), transparent 26%),
-    radial-gradient(circle at 85% 12%, rgba(31, 77, 63, 0.09), transparent 26%),
-    linear-gradient(180deg, #f7f1e6 0%, #f4ede0 42%, #eeddc2 100%);
+    radial-gradient(circle at top left, var(--page-overlay-top-left), transparent 26%),
+    radial-gradient(circle at 85% 12%, var(--page-overlay-top-right), transparent 26%),
+    linear-gradient(
+      180deg,
+      var(--page-background-start) 0%,
+      var(--page-background-mid) 42%,
+      var(--page-background-end) 100%
+    );
   color: var(--foreground);
   font-family: var(--font-sans), sans-serif;
   min-height: 100vh;
@@ -69,7 +119,7 @@ a {
 
 .metric-chip {
   border: 1px solid rgba(24, 32, 23, 0.08);
-  background: rgba(255, 252, 248, 0.84);
+  background: var(--surface-elevated);
   border-radius: 1.35rem;
   padding: 1rem 1rem 0.95rem;
   box-shadow: 0 18px 36px rgba(58, 55, 32, 0.05);
@@ -102,7 +152,7 @@ a {
 
 .soft-panel {
   border: 1px solid rgba(24, 32, 23, 0.08);
-  background: rgba(255, 255, 255, 0.68);
+  background: var(--surface-elevated);
   border-radius: 1.35rem;
   padding: 1rem;
 }
@@ -111,7 +161,7 @@ a {
   width: 100%;
   border-radius: 1rem;
   border: 1px solid var(--border);
-  background: rgba(255, 255, 255, 0.9);
+  background: var(--surface-elevated);
   padding: 0.9rem 1rem;
   color: var(--foreground);
   outline: none;
@@ -130,7 +180,7 @@ a {
   gap: 0.75rem;
   border-radius: 1.2rem;
   border: 1px solid var(--border);
-  background: rgba(255, 255, 255, 0.9);
+  background: var(--surface-elevated);
   padding: 0.95rem 1rem;
   transition:
     border-color 140ms ease,
@@ -141,14 +191,14 @@ a {
 .choice-card:hover {
   transform: translateY(-1px);
   border-color: rgba(31, 77, 63, 0.25);
-  background: rgba(255, 255, 255, 0.98);
+  background: var(--surface-hover);
 }
 
 .glass-accent {
   background:
     linear-gradient(180deg, rgba(31, 77, 63, 0.94), rgba(23, 57, 47, 0.98)),
     rgba(31, 77, 63, 0.95);
-  color: #f4fbf8;
+  color: var(--accent-contrast);
 }
 
 .timeline-grid {
@@ -163,14 +213,14 @@ a {
 
 .day-column {
   border: 1px solid rgba(24, 32, 23, 0.08);
-  background: rgba(255, 255, 255, 0.76);
+  background: var(--surface-elevated);
   border-radius: 1.4rem;
   padding: 1rem;
 }
 
 .meeting-card {
   border-radius: 1.2rem;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(232, 244, 237, 0.92));
+  background: linear-gradient(180deg, var(--surface-hover), var(--accent-soft));
   border: 1px solid rgba(31, 77, 63, 0.12);
   padding: 0.95rem 1rem;
   box-shadow: 0 16px 32px rgba(34, 64, 51, 0.06);

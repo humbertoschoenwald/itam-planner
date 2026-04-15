@@ -24,7 +24,7 @@ export function CommunityLinks() {
       {communityLinks.map((link) => (
         <a
           key={link.href}
-          className="rounded-[1.35rem] border border-border bg-white/88 px-4 py-4 transition hover:-translate-y-0.5 hover:border-accent/40 hover:bg-white"
+          className="rounded-[1.35rem] border border-border bg-surface-elevated px-4 py-4 transition hover:-translate-y-0.5 hover:border-accent/40 hover:bg-surface-hover"
           href={link.href}
           rel="noreferrer"
           target="_blank"

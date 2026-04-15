@@ -32,7 +32,7 @@ export function IssueTemplateLinks() {
       {templates.map((template) => (
         <a
           key={template.href}
-          className="rounded-[1.25rem] border border-border bg-white/90 px-4 py-4 text-sm font-semibold text-foreground transition hover:-translate-y-0.5 hover:border-accent/40 hover:bg-white"
+          className="rounded-[1.25rem] border border-border bg-surface-elevated px-4 py-4 text-sm font-semibold text-foreground transition hover:-translate-y-0.5 hover:border-accent/40 hover:bg-surface-hover"
           href={template.href}
           rel="noreferrer"
           target="_blank"

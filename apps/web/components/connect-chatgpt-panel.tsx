@@ -62,14 +62,14 @@ export function ConnectChatGptPanel() {
             </div>
           </div>
 
-          <div className="rounded-[1.4rem] border border-border bg-white px-4 py-4 font-mono text-xs leading-6 text-foreground">
+          <div className="rounded-[1.4rem] border border-border bg-surface-code px-4 py-4 font-mono text-xs leading-6 text-foreground">
             {code || copy.connectPanel.finishOnboarding}
           </div>
 
           <p>{copy.connectPanel.footer}</p>
 
           <Link
-            className="inline-flex rounded-full bg-accent px-4 py-2 text-sm font-semibold text-white transition hover:bg-accent/92"
+            className="inline-flex rounded-full bg-accent px-4 py-2 text-sm font-semibold text-accent-contrast transition hover:bg-accent/92"
             href="/"
           >
             {copy.common.backToPlanner}
