@@ -1,0 +1,66 @@
+name: Update Changelog
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - "CHANGELOG.md"
+  workflow_dispatch:
+
+concurrency:
+  group: update-changelog-main
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    name: Regenerate CHANGELOG.md
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6.0.2
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node.js 24
+        uses: actions/setup-node@v6.3.0
+        with:
+          node-version: 24
+
+      - name: Compute Mexico City push date
+        id: push_date
+        shell: bash
+        run: echo "value=$(TZ=America/Mexico_City date +%F)" >> "$GITHUB_OUTPUT"
+
+      - name: Generate changelog from pushed commits
+        shell: bash
+        run: |
+          BEFORE_SHA="${{ github.event.before }}"
+
+          if [[ -z "$BEFORE_SHA" || "$BEFORE_SHA" =~ ^0+$ ]]; then
+            node scripts/generate-changelog.mjs --mode full
+          else
+            node scripts/generate-changelog.mjs \
+              --mode incremental \
+              --since "$BEFORE_SHA" \
+              --until "${{ github.sha }}" \
+              --date "${{ steps.push_date.outputs.value }}"
+          fi
+
+      - name: Commit generated changelog
+        shell: bash
+        run: |
+          if git diff --quiet -- CHANGELOG.md; then
+            echo "CHANGELOG.md already matches the current push."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add CHANGELOG.md
+          git commit -m "chore(changelog): update changelog"
+          git push origin HEAD:main

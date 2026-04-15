@@ -1,5 +1,57 @@
 # Changelog
 
-This repository uses Conventional Commits and CalVer `YY.MM.PATCH`.
+This file is generated automatically from Conventional Commits on push to `main`.
+Do not edit it manually.
 
-The changelog is intended to be generated from commit history rather than maintained manually entry by entry.
+## 2026-04-15
+
+### Features
+
+- api: add public catalog ingestion pipeline (`e820d54`)
+- api: add change-aware snapshot promotion (`bbd370e`)
+- web: add navigation and chatgpt connection surface (`4e0f385`)
+- web: polish the planner experience (`470866d`)
+- web: enrich planner with catalog insights (`098f91f`)
+
+### Fixes
+
+- api: make fixture snapshot promotion deterministic (`2730b5a`)
+- api: stabilize fixture snapshots across platforms (`b582d7c`)
+
+### Documentation
+
+- repo: add ADR-first doctrine baseline (`6324063`)
+- git: define main workflow for single maintainer (`a2c67bc`)
+- adr: define ingestion and public data doctrine (`3eeac78`)
+- adr: extend roadmap for planner and ai phases (`054c24d`)
+- repo: add community entrypoints and issue templates (`fb19532`)
+- repo: clarify contribution and delivery surfaces (`bcb9986`)
+- doctrine: define push-driven changelog automation (`1f31ccb`)
+
+### Tests
+
+- tests: ignore local pytest temp artifacts (`aea34ef`)
+
+### Build
+
+- web: add pnpm workspace and planner shell (`b18b562`)
+- repo: add modern quality automation baselines (`8b420fb`)
+- web: ship published catalog with the web artifact (`717be7a`)
+- deploy: harden vercel artifact inputs (`29c417a`)
+- test: stabilize pytest temp paths (`3037a38`)
+- scripts: add conventional changelog generator (`ff0b432`)
+
+### Continuous Integration
+
+- repo: add validation and delivery workflows (`57b9606`)
+- deploy: remove secret gating from job startup (`362357e`)
+- api: verify published catalog without sqlite byte diffs (`6039fb4`)
+- api: run catalog drift check without pnpm (`b525a2f`)
+
+### Chores
+
+- git: add local hook bootstrap (`dfd6f18`)
+- cursor: derive repository rules from ADR doctrine (`339211d`)
+- config: add derived repository policy baselines (`515e40c`)
+- data: add fixture-backed public catalog snapshot (`f367457`)
+- data: refresh published fixture snapshot (`c47d553`)
