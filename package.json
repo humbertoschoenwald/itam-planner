@@ -1,0 +1,16 @@
+{
+  "name": "itam-planner",
+  "private": true,
+  "version": "26.04.0",
+  "packageManager": "pnpm@10.33.0",
+  "scripts": {
+    "dev:web": "pnpm --filter @itam-planner/web dev",
+    "build:web": "pnpm --filter @itam-planner/web build",
+    "lint:web": "pnpm --filter @itam-planner/web lint",
+    "test:web": "pnpm --filter @itam-planner/web test",
+    "typecheck:web": "pnpm --filter @itam-planner/web typecheck",
+    "test:api": "uv run --project apps/api --group dev pytest",
+    "lint:api": "uv run --project apps/api --group dev ruff check apps/api",
+    "typecheck:api": "uv run --project apps/api --group dev basedpyright apps/api/src"
+  }
+}

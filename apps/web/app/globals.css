@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f6f0e4;
+  --foreground: #1c211a;
+  --surface: #fffdf8;
+  --surface-strong: #ecdfc3;
+  --muted: #6f756d;
+  --accent: #24473b;
+  --accent-soft: #d8ebe3;
+  --border: rgba(28, 33, 26, 0.12);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-strong: var(--surface-strong);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-border: var(--border);
+  --font-sans: var(--font-space-grotesk);
+  --font-display: var(--font-fraunces);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background:
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.86), transparent 32%),
+    linear-gradient(180deg, #f4eddd 0%, #f6f0e4 45%, #efe4ce 100%);
+  color: var(--foreground);
+  font-family: var(--font-sans), sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::selection {
+  background: rgba(36, 71, 59, 0.18);
+}
+
+.page-grid {
+  display: grid;
+  gap: 1.25rem;
+}
+
+@media (min-width: 900px) {
+  .page-grid {
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+    align-items: start;
+  }
+}
