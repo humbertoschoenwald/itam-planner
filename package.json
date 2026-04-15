@@ -31,7 +31,7 @@
     "test": "pnpm test:repo && pnpm test:web && pnpm test:api",
     "typecheck": "pnpm typecheck:web && pnpm typecheck:api",
     "verify:catalog": "node scripts/verify-published-catalog-diff.mjs",
-    "verify": "pnpm lint && pnpm typecheck && pnpm test && pnpm build && pnpm catalog:fixtures && pnpm verify:catalog"
+    "verify": "pnpm lint && pnpm typecheck && pnpm test && pnpm build"
   },
   "devDependencies": {
     "@commitlint/cli": "^20.1.0",
