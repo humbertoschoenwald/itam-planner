@@ -21,6 +21,7 @@ Do not edit it manually.
 - api: stabilize fixture snapshots across platforms (`b582d7c`)
 - web: harden browser storage persistence (`4ce6cb3`)
 - web: disable route prefetch on public shell (`2fdfecb`)
+- web: serve planner bootstrap from published catalog (`1628a45`)
 
 ### Documentation
 
