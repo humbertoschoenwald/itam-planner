@@ -9,7 +9,7 @@ const COMMUNITY_LINKS = [
   {
     href: "https://www.instagram.com/humbertoschoenwald/",
     label: "Instagram",
-    description: "Creator contact and community feedback surface.",
+    description: "Follow the creator's work and project updates. Not a support channel.",
   },
 ] as const;
 

@@ -17,8 +17,8 @@ export default function CommunityPage() {
           Feedback, issues, and project contact
         </h1>
         <p className="max-w-2xl text-base leading-7 text-muted sm:text-lg">
-          Use GitHub issues for bugs, data corrections, source drift, and feature requests. If
-          you want informal creator contact first, the community link is available below.
+          Use GitHub issues for bugs, data corrections, source drift, and feature requests.
+          Creator social links live here too, but support stays on GitHub.
         </p>
       </div>
 
@@ -57,7 +57,8 @@ export default function CommunityPage() {
           <CardContent>
             <CommunityLinks />
             <p className="mt-4 text-xs leading-5 text-muted">
-              Community contact is creator-facing only. It is not official ITAM support.
+              Instagram is for creator visibility and project updates. It is not support and
+              it is not official ITAM contact.
             </p>
           </CardContent>
         </Card>

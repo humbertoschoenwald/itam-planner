@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -26,7 +27,8 @@ export function StudentCodeCard() {
       <CardContent className="space-y-4">
         <p className="text-sm leading-6 text-muted">
           This browser-owned code is generated from your current onboarding profile and planner
-          state. No account is required and no personal data is stored in the backend.
+          state. No account is required and no personal data is stored in the backend. Use GitHub
+          issues for support; this code is the foundation for the later AI connection flow.
         </p>
 
         <div className="overflow-x-auto rounded-2xl border border-border bg-white px-4 py-4 font-mono text-xs leading-6 text-foreground">
@@ -41,6 +43,13 @@ export function StudentCodeCard() {
         >
           {copied ? "Copied" : "Copy code"}
         </button>
+
+        <Link
+          className="inline-flex text-sm font-semibold text-accent underline-offset-4 hover:underline"
+          href="/connect-chatgpt"
+        >
+          Open the ChatGPT connection page
+        </Link>
       </CardContent>
     </Card>
   );

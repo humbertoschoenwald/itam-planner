@@ -142,10 +142,13 @@ export function PlannerHome() {
               </p>
             </div>
             <div className="flex flex-wrap gap-3">
+              <Button asChild>
+                <Link href="/connect-chatgpt">Connect to ChatGPT</Link>
+              </Button>
               <Button asChild variant="secondary">
                 <Link href="/community">Community</Link>
               </Button>
-              <Button asChild>
+              <Button asChild variant="secondary">
                 <a
                   href="https://github.com/humbertoschoenwald/itam-planner/issues"
                   rel="noreferrer"
@@ -394,10 +397,10 @@ export function PlannerHome() {
           <CardContent className="space-y-4">
             <CommunityLinks />
             <div className="rounded-2xl bg-accent-soft px-4 py-4 text-sm leading-6 text-accent">
-              <p className="font-semibold">Connect to ChatGPT comes next</p>
+              <p className="font-semibold">Support lives on GitHub</p>
               <p className="mt-2">
-                The browser-local student code is already generated here. The dedicated AI setup
-                flow lands after the planner state and public endpoint contract are finalized.
+                Bugs, data corrections, and source drift belong in GitHub issues. The Instagram
+                link is only for following the creator and the project journey.
               </p>
             </div>
           </CardContent>

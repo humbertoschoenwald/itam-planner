@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import { Fraunces, Space_Grotesk } from "next/font/google";
+
+import { SiteHeader } from "@/components/site-header";
+
 import "./globals.css";
 
 const display = Fraunces({
@@ -27,7 +30,10 @@ export default function RootLayout({
       lang="es-MX"
       className={`${display.variable} ${sans.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <SiteHeader />
+        {children}
+      </body>
     </html>
   );
 }
