@@ -24,6 +24,10 @@ describe("PlannerRouteShell", () => {
     replaceSpy.mockReset();
     useStudentProfileStore.setState({ profile: DEFAULT_STUDENT_PROFILE });
     vi.spyOn(useStudentProfileStore.persist, "hasHydrated").mockReturnValue(true);
+    Object.defineProperty(window.navigator, "standalone", {
+      configurable: true,
+      value: false,
+    });
   });
 
   afterEach(() => {
@@ -33,7 +37,6 @@ describe("PlannerRouteShell", () => {
   it("redirects to onboarding when the required profile state is missing", async () => {
     render(
       <PlannerRouteShell
-        periodDetailsById={{}}
         plans={[]}
         periods={[]}
         sourcesMetadata={null}
@@ -58,7 +61,6 @@ describe("PlannerRouteShell", () => {
 
     render(
       <PlannerRouteShell
-        periodDetailsById={{}}
         plans={[]}
         periods={[]}
         sourcesMetadata={null}
@@ -67,5 +69,24 @@ describe("PlannerRouteShell", () => {
 
     expect(screen.getByText("Planner shell")).toBeInTheDocument();
     expect(replaceSpy).not.toHaveBeenCalled();
+  });
+
+  it("keeps a stable fallback path to onboarding in standalone mode", async () => {
+    Object.defineProperty(window.navigator, "standalone", {
+      configurable: true,
+      value: true,
+    });
+
+    render(<PlannerRouteShell plans={[]} periods={[]} sourcesMetadata={null} />);
+
+    await waitFor(() => {
+      expect(screen.getByText(/Termina el onboarding para entrar al planner/u)).toBeInTheDocument();
+    });
+
+    expect(replaceSpy).not.toHaveBeenCalled();
+    expect(screen.getByRole("link", { name: /Ir a onboarding/u })).toHaveAttribute(
+      "href",
+      "/onboarding?from=planner",
+    );
   });
 });

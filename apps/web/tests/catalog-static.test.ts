@@ -1,17 +1,19 @@
 import { describe, expect, it } from "vitest";
 
-import { readPlannerHomeBootstrap } from "@/lib/catalog-static";
+import { readOnboardingBootstrap, readPlannerShellBootstrap } from "@/lib/catalog-static";
 
-describe("readPlannerHomeBootstrap", () => {
-  it("loads the published planner catalog from the local artifact", async () => {
-    const bootstrap = await readPlannerHomeBootstrap();
+describe("catalog static bootstrap readers", () => {
+  it("loads the lean planner shell bootstrap from the local artifact", async () => {
+    const bootstrap = await readPlannerShellBootstrap();
 
     expect(bootstrap.plans.length).toBeGreaterThan(0);
     expect(bootstrap.periods.length).toBeGreaterThan(0);
     expect(bootstrap.sourcesMetadata).not.toBeNull();
+  });
 
-    const firstPeriodId = bootstrap.periods[0]?.period_id;
-    expect(firstPeriodId).toBeTruthy();
-    expect(bootstrap.periodDetailsById[firstPeriodId!]?.period_id).toBe(firstPeriodId);
+  it("loads only the public plan list for onboarding", async () => {
+    const bootstrap = await readOnboardingBootstrap();
+
+    expect(bootstrap.plans.length).toBeGreaterThan(0);
   });
 });

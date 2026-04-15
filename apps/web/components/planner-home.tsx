@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import { CatalogFreshnessCard } from "@/components/catalog-freshness-card";
 import { CommunityLinks } from "@/components/community-links";
@@ -10,10 +10,10 @@ import { SelectedWeekBoard } from "@/components/selected-week-board";
 import { StudentCodeCard } from "@/components/student-code-card";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { fetchSchedulePeriodDetail } from "@/lib/api";
 import { getUiCopy } from "@/lib/copy";
 import type {
   BulletinSummary,
-  SchedulePeriodDetail,
   SchedulePeriodSummary,
   SourcesMetadata,
 } from "@/lib/types";
@@ -28,14 +28,12 @@ const LOCALE_OPTIONS = [
 const INPUT_CLASS_NAME = "field-shell text-sm";
 
 interface PlannerHomeProps {
-  periodDetailsById: Record<string, SchedulePeriodDetail>;
   plans: BulletinSummary[];
   periods: SchedulePeriodSummary[];
   sourcesMetadata: SourcesMetadata | null;
 }
 
 export function PlannerHome({
-  periodDetailsById,
   plans,
   periods,
   sourcesMetadata,
@@ -47,10 +45,21 @@ export function PlannerHome({
   const setSelectedPeriodId = usePlannerStore((state) => state.setSelectedPeriodId);
   const toggleOfferingId = usePlannerStore((state) => state.toggleOfferingId);
   const resetPlanner = usePlannerStore((state) => state.resetPlanner);
+  const [selectedPeriod, setSelectedPeriod] = useState<Awaited<
+    ReturnType<typeof fetchSchedulePeriodDetail>
+  > | null>(null);
+  const [resolvedPeriodId, setResolvedPeriodId] = useState<string | null>(null);
+  const [selectedPeriodError, setSelectedPeriodError] = useState<string | null>(null);
 
   const defaultPeriodId = periods[0]?.period_id ?? null;
   const activePeriodId = plannerState.selectedPeriodId ?? defaultPeriodId;
-  const selectedPeriod = activePeriodId ? periodDetailsById[activePeriodId] ?? null : null;
+  const resolvedSelectedPeriod = resolvedPeriodId === activePeriodId ? selectedPeriod : null;
+  const resolvedSelectedPeriodError =
+    resolvedPeriodId === activePeriodId ? selectedPeriodError : null;
+  const selectedPeriodLoading =
+    activePeriodId !== null &&
+    resolvedPeriodId !== activePeriodId &&
+    resolvedSelectedPeriodError === null;
 
   useEffect(() => {
     if (!plannerState.selectedPeriodId && defaultPeriodId) {
@@ -58,8 +67,38 @@ export function PlannerHome({
     }
   }, [defaultPeriodId, plannerState.selectedPeriodId, setSelectedPeriodId]);
 
+  useEffect(() => {
+    if (!activePeriodId) {
+      return;
+    }
+
+    let active = true;
+
+    void fetchSchedulePeriodDetail(activePeriodId)
+      .then((detail) => {
+        if (!active) {
+          return;
+        }
+        setResolvedPeriodId(activePeriodId);
+        setSelectedPeriod(detail);
+        setSelectedPeriodError(null);
+      })
+      .catch(() => {
+        if (!active) {
+          return;
+        }
+        setResolvedPeriodId(activePeriodId);
+        setSelectedPeriod(null);
+        setSelectedPeriodError(copy.plannerHome.selectedPeriodLoadError);
+      })
+
+    return () => {
+      active = false;
+    };
+  }, [activePeriodId, copy.plannerHome.selectedPeriodLoadError]);
+
   const selectedOfferings =
-    selectedPeriod?.offerings.filter((offering) =>
+    resolvedSelectedPeriod?.offerings.filter((offering) =>
       plannerState.selectedOfferingIds.includes(offering.offering_id),
     ) ?? [];
   const hasPlannerData =
@@ -198,17 +237,21 @@ export function PlannerHome({
               </select>
             </div>
 
-            {selectedPeriod ? (
+            {selectedPeriodLoading ? (
+              <p className="text-sm text-muted">{copy.plannerHome.selectedPeriodLoading}</p>
+            ) : resolvedSelectedPeriodError ? (
+              <p className="text-sm text-muted">{resolvedSelectedPeriodError}</p>
+            ) : resolvedSelectedPeriod ? (
               <>
                 <div className="rounded-[1.35rem] bg-surface-strong px-4 py-3 text-sm text-foreground">
-                  <p className="font-semibold">{selectedPeriod.label}</p>
+                  <p className="font-semibold">{resolvedSelectedPeriod.label}</p>
                   <p className="mt-1 text-xs leading-5 text-muted">
                     {copy.plannerHome.plannerShellHelp}
                   </p>
                 </div>
 
                 <div className="grid gap-3">
-                  {selectedPeriod.offerings.map((offering) => {
+                  {resolvedSelectedPeriod.offerings.map((offering) => {
                     const checked = plannerState.selectedOfferingIds.includes(offering.offering_id);
                     return (
                       <label

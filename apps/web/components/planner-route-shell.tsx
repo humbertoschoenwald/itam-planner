@@ -1,14 +1,15 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
 import { PlannerHome } from "@/components/planner-home";
+import { Button } from "@/components/ui/button";
 import { getUiCopy } from "@/lib/copy";
 import { hasCompletedOnboarding } from "@/lib/onboarding";
 import type {
   BulletinSummary,
-  SchedulePeriodDetail,
   SchedulePeriodSummary,
   SourcesMetadata,
 } from "@/lib/types";
@@ -16,7 +17,6 @@ import { useSyncStudentCode } from "@/lib/use-sync-student-code";
 import { useStudentProfileStore } from "@/stores/student-profile-store";
 
 interface PlannerRouteShellProps {
-  periodDetailsById: Record<string, SchedulePeriodDetail>;
   plans: BulletinSummary[];
   periods: SchedulePeriodSummary[];
   sourcesMetadata: SourcesMetadata | null;
@@ -30,6 +30,11 @@ export function PlannerRouteShell(props: PlannerRouteShellProps) {
   const [hydrated, setHydrated] = useState(useStudentProfileStore.persist.hasHydrated());
   const onboardingComplete = hasCompletedOnboarding(profile);
   const copy = getUiCopy(profile.locale);
+  const standaloneFallback =
+    hydrated &&
+    typeof window !== "undefined" &&
+    (((window.navigator as Navigator & { standalone?: boolean }).standalone ?? false) ||
+      window.matchMedia?.("(display-mode: standalone)").matches);
 
   useEffect(() => {
     if (hydrated) {
@@ -48,8 +53,10 @@ export function PlannerRouteShell(props: PlannerRouteShellProps) {
       return;
     }
 
-    router.replace("/onboarding?from=planner");
-  }, [hydrated, onboardingComplete, router]);
+    if (!standaloneFallback) {
+      router.replace("/onboarding?from=planner");
+    }
+  }, [hydrated, onboardingComplete, router, standaloneFallback]);
 
   if (!hydrated || !onboardingComplete) {
     return (
@@ -57,11 +64,27 @@ export function PlannerRouteShell(props: PlannerRouteShellProps) {
         <section className="section-shell space-y-4">
           <p className="eyebrow">{copy.common.planner}</p>
           <h1 className="font-display text-4xl leading-tight text-foreground sm:text-5xl">
-            {copy.plannerHome.redirectingToOnboarding}
+            {standaloneFallback
+              ? copy.onboardingPage.plannerGateTitle
+              : copy.plannerHome.redirectingToOnboarding}
           </h1>
           <p className="max-w-2xl text-base leading-7 text-muted sm:text-lg">
-            {copy.plannerHome.redirectingHelp}
+            {standaloneFallback
+              ? copy.onboardingPage.plannerGateBody
+              : copy.plannerHome.redirectingHelp}
           </p>
+          <div className="flex flex-wrap gap-3">
+            <Button asChild>
+              <Link href="/onboarding?from=planner" prefetch={false}>
+                {copy.common.goToOnboarding}
+              </Link>
+            </Button>
+            <Button asChild variant="secondary">
+              <Link href="/" prefetch={false}>
+                {copy.onboardingPage.backHome}
+              </Link>
+            </Button>
+          </div>
         </section>
       </main>
     );

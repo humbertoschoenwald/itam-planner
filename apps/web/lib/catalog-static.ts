@@ -3,43 +3,33 @@ import path from "node:path";
 
 import type {
   BulletinSummary,
-  SchedulePeriodDetail,
   SchedulePeriodSummary,
   SourcesMetadata,
 } from "@/lib/types";
 
-export interface PlannerHomeBootstrap {
-  periodDetailsById: Record<string, SchedulePeriodDetail>;
+export interface PlannerShellBootstrap {
   plans: BulletinSummary[];
   periods: SchedulePeriodSummary[];
   sourcesMetadata: SourcesMetadata | null;
 }
 
-export async function readPlannerHomeBootstrap(): Promise<PlannerHomeBootstrap> {
+export async function readPlannerShellBootstrap(): Promise<PlannerShellBootstrap> {
   const [plans, periods, sourcesMetadata] = await Promise.all([
     readPublishedCatalogJson<BulletinSummary[]>("boletines", "index.json"),
     readPublishedCatalogJson<SchedulePeriodSummary[]>("schedules", "periods.json"),
     readPublishedCatalogJson<SourcesMetadata>("sources.json"),
   ]);
 
-  const periodDetailsById = Object.fromEntries(
-    await Promise.all(
-      periods.map(async (period) => [
-        period.period_id,
-        await readPublishedCatalogJson<SchedulePeriodDetail>(
-          "schedules",
-          "periods",
-          `${period.period_id}.json`,
-        ),
-      ]),
-    ),
-  );
-
   return {
-    periodDetailsById,
     plans,
     periods,
     sourcesMetadata,
+  };
+}
+
+export async function readOnboardingBootstrap() {
+  return {
+    plans: await readPublishedCatalogJson<BulletinSummary[]>("boletines", "index.json"),
   };
 }
 

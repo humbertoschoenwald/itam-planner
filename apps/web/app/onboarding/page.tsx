@@ -1,21 +1,16 @@
+import { Suspense } from "react";
+
 import { OnboardingPanel } from "@/components/onboarding-panel";
-import { readPlannerHomeBootstrap } from "@/lib/catalog-static";
-
-interface OnboardingPageProps {
-  searchParams?: Promise<Record<string, string | string[] | undefined>>;
-}
-
-export default async function OnboardingPage({ searchParams }: OnboardingPageProps) {
-  const bootstrap = await readPlannerHomeBootstrap();
-  const resolvedSearchParams = searchParams ? await searchParams : {};
-  const redirectedFromPlanner = resolvedSearchParams.from === "planner";
+import { OnboardingPageShell } from "@/components/onboarding-page-shell";
+import { readOnboardingBootstrap } from "@/lib/catalog-static";
+export default async function OnboardingPage() {
+  const bootstrap = await readOnboardingBootstrap();
 
   return (
     <main className="mx-auto flex w-full max-w-5xl flex-1 flex-col gap-6 px-5 py-8 sm:px-8 sm:py-12">
-      <OnboardingPanel
-        plans={bootstrap.plans}
-        redirectedFromPlanner={redirectedFromPlanner}
-      />
+      <Suspense fallback={<OnboardingPanel plans={bootstrap.plans} />}>
+        <OnboardingPageShell plans={bootstrap.plans} />
+      </Suspense>
     </main>
   );
 }

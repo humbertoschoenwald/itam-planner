@@ -11,6 +11,7 @@ const filesWithDisabledPrefetch = [
   "components/connect-chatgpt-panel.tsx",
   "components/onboarding-panel.tsx",
   "components/planner-home.tsx",
+  "components/planner-route-shell.tsx",
   "components/site-header.tsx",
   "components/student-code-card.tsx",
 ];

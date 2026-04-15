@@ -6,6 +6,7 @@ const uiCopy = {
       backToPlanner: "Back to planner",
       community: "Community",
       connectToChatGpt: "Connect to ChatGPT",
+      goToOnboarding: "Go to onboarding",
       open: "Open",
       planner: "Planner",
     },
@@ -169,6 +170,9 @@ const uiCopy = {
       plannerShell: "Planner shell",
       plannerShellHelp:
         "Select the groups you want to keep in your current planner state.",
+      selectedPeriodLoadError:
+        "The selected public period could not be loaded from the published catalog.",
+      selectedPeriodLoading: "Loading the selected public period...",
       redirectingHelp:
         "The planner route requires an entry term and at least one active plan in this browser.",
       redirectingToOnboarding: "Redirecting to onboarding...",
@@ -272,6 +276,7 @@ const uiCopy = {
       backToPlanner: "Volver al planner",
       community: "Comunidad",
       connectToChatGpt: "Conectar con ChatGPT",
+      goToOnboarding: "Ir a onboarding",
       open: "Abrir",
       planner: "Planner",
     },
@@ -436,6 +441,9 @@ const uiCopy = {
       plannerShell: "Shell del planner",
       plannerShellHelp:
         "Selecciona los grupos que quieres conservar dentro del estado actual del planner.",
+      selectedPeriodLoadError:
+        "No fue posible cargar el periodo público seleccionado desde el catálogo publicado.",
+      selectedPeriodLoading: "Cargando el periodo público seleccionado...",
       redirectingHelp:
         "La ruta del planner requiere un periodo de ingreso y al menos un plan activo en este navegador.",
       redirectingToOnboarding: "Redirigiendo a onboarding...",
