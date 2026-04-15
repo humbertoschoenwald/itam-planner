@@ -2,6 +2,20 @@
 
 set -eu
 
+origin_push_url="$(git remote get-url --push origin 2>/dev/null || true)"
+
+case "$origin_push_url" in
+  ""|git@*|ssh://*)
+    ;;
+  *)
+    if [ "${ALLOW_NON_SSH_PUSH:-0}" != "1" ]; then
+      echo "pre-push: non-SSH push URL detected for origin: $origin_push_url" >&2
+      echo "pre-push: restore an SSH push URL or set ALLOW_NON_SSH_PUSH=1 only when explicitly instructed." >&2
+      exit 1
+    fi
+    ;;
+esac
+
 required_files="
 AGENTS.md
 docs/adr/README.md

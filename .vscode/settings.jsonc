@@ -49,13 +49,6 @@
   "git.promptToSaveFilesBeforeCommit": "always",
   "git.promptToSaveFilesBeforeStash": "always",
   "git.pruneOnFetch": true,
-  "git.branchProtection": [
-    "main",
-    "master",
-    "develop",
-    "release/*"
-  ],
-  "git.branchProtectionPrompt": "alwaysPrompt",
 
   // RULE: Commands should run against saved files, never against unsaved editor state.
   "task.saveBeforeRun": "always",

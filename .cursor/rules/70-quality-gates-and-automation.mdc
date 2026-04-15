@@ -12,3 +12,7 @@ alwaysApply: true
 - RULE: Enforce quality with Ruff, basedpyright, ESLint, Prettier, CSpell, Commitlint, markdownlint-cli2, yamllint, ShellCheck, Hadolint, and actionlint.
 - RULE: Keep local hooks under `.githooks/`.
 - RULE: Prefer shift-left validation over CI-only enforcement.
+- RULE: The repository currently runs in single-maintainer mode.
+- RULE: `main` is the default working branch and default integration branch for routine development.
+- RULE: Short-lived branches and pull requests are optional tools for risky, disruptive, or experimental work, not mandatory workflow steps.
+- RULE: Use SSH for Git remotes and push operations.
