@@ -47,6 +47,7 @@ Do not edit it manually.
 - deploy: remove secret gating from job startup (`362357e`)
 - api: verify published catalog without sqlite byte diffs (`6039fb4`)
 - api: run catalog drift check without pnpm (`b525a2f`)
+- ci: automate changelog updates on push (`ef303cb`)
 
 ### Chores
 
