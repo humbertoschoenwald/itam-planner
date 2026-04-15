@@ -13,11 +13,13 @@ Do not edit it manually.
 - web: polish the planner experience (`470866d`)
 - web: enrich planner with catalog insights (`098f91f`)
 - web: add installable shell and secure catalog caching (`6ffa747`)
+- web: add system theme foundations (`7dc4846`)
 
 ### Fixes
 
 - api: make fixture snapshot promotion deterministic (`2730b5a`)
 - api: stabilize fixture snapshots across platforms (`b582d7c`)
+- web: harden browser storage persistence (`4ce6cb3`)
 
 ### Documentation
 
@@ -29,6 +31,7 @@ Do not edit it manually.
 - repo: clarify contribution and delivery surfaces (`bcb9986`)
 - doctrine: define push-driven changelog automation (`1f31ccb`)
 - docs: record the current custom domain target (`27eb578`)
+- doctrine: expand accessibility and delivery guidance (`000c0f3`)
 
 ### Tests
 
