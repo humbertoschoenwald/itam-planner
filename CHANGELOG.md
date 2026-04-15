@@ -25,6 +25,8 @@ Do not edit it manually.
 - web: split home onboarding and planner routes (`1fabc1d`)
 - web: explain planner onboarding redirect (`a645a48`)
 - web: slim planner bootstrap and gate safely (`302fc9c`)
+- web: validate onboarding before planner routing (`1b62d1a`)
+- api: tolerate mixed live bulletin formats (`9ca80fc`)
 
 ### Documentation
 
@@ -39,6 +41,7 @@ Do not edit it manually.
 - doctrine: expand accessibility and delivery guidance (`000c0f3`)
 - frontend: define home onboarding planner routes (`92c5a35`)
 - frontend: harden planner route fallback (`265d110`)
+- frontend: refine onboarding and catalog doctrine (`ae26e5f`)
 
 ### Tests
 
@@ -52,6 +55,7 @@ Do not edit it manually.
 - deploy: harden vercel artifact inputs (`29c417a`)
 - test: stabilize pytest temp paths (`3037a38`)
 - scripts: add conventional changelog generator (`ff0b432`)
+- repo: preserve live catalog during verify (`67543f4`)
 
 ### Continuous Integration
 
@@ -68,3 +72,4 @@ Do not edit it manually.
 - config: add derived repository policy baselines (`515e40c`)
 - data: add fixture-backed public catalog snapshot (`f367457`)
 - data: refresh published fixture snapshot (`c47d553`)
+- data: publish live academic catalog snapshot (`af8c559`)
