@@ -156,6 +156,26 @@ a {
   gap: 0.9rem;
 }
 
+.week-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.day-column {
+  border: 1px solid rgba(24, 32, 23, 0.08);
+  background: rgba(255, 255, 255, 0.76);
+  border-radius: 1.4rem;
+  padding: 1rem;
+}
+
+.meeting-card {
+  border-radius: 1.2rem;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(232, 244, 237, 0.92));
+  border: 1px solid rgba(31, 77, 63, 0.12);
+  padding: 0.95rem 1rem;
+  box-shadow: 0 16px 32px rgba(34, 64, 51, 0.06);
+}
+
 @media (min-width: 900px) {
   .page-grid {
     grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
@@ -169,5 +189,9 @@ a {
 
   .metric-grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .week-grid {
+    grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
   }
 }

@@ -16,6 +16,15 @@ const uiCopy = {
         "Follow the creator's work, quality experiments, and project updates. Not a support channel.",
     },
     communityPage: {
+      creditsBody:
+        "The repository credits Horarios-ITAM as inspiration in the same problem space, keeps this implementation fully original, and relies on public ITAM academic materials as source inputs for the normalized catalog.",
+      creditsEyebrow: "Credits and sources",
+      creditsLinks: {
+        bibliography: "Tooling and standards bibliography",
+        inspiration: "Horarios-ITAM inspiration",
+        publicSources: "ITAM public academic sources",
+      },
+      creditsTitle: "Why this exists",
       creatorNote:
         "Instagram is for creator visibility and project updates. It is not support and it is not official ITAM contact.",
       creatorSurfaces: "Creator surfaces",
@@ -27,6 +36,12 @@ const uiCopy = {
         "Feature request for new planner or UX ideas.",
       ],
       issueLead: "Choose the issue template that matches your report:",
+      issueShortcuts: {
+        bug: "Bug report",
+        dataCorrection: "Data correction",
+        featureRequest: "Feature request",
+        sourceDrift: "Source drift",
+      },
       issueTitle: "Open an issue",
       signUpLead: "If you still need a GitHub account, create one at",
       supportPath: "Canonical support path",
@@ -128,6 +143,26 @@ const uiCopy = {
       step1: "Step 1",
       step2: "Step 2",
       step3: "Step 3",
+      catalogFreshness: {
+        description:
+          "This build ships the latest promoted JSON catalog snapshot directly with the web app. These numbers show how fresh that published snapshot is.",
+        eyebrow: "Published catalog",
+        latestObservedSource: "Latest observed source",
+        latestPromotion: "Last promotion",
+        noData: "No published snapshot metadata yet.",
+        releaseLabel: "Release",
+        snapshots: "Snapshots",
+        statusLabels: {
+          drift_detected: "Drift detected",
+          failed: "Failed",
+          no_changes: "No changes",
+          running: "Running",
+          succeeded: "Succeeded",
+          unknown: "Unknown",
+        },
+        title: "Catalog freshness",
+        trackedSources: "Tracked sources",
+      },
       title: "ITAM Planner",
       timeline: [
         {
@@ -143,6 +178,15 @@ const uiCopy = {
           title: "Carry the code",
         },
       ],
+      weekBoard: {
+        description:
+          "Every selected public group is mapped into a simple weekly board so you can see the browser-local planner state at a glance.",
+        empty:
+          "Select public groups to see the first weekly version of your local planner here.",
+        eyebrow: "Selected week",
+        roomPending: "Room pending",
+        title: "Weekly board",
+      },
     },
     siteHeader: {
       badge: "Browser-local beta",
@@ -153,6 +197,7 @@ const uiCopy = {
       copyCode: "Copy code",
       description:
         "This browser-owned code is generated from your current onboarding profile and planner state. No account is required and no personal data is stored in the backend. Use GitHub issues for support; this code is the foundation for the later AI connection flow.",
+      lengthSuffix: "characters",
       eyebrow: "Portable context",
       openChatGpt: "Open the ChatGPT connection page",
       title: "Student code",
@@ -176,6 +221,15 @@ const uiCopy = {
         "Sigue el trabajo del creador, sus experimentos de calidad y las actualizaciones del proyecto. No es un canal de soporte.",
     },
     communityPage: {
+      creditsBody:
+        "El repositorio reconoce a Horarios-ITAM como inspiración en el mismo problema, mantiene esta implementación completamente original y usa materiales académicos públicos del ITAM como insumo para el catálogo normalizado.",
+      creditsEyebrow: "Créditos y fuentes",
+      creditsLinks: {
+        bibliography: "Bibliografía de herramientas y estándares",
+        inspiration: "Inspiración de Horarios-ITAM",
+        publicSources: "Fuentes académicas públicas del ITAM",
+      },
+      creditsTitle: "Por qué existe esto",
       creatorNote:
         "Instagram existe para visibilidad del creador y actualizaciones del proyecto. No es soporte ni contacto oficial del ITAM.",
       creatorSurfaces: "Canales del creador",
@@ -187,6 +241,12 @@ const uiCopy = {
         "Feature request para nuevas ideas de planner o UX.",
       ],
       issueLead: "Elige el template que mejor describa tu reporte:",
+      issueShortcuts: {
+        bug: "Bug report",
+        dataCorrection: "Data correction",
+        featureRequest: "Feature request",
+        sourceDrift: "Source drift",
+      },
       issueTitle: "Abrir un issue",
       signUpLead: "Si todavía no tienes cuenta de GitHub, créala en",
       supportPath: "Ruta oficial de soporte",
@@ -289,6 +349,26 @@ const uiCopy = {
       step1: "Paso 1",
       step2: "Paso 2",
       step3: "Paso 3",
+      catalogFreshness: {
+        description:
+          "Este build lleva el último snapshot promovido del catálogo JSON directamente dentro de la web. Estos datos muestran qué tan fresco está ese snapshot publicado.",
+        eyebrow: "Catálogo publicado",
+        latestObservedSource: "Última fuente observada",
+        latestPromotion: "Última promoción",
+        noData: "Todavía no hay metadata publicada del snapshot.",
+        releaseLabel: "Release",
+        snapshots: "Snapshots",
+        statusLabels: {
+          drift_detected: "Drift detectado",
+          failed: "Falló",
+          no_changes: "Sin cambios",
+          running: "Corriendo",
+          succeeded: "Correcto",
+          unknown: "Desconocido",
+        },
+        title: "Frescura del catálogo",
+        trackedSources: "Fuentes seguidas",
+      },
       title: "ITAM Planner",
       timeline: [
         {
@@ -304,6 +384,15 @@ const uiCopy = {
           title: "Guarda el código",
         },
       ],
+      weekBoard: {
+        description:
+          "Cada grupo público que seleccionas se proyecta en un tablero semanal simple para que veas el estado local de tu planner de un vistazo.",
+        empty:
+          "Selecciona grupos públicos para ver aquí la primera versión semanal de tu planner local.",
+        eyebrow: "Semana seleccionada",
+        roomPending: "Salón pendiente",
+        title: "Tablero semanal",
+      },
     },
     siteHeader: {
       badge: "Beta local en navegador",
@@ -314,6 +403,7 @@ const uiCopy = {
       copyCode: "Copiar código",
       description:
         "Este código, propiedad del navegador, se genera a partir de tu perfil actual y del estado del planner. No necesitas cuenta y ningún dato personal se guarda en el backend. Usa GitHub Issues para soporte; este código es la base del flujo futuro con IA.",
+      lengthSuffix: "caracteres",
       eyebrow: "Contexto portable",
       openChatGpt: "Abrir la página de ChatGPT",
       title: "Código del alumno",

@@ -14,6 +14,7 @@ describe("resolveCatalogUrl", () => {
     expect(resolveCatalogUrl("/schedules/periods/2938", null)).toBe(
       "/catalog/latest/schedules/periods/2938.json",
     );
+    expect(resolveCatalogUrl("/sources", null)).toBe("/catalog/latest/sources.json");
   });
 
   it("keeps an external API origin when one is configured", () => {

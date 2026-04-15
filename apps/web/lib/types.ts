@@ -69,3 +69,37 @@ export interface SchedulePeriodDetail extends SchedulePeriodSummary {
   }>;
   offerings: ScheduleOffering[];
 }
+
+export interface ScrapeRunSummary {
+  run_id: string;
+  started_at: string;
+  completed_at: string | null;
+  status: "running" | "succeeded" | "failed" | "no_changes" | "drift_detected";
+  notes: string | null;
+}
+
+export interface PromotedReleaseSummary {
+  release_id: string;
+  run_id: string;
+  promoted_at: string;
+  notes: string | null;
+}
+
+export interface SourceSnapshotSummary {
+  snapshot_id: string;
+  run_id: string;
+  source_id: string;
+  upstream_url: string;
+  observed_at: string;
+  content_hash: string;
+  parse_status: "parsed" | "skipped" | "failed" | "unchanged";
+  media_type: string;
+  relative_path: string | null;
+  size_bytes: number;
+}
+
+export interface SourcesMetadata {
+  scrape_runs: ScrapeRunSummary[];
+  promoted_releases: PromotedReleaseSummary[];
+  source_snapshots: SourceSnapshotSummary[];
+}

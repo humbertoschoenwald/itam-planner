@@ -3,6 +3,8 @@
 import Link from "next/link";
 
 import { CommunityLinks } from "@/components/community-links";
+import { IssueTemplateLinks } from "@/components/issue-template-links";
+import { ProjectCreditsCard } from "@/components/project-credits-card";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { getUiCopy } from "@/lib/copy";
 import { useStudentProfileStore } from "@/stores/student-profile-store";
@@ -32,8 +34,9 @@ export default function CommunityPage() {
             <p className="eyebrow">{copy.communityPage.supportPath}</p>
             <CardTitle>{copy.communityPage.issueTitle}</CardTitle>
           </CardHeader>
-          <CardContent className="space-y-3 text-sm leading-6 text-muted">
+          <CardContent className="space-y-4 text-sm leading-6 text-muted">
             <p>{copy.communityPage.issueLead}</p>
+            <IssueTemplateLinks />
             <ul className="space-y-2">
               {copy.communityPage.issueBullets.map((bullet) => (
                 <li key={bullet}>{bullet}</li>
@@ -67,6 +70,8 @@ export default function CommunityPage() {
           </CardContent>
         </Card>
       </div>
+
+      <ProjectCreditsCard />
     </main>
   );
 }

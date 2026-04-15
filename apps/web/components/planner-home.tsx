@@ -3,7 +3,9 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
+import { CatalogFreshnessCard } from "@/components/catalog-freshness-card";
 import { CommunityLinks } from "@/components/community-links";
+import { SelectedWeekBoard } from "@/components/selected-week-board";
 import { StudentCodeCard } from "@/components/student-code-card";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -12,8 +14,14 @@ import {
   fetchBulletinIndex,
   fetchSchedulePeriodDetail,
   fetchSchedulePeriods,
+  fetchSourcesMetadata,
 } from "@/lib/api";
-import type { BulletinSummary, SchedulePeriodDetail, SchedulePeriodSummary } from "@/lib/types";
+import type {
+  BulletinSummary,
+  SchedulePeriodDetail,
+  SchedulePeriodSummary,
+  SourcesMetadata,
+} from "@/lib/types";
 import { useSyncStudentCode } from "@/lib/use-sync-student-code";
 import { usePlannerStore } from "@/stores/planner-store";
 import {
@@ -46,6 +54,7 @@ export function PlannerHome() {
 
   const [plans, setPlans] = useState<BulletinSummary[]>([]);
   const [periods, setPeriods] = useState<SchedulePeriodSummary[]>([]);
+  const [sourcesMetadata, setSourcesMetadata] = useState<SourcesMetadata | null>(null);
   const [selectedPeriod, setSelectedPeriod] = useState<SchedulePeriodDetail | null>(null);
   const [loading, setLoading] = useState(true);
   const [detailLoading, setDetailLoading] = useState(false);
@@ -58,15 +67,17 @@ export function PlannerHome() {
       try {
         setLoading(true);
         setErrorMessage(null);
-        const [bulletinIndex, periodIndex] = await Promise.all([
+        const [bulletinIndex, periodIndex, publishedSources] = await Promise.all([
           fetchBulletinIndex(),
           fetchSchedulePeriods(),
+          fetchSourcesMetadata(),
         ]);
         if (cancelled) {
           return;
         }
         setPlans(bulletinIndex);
         setPeriods(periodIndex);
+        setSourcesMetadata(publishedSources);
         if (!plannerState.selectedPeriodId && periodIndex.length > 0) {
           setSelectedPeriodId(periodIndex[0].period_id);
         }
@@ -452,6 +463,16 @@ export function PlannerHome() {
             </div>
           </CardContent>
         </Card>
+      </section>
+
+      <section className="page-grid">
+        <CatalogFreshnessCard
+          isLoading={loading}
+          locale={profile.locale}
+          metadata={sourcesMetadata}
+        />
+
+        <SelectedWeekBoard locale={profile.locale} offerings={selectedOfferings} />
       </section>
 
       <section className="page-grid">

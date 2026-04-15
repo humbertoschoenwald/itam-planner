@@ -40,7 +40,7 @@ export function StudentCodeCard() {
             {copy.studentCode.browserOwned}
           </span>
           <span className="rounded-full border border-border bg-white px-3 py-2 text-xs font-semibold text-muted">
-            {code ? `${codeLength} characters` : copy.studentCode.waitingForPlannerData}
+            {code ? `${codeLength} ${copy.studentCode.lengthSuffix}` : copy.studentCode.waitingForPlannerData}
           </span>
         </div>
 
