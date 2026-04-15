@@ -1,12 +1,1072 @@
 {
   "period_id": "2925",
-  "source_snapshot_id": "schedule-menu:7c67fbf32b63c555",
+  "source_snapshot_id": "schedule-period-2925:ab55efd0eee42bc3",
   "label": "PRIMAVERA 2026 MAESTRIA",
   "level": "MAESTRIA",
   "year": 2026,
   "term": "PRIMAVERA",
   "active_from": "2026-01-01",
   "active_to": "2026-05-31",
-  "subjects": [],
-  "offerings": []
+  "subjects": [
+    {
+      "subject_id": "2925:COM-31702",
+      "raw_value": "COM-31702-LENGUAJES DE PROGRAMACION",
+      "course_code": "COM-31702",
+      "canonical_title": "LENGUAJES DE PROGRAMACION"
+    },
+    {
+      "subject_id": "2925:COM-33703",
+      "raw_value": "COM-33703-APRENDIZAJE PROFUNDO",
+      "course_code": "COM-33703",
+      "canonical_title": "APRENDIZAJE PROFUNDO"
+    },
+    {
+      "subject_id": "2925:COM-34705",
+      "raw_value": "COM-34705-COMPUTO DISTRIBUIDO",
+      "course_code": "COM-34705",
+      "canonical_title": "COMPUTO DISTRIBUIDO"
+    },
+    {
+      "subject_id": "2925:COM-35704",
+      "raw_value": "COM-35704-INVESTIGACION II",
+      "course_code": "COM-35704",
+      "canonical_title": "INVESTIGACION II"
+    },
+    {
+      "subject_id": "2925:COM-35705",
+      "raw_value": "COM-35705-SEGURIDAD INFORMATICA Y HACKEO",
+      "course_code": "COM-35705",
+      "canonical_title": "SEGURIDAD INFORMATICA Y HACKEO"
+    },
+    {
+      "subject_id": "2925:ECO-30512",
+      "raw_value": "ECO-30512-MACROECONOMETRIA APLICADA (OP)",
+      "course_code": "ECO-30512",
+      "canonical_title": "MACROECONOMETRIA APLICADA (OP)"
+    },
+    {
+      "subject_id": "2925:ECO-30522",
+      "raw_value": "ECO-30522-ECONOMETRIA APLICADA II",
+      "course_code": "ECO-30522",
+      "canonical_title": "ECONOMETRIA APLICADA II"
+    },
+    {
+      "subject_id": "2925:ECO-39401",
+      "raw_value": "ECO-39401-ECO APL SEGURIDAD CIUDADANA",
+      "course_code": "ECO-39401",
+      "canonical_title": "ECO APL SEGURIDAD CIUDADANA"
+    },
+    {
+      "subject_id": "2925:ECO-40212",
+      "raw_value": "ECO-40212-INVESTIGACION APLICADA II",
+      "course_code": "ECO-40212",
+      "canonical_title": "INVESTIGACION APLICADA II"
+    },
+    {
+      "subject_id": "2925:ECO-50101",
+      "raw_value": "ECO-50101-PRACTICAS DE INVESTIGACION I",
+      "course_code": "ECO-50101",
+      "canonical_title": "PRACTICAS DE INVESTIGACION I"
+    },
+    {
+      "subject_id": "2925:ECO-50201",
+      "raw_value": "ECO-50201-INVESTIGACION AVANZADA II",
+      "course_code": "ECO-50201",
+      "canonical_title": "INVESTIGACION AVANZADA II"
+    },
+    {
+      "subject_id": "2925:ECO-50202",
+      "raw_value": "ECO-50202-INVESTIGACION AVANZADA III",
+      "course_code": "ECO-50202",
+      "canonical_title": "INVESTIGACION AVANZADA III"
+    },
+    {
+      "subject_id": "2925:ECO-50211",
+      "raw_value": "ECO-50211-SEMINARIO DE INVESTIGACION I",
+      "course_code": "ECO-50211",
+      "canonical_title": "SEMINARIO DE INVESTIGACION I"
+    },
+    {
+      "subject_id": "2925:ECO-50213",
+      "raw_value": "ECO-50213-MICROECONOMETRIA AVANZADA",
+      "course_code": "ECO-50213",
+      "canonical_title": "MICROECONOMETRIA AVANZADA"
+    },
+    {
+      "subject_id": "2925:ECO-50511",
+      "raw_value": "ECO-50511-ECONOMETRIA I",
+      "course_code": "ECO-50511",
+      "canonical_title": "ECONOMETRIA I"
+    },
+    {
+      "subject_id": "2925:ECO-50512",
+      "raw_value": "ECO-50512-ECONOMETRIA II",
+      "course_code": "ECO-50512",
+      "canonical_title": "ECONOMETRIA II"
+    },
+    {
+      "subject_id": "2925:ECO-51101",
+      "raw_value": "ECO-51101-MICROECONOMIA I",
+      "course_code": "ECO-51101",
+      "canonical_title": "MICROECONOMIA I"
+    },
+    {
+      "subject_id": "2925:ECO-51201",
+      "raw_value": "ECO-51201-TOPICOS DE MICROECONOMETRIA (O",
+      "course_code": "ECO-51201",
+      "canonical_title": "TOPICOS DE MICROECONOMETRIA (O"
+    },
+    {
+      "subject_id": "2925:ECO-52101",
+      "raw_value": "ECO-52101-MACROECONOMIA I",
+      "course_code": "ECO-52101",
+      "canonical_title": "MACROECONOMIA I"
+    },
+    {
+      "subject_id": "2925:ECO-52126",
+      "raw_value": "ECO-52126-TOPICOS AVANZADOS DE MACROECON",
+      "course_code": "ECO-52126",
+      "canonical_title": "TOPICOS AVANZADOS DE MACROECON"
+    },
+    {
+      "subject_id": "2925:EST-46113",
+      "raw_value": "EST-46113-MODELOS LINEALES GENERALIZ.",
+      "course_code": "EST-46113",
+      "canonical_title": "MODELOS LINEALES GENERALIZ."
+    },
+    {
+      "subject_id": "2925:EST-46115",
+      "raw_value": "EST-46115-TEMAS SELECT. DE ESTADISTICA",
+      "course_code": "EST-46115",
+      "canonical_title": "TEMAS SELECT. DE ESTADISTICA"
+    },
+    {
+      "subject_id": "2925:EST-51104",
+      "raw_value": "EST-51104-FUNDAMENTOS DE ECONOMETRIA",
+      "course_code": "EST-51104",
+      "canonical_title": "FUNDAMENTOS DE ECONOMETRIA"
+    },
+    {
+      "subject_id": "2925:MAT-34420",
+      "raw_value": "MAT-34420-MET. NUMERICOS Y OPTIMIZAC",
+      "course_code": "MAT-34420",
+      "canonical_title": "MET. NUMERICOS Y OPTIMIZAC"
+    },
+    {
+      "subject_id": "2925:MAT-34440",
+      "raw_value": "MAT-34440-METODOS ANALITICOS",
+      "course_code": "MAT-34440",
+      "canonical_title": "METODOS ANALITICOS"
+    },
+    {
+      "subject_id": "2925:MAT-34710",
+      "raw_value": "MAT-34710-METODOS DE GRAN ESCALA",
+      "course_code": "MAT-34710",
+      "canonical_title": "METODOS DE GRAN ESCALA"
+    },
+    {
+      "subject_id": "2925:MAT-34750",
+      "raw_value": "MAT-34750-ESTANCIA DE INVESTIGACION",
+      "course_code": "MAT-34750",
+      "canonical_title": "ESTANCIA DE INVESTIGACION"
+    },
+    {
+      "subject_id": "2925:MAT-54109",
+      "raw_value": "MAT-54109-ANALISIS MATEMATICO I",
+      "course_code": "MAT-54109",
+      "canonical_title": "ANALISIS MATEMATICO I"
+    },
+    {
+      "subject_id": "2925:MAT-54110",
+      "raw_value": "MAT-54110-ANALISIS MATEMATICO, II",
+      "course_code": "MAT-54110",
+      "canonical_title": "ANALISIS MATEMATICO, II"
+    },
+    {
+      "subject_id": "2925:SDI-31704",
+      "raw_value": "SDI-31704-ARQUITECTURA DE COMPUTADORAS",
+      "course_code": "SDI-31704",
+      "canonical_title": "ARQUITECTURA DE COMPUTADORAS"
+    }
+  ],
+  "offerings": [
+    {
+      "offering_id": "2925:COM-31702:001:11006",
+      "period_id": "2925",
+      "course_code": "COM-31702",
+      "group_code": "001",
+      "crn": "11006",
+      "section_type": "T",
+      "display_title": "LENGUAJES DE PROGRAMACION",
+      "instructor_name": "ANDRES GOMEZ DE SILVA GARZA",
+      "credits": 6,
+      "room_code": "RHSA1",
+      "campus_name": "RIO HONDO",
+      "raw_comments": null,
+      "meetings": [
+        {
+          "weekday_code": "MA",
+          "start_time": "17:00:00",
+          "end_time": "20:00:00",
+          "room_code": "RHSA1",
+          "campus_name": "RIO HONDO"
+        }
+      ]
+    },
+    {
+      "offering_id": "2925:COM-31702:002:11032",
+      "period_id": "2925",
+      "course_code": "COM-31702",
+      "group_code": "002",
+      "crn": "11032",
+      "section_type": "T",
+      "display_title": "LENGUAJES DE PROGRAMACION",
+      "instructor_name": "FABIAN ORDUÑA FERREIRA",
+      "credits": 6,
+      "room_code": "RHCC202",
+      "campus_name": "RIO HONDO",
+      "raw_comments": null,
+      "meetings": [
+        {
+          "weekday_code": "JU",
+          "start_time": "18:00:00",
+          "end_time": "20:00:00",
+          "room_code": "RHCC202",
+          "campus_name": "RIO HONDO"
+        },
+        {
+          "weekday_code": "MA",
+          "start_time": "18:00:00",
+          "end_time": "20:00:00",
+          "room_code": "RHCC202",
+          "campus_name": "RIO HONDO"
+        }
+      ]
+    },
+    {
+      "offering_id": "2925:COM-33703:001:11007",
+      "period_id": "2925",
+      "course_code": "COM-33703",
+      "group_code": "001",
+      "crn": "11007",
+      "section_type": "T",
+      "display_title": "APRENDIZAJE PROFUNDO",
+      "instructor_name": "EDGAR FRANCISCO ROMAN RANGEL",
+      "credits": 6,
+      "room_code": null,
+      "campus_name": null,
+      "raw_comments": null,
+      "meetings": [
+        {
+          "weekday_code": "JU",
+          "start_time": "17:00:00",
+          "end_time": "20:00:00",
+          "room_code": null,
+          "campus_name": null
+        }
+      ]
+    },
+    {
+      "offering_id": "2925:COM-34705:001:11008",
+      "period_id": "2925",
+      "course_code": "COM-34705",
+      "group_code": "001",
+      "crn": "11008",
+      "section_type": "T",
+      "display_title": "COMPUTO DISTRIBUIDO",
+      "instructor_name": "MARCELO CARLOS MEJIA OLVERA",
+      "credits": 6,
+      "room_code": "RH102",
+      "campus_name": "RIO HONDO",
+      "raw_comments": null,
+      "meetings": [
+        {
+          "weekday_code": "MA",
+          "start_time": "07:00:00",
+          "end_time": "10:00:00",
+          "room_code": "RH102",
+          "campus_name": "RIO HONDO"
+        }
+      ]
+    },
+    {
+      "offering_id": "2925:COM-35704:001:11009",
+      "period_id": "2925",
+      "course_code": "COM-35704",
+      "group_code": "001",
+      "crn": "11009",
+      "section_type": "T",
+      "display_title": "INVESTIGACION II",
+      "instructor_name": "EDGAR FRANCISCO ROMAN RANGEL",
+      "credits": 6,
+      "room_code": "RHB-5",
+      "campus_name": "RIO HONDO",
+      "raw_comments": null,
+      "meetings": [
+        {
+          "weekday_code": "MI",
+          "start_time": "17:00:00",
+          "end_time": "20:00:00",
+          "room_code": "RHB-5",
+          "campus_name": "RIO HONDO"
+        }
+      ]
+    },
+    {
+      "offering_id": "2925:COM-35705:001:11010",
+      "period_id": "2925",
+      "course_code": "COM-35705",
+      "group_code": "001",
+      "crn": "11010",
+      "section_type": "T",
+      "display_title": "SEGURIDAD INFORMATICA Y HACKEO",
+      "instructor_name": "ALEJANDRA FLORES MOSRI",
+      "credits": 6,
+      "room_code": "RHCC101",
+      "campus_name": "RIO HONDO",
+      "raw_comments": null,
+      "meetings": [
+        {
+          "weekday_code": "VI",
+          "start_time": "07:00:00",
+          "end_time": "10:00:00",
+          "room_code": "RHCC101",
+          "campus_name": "RIO HONDO"
+        }
+      ]
+    },
+    {
+      "offering_id": "2925:ECO-30512:001:11025",
+      "period_id": "2925",
+      "course_code": "ECO-30512",
+      "group_code": "001",
+      "crn": "11025",
+      "section_type": "T",
+      "display_title": "MACROECONOMETRIA APLICADA (OP)",
+      "instructor_name": "GUSTAVO ANTONIO LEYVA JIMENEZ",
+      "credits": 6,
+      "room_code": null,
+      "campus_name": null,
+      "raw_comments": null,
+      "meetings": [
+        {
+          "weekday_code": "MA",
+          "start_time": "19:00:00",
+          "end_time": "22:00:00",
+          "room_code": null,
+          "campus_name": null
+        }
+      ]
+    },
+    {
+      "offering_id": "2925:ECO-30522:001:11023",
+      "period_id": "2925",
+      "course_code": "ECO-30522",
+      "group_code": "001",
+      "crn": "11023",
+      "section_type": "T",
+      "display_title": "ECONOMETRIA APLICADA II",
+      "instructor_name": "ARTURO SOBERON CEDILLO",
+      "credits": 12,
+      "room_code": "RH108",
+      "campus_name": "RIO HONDO",
+      "raw_comments": null,
+      "meetings": [
+        {
+          "weekday_code": "JU",
+          "start_time": "19:00:00",
+          "end_time": "21:00:00",
+          "room_code": null,
+          "campus_name": null
+        },
+        {
+          "weekday_code": "LU",
+          "start_time": "19:00:00",
+          "end_time": "21:00:00",
+          "room_code": "RH108",
+          "campus_name": "RIO HONDO"
+        },
+        {
+          "weekday_code": "MI",
+          "start_time": "19:00:00",
+          "end_time": "21:00:00",
+          "room_code": "RH108",
+          "campus_name": "RIO HONDO"
+        }
+      ]
+    },
+    {
+      "offering_id": "2925:ECO-39401:001:11026",
+      "period_id": "2925",
+      "course_code": "ECO-39401",
+      "group_code": "001",
+      "crn": "11026",
+      "section_type": "T",
+      "display_title": "ECO APL SEGURIDAD CIUDADANA",
+      "instructor_name": "DANIEL ALEJANDRO HERNANDEZ ALDACO",
+      "credits": 6,
+      "room_code": null,
+      "campus_name": null,
+      "raw_comments": null,
+      "meetings": [
+        {
+          "weekday_code": "JU",
+          "start_time": "07:00:00",
+          "end_time": "10:00:00",
+          "room_code": null,
+          "campus_name": null
+        }
+      ]
+    },
+    {
+      "offering_id": "2925:ECO-40212:001:11024",
+      "period_id": "2925",
+      "course_code": "ECO-40212",
+      "group_code": "001",
+      "crn": "11024",
+      "section_type": "T",
+      "display_title": "INVESTIGACION APLICADA II",
+      "instructor_name": "HORACIO ALEJANDRO LARREGUY ARBESU",
+      "credits": 7,
+      "room_code": "RH111",
+      "campus_name": "RIO HONDO",
+      "raw_comments": null,
+      "meetings": [
+        {
+          "weekday_code": "MI",
+          "start_time": "07:00:00",
+          "end_time": "10:00:00",
+          "room_code": "RH111",
+          "campus_name": "RIO HONDO"
+        }
+      ]
+    },
+    {
+      "offering_id": "2925:ECO-50101:001:11021",
+      "period_id": "2925",
+      "course_code": "ECO-50101",
+      "group_code": "001",
+      "crn": "11021",
+      "section_type": "T",
+      "display_title": "PRACTICAS DE INVESTIGACION I",
+      "instructor_name": "FELIPE MEZA GOIZ",
+      "credits": 9,
+      "room_code": "ST206",
+      "campus_name": "ST. TERESA",
+      "raw_comments": null,
+      "meetings": [
+        {
+          "weekday_code": "VI",
+          "start_time": "07:00:00",
+          "end_time": "08:30:00",
+          "room_code": "ST206",
+          "campus_name": "ST. TERESA"
+        }
+      ]
+    },
+    {
+      "offering_id": "2925:ECO-50201:001:11031",
+      "period_id": "2925",
+      "course_code": "ECO-50201",
+      "group_code": "001",
+      "crn": "11031",
+      "section_type": "T",
+      "display_title": "INVESTIGACION AVANZADA II",
+      "instructor_name": "EMILIO GUTIERREZ FERNANDEZ",
+      "credits": 6,
+      "room_code": "STCUBIC",
+      "campus_name": "ST. TERESA",
+      "raw_comments": null,
+      "meetings": [
+        {
+          "weekday_code": "VI",
+          "start_time": "19:00:00",
+          "end_time": "22:00:00",
+          "room_code": "STCUBIC",
+          "campus_name": "ST. TERESA"
+        }
+      ]
+    },
+    {
+      "offering_id": "2925:ECO-50201:002:11034",
+      "period_id": "2925",
+      "course_code": "ECO-50201",
+      "group_code": "002",
+      "crn": "11034",
+      "section_type": "T",
+      "display_title": "INVESTIGACION AVANZADA II",
+      "instructor_name": "ARTURO ALBERTO AGUILAR ESTEVA",
+      "credits": 6,
+      "room_code": "STCUBIC",
+      "campus_name": "ST. TERESA",
+      "raw_comments": null,
+      "meetings": [
+        {
+          "weekday_code": "VI",
+          "start_time": "19:00:00",
+          "end_time": "22:00:00",
+          "room_code": "STCUBIC",
+          "campus_name": "ST. TERESA"
+        }
+      ]
+    },
+    {
+      "offering_id": "2925:ECO-50202:001:11035",
+      "period_id": "2925",
+      "course_code": "ECO-50202",
+      "group_code": "001",
+      "crn": "11035",
+      "section_type": "T",
+      "display_title": "INVESTIGACION AVANZADA III",
+      "instructor_name": "MAURICIO TOMAS ROMERO LONDOÑO",
+      "credits": 6,
+      "room_code": "STCUBIC",
+      "campus_name": "ST. TERESA",
+      "raw_comments": null,
+      "meetings": [
+        {
+          "weekday_code": "VI",
+          "start_time": "19:00:00",
+          "end_time": "22:00:00",
+          "room_code": "STCUBIC",
+          "campus_name": "ST. TERESA"
+        }
+      ]
+    },
+    {
+      "offering_id": "2925:ECO-50211:001:11022",
+      "period_id": "2925",
+      "course_code": "ECO-50211",
+      "group_code": "001",
+      "crn": "11022",
+      "section_type": "T",
+      "display_title": "SEMINARIO DE INVESTIGACION I",
+      "instructor_name": "FELIPE MEZA GOIZ",
+      "credits": 6,
+      "room_code": "ST206",
+      "campus_name": "ST. TERESA",
+      "raw_comments": null,
+      "meetings": [
+        {
+          "weekday_code": "MA",
+          "start_time": "14:00:00",
+          "end_time": "15:30:00",
+          "room_code": "ST206",
+          "campus_name": "ST. TERESA"
+        },
+        {
+          "weekday_code": "VI",
+          "start_time": "12:00:00",
+          "end_time": "13:30:00",
+          "room_code": "ST206",
+          "campus_name": "ST. TERESA"
+        }
+      ]
+    },
+    {
+      "offering_id": "2925:ECO-50213:001:11030",
+      "period_id": "2925",
+      "course_code": "ECO-50213",
+      "group_code": "001",
+      "crn": "11030",
+      "section_type": "T",
+      "display_title": "MICROECONOMETRIA AVANZADA",
+      "instructor_name": "ARTURO ALBERTO AGUILAR ESTEVA",
+      "credits": 6,
+      "room_code": "RH108",
+      "campus_name": "RIO HONDO",
+      "raw_comments": null,
+      "meetings": [
+        {
+          "weekday_code": "LU",
+          "start_time": "17:30:00",
+          "end_time": "19:00:00",
+          "room_code": "RH108",
+          "campus_name": "RIO HONDO"
+        },
+        {
+          "weekday_code": "MI",
+          "start_time": "17:30:00",
+          "end_time": "19:00:00",
+          "room_code": "RH108",
+          "campus_name": "RIO HONDO"
+        }
+      ]
+    },
+    {
+      "offering_id": "2925:ECO-50511:001:11020",
+      "period_id": "2925",
+      "course_code": "ECO-50511",
+      "group_code": "001",
+      "crn": "11020",
+      "section_type": "T",
+      "display_title": "ECONOMETRIA I",
+      "instructor_name": "ARTURO ALBERTO AGUILAR ESTEVA",
+      "credits": 6,
+      "room_code": "RH108",
+      "campus_name": "RIO HONDO",
+      "raw_comments": null,
+      "meetings": [
+        {
+          "weekday_code": "LU",
+          "start_time": "17:30:00",
+          "end_time": "19:00:00",
+          "room_code": "RH108",
+          "campus_name": "RIO HONDO"
+        },
+        {
+          "weekday_code": "MI",
+          "start_time": "17:30:00",
+          "end_time": "19:00:00",
+          "room_code": "RH108",
+          "campus_name": "RIO HONDO"
+        }
+      ]
+    },
+    {
+      "offering_id": "2925:ECO-50512:001:11028",
+      "period_id": "2925",
+      "course_code": "ECO-50512",
+      "group_code": "001",
+      "crn": "11028",
+      "section_type": "T",
+      "display_title": "ECONOMETRIA II",
+      "instructor_name": "GUSTAVO ANTONIO LEYVA JIMENEZ",
+      "credits": 6,
+      "room_code": null,
+      "campus_name": null,
+      "raw_comments": null,
+      "meetings": [
+        {
+          "weekday_code": "MA",
+          "start_time": "19:00:00",
+          "end_time": "22:00:00",
+          "room_code": null,
+          "campus_name": null
+        }
+      ]
+    },
+    {
+      "offering_id": "2925:ECO-51101:001:11018",
+      "period_id": "2925",
+      "course_code": "ECO-51101",
+      "group_code": "001",
+      "crn": "11018",
+      "section_type": "T",
+      "display_title": "MICROECONOMIA I",
+      "instructor_name": "XINYANG WANG",
+      "credits": 6,
+      "room_code": "RH201",
+      "campus_name": "RIO HONDO",
+      "raw_comments": null,
+      "meetings": [
+        {
+          "weekday_code": "JU",
+          "start_time": "16:00:00",
+          "end_time": "19:00:00",
+          "room_code": "RH201",
+          "campus_name": "RIO HONDO"
+        }
+      ]
+    },
+    {
+      "offering_id": "2925:ECO-51201:001:11033",
+      "period_id": "2925",
+      "course_code": "ECO-51201",
+      "group_code": "001",
+      "crn": "11033",
+      "section_type": "T",
+      "display_title": "TOPICOS DE MICROECONOMETRIA (O",
+      "instructor_name": "MANUEL MENDOZA RAMIREZ",
+      "credits": 6,
+      "room_code": "RHB-1",
+      "campus_name": "RIO HONDO",
+      "raw_comments": null,
+      "meetings": [
+        {
+          "weekday_code": "LU",
+          "start_time": "10:00:00",
+          "end_time": "11:30:00",
+          "room_code": "RHB-1",
+          "campus_name": "RIO HONDO"
+        },
+        {
+          "weekday_code": "MI",
+          "start_time": "10:00:00",
+          "end_time": "11:30:00",
+          "room_code": "RHB-1",
+          "campus_name": "RIO HONDO"
+        }
+      ]
+    },
+    {
+      "offering_id": "2925:ECO-52101:001:11019",
+      "period_id": "2925",
+      "course_code": "ECO-52101",
+      "group_code": "001",
+      "crn": "11019",
+      "section_type": "T",
+      "display_title": "MACROECONOMIA I",
+      "instructor_name": "CARLOS ERNESTO URRUTIA VILLALOBOS",
+      "credits": 6,
+      "room_code": "RH312",
+      "campus_name": "RIO HONDO",
+      "raw_comments": null,
+      "meetings": [
+        {
+          "weekday_code": "JU",
+          "start_time": "10:00:00",
+          "end_time": "11:30:00",
+          "room_code": "RH312",
+          "campus_name": "RIO HONDO"
+        },
+        {
+          "weekday_code": "MA",
+          "start_time": "10:00:00",
+          "end_time": "11:30:00",
+          "room_code": "RH312",
+          "campus_name": "RIO HONDO"
+        }
+      ]
+    },
+    {
+      "offering_id": "2925:ECO-52126:001:11029",
+      "period_id": "2925",
+      "course_code": "ECO-52126",
+      "group_code": "001",
+      "crn": "11029",
+      "section_type": "T",
+      "display_title": "TOPICOS AVANZADOS DE MACROECON",
+      "instructor_name": "GUSTAVO ANTONIO LEYVA JIMENEZ",
+      "credits": 6,
+      "room_code": null,
+      "campus_name": null,
+      "raw_comments": null,
+      "meetings": [
+        {
+          "weekday_code": "MA",
+          "start_time": "19:00:00",
+          "end_time": "22:00:00",
+          "room_code": null,
+          "campus_name": null
+        }
+      ]
+    },
+    {
+      "offering_id": "2925:EST-46113:001:11002",
+      "period_id": "2925",
+      "course_code": "EST-46113",
+      "group_code": "001",
+      "crn": "11002",
+      "section_type": "T",
+      "display_title": "MODELOS LINEALES GENERALIZ.",
+      "instructor_name": "LUIS ENRIQUE NIETO BARAJAS",
+      "credits": 6,
+      "room_code": "RH212",
+      "campus_name": "RIO HONDO",
+      "raw_comments": "ESTE CURSO SE IMPARTIRÁ 100% PRESENCIAL",
+      "meetings": [
+        {
+          "weekday_code": "LU",
+          "start_time": "08:30:00",
+          "end_time": "10:00:00",
+          "room_code": "RH212",
+          "campus_name": "RIO HONDO"
+        },
+        {
+          "weekday_code": "MI",
+          "start_time": "08:30:00",
+          "end_time": "10:00:00",
+          "room_code": "RH212",
+          "campus_name": "RIO HONDO"
+        }
+      ]
+    },
+    {
+      "offering_id": "2925:EST-46115:001:11027",
+      "period_id": "2925",
+      "course_code": "EST-46115",
+      "group_code": "001",
+      "crn": "11027",
+      "section_type": "T",
+      "display_title": "TEMAS SELECT. DE ESTADISTICA",
+      "instructor_name": "MARIA LAURA BATTAGLIOLA",
+      "credits": 6,
+      "room_code": "RH311",
+      "campus_name": "RIO HONDO",
+      "raw_comments": null,
+      "meetings": [
+        {
+          "weekday_code": "JU",
+          "start_time": "08:30:00",
+          "end_time": "10:00:00",
+          "room_code": "RH311",
+          "campus_name": "RIO HONDO"
+        },
+        {
+          "weekday_code": "MA",
+          "start_time": "08:30:00",
+          "end_time": "10:00:00",
+          "room_code": "RH311",
+          "campus_name": "RIO HONDO"
+        }
+      ]
+    },
+    {
+      "offering_id": "2925:EST-51104:001:11011",
+      "period_id": "2925",
+      "course_code": "EST-51104",
+      "group_code": "001",
+      "crn": "11011",
+      "section_type": "T",
+      "display_title": "FUNDAMENTOS DE ECONOMETRIA",
+      "instructor_name": "MARIA LAURA BATTAGLIOLA",
+      "credits": 6,
+      "room_code": "RH311",
+      "campus_name": "RIO HONDO",
+      "raw_comments": null,
+      "meetings": [
+        {
+          "weekday_code": "JU",
+          "start_time": "11:30:00",
+          "end_time": "13:00:00",
+          "room_code": "RH311",
+          "campus_name": "RIO HONDO"
+        },
+        {
+          "weekday_code": "MA",
+          "start_time": "11:30:00",
+          "end_time": "13:00:00",
+          "room_code": "RH311",
+          "campus_name": "RIO HONDO"
+        }
+      ]
+    },
+    {
+      "offering_id": "2925:EST-51104:003:11013",
+      "period_id": "2925",
+      "course_code": "EST-51104",
+      "group_code": "003",
+      "crn": "11013",
+      "section_type": "T",
+      "display_title": "FUNDAMENTOS DE ECONOMETRIA",
+      "instructor_name": "ENRIQUE CUERVO GUZMAN",
+      "credits": 6,
+      "room_code": "RHB-2",
+      "campus_name": "RIO HONDO",
+      "raw_comments": null,
+      "meetings": [
+        {
+          "weekday_code": "JU",
+          "start_time": "20:30:00",
+          "end_time": "22:00:00",
+          "room_code": "RHB-2",
+          "campus_name": "RIO HONDO"
+        },
+        {
+          "weekday_code": "MA",
+          "start_time": "20:30:00",
+          "end_time": "22:00:00",
+          "room_code": "RHB-2",
+          "campus_name": "RIO HONDO"
+        }
+      ]
+    },
+    {
+      "offering_id": "2925:MAT-34420:001:11004",
+      "period_id": "2925",
+      "course_code": "MAT-34420",
+      "group_code": "001",
+      "crn": "11004",
+      "section_type": "T",
+      "display_title": "MET. NUMERICOS Y OPTIMIZAC",
+      "instructor_name": "JOSE EZEQUIEL SOTO SANCHEZ",
+      "credits": 6,
+      "room_code": "RH308",
+      "campus_name": "RIO HONDO",
+      "raw_comments": "ESTE CURSO SE IMPARTIRÁ 100% PRESENCIAL",
+      "meetings": [
+        {
+          "weekday_code": "JU",
+          "start_time": "08:30:00",
+          "end_time": "10:00:00",
+          "room_code": "RH308",
+          "campus_name": "RIO HONDO"
+        },
+        {
+          "weekday_code": "MA",
+          "start_time": "08:30:00",
+          "end_time": "10:00:00",
+          "room_code": "RH308",
+          "campus_name": "RIO HONDO"
+        }
+      ]
+    },
+    {
+      "offering_id": "2925:MAT-34440:001:11001",
+      "period_id": "2925",
+      "course_code": "MAT-34440",
+      "group_code": "001",
+      "crn": "11001",
+      "section_type": "T",
+      "display_title": "METODOS ANALITICOS",
+      "instructor_name": "JORGE FRANCISCO DE LA VEGA GONGORA",
+      "credits": 6,
+      "room_code": "RH308",
+      "campus_name": "RIO HONDO",
+      "raw_comments": null,
+      "meetings": [
+        {
+          "weekday_code": "LU",
+          "start_time": "07:00:00",
+          "end_time": "08:30:00",
+          "room_code": "RH308",
+          "campus_name": "RIO HONDO"
+        },
+        {
+          "weekday_code": "MI",
+          "start_time": "07:00:00",
+          "end_time": "08:30:00",
+          "room_code": "RH308",
+          "campus_name": "RIO HONDO"
+        }
+      ]
+    },
+    {
+      "offering_id": "2925:MAT-34710:001:11003",
+      "period_id": "2925",
+      "course_code": "MAT-34710",
+      "group_code": "001",
+      "crn": "11003",
+      "section_type": "T",
+      "display_title": "METODOS DE GRAN ESCALA",
+      "instructor_name": "DANTE GUILLERMO RUIZ MARTINEZ",
+      "credits": 6,
+      "room_code": "RHCC101",
+      "campus_name": "RIO HONDO",
+      "raw_comments": "ESTE CURSO SE IMPARTIRÁ 100% PRESENCIAL",
+      "meetings": [
+        {
+          "weekday_code": "SA",
+          "start_time": "08:00:00",
+          "end_time": "11:00:00",
+          "room_code": "RHCC101",
+          "campus_name": "RIO HONDO"
+        }
+      ]
+    },
+    {
+      "offering_id": "2925:MAT-34750:001:11005",
+      "period_id": "2925",
+      "course_code": "MAT-34750",
+      "group_code": "001",
+      "crn": "11005",
+      "section_type": "T",
+      "display_title": "ESTANCIA DE INVESTIGACION",
+      "instructor_name": "FELIPE JAVIER MEDINA AGUAYO",
+      "credits": 15,
+      "room_code": null,
+      "campus_name": null,
+      "raw_comments": "ESTE CURSO SE IMPARTIRÁ 100% EN LÍNEA",
+      "meetings": [
+        {
+          "weekday_code": "VI",
+          "start_time": "11:00:00",
+          "end_time": "12:00:00",
+          "room_code": null,
+          "campus_name": null
+        }
+      ]
+    },
+    {
+      "offering_id": "2925:MAT-54109:001:11014",
+      "period_id": "2925",
+      "course_code": "MAT-54109",
+      "group_code": "001",
+      "crn": "11014",
+      "section_type": "T",
+      "display_title": "ANALISIS MATEMATICO I",
+      "instructor_name": "CESAR LUIS GARCIA GARCIA",
+      "credits": 6,
+      "room_code": "PF101",
+      "campus_name": "RIO HONDO",
+      "raw_comments": null,
+      "meetings": [
+        {
+          "weekday_code": "JU",
+          "start_time": "07:00:00",
+          "end_time": "08:30:00",
+          "room_code": "PF101",
+          "campus_name": "RIO HONDO"
+        },
+        {
+          "weekday_code": "MA",
+          "start_time": "07:00:00",
+          "end_time": "08:30:00",
+          "room_code": "PF101",
+          "campus_name": "RIO HONDO"
+        }
+      ]
+    },
+    {
+      "offering_id": "2925:MAT-54110:001:11016",
+      "period_id": "2925",
+      "course_code": "MAT-54110",
+      "group_code": "001",
+      "crn": "11016",
+      "section_type": "T",
+      "display_title": "ANALISIS MATEMATICO, II",
+      "instructor_name": "CESAR LUIS GARCIA GARCIA",
+      "credits": 6,
+      "room_code": "PF101",
+      "campus_name": "RIO HONDO",
+      "raw_comments": null,
+      "meetings": [
+        {
+          "weekday_code": "JU",
+          "start_time": "08:30:00",
+          "end_time": "10:00:00",
+          "room_code": "PF101",
+          "campus_name": "RIO HONDO"
+        },
+        {
+          "weekday_code": "MA",
+          "start_time": "08:30:00",
+          "end_time": "10:00:00",
+          "room_code": "PF101",
+          "campus_name": "RIO HONDO"
+        }
+      ]
+    },
+    {
+      "offering_id": "2925:SDI-31704:001:11017",
+      "period_id": "2925",
+      "course_code": "SDI-31704",
+      "group_code": "001",
+      "crn": "11017",
+      "section_type": "T",
+      "display_title": "ARQUITECTURA DE COMPUTADORAS",
+      "instructor_name": "JOSE ALBERTO DOMINGO INCERA DIEGUEZ",
+      "credits": 6,
+      "room_code": "RHB-5",
+      "campus_name": "RIO HONDO",
+      "raw_comments": null,
+      "meetings": [
+        {
+          "weekday_code": "JU",
+          "start_time": "12:00:00",
+          "end_time": "13:30:00",
+          "room_code": "RHB-5",
+          "campus_name": "RIO HONDO"
+        },
+        {
+          "weekday_code": "MA",
+          "start_time": "12:00:00",
+          "end_time": "13:30:00",
+          "room_code": "RHB-5",
+          "campus_name": "RIO HONDO"
+        }
+      ]
+    }
+  ]
 }

@@ -1,0 +1,1137 @@
+{
+  "bulletin_id": "bulletin:acf-f",
+  "source_code": "ACF-F",
+  "title": "LICENCIATURA EN ADMINISTRACIÓN Y CONTADURÍA PÚBLICA Y ESTRATEGIA FINANCIERA Plan F",
+  "program_title": "LICENCIATURA EN ADMINISTRACIÓN Y CONTADURÍA PÚBLICA Y ESTRATEGIA FINANCIERA",
+  "plan_code": "F",
+  "plan_id": "licenciatura-en-administracion-y-contaduria-publica-y-estrategia-financiera:f",
+  "application_term": "PRIMAVERA 2026",
+  "application_year": 2026,
+  "active_from": "2026-01-01",
+  "active_to": "2026-05-31",
+  "entry_from_term": "PRIMAVERA 2021",
+  "entry_to_term": "PRIMAVERA 2024",
+  "requirements": [
+    {
+      "requirement_id": "bulletin:acf-f:01:001",
+      "semester_label": "Primer Semestre",
+      "semester_order": 1,
+      "sort_order": 1,
+      "course_code": "CON-10001",
+      "display_title": "Proceso Contable",
+      "credits": 8,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:acf-f:01:002",
+      "semester_label": "Primer Semestre",
+      "semester_order": 1,
+      "sort_order": 2,
+      "course_code": "ADM-12107",
+      "display_title": "Estrategia de Negocios I",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:acf-f:01:003",
+      "semester_label": "Primer Semestre",
+      "semester_order": 1,
+      "sort_order": 3,
+      "course_code": "EGN-17121",
+      "display_title": "Ideas e Instituciones Políticas y Sociales I",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:acf-f:01:004",
+      "semester_label": "Primer Semestre",
+      "semester_order": 1,
+      "sort_order": 4,
+      "course_code": "EGN-17141",
+      "display_title": "Problemas de la Civilización Contemporánea I",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:acf-f:01:005",
+      "semester_label": "Primer Semestre",
+      "semester_order": 1,
+      "sort_order": 5,
+      "course_code": "LEN-12701",
+      "display_title": "Estrategias de Comunicación Escrita",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:acf-f:02:006",
+      "semester_label": "Segundo Semestre",
+      "semester_order": 2,
+      "sort_order": 6,
+      "course_code": "CON-10002",
+      "display_title": "Contabilidad Intermedia I",
+      "credits": 8,
+      "raw_prerequisite_text": "CON-10001",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "CON-10001",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acf-f:02:007",
+      "semester_label": "Segundo Semestre",
+      "semester_order": 2,
+      "sort_order": 7,
+      "course_code": "ADM-12108",
+      "display_title": "Estrategia de Negocios II",
+      "credits": 6,
+      "raw_prerequisite_text": "ADM-12107",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ADM-12107",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acf-f:02:008",
+      "semester_label": "Segundo Semestre",
+      "semester_order": 2,
+      "sort_order": 8,
+      "course_code": "MAT-11100",
+      "display_title": "Matemáticas I",
+      "credits": 9,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:acf-f:02:009",
+      "semester_label": "Segundo Semestre",
+      "semester_order": 2,
+      "sort_order": 9,
+      "course_code": "ECO-11101",
+      "display_title": "Economía I",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:acf-f:02:010",
+      "semester_label": "Segundo Semestre",
+      "semester_order": 2,
+      "sort_order": 10,
+      "course_code": "EGN-17122",
+      "display_title": "Ideas e Instituciones Políticas y Sociales II",
+      "credits": 6,
+      "raw_prerequisite_text": "EGN-17121",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EGN-17121",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acf-f:02:011",
+      "semester_label": "Segundo Semestre",
+      "semester_order": 2,
+      "sort_order": 11,
+      "course_code": "EGN-17142",
+      "display_title": "Problemas de la Civilización Contemporánea II",
+      "credits": 6,
+      "raw_prerequisite_text": "EGN-17141",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EGN-17141",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acf-f:02:012",
+      "semester_label": "Segundo Semestre",
+      "semester_order": 2,
+      "sort_order": 12,
+      "course_code": "COM-16301",
+      "display_title": "Herramientas Computacionales y Algorítmos",
+      "credits": 7,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:acf-f:03:013",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 13,
+      "course_code": "CON-10003",
+      "display_title": "Contabilidad Intermedia II",
+      "credits": 8,
+      "raw_prerequisite_text": "CON-10002 y MAT-11100",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "CON-10002",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "MAT-11100",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acf-f:03:014",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 14,
+      "course_code": "ECO-12102",
+      "display_title": "Economía II",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-11101",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-11101",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acf-f:03:015",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 15,
+      "course_code": "EST-10101",
+      "display_title": "Estadística I",
+      "credits": 8,
+      "raw_prerequisite_text": "COM-16301 y MAT-11100",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "COM-16301",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "MAT-11100",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acf-f:03:016",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 16,
+      "course_code": "MAT-11101",
+      "display_title": "Matemáticas II",
+      "credits": 9,
+      "raw_prerequisite_text": "MAT-11100",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "MAT-11100",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acf-f:03:017",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 17,
+      "course_code": "DER-10016",
+      "display_title": "Introducción al Derecho Corporativo",
+      "credits": 9,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:acf-f:03:018",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 18,
+      "course_code": "EGN-17123",
+      "display_title": "Ideas e Instituciones Políticas y Sociales III (A)",
+      "credits": 6,
+      "raw_prerequisite_text": "EGN-17122, EGN-17141 y LEN-12701",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EGN-17122",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "EGN-17141",
+          "ordinal_position": 2
+        },
+        {
+          "referenced_course_code": "LEN-12701",
+          "ordinal_position": 3
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acf-f:03:019",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 19,
+      "course_code": "LEN-12702",
+      "display_title": "Seminario de Comunicación Escrita (A)",
+      "credits": 2,
+      "raw_prerequisite_text": "LEN-12701",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "LEN-12701",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acf-f:04:020",
+      "semester_label": "Cuarto Semestre",
+      "semester_order": 4,
+      "sort_order": 20,
+      "course_code": "CON-10004",
+      "display_title": "Combinación de Negocios",
+      "credits": 6,
+      "raw_prerequisite_text": "CON-10003 y DER-10016",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "CON-10003",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "DER-10016",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acf-f:04:021",
+      "semester_label": "Cuarto Semestre",
+      "semester_order": 4,
+      "sort_order": 21,
+      "course_code": "ADM-11013",
+      "display_title": "Administración Internacional",
+      "credits": 6,
+      "raw_prerequisite_text": "ADM-12108",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ADM-12108",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acf-f:04:022",
+      "semester_label": "Cuarto Semestre",
+      "semester_order": 4,
+      "sort_order": 22,
+      "course_code": "ECO-11103",
+      "display_title": "Economía III",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-12102 y MAT-11100",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-12102",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "MAT-11100",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acf-f:04:023",
+      "semester_label": "Cuarto Semestre",
+      "semester_order": 4,
+      "sort_order": 23,
+      "course_code": "EST-10102",
+      "display_title": "Estadística II",
+      "credits": 8,
+      "raw_prerequisite_text": "EST-10101",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EST-10101",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acf-f:04:024",
+      "semester_label": "Cuarto Semestre",
+      "semester_order": 4,
+      "sort_order": 24,
+      "course_code": "MAT-11310",
+      "display_title": "Matemáticas III",
+      "credits": 8,
+      "raw_prerequisite_text": "MAT-11100",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "MAT-11100",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acf-f:04:025",
+      "semester_label": "Cuarto Semestre",
+      "semester_order": 4,
+      "sort_order": 25,
+      "course_code": "DER-10026",
+      "display_title": "Derecho Corporativo",
+      "credits": 8,
+      "raw_prerequisite_text": "DER-10016",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-10016",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acf-f:05:026",
+      "semester_label": "Quinto Semestre",
+      "semester_order": 5,
+      "sort_order": 26,
+      "course_code": "CON-10106",
+      "display_title": "Contabilidad Internacional",
+      "credits": 6,
+      "raw_prerequisite_text": "CON-10004",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "CON-10004",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acf-f:05:027",
+      "semester_label": "Quinto Semestre",
+      "semester_order": 5,
+      "sort_order": 27,
+      "course_code": "ADM-11101",
+      "display_title": "Pronósticos de Negocios",
+      "credits": 7,
+      "raw_prerequisite_text": "EST-10102 y MAT-11310",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EST-10102",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "MAT-11310",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acf-f:05:028",
+      "semester_label": "Quinto Semestre",
+      "semester_order": 5,
+      "sort_order": 28,
+      "course_code": "ADM-14401",
+      "display_title": "Comportamiento Humano I",
+      "credits": 6,
+      "raw_prerequisite_text": "ADM-12108",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ADM-12108",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acf-f:05:029",
+      "semester_label": "Quinto Semestre",
+      "semester_order": 5,
+      "sort_order": 29,
+      "course_code": "ADM-16601",
+      "display_title": "Mercadotecnia I",
+      "credits": 6,
+      "raw_prerequisite_text": "EST-10101",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EST-10101",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acf-f:05:030",
+      "semester_label": "Quinto Semestre",
+      "semester_order": 5,
+      "sort_order": 30,
+      "course_code": "ECO-11104",
+      "display_title": "Economía IV",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-11103",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-11103",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acf-f:05:031",
+      "semester_label": "Quinto Semestre",
+      "semester_order": 5,
+      "sort_order": 31,
+      "course_code": "EGN-17161",
+      "display_title": "Historia Sociopolítica de México",
+      "credits": 6,
+      "raw_prerequisite_text": "EGN-17123 y LEN-12702",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EGN-17123",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "LEN-12702",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acf-f:06:032",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 32,
+      "course_code": "ADM-14413",
+      "display_title": "Desarrollo de Habilidades Gerenciales",
+      "credits": 6,
+      "raw_prerequisite_text": "ADM-14401",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ADM-14401",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acf-f:06:033",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 33,
+      "course_code": "ADM-11002",
+      "display_title": "Innovación y Diseño de Modelos de Negocio",
+      "credits": 6,
+      "raw_prerequisite_text": "ADM-12108 y CON-10003",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ADM-12108",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "CON-10003",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acf-f:06:034",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 34,
+      "course_code": "ADM-15501",
+      "display_title": "Finanzas I",
+      "credits": 7,
+      "raw_prerequisite_text": "EST-10102 y ECO-11103",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EST-10102",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "ECO-11103",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acf-f:06:035",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 35,
+      "course_code": "ADM-16602",
+      "display_title": "Mercadotecnia II",
+      "credits": 7,
+      "raw_prerequisite_text": "ADM-16601 y ADM-11101",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ADM-16601",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "ADM-11101",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acf-f:06:036",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 36,
+      "course_code": "ADM-14402",
+      "display_title": "Comportamiento Humano II",
+      "credits": 6,
+      "raw_prerequisite_text": "ADM-14401",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ADM-14401",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acf-f:06:037",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 37,
+      "course_code": "EGN-17162",
+      "display_title": "Problemas de la Realidad Mexicana Contemporánea",
+      "credits": 6,
+      "raw_prerequisite_text": "EGN-17161 y EGN-17142",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EGN-17161",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "EGN-17142",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acf-f:07:038",
+      "semester_label": "Septimo Semestre",
+      "semester_order": 7,
+      "sort_order": 38,
+      "course_code": "ADM-16603",
+      "display_title": "Mercadotecnia III",
+      "credits": 6,
+      "raw_prerequisite_text": "ADM-16602",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ADM-16602",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acf-f:07:039",
+      "semester_label": "Septimo Semestre",
+      "semester_order": 7,
+      "sort_order": 39,
+      "course_code": "ADM-15502",
+      "display_title": "Finanzas II",
+      "credits": 7,
+      "raw_prerequisite_text": "ADM-15501 y ADM-11101",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ADM-15501",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "ADM-11101",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acf-f:07:040",
+      "semester_label": "Septimo Semestre",
+      "semester_order": 7,
+      "sort_order": 40,
+      "course_code": "COM-16303",
+      "display_title": "Modelado Computacional para Negocios",
+      "credits": 9,
+      "raw_prerequisite_text": "COM-16301 y ADM-15501",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "COM-16301",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "ADM-15501",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acf-f:07:041",
+      "semester_label": "Septimo Semestre",
+      "semester_order": 7,
+      "sort_order": 41,
+      "course_code": "DER-10008",
+      "display_title": "Régimen Laboral Mexicano",
+      "credits": 6,
+      "raw_prerequisite_text": "DER-10026",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-10026",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acf-f:07:042",
+      "semester_label": "Septimo Semestre",
+      "semester_order": 7,
+      "sort_order": 42,
+      "course_code": "SDI-25916",
+      "display_title": "Sistemas Empresariales",
+      "credits": 6,
+      "raw_prerequisite_text": "COM-16301 y CON-10106",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "COM-16301",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "CON-10106",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acf-f:07:043",
+      "semester_label": "Septimo Semestre",
+      "semester_order": 7,
+      "sort_order": 43,
+      "course_code": "DER-17703",
+      "display_title": "Derecho Fiscal I",
+      "credits": 8,
+      "raw_prerequisite_text": "DER-10026",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-10026",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acf-f:08:044",
+      "semester_label": "Octavo Semestre",
+      "semester_order": 8,
+      "sort_order": 44,
+      "course_code": "CON-15001",
+      "display_title": "Impuestos Corporativos I",
+      "credits": 6,
+      "raw_prerequisite_text": "DER-17703",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-17703",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acf-f:08:045",
+      "semester_label": "Octavo Semestre",
+      "semester_order": 8,
+      "sort_order": 45,
+      "course_code": "CON-12001",
+      "display_title": "Contabilidad de Costos (A)",
+      "credits": 6,
+      "raw_prerequisite_text": "DER-10008 Y CON-10003",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-10008",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "CON-10003",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acf-f:08:046",
+      "semester_label": "Octavo Semestre",
+      "semester_order": 8,
+      "sort_order": 46,
+      "course_code": "LEN-12716",
+      "display_title": "Comunicac. Escrita para C.P. y Estr. Financ. (A)",
+      "credits": 2,
+      "raw_prerequisite_text": "LEN-12701",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "LEN-12701",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acf-f:08:047",
+      "semester_label": "Octavo Semestre",
+      "semester_order": 8,
+      "sort_order": 47,
+      "course_code": "CON-10011",
+      "display_title": "Contabilizac. y Valuación de Instrumentos Financieros",
+      "credits": 6,
+      "raw_prerequisite_text": "CON-10106 y ADM-15501",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "CON-10106",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "ADM-15501",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acf-f:08:048",
+      "semester_label": "Octavo Semestre",
+      "semester_order": 8,
+      "sort_order": 48,
+      "course_code": "ADM-15503",
+      "display_title": "Finanzas III",
+      "credits": 6,
+      "raw_prerequisite_text": "ADM-15502",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ADM-15502",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acf-f:08:049",
+      "semester_label": "Octavo Semestre",
+      "semester_order": 8,
+      "sort_order": 49,
+      "course_code": "ADM-13101",
+      "display_title": "Desarrollo Empresarial (A)",
+      "credits": 6,
+      "raw_prerequisite_text": "ADM-14401, ADM-11013, ADM-16601, ADM-11002 y ADM-15501",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ADM-14401",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "ADM-11013",
+          "ordinal_position": 2
+        },
+        {
+          "referenced_course_code": "ADM-16601",
+          "ordinal_position": 3
+        },
+        {
+          "referenced_course_code": "ADM-11002",
+          "ordinal_position": 4
+        },
+        {
+          "referenced_course_code": "ADM-15501",
+          "ordinal_position": 5
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acf-f:08:050",
+      "semester_label": "Octavo Semestre",
+      "semester_order": 8,
+      "sort_order": 50,
+      "course_code": "LEN-12714",
+      "display_title": "Comunicación Escrita para Administración (A)",
+      "credits": 2,
+      "raw_prerequisite_text": "LEN-12701",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "LEN-12701",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acf-f:08:051",
+      "semester_label": "Octavo Semestre",
+      "semester_order": 8,
+      "sort_order": 51,
+      "course_code": "IIO-14278",
+      "display_title": "Administración de la Cadena de Suministro",
+      "credits": 8,
+      "raw_prerequisite_text": "ADM-11101",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ADM-11101",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acf-f:09:052",
+      "semester_label": "Noveno Semestre",
+      "semester_order": 9,
+      "sort_order": 52,
+      "course_code": "CON-11013",
+      "display_title": "Contraloría",
+      "credits": 6,
+      "raw_prerequisite_text": "SDI-25916 y CON-10004",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "SDI-25916",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "CON-10004",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acf-f:09:053",
+      "semester_label": "Noveno Semestre",
+      "semester_order": 9,
+      "sort_order": 53,
+      "course_code": "ECO-14501",
+      "display_title": "Economía de la Empresa",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-11104, ADM-12108 y ADM-11101",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-11104",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "ADM-12108",
+          "ordinal_position": 2
+        },
+        {
+          "referenced_course_code": "ADM-11101",
+          "ordinal_position": 3
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acf-f:09:054",
+      "semester_label": "Noveno Semestre",
+      "semester_order": 9,
+      "sort_order": 54,
+      "course_code": "CON-18002",
+      "display_title": "Estrategia y Control de Riesgos Financieros",
+      "credits": 6,
+      "raw_prerequisite_text": "ADM-15502",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ADM-15502",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acf-f:09:055",
+      "semester_label": "Noveno Semestre",
+      "semester_order": 9,
+      "sort_order": 55,
+      "course_code": "IIO-14180",
+      "display_title": "Administración y Evaluación de Proyectos",
+      "credits": 6,
+      "raw_prerequisite_text": "ADM-15501 y ADM-14401",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ADM-15501",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "ADM-14401",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acf-f:09:056",
+      "semester_label": "Noveno Semestre",
+      "semester_order": 9,
+      "sort_order": 56,
+      "course_code": "CON-12002",
+      "display_title": "Costos para la Toma de Decisiones",
+      "credits": 6,
+      "raw_prerequisite_text": "CON-12001 y ADM-11101",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "CON-12001",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "ADM-11101",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acf-f:09:057",
+      "semester_label": "Noveno Semestre",
+      "semester_order": 9,
+      "sort_order": 57,
+      "course_code": "CON-15002",
+      "display_title": "Impuestos Corporativos II",
+      "credits": 6,
+      "raw_prerequisite_text": "CON-15001",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "CON-15001",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acf-f:10:058",
+      "semester_label": "Decimo Semestre",
+      "semester_order": 10,
+      "sort_order": 58,
+      "course_code": "CON-11001",
+      "display_title": "Auditoría de Estados Financieros",
+      "credits": 6,
+      "raw_prerequisite_text": "CON-11013 y SDI-25916",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "CON-11013",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "SDI-25916",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acf-f:10:059",
+      "semester_label": "Decimo Semestre",
+      "semester_order": 10,
+      "sort_order": 59,
+      "course_code": "CON-15003",
+      "display_title": "Impuestos para Personas Físicas (A)",
+      "credits": 6,
+      "raw_prerequisite_text": "CON-15002",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "CON-15002",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acf-f:10:060",
+      "semester_label": "Decimo Semestre",
+      "semester_order": 10,
+      "sort_order": 60,
+      "course_code": "LEN-12756",
+      "display_title": "Comunicac. Profesional para C.P. y Estr. Fin. (A)",
+      "credits": 2,
+      "raw_prerequisite_text": "LEN-12702 y LEN-12716",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "LEN-12702",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "LEN-12716",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acf-f:10:061",
+      "semester_label": "Decimo Semestre",
+      "semester_order": 10,
+      "sort_order": 61,
+      "course_code": "CON-10005",
+      "display_title": "Análisis Financiero de la Empresa",
+      "credits": 6,
+      "raw_prerequisite_text": "CON-10011 y ADM-15501",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "CON-10011",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "ADM-15501",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acf-f:10:062",
+      "semester_label": "Decimo Semestre",
+      "semester_order": 10,
+      "sort_order": 62,
+      "course_code": "CON-12003",
+      "display_title": "Administración Estratégica de Costos",
+      "credits": 6,
+      "raw_prerequisite_text": "CON-12002",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "CON-12002",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acf-f:10:063",
+      "semester_label": "Decimo Semestre",
+      "semester_order": 10,
+      "sort_order": 63,
+      "course_code": "ADM-11018",
+      "display_title": "Seminario de Dirección (A)",
+      "credits": 6,
+      "raw_prerequisite_text": "ADM-13101",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ADM-13101",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acf-f:10:064",
+      "semester_label": "Decimo Semestre",
+      "semester_order": 10,
+      "sort_order": 64,
+      "course_code": "LEN-12754",
+      "display_title": "Comunicación Profesional para Administración (A)",
+      "credits": 2,
+      "raw_prerequisite_text": "LEN-12702 y LEN-12714",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "LEN-12702",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "LEN-12714",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acf-f:10:065",
+      "semester_label": "Decimo Semestre",
+      "semester_order": 10,
+      "sort_order": 65,
+      "course_code": null,
+      "display_title": "Optativa",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:acf-f:10:066",
+      "semester_label": "Decimo Semestre",
+      "semester_order": 10,
+      "sort_order": 66,
+      "course_code": null,
+      "display_title": "Optativa",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    }
+  ]
+}

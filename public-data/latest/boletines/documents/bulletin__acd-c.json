@@ -1,0 +1,1179 @@
+{
+  "bulletin_id": "bulletin:acd-c",
+  "source_code": "ACD-C",
+  "title": "LICENCIATURAS EN DIRECCIÓN FINANCIERA Y ACTUARÍA Plan C",
+  "program_title": "LICENCIATURAS EN DIRECCIÓN FINANCIERA Y ACTUARÍA",
+  "plan_code": "C",
+  "plan_id": "licenciaturas-en-direccion-financiera-y-actuaria:c",
+  "application_term": "QUE INGRESARON A PARTIR DE VERANO 2019 A OTOÑO 2020",
+  "application_year": 2019,
+  "active_from": "2019-06-01",
+  "active_to": "2019-07-31",
+  "entry_from_term": null,
+  "entry_to_term": null,
+  "requirements": [
+    {
+      "requirement_id": "bulletin:acd-c:01:001",
+      "semester_label": "Primer Semestre",
+      "semester_order": 1,
+      "sort_order": 1,
+      "course_code": "ECO-11101",
+      "display_title": "Economía I",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:acd-c:01:002",
+      "semester_label": "Primer Semestre",
+      "semester_order": 1,
+      "sort_order": 2,
+      "course_code": "CON-10001",
+      "display_title": "Proceso Contable",
+      "credits": 8,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:acd-c:01:003",
+      "semester_label": "Primer Semestre",
+      "semester_order": 1,
+      "sort_order": 3,
+      "course_code": "EGN-17141",
+      "display_title": "Problemas de la Civilización Contemporánea I",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:acd-c:01:004",
+      "semester_label": "Primer Semestre",
+      "semester_order": 1,
+      "sort_order": 4,
+      "course_code": "EGN-17121",
+      "display_title": "Ideas e Instituciones Políticas y Sociales I",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:acd-c:01:005",
+      "semester_label": "Primer Semestre",
+      "semester_order": 1,
+      "sort_order": 5,
+      "course_code": "LEN-12701",
+      "display_title": "Estrategias de Comunicación Escrita",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:acd-c:02:006",
+      "semester_label": "Segundo Semestre",
+      "semester_order": 2,
+      "sort_order": 6,
+      "course_code": "MAT-14100",
+      "display_title": "Cálculo Diferencial e Integral I",
+      "credits": 8,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:acd-c:02:007",
+      "semester_label": "Segundo Semestre",
+      "semester_order": 2,
+      "sort_order": 7,
+      "course_code": "MAT-14300",
+      "display_title": "Algebra Superior I",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:acd-c:02:008",
+      "semester_label": "Segundo Semestre",
+      "semester_order": 2,
+      "sort_order": 8,
+      "course_code": "MAT-14200",
+      "display_title": "Geometría Analítica I",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:acd-c:02:009",
+      "semester_label": "Segundo Semestre",
+      "semester_order": 2,
+      "sort_order": 9,
+      "course_code": "ECO-12102",
+      "display_title": "Economía II",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-11101",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-11101",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acd-c:02:010",
+      "semester_label": "Segundo Semestre",
+      "semester_order": 2,
+      "sort_order": 10,
+      "course_code": "EGN-17142",
+      "display_title": "Problemas de la Civilización Contemporánea II",
+      "credits": 6,
+      "raw_prerequisite_text": "EGN-17141",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EGN-17141",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acd-c:02:011",
+      "semester_label": "Segundo Semestre",
+      "semester_order": 2,
+      "sort_order": 11,
+      "course_code": "EGN-17122",
+      "display_title": "Ideas e Instituciones Políticas y Sociales II",
+      "credits": 6,
+      "raw_prerequisite_text": "EGN-17121",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EGN-17121",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acd-c:02:012",
+      "semester_label": "Segundo Semestre",
+      "semester_order": 2,
+      "sort_order": 12,
+      "course_code": "ADM-12107",
+      "display_title": "Estrategia de Negocios I",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:acd-c:03:013",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 13,
+      "course_code": "MAT-14201",
+      "display_title": "Geometría Analítica II",
+      "credits": 8,
+      "raw_prerequisite_text": "MAT-14200",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "MAT-14200",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acd-c:03:014",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 14,
+      "course_code": "MAT-14101",
+      "display_title": "Cálculo Diferencial e Integral II",
+      "credits": 8,
+      "raw_prerequisite_text": "MAT-14100, MAT-14200",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "MAT-14100",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "MAT-14200",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acd-c:03:015",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 15,
+      "course_code": "CON-10002",
+      "display_title": "Contabilidad Intermedia I",
+      "credits": 8,
+      "raw_prerequisite_text": "CON-10001",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "CON-10001",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acd-c:03:016",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 16,
+      "course_code": "MAT-14301",
+      "display_title": "Algebra Superior II",
+      "credits": 6,
+      "raw_prerequisite_text": "MAT-14300",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "MAT-14300",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acd-c:03:017",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 17,
+      "course_code": "ECO-21103",
+      "display_title": "Economía III",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-12102, MAT-14100",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-12102",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "MAT-14100",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acd-c:03:018",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 18,
+      "course_code": "EGN-17123",
+      "display_title": "Ideas e Instituciones Políticas y Sociales III (A)",
+      "credits": 6,
+      "raw_prerequisite_text": "EGN-17122, EGN-17141 y",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EGN-17122",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "EGN-17141",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acd-c:03:019",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 19,
+      "course_code": "LEN-12702",
+      "display_title": "Seminiario de Comunicación Escrita (A)",
+      "credits": 2,
+      "raw_prerequisite_text": "LEN-12701",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "LEN-12701",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acd-c:04:020",
+      "semester_label": "Cuarto Semestre",
+      "semester_order": 4,
+      "sort_order": 20,
+      "course_code": "ADM-15507",
+      "display_title": "Fundamentos de Finanzas",
+      "credits": 6,
+      "raw_prerequisite_text": "CON-10001, ADM-12107, ECO-11101",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "CON-10001",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "ADM-12107",
+          "ordinal_position": 2
+        },
+        {
+          "referenced_course_code": "ECO-11101",
+          "ordinal_position": 3
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acd-c:04:021",
+      "semester_label": "Cuarto Semestre",
+      "semester_order": 4,
+      "sort_order": 21,
+      "course_code": "MAT-14102",
+      "display_title": "Cálculo Diferencial e Integral III",
+      "credits": 8,
+      "raw_prerequisite_text": "MAT-14101, MAT-14201",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "MAT-14101",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "MAT-14201",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acd-c:04:022",
+      "semester_label": "Cuarto Semestre",
+      "semester_order": 4,
+      "sort_order": 22,
+      "course_code": "CON-10003",
+      "display_title": "Contabilidad Intermedia II",
+      "credits": 8,
+      "raw_prerequisite_text": "CON-10002, MAT-14100",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "CON-10002",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "MAT-14100",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acd-c:04:023",
+      "semester_label": "Cuarto Semestre",
+      "semester_order": 4,
+      "sort_order": 23,
+      "course_code": "COM-16301",
+      "display_title": "Herramientas Computacionales y Algoritmos",
+      "credits": 7,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:acd-c:04:024",
+      "semester_label": "Cuarto Semestre",
+      "semester_order": 4,
+      "sort_order": 24,
+      "course_code": "DER-10015",
+      "display_title": "Derecho Empresarial",
+      "credits": 9,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:acd-c:04:025",
+      "semester_label": "Cuarto Semestre",
+      "semester_order": 4,
+      "sort_order": 25,
+      "course_code": "EGN-17161",
+      "display_title": "Historia Socio-Política de México",
+      "credits": 6,
+      "raw_prerequisite_text": "EGN-17123 y LEN-12702",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EGN-17123",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "LEN-12702",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acd-c:05:026",
+      "semester_label": "Quinto Semestre",
+      "semester_order": 5,
+      "sort_order": 26,
+      "course_code": "ADM-15531",
+      "display_title": "Mercados e Instituciones Financier as",
+      "credits": 6,
+      "raw_prerequisite_text": "ADM-15507, ECO-12102",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ADM-15507",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "ECO-12102",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acd-c:05:027",
+      "semester_label": "Quinto Semestre",
+      "semester_order": 5,
+      "sort_order": 27,
+      "course_code": "MAT-14310",
+      "display_title": "Algebra Lineal",
+      "credits": 8,
+      "raw_prerequisite_text": "MAT-14301, MAT-14201",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "MAT-14301",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "MAT-14201",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acd-c:05:028",
+      "semester_label": "Quinto Semestre",
+      "semester_order": 5,
+      "sort_order": 28,
+      "course_code": "ACT-15357",
+      "display_title": "Principios del Seguro",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-11101",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-11101",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acd-c:05:029",
+      "semester_label": "Quinto Semestre",
+      "semester_order": 5,
+      "sort_order": 29,
+      "course_code": "EST-14101",
+      "display_title": "Cálculo de Probabilidades I",
+      "credits": 6,
+      "raw_prerequisite_text": "MAT-14101, MAT-14301",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "MAT-14101",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "MAT-14301",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acd-c:05:030",
+      "semester_label": "Quinto Semestre",
+      "semester_order": 5,
+      "sort_order": 30,
+      "course_code": "CON-10004",
+      "display_title": "Combinación de Negocios",
+      "credits": 6,
+      "raw_prerequisite_text": "CON-10003, DER-10015",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "CON-10003",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "DER-10015",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acd-c:05:031",
+      "semester_label": "Quinto Semestre",
+      "semester_order": 5,
+      "sort_order": 31,
+      "course_code": "EGN-17162",
+      "display_title": "Problemas de la Realidad Mexicana Contemporánea",
+      "credits": 6,
+      "raw_prerequisite_text": "EGN-17142, EGN-17161",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EGN-17142",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "EGN-17161",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acd-c:06:032",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 32,
+      "course_code": "ACT-11300",
+      "display_title": "Cálculo Actuarial I",
+      "credits": 6,
+      "raw_prerequisite_text": "ACT-15357, EST-14101, ADM-15507",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ACT-15357",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "EST-14101",
+          "ordinal_position": 2
+        },
+        {
+          "referenced_course_code": "ADM-15507",
+          "ordinal_position": 3
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acd-c:06:033",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 33,
+      "course_code": "ACT-15358",
+      "display_title": "Sistemas de Seguros (A)",
+      "credits": 6,
+      "raw_prerequisite_text": "ACT15357",
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:acd-c:06:034",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 34,
+      "course_code": "LEN-12713",
+      "display_title": "Comunicación Escrita para Actuaría (A)",
+      "credits": 2,
+      "raw_prerequisite_text": "LEN-12701",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "LEN-12701",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acd-c:06:035",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 35,
+      "course_code": "EST-14102",
+      "display_title": "Cálculo de Probabilidades II",
+      "credits": 6,
+      "raw_prerequisite_text": "EST-14101, MAT-14102",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EST-14101",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "MAT-14102",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acd-c:06:036",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 36,
+      "course_code": "DER-10011",
+      "display_title": "Régimen Fiscal Mexicano para Contaduría Públi ca",
+      "credits": 6,
+      "raw_prerequisite_text": "DER-10015",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-10015",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acd-c:06:037",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 37,
+      "course_code": "EST-24104",
+      "display_title": "Estadística Aplicada I",
+      "credits": 6,
+      "raw_prerequisite_text": "EST-14101",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EST-14101",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acd-c:06:038",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 38,
+      "course_code": "ECO-21104",
+      "display_title": "Economía IV",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-21103",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-21103",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acd-c:06:039",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 39,
+      "course_code": "MAT-24210",
+      "display_title": "Sistemas Dinámicos I",
+      "credits": 6,
+      "raw_prerequisite_text": "MAT-14102 y MAT-14310",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "MAT-14102",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "MAT-14310",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acd-c:07:040",
+      "semester_label": "Séptimo Semestre",
+      "semester_order": 7,
+      "sort_order": 40,
+      "course_code": "ADM-15532",
+      "display_title": "Finanzas Corporativas (A)",
+      "credits": 6,
+      "raw_prerequisite_text": "ADM-15531",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ADM-15531",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acd-c:07:041",
+      "semester_label": "Séptimo Semestre",
+      "semester_order": 7,
+      "sort_order": 41,
+      "course_code": "LEN-12717",
+      "display_title": "Comunicación Escrita para Dirección Financier a (A)",
+      "credits": 2,
+      "raw_prerequisite_text": "LEN-12701",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "LEN-12701",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acd-c:07:042",
+      "semester_label": "Séptimo Semestre",
+      "semester_order": 7,
+      "sort_order": 42,
+      "course_code": "ADM-15522",
+      "display_title": "Teoría de las Finanzas",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-21104 y ADM-15531",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-21104",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "ADM-15531",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acd-c:07:043",
+      "semester_label": "Séptimo Semestre",
+      "semester_order": 7,
+      "sort_order": 43,
+      "course_code": "DER-10017",
+      "display_title": "Contratos Financieros Comparados",
+      "credits": 6,
+      "raw_prerequisite_text": "DER-10015",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-10015",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acd-c:07:044",
+      "semester_label": "Séptimo Semestre",
+      "semester_order": 7,
+      "sort_order": 44,
+      "course_code": "CON-10005",
+      "display_title": "Análisis Financiero de la Empresa",
+      "credits": 6,
+      "raw_prerequisite_text": "CON-10004",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "CON-10004",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acd-c:07:045",
+      "semester_label": "Séptimo Semestre",
+      "semester_order": 7,
+      "sort_order": 45,
+      "course_code": "COM-11302",
+      "display_title": "Algorítmica y Programación",
+      "credits": 6,
+      "raw_prerequisite_text": "COM-16301, MAT-14300",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "COM-16301",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "MAT-14300",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acd-c:07:046",
+      "semester_label": "Séptimo Semestre",
+      "semester_order": 7,
+      "sort_order": 46,
+      "course_code": "EST-14103",
+      "display_title": "Estadística Matemática",
+      "credits": 8,
+      "raw_prerequisite_text": "EST-14102, EST-24104",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EST-14102",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "EST-24104",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acd-c:08:047",
+      "semester_label": "Octavo Semestre",
+      "semester_order": 8,
+      "sort_order": 47,
+      "course_code": "ADM-15514",
+      "display_title": "Administración de Portafolios de Inversión",
+      "credits": 6,
+      "raw_prerequisite_text": "ADM-15531, EST-14103 y ECO-21104",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ADM-15531",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "EST-14103",
+          "ordinal_position": 2
+        },
+        {
+          "referenced_course_code": "ECO-21104",
+          "ordinal_position": 3
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acd-c:08:048",
+      "semester_label": "Octavo Semestre",
+      "semester_order": 8,
+      "sort_order": 48,
+      "course_code": "ADM-15571",
+      "display_title": "Renta Fija",
+      "credits": 6,
+      "raw_prerequisite_text": "ADM-15532",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ADM-15532",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acd-c:08:049",
+      "semester_label": "Octavo Semestre",
+      "semester_order": 8,
+      "sort_order": 49,
+      "course_code": "ACT-11301",
+      "display_title": "Calculo Actuarial II",
+      "credits": 6,
+      "raw_prerequisite_text": "EST-14102, ACT-11300",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EST-14102",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "ACT-11300",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acd-c:08:050",
+      "semester_label": "Octavo Semestre",
+      "semester_order": 8,
+      "sort_order": 50,
+      "course_code": "EST-14107",
+      "display_title": "Procesos Estocásticos I",
+      "credits": 6,
+      "raw_prerequisite_text": "EST-14102",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EST-14102",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acd-c:08:051",
+      "semester_label": "Octavo Semestre",
+      "semester_order": 8,
+      "sort_order": 51,
+      "course_code": "MAT-14400",
+      "display_title": "Cálculo Numérico I",
+      "credits": 8,
+      "raw_prerequisite_text": "MAT-14310, MAT-14102, y COM-11302",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "MAT-14310",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "MAT-14102",
+          "ordinal_position": 2
+        },
+        {
+          "referenced_course_code": "COM-11302",
+          "ordinal_position": 3
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acd-c:08:052",
+      "semester_label": "Octavo Semestre",
+      "semester_order": 8,
+      "sort_order": 52,
+      "course_code": "CON-15001",
+      "display_title": "Impuestos Corporativos I",
+      "credits": 6,
+      "raw_prerequisite_text": "DER-10011",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-10011",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acd-c:09:053",
+      "semester_label": "Noveno Semestre",
+      "semester_order": 9,
+      "sort_order": 53,
+      "course_code": "EST-24105",
+      "display_title": "Estadística Aplicada II",
+      "credits": 6,
+      "raw_prerequisite_text": "EST-14103",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EST-14103",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acd-c:09:054",
+      "semester_label": "Noveno Semestre",
+      "semester_order": 9,
+      "sort_order": 54,
+      "course_code": "ADM-15533",
+      "display_title": "Modelos Financieros I",
+      "credits": 6,
+      "raw_prerequisite_text": "ADM-15514, MAT-24210 y ADM-15522",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ADM-15514",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "MAT-24210",
+          "ordinal_position": 2
+        },
+        {
+          "referenced_course_code": "ADM-15522",
+          "ordinal_position": 3
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acd-c:09:055",
+      "semester_label": "Noveno Semestre",
+      "semester_order": 9,
+      "sort_order": 55,
+      "course_code": "ADM-15535",
+      "display_title": "Derivados",
+      "credits": 6,
+      "raw_prerequisite_text": "ADM-15514, EST-14107",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ADM-15514",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "EST-14107",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acd-c:09:056",
+      "semester_label": "Noveno Semestre",
+      "semester_order": 9,
+      "sort_order": 56,
+      "course_code": "ACT-11302",
+      "display_title": "Calculo Actuarial III",
+      "credits": 6,
+      "raw_prerequisite_text": "ACT-15358, MAT-14400, EST-14103",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ACT-15358",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "MAT-14400",
+          "ordinal_position": 2
+        },
+        {
+          "referenced_course_code": "EST-14103",
+          "ordinal_position": 3
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acd-c:09:057",
+      "semester_label": "Noveno Semestre",
+      "semester_order": 9,
+      "sort_order": 57,
+      "course_code": "CON-15002",
+      "display_title": "Impuestos Corporativos II",
+      "credits": 6,
+      "raw_prerequisite_text": "CON-15001",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "CON-15001",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acd-c:09:058",
+      "semester_label": "Noveno Semestre",
+      "semester_order": 9,
+      "sort_order": 58,
+      "course_code": "ACT-11303",
+      "display_title": "Modelos Actuariales",
+      "credits": 6,
+      "raw_prerequisite_text": "ACT-11301",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ACT-11301",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acd-c:10:059",
+      "semester_label": "Decimo Semestre",
+      "semester_order": 10,
+      "sort_order": 59,
+      "course_code": "ADM-15534",
+      "display_title": "Modelos Financieros II (A)",
+      "credits": 6,
+      "raw_prerequisite_text": "ADM-15533, ADM-15535 y ADM-15571",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ADM-15533",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "ADM-15535",
+          "ordinal_position": 2
+        },
+        {
+          "referenced_course_code": "ADM-15571",
+          "ordinal_position": 3
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acd-c:10:060",
+      "semester_label": "Decimo Semestre",
+      "semester_order": 10,
+      "sort_order": 60,
+      "course_code": "LEN-12757",
+      "display_title": "Comunicación Profesional para Dir . Financiera (A)",
+      "credits": 2,
+      "raw_prerequisite_text": "LEN-12717 y LEN-12702",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "LEN-12717",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "LEN-12702",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acd-c:10:061",
+      "semester_label": "Decimo Semestre",
+      "semester_order": 10,
+      "sort_order": 61,
+      "course_code": "ADM-15517",
+      "display_title": "Métodos Empíricos en Finanzas",
+      "credits": 6,
+      "raw_prerequisite_text": "EST-14107, ADM-15535 y ADM-15571",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EST-14107",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "ADM-15535",
+          "ordinal_position": 2
+        },
+        {
+          "referenced_course_code": "ADM-15571",
+          "ordinal_position": 3
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acd-c:10:062",
+      "semester_label": "Decimo Semestre",
+      "semester_order": 10,
+      "sort_order": 62,
+      "course_code": "ADM-14413",
+      "display_title": "Desarrollo de Habilidades Gerenciales",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:acd-c:10:063",
+      "semester_label": "Decimo Semestre",
+      "semester_order": 10,
+      "sort_order": 63,
+      "course_code": "ACT-13307",
+      "display_title": "Estadística Aplicada a la Actuaría",
+      "credits": 6,
+      "raw_prerequisite_text": "EST-14107, EST-24105",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EST-14107",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "EST-24105",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acd-c:10:064",
+      "semester_label": "Decimo Semestre",
+      "semester_order": 10,
+      "sort_order": 64,
+      "course_code": "ACT-15352",
+      "display_title": "Planes de Beneficios",
+      "credits": 6,
+      "raw_prerequisite_text": "ACT-11301",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ACT-11301",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acd-c:10:065",
+      "semester_label": "Decimo Semestre",
+      "semester_order": 10,
+      "sort_order": 65,
+      "course_code": "ACT-15353",
+      "display_title": "Práctica Actuarial y Marco Institu cional (A)",
+      "credits": 6,
+      "raw_prerequisite_text": "ACT-11303, ACT-11302",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ACT-11303",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "ACT-11302",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acd-c:10:066",
+      "semester_label": "Decimo Semestre",
+      "semester_order": 10,
+      "sort_order": 66,
+      "course_code": "LEN-12753",
+      "display_title": "Comunicación Profesional para Act uaría (A)",
+      "credits": 2,
+      "raw_prerequisite_text": "LEN-12713 y LEN-12702",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "LEN-12713",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "LEN-12702",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acd-c:10:067",
+      "semester_label": "Decimo Semestre",
+      "semester_order": 10,
+      "sort_order": 67,
+      "course_code": "ACT-25354",
+      "display_title": "Administración Cuantitativa de Ri esgos",
+      "credits": 6,
+      "raw_prerequisite_text": "ACT-15357 y EST-14102",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ACT-15357",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "EST-14102",
+          "ordinal_position": 2
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1088 @@
+{
+  "bulletin_id": "bulletin:acm-f",
+  "source_code": "ACM-F",
+  "title": "LICENCIATURAS EN ACTUARÍA Y MATEMÁTICAS APLICADAS Plan F",
+  "program_title": "LICENCIATURAS EN ACTUARÍA Y MATEMÁTICAS APLICADAS",
+  "plan_code": "F",
+  "plan_id": "licenciaturas-en-actuaria-y-matematicas-aplicadas:f",
+  "application_term": "PRIMAVERA 2026",
+  "application_year": 2026,
+  "active_from": "2026-01-01",
+  "active_to": "2026-05-31",
+  "entry_from_term": null,
+  "entry_to_term": null,
+  "requirements": [
+    {
+      "requirement_id": "bulletin:acm-f:01:001",
+      "semester_label": "Primer Semestre",
+      "semester_order": 1,
+      "sort_order": 1,
+      "course_code": "ACT-15360",
+      "display_title": "Introducción a la Actuaría",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:acm-f:01:002",
+      "semester_label": "Primer Semestre",
+      "semester_order": 1,
+      "sort_order": 2,
+      "course_code": "COM-16306",
+      "display_title": "Razonamiento Algorítmico",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:acm-f:01:003",
+      "semester_label": "Primer Semestre",
+      "semester_order": 1,
+      "sort_order": 3,
+      "course_code": "EGN-17141",
+      "display_title": "Problemas de la Civilización Contemporánea I",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:acm-f:01:004",
+      "semester_label": "Primer Semestre",
+      "semester_order": 1,
+      "sort_order": 4,
+      "course_code": "LEN-12701",
+      "display_title": "Estrategias de Comunicación Escrita",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:acm-f:01:005",
+      "semester_label": "Primer Semestre",
+      "semester_order": 1,
+      "sort_order": 5,
+      "course_code": "MAT-14250",
+      "display_title": "Geometría Vectorial",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:acm-f:01:006",
+      "semester_label": "Primer Semestre",
+      "semester_order": 1,
+      "sort_order": 6,
+      "course_code": "MAT-14280",
+      "display_title": "Pensamiento Matemático",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:acm-f:02:007",
+      "semester_label": "Segundo Semestre",
+      "semester_order": 2,
+      "sort_order": 7,
+      "course_code": "COM-16305",
+      "display_title": "Gestión de Datos",
+      "credits": 6,
+      "raw_prerequisite_text": "COM-16306",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "COM-16306",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acm-f:02:008",
+      "semester_label": "Segundo Semestre",
+      "semester_order": 2,
+      "sort_order": 8,
+      "course_code": "CON-10001",
+      "display_title": "Proceso Contable",
+      "credits": 8,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:acm-f:02:009",
+      "semester_label": "Segundo Semestre",
+      "semester_order": 2,
+      "sort_order": 9,
+      "course_code": "EGN-17142",
+      "display_title": "Problemas de la Civilización Contemporánea II",
+      "credits": 6,
+      "raw_prerequisite_text": "EGN-17141",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EGN-17141",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acm-f:02:010",
+      "semester_label": "Segundo Semestre",
+      "semester_order": 2,
+      "sort_order": 10,
+      "course_code": "MAT-12200",
+      "display_title": "Cálculo Univariado",
+      "credits": 9,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:acm-f:02:011",
+      "semester_label": "Segundo Semestre",
+      "semester_order": 2,
+      "sort_order": 11,
+      "course_code": "MAT-14201",
+      "display_title": "Álgebra lineal I",
+      "credits": 8,
+      "raw_prerequisite_text": "MAT-14250",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "MAT-14250",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acm-f:02:012",
+      "semester_label": "Segundo Semestre",
+      "semester_order": 2,
+      "sort_order": 12,
+      "course_code": "MAT-14281",
+      "display_title": "Matemáticas Discretas",
+      "credits": 6,
+      "raw_prerequisite_text": "MAT-14280",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "MAT-14280",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acm-f:03:013",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 13,
+      "course_code": "ACT-11310",
+      "display_title": "Introducción al Cálculo Actuarial",
+      "credits": 6,
+      "raw_prerequisite_text": "ACT-15360 y MAT-12200",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ACT-15360",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "MAT-12200",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acm-f:03:014",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 14,
+      "course_code": "CON-14100",
+      "display_title": "Contabilidad Administrativa I",
+      "credits": 9,
+      "raw_prerequisite_text": "CON-10001",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "CON-10001",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acm-f:03:015",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 15,
+      "course_code": "ECO-11010",
+      "display_title": "Principios de Microeconomía",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:acm-f:03:016",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 16,
+      "course_code": "EGN-17121",
+      "display_title": "Ideas e Instituciones Políticas y Sociales I (A)",
+      "credits": 6,
+      "raw_prerequisite_text": "LEN-12701",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "LEN-12701",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acm-f:03:017",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 17,
+      "course_code": "EST-24126",
+      "display_title": "Cálculo de Probabilidades I",
+      "credits": 6,
+      "raw_prerequisite_text": "MAT-14281 y MAT-12200",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "MAT-14281",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "MAT-12200",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acm-f:03:018",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 18,
+      "course_code": "LEN-12702",
+      "display_title": "Seminario de Comunicación Escrita (A)",
+      "credits": 2,
+      "raw_prerequisite_text": "LEN-12701",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "LEN-12701",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acm-f:03:019",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 19,
+      "course_code": "MAT-12201",
+      "display_title": "Cálculo Multivariado",
+      "credits": 9,
+      "raw_prerequisite_text": "MAT-14250 y MAT-12200",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "MAT-14250",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "MAT-12200",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acm-f:04:020",
+      "semester_label": "Cuarto Semestre",
+      "semester_order": 4,
+      "sort_order": 20,
+      "course_code": "ACT-11300",
+      "display_title": "Cálculo Actuarial I",
+      "credits": 6,
+      "raw_prerequisite_text": "ACT-11310 y EST-24126",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ACT-11310",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "EST-24126",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acm-f:04:021",
+      "semester_label": "Cuarto Semestre",
+      "semester_order": 4,
+      "sort_order": 21,
+      "course_code": "ECO-12010",
+      "display_title": "Principios de Macroeconomía",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-11010",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-11010",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acm-f:04:022",
+      "semester_label": "Cuarto Semestre",
+      "semester_order": 4,
+      "sort_order": 22,
+      "course_code": "EGN-17122",
+      "display_title": "Ideas e Instituciones Políticas y Sociales II",
+      "credits": 6,
+      "raw_prerequisite_text": "EGN-17121",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EGN-17121",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acm-f:04:023",
+      "semester_label": "Cuarto Semestre",
+      "semester_order": 4,
+      "sort_order": 23,
+      "course_code": "EST-24127",
+      "display_title": "Cálculo de Probabilidades II",
+      "credits": 6,
+      "raw_prerequisite_text": "EST-24126 y MAT-12201",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EST-24126",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "MAT-12201",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acm-f:04:024",
+      "semester_label": "Cuarto Semestre",
+      "semester_order": 4,
+      "sort_order": 24,
+      "course_code": "MAT-12202",
+      "display_title": "Cálculo Vectorial",
+      "credits": 9,
+      "raw_prerequisite_text": "MAT-12201 y MAT-14201",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "MAT-12201",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "MAT-14201",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acm-f:04:025",
+      "semester_label": "Cuarto Semestre",
+      "semester_order": 4,
+      "sort_order": 25,
+      "course_code": "MAT-24406",
+      "display_title": "Análisis Numérico I",
+      "credits": 8,
+      "raw_prerequisite_text": "COM-16305 y MAT-14201",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "COM-16305",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "MAT-14201",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acm-f:05:026",
+      "semester_label": "Quinto Semestre",
+      "semester_order": 5,
+      "sort_order": 26,
+      "course_code": "ACT-11301",
+      "display_title": "Cálculo Actuarial II",
+      "credits": 6,
+      "raw_prerequisite_text": "EST-24127 y ACT-11300",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EST-24127",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "ACT-11300",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acm-f:05:027",
+      "semester_label": "Quinto Semestre",
+      "semester_order": 5,
+      "sort_order": 27,
+      "course_code": "EGN-17123",
+      "display_title": "Ideas e Instituciones Políticas y Sociales III",
+      "credits": 6,
+      "raw_prerequisite_text": "EGN-17122 y EGN-17141",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EGN-17122",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "EGN-17141",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acm-f:05:028",
+      "semester_label": "Quinto Semestre",
+      "semester_order": 5,
+      "sort_order": 28,
+      "course_code": "EST-14103",
+      "display_title": "Estadística Matemática",
+      "credits": 8,
+      "raw_prerequisite_text": "EST-24127",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EST-24127",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acm-f:05:029",
+      "semester_label": "Quinto Semestre",
+      "semester_order": 5,
+      "sort_order": 29,
+      "course_code": "EST-24129",
+      "display_title": "Fundamentos de Visualización de Datos",
+      "credits": 6,
+      "raw_prerequisite_text": "COM-16305 y EST-24126",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "COM-16305",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "EST-24126",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acm-f:05:030",
+      "semester_label": "Quinto Semestre",
+      "semester_order": 5,
+      "sort_order": 30,
+      "course_code": "MAT-24210",
+      "display_title": "Sistemas Dinámicos I",
+      "credits": 6,
+      "raw_prerequisite_text": "MAT-12201 y MAT-14201",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "MAT-12201",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "MAT-14201",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acm-f:05:031",
+      "semester_label": "Quinto Semestre",
+      "semester_order": 5,
+      "sort_order": 31,
+      "course_code": "MAT-24407",
+      "display_title": "Análisis Numérico II",
+      "credits": 6,
+      "raw_prerequisite_text": "MAT-24406",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "MAT-24406",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acm-f:06:032",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 32,
+      "course_code": "ADM-15532",
+      "display_title": "Finanzas Corporativas",
+      "credits": 6,
+      "raw_prerequisite_text": "CON-10001 y ACT-11310",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "CON-10001",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "ACT-11310",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acm-f:06:033",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 33,
+      "course_code": "ECO-11011",
+      "display_title": "Microeconomía Aplicada I",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-12010 y MAT-12201",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-12010",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "MAT-12201",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acm-f:06:034",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 34,
+      "course_code": "EGN-17161",
+      "display_title": "Historia Socio-Política de México",
+      "credits": 6,
+      "raw_prerequisite_text": "EGN-17123 y EGN-17142",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EGN-17123",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "EGN-17142",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acm-f:06:035",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 35,
+      "course_code": "EST-14107",
+      "display_title": "Procesos Estocásticos I",
+      "credits": 6,
+      "raw_prerequisite_text": "EST-24127",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EST-24127",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acm-f:06:036",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 36,
+      "course_code": "LEN-12719",
+      "display_title": "Comunicación Escrita para Matemáticas Aplicadas (A)",
+      "credits": 2,
+      "raw_prerequisite_text": "LEN-12701",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "LEN-12701",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acm-f:06:037",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 37,
+      "course_code": "MAT-14850",
+      "display_title": "Modelos Matemáticos I (A)",
+      "credits": 6,
+      "raw_prerequisite_text": "MAT-24210 y EST-24126",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "MAT-24210",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "EST-24126",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acm-f:06:038",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 38,
+      "course_code": "MAT-24100",
+      "display_title": "Principios de Análisis Real",
+      "credits": 6,
+      "raw_prerequisite_text": "MAT-12201",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "MAT-12201",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acm-f:07:039",
+      "semester_label": "Séptimo Semestre",
+      "semester_order": 7,
+      "sort_order": 39,
+      "course_code": "ACT-22320",
+      "display_title": "Activos y Pasivos Actuariales",
+      "credits": 6,
+      "raw_prerequisite_text": "EST-24127 y ADM-15532",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EST-24127",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "ADM-15532",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acm-f:07:040",
+      "semester_label": "Séptimo Semestre",
+      "semester_order": 7,
+      "sort_order": 40,
+      "course_code": "ECO-11012",
+      "display_title": "Microeconomía Aplicada II",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-11011",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-11011",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acm-f:07:041",
+      "semester_label": "Séptimo Semestre",
+      "semester_order": 7,
+      "sort_order": 41,
+      "course_code": "EGN-17162",
+      "display_title": "Problemas de la Realidad Mexicana Contemporánea",
+      "credits": 6,
+      "raw_prerequisite_text": "EGN-17161",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EGN-17161",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acm-f:07:042",
+      "semester_label": "Séptimo Semestre",
+      "semester_order": 7,
+      "sort_order": 42,
+      "course_code": "EST-24124",
+      "display_title": "Métodos Lineales",
+      "credits": 6,
+      "raw_prerequisite_text": "EST-14103 y MAT-14201",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EST-14103",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "MAT-14201",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acm-f:07:043",
+      "semester_label": "Séptimo Semestre",
+      "semester_order": 7,
+      "sort_order": 43,
+      "course_code": "MAT-14310",
+      "display_title": "Álgebra Lineal II",
+      "credits": 8,
+      "raw_prerequisite_text": "MAT-14201",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "MAT-14201",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acm-f:07:044",
+      "semester_label": "Séptimo Semestre",
+      "semester_order": 7,
+      "sort_order": 44,
+      "course_code": "MAT-24220",
+      "display_title": "Ecuaciones Diferenciales Parciales",
+      "credits": 6,
+      "raw_prerequisite_text": "MAT-24210",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "MAT-24210",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acm-f:07:045",
+      "semester_label": "Séptimo Semestre",
+      "semester_order": 7,
+      "sort_order": 45,
+      "course_code": "MAT-24433",
+      "display_title": "Optimización Numérica I",
+      "credits": 6,
+      "raw_prerequisite_text": "MAT-24407 y MAT-24100",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "MAT-24407",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "MAT-24100",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acm-f:08:046",
+      "semester_label": "Octavo Semestre",
+      "semester_order": 8,
+      "sort_order": 46,
+      "course_code": "ACT-11302",
+      "display_title": "Cálculo Actuarial III",
+      "credits": 6,
+      "raw_prerequisite_text": "EST-14103",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EST-14103",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acm-f:08:047",
+      "semester_label": "Octavo Semestre",
+      "semester_order": 8,
+      "sort_order": 47,
+      "course_code": "ACT-11303",
+      "display_title": "Modelos Actuariales I",
+      "credits": 6,
+      "raw_prerequisite_text": "ACT-11301",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ACT-11301",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acm-f:08:048",
+      "semester_label": "Octavo Semestre",
+      "semester_order": 8,
+      "sort_order": 48,
+      "course_code": "ADM-12107",
+      "display_title": "Estrategia de Negocios I",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:acm-f:08:049",
+      "semester_label": "Octavo Semestre",
+      "semester_order": 8,
+      "sort_order": 49,
+      "course_code": "EST-24125",
+      "display_title": "Métodos Multivariados",
+      "credits": 6,
+      "raw_prerequisite_text": "EST-14103",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EST-14103",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acm-f:08:050",
+      "semester_label": "Octavo Semestre",
+      "semester_order": 8,
+      "sort_order": 50,
+      "course_code": "MAT-24121",
+      "display_title": "Análisis Complejo",
+      "credits": 6,
+      "raw_prerequisite_text": "MAT-24100",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "MAT-24100",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acm-f:08:051",
+      "semester_label": "Octavo Semestre",
+      "semester_order": 8,
+      "sort_order": 51,
+      "course_code": "MAT-24435",
+      "display_title": "Optimización Numérica II",
+      "credits": 6,
+      "raw_prerequisite_text": "MAT-24433",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "MAT-24433",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acm-f:08:052",
+      "semester_label": "Octavo Semestre",
+      "semester_order": 8,
+      "sort_order": 52,
+      "course_code": null,
+      "display_title": "Optativa",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:acm-f:09:053",
+      "semester_label": "Noveno Semestre",
+      "semester_order": 9,
+      "sort_order": 53,
+      "course_code": "ACT-15353",
+      "display_title": "Práctica Actuarial y Marco Institucional",
+      "credits": 6,
+      "raw_prerequisite_text": "ACT-11303 y ACT-11302",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ACT-11303",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "ACT-11302",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acm-f:09:054",
+      "semester_label": "Noveno Semestre",
+      "semester_order": 9,
+      "sort_order": 54,
+      "course_code": "ACT-15380",
+      "display_title": "Tópicos Actuariales",
+      "credits": 6,
+      "raw_prerequisite_text": "ACT-11301",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ACT-11301",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acm-f:09:055",
+      "semester_label": "Noveno Semestre",
+      "semester_order": 9,
+      "sort_order": 55,
+      "course_code": "ACT-25354",
+      "display_title": "Administración Cuantitativa de Riesgos",
+      "credits": 6,
+      "raw_prerequisite_text": "EST-24127 y ADM-15532",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EST-24127",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "ADM-15532",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acm-f:09:056",
+      "semester_label": "Noveno Semestre",
+      "semester_order": 9,
+      "sort_order": 56,
+      "course_code": "EST-25134",
+      "display_title": "Aprendizaje Estadístico",
+      "credits": 6,
+      "raw_prerequisite_text": "COM-16305 y EST-14103",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "COM-16305",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "EST-14103",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acm-f:09:057",
+      "semester_label": "Noveno Semestre",
+      "semester_order": 9,
+      "sort_order": 57,
+      "course_code": "MAT-24101",
+      "display_title": "Análisis Real",
+      "credits": 6,
+      "raw_prerequisite_text": "MAT-24100",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "MAT-24100",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acm-f:09:058",
+      "semester_label": "Noveno Semestre",
+      "semester_order": 9,
+      "sort_order": 58,
+      "course_code": "MAT-24505",
+      "display_title": "Investigación de Operaciones I",
+      "credits": 8,
+      "raw_prerequisite_text": "MAT-24433",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "MAT-24433",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acm-f:10:059",
+      "semester_label": "Décimo Semestre",
+      "semester_order": 10,
+      "sort_order": 59,
+      "course_code": "ACT-13307",
+      "display_title": "Estadística Aplicada a la Actuaría",
+      "credits": 6,
+      "raw_prerequisite_text": "ACT-11302",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ACT-11302",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acm-f:10:060",
+      "semester_label": "Décimo Semestre",
+      "semester_order": 10,
+      "sort_order": 60,
+      "course_code": "ACT-22325",
+      "display_title": "Cálculo Estocástico para Actuaría",
+      "credits": 6,
+      "raw_prerequisite_text": "ACT-22320",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ACT-22320",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acm-f:10:061",
+      "semester_label": "Décimo Semestre",
+      "semester_order": 10,
+      "sort_order": 61,
+      "course_code": "EST-25146",
+      "display_title": "Econometría Financiera Actuarial",
+      "credits": 6,
+      "raw_prerequisite_text": "EST-24124",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EST-24124",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acm-f:10:062",
+      "semester_label": "Décimo Semestre",
+      "semester_order": 10,
+      "sort_order": 62,
+      "course_code": "LEN-12759",
+      "display_title": "Comunicación Profesional para Matemáticas Aplicadas (A)",
+      "credits": 2,
+      "raw_prerequisite_text": "LEN-12702 y LEN-12719",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "LEN-12702",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "LEN-12719",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acm-f:10:063",
+      "semester_label": "Décimo Semestre",
+      "semester_order": 10,
+      "sort_order": 63,
+      "course_code": "MAT-24102",
+      "display_title": "Análisis Avanzado",
+      "credits": 6,
+      "raw_prerequisite_text": "MAT-24101",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "MAT-24101",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acm-f:10:064",
+      "semester_label": "Décimo Semestre",
+      "semester_order": 10,
+      "sort_order": 64,
+      "course_code": "MAT-24850",
+      "display_title": "Modelos Matemáticos II (A)",
+      "credits": 6,
+      "raw_prerequisite_text": "EST-24124 y MAT-24220",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EST-24124",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "MAT-24220",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:acm-f:10:065",
+      "semester_label": "Décimo Semestre",
+      "semester_order": 10,
+      "sort_order": 65,
+      "course_code": null,
+      "display_title": "Optativa",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    }
+  ]
+}

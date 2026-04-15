@@ -1,0 +1,1515 @@
+{
+  "bulletin_id": "bulletin:ede-f",
+  "source_code": "EDE-F",
+  "title": "LICENCIATURAS EN ECONOMÍA Y DERECHO Plan F",
+  "program_title": "LICENCIATURAS EN ECONOMÍA Y DERECHO",
+  "plan_code": "F",
+  "plan_id": "licenciaturas-en-economia-y-derecho:f",
+  "application_term": "PRIMAVERA 2026",
+  "application_year": 2026,
+  "active_from": "2026-01-01",
+  "active_to": "2026-05-31",
+  "entry_from_term": null,
+  "entry_to_term": null,
+  "requirements": [
+    {
+      "requirement_id": "bulletin:ede-f:01:001",
+      "semester_label": "Primer Semestre",
+      "semester_order": 1,
+      "sort_order": 1,
+      "course_code": "DER-11121",
+      "display_title": "Cultura de la Legalidad",
+      "credits": 4,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:ede-f:01:002",
+      "semester_label": "Primer Semestre",
+      "semester_order": 1,
+      "sort_order": 2,
+      "course_code": "DER-12103",
+      "display_title": "Historia del Derecho",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:ede-f:01:003",
+      "semester_label": "Primer Semestre",
+      "semester_order": 1,
+      "sort_order": 3,
+      "course_code": "ECO-11000",
+      "display_title": "Introducción a la Economía",
+      "credits": 3,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:ede-f:01:004",
+      "semester_label": "Primer Semestre",
+      "semester_order": 1,
+      "sort_order": 4,
+      "course_code": "ECO-11010",
+      "display_title": "Principios de Microeconomía",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:ede-f:01:005",
+      "semester_label": "Primer Semestre",
+      "semester_order": 1,
+      "sort_order": 5,
+      "course_code": "EGN-17141",
+      "display_title": "Problemas de la Civilización Contemporánea I",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:ede-f:01:006",
+      "semester_label": "Primer Semestre",
+      "semester_order": 1,
+      "sort_order": 6,
+      "course_code": "LEN-12701",
+      "display_title": "Estrategias de Comunicación Escrita",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:ede-f:01:007",
+      "semester_label": "Primer Semestre",
+      "semester_order": 1,
+      "sort_order": 7,
+      "course_code": "MAT-12220",
+      "display_title": "Cálculo en una Variable",
+      "credits": 9,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:ede-f:01:008",
+      "semester_label": "Primer Semestre",
+      "semester_order": 1,
+      "sort_order": 8,
+      "course_code": "MAT-12349",
+      "display_title": "Principios de Álgebra Lineal",
+      "credits": 4,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:ede-f:02:009",
+      "semester_label": "Segundo Semestre",
+      "semester_order": 2,
+      "sort_order": 9,
+      "course_code": "COM-16306",
+      "display_title": "Razonamiento Algorítmico",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:ede-f:02:010",
+      "semester_label": "Segundo Semestre",
+      "semester_order": 2,
+      "sort_order": 10,
+      "course_code": "CON-10110",
+      "display_title": "Fundamentos de Contabilidad Financiera",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:ede-f:02:011",
+      "semester_label": "Segundo Semestre",
+      "semester_order": 2,
+      "sort_order": 11,
+      "course_code": "DER-11122",
+      "display_title": "Teoría del Derecho I",
+      "credits": 9,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:ede-f:02:012",
+      "semester_label": "Segundo Semestre",
+      "semester_order": 2,
+      "sort_order": 12,
+      "course_code": "DER-13201",
+      "display_title": "Personas y Familia",
+      "credits": 6,
+      "raw_prerequisite_text": "DER-12103",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-12103",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ede-f:02:013",
+      "semester_label": "Segundo Semestre",
+      "semester_order": 2,
+      "sort_order": 13,
+      "course_code": "ECO-11001",
+      "display_title": "Seminario de Microeconomía Aplicada",
+      "credits": 3,
+      "raw_prerequisite_text": "ECO-11010",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-11010",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ede-f:02:014",
+      "semester_label": "Segundo Semestre",
+      "semester_order": 2,
+      "sort_order": 14,
+      "course_code": "ECO-12010",
+      "display_title": "Principios de Macroeconomía",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-11010",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-11010",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ede-f:02:015",
+      "semester_label": "Segundo Semestre",
+      "semester_order": 2,
+      "sort_order": 15,
+      "course_code": "EGN-17142",
+      "display_title": "Problemas de la Civilización Contemporánea II",
+      "credits": 6,
+      "raw_prerequisite_text": "EGN-17141",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EGN-17141",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ede-f:02:016",
+      "semester_label": "Segundo Semestre",
+      "semester_order": 2,
+      "sort_order": 16,
+      "course_code": "MAT-12221",
+      "display_title": "Cálculo en Varias Variables",
+      "credits": 9,
+      "raw_prerequisite_text": "MAT-12220 y MAT-12349",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "MAT-12220",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "MAT-12349",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ede-f:03:017",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 17,
+      "course_code": "COM-16305",
+      "display_title": "Gestión de Datos",
+      "credits": 6,
+      "raw_prerequisite_text": "COM-16306",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "COM-16306",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ede-f:03:018",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 18,
+      "course_code": "DER-11206",
+      "display_title": "Teoría del Derecho II",
+      "credits": 6,
+      "raw_prerequisite_text": "DER-11122",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-11122",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ede-f:03:019",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 19,
+      "course_code": "DER-11207",
+      "display_title": "Escritura Jurídica",
+      "credits": 6,
+      "raw_prerequisite_text": "LEN-12701",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "LEN-12701",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ede-f:03:020",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 20,
+      "course_code": "DER-13108",
+      "display_title": "Bienes y Derechos Reales",
+      "credits": 6,
+      "raw_prerequisite_text": "DER-13201",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-13201",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ede-f:03:021",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 21,
+      "course_code": "ECO-11021",
+      "display_title": "Microeconomía I",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-12010 y MAT-12221",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-12010",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "MAT-12221",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ede-f:03:022",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 22,
+      "course_code": "EGN-17121",
+      "display_title": "Ideas e Instituciones Políticas y Sociales I (A)",
+      "credits": 6,
+      "raw_prerequisite_text": "LEN-12701",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "LEN-12701",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ede-f:03:023",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 23,
+      "course_code": "EST-11101",
+      "display_title": "Probabilidad",
+      "credits": 8,
+      "raw_prerequisite_text": "MAT-12221",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "MAT-12221",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ede-f:03:024",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 24,
+      "course_code": "LEN-12702",
+      "display_title": "Seminario de Comunicación Escrita (A)",
+      "credits": 2,
+      "raw_prerequisite_text": "LEN-12701",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "LEN-12701",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ede-f:03:025",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 25,
+      "course_code": "MAT-12351",
+      "display_title": "Álgebra Lineal",
+      "credits": 4,
+      "raw_prerequisite_text": "MAT-12349",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "MAT-12349",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ede-f:04:026",
+      "semester_label": "Cuarto Semestre",
+      "semester_order": 4,
+      "sort_order": 26,
+      "course_code": "DER-13403",
+      "display_title": "Obligaciones",
+      "credits": 8,
+      "raw_prerequisite_text": "DER-13108",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-13108",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ede-f:04:027",
+      "semester_label": "Cuarto Semestre",
+      "semester_order": 4,
+      "sort_order": 27,
+      "course_code": "DER-15303",
+      "display_title": "Derecho Constitucional I y Seminario de Teoría Política",
+      "credits": 9,
+      "raw_prerequisite_text": "DER-11122",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-11122",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ede-f:04:028",
+      "semester_label": "Cuarto Semestre",
+      "semester_order": 4,
+      "sort_order": 28,
+      "course_code": "ECO-10300",
+      "display_title": "Pensamiento Económico",
+      "credits": 3,
+      "raw_prerequisite_text": "ECO-11000 y ECO-11010",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-11000",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "ECO-11010",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ede-f:04:029",
+      "semester_label": "Cuarto Semestre",
+      "semester_order": 4,
+      "sort_order": 29,
+      "course_code": "ECO-11002",
+      "display_title": "Seminario de Análisis Empírico",
+      "credits": 3,
+      "raw_prerequisite_text": "EST-11101",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EST-11101",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ede-f:04:030",
+      "semester_label": "Cuarto Semestre",
+      "semester_order": 4,
+      "sort_order": 30,
+      "course_code": "ECO-11022",
+      "display_title": "Microeconomía II",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-11021 y MAT-12221",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-11021",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "MAT-12221",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ede-f:04:031",
+      "semester_label": "Cuarto Semestre",
+      "semester_order": 4,
+      "sort_order": 31,
+      "course_code": "EGN-17122",
+      "display_title": "Ideas e Instituciones Políticas y Sociales II",
+      "credits": 6,
+      "raw_prerequisite_text": "EGN-17121",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EGN-17121",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ede-f:04:032",
+      "semester_label": "Cuarto Semestre",
+      "semester_order": 4,
+      "sort_order": 32,
+      "course_code": "EST-11102",
+      "display_title": "Inferencia Estadística",
+      "credits": 8,
+      "raw_prerequisite_text": "EST-11101",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EST-11101",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ede-f:04:033",
+      "semester_label": "Cuarto Semestre",
+      "semester_order": 4,
+      "sort_order": 33,
+      "course_code": "MAT-24632",
+      "display_title": "Métodos Dinámicos para la Economía",
+      "credits": 6,
+      "raw_prerequisite_text": "MAT-12221",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "MAT-12221",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ede-f:05:034",
+      "semester_label": "Quinto Semestre",
+      "semester_order": 5,
+      "sort_order": 34,
+      "course_code": "DER-11111",
+      "display_title": "Habilidades Jurídicas Globales I",
+      "credits": 6,
+      "raw_prerequisite_text": "DER-11121",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-11121",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ede-f:05:035",
+      "semester_label": "Quinto Semestre",
+      "semester_order": 5,
+      "sort_order": 35,
+      "course_code": "DER-11307",
+      "display_title": "Taller de Escritura para Derecho Privado",
+      "credits": 4,
+      "raw_prerequisite_text": "DER-11207",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-11207",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ede-f:05:036",
+      "semester_label": "Quinto Semestre",
+      "semester_order": 5,
+      "sort_order": 36,
+      "course_code": "DER-13407",
+      "display_title": "Teoría General del Proceso y Seminario de Prueba",
+      "credits": 9,
+      "raw_prerequisite_text": "DER-11206 y EST-11101",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-11206",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "EST-11101",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ede-f:05:037",
+      "semester_label": "Quinto Semestre",
+      "semester_order": 5,
+      "sort_order": 37,
+      "course_code": "DER-15504",
+      "display_title": "Derecho Constitucional II",
+      "credits": 6,
+      "raw_prerequisite_text": "DER-15303",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-15303",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ede-f:05:038",
+      "semester_label": "Quinto Semestre",
+      "semester_order": 5,
+      "sort_order": 38,
+      "course_code": "ECO-11003",
+      "display_title": "Seminario de Análisis de Datos",
+      "credits": 3,
+      "raw_prerequisite_text": "COM-16305 y ECO-11002 y EST-11102",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "COM-16305",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "ECO-11002",
+          "ordinal_position": 2
+        },
+        {
+          "referenced_course_code": "EST-11102",
+          "ordinal_position": 3
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ede-f:05:039",
+      "semester_label": "Quinto Semestre",
+      "semester_order": 5,
+      "sort_order": 39,
+      "course_code": "ECO-11023",
+      "display_title": "Microeconomía III",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-11022 y MAT-24632",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-11022",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "MAT-24632",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ede-f:05:040",
+      "semester_label": "Quinto Semestre",
+      "semester_order": 5,
+      "sort_order": 40,
+      "course_code": "ECO-12011",
+      "display_title": "Macroeconomía I",
+      "credits": 8,
+      "raw_prerequisite_text": "ECO-11021 y MAT-12221 y MAT-24632",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-11021",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "MAT-12221",
+          "ordinal_position": 2
+        },
+        {
+          "referenced_course_code": "MAT-24632",
+          "ordinal_position": 3
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ede-f:05:041",
+      "semester_label": "Quinto Semestre",
+      "semester_order": 5,
+      "sort_order": 41,
+      "course_code": "EGN-17123",
+      "display_title": "Ideas e Instituciones Políticas y Sociales III",
+      "credits": 6,
+      "raw_prerequisite_text": "EGN-17122 y EGN-17141",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EGN-17122",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "EGN-17141",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ede-f:05:042",
+      "semester_label": "Quinto Semestre",
+      "semester_order": 5,
+      "sort_order": 42,
+      "course_code": "EST-11105",
+      "display_title": "Principios de Regresión Lineal",
+      "credits": 6,
+      "raw_prerequisite_text": "EST-11102 y MAT-12351",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EST-11102",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "MAT-12351",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ede-f:06:043",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 43,
+      "course_code": "ADM-15561",
+      "display_title": "Finanzas en los Negocios I",
+      "credits": 6,
+      "raw_prerequisite_text": "CON-10110 y ECO-11021",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "CON-10110",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "ECO-11021",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ede-f:06:044",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 44,
+      "course_code": "DER-11400",
+      "display_title": "Taller de Escritura para Derecho Público",
+      "credits": 4,
+      "raw_prerequisite_text": "DER-11207 y DER-15303",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-11207",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "DER-15303",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ede-f:06:045",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 45,
+      "course_code": "DER-13505",
+      "display_title": "Contratos",
+      "credits": 6,
+      "raw_prerequisite_text": "DER-13403",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-13403",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ede-f:06:046",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 46,
+      "course_code": "DER-14402",
+      "display_title": "Teorías del Delito",
+      "credits": 6,
+      "raw_prerequisite_text": "DER-15303",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-15303",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ede-f:06:047",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 47,
+      "course_code": "DER-15511",
+      "display_title": "Derecho Constitucional III y Seminario de Argumentación",
+      "credits": 9,
+      "raw_prerequisite_text": "DER-15504",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-15504",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ede-f:06:048",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 48,
+      "course_code": "ECO-10522",
+      "display_title": "Microeconometría",
+      "credits": 8,
+      "raw_prerequisite_text": "EST-11105",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EST-11105",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ede-f:06:049",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 49,
+      "course_code": "ECO-12012",
+      "display_title": "Macroeconomía II",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-12011 y MAT-24632",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-12011",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "MAT-24632",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ede-f:06:050",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 50,
+      "course_code": "EGN-17161",
+      "display_title": "Historia Socio-Política de México",
+      "credits": 6,
+      "raw_prerequisite_text": "EGN-17123",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EGN-17123",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ede-f:07:051",
+      "semester_label": "Séptimo Semestre",
+      "semester_order": 7,
+      "sort_order": 51,
+      "course_code": "DER-13616",
+      "display_title": "Procedimientos Civiles y Familiares",
+      "credits": 6,
+      "raw_prerequisite_text": "DER-13407",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-13407",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ede-f:07:052",
+      "semester_label": "Séptimo Semestre",
+      "semester_order": 7,
+      "sort_order": 52,
+      "course_code": "DER-14505",
+      "display_title": "Delitos",
+      "credits": 6,
+      "raw_prerequisite_text": "DER-14402",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-14402",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ede-f:07:053",
+      "semester_label": "Séptimo Semestre",
+      "semester_order": 7,
+      "sort_order": 53,
+      "course_code": "DER-16502",
+      "display_title": "Derecho Mercantil I",
+      "credits": 6,
+      "raw_prerequisite_text": "DER-13403",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-13403",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ede-f:07:054",
+      "semester_label": "Séptimo Semestre",
+      "semester_order": 7,
+      "sort_order": 54,
+      "course_code": "DER-18600",
+      "display_title": "Derecho Internacional I",
+      "credits": 6,
+      "raw_prerequisite_text": "DER-15504",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-15504",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ede-f:07:055",
+      "semester_label": "Séptimo Semestre",
+      "semester_order": 7,
+      "sort_order": 55,
+      "course_code": "ECO-15101",
+      "display_title": "Finanzas Públicas",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-11022 y ECO-12011",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-11022",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "ECO-12011",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ede-f:07:056",
+      "semester_label": "Séptimo Semestre",
+      "semester_order": 7,
+      "sort_order": 56,
+      "course_code": "ECO-17103",
+      "display_title": "Seminario de la Economía de México (A)",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-11023 y ECO-12012",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-11023",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "ECO-12012",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ede-f:07:057",
+      "semester_label": "Séptimo Semestre",
+      "semester_order": 7,
+      "sort_order": 57,
+      "course_code": "EGN-17162",
+      "display_title": "Problemas de la Realidad Mexicana Contemporánea",
+      "credits": 6,
+      "raw_prerequisite_text": "EGN-17161",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EGN-17161",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ede-f:07:058",
+      "semester_label": "Séptimo Semestre",
+      "semester_order": 7,
+      "sort_order": 58,
+      "course_code": "LEN-12718",
+      "display_title": "Comunicación Escrita para Economía (A)",
+      "credits": 2,
+      "raw_prerequisite_text": "LEN-12701",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "LEN-12701",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ede-f:08:059",
+      "semester_label": "Octavo Semestre",
+      "semester_order": 8,
+      "sort_order": 59,
+      "course_code": "DER-14800",
+      "display_title": "Procedimientos Penales",
+      "credits": 6,
+      "raw_prerequisite_text": "DER-14505",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-14505",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ede-f:08:060",
+      "semester_label": "Octavo Semestre",
+      "semester_order": 8,
+      "sort_order": 60,
+      "course_code": "DER-14801",
+      "display_title": "Juicio Oral Penal",
+      "credits": 4,
+      "raw_prerequisite_text": "DER-14505",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-14505",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ede-f:08:061",
+      "semester_label": "Octavo Semestre",
+      "semester_order": 8,
+      "sort_order": 61,
+      "course_code": "DER-16503",
+      "display_title": "Derecho Mercantil II",
+      "credits": 6,
+      "raw_prerequisite_text": "DER-16502 y DER-11307",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-16502",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "DER-11307",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ede-f:08:062",
+      "semester_label": "Octavo Semestre",
+      "semester_order": 8,
+      "sort_order": 62,
+      "course_code": "DER-17601",
+      "display_title": "Derecho Administrativo I",
+      "credits": 6,
+      "raw_prerequisite_text": "DER-15504",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-15504",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ede-f:08:063",
+      "semester_label": "Octavo Semestre",
+      "semester_order": 8,
+      "sort_order": 63,
+      "course_code": "DER-18601",
+      "display_title": "Derecho Internacional II",
+      "credits": 6,
+      "raw_prerequisite_text": "DER-18600",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-18600",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ede-f:08:064",
+      "semester_label": "Octavo Semestre",
+      "semester_order": 8,
+      "sort_order": 64,
+      "course_code": "ECO-10523",
+      "display_title": "Macroeconometría",
+      "credits": 6,
+      "raw_prerequisite_text": "EST-11105",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EST-11105",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ede-f:08:065",
+      "semester_label": "Octavo Semestre",
+      "semester_order": 8,
+      "sort_order": 65,
+      "course_code": "ECO-13001",
+      "display_title": "Microeconomía Internacional",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-11022",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-11022",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ede-f:08:066",
+      "semester_label": "Octavo Semestre",
+      "semester_order": 8,
+      "sort_order": 66,
+      "course_code": "ECO-14301",
+      "display_title": "Organización Industrial",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-11023",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-11023",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ede-f:09:067",
+      "semester_label": "Noveno Semestre",
+      "semester_order": 9,
+      "sort_order": 67,
+      "course_code": "DER-13617",
+      "display_title": "Procedimientos Mercantiles",
+      "credits": 4,
+      "raw_prerequisite_text": "DER-13407",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-13407",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ede-f:09:068",
+      "semester_label": "Noveno Semestre",
+      "semester_order": 9,
+      "sort_order": 68,
+      "course_code": "DER-15705",
+      "display_title": "Procedimientos Constitucionales",
+      "credits": 6,
+      "raw_prerequisite_text": "DER-15511 y DER-13616",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-15511",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "DER-13616",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ede-f:09:069",
+      "semester_label": "Noveno Semestre",
+      "semester_order": 9,
+      "sort_order": 69,
+      "course_code": "DER-16702",
+      "display_title": "Derecho Mercantil III",
+      "credits": 6,
+      "raw_prerequisite_text": "DER-16503",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-16503",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ede-f:09:070",
+      "semester_label": "Noveno Semestre",
+      "semester_order": 9,
+      "sort_order": 70,
+      "course_code": "DER-17702",
+      "display_title": "Derecho Administrativo II",
+      "credits": 6,
+      "raw_prerequisite_text": "DER-17601 y DER-11400",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-17601",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "DER-11400",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ede-f:09:071",
+      "semester_label": "Noveno Semestre",
+      "semester_order": 9,
+      "sort_order": 71,
+      "course_code": "DER-19501",
+      "display_title": "Derecho Laboral I",
+      "credits": 6,
+      "raw_prerequisite_text": "DER-13505",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-13505",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ede-f:09:072",
+      "semester_label": "Noveno Semestre",
+      "semester_order": 9,
+      "sort_order": 72,
+      "course_code": "ECO-13002",
+      "display_title": "Macroeconomía Internacional",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-13001 y ECO-12012",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-13001",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "ECO-12012",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ede-f:09:073",
+      "semester_label": "Noveno Semestre",
+      "semester_order": 9,
+      "sort_order": 73,
+      "course_code": "ECO-18101",
+      "display_title": "Desarrollo Económico",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-11023 y ECO-12012 y ECO-10522",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-11023",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "ECO-12012",
+          "ordinal_position": 2
+        },
+        {
+          "referenced_course_code": "ECO-10522",
+          "ordinal_position": 3
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ede-f:09:074",
+      "semester_label": "Noveno Semestre",
+      "semester_order": 9,
+      "sort_order": 74,
+      "course_code": "ECO-18300",
+      "display_title": "Crecimiento Económico",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-12012",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-12012",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ede-f:10:075",
+      "semester_label": "Décimo Semestre",
+      "semester_order": 10,
+      "sort_order": 75,
+      "course_code": "DER-11705",
+      "display_title": "Estudios Empíricos sobre el Derecho",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-12010",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-12010",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ede-f:10:076",
+      "semester_label": "Décimo Semestre",
+      "semester_order": 10,
+      "sort_order": 76,
+      "course_code": "DER-11812",
+      "display_title": "Habilidades Jurídicas Globales II",
+      "credits": 6,
+      "raw_prerequisite_text": "DER-11111 y DER-13403",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-11111",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "DER-13403",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ede-f:10:077",
+      "semester_label": "Décimo Semestre",
+      "semester_order": 10,
+      "sort_order": 77,
+      "course_code": "DER-13618",
+      "display_title": "Sucesiones",
+      "credits": 6,
+      "raw_prerequisite_text": "DER-13505",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-13505",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ede-f:10:078",
+      "semester_label": "Décimo Semestre",
+      "semester_order": 10,
+      "sort_order": 78,
+      "course_code": "DER-17807",
+      "display_title": "Derecho Fiscal I",
+      "credits": 6,
+      "raw_prerequisite_text": "DER-17601",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-17601",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ede-f:10:079",
+      "semester_label": "Décimo Semestre",
+      "semester_order": 10,
+      "sort_order": 79,
+      "course_code": "DER-19602",
+      "display_title": "Derecho Laboral II",
+      "credits": 6,
+      "raw_prerequisite_text": "DER-19501",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-19501",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ede-f:10:080",
+      "semester_label": "Décimo Semestre",
+      "semester_order": 10,
+      "sort_order": 80,
+      "course_code": "ECO-11024",
+      "display_title": "Tópicos Avanzados de Microeconomía",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-11023 y ECO-12012",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-11023",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "ECO-12012",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ede-f:10:081",
+      "semester_label": "Décimo Semestre",
+      "semester_order": 10,
+      "sort_order": 81,
+      "course_code": "ECO-17220",
+      "display_title": "Historia Económica Moderna",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-12010",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-12010",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ede-f:10:082",
+      "semester_label": "Décimo Semestre",
+      "semester_order": 10,
+      "sort_order": 82,
+      "course_code": "ECO-90003",
+      "display_title": "Electiva Política 1",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:ede-f:10:083",
+      "semester_label": "Décimo Semestre",
+      "semester_order": 10,
+      "sort_order": 83,
+      "course_code": "DER-11805",
+      "display_title": "Filosofía del Derecho",
+      "credits": 6,
+      "raw_prerequisite_text": "DÉCIMO PRIMER SEMESTRE DER-18601",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-18601",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ede-f:10:084",
+      "semester_label": "Décimo Semestre",
+      "semester_order": 10,
+      "sort_order": 84,
+      "course_code": "DER-11915",
+      "display_title": "Ética de la Profesión Jurídica",
+      "credits": 4,
+      "raw_prerequisite_text": "DER-17601",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-17601",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ede-f:10:085",
+      "semester_label": "Décimo Semestre",
+      "semester_order": 10,
+      "sort_order": 85,
+      "course_code": "DER-17806",
+      "display_title": "Derecho Fiscal II",
+      "credits": 6,
+      "raw_prerequisite_text": "DER-17807",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-17807",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ede-f:10:086",
+      "semester_label": "Décimo Semestre",
+      "semester_order": 10,
+      "sort_order": 86,
+      "course_code": "ECO-10220",
+      "display_title": "Seminario de Titulación (A)",
+      "credits": 9,
+      "raw_prerequisite_text": "ECO-11023 y ECO-12012 y ECO-10522 y ECO-10523",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-11023",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "ECO-12012",
+          "ordinal_position": 2
+        },
+        {
+          "referenced_course_code": "ECO-10522",
+          "ordinal_position": 3
+        },
+        {
+          "referenced_course_code": "ECO-10523",
+          "ordinal_position": 4
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ede-f:10:087",
+      "semester_label": "Décimo Semestre",
+      "semester_order": 10,
+      "sort_order": 87,
+      "course_code": "ECO-12013",
+      "display_title": "Tópicos Avanzados de Macroeconomía",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-11023 y ECO-18300",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-11023",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "ECO-18300",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ede-f:10:088",
+      "semester_label": "Décimo Semestre",
+      "semester_order": 10,
+      "sort_order": 88,
+      "course_code": "ECO-14200",
+      "display_title": "Análisis Económico del Derecho",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-12010 y EST-11101",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-12010",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "EST-11101",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ede-f:10:089",
+      "semester_label": "Décimo Semestre",
+      "semester_order": 10,
+      "sort_order": 89,
+      "course_code": "ECO-90004",
+      "display_title": "Electiva Política 2",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:ede-f:10:090",
+      "semester_label": "Décimo Semestre",
+      "semester_order": 10,
+      "sort_order": 90,
+      "course_code": "LEN-12758",
+      "display_title": "Comunicación Profesional para Economía (A)",
+      "credits": 2,
+      "raw_prerequisite_text": "LEN-12702 y LEN-12718",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "LEN-12702",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "LEN-12718",
+          "ordinal_position": 2
+        }
+      ]
+    }
+  ]
+}

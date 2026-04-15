@@ -1,0 +1,15 @@
+{
+  "bulletin_id": "bulletin:der-g",
+  "source_code": "DER-G",
+  "title": "LICENCIATURA EN DERECHO Plan G",
+  "program_title": "LICENCIATURA EN DERECHO",
+  "plan_code": "G",
+  "plan_id": "licenciatura-en-derecho:g",
+  "application_term": "PRIMAVERA 2026",
+  "application_year": 2026,
+  "active_from": "2026-01-01",
+  "active_to": "2026-05-31",
+  "entry_from_term": "PRIMAVERA 2021",
+  "entry_to_term": "PRIMAVERA 2024",
+  "requirements": []
+}

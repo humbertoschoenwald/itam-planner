@@ -1,12 +1,159 @@
 {
   "period_id": "2976",
-  "source_snapshot_id": "schedule-menu:7c67fbf32b63c555",
+  "source_snapshot_id": "schedule-period-2976:760a168638741dab",
   "label": "ABRIL-JUNIO 2026 HIBRIDO",
   "level": "HIBRIDO",
   "year": 2026,
   "term": "ABRIL-JUNIO",
   "active_from": "2026-04-01",
   "active_to": "2026-06-30",
-  "subjects": [],
-  "offerings": []
+  "subjects": [
+    {
+      "subject_id": "2976:ACT-46415",
+      "raw_value": "ACT-46415-PRACTICA DE ADMON DE RIESGOS",
+      "course_code": "ACT-46415",
+      "canonical_title": "PRACTICA DE ADMON DE RIESGOS"
+    },
+    {
+      "subject_id": "2976:ACT-46416",
+      "raw_value": "ACT-46416-SEMINARIO DE TITULACION II",
+      "course_code": "ACT-46416",
+      "canonical_title": "SEMINARIO DE TITULACION II"
+    },
+    {
+      "subject_id": "2976:ACT-46417",
+      "raw_value": "ACT-46417-RIESGO CATASTROFICO",
+      "course_code": "ACT-46417",
+      "canonical_title": "RIESGO CATASTROFICO"
+    },
+    {
+      "subject_id": "2976:EST-46139",
+      "raw_value": "EST-46139-TEMAS SELECT ESTAD PARA RIESGO",
+      "course_code": "EST-46139",
+      "canonical_title": "TEMAS SELECT ESTAD PARA RIESGO"
+    },
+    {
+      "subject_id": "2976:MAT-34900",
+      "raw_value": "MAT-34900-METODOS NUMERICOS PARA RIESGO",
+      "course_code": "MAT-34900",
+      "canonical_title": "METODOS NUMERICOS PARA RIESGO"
+    }
+  ],
+  "offerings": [
+    {
+      "offering_id": "2976:ACT-46415:001:72006",
+      "period_id": "2976",
+      "course_code": "ACT-46415",
+      "group_code": "001",
+      "crn": "72006",
+      "section_type": "T",
+      "display_title": "PRACTICA DE ADMON DE RIESGOS",
+      "instructor_name": "ENRIQUE CUERVO GUZMAN",
+      "credits": 33,
+      "room_code": "PF103",
+      "campus_name": "RIO HONDO",
+      "raw_comments": "LA PRIMERA CLASE SERÁ PRESENCIAL",
+      "meetings": [
+        {
+          "weekday_code": "JU",
+          "start_time": "18:00:00",
+          "end_time": "21:00:00",
+          "room_code": "PF103",
+          "campus_name": "RIO HONDO"
+        }
+      ]
+    },
+    {
+      "offering_id": "2976:ACT-46416:001:72001",
+      "period_id": "2976",
+      "course_code": "ACT-46416",
+      "group_code": "001",
+      "crn": "72001",
+      "section_type": "T",
+      "display_title": "SEMINARIO DE TITULACION II",
+      "instructor_name": "DIANA LUCIA ALVAREZ MACIAS",
+      "credits": 11,
+      "room_code": "PF103",
+      "campus_name": "RIO HONDO",
+      "raw_comments": "LA PRIMERA CLASE SERÁ PRESENCIAL",
+      "meetings": [
+        {
+          "weekday_code": "MI",
+          "start_time": "18:00:00",
+          "end_time": "19:00:00",
+          "room_code": "PF103",
+          "campus_name": "RIO HONDO"
+        }
+      ]
+    },
+    {
+      "offering_id": "2976:ACT-46417:001:72002",
+      "period_id": "2976",
+      "course_code": "ACT-46417",
+      "group_code": "001",
+      "crn": "72002",
+      "section_type": "T",
+      "display_title": "RIESGO CATASTROFICO",
+      "instructor_name": "LEONARDO ROJAS NANDAYAPA",
+      "credits": 33,
+      "room_code": "PF102",
+      "campus_name": "RIO HONDO",
+      "raw_comments": "LAPRIMERA CLASE SERÁ PRESENCIAL",
+      "meetings": [
+        {
+          "weekday_code": "MA",
+          "start_time": "18:00:00",
+          "end_time": "21:00:00",
+          "room_code": "PF102",
+          "campus_name": "RIO HONDO"
+        }
+      ]
+    },
+    {
+      "offering_id": "2976:EST-46139:001:72004",
+      "period_id": "2976",
+      "course_code": "EST-46139",
+      "group_code": "001",
+      "crn": "72004",
+      "section_type": "T",
+      "display_title": "TEMAS SELECT ESTAD PARA RIESGO",
+      "instructor_name": "JORGE FRANCISCO DE LA VEGA GONGORA",
+      "credits": 33,
+      "room_code": "PF103",
+      "campus_name": "RIO HONDO",
+      "raw_comments": "LA PRIMERA CLASE SERÁ PRESENCIAL",
+      "meetings": [
+        {
+          "weekday_code": "MA",
+          "start_time": "19:00:00",
+          "end_time": "22:00:00",
+          "room_code": "PF103",
+          "campus_name": "RIO HONDO"
+        }
+      ]
+    },
+    {
+      "offering_id": "2976:MAT-34900:001:72003",
+      "period_id": "2976",
+      "course_code": "MAT-34900",
+      "group_code": "001",
+      "crn": "72003",
+      "section_type": "T",
+      "display_title": "METODOS NUMERICOS PARA RIESGO",
+      "instructor_name": "FELIPE JAVIER MEDINA AGUAYO",
+      "credits": 33,
+      "room_code": "PF101",
+      "campus_name": "RIO HONDO",
+      "raw_comments": "LA PRIMERA CLASE SERÁ PRESENCIAL",
+      "meetings": [
+        {
+          "weekday_code": "JU",
+          "start_time": "19:00:00",
+          "end_time": "22:00:00",
+          "room_code": "PF101",
+          "campus_name": "RIO HONDO"
+        }
+      ]
+    }
+  ]
 }

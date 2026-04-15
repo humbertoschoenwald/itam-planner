@@ -1,12 +1,554 @@
 {
   "period_id": "2975",
-  "source_snapshot_id": "schedule-menu:7c67fbf32b63c555",
+  "source_snapshot_id": "schedule-period-2975:9b9dd8b6a20919bf",
   "label": "ABRIL-JUNIO 2026 MAESTRIA",
   "level": "MAESTRIA",
   "year": 2026,
   "term": "ABRIL-JUNIO",
   "active_from": "2026-04-01",
   "active_to": "2026-06-30",
-  "subjects": [],
-  "offerings": []
+  "subjects": [
+    {
+      "subject_id": "2975:ADM-31121",
+      "raw_value": "ADM-31121-COMPORTAMIENTO ORGANIZACIONAL",
+      "course_code": "ADM-31121",
+      "canonical_title": "COMPORTAMIENTO ORGANIZACIONAL"
+    },
+    {
+      "subject_id": "2975:ADM-31122",
+      "raw_value": "ADM-31122-SEMINARIO DE DIRECCION GENERAL",
+      "course_code": "ADM-31122",
+      "canonical_title": "SEMINARIO DE DIRECCION GENERAL"
+    },
+    {
+      "subject_id": "2975:ADM-31325",
+      "raw_value": "ADM-31325-BANCA DE INVERSION (OP)",
+      "course_code": "ADM-31325",
+      "canonical_title": "BANCA DE INVERSION (OP)"
+    },
+    {
+      "subject_id": "2975:ADM-31333",
+      "raw_value": "ADM-31333-INVERSIONES",
+      "course_code": "ADM-31333",
+      "canonical_title": "INVERSIONES"
+    },
+    {
+      "subject_id": "2975:ADM-31414",
+      "raw_value": "ADM-31414-DIRECCION ESTRATEGICA",
+      "course_code": "ADM-31414",
+      "canonical_title": "DIRECCION ESTRATEGICA"
+    },
+    {
+      "subject_id": "2975:ADM-31448",
+      "raw_value": "ADM-31448-LIDERAZGO Y MANEJO DEL CAMBIO",
+      "course_code": "ADM-31448",
+      "canonical_title": "LIDERAZGO Y MANEJO DEL CAMBIO"
+    },
+    {
+      "subject_id": "2975:ADM-31477",
+      "raw_value": "ADM-31477-INNOVACION Y DESARROLLO DE NEG",
+      "course_code": "ADM-31477",
+      "canonical_title": "INNOVACION Y DESARROLLO DE NEG"
+    },
+    {
+      "subject_id": "2975:ADM-32350",
+      "raw_value": "ADM-32350-DECISIONES DE NEGOCIO BASADAS",
+      "course_code": "ADM-32350",
+      "canonical_title": "DECISIONES DE NEGOCIO BASADAS"
+    },
+    {
+      "subject_id": "2975:ADM-32563",
+      "raw_value": "ADM-32563-ADMINISTRACION DE RIESGOS (OP)",
+      "course_code": "ADM-32563",
+      "canonical_title": "ADMINISTRACION DE RIESGOS (OP)"
+    },
+    {
+      "subject_id": "2975:ADM-32564",
+      "raw_value": "ADM-32564-INSTRUMENTOS DERIVADOS (OP)",
+      "course_code": "ADM-32564",
+      "canonical_title": "INSTRUMENTOS DERIVADOS (OP)"
+    },
+    {
+      "subject_id": "2975:COM-36005",
+      "raw_value": "COM-36005-PROGRAMACION PARA FINANZAS",
+      "course_code": "COM-36005",
+      "canonical_title": "PROGRAMACION PARA FINANZAS"
+    },
+    {
+      "subject_id": "2975:CON-34122",
+      "raw_value": "CON-34122-CONTROL DE GESTION Y COSTOS",
+      "course_code": "CON-34122",
+      "canonical_title": "CONTROL DE GESTION Y COSTOS"
+    },
+    {
+      "subject_id": "2975:ECO-42133",
+      "raw_value": "ECO-42133-ENTORNO ECONOMICO GLOBAL",
+      "course_code": "ECO-42133",
+      "canonical_title": "ENTORNO ECONOMICO GLOBAL"
+    },
+    {
+      "subject_id": "2975:EST-37102",
+      "raw_value": "EST-37102-ESTADISTICA PARA NEGOCIOS",
+      "course_code": "EST-37102",
+      "canonical_title": "ESTADISTICA PARA NEGOCIOS"
+    },
+    {
+      "subject_id": "2975:IIO-34928",
+      "raw_value": "IIO-34928-DIRECCION DE OPERACIONES Y TEC",
+      "course_code": "IIO-34928",
+      "canonical_title": "DIRECCION DE OPERACIONES Y TEC"
+    }
+  ],
+  "offerings": [
+    {
+      "offering_id": "2975:ADM-31121:001:15004",
+      "period_id": "2975",
+      "course_code": "ADM-31121",
+      "group_code": "001",
+      "crn": "15004",
+      "section_type": "T",
+      "display_title": "COMPORTAMIENTO ORGANIZACIONAL",
+      "instructor_name": "LUIS MARTIN ARCINIEGA RUIZ DE ESPARZA",
+      "credits": 33,
+      "room_code": "ST208",
+      "campus_name": "ST. TERESA",
+      "raw_comments": "CLASE PRESENCIAL. CURSO IMPARTIDO LOS DÍAS VIERNES 08,15,22 Y 29 DE MAYO 2026 EN HORARIO DE 16:00 - 20:00 HRS. Y LOS DÍAS SÁBADOS 09,16,23 Y 30 DE MAYO 2026 EN HORARIO DE 09:00 - 13:00 HRS. EL SÁBADO 30 DE MAYO LA CLASE SERÁ DE 09:00 - 14:00 HRS.",
+      "meetings": [
+        {
+          "weekday_code": "SA",
+          "start_time": "09:00:00",
+          "end_time": "14:00:00",
+          "room_code": "ST208",
+          "campus_name": "ST. TERESA"
+        },
+        {
+          "weekday_code": "VI",
+          "start_time": "16:00:00",
+          "end_time": "20:00:00",
+          "room_code": "ST208",
+          "campus_name": "ST. TERESA"
+        }
+      ]
+    },
+    {
+      "offering_id": "2975:ADM-31122:001:15016",
+      "period_id": "2975",
+      "course_code": "ADM-31122",
+      "group_code": "001",
+      "crn": "15016",
+      "section_type": "T",
+      "display_title": "SEMINARIO DE DIRECCION GENERAL",
+      "instructor_name": "LUIS MARTIN ARCINIEGA RUIZ DE ESPARZA",
+      "credits": 33,
+      "room_code": null,
+      "campus_name": null,
+      "raw_comments": null,
+      "meetings": [
+        {
+          "weekday_code": "JU",
+          "start_time": "08:00:00",
+          "end_time": "08:30:00",
+          "room_code": null,
+          "campus_name": null
+        },
+        {
+          "weekday_code": "LU",
+          "start_time": "08:00:00",
+          "end_time": "08:30:00",
+          "room_code": null,
+          "campus_name": null
+        },
+        {
+          "weekday_code": "MA",
+          "start_time": "08:00:00",
+          "end_time": "08:30:00",
+          "room_code": null,
+          "campus_name": null
+        },
+        {
+          "weekday_code": "MI",
+          "start_time": "08:00:00",
+          "end_time": "08:30:00",
+          "room_code": null,
+          "campus_name": null
+        },
+        {
+          "weekday_code": "VI",
+          "start_time": "08:00:00",
+          "end_time": "08:30:00",
+          "room_code": null,
+          "campus_name": null
+        }
+      ]
+    },
+    {
+      "offering_id": "2975:ADM-31325:001:15003",
+      "period_id": "2975",
+      "course_code": "ADM-31325",
+      "group_code": "001",
+      "crn": "15003",
+      "section_type": "T",
+      "display_title": "BANCA DE INVERSION (OP)",
+      "instructor_name": "JESUS RODRIGO FENTON ONTAÑON",
+      "credits": 33,
+      "room_code": null,
+      "campus_name": null,
+      "raw_comments": "CLASE EN LÍNEA. LOS EXÁMENES SERÁN PRESENCIALES EN LAS SIGUIENTES FECHAS: LUNES 11 DE MAYO Y LUNES 08 DE JUNIO 2026.",
+      "meetings": [
+        {
+          "weekday_code": "LU",
+          "start_time": "19:00:00",
+          "end_time": "22:00:00",
+          "room_code": null,
+          "campus_name": null
+        }
+      ]
+    },
+    {
+      "offering_id": "2975:ADM-31333:001:15005",
+      "period_id": "2975",
+      "course_code": "ADM-31333",
+      "group_code": "001",
+      "crn": "15005",
+      "section_type": "T",
+      "display_title": "INVERSIONES",
+      "instructor_name": "POLUX ERNESTO DIAZ RUIZ",
+      "credits": 33,
+      "room_code": null,
+      "campus_name": null,
+      "raw_comments": "CURSO IMPARTIDO EN LÍNEA.",
+      "meetings": [
+        {
+          "weekday_code": "JU",
+          "start_time": "19:00:00",
+          "end_time": "22:00:00",
+          "room_code": null,
+          "campus_name": null
+        }
+      ]
+    },
+    {
+      "offering_id": "2975:ADM-31414:001:15006",
+      "period_id": "2975",
+      "course_code": "ADM-31414",
+      "group_code": "001",
+      "crn": "15006",
+      "section_type": "T",
+      "display_title": "DIRECCION ESTRATEGICA",
+      "instructor_name": "ADRIAN RUBLI ORNELAS",
+      "credits": 33,
+      "room_code": "STISOPB",
+      "campus_name": "ST. TERESA",
+      "raw_comments": "CLASE PRESENCIAL CURSO IMPARTIDO LOS DÍAS VIERNES 10,17 DE ABRIL Y 08 DE MAYO EN HORARIO DE 16:00 - 21:30 HRS. Y LOS DÍAS SÁBADOS 11,18 DE ABRIL Y 09 DE MAYO 2026 EN HORARIO DE 08:00 - 13:30 HRS.",
+      "meetings": [
+        {
+          "weekday_code": "SA",
+          "start_time": "08:00:00",
+          "end_time": "13:30:00",
+          "room_code": "STISOPB",
+          "campus_name": "ST. TERESA"
+        },
+        {
+          "weekday_code": "VI",
+          "start_time": "16:00:00",
+          "end_time": "21:30:00",
+          "room_code": "STISOPB",
+          "campus_name": "ST. TERESA"
+        }
+      ]
+    },
+    {
+      "offering_id": "2975:ADM-31448:001:15015",
+      "period_id": "2975",
+      "course_code": "ADM-31448",
+      "group_code": "001",
+      "crn": "15015",
+      "section_type": "T",
+      "display_title": "LIDERAZGO Y MANEJO DEL CAMBIO",
+      "instructor_name": "MARCO ANTONIO MORAN CABALLERO",
+      "credits": 33,
+      "room_code": null,
+      "campus_name": null,
+      "raw_comments": null,
+      "meetings": [
+        {
+          "weekday_code": "JU",
+          "start_time": "07:30:00",
+          "end_time": "08:00:00",
+          "room_code": null,
+          "campus_name": null
+        },
+        {
+          "weekday_code": "LU",
+          "start_time": "07:30:00",
+          "end_time": "08:00:00",
+          "room_code": null,
+          "campus_name": null
+        },
+        {
+          "weekday_code": "MA",
+          "start_time": "07:30:00",
+          "end_time": "08:00:00",
+          "room_code": null,
+          "campus_name": null
+        },
+        {
+          "weekday_code": "MI",
+          "start_time": "07:30:00",
+          "end_time": "08:00:00",
+          "room_code": null,
+          "campus_name": null
+        },
+        {
+          "weekday_code": "VI",
+          "start_time": "07:30:00",
+          "end_time": "08:00:00",
+          "room_code": null,
+          "campus_name": null
+        }
+      ]
+    },
+    {
+      "offering_id": "2975:ADM-31477:001:15014",
+      "period_id": "2975",
+      "course_code": "ADM-31477",
+      "group_code": "001",
+      "crn": "15014",
+      "section_type": "T",
+      "display_title": "INNOVACION Y DESARROLLO DE NEG",
+      "instructor_name": "LUIS MARTIN ARCINIEGA RUIZ DE ESPARZA",
+      "credits": 33,
+      "room_code": null,
+      "campus_name": null,
+      "raw_comments": null,
+      "meetings": [
+        {
+          "weekday_code": "JU",
+          "start_time": "07:00:00",
+          "end_time": "07:30:00",
+          "room_code": null,
+          "campus_name": null
+        },
+        {
+          "weekday_code": "LU",
+          "start_time": "07:00:00",
+          "end_time": "07:30:00",
+          "room_code": null,
+          "campus_name": null
+        },
+        {
+          "weekday_code": "MA",
+          "start_time": "07:00:00",
+          "end_time": "07:30:00",
+          "room_code": null,
+          "campus_name": null
+        },
+        {
+          "weekday_code": "MI",
+          "start_time": "07:00:00",
+          "end_time": "07:30:00",
+          "room_code": null,
+          "campus_name": null
+        },
+        {
+          "weekday_code": "VI",
+          "start_time": "07:00:00",
+          "end_time": "07:30:00",
+          "room_code": null,
+          "campus_name": null
+        }
+      ]
+    },
+    {
+      "offering_id": "2975:ADM-32350:001:15007",
+      "period_id": "2975",
+      "course_code": "ADM-32350",
+      "group_code": "001",
+      "crn": "15007",
+      "section_type": "T",
+      "display_title": "DECISIONES DE NEGOCIO BASADAS",
+      "instructor_name": "CARLOS ARTURO SERNA GARCINI",
+      "credits": 33,
+      "room_code": "ST202",
+      "campus_name": "ST. TERESA",
+      "raw_comments": "CLASE PRESENCIAL CURSO IMPARTIDO LOS DÍAS VIERNES 05,12,19 Y 26 DE JUNIO 2026 EN HORARIO DE 16:00 - 20:00 HRS. Y LOS DÍAS SÁBADOS 06,13,20 Y 27 DE JUNIO 2026 EN HORARIO DE 09:00 - 13:00 HRS. EL SÁBADO 27 DE JUNIO EL CURSO SERÁ DE 09:00 - 14:00 HRS.",
+      "meetings": [
+        {
+          "weekday_code": "SA",
+          "start_time": "09:00:00",
+          "end_time": "14:00:00",
+          "room_code": "ST202",
+          "campus_name": "ST. TERESA"
+        },
+        {
+          "weekday_code": "VI",
+          "start_time": "16:00:00",
+          "end_time": "20:00:00",
+          "room_code": "ST202",
+          "campus_name": "ST. TERESA"
+        }
+      ]
+    },
+    {
+      "offering_id": "2975:ADM-32563:001:15002",
+      "period_id": "2975",
+      "course_code": "ADM-32563",
+      "group_code": "001",
+      "crn": "15002",
+      "section_type": "T",
+      "display_title": "ADMINISTRACION DE RIESGOS (OP)",
+      "instructor_name": "ABRAHAM MOHAMED IZQUIERDO GARCIA",
+      "credits": 33,
+      "room_code": null,
+      "campus_name": null,
+      "raw_comments": "CURSO EN LÍNEA. LOS EXÁMENES SERÁN PRESENCIALES EN LAS SIGUIENTES FECHAS: JUEVES 14 DE MAYO Y JUEVES 25 DE JUNIO",
+      "meetings": [
+        {
+          "weekday_code": "JU",
+          "start_time": "19:00:00",
+          "end_time": "22:00:00",
+          "room_code": null,
+          "campus_name": null
+        }
+      ]
+    },
+    {
+      "offering_id": "2975:ADM-32564:001:15001",
+      "period_id": "2975",
+      "course_code": "ADM-32564",
+      "group_code": "001",
+      "crn": "15001",
+      "section_type": "T",
+      "display_title": "INSTRUMENTOS DERIVADOS (OP)",
+      "instructor_name": "FRANCISCO GERARDO CESAR MEDINA",
+      "credits": 33,
+      "room_code": "STISOPC",
+      "campus_name": "ST. TERESA",
+      "raw_comments": "CLASE PRESENCIAL",
+      "meetings": [
+        {
+          "weekday_code": "MI",
+          "start_time": "19:00:00",
+          "end_time": "22:00:00",
+          "room_code": "STISOPC",
+          "campus_name": "ST. TERESA"
+        }
+      ]
+    },
+    {
+      "offering_id": "2975:COM-36005:001:15010",
+      "period_id": "2975",
+      "course_code": "COM-36005",
+      "group_code": "001",
+      "crn": "15010",
+      "section_type": "T",
+      "display_title": "PROGRAMACION PARA FINANZAS",
+      "instructor_name": "MARGARITA OLMEDO DE LA PEÑA",
+      "credits": 33,
+      "room_code": null,
+      "campus_name": null,
+      "raw_comments": "MODALIDAD EN LÍNEA",
+      "meetings": [
+        {
+          "weekday_code": "VI",
+          "start_time": "19:00:00",
+          "end_time": "22:00:00",
+          "room_code": null,
+          "campus_name": null
+        }
+      ]
+    },
+    {
+      "offering_id": "2975:CON-34122:001:15009",
+      "period_id": "2975",
+      "course_code": "CON-34122",
+      "group_code": "001",
+      "crn": "15009",
+      "section_type": "T",
+      "display_title": "CONTROL DE GESTION Y COSTOS",
+      "instructor_name": "ORLANDO GARCIACANO CARDENAS",
+      "credits": 33,
+      "room_code": null,
+      "campus_name": null,
+      "raw_comments": "LA CLASE ES 100% EN LINEA",
+      "meetings": [
+        {
+          "weekday_code": "MA",
+          "start_time": "19:00:00",
+          "end_time": "22:00:00",
+          "room_code": null,
+          "campus_name": null
+        }
+      ]
+    },
+    {
+      "offering_id": "2975:ECO-42133:001:15012",
+      "period_id": "2975",
+      "course_code": "ECO-42133",
+      "group_code": "001",
+      "crn": "15012",
+      "section_type": "T",
+      "display_title": "ENTORNO ECONOMICO GLOBAL",
+      "instructor_name": "FRANCISCO RAFAEL PADILLA CATALAN",
+      "credits": 33,
+      "room_code": null,
+      "campus_name": null,
+      "raw_comments": null,
+      "meetings": [
+        {
+          "weekday_code": "LU",
+          "start_time": "19:00:00",
+          "end_time": "22:00:00",
+          "room_code": null,
+          "campus_name": null
+        }
+      ]
+    },
+    {
+      "offering_id": "2975:EST-37102:001:15011",
+      "period_id": "2975",
+      "course_code": "EST-37102",
+      "group_code": "001",
+      "crn": "15011",
+      "section_type": "T",
+      "display_title": "ESTADISTICA PARA NEGOCIOS",
+      "instructor_name": "LILIANA DE LA TORRE DESENTIS",
+      "credits": 33,
+      "room_code": "STISOPB",
+      "campus_name": "ST. TERESA",
+      "raw_comments": "LA CLASE SERÁ 100% PRESENCIAL",
+      "meetings": [
+        {
+          "weekday_code": "MI",
+          "start_time": "19:00:00",
+          "end_time": "22:00:00",
+          "room_code": "STISOPB",
+          "campus_name": "ST. TERESA"
+        }
+      ]
+    },
+    {
+      "offering_id": "2975:IIO-34928:001:15008",
+      "period_id": "2975",
+      "course_code": "IIO-34928",
+      "group_code": "001",
+      "crn": "15008",
+      "section_type": "T",
+      "display_title": "DIRECCION DE OPERACIONES Y TEC",
+      "instructor_name": "RAMON ANTONIO ABELLA LOPEZ",
+      "credits": 33,
+      "room_code": "ST208",
+      "campus_name": "ST. TERESA",
+      "raw_comments": null,
+      "meetings": [
+        {
+          "weekday_code": "MA",
+          "start_time": "19:00:00",
+          "end_time": "22:00:00",
+          "room_code": "ST208",
+          "campus_name": "ST. TERESA"
+        }
+      ]
+    }
+  ]
 }

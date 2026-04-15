@@ -1,0 +1,1265 @@
+{
+  "bulletin_id": "bulletin:dpl-d",
+  "source_code": "DPL-D",
+  "title": "LICENCIATURA EN CIENCIA POLÍTICA: Tesis, tesina, o caso. Los requerimientos de cada Plan D",
+  "program_title": "LICENCIATURA EN CIENCIA POLÍTICA: Tesis, tesina, o caso. Los requerimientos de cada",
+  "plan_code": "D",
+  "plan_id": "licenciatura-en-ciencia-politica-tesis-tesina-o-caso-los-requerimientos-de-cada:d",
+  "application_term": "PARA ALUMNOS QUE INGRESEN DE VERANO 2015 A PRIMAVERA 2019",
+  "application_year": 2015,
+  "active_from": "2015-06-01",
+  "active_to": "2015-07-31",
+  "entry_from_term": null,
+  "entry_to_term": null,
+  "requirements": [
+    {
+      "requirement_id": "bulletin:dpl-d:01:001",
+      "semester_label": "Primer Semestre",
+      "semester_order": 1,
+      "sort_order": 1,
+      "course_code": "EGN-17121",
+      "display_title": "Ideas e Instituciones Políticas y Sociales I",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:dpl-d:01:002",
+      "semester_label": "Primer Semestre",
+      "semester_order": 1,
+      "sort_order": 2,
+      "course_code": "ECO-11101",
+      "display_title": "Economía I",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:dpl-d:01:003",
+      "semester_label": "Primer Semestre",
+      "semester_order": 1,
+      "sort_order": 3,
+      "course_code": "CSO-10001",
+      "display_title": "Introducción a la Ciencia Política",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:dpl-d:01:004",
+      "semester_label": "Primer Semestre",
+      "semester_order": 1,
+      "sort_order": 4,
+      "course_code": "DER-12102",
+      "display_title": "Instituciones de Derecho Romano",
+      "credits": 8,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:dpl-d:01:005",
+      "semester_label": "Primer Semestre",
+      "semester_order": 1,
+      "sort_order": 5,
+      "course_code": "DER-11101",
+      "display_title": "Teoría del Derecho I",
+      "credits": 10,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:dpl-d:01:006",
+      "semester_label": "Primer Semestre",
+      "semester_order": 1,
+      "sort_order": 6,
+      "course_code": "LEN-10131",
+      "display_title": "Estrategias de Comunicación Escrita",
+      "credits": 6,
+      "raw_prerequisite_text": "Seminario de Teoría del Derecho I",
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:dpl-d:02:007",
+      "semester_label": "Segundo Semestre",
+      "semester_order": 2,
+      "sort_order": 7,
+      "course_code": "EGN-17122",
+      "display_title": "Ideas e Instituciones Políticas y Sociales II",
+      "credits": 6,
+      "raw_prerequisite_text": "EGN-17121",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EGN-17121",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dpl-d:02:008",
+      "semester_label": "Segundo Semestre",
+      "semester_order": 2,
+      "sort_order": 8,
+      "course_code": "MAT-11100",
+      "display_title": "Matemáticas I",
+      "credits": 9,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:dpl-d:02:009",
+      "semester_label": "Segundo Semestre",
+      "semester_order": 2,
+      "sort_order": 9,
+      "course_code": "CSO-11011",
+      "display_title": "Teoría Política Clásica I",
+      "credits": 6,
+      "raw_prerequisite_text": "DER-11101",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-11101",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dpl-d:02:010",
+      "semester_label": "Segundo Semestre",
+      "semester_order": 2,
+      "sort_order": 10,
+      "course_code": "DER-13203",
+      "display_title": "Negocio Jurídico y Personas",
+      "credits": 6,
+      "raw_prerequisite_text": "DER-11101",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-11101",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dpl-d:02:011",
+      "semester_label": "Segundo Semestre",
+      "semester_order": 2,
+      "sort_order": 11,
+      "course_code": "DER-11202",
+      "display_title": "Teoría del Derecho II",
+      "credits": 8,
+      "raw_prerequisite_text": "DER-11101",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-11101",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dpl-d:02:012",
+      "semester_label": "Segundo Semestre",
+      "semester_order": 2,
+      "sort_order": 12,
+      "course_code": "DER-11203",
+      "display_title": "Investigación y Redacción Jurídica",
+      "credits": 6,
+      "raw_prerequisite_text": "DER-11101 y LEN-10131",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-11101",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "LEN-10131",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dpl-d:02:013",
+      "semester_label": "Segundo Semestre",
+      "semester_order": 2,
+      "sort_order": 13,
+      "course_code": "EGN-17141",
+      "display_title": "Problemas de la Civ. Contemp. I",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:dpl-d:03:014",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 14,
+      "course_code": "CSO-11012",
+      "display_title": "Teoría Política Clásica II",
+      "credits": 6,
+      "raw_prerequisite_text": "CSO-11011",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "CSO-11011",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dpl-d:03:015",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 15,
+      "course_code": "CSO-15021",
+      "display_title": "Elección Pública I",
+      "credits": 6,
+      "raw_prerequisite_text": "CSO-10001",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "CSO-10001",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dpl-d:03:016",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 16,
+      "course_code": "ECO-12102",
+      "display_title": "Economía II",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-11101",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-11101",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dpl-d:03:017",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 17,
+      "course_code": "DER-12202",
+      "display_title": "Historia del Derecho Mexicano",
+      "credits": 6,
+      "raw_prerequisite_text": "DER-11202,DER-11203",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-11202",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "DER-11203",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dpl-d:03:018",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 18,
+      "course_code": "DER-11304",
+      "display_title": "Argumentación Oral y Escrita",
+      "credits": 6,
+      "raw_prerequisite_text": "DER-11203",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-11203",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dpl-d:03:019",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 19,
+      "course_code": "MAT-10101",
+      "display_title": "Métodos Cuantitativos para Derecho",
+      "credits": 6,
+      "raw_prerequisite_text": "MAT-11100",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "MAT-11100",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dpl-d:03:020",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 20,
+      "course_code": "DER-13302",
+      "display_title": "Bienes y Derechos Reales",
+      "credits": 6,
+      "raw_prerequisite_text": "DER-13203",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-13203",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dpl-d:03:021",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 21,
+      "course_code": "EGN-17142",
+      "display_title": "Problemas de la Civ. Contemp. II",
+      "credits": 6,
+      "raw_prerequisite_text": "EGN-17141",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EGN-17141",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dpl-d:04:022",
+      "semester_label": "Cuarto Semestre",
+      "semester_order": 4,
+      "sort_order": 22,
+      "course_code": "COM-16401",
+      "display_title": "Computación I",
+      "credits": 7,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:dpl-d:04:023",
+      "semester_label": "Cuarto Semestre",
+      "semester_order": 4,
+      "sort_order": 23,
+      "course_code": "CSO-15022",
+      "display_title": "Elección Pública II",
+      "credits": 6,
+      "raw_prerequisite_text": "CSO-15021",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "CSO-15021",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dpl-d:04:024",
+      "semester_label": "Cuarto Semestre",
+      "semester_order": 4,
+      "sort_order": 24,
+      "course_code": "DER-13403",
+      "display_title": "Obligaciones",
+      "credits": 8,
+      "raw_prerequisite_text": "DER-13302",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-13302",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dpl-d:04:025",
+      "semester_label": "Cuarto Semestre",
+      "semester_order": 4,
+      "sort_order": 25,
+      "course_code": "DER-14402",
+      "display_title": "Teorías del Delito",
+      "credits": 6,
+      "raw_prerequisite_text": "DER-11304",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-11304",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dpl-d:04:026",
+      "semester_label": "Cuarto Semestre",
+      "semester_order": 4,
+      "sort_order": 26,
+      "course_code": "ECO-11103",
+      "display_title": "Economía III",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-12102, MAT-11100",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-12102",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "MAT-11100",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dpl-d:04:027",
+      "semester_label": "Cuarto Semestre",
+      "semester_order": 4,
+      "sort_order": 27,
+      "course_code": "DER-15402",
+      "display_title": "Derecho Constitucional I",
+      "credits": 8,
+      "raw_prerequisite_text": "DER-11304",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-11304",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dpl-d:04:028",
+      "semester_label": "Cuarto Semestre",
+      "semester_order": 4,
+      "sort_order": 28,
+      "course_code": "EGN-17123",
+      "display_title": "Ideas e Instituciones Políticas y Sociales III (A)",
+      "credits": 6,
+      "raw_prerequisite_text": "EGN-17122, EGN-17141 LEN-10131",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EGN-17122",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "EGN-17141",
+          "ordinal_position": 2
+        },
+        {
+          "referenced_course_code": "LEN-10131",
+          "ordinal_position": 3
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dpl-d:05:029",
+      "semester_label": "Quinto Semestre",
+      "semester_order": 5,
+      "sort_order": 29,
+      "course_code": "DER-18701",
+      "display_title": "Derecho Internacional Público",
+      "credits": 6,
+      "raw_prerequisite_text": "DER-13403",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-13403",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dpl-d:05:030",
+      "semester_label": "Quinto Semestre",
+      "semester_order": 5,
+      "sort_order": 30,
+      "course_code": "DER-16501",
+      "display_title": "Derecho Mercantil I",
+      "credits": 6,
+      "raw_prerequisite_text": "DER-13403",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-13403",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dpl-d:05:031",
+      "semester_label": "Quinto Semestre",
+      "semester_order": 5,
+      "sort_order": 31,
+      "course_code": "CSO-14021",
+      "display_title": "Política Comparada I",
+      "credits": 6,
+      "raw_prerequisite_text": "CSO-10001",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "CSO-10001",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dpl-d:05:032",
+      "semester_label": "Quinto Semestre",
+      "semester_order": 5,
+      "sort_order": 32,
+      "course_code": "DER-13504",
+      "display_title": "Contratos",
+      "credits": 8,
+      "raw_prerequisite_text": "DER-13403",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-13403",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dpl-d:05:033",
+      "semester_label": "Quinto Semestre",
+      "semester_order": 5,
+      "sort_order": 33,
+      "course_code": "DER-14505",
+      "display_title": "Delitos",
+      "credits": 6,
+      "raw_prerequisite_text": "DER-14402",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-14402",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dpl-d:05:034",
+      "semester_label": "Quinto Semestre",
+      "semester_order": 5,
+      "sort_order": 34,
+      "course_code": "EST-10101",
+      "display_title": "Estadística I",
+      "credits": 8,
+      "raw_prerequisite_text": "MAT-11100, COM-16401",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "MAT-11100",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "COM-16401",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dpl-d:05:035",
+      "semester_label": "Quinto Semestre",
+      "semester_order": 5,
+      "sort_order": 35,
+      "course_code": "DER-15505",
+      "display_title": "Derecho Constitucional II Seminario de Derecho Constitucional II",
+      "credits": 8,
+      "raw_prerequisite_text": "DER-15402",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-15402",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dpl-d:06:036",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 36,
+      "course_code": "ECO-11104",
+      "display_title": "Economía IV",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-11103",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-11103",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dpl-d:06:037",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 37,
+      "course_code": "CSO-14041",
+      "display_title": "Política Comparada II",
+      "credits": 6,
+      "raw_prerequisite_text": "CSO-14021",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "CSO-14021",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dpl-d:06:038",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 38,
+      "course_code": "DER-19501",
+      "display_title": "Derecho Laboral I",
+      "credits": 6,
+      "raw_prerequisite_text": "DER-13504",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-13504",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dpl-d:06:039",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 39,
+      "course_code": "DER-15506",
+      "display_title": "Derecho Constitucional III Seminario de Derecho Constitucional III",
+      "credits": 8,
+      "raw_prerequisite_text": "DER-15505",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-15505",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dpl-d:06:040",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 40,
+      "course_code": "DER-13406",
+      "display_title": "Teoría General del Proceso",
+      "credits": 8,
+      "raw_prerequisite_text": "DER-15505",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-15505",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dpl-d:06:041",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 41,
+      "course_code": "DER-16602",
+      "display_title": "Derecho Mercantil II",
+      "credits": 6,
+      "raw_prerequisite_text": "DER-16501",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-16501",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dpl-d:07:042",
+      "semester_label": "Septimo Semestre",
+      "semester_order": 7,
+      "sort_order": 42,
+      "course_code": "CSO-15024",
+      "display_title": "Elección Pública III",
+      "credits": 6,
+      "raw_prerequisite_text": "CSO-15022",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "CSO-15022",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dpl-d:07:043",
+      "semester_label": "Septimo Semestre",
+      "semester_order": 7,
+      "sort_order": 43,
+      "course_code": "MAT-11101",
+      "display_title": "Matemáticas II",
+      "credits": 9,
+      "raw_prerequisite_text": "MAT-11100",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "MAT-11100",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dpl-d:07:044",
+      "semester_label": "Septimo Semestre",
+      "semester_order": 7,
+      "sort_order": 44,
+      "course_code": "DER-14603",
+      "display_title": "Derecho Procesal Penal Seminario de Derecho Procesal Penal",
+      "credits": 8,
+      "raw_prerequisite_text": "DER-14505, DER-13406",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-14505",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "DER-13406",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dpl-d:07:045",
+      "semester_label": "Septimo Semestre",
+      "semester_order": 7,
+      "sort_order": 45,
+      "course_code": "DER-13607",
+      "display_title": "Procedimientos Civiles y Mercantiles",
+      "credits": 6,
+      "raw_prerequisite_text": "DER-13406",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-13406",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dpl-d:07:046",
+      "semester_label": "Septimo Semestre",
+      "semester_order": 7,
+      "sort_order": 46,
+      "course_code": "CSO-11021",
+      "display_title": "Teoría Política Contemporánea",
+      "credits": 6,
+      "raw_prerequisite_text": "CSO-11012",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "CSO-11012",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dpl-d:07:047",
+      "semester_label": "Septimo Semestre",
+      "semester_order": 7,
+      "sort_order": 47,
+      "course_code": "CSO-12041",
+      "display_title": "Historia de México I",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:dpl-d:07:048",
+      "semester_label": "Septimo Semestre",
+      "semester_order": 7,
+      "sort_order": 48,
+      "course_code": "DER-16702",
+      "display_title": "Derecho Mercantil III",
+      "credits": 6,
+      "raw_prerequisite_text": "DER-16602",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-16602",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dpl-d:08:049",
+      "semester_label": "Octavo Semestre",
+      "semester_order": 8,
+      "sort_order": 49,
+      "course_code": "EST-10102",
+      "display_title": "Estadística II",
+      "credits": 8,
+      "raw_prerequisite_text": "EST-10101",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EST-10101",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dpl-d:08:050",
+      "semester_label": "Octavo Semestre",
+      "semester_order": 8,
+      "sort_order": 50,
+      "course_code": "CSO-14042",
+      "display_title": "Política Comparada III",
+      "credits": 6,
+      "raw_prerequisite_text": "CSO-14041",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "CSO-14041",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dpl-d:08:051",
+      "semester_label": "Octavo Semestre",
+      "semester_order": 8,
+      "sort_order": 51,
+      "course_code": "CSO-12042",
+      "display_title": "Historia de México II",
+      "credits": 6,
+      "raw_prerequisite_text": "CSO-12041",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "CSO-12041",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dpl-d:08:052",
+      "semester_label": "Octavo Semestre",
+      "semester_order": 8,
+      "sort_order": 52,
+      "course_code": "DER-13614",
+      "display_title": "Familia y Sucesiones",
+      "credits": 8,
+      "raw_prerequisite_text": "DER-13504",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-13504",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dpl-d:08:053",
+      "semester_label": "Octavo Semestre",
+      "semester_order": 8,
+      "sort_order": 53,
+      "course_code": "DER-17601",
+      "display_title": "Derecho Administrativo I",
+      "credits": 6,
+      "raw_prerequisite_text": "DER-15505",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-15505",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dpl-d:08:054",
+      "semester_label": "Octavo Semestre",
+      "semester_order": 8,
+      "sort_order": 54,
+      "course_code": "ECO-14208",
+      "display_title": "Análisis Económico del Derecho II (A)",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-11104",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-11104",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dpl-d:08:055",
+      "semester_label": "Octavo Semestre",
+      "semester_order": 8,
+      "sort_order": 55,
+      "course_code": "CON-10100",
+      "display_title": "Contabilidad I",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:dpl-d:09:056",
+      "semester_label": "Noveno Semestre",
+      "semester_order": 9,
+      "sort_order": 56,
+      "course_code": "CSO-17041",
+      "display_title": "Métodos de Investigación Aplicada (A)",
+      "credits": 6,
+      "raw_prerequisite_text": "EST-10102",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EST-10102",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dpl-d:09:057",
+      "semester_label": "Noveno Semestre",
+      "semester_order": 9,
+      "sort_order": 57,
+      "course_code": "DER-17702",
+      "display_title": "Derecho Administrativo II",
+      "credits": 6,
+      "raw_prerequisite_text": "DER-17601",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-17601",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dpl-d:09:058",
+      "semester_label": "Noveno Semestre",
+      "semester_order": 9,
+      "sort_order": 58,
+      "course_code": "DER-19602",
+      "display_title": "Derecho Laboral II",
+      "credits": 6,
+      "raw_prerequisite_text": "DER-19501",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-19501",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dpl-d:09:059",
+      "semester_label": "Noveno Semestre",
+      "semester_order": 9,
+      "sort_order": 59,
+      "course_code": "DER-17703",
+      "display_title": "Derecho Fiscal I",
+      "credits": 8,
+      "raw_prerequisite_text": "DER-17601, CON-10100",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-17601",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "CON-10100",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dpl-d:09:060",
+      "semester_label": "Noveno Semestre",
+      "semester_order": 9,
+      "sort_order": 60,
+      "course_code": "MAT-11310",
+      "display_title": "Matemáticas III",
+      "credits": 8,
+      "raw_prerequisite_text": "MAT-11100",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "MAT-11100",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dpl-d:09:061",
+      "semester_label": "Noveno Semestre",
+      "semester_order": 9,
+      "sort_order": 61,
+      "course_code": "ECO-12105",
+      "display_title": "Economía V",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-11103, MAT-11101",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-11103",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "MAT-11101",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dpl-d:09:062",
+      "semester_label": "Noveno Semestre",
+      "semester_order": 9,
+      "sort_order": 62,
+      "course_code": "CSO-12049",
+      "display_title": "Historia de México III",
+      "credits": 6,
+      "raw_prerequisite_text": "CSO-12042",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "CSO-12042",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dpl-d:10:063",
+      "semester_label": "Décimo Semestre",
+      "semester_order": 10,
+      "sort_order": 63,
+      "course_code": "EST-13101",
+      "display_title": "Métodos Estadísticos para CPol y RI",
+      "credits": 8,
+      "raw_prerequisite_text": "MAT-11310, EST-10102",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "MAT-11310",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "EST-10102",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dpl-d:10:064",
+      "semester_label": "Décimo Semestre",
+      "semester_order": 10,
+      "sort_order": 64,
+      "course_code": "EGN-17161",
+      "display_title": "Historia Socio Política de México",
+      "credits": 6,
+      "raw_prerequisite_text": "EGN-17123",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EGN-17123",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dpl-d:10:065",
+      "semester_label": "Décimo Semestre",
+      "semester_order": 10,
+      "sort_order": 65,
+      "course_code": "CSO-15041",
+      "display_title": "Economía Política I",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-11103",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-11103",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dpl-d:10:066",
+      "semester_label": "Décimo Semestre",
+      "semester_order": 10,
+      "sort_order": 66,
+      "course_code": "CSO-14045",
+      "display_title": "Política y Gobierno de México",
+      "credits": 6,
+      "raw_prerequisite_text": "CSO-14041",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "CSO-14041",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dpl-d:10:067",
+      "semester_label": "Décimo Semestre",
+      "semester_order": 10,
+      "sort_order": 67,
+      "course_code": "DER-15704",
+      "display_title": "Procedimientos Constitucionales",
+      "credits": 8,
+      "raw_prerequisite_text": "DER-15506, DER-13607, DER-14603",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-15506",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "DER-13607",
+          "ordinal_position": 2
+        },
+        {
+          "referenced_course_code": "DER-14603",
+          "ordinal_position": 3
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dpl-d:10:068",
+      "semester_label": "Décimo Semestre",
+      "semester_order": 10,
+      "sort_order": 68,
+      "course_code": "DER-18802",
+      "display_title": "Derecho Internacional Privado",
+      "credits": 6,
+      "raw_prerequisite_text": "DER-13607",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-13607",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dpl-d:10:069",
+      "semester_label": "Décimo Semestre",
+      "semester_order": 10,
+      "sort_order": 69,
+      "course_code": "DER-17804",
+      "display_title": "Derecho Fiscal II",
+      "credits": 8,
+      "raw_prerequisite_text": "DER-17703",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-17703",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dpl-d:10:070",
+      "semester_label": "Décimo Semestre",
+      "semester_order": 10,
+      "sort_order": 70,
+      "course_code": "EGN-17162",
+      "display_title": "Problemas de la Realidad Mex. Contemporánea",
+      "credits": 6,
+      "raw_prerequisite_text": "ONCEAVO SEMESTRE EGN-17142, EGN-17161, CSO-12042",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EGN-17142",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "EGN-17161",
+          "ordinal_position": 2
+        },
+        {
+          "referenced_course_code": "CSO-12042",
+          "ordinal_position": 3
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dpl-d:10:071",
+      "semester_label": "Décimo Semestre",
+      "semester_order": 10,
+      "sort_order": 71,
+      "course_code": "CSO-17042",
+      "display_title": "Metodología Política Avanzada",
+      "credits": 9,
+      "raw_prerequisite_text": "EST-13101",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EST-13101",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dpl-d:10:072",
+      "semester_label": "Décimo Semestre",
+      "semester_order": 10,
+      "sort_order": 72,
+      "course_code": "CSO-15043",
+      "display_title": "Economía Política II",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-11103",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-11103",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dpl-d:10:073",
+      "semester_label": "Décimo Semestre",
+      "semester_order": 10,
+      "sort_order": 73,
+      "course_code": "CSO-14051",
+      "display_title": "Opinión Pública (A)",
+      "credits": 6,
+      "raw_prerequisite_text": "CSO-17041",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "CSO-17041",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dpl-d:10:074",
+      "semester_label": "Décimo Semestre",
+      "semester_order": 10,
+      "sort_order": 74,
+      "course_code": "DER-11805",
+      "display_title": "Filosofía del Derecho",
+      "credits": 6,
+      "raw_prerequisite_text": "DER-13607",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-13607",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dpl-d:10:075",
+      "semester_label": "Décimo Semestre",
+      "semester_order": 10,
+      "sort_order": 75,
+      "course_code": "DER-11907",
+      "display_title": "Técnicas de Argumentación Jurídica (A)",
+      "credits": 6,
+      "raw_prerequisite_text": "DER-13607",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-13607",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dpl-d:10:076",
+      "semester_label": "Décimo Semestre",
+      "semester_order": 10,
+      "sort_order": 76,
+      "course_code": "CSO-16042",
+      "display_title": "Políticas Públicas",
+      "credits": 6,
+      "raw_prerequisite_text": "CSO-15021",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "CSO-15021",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dpl-d:10:077",
+      "semester_label": "Décimo Semestre",
+      "semester_order": 10,
+      "sort_order": 77,
+      "course_code": "CSO-19075",
+      "display_title": "Seminario de Titulación I",
+      "credits": 9,
+      "raw_prerequisite_text": "DOCEAVO SEMESTRE CSO-17041",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "CSO-17041",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dpl-d:10:078",
+      "semester_label": "Décimo Semestre",
+      "semester_order": 10,
+      "sort_order": 78,
+      "course_code": "CSO-19076",
+      "display_title": "Seminario de Titulación II",
+      "credits": 9,
+      "raw_prerequisite_text": "CSO-17041",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "CSO-17041",
+          "ordinal_position": 1
+        }
+      ]
+    }
+  ]
+}

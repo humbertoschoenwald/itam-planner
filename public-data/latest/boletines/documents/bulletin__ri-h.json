@@ -1,0 +1,773 @@
+{
+  "bulletin_id": "bulletin:ri-h",
+  "source_code": "RI-H",
+  "title": "LICENCIATURA EN RELACIONES INTERNACIONALES Plan H",
+  "program_title": "LICENCIATURA EN RELACIONES INTERNACIONALES",
+  "plan_code": "H",
+  "plan_id": "licenciatura-en-relaciones-internacionales:h",
+  "application_term": "PRIMAVERA 2026",
+  "application_year": 2026,
+  "active_from": "2026-01-01",
+  "active_to": "2026-05-31",
+  "entry_from_term": null,
+  "entry_to_term": null,
+  "requirements": [
+    {
+      "requirement_id": "bulletin:ri-h:01:001",
+      "semester_label": "Primer Semestre",
+      "semester_order": 1,
+      "sort_order": 1,
+      "course_code": "EGN-17141",
+      "display_title": "Problemas de la Civilización Contemporánea I",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:ri-h:01:002",
+      "semester_label": "Primer Semestre",
+      "semester_order": 1,
+      "sort_order": 2,
+      "course_code": "EIN-11101",
+      "display_title": "Introducción a las Relaciones Internacionales",
+      "credits": 7,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:ri-h:01:003",
+      "semester_label": "Primer Semestre",
+      "semester_order": 1,
+      "sort_order": 3,
+      "course_code": "EIN-12201",
+      "display_title": "Historia de las Relaciones Internacionales I",
+      "credits": 8,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:ri-h:01:004",
+      "semester_label": "Primer Semestre",
+      "semester_order": 1,
+      "sort_order": 4,
+      "course_code": "ECO-11010",
+      "display_title": "Principios de Microeconomía",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:ri-h:01:005",
+      "semester_label": "Primer Semestre",
+      "semester_order": 1,
+      "sort_order": 5,
+      "course_code": "COM-14113",
+      "display_title": "Fundamentos de Programación",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:ri-h:01:006",
+      "semester_label": "Primer Semestre",
+      "semester_order": 1,
+      "sort_order": 6,
+      "course_code": "LEN-12701",
+      "display_title": "Estrategias de Comunicación Escrita",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:ri-h:02:007",
+      "semester_label": "Segundo Semestre",
+      "semester_order": 2,
+      "sort_order": 7,
+      "course_code": "EGN-17142",
+      "display_title": "Problemas de la Civilización Contemporánea II",
+      "credits": 6,
+      "raw_prerequisite_text": "EGN-17141",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EGN-17141",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ri-h:02:008",
+      "semester_label": "Segundo Semestre",
+      "semester_order": 2,
+      "sort_order": 8,
+      "course_code": "EIN-13202",
+      "display_title": "Historia de las Relaciones Internacionales II",
+      "credits": 8,
+      "raw_prerequisite_text": "EIN-12201",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EIN-12201",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ri-h:02:009",
+      "semester_label": "Segundo Semestre",
+      "semester_order": 2,
+      "sort_order": 9,
+      "course_code": "CSO-10100",
+      "display_title": "Estado y Sociedad I",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:ri-h:02:010",
+      "semester_label": "Segundo Semestre",
+      "semester_order": 2,
+      "sort_order": 10,
+      "course_code": "ECO-12010",
+      "display_title": "Principios de Macroeconomía",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-11010",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-11010",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ri-h:02:011",
+      "semester_label": "Segundo Semestre",
+      "semester_order": 2,
+      "sort_order": 11,
+      "course_code": "COM-16305",
+      "display_title": "Gestión de Datos",
+      "credits": 6,
+      "raw_prerequisite_text": "COM-14113",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "COM-14113",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ri-h:02:012",
+      "semester_label": "Segundo Semestre",
+      "semester_order": 2,
+      "sort_order": 12,
+      "course_code": "MAT-12250",
+      "display_title": "Cálculo Aplicado",
+      "credits": 9,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:ri-h:02:013",
+      "semester_label": "Segundo Semestre",
+      "semester_order": 2,
+      "sort_order": 13,
+      "course_code": "CON-10110",
+      "display_title": "Fundamentos de Contabilidad Financiera",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:ri-h:03:014",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 14,
+      "course_code": "EGN-17121",
+      "display_title": "Ideas e Instituciones Políticas y Sociales I (A)",
+      "credits": 6,
+      "raw_prerequisite_text": "LEN-12701",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "LEN-12701",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ri-h:03:015",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 15,
+      "course_code": "LEN-12702",
+      "display_title": "Seminario de Comunicación Escrita (A)",
+      "credits": 2,
+      "raw_prerequisite_text": "LEN-12701",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "LEN-12701",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ri-h:03:016",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 16,
+      "course_code": "EIN-14102",
+      "display_title": "Teoría de las Relaciones Internacionales",
+      "credits": 6,
+      "raw_prerequisite_text": "EIN-11101",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EIN-11101",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ri-h:03:017",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 17,
+      "course_code": "CSO-10106",
+      "display_title": "Instituciones Políticas Comparadas",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:ri-h:03:018",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 18,
+      "course_code": "ECO-14502",
+      "display_title": "Economía Gerencial",
+      "credits": 8,
+      "raw_prerequisite_text": "ECO-11010 y MAT-12250",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-11010",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "MAT-12250",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ri-h:03:019",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 19,
+      "course_code": "EIN-16402",
+      "display_title": "Europa Contemporánea",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:ri-h:03:020",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 20,
+      "course_code": "MAT-12350",
+      "display_title": "Algebra Lineal Aplicada",
+      "credits": 8,
+      "raw_prerequisite_text": "MAT-12250",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "MAT-12250",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ri-h:04:021",
+      "semester_label": "Cuarto Semestre",
+      "semester_order": 4,
+      "sort_order": 21,
+      "course_code": "EGN-17122",
+      "display_title": "Ideas e Instituciones Políticas y Sociales II",
+      "credits": 6,
+      "raw_prerequisite_text": "EGN-17121",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EGN-17121",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ri-h:04:022",
+      "semester_label": "Cuarto Semestre",
+      "semester_order": 4,
+      "sort_order": 22,
+      "course_code": "EIN-13104",
+      "display_title": "Métodos de Investigación en Relaciones Internacionales",
+      "credits": 6,
+      "raw_prerequisite_text": "EIN-14102",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EIN-14102",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ri-h:04:023",
+      "semester_label": "Cuarto Semestre",
+      "semester_order": 4,
+      "sort_order": 23,
+      "course_code": "EIN-19140",
+      "display_title": "Gobernanza Global y Multilateralismo",
+      "credits": 6,
+      "raw_prerequisite_text": "EIN-14102",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EIN-14102",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ri-h:04:024",
+      "semester_label": "Cuarto Semestre",
+      "semester_order": 4,
+      "sort_order": 24,
+      "course_code": "ECO-12501",
+      "display_title": "Macroeconomía y Finanzas Públicas",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-14502",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-14502",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ri-h:04:025",
+      "semester_label": "Cuarto Semestre",
+      "semester_order": 4,
+      "sort_order": 25,
+      "course_code": "DER-10003",
+      "display_title": "Instituciones de Derecho Público Mexicano I",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:ri-h:04:026",
+      "semester_label": "Cuarto Semestre",
+      "semester_order": 4,
+      "sort_order": 26,
+      "course_code": "EST-10101",
+      "display_title": "Estadística I",
+      "credits": 8,
+      "raw_prerequisite_text": "MAT-12250",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "MAT-12250",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ri-h:05:027",
+      "semester_label": "Quinto Semestre",
+      "semester_order": 5,
+      "sort_order": 27,
+      "course_code": "EGN-17123",
+      "display_title": "Ideas e Instituciones Políticas y Sociales III",
+      "credits": 6,
+      "raw_prerequisite_text": "EGN-17141 y EGN-17122",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EGN-17141",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "EGN-17122",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ri-h:05:028",
+      "semester_label": "Quinto Semestre",
+      "semester_order": 5,
+      "sort_order": 28,
+      "course_code": "EIN-15105",
+      "display_title": "Política de las Relaciones Económicas Internacionales",
+      "credits": 6,
+      "raw_prerequisite_text": "EIN-13104",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EIN-13104",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ri-h:05:029",
+      "semester_label": "Quinto Semestre",
+      "semester_order": 5,
+      "sort_order": 29,
+      "course_code": "EIN-19553",
+      "display_title": "Seguridad Global y Geopolítica",
+      "credits": 6,
+      "raw_prerequisite_text": "EIN-13104",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EIN-13104",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ri-h:05:030",
+      "semester_label": "Quinto Semestre",
+      "semester_order": 5,
+      "sort_order": 30,
+      "course_code": "EIN-14303",
+      "display_title": "Política y Gobierno de Estados Unidos",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:ri-h:05:031",
+      "semester_label": "Quinto Semestre",
+      "semester_order": 5,
+      "sort_order": 31,
+      "course_code": "ECO-13131",
+      "display_title": "Comercio Internacional",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-14502",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-14502",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ri-h:05:032",
+      "semester_label": "Quinto Semestre",
+      "semester_order": 5,
+      "sort_order": 32,
+      "course_code": "EST-10102",
+      "display_title": "Estadística II",
+      "credits": 8,
+      "raw_prerequisite_text": "MAT-12350 y EST-10101",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "MAT-12350",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "EST-10101",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ri-h:06:033",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 33,
+      "course_code": "EGN-17161",
+      "display_title": "Historia Socio-Política de México",
+      "credits": 6,
+      "raw_prerequisite_text": "EGN-17123",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EGN-17123",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ri-h:06:034",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 34,
+      "course_code": "EIN-19133",
+      "display_title": "Agenda Global de Desarrollo",
+      "credits": 6,
+      "raw_prerequisite_text": "EIN-15105",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EIN-15105",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ri-h:06:035",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 35,
+      "course_code": "EIN-19552",
+      "display_title": "Cambio Climático",
+      "credits": 6,
+      "raw_prerequisite_text": "EIN-13104",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EIN-13104",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ri-h:06:036",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 36,
+      "course_code": "EIN-17303",
+      "display_title": "Relaciones México-E.U.A.-Canadá",
+      "credits": 6,
+      "raw_prerequisite_text": "EIN-14303",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EIN-14303",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ri-h:06:037",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 37,
+      "course_code": "DER-10005",
+      "display_title": "Derecho Internacional Público I",
+      "credits": 6,
+      "raw_prerequisite_text": "DER-10003",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-10003",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ri-h:06:038",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 38,
+      "course_code": "EIN-16403",
+      "display_title": "América Latina (A)",
+      "credits": 6,
+      "raw_prerequisite_text": "EIN-15105",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EIN-15105",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ri-h:06:039",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 39,
+      "course_code": "LEN-12721",
+      "display_title": "Comunicación Escrita para Relaciones Internacionales (A)",
+      "credits": 2,
+      "raw_prerequisite_text": "LEN-12701",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "LEN-12701",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ri-h:07:040",
+      "semester_label": "Séptimo Semestre",
+      "semester_order": 7,
+      "sort_order": 40,
+      "course_code": "EGN-17162",
+      "display_title": "Problemas de la Realidad Mexicana Contemporánea",
+      "credits": 6,
+      "raw_prerequisite_text": "EGN-17161",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EGN-17161",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ri-h:07:041",
+      "semester_label": "Séptimo Semestre",
+      "semester_order": 7,
+      "sort_order": 41,
+      "course_code": "EIN-19315",
+      "display_title": "Migración Internacional",
+      "credits": 6,
+      "raw_prerequisite_text": "EIN-13104",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EIN-13104",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ri-h:07:042",
+      "semester_label": "Séptimo Semestre",
+      "semester_order": 7,
+      "sort_order": 42,
+      "course_code": null,
+      "display_title": "Optativa",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:ri-h:07:043",
+      "semester_label": "Séptimo Semestre",
+      "semester_order": 7,
+      "sort_order": 43,
+      "course_code": null,
+      "display_title": "Optativa",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:ri-h:07:044",
+      "semester_label": "Séptimo Semestre",
+      "semester_order": 7,
+      "sort_order": 44,
+      "course_code": "DER-10006",
+      "display_title": "Derecho Internacional Público II",
+      "credits": 6,
+      "raw_prerequisite_text": "DER-10005",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-10005",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ri-h:07:045",
+      "semester_label": "Séptimo Semestre",
+      "semester_order": 7,
+      "sort_order": 45,
+      "course_code": "CSO-14045",
+      "display_title": "Política y Gobierno de México",
+      "credits": 6,
+      "raw_prerequisite_text": "CSO-10106",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "CSO-10106",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ri-h:08:046",
+      "semester_label": "Octavo Semestre",
+      "semester_order": 8,
+      "sort_order": 46,
+      "course_code": "EIN-18602",
+      "display_title": "Seminario de Titulación (*)",
+      "credits": 6,
+      "raw_prerequisite_text": "EST-10102 y DER-10006",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EST-10102",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "DER-10006",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ri-h:08:047",
+      "semester_label": "Octavo Semestre",
+      "semester_order": 8,
+      "sort_order": 47,
+      "course_code": null,
+      "display_title": "Optativa",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:ri-h:08:048",
+      "semester_label": "Octavo Semestre",
+      "semester_order": 8,
+      "sort_order": 48,
+      "course_code": null,
+      "display_title": "Optativa",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:ri-h:08:049",
+      "semester_label": "Octavo Semestre",
+      "semester_order": 8,
+      "sort_order": 49,
+      "course_code": "EIN-17403",
+      "display_title": "Japón, China y el Sudeste Asiático",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:ri-h:08:050",
+      "semester_label": "Octavo Semestre",
+      "semester_order": 8,
+      "sort_order": 50,
+      "course_code": "EIN-19414",
+      "display_title": "Medio Oriente",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:ri-h:08:051",
+      "semester_label": "Octavo Semestre",
+      "semester_order": 8,
+      "sort_order": 51,
+      "course_code": "EIN-17304",
+      "display_title": "Formulación de la Política Exterior de México (A)",
+      "credits": 6,
+      "raw_prerequisite_text": "CSO-14045",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "CSO-14045",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ri-h:08:052",
+      "semester_label": "Octavo Semestre",
+      "semester_order": 8,
+      "sort_order": 52,
+      "course_code": "LEN-12761",
+      "display_title": "Comunicación Profesional para Relaciones Internacionales (A",
+      "credits": 2,
+      "raw_prerequisite_text": "LEN-12702 y LEN-12721",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "LEN-12702",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "LEN-12721",
+          "ordinal_position": 2
+        }
+      ]
+    }
+  ]
+}

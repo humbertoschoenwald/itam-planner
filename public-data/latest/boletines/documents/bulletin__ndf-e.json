@@ -1,0 +1,1149 @@
+{
+  "bulletin_id": "bulletin:ndf-e",
+  "source_code": "NDF-E",
+  "title": "INGENIERÍA EN NEGOCIOS Y LICENCIATURA EN DIRECCIÓN FINANCIERA Plan E",
+  "program_title": "INGENIERÍA EN NEGOCIOS Y LICENCIATURA EN DIRECCIÓN FINANCIERA",
+  "plan_code": "E",
+  "plan_id": "ingenieria-en-negocios-y-licenciatura-en-direccion-financiera:e",
+  "application_term": "PRIMAVERA 2026",
+  "application_year": 2026,
+  "active_from": "2026-01-01",
+  "active_to": "2026-05-31",
+  "entry_from_term": null,
+  "entry_to_term": null,
+  "requirements": [
+    {
+      "requirement_id": "bulletin:ndf-e:01:001",
+      "semester_label": "Primer Semestre",
+      "semester_order": 1,
+      "sort_order": 1,
+      "course_code": "ADM-15560",
+      "display_title": "Introducción a las Finanzas e Intermediación Financiera",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:ndf-e:01:002",
+      "semester_label": "Primer Semestre",
+      "semester_order": 1,
+      "sort_order": 2,
+      "course_code": "COM-16306",
+      "display_title": "Razonamiento Algorítmico",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:ndf-e:01:003",
+      "semester_label": "Primer Semestre",
+      "semester_order": 1,
+      "sort_order": 3,
+      "course_code": "EGN-17141",
+      "display_title": "Problemas de la Civilización Contemporánea I",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:ndf-e:01:004",
+      "semester_label": "Primer Semestre",
+      "semester_order": 1,
+      "sort_order": 4,
+      "course_code": "IIO-16111",
+      "display_title": "Trayectoria de Negocios I: Ingeniería y Tecnología",
+      "credits": 2,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:ndf-e:01:005",
+      "semester_label": "Primer Semestre",
+      "semester_order": 1,
+      "sort_order": 5,
+      "course_code": "LEN-12701",
+      "display_title": "Estrategias de Comunicación Escrita",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:ndf-e:01:006",
+      "semester_label": "Primer Semestre",
+      "semester_order": 1,
+      "sort_order": 6,
+      "course_code": "MAT-12200",
+      "display_title": "Cálculo Univariado",
+      "credits": 9,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:ndf-e:01:007",
+      "semester_label": "Primer Semestre",
+      "semester_order": 1,
+      "sort_order": 7,
+      "course_code": "MAT-14250",
+      "display_title": "Geometría Vectorial",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:ndf-e:02:008",
+      "semester_label": "Segundo Semestre",
+      "semester_order": 2,
+      "sort_order": 8,
+      "course_code": "ADM-15507",
+      "display_title": "Fundamentos de Finanzas",
+      "credits": 6,
+      "raw_prerequisite_text": "ADM-15560",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ADM-15560",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ndf-e:02:009",
+      "semester_label": "Segundo Semestre",
+      "semester_order": 2,
+      "sort_order": 9,
+      "course_code": "COM-16305",
+      "display_title": "Gestión de Datos",
+      "credits": 6,
+      "raw_prerequisite_text": "COM-16306",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "COM-16306",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ndf-e:02:010",
+      "semester_label": "Segundo Semestre",
+      "semester_order": 2,
+      "sort_order": 10,
+      "course_code": "CON-10001",
+      "display_title": "Proceso Contable",
+      "credits": 8,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:ndf-e:02:011",
+      "semester_label": "Segundo Semestre",
+      "semester_order": 2,
+      "sort_order": 11,
+      "course_code": "ECO-11010",
+      "display_title": "Principios de Microeconomía",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:ndf-e:02:012",
+      "semester_label": "Segundo Semestre",
+      "semester_order": 2,
+      "sort_order": 12,
+      "course_code": "EGN-17142",
+      "display_title": "Problemas de la Civilización Contemporánea II",
+      "credits": 6,
+      "raw_prerequisite_text": "EGN-17141",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EGN-17141",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ndf-e:02:013",
+      "semester_label": "Segundo Semestre",
+      "semester_order": 2,
+      "sort_order": 13,
+      "course_code": "MAT-14201",
+      "display_title": "Álgebra lineal I",
+      "credits": 8,
+      "raw_prerequisite_text": "MAT-14250",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "MAT-14250",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ndf-e:03:014",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 14,
+      "course_code": "ADM-12107",
+      "display_title": "Estrategia de Negocios I",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:ndf-e:03:015",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 15,
+      "course_code": "COM-12109",
+      "display_title": "Fuentes de Datos Empresariales",
+      "credits": 8,
+      "raw_prerequisite_text": "COM-16305",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "COM-16305",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ndf-e:03:016",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 16,
+      "course_code": "CON-10111",
+      "display_title": "Contabilidad Financiera I",
+      "credits": 8,
+      "raw_prerequisite_text": "CON-10001",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "CON-10001",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ndf-e:03:017",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 17,
+      "course_code": "EGN-17121",
+      "display_title": "Ideas e Instituciones Políticas y Sociales I (A)",
+      "credits": 6,
+      "raw_prerequisite_text": "LEN-12701",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "LEN-12701",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ndf-e:03:018",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 18,
+      "course_code": "IIO-12172",
+      "display_title": "Taller de Programación de Dispositivos de Ingeniería",
+      "credits": 2,
+      "raw_prerequisite_text": "COM-16306",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "COM-16306",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ndf-e:03:019",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 19,
+      "course_code": "LEN-12702",
+      "display_title": "Seminario de Comunicación Escrita (A)",
+      "credits": 2,
+      "raw_prerequisite_text": "LEN-12701",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "LEN-12701",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ndf-e:03:020",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 20,
+      "course_code": "MAT-12201",
+      "display_title": "Cálculo Multivariado",
+      "credits": 9,
+      "raw_prerequisite_text": "MAT-12200 y MAT-14250",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "MAT-12200",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "MAT-14250",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ndf-e:04:021",
+      "semester_label": "Cuarto Semestre",
+      "semester_order": 4,
+      "sort_order": 21,
+      "course_code": "ADM-14405",
+      "display_title": "Estructuras, Procesos y Comportamiento Organizacional I",
+      "credits": 6,
+      "raw_prerequisite_text": "ADM-12107",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ADM-12107",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ndf-e:04:022",
+      "semester_label": "Cuarto Semestre",
+      "semester_order": 4,
+      "sort_order": 22,
+      "course_code": "ADM-15532",
+      "display_title": "Finanzas Corporativas",
+      "credits": 6,
+      "raw_prerequisite_text": "ADM-15507",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ADM-15507",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ndf-e:04:023",
+      "semester_label": "Cuarto Semestre",
+      "semester_order": 4,
+      "sort_order": 23,
+      "course_code": "COM-16307",
+      "display_title": "Modelado Analítico de Negocios",
+      "credits": 4,
+      "raw_prerequisite_text": "COM-12109",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "COM-12109",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ndf-e:04:024",
+      "semester_label": "Cuarto Semestre",
+      "semester_order": 4,
+      "sort_order": 24,
+      "course_code": "CON-10112",
+      "display_title": "Contabilidad Financiera II",
+      "credits": 8,
+      "raw_prerequisite_text": "CON-10111",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "CON-10111",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ndf-e:04:025",
+      "semester_label": "Cuarto Semestre",
+      "semester_order": 4,
+      "sort_order": 25,
+      "course_code": "ECO-12010",
+      "display_title": "Principios de Macroeconomía",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-11010",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-11010",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ndf-e:04:026",
+      "semester_label": "Cuarto Semestre",
+      "semester_order": 4,
+      "sort_order": 26,
+      "course_code": "EGN-17122",
+      "display_title": "Ideas e Instituciones Políticas y Sociales II",
+      "credits": 6,
+      "raw_prerequisite_text": "EGN-17121",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EGN-17121",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ndf-e:04:027",
+      "semester_label": "Cuarto Semestre",
+      "semester_order": 4,
+      "sort_order": 27,
+      "course_code": "EST-11101",
+      "display_title": "Probabilidad",
+      "credits": 8,
+      "raw_prerequisite_text": "MAT-12201",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "MAT-12201",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ndf-e:05:028",
+      "semester_label": "Quinto Semestre",
+      "semester_order": 5,
+      "sort_order": 28,
+      "course_code": "ADM-15522",
+      "display_title": "Teoría de las Finanzas",
+      "credits": 6,
+      "raw_prerequisite_text": "ADM-15532 y MAT-14201",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ADM-15532",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "MAT-14201",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ndf-e:05:029",
+      "semester_label": "Quinto Semestre",
+      "semester_order": 5,
+      "sort_order": 29,
+      "course_code": "ADM-15569",
+      "display_title": "Modelaje para Contabilidad y Finanzas",
+      "credits": 6,
+      "raw_prerequisite_text": "ADM-15532",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ADM-15532",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ndf-e:05:030",
+      "semester_label": "Quinto Semestre",
+      "semester_order": 5,
+      "sort_order": 30,
+      "course_code": "COM-16413",
+      "display_title": "Inteligencia de Negocios",
+      "credits": 6,
+      "raw_prerequisite_text": "COM-16307",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "COM-16307",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ndf-e:05:031",
+      "semester_label": "Quinto Semestre",
+      "semester_order": 5,
+      "sort_order": 31,
+      "course_code": "CON-14109",
+      "display_title": "Contabilidad Gerencial",
+      "credits": 6,
+      "raw_prerequisite_text": "CON-10001",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "CON-10001",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ndf-e:05:032",
+      "semester_label": "Quinto Semestre",
+      "semester_order": 5,
+      "sort_order": 32,
+      "course_code": "ECO-11011",
+      "display_title": "Microeconomía Aplicada I",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-12010 y MAT-12201",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-12010",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "MAT-12201",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ndf-e:05:033",
+      "semester_label": "Quinto Semestre",
+      "semester_order": 5,
+      "sort_order": 33,
+      "course_code": "EGN-17123",
+      "display_title": "Ideas e Instituciones Políticas y Sociales III",
+      "credits": 6,
+      "raw_prerequisite_text": "EGN-17141 y EGN-17122",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EGN-17141",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "EGN-17122",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ndf-e:05:034",
+      "semester_label": "Quinto Semestre",
+      "semester_order": 5,
+      "sort_order": 34,
+      "course_code": "EST-11102",
+      "display_title": "Inferencia Estadística",
+      "credits": 8,
+      "raw_prerequisite_text": "EST-11101",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EST-11101",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ndf-e:06:035",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 35,
+      "course_code": "ADM-12312",
+      "display_title": "Trayectorias en Negocios II: Equipo y Liderazgo",
+      "credits": 2,
+      "raw_prerequisite_text": "IIO-16111 y ADM-12107",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "IIO-16111",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "ADM-12107",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ndf-e:06:036",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 36,
+      "course_code": "ADM-14413",
+      "display_title": "Desarrollo de Habilidades Gerenciales",
+      "credits": 6,
+      "raw_prerequisite_text": "ADM-12107",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ADM-12107",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ndf-e:06:037",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 37,
+      "course_code": "COM-11308",
+      "display_title": "Introducción a la Inteligencia Artificial",
+      "credits": 6,
+      "raw_prerequisite_text": "COM-16305 y EST-11101",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "COM-16305",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "EST-11101",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ndf-e:06:038",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 38,
+      "course_code": "CON-12003",
+      "display_title": "Administración Estratégica de Costos",
+      "credits": 6,
+      "raw_prerequisite_text": "CON-14109",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "CON-14109",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ndf-e:06:039",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 39,
+      "course_code": "ECO-11012",
+      "display_title": "Microeconomía Aplicada II",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-11011",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-11011",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ndf-e:06:040",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 40,
+      "course_code": "EGN-17161",
+      "display_title": "Historia Socio-Política de México",
+      "credits": 6,
+      "raw_prerequisite_text": "EGN-17123",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EGN-17123",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ndf-e:06:041",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 41,
+      "course_code": "IIO-13151",
+      "display_title": "Modelado de Redes Inteligentes",
+      "credits": 6,
+      "raw_prerequisite_text": "IIO-12172",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "IIO-12172",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ndf-e:06:042",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 42,
+      "course_code": "IIO-13180",
+      "display_title": "Simulación de Sistemas",
+      "credits": 6,
+      "raw_prerequisite_text": "EST-11101",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EST-11101",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ndf-e:07:043",
+      "semester_label": "Séptimo Semestre",
+      "semester_order": 7,
+      "sort_order": 43,
+      "course_code": "ADM-15514",
+      "display_title": "Administración de Portafolios de Inversión",
+      "credits": 6,
+      "raw_prerequisite_text": "ADM-15522",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ADM-15522",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ndf-e:07:044",
+      "semester_label": "Séptimo Semestre",
+      "semester_order": 7,
+      "sort_order": 44,
+      "course_code": "ADM-15563",
+      "display_title": "Valuación de Empresas (A)",
+      "credits": 6,
+      "raw_prerequisite_text": "ADM-15569",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ADM-15569",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ndf-e:07:045",
+      "semester_label": "Séptimo Semestre",
+      "semester_order": 7,
+      "sort_order": 45,
+      "course_code": "ADM-16737",
+      "display_title": "Gestión del Crecimiento del Negocio",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-11011 y EST-11102",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-11011",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "EST-11102",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ndf-e:07:046",
+      "semester_label": "Séptimo Semestre",
+      "semester_order": 7,
+      "sort_order": 46,
+      "course_code": "DER-10022",
+      "display_title": "Derecho Empresarial",
+      "credits": 8,
+      "raw_prerequisite_text": "ADM-12107 y CON-10001",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ADM-12107",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "CON-10001",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ndf-e:07:047",
+      "semester_label": "Séptimo Semestre",
+      "semester_order": 7,
+      "sort_order": 47,
+      "course_code": "EGN-17162",
+      "display_title": "Problemas de la Realidad Mexicana Contemporánea",
+      "credits": 6,
+      "raw_prerequisite_text": "EGN-17161",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EGN-17161",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ndf-e:07:048",
+      "semester_label": "Séptimo Semestre",
+      "semester_order": 7,
+      "sort_order": 48,
+      "course_code": "EST-11105",
+      "display_title": "Principios de Regresión Lineal",
+      "credits": 6,
+      "raw_prerequisite_text": "EST-11102 y MAT-14201",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EST-11102",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "MAT-14201",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ndf-e:07:049",
+      "semester_label": "Séptimo Semestre",
+      "semester_order": 7,
+      "sort_order": 49,
+      "course_code": "LEN-12717",
+      "display_title": "Comunicación Escrita para Dirección Financiera (A)",
+      "credits": 2,
+      "raw_prerequisite_text": "LEN-12701",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "LEN-12701",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ndf-e:08:050",
+      "semester_label": "Octavo Semestre",
+      "semester_order": 8,
+      "sort_order": 50,
+      "course_code": "ADM-15564",
+      "display_title": "Renta Fija y Derivados",
+      "credits": 6,
+      "raw_prerequisite_text": "ADM-15514",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ADM-15514",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ndf-e:08:051",
+      "semester_label": "Octavo Semestre",
+      "semester_order": 8,
+      "sort_order": 51,
+      "course_code": "ADM-15565",
+      "display_title": "Modelos Financieros y Administración de Riesgos",
+      "credits": 6,
+      "raw_prerequisite_text": "ADM-15514",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ADM-15514",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ndf-e:08:052",
+      "semester_label": "Octavo Semestre",
+      "semester_order": 8,
+      "sort_order": 52,
+      "course_code": "ADM-16608",
+      "display_title": "Principios de Mercadotecnia",
+      "credits": 6,
+      "raw_prerequisite_text": "EST-11101",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EST-11101",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ndf-e:08:053",
+      "semester_label": "Octavo Semestre",
+      "semester_order": 8,
+      "sort_order": 53,
+      "course_code": "COM-23120",
+      "display_title": "Minería de Datos y Aprendizaje de Máquina",
+      "credits": 6,
+      "raw_prerequisite_text": "COM-16305 y EST-11102",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "COM-16305",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "EST-11102",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ndf-e:08:054",
+      "semester_label": "Octavo Semestre",
+      "semester_order": 8,
+      "sort_order": 54,
+      "course_code": "DER-10023",
+      "display_title": "Derecho Financiero",
+      "credits": 6,
+      "raw_prerequisite_text": "DER-10022",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-10022",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ndf-e:08:055",
+      "semester_label": "Octavo Semestre",
+      "semester_order": 8,
+      "sort_order": 55,
+      "course_code": "IIO-13162",
+      "display_title": "Modelado Estocástico",
+      "credits": 6,
+      "raw_prerequisite_text": "IIO-13151",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "IIO-13151",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ndf-e:08:056",
+      "semester_label": "Octavo Semestre",
+      "semester_order": 8,
+      "sort_order": 56,
+      "course_code": "SDI-17524",
+      "display_title": "Dinámica de Sistemas para Negocios",
+      "credits": 4,
+      "raw_prerequisite_text": "COM-16307",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "COM-16307",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ndf-e:09:057",
+      "semester_label": "Noveno Semestre",
+      "semester_order": 9,
+      "sort_order": 57,
+      "course_code": "ADM-12313",
+      "display_title": "Trayectorias en Negocios III: Emprendimiento e Impacto",
+      "credits": 2,
+      "raw_prerequisite_text": "ADM-15565 y COM-16413 y ADM-12312 y COM-23120",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ADM-15565",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "COM-16413",
+          "ordinal_position": 2
+        },
+        {
+          "referenced_course_code": "ADM-12312",
+          "ordinal_position": 3
+        },
+        {
+          "referenced_course_code": "COM-23120",
+          "ordinal_position": 4
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ndf-e:09:058",
+      "semester_label": "Noveno Semestre",
+      "semester_order": 9,
+      "sort_order": 58,
+      "course_code": "ADM-13450",
+      "display_title": "Emprendimiento",
+      "credits": 6,
+      "raw_prerequisite_text": "ADM-15532 y COM-23120",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ADM-15532",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "COM-23120",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ndf-e:09:059",
+      "semester_label": "Noveno Semestre",
+      "semester_order": 9,
+      "sort_order": 59,
+      "course_code": "ADM-15566",
+      "display_title": "Capital Privado y Finanzas Emprendedoras",
+      "credits": 6,
+      "raw_prerequisite_text": "ADM-15563",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ADM-15563",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ndf-e:09:060",
+      "semester_label": "Noveno Semestre",
+      "semester_order": 9,
+      "sort_order": 60,
+      "course_code": "ADM-16739",
+      "display_title": "Métodos de Investigación de Mercados",
+      "credits": 6,
+      "raw_prerequisite_text": "EST-11105 y ADM-16608",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EST-11105",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "ADM-16608",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ndf-e:09:061",
+      "semester_label": "Noveno Semestre",
+      "semester_order": 9,
+      "sort_order": 61,
+      "course_code": "CON-10005",
+      "display_title": "Análisis Financiero de la Empresa",
+      "credits": 6,
+      "raw_prerequisite_text": "ADM-15563",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ADM-15563",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ndf-e:09:062",
+      "semester_label": "Noveno Semestre",
+      "semester_order": 9,
+      "sort_order": 62,
+      "course_code": "CON-15001",
+      "display_title": "Impuestos Corporativos I",
+      "credits": 6,
+      "raw_prerequisite_text": "DER-10023",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-10023",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ndf-e:09:063",
+      "semester_label": "Noveno Semestre",
+      "semester_order": 9,
+      "sort_order": 63,
+      "course_code": "IIO-14193",
+      "display_title": "Ingeniería de Procesos de Negocios",
+      "credits": 6,
+      "raw_prerequisite_text": "IIO-13180",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "IIO-13180",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ndf-e:10:064",
+      "semester_label": "Décimo Semestre",
+      "semester_order": 10,
+      "sort_order": 64,
+      "course_code": "ADM-11010",
+      "display_title": "Dirección General",
+      "credits": 6,
+      "raw_prerequisite_text": "ADM-12313 y ADM-13450 y ADM-15563",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ADM-12313",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "ADM-13450",
+          "ordinal_position": 2
+        },
+        {
+          "referenced_course_code": "ADM-15563",
+          "ordinal_position": 3
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ndf-e:10:065",
+      "semester_label": "Décimo Semestre",
+      "semester_order": 10,
+      "sort_order": 65,
+      "course_code": "ADM-15505",
+      "display_title": "Banca de Inversión (A)",
+      "credits": 6,
+      "raw_prerequisite_text": "ADM-15564 y ADM-15563",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ADM-15564",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "ADM-15563",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ndf-e:10:066",
+      "semester_label": "Décimo Semestre",
+      "semester_order": 10,
+      "sort_order": 66,
+      "course_code": "ADM-15567",
+      "display_title": "Finanzas, Tecnología y Datos",
+      "credits": 6,
+      "raw_prerequisite_text": "COM-16307 y ADM-15563 y COM-23120",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "COM-16307",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "ADM-15563",
+          "ordinal_position": 2
+        },
+        {
+          "referenced_course_code": "COM-23120",
+          "ordinal_position": 3
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ndf-e:10:067",
+      "semester_label": "Décimo Semestre",
+      "semester_order": 10,
+      "sort_order": 67,
+      "course_code": "ADM-16707",
+      "display_title": "Mercadotecnia Analítica",
+      "credits": 6,
+      "raw_prerequisite_text": "ADM-16739",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ADM-16739",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ndf-e:10:068",
+      "semester_label": "Décimo Semestre",
+      "semester_order": 10,
+      "sort_order": 68,
+      "course_code": "LEN-12757",
+      "display_title": "Comunicación Profesional para Dirección Financiera (A)",
+      "credits": 2,
+      "raw_prerequisite_text": "LEN-12702 y LEN-12717",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "LEN-12702",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "LEN-12717",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ndf-e:10:069",
+      "semester_label": "Décimo Semestre",
+      "semester_order": 10,
+      "sort_order": 69,
+      "course_code": null,
+      "display_title": "Optativa",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    }
+  ]
+}

@@ -1,0 +1,1288 @@
+{
+  "bulletin_id": "bulletin:ecd-b",
+  "source_code": "ECD-B",
+  "title": "LICENCIATURAS EN CIENCIA DE DATOS Y ECONOMÍA Plan B",
+  "program_title": "LICENCIATURAS EN CIENCIA DE DATOS Y ECONOMÍA",
+  "plan_code": "B",
+  "plan_id": "licenciaturas-en-ciencia-de-datos-y-economia:b",
+  "application_term": "PRIMAVERA 2026",
+  "application_year": 2026,
+  "active_from": "2026-01-01",
+  "active_to": "2026-05-31",
+  "entry_from_term": null,
+  "entry_to_term": null,
+  "requirements": [
+    {
+      "requirement_id": "bulletin:ecd-b:01:001",
+      "semester_label": "Primer Semestre",
+      "semester_order": 1,
+      "sort_order": 1,
+      "course_code": "COM-16306",
+      "display_title": "Razonamiento Algorítmico",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:ecd-b:01:002",
+      "semester_label": "Primer Semestre",
+      "semester_order": 1,
+      "sort_order": 2,
+      "course_code": "ECO-11000",
+      "display_title": "Introducción a la Economía",
+      "credits": 3,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:ecd-b:01:003",
+      "semester_label": "Primer Semestre",
+      "semester_order": 1,
+      "sort_order": 3,
+      "course_code": "ECO-11010",
+      "display_title": "Principios de Microeconomía",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:ecd-b:01:004",
+      "semester_label": "Primer Semestre",
+      "semester_order": 1,
+      "sort_order": 4,
+      "course_code": "EGN-17141",
+      "display_title": "Problemas de la Civilización Contemporánea I",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:ecd-b:01:005",
+      "semester_label": "Primer Semestre",
+      "semester_order": 1,
+      "sort_order": 5,
+      "course_code": "LEN-12701",
+      "display_title": "Estrategias de Comunicación Escrita",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:ecd-b:01:006",
+      "semester_label": "Primer Semestre",
+      "semester_order": 1,
+      "sort_order": 6,
+      "course_code": "MAT-12200",
+      "display_title": "Cálculo Univariado",
+      "credits": 9,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:ecd-b:01:007",
+      "semester_label": "Primer Semestre",
+      "semester_order": 1,
+      "sort_order": 7,
+      "course_code": "MAT-14250",
+      "display_title": "Geometría Vectorial",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:ecd-b:02:008",
+      "semester_label": "Segundo Semestre",
+      "semester_order": 2,
+      "sort_order": 8,
+      "course_code": "COM-15126",
+      "display_title": "Ciencia de Datos y la Transformación de la Sociedad",
+      "credits": 2,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:ecd-b:02:009",
+      "semester_label": "Segundo Semestre",
+      "semester_order": 2,
+      "sort_order": 9,
+      "course_code": "COM-16305",
+      "display_title": "Gestión de Datos",
+      "credits": 6,
+      "raw_prerequisite_text": "COM-16306",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "COM-16306",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ecd-b:02:010",
+      "semester_label": "Segundo Semestre",
+      "semester_order": 2,
+      "sort_order": 10,
+      "course_code": "CON-10110",
+      "display_title": "Fundamentos de Contabilidad Financiera",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:ecd-b:02:011",
+      "semester_label": "Segundo Semestre",
+      "semester_order": 2,
+      "sort_order": 11,
+      "course_code": "ECO-12010",
+      "display_title": "Principios de Macroeconomía",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-11010",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-11010",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ecd-b:02:012",
+      "semester_label": "Segundo Semestre",
+      "semester_order": 2,
+      "sort_order": 12,
+      "course_code": "EGN-17142",
+      "display_title": "Problemas de la Civilización Contemporánea II",
+      "credits": 6,
+      "raw_prerequisite_text": "EGN-17141",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EGN-17141",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ecd-b:02:013",
+      "semester_label": "Segundo Semestre",
+      "semester_order": 2,
+      "sort_order": 13,
+      "course_code": "MAT-12201",
+      "display_title": "Cálculo Multivariado",
+      "credits": 9,
+      "raw_prerequisite_text": "MAT-12200 y MAT-14250",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "MAT-12200",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "MAT-14250",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ecd-b:02:014",
+      "semester_label": "Segundo Semestre",
+      "semester_order": 2,
+      "sort_order": 14,
+      "course_code": "MAT-14280",
+      "display_title": "Pensamiento Matemático",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:ecd-b:03:015",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 15,
+      "course_code": "COM-11114",
+      "display_title": "Algoritmos y Estructuras de Datos",
+      "credits": 7,
+      "raw_prerequisite_text": "COM-16306",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "COM-16306",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ecd-b:03:016",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 16,
+      "course_code": "COM-12101",
+      "display_title": "Bases de Datos",
+      "credits": 8,
+      "raw_prerequisite_text": "COM-16305",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "COM-16305",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ecd-b:03:017",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 17,
+      "course_code": "ECO-11001",
+      "display_title": "Seminario de Microeconomía Aplicada",
+      "credits": 3,
+      "raw_prerequisite_text": "ECO-11010",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-11010",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ecd-b:03:018",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 18,
+      "course_code": "ECO-11021",
+      "display_title": "Microeconomía I",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-12010 y MAT-12201",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-12010",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "MAT-12201",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ecd-b:03:019",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 19,
+      "course_code": "EGN-17121",
+      "display_title": "Ideas e Instituciones Políticas y Sociales I (A)",
+      "credits": 6,
+      "raw_prerequisite_text": "LEN-12701",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "LEN-12701",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ecd-b:03:020",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 20,
+      "course_code": "LEN-12702",
+      "display_title": "Seminario de Comunicación Escrita (A)",
+      "credits": 2,
+      "raw_prerequisite_text": "LEN-12701",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "LEN-12701",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ecd-b:03:021",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 21,
+      "course_code": "MAT-14201",
+      "display_title": "Álgebra lineal I",
+      "credits": 8,
+      "raw_prerequisite_text": "MAT-14250",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "MAT-14250",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ecd-b:03:022",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 22,
+      "course_code": "MAT-14281",
+      "display_title": "Matemáticas Discretas",
+      "credits": 6,
+      "raw_prerequisite_text": "MAT-14280",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "MAT-14280",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ecd-b:04:023",
+      "semester_label": "Cuarto Semestre",
+      "semester_order": 4,
+      "sort_order": 23,
+      "course_code": "COM-11113",
+      "display_title": "Análisis de Algoritmos y Complejidad Computacional",
+      "credits": 7,
+      "raw_prerequisite_text": "COM-11114 y MAT-14281",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "COM-11114",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "MAT-14281",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ecd-b:04:024",
+      "semester_label": "Cuarto Semestre",
+      "semester_order": 4,
+      "sort_order": 24,
+      "course_code": "COM-12103",
+      "display_title": "Fuentes de Datos",
+      "credits": 6,
+      "raw_prerequisite_text": "COM-11114 y COM-12101",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "COM-11114",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "COM-12101",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ecd-b:04:025",
+      "semester_label": "Cuarto Semestre",
+      "semester_order": 4,
+      "sort_order": 25,
+      "course_code": "COM-22102",
+      "display_title": "Bases de Datos No Relacionales",
+      "credits": 6,
+      "raw_prerequisite_text": "COM-12101",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "COM-12101",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ecd-b:04:026",
+      "semester_label": "Cuarto Semestre",
+      "semester_order": 4,
+      "sort_order": 26,
+      "course_code": "ECO-10300",
+      "display_title": "Pensamiento Económico",
+      "credits": 3,
+      "raw_prerequisite_text": "ECO-11000 y ECO-11010",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-11000",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "ECO-11010",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ecd-b:04:027",
+      "semester_label": "Cuarto Semestre",
+      "semester_order": 4,
+      "sort_order": 27,
+      "course_code": "ECO-11022",
+      "display_title": "Microeconomía II",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-11021 y MAT-12201",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-11021",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "MAT-12201",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ecd-b:04:028",
+      "semester_label": "Cuarto Semestre",
+      "semester_order": 4,
+      "sort_order": 28,
+      "course_code": "EGN-17122",
+      "display_title": "Ideas e Instituciones Políticas y Sociales II",
+      "credits": 6,
+      "raw_prerequisite_text": "EGN-17121",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EGN-17121",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ecd-b:04:029",
+      "semester_label": "Cuarto Semestre",
+      "semester_order": 4,
+      "sort_order": 29,
+      "course_code": "EST-24126",
+      "display_title": "Cálculo de Probabilidades I",
+      "credits": 6,
+      "raw_prerequisite_text": "MAT-12200 y MAT-14281",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "MAT-12200",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "MAT-14281",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ecd-b:04:030",
+      "semester_label": "Cuarto Semestre",
+      "semester_order": 4,
+      "sort_order": 30,
+      "course_code": "MAT-24632",
+      "display_title": "Métodos Dinámicos para la Economía",
+      "credits": 6,
+      "raw_prerequisite_text": "MAT-12201",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "MAT-12201",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ecd-b:05:031",
+      "semester_label": "Quinto Semestre",
+      "semester_order": 5,
+      "sort_order": 31,
+      "course_code": "ADM-15561",
+      "display_title": "Finanzas en los Negocios I",
+      "credits": 6,
+      "raw_prerequisite_text": "CON-10110 y ECO-11021",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "CON-10110",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "ECO-11021",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ecd-b:05:032",
+      "semester_label": "Quinto Semestre",
+      "semester_order": 5,
+      "sort_order": 32,
+      "course_code": "COM-11308",
+      "display_title": "Introducción a la Inteligencia Artificial",
+      "credits": 6,
+      "raw_prerequisite_text": "COM-16305 y EST-24126",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "COM-16305",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "EST-24126",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ecd-b:05:033",
+      "semester_label": "Quinto Semestre",
+      "semester_order": 5,
+      "sort_order": 33,
+      "course_code": "COM-12104",
+      "display_title": "Visualización de Información",
+      "credits": 6,
+      "raw_prerequisite_text": "COM-16305 y MAT-14281 y EST-24126",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "COM-16305",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "MAT-14281",
+          "ordinal_position": 2
+        },
+        {
+          "referenced_course_code": "EST-24126",
+          "ordinal_position": 3
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ecd-b:05:034",
+      "semester_label": "Quinto Semestre",
+      "semester_order": 5,
+      "sort_order": 34,
+      "course_code": "ECO-11023",
+      "display_title": "Microeconomía III",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-11022 y MAT-24632",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-11022",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "MAT-24632",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ecd-b:05:035",
+      "semester_label": "Quinto Semestre",
+      "semester_order": 5,
+      "sort_order": 35,
+      "course_code": "ECO-12011",
+      "display_title": "Macroeconomía I",
+      "credits": 8,
+      "raw_prerequisite_text": "ECO-11021 y MAT-12201 y MAT-24632",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-11021",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "MAT-12201",
+          "ordinal_position": 2
+        },
+        {
+          "referenced_course_code": "MAT-24632",
+          "ordinal_position": 3
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ecd-b:05:036",
+      "semester_label": "Quinto Semestre",
+      "semester_order": 5,
+      "sort_order": 36,
+      "course_code": "EGN-17123",
+      "display_title": "Ideas e Instituciones Políticas y Sociales III",
+      "credits": 6,
+      "raw_prerequisite_text": "EGN-17122 y EGN-17141",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EGN-17122",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "EGN-17141",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ecd-b:05:037",
+      "semester_label": "Quinto Semestre",
+      "semester_order": 5,
+      "sort_order": 37,
+      "course_code": "EST-24127",
+      "display_title": "Cálculo de Probabilidades II",
+      "credits": 6,
+      "raw_prerequisite_text": "MAT-12201 y EST-24126",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "MAT-12201",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "EST-24126",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ecd-b:06:038",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 38,
+      "course_code": "COM-14707",
+      "display_title": "Cómputo Paralelo",
+      "credits": 6,
+      "raw_prerequisite_text": "COM-12103",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "COM-12103",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ecd-b:06:039",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 39,
+      "course_code": "COM-22108",
+      "display_title": "Minería y Análisis de Datos",
+      "credits": 6,
+      "raw_prerequisite_text": "COM-11114 y COM-11308",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "COM-11114",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "COM-11308",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ecd-b:06:040",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 40,
+      "course_code": "DER-10114",
+      "display_title": "Seminario de Legalidad Ética en Ciencia de Datos",
+      "credits": 4,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:ecd-b:06:041",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 41,
+      "course_code": "ECO-11002",
+      "display_title": "Seminario de Análisis Empírico",
+      "credits": 3,
+      "raw_prerequisite_text": "EST-24127",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EST-24127",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ecd-b:06:042",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 42,
+      "course_code": "ECO-12012",
+      "display_title": "Macroeconomía II",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-12011 y MAT-24632",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-12011",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "MAT-24632",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ecd-b:06:043",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 43,
+      "course_code": "ECO-15101",
+      "display_title": "Finanzas Públicas",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-11022 y ECO-12011",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-11022",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "ECO-12011",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ecd-b:06:044",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 44,
+      "course_code": "EGN-17161",
+      "display_title": "Historia Socio-Política de México",
+      "credits": 6,
+      "raw_prerequisite_text": "EGN-17123",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EGN-17123",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ecd-b:06:045",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 45,
+      "course_code": "EST-14103",
+      "display_title": "Estadística Matemática",
+      "credits": 8,
+      "raw_prerequisite_text": "EST-24127",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EST-24127",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ecd-b:07:046",
+      "semester_label": "Séptimo Semestre",
+      "semester_order": 7,
+      "sort_order": 46,
+      "course_code": "COM-23114",
+      "display_title": "Arquitectura para Grandes Volúmenes de Datos",
+      "credits": 6,
+      "raw_prerequisite_text": "COM-14707",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "COM-14707",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ecd-b:07:047",
+      "semester_label": "Séptimo Semestre",
+      "semester_order": 7,
+      "sort_order": 47,
+      "course_code": "DER-12204",
+      "display_title": "Introducción al Derecho Mexicano",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:ecd-b:07:048",
+      "semester_label": "Séptimo Semestre",
+      "semester_order": 7,
+      "sort_order": 48,
+      "course_code": "ECO-11003",
+      "display_title": "Seminario de Análisis de Datos",
+      "credits": 3,
+      "raw_prerequisite_text": "COM-16305 y ECO-11002 y EST-14103",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "COM-16305",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "ECO-11002",
+          "ordinal_position": 2
+        },
+        {
+          "referenced_course_code": "EST-14103",
+          "ordinal_position": 3
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ecd-b:07:049",
+      "semester_label": "Séptimo Semestre",
+      "semester_order": 7,
+      "sort_order": 49,
+      "course_code": "ECO-13001",
+      "display_title": "Microeconomía Internacional",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-11022",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-11022",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ecd-b:07:050",
+      "semester_label": "Séptimo Semestre",
+      "semester_order": 7,
+      "sort_order": 50,
+      "course_code": "ECO-17103",
+      "display_title": "Seminario de la Economía de México (A)",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-11023 y ECO-12012",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-11023",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "ECO-12012",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ecd-b:07:051",
+      "semester_label": "Séptimo Semestre",
+      "semester_order": 7,
+      "sort_order": 51,
+      "course_code": "EGN-17162",
+      "display_title": "Problemas de la Realidad Mexicana Contemporánea",
+      "credits": 6,
+      "raw_prerequisite_text": "EGN-17161",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EGN-17161",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ecd-b:07:052",
+      "semester_label": "Séptimo Semestre",
+      "semester_order": 7,
+      "sort_order": 52,
+      "course_code": "EST-24124",
+      "display_title": "Métodos Lineales",
+      "credits": 6,
+      "raw_prerequisite_text": "EST-14103 y MAT-14201",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EST-14103",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "MAT-14201",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ecd-b:07:053",
+      "semester_label": "Séptimo Semestre",
+      "semester_order": 7,
+      "sort_order": 53,
+      "course_code": "LEN-12718",
+      "display_title": "Comunicación Escrita para Economía (A)",
+      "credits": 2,
+      "raw_prerequisite_text": "LEN-12701",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "LEN-12701",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ecd-b:08:054",
+      "semester_label": "Octavo Semestre",
+      "semester_order": 8,
+      "sort_order": 54,
+      "course_code": "ADM-12305",
+      "display_title": "Tópicos de Negocios con Datos",
+      "credits": 6,
+      "raw_prerequisite_text": "ADM-15561",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ADM-15561",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ecd-b:08:055",
+      "semester_label": "Octavo Semestre",
+      "semester_order": 8,
+      "sort_order": 55,
+      "course_code": "COM-23701",
+      "display_title": "Aprendizaje de Máquina",
+      "credits": 6,
+      "raw_prerequisite_text": "COM-16305 y EST-14103",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "COM-16305",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "EST-14103",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ecd-b:08:056",
+      "semester_label": "Octavo Semestre",
+      "semester_order": 8,
+      "sort_order": 56,
+      "course_code": "ECO-10522",
+      "display_title": "Microeconometría",
+      "credits": 8,
+      "raw_prerequisite_text": "EST-24124",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EST-24124",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ecd-b:08:057",
+      "semester_label": "Octavo Semestre",
+      "semester_order": 8,
+      "sort_order": 57,
+      "course_code": "ECO-13002",
+      "display_title": "Macroeconomía Internacional",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-13001 y ECO-12012",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-13001",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "ECO-12012",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ecd-b:08:058",
+      "semester_label": "Octavo Semestre",
+      "semester_order": 8,
+      "sort_order": 58,
+      "course_code": "ECO-14210",
+      "display_title": "Seminario Análisis Económico del Derecho",
+      "credits": 3,
+      "raw_prerequisite_text": "ECO-11023 y DER-12204",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-11023",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "DER-12204",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ecd-b:08:059",
+      "semester_label": "Octavo Semestre",
+      "semester_order": 8,
+      "sort_order": 59,
+      "course_code": "ECO-14301",
+      "display_title": "Organización Industrial",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-11023",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-11023",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ecd-b:08:060",
+      "semester_label": "Octavo Semestre",
+      "semester_order": 8,
+      "sort_order": 60,
+      "course_code": "ECO-17220",
+      "display_title": "Historia Económica Moderna",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-12010",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-12010",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ecd-b:08:061",
+      "semester_label": "Octavo Semestre",
+      "semester_order": 8,
+      "sort_order": 61,
+      "course_code": "EST-24125",
+      "display_title": "Métodos Multivariados",
+      "credits": 6,
+      "raw_prerequisite_text": "EST-14103",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EST-14103",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ecd-b:09:062",
+      "semester_label": "Noveno Semestre",
+      "semester_order": 9,
+      "sort_order": 62,
+      "course_code": "ADM-13450",
+      "display_title": "Emprendimiento",
+      "credits": 6,
+      "raw_prerequisite_text": "ADM-15561 y COM-23701",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ADM-15561",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "COM-23701",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ecd-b:09:063",
+      "semester_label": "Noveno Semestre",
+      "semester_order": 9,
+      "sort_order": 63,
+      "course_code": "CSO-10161",
+      "display_title": "Tópicos de Políticas Públicas con Datos",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-10522",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-10522",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ecd-b:09:064",
+      "semester_label": "Noveno Semestre",
+      "semester_order": 9,
+      "sort_order": 64,
+      "course_code": "ECO-10523",
+      "display_title": "Macroeconometría",
+      "credits": 6,
+      "raw_prerequisite_text": "EST-24124",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EST-24124",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ecd-b:09:065",
+      "semester_label": "Noveno Semestre",
+      "semester_order": 9,
+      "sort_order": 65,
+      "course_code": "ECO-11024",
+      "display_title": "Tópicos Avanzados de Microeconomía",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-11023 y ECO-12012",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-11023",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "ECO-12012",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ecd-b:09:066",
+      "semester_label": "Noveno Semestre",
+      "semester_order": 9,
+      "sort_order": 66,
+      "course_code": "ECO-18101",
+      "display_title": "Desarrollo Económico",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-11023 y ECO-12012 y ECO-10522",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-11023",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "ECO-12012",
+          "ordinal_position": 2
+        },
+        {
+          "referenced_course_code": "ECO-10522",
+          "ordinal_position": 3
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ecd-b:09:067",
+      "semester_label": "Noveno Semestre",
+      "semester_order": 9,
+      "sort_order": 67,
+      "course_code": "ECO-18300",
+      "display_title": "Crecimiento Económico",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-12012",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-12012",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ecd-b:09:068",
+      "semester_label": "Noveno Semestre",
+      "semester_order": 9,
+      "sort_order": 68,
+      "course_code": "EST-24112",
+      "display_title": "Estadística Bayesiana",
+      "credits": 6,
+      "raw_prerequisite_text": "EST-14103",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EST-14103",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ecd-b:10:069",
+      "semester_label": "Décimo Semestre",
+      "semester_order": 10,
+      "sort_order": 69,
+      "course_code": "COM-23119",
+      "display_title": "Ciencia de Datos Aplicada",
+      "credits": 6,
+      "raw_prerequisite_text": "COM-23114",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "COM-23114",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ecd-b:10:070",
+      "semester_label": "Décimo Semestre",
+      "semester_order": 10,
+      "sort_order": 70,
+      "course_code": "COM-23710",
+      "display_title": "Series de Tiempo y Aprendizaje de Máquina",
+      "credits": 6,
+      "raw_prerequisite_text": "COM-11308 y COM-23701",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "COM-11308",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "COM-23701",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ecd-b:10:071",
+      "semester_label": "Décimo Semestre",
+      "semester_order": 10,
+      "sort_order": 71,
+      "course_code": "ECO-10220",
+      "display_title": "Seminario de Titulación (A)",
+      "credits": 9,
+      "raw_prerequisite_text": "ECO-11023 y ECO-12012 y ECO-10522 y ECO-10523",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-11023",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "ECO-12012",
+          "ordinal_position": 2
+        },
+        {
+          "referenced_course_code": "ECO-10522",
+          "ordinal_position": 3
+        },
+        {
+          "referenced_course_code": "ECO-10523",
+          "ordinal_position": 4
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ecd-b:10:072",
+      "semester_label": "Décimo Semestre",
+      "semester_order": 10,
+      "sort_order": 72,
+      "course_code": "ECO-10530",
+      "display_title": "Tópicos de Economía con Datos",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-11023 y ECO-10522",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-11023",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "ECO-10522",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ecd-b:10:073",
+      "semester_label": "Décimo Semestre",
+      "semester_order": 10,
+      "sort_order": 73,
+      "course_code": "ECO-12013",
+      "display_title": "Tópicos Avanzados de Macroeconomía",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-11023 y ECO-18300",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-11023",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "ECO-18300",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ecd-b:10:074",
+      "semester_label": "Décimo Semestre",
+      "semester_order": 10,
+      "sort_order": 74,
+      "course_code": "LEN-12758",
+      "display_title": "Comunicación Profesional para Economía (A)",
+      "credits": 2,
+      "raw_prerequisite_text": "LEN-12702 y LEN-12718",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "LEN-12702",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "LEN-12718",
+          "ordinal_position": 2
+        }
+      ]
+    }
+  ]
+}

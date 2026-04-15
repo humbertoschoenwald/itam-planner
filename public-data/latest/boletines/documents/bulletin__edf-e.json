@@ -1,0 +1,1260 @@
+{
+  "bulletin_id": "bulletin:edf-e",
+  "source_code": "EDF-E",
+  "title": "LICENCIATURAS EN ECONOMÍA Y DIRECCIÓN FINANCIERA Plan E",
+  "program_title": "LICENCIATURAS EN ECONOMÍA Y DIRECCIÓN FINANCIERA",
+  "plan_code": "E",
+  "plan_id": "licenciaturas-en-economia-y-direccion-financiera:e",
+  "application_term": "PRIMAVERA 2026",
+  "application_year": 2026,
+  "active_from": "2026-01-01",
+  "active_to": "2026-05-31",
+  "entry_from_term": null,
+  "entry_to_term": null,
+  "requirements": [
+    {
+      "requirement_id": "bulletin:edf-e:01:001",
+      "semester_label": "Primer Semestre",
+      "semester_order": 1,
+      "sort_order": 1,
+      "course_code": "ADM-15560",
+      "display_title": "Introducción a las Finanzas e Intermediación Financiera",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:edf-e:01:002",
+      "semester_label": "Primer Semestre",
+      "semester_order": 1,
+      "sort_order": 2,
+      "course_code": "ADM-15568",
+      "display_title": "Trayectorias en Finanzas: Propósito y Programa",
+      "credits": 2,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:edf-e:01:003",
+      "semester_label": "Primer Semestre",
+      "semester_order": 1,
+      "sort_order": 3,
+      "course_code": "ECO-11000",
+      "display_title": "Introducción a la Economía",
+      "credits": 3,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:edf-e:01:004",
+      "semester_label": "Primer Semestre",
+      "semester_order": 1,
+      "sort_order": 4,
+      "course_code": "ECO-11010",
+      "display_title": "Principios de Microeconomía",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:edf-e:01:005",
+      "semester_label": "Primer Semestre",
+      "semester_order": 1,
+      "sort_order": 5,
+      "course_code": "EGN-17141",
+      "display_title": "Problemas de la Civilización Contemporánea I",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:edf-e:01:006",
+      "semester_label": "Primer Semestre",
+      "semester_order": 1,
+      "sort_order": 6,
+      "course_code": "LEN-12701",
+      "display_title": "Estrategias de Comunicación Escrita",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:edf-e:01:007",
+      "semester_label": "Primer Semestre",
+      "semester_order": 1,
+      "sort_order": 7,
+      "course_code": "MAT-12220",
+      "display_title": "Cálculo en una Variable",
+      "credits": 9,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:edf-e:01:008",
+      "semester_label": "Primer Semestre",
+      "semester_order": 1,
+      "sort_order": 8,
+      "course_code": "MAT-12349",
+      "display_title": "Principios de Álgebra Lineal",
+      "credits": 4,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:edf-e:02:009",
+      "semester_label": "Segundo Semestre",
+      "semester_order": 2,
+      "sort_order": 9,
+      "course_code": "ADM-15507",
+      "display_title": "Fundamentos de Finanzas",
+      "credits": 6,
+      "raw_prerequisite_text": "ADM-15560",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ADM-15560",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:edf-e:02:010",
+      "semester_label": "Segundo Semestre",
+      "semester_order": 2,
+      "sort_order": 10,
+      "course_code": "COM-16306",
+      "display_title": "Razonamiento Algorítmico",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:edf-e:02:011",
+      "semester_label": "Segundo Semestre",
+      "semester_order": 2,
+      "sort_order": 11,
+      "course_code": "CON-10001",
+      "display_title": "Proceso Contable",
+      "credits": 8,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:edf-e:02:012",
+      "semester_label": "Segundo Semestre",
+      "semester_order": 2,
+      "sort_order": 12,
+      "course_code": "ECO-11001",
+      "display_title": "Seminario de Microeconomía Aplicada",
+      "credits": 3,
+      "raw_prerequisite_text": "ECO-11010",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-11010",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:edf-e:02:013",
+      "semester_label": "Segundo Semestre",
+      "semester_order": 2,
+      "sort_order": 13,
+      "course_code": "ECO-12010",
+      "display_title": "Principios de Macroeconomía",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-11010",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-11010",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:edf-e:02:014",
+      "semester_label": "Segundo Semestre",
+      "semester_order": 2,
+      "sort_order": 14,
+      "course_code": "EGN-17142",
+      "display_title": "Problemas de la Civilización Contemporánea II",
+      "credits": 6,
+      "raw_prerequisite_text": "EGN-17141",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EGN-17141",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:edf-e:02:015",
+      "semester_label": "Segundo Semestre",
+      "semester_order": 2,
+      "sort_order": 15,
+      "course_code": "MAT-12221",
+      "display_title": "Cálculo en Varias Variables",
+      "credits": 9,
+      "raw_prerequisite_text": "MAT-12220 y MAT-12349",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "MAT-12220",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "MAT-12349",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:edf-e:03:016",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 16,
+      "course_code": "ADM-12107",
+      "display_title": "Estrategia de Negocios I",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:edf-e:03:017",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 17,
+      "course_code": "COM-16305",
+      "display_title": "Gestión de Datos",
+      "credits": 6,
+      "raw_prerequisite_text": "COM-16306",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "COM-16306",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:edf-e:03:018",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 18,
+      "course_code": "CON-10111",
+      "display_title": "Contabilidad Financiera I",
+      "credits": 8,
+      "raw_prerequisite_text": "CON-10001",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "CON-10001",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:edf-e:03:019",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 19,
+      "course_code": "ECO-10300",
+      "display_title": "Pensamiento Económico",
+      "credits": 3,
+      "raw_prerequisite_text": "ECO-11000 y ECO-11010",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-11000",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "ECO-11010",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:edf-e:03:020",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 20,
+      "course_code": "ECO-11021",
+      "display_title": "Microeconomía I",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-12010 y MAT-12221",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-12010",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "MAT-12221",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:edf-e:03:021",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 21,
+      "course_code": "EGN-17121",
+      "display_title": "Ideas e Instituciones Políticas y Sociales I (A)",
+      "credits": 6,
+      "raw_prerequisite_text": "LEN-12701",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "LEN-12701",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:edf-e:03:022",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 22,
+      "course_code": "LEN-12702",
+      "display_title": "Seminario de Comunicación Escrita (A)",
+      "credits": 2,
+      "raw_prerequisite_text": "LEN-12701",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "LEN-12701",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:edf-e:03:023",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 23,
+      "course_code": "MAT-12351",
+      "display_title": "Álgebra Lineal",
+      "credits": 4,
+      "raw_prerequisite_text": "MAT-12349",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "MAT-12349",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:edf-e:04:024",
+      "semester_label": "Cuarto Semestre",
+      "semester_order": 4,
+      "sort_order": 24,
+      "course_code": "ADM-15532",
+      "display_title": "Finanzas Corporativas",
+      "credits": 6,
+      "raw_prerequisite_text": "ADM-15507",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ADM-15507",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:edf-e:04:025",
+      "semester_label": "Cuarto Semestre",
+      "semester_order": 4,
+      "sort_order": 25,
+      "course_code": "CON-10112",
+      "display_title": "Contabilidad Financiera II",
+      "credits": 8,
+      "raw_prerequisite_text": "CON-10111",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "CON-10111",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:edf-e:04:026",
+      "semester_label": "Cuarto Semestre",
+      "semester_order": 4,
+      "sort_order": 26,
+      "course_code": "DER-12204",
+      "display_title": "Introducción al Derecho Mexicano",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:edf-e:04:027",
+      "semester_label": "Cuarto Semestre",
+      "semester_order": 4,
+      "sort_order": 27,
+      "course_code": "ECO-11022",
+      "display_title": "Microeconomía II",
+      "credits": 6,
+      "raw_prerequisite_text": "MAT-12221 y ECO-11021",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "MAT-12221",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "ECO-11021",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:edf-e:04:028",
+      "semester_label": "Cuarto Semestre",
+      "semester_order": 4,
+      "sort_order": 28,
+      "course_code": "EGN-17122",
+      "display_title": "Ideas e Instituciones Políticas y Sociales II",
+      "credits": 6,
+      "raw_prerequisite_text": "EGN-17121",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EGN-17121",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:edf-e:04:029",
+      "semester_label": "Cuarto Semestre",
+      "semester_order": 4,
+      "sort_order": 29,
+      "course_code": "EST-11101",
+      "display_title": "Probabilidad",
+      "credits": 8,
+      "raw_prerequisite_text": "MAT-12221",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "MAT-12221",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:edf-e:04:030",
+      "semester_label": "Cuarto Semestre",
+      "semester_order": 4,
+      "sort_order": 30,
+      "course_code": "MAT-24632",
+      "display_title": "Métodos Dinámicos para la Economía",
+      "credits": 6,
+      "raw_prerequisite_text": "MAT-12221",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "MAT-12221",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:edf-e:05:031",
+      "semester_label": "Quinto Semestre",
+      "semester_order": 5,
+      "sort_order": 31,
+      "course_code": "ADM-15522",
+      "display_title": "Teoría de las Finanzas",
+      "credits": 6,
+      "raw_prerequisite_text": "MAT-12351 y ADM-15532",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "MAT-12351",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "ADM-15532",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:edf-e:05:032",
+      "semester_label": "Quinto Semestre",
+      "semester_order": 5,
+      "sort_order": 32,
+      "course_code": "ADM-15569",
+      "display_title": "Modelaje para Contabilidad y Finanzas",
+      "credits": 6,
+      "raw_prerequisite_text": "ADM-15532",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ADM-15532",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:edf-e:05:033",
+      "semester_label": "Quinto Semestre",
+      "semester_order": 5,
+      "sort_order": 33,
+      "course_code": "ECO-11002",
+      "display_title": "Seminario de Análisis Empírico",
+      "credits": 3,
+      "raw_prerequisite_text": "EST-11101",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EST-11101",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:edf-e:05:034",
+      "semester_label": "Quinto Semestre",
+      "semester_order": 5,
+      "sort_order": 34,
+      "course_code": "ECO-11023",
+      "display_title": "Microeconomía III",
+      "credits": 6,
+      "raw_prerequisite_text": "MAT-24632 y ECO-11022",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "MAT-24632",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "ECO-11022",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:edf-e:05:035",
+      "semester_label": "Quinto Semestre",
+      "semester_order": 5,
+      "sort_order": 35,
+      "course_code": "ECO-12011",
+      "display_title": "Macroeconomía I",
+      "credits": 8,
+      "raw_prerequisite_text": "MAT-12221 y MAT-24632 y ECO-11021",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "MAT-12221",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "MAT-24632",
+          "ordinal_position": 2
+        },
+        {
+          "referenced_course_code": "ECO-11021",
+          "ordinal_position": 3
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:edf-e:05:036",
+      "semester_label": "Quinto Semestre",
+      "semester_order": 5,
+      "sort_order": 36,
+      "course_code": "EGN-17123",
+      "display_title": "Ideas e Instituciones Políticas y Sociales III",
+      "credits": 6,
+      "raw_prerequisite_text": "EGN-17141 y EGN-17122",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EGN-17141",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "EGN-17122",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:edf-e:05:037",
+      "semester_label": "Quinto Semestre",
+      "semester_order": 5,
+      "sort_order": 37,
+      "course_code": "EST-11102",
+      "display_title": "Inferencia Estadística",
+      "credits": 8,
+      "raw_prerequisite_text": "EST-11101",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EST-11101",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:edf-e:06:038",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 38,
+      "course_code": "ADM-15514",
+      "display_title": "Administración de Portafolios de Inversión",
+      "credits": 6,
+      "raw_prerequisite_text": "ADM-15522",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ADM-15522",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:edf-e:06:039",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 39,
+      "course_code": "ADM-15563",
+      "display_title": "Valuación de Empresas",
+      "credits": 6,
+      "raw_prerequisite_text": "ADM-15569",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ADM-15569",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:edf-e:06:040",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 40,
+      "course_code": "ECO-11003",
+      "display_title": "Seminario de Análisis de Datos",
+      "credits": 3,
+      "raw_prerequisite_text": "COM-16305 y EST-11102 y ECO-11002",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "COM-16305",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "EST-11102",
+          "ordinal_position": 2
+        },
+        {
+          "referenced_course_code": "ECO-11002",
+          "ordinal_position": 3
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:edf-e:06:041",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 41,
+      "course_code": "ECO-12012",
+      "display_title": "Macroeconomía II",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-12011 y MAT-24632",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-12011",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "MAT-24632",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:edf-e:06:042",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 42,
+      "course_code": "ECO-13001",
+      "display_title": "Microeconomía Internacional",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-11022",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-11022",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:edf-e:06:043",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 43,
+      "course_code": "ECO-15101",
+      "display_title": "Finanzas Públicas",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-12011 y ECO-11022",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-12011",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "ECO-11022",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:edf-e:06:044",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 44,
+      "course_code": "EGN-17161",
+      "display_title": "Historia Socio-Política de México",
+      "credits": 6,
+      "raw_prerequisite_text": "EGN-17123",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EGN-17123",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:edf-e:06:045",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 45,
+      "course_code": "EST-11105",
+      "display_title": "Principios de Regresión Lineal",
+      "credits": 6,
+      "raw_prerequisite_text": "MAT-12351 y EST-11102",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "MAT-12351",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "EST-11102",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:edf-e:07:046",
+      "semester_label": "Séptimo Semestre",
+      "semester_order": 7,
+      "sort_order": 46,
+      "course_code": "ADM-12312",
+      "display_title": "Trayectorias en Negocios II: Equipo y Liderazgo",
+      "credits": 2,
+      "raw_prerequisite_text": "ADM-15568 y ADM-12107",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ADM-15568",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "ADM-12107",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:edf-e:07:047",
+      "semester_label": "Séptimo Semestre",
+      "semester_order": 7,
+      "sort_order": 47,
+      "course_code": "ADM-14413",
+      "display_title": "Desarrollo de Habilidades Gerenciales",
+      "credits": 6,
+      "raw_prerequisite_text": "ADM-12107",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ADM-12107",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:edf-e:07:048",
+      "semester_label": "Séptimo Semestre",
+      "semester_order": 7,
+      "sort_order": 48,
+      "course_code": "ADM-15565",
+      "display_title": "Modelos Financieros y Administración de Riesgos",
+      "credits": 6,
+      "raw_prerequisite_text": "ADM-15514",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ADM-15514",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:edf-e:07:049",
+      "semester_label": "Séptimo Semestre",
+      "semester_order": 7,
+      "sort_order": 49,
+      "course_code": "DER-10022",
+      "display_title": "Derecho Empresarial",
+      "credits": 8,
+      "raw_prerequisite_text": "ADM-12107 y CON-10001",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ADM-12107",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "CON-10001",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:edf-e:07:050",
+      "semester_label": "Séptimo Semestre",
+      "semester_order": 7,
+      "sort_order": 50,
+      "course_code": "ECO-10522",
+      "display_title": "Microeconometría",
+      "credits": 8,
+      "raw_prerequisite_text": "EST-11105",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EST-11105",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:edf-e:07:051",
+      "semester_label": "Séptimo Semestre",
+      "semester_order": 7,
+      "sort_order": 51,
+      "course_code": "ECO-17103",
+      "display_title": "Seminario de la Economía de México (A)",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-12012 y ECO-11023",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-12012",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "ECO-11023",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:edf-e:07:052",
+      "semester_label": "Séptimo Semestre",
+      "semester_order": 7,
+      "sort_order": 52,
+      "course_code": "EGN-17162",
+      "display_title": "Problemas de la Realidad Mexicana Contemporánea",
+      "credits": 6,
+      "raw_prerequisite_text": "EGN-17161",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EGN-17161",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:edf-e:07:053",
+      "semester_label": "Séptimo Semestre",
+      "semester_order": 7,
+      "sort_order": 53,
+      "course_code": "LEN-12718",
+      "display_title": "Comunicación Escrita para Economía (A)",
+      "credits": 2,
+      "raw_prerequisite_text": "LEN-12701",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "LEN-12701",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:edf-e:08:054",
+      "semester_label": "Octavo Semestre",
+      "semester_order": 8,
+      "sort_order": 54,
+      "course_code": "ADM-12313",
+      "display_title": "Trayectorias en Negocios III: Emprendimiento e Impacto",
+      "credits": 2,
+      "raw_prerequisite_text": "ADM-12312 y ADM-15565",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ADM-12312",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "ADM-15565",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:edf-e:08:055",
+      "semester_label": "Octavo Semestre",
+      "semester_order": 8,
+      "sort_order": 55,
+      "course_code": "ADM-15564",
+      "display_title": "Renta Fija y Derivados",
+      "credits": 6,
+      "raw_prerequisite_text": "ADM-15514",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ADM-15514",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:edf-e:08:056",
+      "semester_label": "Octavo Semestre",
+      "semester_order": 8,
+      "sort_order": 56,
+      "course_code": "ADM-15566",
+      "display_title": "Capital Privado y Finanzas Emprendedoras",
+      "credits": 6,
+      "raw_prerequisite_text": "ADM-15563",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ADM-15563",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:edf-e:08:057",
+      "semester_label": "Octavo Semestre",
+      "semester_order": 8,
+      "sort_order": 57,
+      "course_code": "DER-10023",
+      "display_title": "Derecho Financiero",
+      "credits": 6,
+      "raw_prerequisite_text": "DER-10022",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-10022",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:edf-e:08:058",
+      "semester_label": "Octavo Semestre",
+      "semester_order": 8,
+      "sort_order": 58,
+      "course_code": "ECO-10523",
+      "display_title": "Macroeconometría",
+      "credits": 6,
+      "raw_prerequisite_text": "EST-11105",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EST-11105",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:edf-e:08:059",
+      "semester_label": "Octavo Semestre",
+      "semester_order": 8,
+      "sort_order": 59,
+      "course_code": "ECO-13002",
+      "display_title": "Macroeconomía Internacional",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-12012 y ECO-13001",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-12012",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "ECO-13001",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:edf-e:08:060",
+      "semester_label": "Octavo Semestre",
+      "semester_order": 8,
+      "sort_order": 60,
+      "course_code": "ECO-14301",
+      "display_title": "Organización Industrial",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-11023",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-11023",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:edf-e:09:061",
+      "semester_label": "Noveno Semestre",
+      "semester_order": 9,
+      "sort_order": 61,
+      "course_code": "ADM-12350",
+      "display_title": "Decisiones de Negocios Basadas en Datos",
+      "credits": 6,
+      "raw_prerequisite_text": "EST-11105 y ADM-15563",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EST-11105",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "ADM-15563",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:edf-e:09:062",
+      "semester_label": "Noveno Semestre",
+      "semester_order": 9,
+      "sort_order": 62,
+      "course_code": "CON-10005",
+      "display_title": "Análisis Financiero de la Empresa",
+      "credits": 6,
+      "raw_prerequisite_text": "ADM-15563",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ADM-15563",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:edf-e:09:063",
+      "semester_label": "Noveno Semestre",
+      "semester_order": 9,
+      "sort_order": 63,
+      "course_code": "CON-15001",
+      "display_title": "Impuestos Corporativos I",
+      "credits": 6,
+      "raw_prerequisite_text": "DER-10023",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-10023",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:edf-e:09:064",
+      "semester_label": "Noveno Semestre",
+      "semester_order": 9,
+      "sort_order": 64,
+      "course_code": "ECO-11024",
+      "display_title": "Tópicos Avanzados de Microeconomía",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-12012 y ECO-11023",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-12012",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "ECO-11023",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:edf-e:09:065",
+      "semester_label": "Noveno Semestre",
+      "semester_order": 9,
+      "sort_order": 65,
+      "course_code": "ECO-14210",
+      "display_title": "Seminario Análisis Económico del Derecho",
+      "credits": 3,
+      "raw_prerequisite_text": "DER-12204 y ECO-11023",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-12204",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "ECO-11023",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:edf-e:09:066",
+      "semester_label": "Noveno Semestre",
+      "semester_order": 9,
+      "sort_order": 66,
+      "course_code": "ECO-18101",
+      "display_title": "Desarrollo Económico",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-12012 y ECO-10522 y ECO-11023",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-12012",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "ECO-10522",
+          "ordinal_position": 2
+        },
+        {
+          "referenced_course_code": "ECO-11023",
+          "ordinal_position": 3
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:edf-e:09:067",
+      "semester_label": "Noveno Semestre",
+      "semester_order": 9,
+      "sort_order": 67,
+      "course_code": "ECO-18300",
+      "display_title": "Crecimiento Económico",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-12012",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-12012",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:edf-e:10:068",
+      "semester_label": "Décimo Semestre",
+      "semester_order": 10,
+      "sort_order": 68,
+      "course_code": "ADM-11010",
+      "display_title": "Dirección General",
+      "credits": 6,
+      "raw_prerequisite_text": "ADM-12313",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ADM-12313",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:edf-e:10:069",
+      "semester_label": "Décimo Semestre",
+      "semester_order": 10,
+      "sort_order": 69,
+      "course_code": "ADM-15505",
+      "display_title": "Banca de Inversión",
+      "credits": 6,
+      "raw_prerequisite_text": "ADM-15564 y ADM-15563",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ADM-15564",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "ADM-15563",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:edf-e:10:070",
+      "semester_label": "Décimo Semestre",
+      "semester_order": 10,
+      "sort_order": 70,
+      "course_code": "ADM-15567",
+      "display_title": "Finanzas, Tecnología y Datos",
+      "credits": 6,
+      "raw_prerequisite_text": "ADM-12350",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ADM-12350",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:edf-e:10:071",
+      "semester_label": "Décimo Semestre",
+      "semester_order": 10,
+      "sort_order": 71,
+      "course_code": "ECO-10220",
+      "display_title": "Seminario de Titulación (A)",
+      "credits": 9,
+      "raw_prerequisite_text": "ECO-12012 y ECO-10522 y ECO-11023 y ECO-10523",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-12012",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "ECO-10522",
+          "ordinal_position": 2
+        },
+        {
+          "referenced_course_code": "ECO-11023",
+          "ordinal_position": 3
+        },
+        {
+          "referenced_course_code": "ECO-10523",
+          "ordinal_position": 4
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:edf-e:10:072",
+      "semester_label": "Décimo Semestre",
+      "semester_order": 10,
+      "sort_order": 72,
+      "course_code": "ECO-12013",
+      "display_title": "Tópicos Avanzados de Macroeconomía",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-18300 y ECO-11023",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-18300",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "ECO-11023",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:edf-e:10:073",
+      "semester_label": "Décimo Semestre",
+      "semester_order": 10,
+      "sort_order": 73,
+      "course_code": "ECO-17220",
+      "display_title": "Historia Económica Moderna",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-12010",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-12010",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:edf-e:10:074",
+      "semester_label": "Décimo Semestre",
+      "semester_order": 10,
+      "sort_order": 74,
+      "course_code": "LEN-12758",
+      "display_title": "Comunicación Profesional para Economía (A)",
+      "credits": 2,
+      "raw_prerequisite_text": "LEN-12718 y LEN-12702",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "LEN-12718",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "LEN-12702",
+          "ordinal_position": 2
+        }
+      ]
+    }
+  ]
+}

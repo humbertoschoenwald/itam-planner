@@ -1,19 +1,19 @@
 {
-  "bulletin_id": "bulletin:ma-e",
-  "source_code": "MA-E",
-  "title": "LICENCIATURA EN MATEMATICAS APLICADAS Plan E",
+  "bulletin_id": "bulletin:ma-d",
+  "source_code": "MA-D",
+  "title": "LICENCIATURA EN MATEMATICAS APLICADAS Plan D",
   "program_title": "LICENCIATURA EN MATEMÁTICAS APLICADAS",
-  "plan_code": "E",
-  "plan_id": "licenciatura-en-matematicas-aplicadas:e",
+  "plan_code": "D",
+  "plan_id": "licenciatura-en-matematicas-aplicadas:d",
   "application_term": "PRIMAVERA 2026",
   "application_year": 2026,
   "active_from": "2026-01-01",
   "active_to": "2026-05-31",
-  "entry_from_term": "PRIMAVERA 2021",
-  "entry_to_term": "PRIMAVERA 2024",
+  "entry_from_term": null,
+  "entry_to_term": null,
   "requirements": [
     {
-      "requirement_id": "bulletin:ma-e:01:001",
+      "requirement_id": "bulletin:ma-d:01:001",
       "semester_label": "Primer Semestre",
       "semester_order": 1,
       "sort_order": 1,
@@ -24,7 +24,7 @@
       "prerequisite_references": []
     },
     {
-      "requirement_id": "bulletin:ma-e:01:002",
+      "requirement_id": "bulletin:ma-d:01:002",
       "semester_label": "Primer Semestre",
       "semester_order": 1,
       "sort_order": 2,
@@ -35,7 +35,7 @@
       "prerequisite_references": []
     },
     {
-      "requirement_id": "bulletin:ma-e:01:003",
+      "requirement_id": "bulletin:ma-d:01:003",
       "semester_label": "Primer Semestre",
       "semester_order": 1,
       "sort_order": 3,
@@ -46,7 +46,7 @@
       "prerequisite_references": []
     },
     {
-      "requirement_id": "bulletin:ma-e:01:004",
+      "requirement_id": "bulletin:ma-d:01:004",
       "semester_label": "Primer Semestre",
       "semester_order": 1,
       "sort_order": 4,
@@ -57,7 +57,7 @@
       "prerequisite_references": []
     },
     {
-      "requirement_id": "bulletin:ma-e:01:005",
+      "requirement_id": "bulletin:ma-d:01:005",
       "semester_label": "Primer Semestre",
       "semester_order": 1,
       "sort_order": 5,
@@ -68,7 +68,7 @@
       "prerequisite_references": []
     },
     {
-      "requirement_id": "bulletin:ma-e:02:006",
+      "requirement_id": "bulletin:ma-d:02:006",
       "semester_label": "Segundo Semestre",
       "semester_order": 2,
       "sort_order": 6,
@@ -79,7 +79,7 @@
       "prerequisite_references": []
     },
     {
-      "requirement_id": "bulletin:ma-e:02:007",
+      "requirement_id": "bulletin:ma-d:02:007",
       "semester_label": "Segundo Semestre",
       "semester_order": 2,
       "sort_order": 7,
@@ -90,7 +90,7 @@
       "prerequisite_references": []
     },
     {
-      "requirement_id": "bulletin:ma-e:02:008",
+      "requirement_id": "bulletin:ma-d:02:008",
       "semester_label": "Segundo Semestre",
       "semester_order": 2,
       "sort_order": 8,
@@ -106,7 +106,7 @@
       ]
     },
     {
-      "requirement_id": "bulletin:ma-e:02:009",
+      "requirement_id": "bulletin:ma-d:02:009",
       "semester_label": "Segundo Semestre",
       "semester_order": 2,
       "sort_order": 9,
@@ -122,7 +122,7 @@
       ]
     },
     {
-      "requirement_id": "bulletin:ma-e:02:010",
+      "requirement_id": "bulletin:ma-d:02:010",
       "semester_label": "Segundo Semestre",
       "semester_order": 2,
       "sort_order": 10,
@@ -133,7 +133,7 @@
       "prerequisite_references": []
     },
     {
-      "requirement_id": "bulletin:ma-e:02:011",
+      "requirement_id": "bulletin:ma-d:02:011",
       "semester_label": "Segundo Semestre",
       "semester_order": 2,
       "sort_order": 11,
@@ -144,7 +144,7 @@
       "prerequisite_references": []
     },
     {
-      "requirement_id": "bulletin:ma-e:03:012",
+      "requirement_id": "bulletin:ma-d:03:012",
       "semester_label": "Tercer Semestre",
       "semester_order": 3,
       "sort_order": 12,
@@ -160,7 +160,7 @@
       ]
     },
     {
-      "requirement_id": "bulletin:ma-e:03:013",
+      "requirement_id": "bulletin:ma-d:03:013",
       "semester_label": "Tercer Semestre",
       "semester_order": 3,
       "sort_order": 13,
@@ -176,7 +176,7 @@
       ]
     },
     {
-      "requirement_id": "bulletin:ma-e:03:014",
+      "requirement_id": "bulletin:ma-d:03:014",
       "semester_label": "Tercer Semestre",
       "semester_order": 3,
       "sort_order": 14,
@@ -192,7 +192,7 @@
       ]
     },
     {
-      "requirement_id": "bulletin:ma-e:03:015",
+      "requirement_id": "bulletin:ma-d:03:015",
       "semester_label": "Tercer Semestre",
       "semester_order": 3,
       "sort_order": 15,
@@ -208,7 +208,7 @@
       ]
     },
     {
-      "requirement_id": "bulletin:ma-e:03:016",
+      "requirement_id": "bulletin:ma-d:03:016",
       "semester_label": "Tercer Semestre",
       "semester_order": 3,
       "sort_order": 16,
@@ -224,7 +224,7 @@
       ]
     },
     {
-      "requirement_id": "bulletin:ma-e:03:017",
+      "requirement_id": "bulletin:ma-d:03:017",
       "semester_label": "Tercer Semestre",
       "semester_order": 3,
       "sort_order": 17,
@@ -248,7 +248,7 @@
       ]
     },
     {
-      "requirement_id": "bulletin:ma-e:03:018",
+      "requirement_id": "bulletin:ma-d:03:018",
       "semester_label": "Tercer Semestre",
       "semester_order": 3,
       "sort_order": 18,
@@ -264,7 +264,7 @@
       ]
     },
     {
-      "requirement_id": "bulletin:ma-e:04:019",
+      "requirement_id": "bulletin:ma-d:04:019",
       "semester_label": "Cuarto Semestre",
       "semester_order": 4,
       "sort_order": 19,
@@ -288,7 +288,7 @@
       ]
     },
     {
-      "requirement_id": "bulletin:ma-e:04:020",
+      "requirement_id": "bulletin:ma-d:04:020",
       "semester_label": "Cuarto Semestre",
       "semester_order": 4,
       "sort_order": 20,
@@ -308,7 +308,7 @@
       ]
     },
     {
-      "requirement_id": "bulletin:ma-e:04:021",
+      "requirement_id": "bulletin:ma-d:04:021",
       "semester_label": "Cuarto Semestre",
       "semester_order": 4,
       "sort_order": 21,
@@ -324,7 +324,7 @@
       ]
     },
     {
-      "requirement_id": "bulletin:ma-e:04:022",
+      "requirement_id": "bulletin:ma-d:04:022",
       "semester_label": "Cuarto Semestre",
       "semester_order": 4,
       "sort_order": 22,
@@ -344,7 +344,7 @@
       ]
     },
     {
-      "requirement_id": "bulletin:ma-e:04:023",
+      "requirement_id": "bulletin:ma-d:04:023",
       "semester_label": "Cuarto Semestre",
       "semester_order": 4,
       "sort_order": 23,
@@ -364,7 +364,7 @@
       ]
     },
     {
-      "requirement_id": "bulletin:ma-e:04:024",
+      "requirement_id": "bulletin:ma-d:04:024",
       "semester_label": "Cuarto Semestre",
       "semester_order": 4,
       "sort_order": 24,
@@ -375,7 +375,7 @@
       "prerequisite_references": []
     },
     {
-      "requirement_id": "bulletin:ma-e:05:025",
+      "requirement_id": "bulletin:ma-d:05:025",
       "semester_label": "Quinto Semestre",
       "semester_order": 5,
       "sort_order": 25,
@@ -386,7 +386,7 @@
       "prerequisite_references": []
     },
     {
-      "requirement_id": "bulletin:ma-e:05:026",
+      "requirement_id": "bulletin:ma-d:05:026",
       "semester_label": "Quinto Semestre",
       "semester_order": 5,
       "sort_order": 26,
@@ -402,7 +402,7 @@
       ]
     },
     {
-      "requirement_id": "bulletin:ma-e:05:027",
+      "requirement_id": "bulletin:ma-d:05:027",
       "semester_label": "Quinto Semestre",
       "semester_order": 5,
       "sort_order": 27,
@@ -422,7 +422,7 @@
       ]
     },
     {
-      "requirement_id": "bulletin:ma-e:05:028",
+      "requirement_id": "bulletin:ma-d:05:028",
       "semester_label": "Quinto Semestre",
       "semester_order": 5,
       "sort_order": 28,
@@ -438,7 +438,7 @@
       ]
     },
     {
-      "requirement_id": "bulletin:ma-e:05:029",
+      "requirement_id": "bulletin:ma-d:05:029",
       "semester_label": "Quinto Semestre",
       "semester_order": 5,
       "sort_order": 29,
@@ -458,7 +458,7 @@
       ]
     },
     {
-      "requirement_id": "bulletin:ma-e:05:030",
+      "requirement_id": "bulletin:ma-d:05:030",
       "semester_label": "Quinto Semestre",
       "semester_order": 5,
       "sort_order": 30,
@@ -478,7 +478,7 @@
       ]
     },
     {
-      "requirement_id": "bulletin:ma-e:05:031",
+      "requirement_id": "bulletin:ma-d:05:031",
       "semester_label": "Quinto Semestre",
       "semester_order": 5,
       "sort_order": 31,
@@ -489,7 +489,7 @@
       "prerequisite_references": []
     },
     {
-      "requirement_id": "bulletin:ma-e:06:032",
+      "requirement_id": "bulletin:ma-d:06:032",
       "semester_label": "Sexto Semestre",
       "semester_order": 6,
       "sort_order": 32,
@@ -505,7 +505,7 @@
       ]
     },
     {
-      "requirement_id": "bulletin:ma-e:06:033",
+      "requirement_id": "bulletin:ma-d:06:033",
       "semester_label": "Sexto Semestre",
       "semester_order": 6,
       "sort_order": 33,
@@ -521,7 +521,7 @@
       ]
     },
     {
-      "requirement_id": "bulletin:ma-e:06:034",
+      "requirement_id": "bulletin:ma-d:06:034",
       "semester_label": "Sexto Semestre",
       "semester_order": 6,
       "sort_order": 34,
@@ -537,7 +537,7 @@
       ]
     },
     {
-      "requirement_id": "bulletin:ma-e:06:035",
+      "requirement_id": "bulletin:ma-d:06:035",
       "semester_label": "Sexto Semestre",
       "semester_order": 6,
       "sort_order": 35,
@@ -553,7 +553,7 @@
       ]
     },
     {
-      "requirement_id": "bulletin:ma-e:06:036",
+      "requirement_id": "bulletin:ma-d:06:036",
       "semester_label": "Sexto Semestre",
       "semester_order": 6,
       "sort_order": 36,
@@ -569,7 +569,7 @@
       ]
     },
     {
-      "requirement_id": "bulletin:ma-e:06:037",
+      "requirement_id": "bulletin:ma-d:06:037",
       "semester_label": "Sexto Semestre",
       "semester_order": 6,
       "sort_order": 37,
@@ -585,7 +585,7 @@
       ]
     },
     {
-      "requirement_id": "bulletin:ma-e:06:038",
+      "requirement_id": "bulletin:ma-d:06:038",
       "semester_label": "Sexto Semestre",
       "semester_order": 6,
       "sort_order": 38,
@@ -596,7 +596,7 @@
       "prerequisite_references": []
     },
     {
-      "requirement_id": "bulletin:ma-e:07:039",
+      "requirement_id": "bulletin:ma-d:07:039",
       "semester_label": "Septimo Semestre",
       "semester_order": 7,
       "sort_order": 39,
@@ -612,7 +612,7 @@
       ]
     },
     {
-      "requirement_id": "bulletin:ma-e:07:040",
+      "requirement_id": "bulletin:ma-d:07:040",
       "semester_label": "Septimo Semestre",
       "semester_order": 7,
       "sort_order": 40,
@@ -632,7 +632,7 @@
       ]
     },
     {
-      "requirement_id": "bulletin:ma-e:07:041",
+      "requirement_id": "bulletin:ma-d:07:041",
       "semester_label": "Septimo Semestre",
       "semester_order": 7,
       "sort_order": 41,
@@ -652,7 +652,7 @@
       ]
     },
     {
-      "requirement_id": "bulletin:ma-e:07:042",
+      "requirement_id": "bulletin:ma-d:07:042",
       "semester_label": "Septimo Semestre",
       "semester_order": 7,
       "sort_order": 42,
@@ -668,7 +668,7 @@
       ]
     },
     {
-      "requirement_id": "bulletin:ma-e:07:043",
+      "requirement_id": "bulletin:ma-d:07:043",
       "semester_label": "Septimo Semestre",
       "semester_order": 7,
       "sort_order": 43,
@@ -684,7 +684,7 @@
       ]
     },
     {
-      "requirement_id": "bulletin:ma-e:07:044",
+      "requirement_id": "bulletin:ma-d:07:044",
       "semester_label": "Septimo Semestre",
       "semester_order": 7,
       "sort_order": 44,
@@ -695,7 +695,7 @@
       "prerequisite_references": []
     },
     {
-      "requirement_id": "bulletin:ma-e:07:045",
+      "requirement_id": "bulletin:ma-d:07:045",
       "semester_label": "Septimo Semestre",
       "semester_order": 7,
       "sort_order": 45,
@@ -706,7 +706,7 @@
       "prerequisite_references": []
     },
     {
-      "requirement_id": "bulletin:ma-e:08:046",
+      "requirement_id": "bulletin:ma-d:08:046",
       "semester_label": "Octavo Semestre",
       "semester_order": 8,
       "sort_order": 46,
@@ -722,7 +722,7 @@
       ]
     },
     {
-      "requirement_id": "bulletin:ma-e:08:047",
+      "requirement_id": "bulletin:ma-d:08:047",
       "semester_label": "Octavo Semestre",
       "semester_order": 8,
       "sort_order": 47,
@@ -733,7 +733,7 @@
       "prerequisite_references": []
     },
     {
-      "requirement_id": "bulletin:ma-e:08:048",
+      "requirement_id": "bulletin:ma-d:08:048",
       "semester_label": "Octavo Semestre",
       "semester_order": 8,
       "sort_order": 48,
@@ -744,7 +744,7 @@
       "prerequisite_references": []
     },
     {
-      "requirement_id": "bulletin:ma-e:08:049",
+      "requirement_id": "bulletin:ma-d:08:049",
       "semester_label": "Octavo Semestre",
       "semester_order": 8,
       "sort_order": 49,
@@ -755,7 +755,7 @@
       "prerequisite_references": []
     },
     {
-      "requirement_id": "bulletin:ma-e:08:050",
+      "requirement_id": "bulletin:ma-d:08:050",
       "semester_label": "Octavo Semestre",
       "semester_order": 8,
       "sort_order": 50,

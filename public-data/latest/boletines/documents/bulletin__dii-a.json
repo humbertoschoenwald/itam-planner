@@ -1,0 +1,1286 @@
+{
+  "bulletin_id": "bulletin:dii-a",
+  "source_code": "DII-A",
+  "title": "PLAN CONJUNTO DE LA LICENCIATURA EN CIENCIA DE DATOS E INGENIERÍA INDUSTRIAL Plan A",
+  "program_title": "PLAN CONJUNTO DE LA LICENCIATURA EN CIENCIA DE DATOS E INGENIERÍA INDUSTRIAL",
+  "plan_code": "A",
+  "plan_id": "plan-conjunto-de-la-licenciatura-en-ciencia-de-datos-e-ingenieria-industrial:a",
+  "application_term": "OTOÑO 2025",
+  "application_year": 2025,
+  "active_from": "2025-08-01",
+  "active_to": "2025-12-31",
+  "entry_from_term": null,
+  "entry_to_term": null,
+  "requirements": [
+    {
+      "requirement_id": "bulletin:dii-a:01:001",
+      "semester_label": "Primer Semestre",
+      "semester_order": 1,
+      "sort_order": 1,
+      "course_code": "COM-11101",
+      "display_title": "Algoritmos y Programas",
+      "credits": 9,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:dii-a:01:002",
+      "semester_label": "Primer Semestre",
+      "semester_order": 1,
+      "sort_order": 2,
+      "course_code": "MAT-14250",
+      "display_title": "Geometría Vectorial",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:dii-a:01:003",
+      "semester_label": "Primer Semestre",
+      "semester_order": 1,
+      "sort_order": 3,
+      "course_code": "MAT-14100",
+      "display_title": "Cálculo Diferencial e Integral I",
+      "credits": 8,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:dii-a:01:004",
+      "semester_label": "Primer Semestre",
+      "semester_order": 1,
+      "sort_order": 4,
+      "course_code": "LEN-12701",
+      "display_title": "Estrategia de Comunicación Escrita",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:dii-a:01:005",
+      "semester_label": "Primer Semestre",
+      "semester_order": 1,
+      "sort_order": 5,
+      "course_code": "EGN-17121",
+      "display_title": "Ideas e Instituciones Politícas y Sociales I",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:dii-a:01:006",
+      "semester_label": "Primer Semestre",
+      "semester_order": 1,
+      "sort_order": 6,
+      "course_code": "ECO-11101",
+      "display_title": "Economía I",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:dii-a:01:007",
+      "semester_label": "Primer Semestre",
+      "semester_order": 1,
+      "sort_order": 7,
+      "course_code": "SDI-14105",
+      "display_title": "Introducción a la Ingeniería",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:dii-a:02:008",
+      "semester_label": "Segundo Semestre",
+      "semester_order": 2,
+      "sort_order": 8,
+      "course_code": "MAT-14280",
+      "display_title": "Pensamiento Matemático",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:dii-a:02:009",
+      "semester_label": "Segundo Semestre",
+      "semester_order": 2,
+      "sort_order": 9,
+      "course_code": "COM-11102",
+      "display_title": "Estructuras de Datos",
+      "credits": 8,
+      "raw_prerequisite_text": "COM-11101",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "COM-11101",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dii-a:02:010",
+      "semester_label": "Segundo Semestre",
+      "semester_order": 2,
+      "sort_order": 10,
+      "course_code": "MAT-14201",
+      "display_title": "Álgebra Lineal I",
+      "credits": 8,
+      "raw_prerequisite_text": "MAT-14250",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "MAT-14250",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dii-a:02:011",
+      "semester_label": "Segundo Semestre",
+      "semester_order": 2,
+      "sort_order": 11,
+      "course_code": "MAT-14101",
+      "display_title": "Cálculo Diferencial e Integral II",
+      "credits": 8,
+      "raw_prerequisite_text": "MAT-14100",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "MAT-14100",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dii-a:02:012",
+      "semester_label": "Segundo Semestre",
+      "semester_order": 2,
+      "sort_order": 12,
+      "course_code": "ECO-12102",
+      "display_title": "Economía II",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-11101",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-11101",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dii-a:02:013",
+      "semester_label": "Segundo Semestre",
+      "semester_order": 2,
+      "sort_order": 13,
+      "course_code": "EGN-17122",
+      "display_title": "Ideas e Instituciones Politícas y Sociales II",
+      "credits": 6,
+      "raw_prerequisite_text": "EGN-17121",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EGN-17121",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dii-a:02:014",
+      "semester_label": "Segundo Semestre",
+      "semester_order": 2,
+      "sort_order": 14,
+      "course_code": "EGN-17141",
+      "display_title": "Problemas de la Civilización Contemp. I",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:dii-a:03:015",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 15,
+      "course_code": "MAT-14281",
+      "display_title": "Matemáticas Discretas",
+      "credits": 6,
+      "raw_prerequisite_text": "MAT-14280",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "MAT-14280",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dii-a:03:016",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 16,
+      "course_code": "MAT-14102",
+      "display_title": "Cálculo Diferencial e Integral III",
+      "credits": 8,
+      "raw_prerequisite_text": "MAT-14201 y MAT-14101",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "MAT-14201",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "MAT-14101",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dii-a:03:017",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 17,
+      "course_code": "ECO-11103",
+      "display_title": "Economía III",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-12102 y MAT-14100",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-12102",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "MAT-14100",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dii-a:03:018",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 18,
+      "course_code": "EGN-17123",
+      "display_title": "Ideas e Instituciones Politícas y Sociales III (A)",
+      "credits": 6,
+      "raw_prerequisite_text": "EGN-17122, EGN-17141 y LEN-12701",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EGN-17122",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "EGN-17141",
+          "ordinal_position": 2
+        },
+        {
+          "referenced_course_code": "LEN-12701",
+          "ordinal_position": 3
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dii-a:03:019",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 19,
+      "course_code": "LEN-12702",
+      "display_title": "Seminario de Comunicación Escrita (A)",
+      "credits": 2,
+      "raw_prerequisite_text": "LEN-12701",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "LEN-12701",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dii-a:03:020",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 20,
+      "course_code": "EGN-17142",
+      "display_title": "Problemas de la Civilización Contemp. II",
+      "credits": 6,
+      "raw_prerequisite_text": "EGN-17141",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EGN-17141",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dii-a:03:021",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 21,
+      "course_code": "COM-16203",
+      "display_title": "Desarrollo de Aplicaciones Informáticas",
+      "credits": 8,
+      "raw_prerequisite_text": "COM-11102",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "COM-11102",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dii-a:04:022",
+      "semester_label": "Cuarto Semestre",
+      "semester_order": 4,
+      "sort_order": 22,
+      "course_code": "COM-11112",
+      "display_title": "Estructuras de Datos Avanzadas",
+      "credits": 6,
+      "raw_prerequisite_text": "COM-11102",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "COM-11102",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dii-a:04:023",
+      "semester_label": "Cuarto Semestre",
+      "semester_order": 4,
+      "sort_order": 23,
+      "course_code": "COM-12101",
+      "display_title": "Bases de Datos",
+      "credits": 8,
+      "raw_prerequisite_text": "MAT-14281 y COM-11102",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "MAT-14281",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "COM-11102",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dii-a:04:024",
+      "semester_label": "Cuarto Semestre",
+      "semester_order": 4,
+      "sort_order": 24,
+      "course_code": "EST-24126",
+      "display_title": "Cálculo de Probabilidades I",
+      "credits": 8,
+      "raw_prerequisite_text": "MAT-14281 y MAT-14101",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "MAT-14281",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "MAT-14101",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dii-a:04:025",
+      "semester_label": "Cuarto Semestre",
+      "semester_order": 4,
+      "sort_order": 25,
+      "course_code": "ECO-11104",
+      "display_title": "Economía IV",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-11103",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-11103",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dii-a:04:026",
+      "semester_label": "Cuarto Semestre",
+      "semester_order": 4,
+      "sort_order": 26,
+      "course_code": "EGN-17161",
+      "display_title": "Historia Socio-Politíca de México",
+      "credits": 6,
+      "raw_prerequisite_text": "EGN-17123 y LEN-12702",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EGN-17123",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "LEN-12702",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dii-a:04:027",
+      "semester_label": "Cuarto Semestre",
+      "semester_order": 4,
+      "sort_order": 27,
+      "course_code": "SDI-11120",
+      "display_title": "Elementos de Física",
+      "credits": 10,
+      "raw_prerequisite_text": "MAT-14100",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "MAT-14100",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dii-a:04:028",
+      "semester_label": "Cuarto Semestre",
+      "semester_order": 4,
+      "sort_order": 28,
+      "course_code": "CON-10100",
+      "display_title": "Contabilidad I",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:dii-a:05:029",
+      "semester_label": "Quinto Semestre",
+      "semester_order": 5,
+      "sort_order": 29,
+      "course_code": "COM-22102",
+      "display_title": "Bases de Datos No Relacionales",
+      "credits": 6,
+      "raw_prerequisite_text": "COM-11112 y COM-12101",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "COM-11112",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "COM-12101",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dii-a:05:030",
+      "semester_label": "Quinto Semestre",
+      "semester_order": 5,
+      "sort_order": 30,
+      "course_code": "COM-12103",
+      "display_title": "Fuentes de Datos",
+      "credits": 6,
+      "raw_prerequisite_text": "COM-12101 y COM-11112",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "COM-12101",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "COM-11112",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dii-a:05:031",
+      "semester_label": "Quinto Semestre",
+      "semester_order": 5,
+      "sort_order": 31,
+      "course_code": "EST-24127",
+      "display_title": "Cálculo de Probabilidades II",
+      "credits": 8,
+      "raw_prerequisite_text": "EST-24126",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EST-24126",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dii-a:05:032",
+      "semester_label": "Quinto Semestre",
+      "semester_order": 5,
+      "sort_order": 32,
+      "course_code": "ECO-11227",
+      "display_title": "Diseño de Mercados",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-11104 y EST24126",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-11104",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dii-a:05:033",
+      "semester_label": "Quinto Semestre",
+      "semester_order": 5,
+      "sort_order": 33,
+      "course_code": "EGN-17162",
+      "display_title": "Problemas de la Realidad Mexicana Contemporánea",
+      "credits": 6,
+      "raw_prerequisite_text": "EGN-17161 y EGN-17142",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EGN-17161",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "EGN-17142",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dii-a:05:034",
+      "semester_label": "Quinto Semestre",
+      "semester_order": 5,
+      "sort_order": 34,
+      "course_code": "ADM-14405",
+      "display_title": "Est. Proc. y Comp. Organizacional I",
+      "credits": 6,
+      "raw_prerequisite_text": "SDI-14105",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "SDI-14105",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dii-a:05:035",
+      "semester_label": "Quinto Semestre",
+      "semester_order": 5,
+      "sort_order": 35,
+      "course_code": "IIO-15130",
+      "display_title": "Fundamentos de Química",
+      "credits": 11,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:dii-a:06:036",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 36,
+      "course_code": "COM-12104",
+      "display_title": "Visualización de Información (A)",
+      "credits": 6,
+      "raw_prerequisite_text": "COM-11101, EST-24126 y MAT-14281",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "COM-11101",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "EST-24126",
+          "ordinal_position": 2
+        },
+        {
+          "referenced_course_code": "MAT-14281",
+          "ordinal_position": 3
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dii-a:06:037",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 37,
+      "course_code": "LEN-12722",
+      "display_title": "Comunicación Escrita para Ciencia de Datos (A)",
+      "credits": 2,
+      "raw_prerequisite_text": "LEN-12701",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "LEN-12701",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dii-a:06:038",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 38,
+      "course_code": "EST-14103",
+      "display_title": "Estadística Matemática",
+      "credits": 8,
+      "raw_prerequisite_text": "EST-24127 y MAT-14102",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EST-24127",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "MAT-14102",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dii-a:06:039",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 39,
+      "course_code": "CSO-16048",
+      "display_title": "Tópicos de Políticas Públicas I",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-11104",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-11104",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dii-a:06:040",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 40,
+      "course_code": "IIO-15140",
+      "display_title": "Ciencia de los Materiales",
+      "credits": 9,
+      "raw_prerequisite_text": "IIO-15130",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "IIO-15130",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dii-a:06:041",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 41,
+      "course_code": "IIO-14161",
+      "display_title": "Planeación y Control de la Producción (A)",
+      "credits": 6,
+      "raw_prerequisite_text": "EST-24127",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EST-24127",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dii-a:06:042",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 42,
+      "course_code": "LEN-12127",
+      "display_title": "Comunicación Escrita para Ing. Industrial (A)",
+      "credits": 2,
+      "raw_prerequisite_text": "LEN-12701",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "LEN-12701",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dii-a:06:043",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 43,
+      "course_code": "CON-12110",
+      "display_title": "Contabilidad de Costos para Ingeniería",
+      "credits": 6,
+      "raw_prerequisite_text": "CON-10100",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "CON-10100",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dii-a:06:044",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 44,
+      "course_code": "IIO-13150",
+      "display_title": "Modelado y Optimización I",
+      "credits": 6,
+      "raw_prerequisite_text": "MAT-14101 y MAT-14201",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "MAT-14101",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "MAT-14201",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dii-a:07:045",
+      "semester_label": "Septimo Semestre",
+      "semester_order": 7,
+      "sort_order": 45,
+      "course_code": "ADM-16601",
+      "display_title": "Mercadotecnía I",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:dii-a:07:046",
+      "semester_label": "Septimo Semestre",
+      "semester_order": 7,
+      "sort_order": 46,
+      "course_code": "COM-23701",
+      "display_title": "Aprendizaje de Máquina",
+      "credits": 6,
+      "raw_prerequisite_text": "COM-12101",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "COM-12101",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dii-a:07:047",
+      "semester_label": "Septimo Semestre",
+      "semester_order": 7,
+      "sort_order": 47,
+      "course_code": "EST-24124",
+      "display_title": "Métodos Lineales",
+      "credits": 6,
+      "raw_prerequisite_text": "EST-14103",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EST-14103",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dii-a:07:048",
+      "semester_label": "Septimo Semestre",
+      "semester_order": 7,
+      "sort_order": 48,
+      "course_code": "ADM-12301",
+      "display_title": "Tópicos de Negocios I",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-11104",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-11104",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dii-a:07:049",
+      "semester_label": "Septimo Semestre",
+      "semester_order": 7,
+      "sort_order": 49,
+      "course_code": "IIO-14162",
+      "display_title": "Ingeniería y Control de la Calidad",
+      "credits": 6,
+      "raw_prerequisite_text": "EST-14103",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EST-14103",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dii-a:07:050",
+      "semester_label": "Septimo Semestre",
+      "semester_order": 7,
+      "sort_order": 50,
+      "course_code": "IIO-13160",
+      "display_title": "Modelado y Optimización II",
+      "credits": 6,
+      "raw_prerequisite_text": "EST-24127, IIO-13150 y MAT-14102",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EST-24127",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "IIO-13150",
+          "ordinal_position": 2
+        },
+        {
+          "referenced_course_code": "MAT-14102",
+          "ordinal_position": 3
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dii-a:07:051",
+      "semester_label": "Septimo Semestre",
+      "semester_order": 7,
+      "sort_order": 51,
+      "course_code": "IIO-15150",
+      "display_title": "Procesos de Manufactura I",
+      "credits": 6,
+      "raw_prerequisite_text": "IIO-15140",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "IIO-15140",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dii-a:08:052",
+      "semester_label": "Octavo Semestre",
+      "semester_order": 8,
+      "sort_order": 52,
+      "course_code": "COM-23101",
+      "display_title": "Inteligencia Artificial",
+      "credits": 8,
+      "raw_prerequisite_text": "COM-11112",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "COM-11112",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dii-a:08:053",
+      "semester_label": "Octavo Semestre",
+      "semester_order": 8,
+      "sort_order": 53,
+      "course_code": "ADM-12302",
+      "display_title": "Tópicos de Negocios II",
+      "credits": 6,
+      "raw_prerequisite_text": "ADM-12301",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ADM-12301",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dii-a:08:054",
+      "semester_label": "Octavo Semestre",
+      "semester_order": 8,
+      "sort_order": 54,
+      "course_code": "ECO-10521",
+      "display_title": "Inferencia Causal",
+      "credits": 6,
+      "raw_prerequisite_text": "EST-14103",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EST-14103",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dii-a:08:055",
+      "semester_label": "Octavo Semestre",
+      "semester_order": 8,
+      "sort_order": 55,
+      "course_code": "COM-15112",
+      "display_title": "Cómputo Paralelo y en la Nube",
+      "credits": 6,
+      "raw_prerequisite_text": "COM-12103",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "COM-12103",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dii-a:08:056",
+      "semester_label": "Octavo Semestre",
+      "semester_order": 8,
+      "sort_order": 56,
+      "course_code": "IIO-15170",
+      "display_title": "Diseño Asistido por Computadora",
+      "credits": 6,
+      "raw_prerequisite_text": "SDI-11120",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "SDI-11120",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dii-a:08:057",
+      "semester_label": "Octavo Semestre",
+      "semester_order": 8,
+      "sort_order": 57,
+      "course_code": "COM-14105",
+      "display_title": "Algoritmos Numéricos por Computadora",
+      "credits": 6,
+      "raw_prerequisite_text": "COM-16203 y MAT-14102",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "COM-16203",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "MAT-14102",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dii-a:08:058",
+      "semester_label": "Octavo Semestre",
+      "semester_order": 8,
+      "sort_order": 58,
+      "course_code": "IIO-13180",
+      "display_title": "Simulación de Sistemas",
+      "credits": 6,
+      "raw_prerequisite_text": "COM-16203 y EST-24127",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "COM-16203",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "EST-24127",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dii-a:09:059",
+      "semester_label": "Noveno Semestre",
+      "semester_order": 9,
+      "sort_order": 59,
+      "course_code": "CSO-16049",
+      "display_title": "Tópicos de Políticas Públicas II",
+      "credits": 6,
+      "raw_prerequisite_text": "CSO-16048",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "CSO-16048",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dii-a:09:060",
+      "semester_label": "Noveno Semestre",
+      "semester_order": 9,
+      "sort_order": 60,
+      "course_code": "COM-22108",
+      "display_title": "Minería y Análisis de Datos",
+      "credits": 6,
+      "raw_prerequisite_text": "COM-22102 y COM-23701",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "COM-22102",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "COM-23701",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dii-a:09:061",
+      "semester_label": "Noveno Semestre",
+      "semester_order": 9,
+      "sort_order": 61,
+      "course_code": "DER-10114",
+      "display_title": "Seminario de Legalidad y Ética en Ciencia de Datos",
+      "credits": 4,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:dii-a:09:062",
+      "semester_label": "Noveno Semestre",
+      "semester_order": 9,
+      "sort_order": 62,
+      "course_code": "COM-23114",
+      "display_title": "Arquitectura para Grandes Volúmenes de Datos",
+      "credits": 6,
+      "raw_prerequisite_text": "COM-12103 y COM-15112",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "COM-12103",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "COM-15112",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dii-a:09:063",
+      "semester_label": "Noveno Semestre",
+      "semester_order": 9,
+      "sort_order": 63,
+      "course_code": "COM-23115",
+      "display_title": "Ciencia de Datos Aplicada I (B)",
+      "credits": 4,
+      "raw_prerequisite_text": "COM-15112 y COM-23701",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "COM-15112",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "COM-23701",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dii-a:09:064",
+      "semester_label": "Noveno Semestre",
+      "semester_order": 9,
+      "sort_order": 64,
+      "course_code": "EST-24125",
+      "display_title": "Métodos Multivariados",
+      "credits": 6,
+      "raw_prerequisite_text": "EST-14103",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EST-14103",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dii-a:09:065",
+      "semester_label": "Noveno Semestre",
+      "semester_order": 9,
+      "sort_order": 65,
+      "course_code": "IIO-14193",
+      "display_title": "Ingeniería de Procesos de Negocios",
+      "credits": 6,
+      "raw_prerequisite_text": "IIO-13180",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "IIO-13180",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dii-a:10:066",
+      "semester_label": "Décimo Semestre",
+      "semester_order": 10,
+      "sort_order": 66,
+      "course_code": "COM-23116",
+      "display_title": "Ciencia de Datos Aplicada II (A)",
+      "credits": 6,
+      "raw_prerequisite_text": "COM-22108, COM-23115 y COM-23114, ADM-12301 y CSO-16048",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "COM-22108",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "COM-23115",
+          "ordinal_position": 2
+        },
+        {
+          "referenced_course_code": "COM-23114",
+          "ordinal_position": 3
+        },
+        {
+          "referenced_course_code": "ADM-12301",
+          "ordinal_position": 4
+        },
+        {
+          "referenced_course_code": "CSO-16048",
+          "ordinal_position": 5
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dii-a:10:067",
+      "semester_label": "Décimo Semestre",
+      "semester_order": 10,
+      "sort_order": 67,
+      "course_code": "LEN-12762",
+      "display_title": "Comunicación Profesional para Ciencia de Datos (A)",
+      "credits": 2,
+      "raw_prerequisite_text": "LEN-12702 y LEN-12722",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "LEN-12702",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "LEN-12722",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dii-a:10:068",
+      "semester_label": "Décimo Semestre",
+      "semester_order": 10,
+      "sort_order": 68,
+      "course_code": "EST-24112",
+      "display_title": "Estadística Bayesiana",
+      "credits": 6,
+      "raw_prerequisite_text": "EST-14103",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EST-14103",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dii-a:10:069",
+      "semester_label": "Décimo Semestre",
+      "semester_order": 10,
+      "sort_order": 69,
+      "course_code": "IIO-14160",
+      "display_title": "Diseño de Planta",
+      "credits": 6,
+      "raw_prerequisite_text": "IIO-13150",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "IIO-13150",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dii-a:10:070",
+      "semester_label": "Décimo Semestre",
+      "semester_order": 10,
+      "sort_order": 70,
+      "course_code": "IIO-12170",
+      "display_title": "Automat. y Control de Procesos",
+      "credits": 9,
+      "raw_prerequisite_text": "COM-16203",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "COM-16203",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dii-a:10:071",
+      "semester_label": "Décimo Semestre",
+      "semester_order": 10,
+      "sort_order": 71,
+      "course_code": "IIO-14170",
+      "display_title": "Logística y Distribución",
+      "credits": 6,
+      "raw_prerequisite_text": "IIO-13150 y IIO-14161",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "IIO-13150",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "IIO-14161",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dii-a:10:072",
+      "semester_label": "Décimo Semestre",
+      "semester_order": 10,
+      "sort_order": 72,
+      "course_code": "ADM-15501",
+      "display_title": "Finanzas I",
+      "credits": 7,
+      "raw_prerequisite_text": "CON-10100, ECO-24127 y EST-14103",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "CON-10100",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "ECO-24127",
+          "ordinal_position": 2
+        },
+        {
+          "referenced_course_code": "EST-14103",
+          "ordinal_position": 3
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dii-a:10:073",
+      "semester_label": "Décimo Semestre",
+      "semester_order": 10,
+      "sort_order": 73,
+      "course_code": "IIO-14180",
+      "display_title": "Admón. y Eval. De Proyectos",
+      "credits": 6,
+      "raw_prerequisite_text": "UNDÉCIMO SEMESTRE EST-24127",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EST-24127",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dii-a:10:074",
+      "semester_label": "Décimo Semestre",
+      "semester_order": 10,
+      "sort_order": 74,
+      "course_code": "LEN-12767",
+      "display_title": "Comunicación Profesional para Ing. Industrial (A)",
+      "credits": 2,
+      "raw_prerequisite_text": "LEN-12727 y LEN-12702",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "LEN-12727",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "LEN-12702",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dii-a:10:075",
+      "semester_label": "Décimo Semestre",
+      "semester_order": 10,
+      "sort_order": 75,
+      "course_code": "IIO-12180",
+      "display_title": "Diseño y Desarrollo de Producto (A)",
+      "credits": 6,
+      "raw_prerequisite_text": "ADM-16601 y IIO-15170",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ADM-16601",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "IIO-15170",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:dii-a:10:076",
+      "semester_label": "Décimo Semestre",
+      "semester_order": 10,
+      "sort_order": 76,
+      "course_code": "IIO-16180",
+      "display_title": "Seminario de Titulación",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    }
+  ]
+}

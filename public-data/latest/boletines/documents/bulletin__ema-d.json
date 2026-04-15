@@ -1,0 +1,1195 @@
+{
+  "bulletin_id": "bulletin:ema-d",
+  "source_code": "EMA-D",
+  "title": "LICENCIATURAS EN ECONOMÍA Y Plan D",
+  "program_title": "LICENCIATURAS EN ECONOMÍA Y",
+  "plan_code": "D",
+  "plan_id": "licenciaturas-en-economia-y:d",
+  "application_term": "PRIMAVERA 2026",
+  "application_year": 2026,
+  "active_from": "2026-01-01",
+  "active_to": "2026-05-31",
+  "entry_from_term": null,
+  "entry_to_term": null,
+  "requirements": [
+    {
+      "requirement_id": "bulletin:ema-d:01:001",
+      "semester_label": "Primer Semestre",
+      "semester_order": 1,
+      "sort_order": 1,
+      "course_code": "COM-16301",
+      "display_title": "Herramientas Com. y Algorit.",
+      "credits": 7,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:ema-d:01:002",
+      "semester_label": "Primer Semestre",
+      "semester_order": 1,
+      "sort_order": 2,
+      "course_code": "ECO-11101",
+      "display_title": "Economía I",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:ema-d:01:003",
+      "semester_label": "Primer Semestre",
+      "semester_order": 1,
+      "sort_order": 3,
+      "course_code": "LEN-12701",
+      "display_title": "Estrategias de Comunicación Escrita",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:ema-d:01:004",
+      "semester_label": "Primer Semestre",
+      "semester_order": 1,
+      "sort_order": 4,
+      "course_code": "EGN-17121",
+      "display_title": "Ideas e Instit. Polít. y Soc. I",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:ema-d:01:005",
+      "semester_label": "Primer Semestre",
+      "semester_order": 1,
+      "sort_order": 5,
+      "course_code": "EGN-17141",
+      "display_title": "Probs.de la Civ. Contemp. I",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:ema-d:02:006",
+      "semester_label": "Segundo Semestre",
+      "semester_order": 2,
+      "sort_order": 6,
+      "course_code": "MAT-14100",
+      "display_title": "Cálculo Diferencial e Integral I",
+      "credits": 8,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:ema-d:02:007",
+      "semester_label": "Segundo Semestre",
+      "semester_order": 2,
+      "sort_order": 7,
+      "course_code": "MAT-14200",
+      "display_title": "Geometría Analítica",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:ema-d:02:008",
+      "semester_label": "Segundo Semestre",
+      "semester_order": 2,
+      "sort_order": 8,
+      "course_code": "MAT-14300",
+      "display_title": "Algebra Superior I",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:ema-d:02:009",
+      "semester_label": "Segundo Semestre",
+      "semester_order": 2,
+      "sort_order": 9,
+      "course_code": "EGN-17122",
+      "display_title": "Ideas e Instituc.Politic.y Soc. II",
+      "credits": 6,
+      "raw_prerequisite_text": "EGN-17121",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EGN-17121",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ema-d:02:010",
+      "semester_label": "Segundo Semestre",
+      "semester_order": 2,
+      "sort_order": 10,
+      "course_code": "EGN-17142",
+      "display_title": "Probs. de la Civ. Contemp. II",
+      "credits": 6,
+      "raw_prerequisite_text": "EGN-17141",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EGN-17141",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ema-d:02:011",
+      "semester_label": "Segundo Semestre",
+      "semester_order": 2,
+      "sort_order": 11,
+      "course_code": "ECO-12102",
+      "display_title": "Economía II",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-11101",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-11101",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ema-d:02:012",
+      "semester_label": "Segundo Semestre",
+      "semester_order": 2,
+      "sort_order": 12,
+      "course_code": "CON-10100",
+      "display_title": "Contabilidad I",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:ema-d:03:013",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 13,
+      "course_code": "MAT-14101",
+      "display_title": "Cálculo Diferencial e Integral II",
+      "credits": 8,
+      "raw_prerequisite_text": "MAT-14100",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "MAT-14100",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ema-d:03:014",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 14,
+      "course_code": "MAT-14201",
+      "display_title": "Algebra Lineal I",
+      "credits": 8,
+      "raw_prerequisite_text": "MAT-14200",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "MAT-14200",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ema-d:03:015",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 15,
+      "course_code": "MAT-14301",
+      "display_title": "Algebra Superior II",
+      "credits": 6,
+      "raw_prerequisite_text": "MAT-14300",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "MAT-14300",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ema-d:03:016",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 16,
+      "course_code": "EGN-17123",
+      "display_title": "Ideas e Instituc.Politic.y Soc.III (A)",
+      "credits": 6,
+      "raw_prerequisite_text": "EGN-17122, EGN-17141 y LEN-12701",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EGN-17122",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "EGN-17141",
+          "ordinal_position": 2
+        },
+        {
+          "referenced_course_code": "LEN-12701",
+          "ordinal_position": 3
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ema-d:03:017",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 17,
+      "course_code": "LEN-12702",
+      "display_title": "Seminario de Comunicación Escrita (A)",
+      "credits": 2,
+      "raw_prerequisite_text": "LEN-12701",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "LEN-12701",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ema-d:03:018",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 18,
+      "course_code": "COM-11302",
+      "display_title": "Algorítmica y Programación",
+      "credits": 6,
+      "raw_prerequisite_text": "COM-16301",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "COM-16301",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ema-d:03:019",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 19,
+      "course_code": "ECO-21103",
+      "display_title": "Economía III",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-12102 y MAT-14100",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-12102",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "MAT-14100",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ema-d:04:020",
+      "semester_label": "Cuarto Semestre",
+      "semester_order": 4,
+      "sort_order": 20,
+      "course_code": "MAT-14102",
+      "display_title": "Cálculo Diferencial e Integral III",
+      "credits": 8,
+      "raw_prerequisite_text": "MAT-14201 y MAT-14101",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "MAT-14201",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "MAT-14101",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ema-d:04:021",
+      "semester_label": "Cuarto Semestre",
+      "semester_order": 4,
+      "sort_order": 21,
+      "course_code": "MAT-14310",
+      "display_title": "Algebra Lineal II",
+      "credits": 8,
+      "raw_prerequisite_text": "MAT-14201",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "MAT-14201",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ema-d:04:022",
+      "semester_label": "Cuarto Semestre",
+      "semester_order": 4,
+      "sort_order": 22,
+      "course_code": "EST-14101",
+      "display_title": "Cálculo de Probabilidades I",
+      "credits": 6,
+      "raw_prerequisite_text": "MAT-14301 y MAT-14101",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "MAT-14301",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "MAT-14101",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ema-d:04:023",
+      "semester_label": "Cuarto Semestre",
+      "semester_order": 4,
+      "sort_order": 23,
+      "course_code": "MAT-14390",
+      "display_title": "Matemática Computacional",
+      "credits": 8,
+      "raw_prerequisite_text": "COM-11302, MAT-14201 y MAT-14101",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "COM-11302",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "MAT-14201",
+          "ordinal_position": 2
+        },
+        {
+          "referenced_course_code": "MAT-14101",
+          "ordinal_position": 3
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ema-d:04:024",
+      "semester_label": "Cuarto Semestre",
+      "semester_order": 4,
+      "sort_order": 24,
+      "course_code": "ECO-21104",
+      "display_title": "Economía IV",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-21103 y MAT-14101",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-21103",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "MAT-14101",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ema-d:04:025",
+      "semester_label": "Cuarto Semestre",
+      "semester_order": 4,
+      "sort_order": 25,
+      "course_code": "EGN-17161",
+      "display_title": "Historia Socio-Política de México",
+      "credits": 6,
+      "raw_prerequisite_text": "EGN-17123 y LEN-12702",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EGN-17123",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "LEN-12702",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ema-d:05:026",
+      "semester_label": "Quinto Semestre",
+      "semester_order": 5,
+      "sort_order": 26,
+      "course_code": "MAT-24210",
+      "display_title": "Sistemas Dinámicos I",
+      "credits": 6,
+      "raw_prerequisite_text": "MAT-14102 y MAT-14310",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "MAT-14102",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "MAT-14310",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ema-d:05:027",
+      "semester_label": "Quinto Semestre",
+      "semester_order": 5,
+      "sort_order": 27,
+      "course_code": "MAT-24110",
+      "display_title": "Análisis Matemático I",
+      "credits": 6,
+      "raw_prerequisite_text": "MAT-14102",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "MAT-14102",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ema-d:05:028",
+      "semester_label": "Quinto Semestre",
+      "semester_order": 5,
+      "sort_order": 28,
+      "course_code": "EST-14102",
+      "display_title": "Cálculo de Probabilidades II",
+      "credits": 6,
+      "raw_prerequisite_text": "EST-14101 y MAT-14102",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EST-14101",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "MAT-14102",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ema-d:05:029",
+      "semester_label": "Quinto Semestre",
+      "semester_order": 5,
+      "sort_order": 29,
+      "course_code": "EGN-17162",
+      "display_title": "Probs. de la Real. Mex. Contemp.",
+      "credits": 6,
+      "raw_prerequisite_text": "EGN-17142 y EGN-17161",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EGN-17142",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "EGN-17161",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ema-d:05:030",
+      "semester_label": "Quinto Semestre",
+      "semester_order": 5,
+      "sort_order": 30,
+      "course_code": "ECO-22105",
+      "display_title": "Economía V",
+      "credits": 8,
+      "raw_prerequisite_text": "ECO-21103 y MAT-14101",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-21103",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "MAT-14101",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ema-d:05:031",
+      "semester_label": "Quinto Semestre",
+      "semester_order": 5,
+      "sort_order": 31,
+      "course_code": "DER-10113",
+      "display_title": "Derecho Público",
+      "credits": 9,
+      "raw_prerequisite_text": "ECO-12102 y MAT-14100",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-12102",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "MAT-14100",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ema-d:06:032",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 32,
+      "course_code": "MAT-24111",
+      "display_title": "Análisis Matemático II",
+      "credits": 6,
+      "raw_prerequisite_text": "MAT-24110",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "MAT-24110",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ema-d:06:033",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 33,
+      "course_code": "EST-14103",
+      "display_title": "Estadística Matemática",
+      "credits": 8,
+      "raw_prerequisite_text": "EST-14102",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EST-14102",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ema-d:06:034",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 34,
+      "course_code": "MAT-22211",
+      "display_title": "Optimización",
+      "credits": 6,
+      "raw_prerequisite_text": "MAT-24110 y MAT-24210",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "MAT-24110",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "MAT-24210",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ema-d:06:035",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 35,
+      "course_code": "ECO-10301",
+      "display_title": "Historia del Análisis Económico",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-12102 y EGN-17123",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-12102",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "EGN-17123",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ema-d:06:036",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 36,
+      "course_code": "ECO-17103",
+      "display_title": "Seminario de la Economía de México (A)",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-21104 y ECO-22105",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-21104",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "ECO-22105",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ema-d:06:037",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 37,
+      "course_code": "LEN-12718",
+      "display_title": "Comunicación Escrita para Economía (A)",
+      "credits": 2,
+      "raw_prerequisite_text": "LEN-12701",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "LEN-12701",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ema-d:06:038",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 38,
+      "course_code": "ECO-13101",
+      "display_title": "Economía Internacional I",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-21104 y ECO-22105",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-21104",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "ECO-22105",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ema-d:07:039",
+      "semester_label": "Septimo Semestre",
+      "semester_order": 7,
+      "sort_order": 39,
+      "course_code": "MAT-24211",
+      "display_title": "Sistemas Dinámicos II (A)",
+      "credits": 6,
+      "raw_prerequisite_text": "MAT-24210",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "MAT-24210",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ema-d:07:040",
+      "semester_label": "Septimo Semestre",
+      "semester_order": 7,
+      "sort_order": 40,
+      "course_code": "LEN-12719",
+      "display_title": "Comunicación Escrita para Mat. Aplicadas (A)",
+      "credits": 2,
+      "raw_prerequisite_text": "LEN-12701",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "LEN-12701",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ema-d:07:041",
+      "semester_label": "Septimo Semestre",
+      "semester_order": 7,
+      "sort_order": 41,
+      "course_code": "MAT-14400",
+      "display_title": "Cálculo Numérico I",
+      "credits": 8,
+      "raw_prerequisite_text": "MAT-14102, MAT-14310 y MAT-14390",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "MAT-14102",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "MAT-14310",
+          "ordinal_position": 2
+        },
+        {
+          "referenced_course_code": "MAT-14390",
+          "ordinal_position": 3
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ema-d:07:042",
+      "semester_label": "Septimo Semestre",
+      "semester_order": 7,
+      "sort_order": 42,
+      "course_code": "EST-24105",
+      "display_title": "Estadística Aplicada II",
+      "credits": 6,
+      "raw_prerequisite_text": "EST-14103",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EST-14103",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ema-d:07:043",
+      "semester_label": "Septimo Semestre",
+      "semester_order": 7,
+      "sort_order": 43,
+      "course_code": "ECO-12201",
+      "display_title": "Teoría y Política Monetaria",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-22105",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-22105",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ema-d:07:044",
+      "semester_label": "Septimo Semestre",
+      "semester_order": 7,
+      "sort_order": 44,
+      "course_code": "ECO-15101",
+      "display_title": "Finanzas Públicas",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-21104 y ECO-22105",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-21104",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "ECO-22105",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ema-d:07:045",
+      "semester_label": "Septimo Semestre",
+      "semester_order": 7,
+      "sort_order": 45,
+      "course_code": "ECO-17100",
+      "display_title": "Historia Económica de México",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-22105 y EGN-17162",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-22105",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "EGN-17162",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ema-d:08:046",
+      "semester_label": "Octavo Semestre",
+      "semester_order": 8,
+      "sort_order": 46,
+      "course_code": "EST-14107",
+      "display_title": "Procesos Estocásticos I",
+      "credits": 6,
+      "raw_prerequisite_text": "EST-14102",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EST-14102",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ema-d:08:047",
+      "semester_label": "Octavo Semestre",
+      "semester_order": 8,
+      "sort_order": 47,
+      "course_code": "MAT-24410",
+      "display_title": "Programación Lineal",
+      "credits": 6,
+      "raw_prerequisite_text": "MAT-14400",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "MAT-14400",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ema-d:08:048",
+      "semester_label": "Octavo Semestre",
+      "semester_order": 8,
+      "sort_order": 48,
+      "course_code": "EST-24106",
+      "display_title": "Estadística Aplicada III",
+      "credits": 6,
+      "raw_prerequisite_text": "EST-14103",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EST-14103",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ema-d:08:049",
+      "semester_label": "Octavo Semestre",
+      "semester_order": 8,
+      "sort_order": 49,
+      "course_code": "ECO-21111",
+      "display_title": "Teoría del Prod. y el Consumidor",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-21104, ECO-22105 y MAT-24110",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-21104",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "ECO-22105",
+          "ordinal_position": 2
+        },
+        {
+          "referenced_course_code": "MAT-24110",
+          "ordinal_position": 3
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ema-d:08:050",
+      "semester_label": "Octavo Semestre",
+      "semester_order": 8,
+      "sort_order": 50,
+      "course_code": "ECO-14301",
+      "display_title": "Organización Industrial",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-21104 y ECO-22105",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-21104",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "ECO-22105",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ema-d:08:051",
+      "semester_label": "Octavo Semestre",
+      "semester_order": 8,
+      "sort_order": 51,
+      "course_code": "ECO-20514",
+      "display_title": "Macroeconometría Avanzada",
+      "credits": 7,
+      "raw_prerequisite_text": "EST-24105",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EST-24105",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ema-d:09:052",
+      "semester_label": "Noveno Semestre",
+      "semester_order": 9,
+      "sort_order": 52,
+      "course_code": "MAT-24430",
+      "display_title": "Análisis Aplicado I",
+      "credits": 6,
+      "raw_prerequisite_text": "MAT-24410 y MAT-24111",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "MAT-24410",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "MAT-24111",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ema-d:09:053",
+      "semester_label": "Noveno Semestre",
+      "semester_order": 9,
+      "sort_order": 53,
+      "course_code": "MAT-24500",
+      "display_title": "Investigación de Operaciones I (A)",
+      "credits": 6,
+      "raw_prerequisite_text": "MAT-24410",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "MAT-24410",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ema-d:09:054",
+      "semester_label": "Noveno Semestre",
+      "semester_order": 9,
+      "sort_order": 54,
+      "course_code": "LEN-12759",
+      "display_title": "Comunicac. Profesional para Mat. Aplic. (A)",
+      "credits": 2,
+      "raw_prerequisite_text": "LEN-12702 y LEN-12719",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "LEN-12702",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "LEN-12719",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ema-d:09:055",
+      "semester_label": "Noveno Semestre",
+      "semester_order": 9,
+      "sort_order": 55,
+      "course_code": "ECO-21112",
+      "display_title": "Equilibrio General",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-21111",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-21111",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ema-d:09:056",
+      "semester_label": "Noveno Semestre",
+      "semester_order": 9,
+      "sort_order": 56,
+      "course_code": "ECO-22112",
+      "display_title": "Macroeconomía Dinámica I",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-21111, ECO-22105 y MAT-24210",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-21111",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "ECO-22105",
+          "ordinal_position": 2
+        },
+        {
+          "referenced_course_code": "MAT-24210",
+          "ordinal_position": 3
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ema-d:09:057",
+      "semester_label": "Noveno Semestre",
+      "semester_order": 9,
+      "sort_order": 57,
+      "course_code": "ECO-20513",
+      "display_title": "Microeconometría Avanzada",
+      "credits": 7,
+      "raw_prerequisite_text": "ECO-21104, ECO-22105 y EST-24105",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-21104",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "ECO-22105",
+          "ordinal_position": 2
+        },
+        {
+          "referenced_course_code": "EST-24105",
+          "ordinal_position": 3
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ema-d:09:058",
+      "semester_label": "Noveno Semestre",
+      "semester_order": 9,
+      "sort_order": 58,
+      "course_code": "ECO-18101",
+      "display_title": "Desarrollo Económico",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-21104 y ECO-15101",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-21104",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "ECO-15101",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ema-d:10:059",
+      "semester_label": "Décimo Semestre",
+      "semester_order": 10,
+      "sort_order": 59,
+      "course_code": "MAT-24431",
+      "display_title": "Optimización Numérica I",
+      "credits": 8,
+      "raw_prerequisite_text": "MAT-24430",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "MAT-24430",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ema-d:10:060",
+      "semester_label": "Décimo Semestre",
+      "semester_order": 10,
+      "sort_order": 60,
+      "course_code": "ECO-21113",
+      "display_title": "Teoría de Juegos",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-21111",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-21111",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ema-d:10:061",
+      "semester_label": "Décimo Semestre",
+      "semester_order": 10,
+      "sort_order": 61,
+      "course_code": "ECO-22113",
+      "display_title": "Macroeconomía Dinámica II",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-22112",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-22112",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ema-d:10:062",
+      "semester_label": "Décimo Semestre",
+      "semester_order": 10,
+      "sort_order": 62,
+      "course_code": "ECO-13102",
+      "display_title": "Economía Internacional II",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-13101 y ECO-12201",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-13101",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "ECO-12201",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ema-d:10:063",
+      "semester_label": "Décimo Semestre",
+      "semester_order": 10,
+      "sort_order": 63,
+      "course_code": "ECO-10204",
+      "display_title": "Seminario de Inv. Económica I (A)",
+      "credits": 9,
+      "raw_prerequisite_text": "ECO-22105 y ECO-21104",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-22105",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "ECO-21104",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ema-d:10:064",
+      "semester_label": "Décimo Semestre",
+      "semester_order": 10,
+      "sort_order": 64,
+      "course_code": "LEN-12758",
+      "display_title": "Comunicación Profesional para Economía (A)",
+      "credits": 2,
+      "raw_prerequisite_text": "LEN-12702 y LEN-12718",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "LEN-12702",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "LEN-12718",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ema-d:10:065",
+      "semester_label": "Décimo Semestre",
+      "semester_order": 10,
+      "sort_order": 65,
+      "course_code": "ECO-10202",
+      "display_title": "Seminario de Inv. Económica II",
+      "credits": 6,
+      "raw_prerequisite_text": "UNDÉCIMO SEMESTRE ECO-22113",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-22113",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:ema-d:10:066",
+      "semester_label": "Décimo Semestre",
+      "semester_order": 10,
+      "sort_order": 66,
+      "course_code": null,
+      "display_title": "Optativa",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:ema-d:10:067",
+      "semester_label": "Décimo Semestre",
+      "semester_order": 10,
+      "sort_order": 67,
+      "course_code": null,
+      "display_title": "Optativa",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:ema-d:10:068",
+      "semester_label": "Décimo Semestre",
+      "semester_order": 10,
+      "sort_order": 68,
+      "course_code": null,
+      "display_title": "Optativa",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:ema-d:10:069",
+      "semester_label": "Décimo Semestre",
+      "semester_order": 10,
+      "sort_order": 69,
+      "course_code": null,
+      "display_title": "Optativa",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    }
+  ]
+}

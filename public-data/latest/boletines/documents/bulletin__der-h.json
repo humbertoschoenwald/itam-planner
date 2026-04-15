@@ -1,0 +1,974 @@
+{
+  "bulletin_id": "bulletin:der-h",
+  "source_code": "DER-H",
+  "title": "LICENCIATURA EN DERECHO Plan H",
+  "program_title": "LICENCIATURA EN DERECHO",
+  "plan_code": "H",
+  "plan_id": "licenciatura-en-derecho:h",
+  "application_term": "PRIMAVERA 2026",
+  "application_year": 2026,
+  "active_from": "2026-01-01",
+  "active_to": "2026-05-31",
+  "entry_from_term": null,
+  "entry_to_term": null,
+  "requirements": [
+    {
+      "requirement_id": "bulletin:der-h:01:001",
+      "semester_label": "Primer Semestre",
+      "semester_order": 1,
+      "sort_order": 1,
+      "course_code": "CON-10110",
+      "display_title": "Fundamentos de Contabilidad Financiera",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:der-h:01:002",
+      "semester_label": "Primer Semestre",
+      "semester_order": 1,
+      "sort_order": 2,
+      "course_code": "DER-11121",
+      "display_title": "Cultura de la Legalidad",
+      "credits": 4,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:der-h:01:003",
+      "semester_label": "Primer Semestre",
+      "semester_order": 1,
+      "sort_order": 3,
+      "course_code": "DER-11122",
+      "display_title": "Teoría del Derecho I",
+      "credits": 9,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:der-h:01:004",
+      "semester_label": "Primer Semestre",
+      "semester_order": 1,
+      "sort_order": 4,
+      "course_code": "DER-12103",
+      "display_title": "Historia del Derecho",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:der-h:01:005",
+      "semester_label": "Primer Semestre",
+      "semester_order": 1,
+      "sort_order": 5,
+      "course_code": "EGN-17141",
+      "display_title": "Problemas de la Civilización Contemporánea I",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:der-h:01:006",
+      "semester_label": "Primer Semestre",
+      "semester_order": 1,
+      "sort_order": 6,
+      "course_code": "LEN-12701",
+      "display_title": "Estrategias de Comunicación Escrita",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:der-h:02:007",
+      "semester_label": "Segundo Semestre",
+      "semester_order": 2,
+      "sort_order": 7,
+      "course_code": "COM-14113",
+      "display_title": "Fundamentos de Programación",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:der-h:02:008",
+      "semester_label": "Segundo Semestre",
+      "semester_order": 2,
+      "sort_order": 8,
+      "course_code": "DER-11111",
+      "display_title": "Habilidades Jurídicas Globales I",
+      "credits": 6,
+      "raw_prerequisite_text": "DER-11121",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-11121",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:der-h:02:009",
+      "semester_label": "Segundo Semestre",
+      "semester_order": 2,
+      "sort_order": 9,
+      "course_code": "DER-11206",
+      "display_title": "Teoría del Derecho II",
+      "credits": 6,
+      "raw_prerequisite_text": "DER-11122",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-11122",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:der-h:02:010",
+      "semester_label": "Segundo Semestre",
+      "semester_order": 2,
+      "sort_order": 10,
+      "course_code": "DER-11207",
+      "display_title": "Escritura Jurídica",
+      "credits": 6,
+      "raw_prerequisite_text": "LEN-12701",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "LEN-12701",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:der-h:02:011",
+      "semester_label": "Segundo Semestre",
+      "semester_order": 2,
+      "sort_order": 11,
+      "course_code": "DER-13201",
+      "display_title": "Personas y Familia",
+      "credits": 6,
+      "raw_prerequisite_text": "DER-12103",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-12103",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:der-h:02:012",
+      "semester_label": "Segundo Semestre",
+      "semester_order": 2,
+      "sort_order": 12,
+      "course_code": "EGN-17142",
+      "display_title": "Problemas de la Civilización Contemporánea II",
+      "credits": 6,
+      "raw_prerequisite_text": "EGN-17141",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EGN-17141",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:der-h:02:013",
+      "semester_label": "Segundo Semestre",
+      "semester_order": 2,
+      "sort_order": 13,
+      "course_code": "MAT-10101",
+      "display_title": "Métodos Cuantitativos para Derecho",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:der-h:03:014",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 14,
+      "course_code": "COM-16305",
+      "display_title": "Gestión de Datos",
+      "credits": 6,
+      "raw_prerequisite_text": "COM-14113",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "COM-14113",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:der-h:03:015",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 15,
+      "course_code": "DER-11307",
+      "display_title": "Taller de Escritura para Derecho Privado",
+      "credits": 4,
+      "raw_prerequisite_text": "DER-11207",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-11207",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:der-h:03:016",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 16,
+      "course_code": "DER-13108",
+      "display_title": "Bienes y Derechos Reales",
+      "credits": 6,
+      "raw_prerequisite_text": "DER-13201",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-13201",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:der-h:03:017",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 17,
+      "course_code": "DER-15303",
+      "display_title": "Derecho Constitucional I y Seminario de Teoría Política",
+      "credits": 9,
+      "raw_prerequisite_text": "DER-11122",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-11122",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:der-h:03:018",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 18,
+      "course_code": "ECO-11010",
+      "display_title": "Principios de Microeconomía",
+      "credits": 6,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:der-h:03:019",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 19,
+      "course_code": "EGN-17121",
+      "display_title": "Ideas e Instituciones Políticas y Sociales I (A)",
+      "credits": 6,
+      "raw_prerequisite_text": "LEN-12701",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "LEN-12701",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:der-h:03:020",
+      "semester_label": "Tercer Semestre",
+      "semester_order": 3,
+      "sort_order": 20,
+      "course_code": "LEN-12702",
+      "display_title": "Seminario de Comunicación Escrita (A)",
+      "credits": 2,
+      "raw_prerequisite_text": "LEN-12701",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "LEN-12701",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:der-h:04:021",
+      "semester_label": "Cuarto Semestre",
+      "semester_order": 4,
+      "sort_order": 21,
+      "course_code": "DER-11400",
+      "display_title": "Taller de Escritura para Derecho Público",
+      "credits": 4,
+      "raw_prerequisite_text": "DER-11207 y DER-15303",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-11207",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "DER-15303",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:der-h:04:022",
+      "semester_label": "Cuarto Semestre",
+      "semester_order": 4,
+      "sort_order": 22,
+      "course_code": "DER-13403",
+      "display_title": "Obligaciones",
+      "credits": 8,
+      "raw_prerequisite_text": "DER-13108",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-13108",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:der-h:04:023",
+      "semester_label": "Cuarto Semestre",
+      "semester_order": 4,
+      "sort_order": 23,
+      "course_code": "DER-13407",
+      "display_title": "Teoría General del Proceso y Seminario de Prueba",
+      "credits": 9,
+      "raw_prerequisite_text": "DER-11206 y MAT-10101",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-11206",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "MAT-10101",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:der-h:04:024",
+      "semester_label": "Cuarto Semestre",
+      "semester_order": 4,
+      "sort_order": 24,
+      "course_code": "DER-14402",
+      "display_title": "Teorías del Delito",
+      "credits": 6,
+      "raw_prerequisite_text": "DER-15303",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-15303",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:der-h:04:025",
+      "semester_label": "Cuarto Semestre",
+      "semester_order": 4,
+      "sort_order": 25,
+      "course_code": "DER-15504",
+      "display_title": "Derecho Constitucional II",
+      "credits": 6,
+      "raw_prerequisite_text": "DER-15303",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-15303",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:der-h:04:026",
+      "semester_label": "Cuarto Semestre",
+      "semester_order": 4,
+      "sort_order": 26,
+      "course_code": "ECO-12010",
+      "display_title": "Principios de Macroeconomía",
+      "credits": 6,
+      "raw_prerequisite_text": "MAT-10101 y ECO-11010",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "MAT-10101",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "ECO-11010",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:der-h:04:027",
+      "semester_label": "Cuarto Semestre",
+      "semester_order": 4,
+      "sort_order": 27,
+      "course_code": "EGN-17122",
+      "display_title": "Ideas e Instituciones Políticas y Sociales II",
+      "credits": 6,
+      "raw_prerequisite_text": "EGN-17121",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EGN-17121",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:der-h:05:028",
+      "semester_label": "Quinto Semestre",
+      "semester_order": 5,
+      "sort_order": 28,
+      "course_code": "DER-13505",
+      "display_title": "Contratos",
+      "credits": 6,
+      "raw_prerequisite_text": "DER-13403",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-13403",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:der-h:05:029",
+      "semester_label": "Quinto Semestre",
+      "semester_order": 5,
+      "sort_order": 29,
+      "course_code": "DER-14505",
+      "display_title": "Delitos",
+      "credits": 6,
+      "raw_prerequisite_text": "DER-14402",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-14402",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:der-h:05:030",
+      "semester_label": "Quinto Semestre",
+      "semester_order": 5,
+      "sort_order": 30,
+      "course_code": "DER-15511",
+      "display_title": "Derecho Constitucional III y Seminario de Argumentación",
+      "credits": 9,
+      "raw_prerequisite_text": "DER-15504",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-15504",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:der-h:05:031",
+      "semester_label": "Quinto Semestre",
+      "semester_order": 5,
+      "sort_order": 31,
+      "course_code": "DER-16502",
+      "display_title": "Derecho Mercantil I",
+      "credits": 6,
+      "raw_prerequisite_text": "DER-13403",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-13403",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:der-h:05:032",
+      "semester_label": "Quinto Semestre",
+      "semester_order": 5,
+      "sort_order": 32,
+      "course_code": "DER-18600",
+      "display_title": "Derecho Internacional I",
+      "credits": 6,
+      "raw_prerequisite_text": "DER-15504",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-15504",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:der-h:05:033",
+      "semester_label": "Quinto Semestre",
+      "semester_order": 5,
+      "sort_order": 33,
+      "course_code": "EGN-17123",
+      "display_title": "Ideas e Instituciones Políticas y Sociales III",
+      "credits": 6,
+      "raw_prerequisite_text": "EGN-17122 y EGN-17141",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EGN-17122",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "EGN-17141",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:der-h:05:034",
+      "semester_label": "Quinto Semestre",
+      "semester_order": 5,
+      "sort_order": 34,
+      "course_code": null,
+      "display_title": "Optativa",
+      "credits": 4,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:der-h:06:035",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 35,
+      "course_code": "DER-13616",
+      "display_title": "Procedimientos Civiles y Familiares",
+      "credits": 6,
+      "raw_prerequisite_text": "DER-13407",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-13407",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:der-h:06:036",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 36,
+      "course_code": "DER-13617",
+      "display_title": "Procedimientos Mercantiles",
+      "credits": 4,
+      "raw_prerequisite_text": "DER-13407",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-13407",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:der-h:06:037",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 37,
+      "course_code": "DER-16503",
+      "display_title": "Derecho Mercantil II",
+      "credits": 6,
+      "raw_prerequisite_text": "DER-16502 y DER-11307",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-16502",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "DER-11307",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:der-h:06:038",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 38,
+      "course_code": "DER-17601",
+      "display_title": "Derecho Administrativo I",
+      "credits": 6,
+      "raw_prerequisite_text": "DER-15504",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-15504",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:der-h:06:039",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 39,
+      "course_code": "DER-18601",
+      "display_title": "Derecho Internacional II",
+      "credits": 6,
+      "raw_prerequisite_text": "DER-18600",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-18600",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:der-h:06:040",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 40,
+      "course_code": "DER-19501",
+      "display_title": "Derecho Laboral I",
+      "credits": 6,
+      "raw_prerequisite_text": "DER-13505",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-13505",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:der-h:06:041",
+      "semester_label": "Sexto Semestre",
+      "semester_order": 6,
+      "sort_order": 41,
+      "course_code": "EGN-17161",
+      "display_title": "Historia Socio-Política de México",
+      "credits": 6,
+      "raw_prerequisite_text": "EGN-17123",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EGN-17123",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:der-h:07:042",
+      "semester_label": "Séptimo Semestre",
+      "semester_order": 7,
+      "sort_order": 42,
+      "course_code": "DER-11705",
+      "display_title": "Estudios Empíricos sobre el Derecho",
+      "credits": 6,
+      "raw_prerequisite_text": "ECO-12010",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "ECO-12010",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:der-h:07:043",
+      "semester_label": "Séptimo Semestre",
+      "semester_order": 7,
+      "sort_order": 43,
+      "course_code": "DER-15705",
+      "display_title": "Procedimientos Constitucionales",
+      "credits": 6,
+      "raw_prerequisite_text": "DER-15511 y DER-13616",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-15511",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "DER-13616",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:der-h:07:044",
+      "semester_label": "Séptimo Semestre",
+      "semester_order": 7,
+      "sort_order": 44,
+      "course_code": "DER-16702",
+      "display_title": "Derecho Mercantil III",
+      "credits": 6,
+      "raw_prerequisite_text": "DER-16503",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-16503",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:der-h:07:045",
+      "semester_label": "Séptimo Semestre",
+      "semester_order": 7,
+      "sort_order": 45,
+      "course_code": "DER-17702",
+      "display_title": "Derecho Administrativo II",
+      "credits": 6,
+      "raw_prerequisite_text": "DER-17601 y DER-11400",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-17601",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "DER-11400",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:der-h:07:046",
+      "semester_label": "Séptimo Semestre",
+      "semester_order": 7,
+      "sort_order": 46,
+      "course_code": "DER-19602",
+      "display_title": "Derecho Laboral II",
+      "credits": 6,
+      "raw_prerequisite_text": "DER-19501",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-19501",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:der-h:07:047",
+      "semester_label": "Séptimo Semestre",
+      "semester_order": 7,
+      "sort_order": 47,
+      "course_code": "EGN-17162",
+      "display_title": "Problemas de la Realidad Mexicana Contemporánea",
+      "credits": 6,
+      "raw_prerequisite_text": "EGN-17161",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "EGN-17161",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:der-h:07:048",
+      "semester_label": "Séptimo Semestre",
+      "semester_order": 7,
+      "sort_order": 48,
+      "course_code": null,
+      "display_title": "Optativa",
+      "credits": 4,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:der-h:08:049",
+      "semester_label": "Octavo Semestre",
+      "semester_order": 8,
+      "sort_order": 49,
+      "course_code": "DER-11812",
+      "display_title": "Habilidades Jurídicas Globales II (A)",
+      "credits": 6,
+      "raw_prerequisite_text": "DER-11111 y DER-13403",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-11111",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "DER-13403",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:der-h:08:050",
+      "semester_label": "Octavo Semestre",
+      "semester_order": 8,
+      "sort_order": 50,
+      "course_code": "DER-13618",
+      "display_title": "Sucesiones",
+      "credits": 6,
+      "raw_prerequisite_text": "DER-13505",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-13505",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:der-h:08:051",
+      "semester_label": "Octavo Semestre",
+      "semester_order": 8,
+      "sort_order": 51,
+      "course_code": "DER-14800",
+      "display_title": "Procedimientos Penales",
+      "credits": 6,
+      "raw_prerequisite_text": "DER-14505",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-14505",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:der-h:08:052",
+      "semester_label": "Octavo Semestre",
+      "semester_order": 8,
+      "sort_order": 52,
+      "course_code": "DER-14801",
+      "display_title": "Juicio Oral Penal",
+      "credits": 4,
+      "raw_prerequisite_text": "DER-14505",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-14505",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:der-h:08:053",
+      "semester_label": "Octavo Semestre",
+      "semester_order": 8,
+      "sort_order": 53,
+      "course_code": "DER-17807",
+      "display_title": "Derecho Fiscal I",
+      "credits": 6,
+      "raw_prerequisite_text": "DER-17601",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-17601",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:der-h:08:054",
+      "semester_label": "Octavo Semestre",
+      "semester_order": 8,
+      "sort_order": 54,
+      "course_code": "LEN-12711",
+      "display_title": "Comunicación Escrita para Derecho (A)",
+      "credits": 2,
+      "raw_prerequisite_text": "LEN-12701",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "LEN-12701",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:der-h:08:055",
+      "semester_label": "Octavo Semestre",
+      "semester_order": 8,
+      "sort_order": 55,
+      "course_code": null,
+      "display_title": "Optativa",
+      "credits": 4,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:der-h:09:056",
+      "semester_label": "Noveno Semestre",
+      "semester_order": 9,
+      "sort_order": 56,
+      "course_code": "DER-11805",
+      "display_title": "Filosofía del Derecho",
+      "credits": 6,
+      "raw_prerequisite_text": "DER-18601",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-18601",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:der-h:09:057",
+      "semester_label": "Noveno Semestre",
+      "semester_order": 9,
+      "sort_order": 57,
+      "course_code": "DER-11915",
+      "display_title": "Etica de la Profesión Jurídica (A)",
+      "credits": 4,
+      "raw_prerequisite_text": "DER-17601",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-17601",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:der-h:09:058",
+      "semester_label": "Noveno Semestre",
+      "semester_order": 9,
+      "sort_order": 58,
+      "course_code": "DER-17806",
+      "display_title": "Derecho Fiscal II",
+      "credits": 6,
+      "raw_prerequisite_text": "DER-17807",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-17807",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:der-h:09:059",
+      "semester_label": "Noveno Semestre",
+      "semester_order": 9,
+      "sort_order": 59,
+      "course_code": "ECO-14200",
+      "display_title": "Análisis Económico del Derecho",
+      "credits": 6,
+      "raw_prerequisite_text": "DER-11705",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "DER-11705",
+          "ordinal_position": 1
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:der-h:09:060",
+      "semester_label": "Noveno Semestre",
+      "semester_order": 9,
+      "sort_order": 60,
+      "course_code": "LEN-12751",
+      "display_title": "Comunicación Profesional para Derecho (A)",
+      "credits": 2,
+      "raw_prerequisite_text": "LEN-12702 y LEN-12711",
+      "prerequisite_references": [
+        {
+          "referenced_course_code": "LEN-12702",
+          "ordinal_position": 1
+        },
+        {
+          "referenced_course_code": "LEN-12711",
+          "ordinal_position": 2
+        }
+      ]
+    },
+    {
+      "requirement_id": "bulletin:der-h:09:061",
+      "semester_label": "Noveno Semestre",
+      "semester_order": 9,
+      "sort_order": 61,
+      "course_code": null,
+      "display_title": "Optativa",
+      "credits": 4,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    },
+    {
+      "requirement_id": "bulletin:der-h:09:062",
+      "semester_label": "Noveno Semestre",
+      "semester_order": 9,
+      "sort_order": 62,
+      "course_code": null,
+      "display_title": "Optativa",
+      "credits": 4,
+      "raw_prerequisite_text": null,
+      "prerequisite_references": []
+    }
+  ]
+}
