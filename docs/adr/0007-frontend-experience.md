@@ -45,7 +45,9 @@ Initial product-surface rules:
 - `/` is a lightweight public home and must not be the primary planner shell.
 - `/onboarding` is the dedicated profile bootstrap route for browser-local student context.
 - `/planner` is the dedicated planner shell route.
-- `/planner` must redirect browser-side to `/onboarding` whenever the required onboarding state is incomplete.
+- `/planner` must degrade safely when onboarding state is incomplete.
+- Standard browser tabs may redirect browser-side from `/planner` to `/onboarding`, but the route must remain usable even if that redirect is blocked or unstable in a constrained client such as an installed web app.
+- The dedicated planner route must keep the initial document lean. Heavy schedule detail payloads belong in precomputed JSON artifacts fetched on demand, not embedded wholesale into the initial HTML shell.
 - The Connect to ChatGPT flow comes after the planner state exists and may be teased earlier, but its final route contract is deferred until that slice begins.
 
 ## Consequences
