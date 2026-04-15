@@ -21,10 +21,11 @@ const LOCALE_OPTIONS = [
 const INPUT_CLASS_NAME = "field-shell text-sm";
 
 interface OnboardingPanelProps {
+  redirectedFromPlanner?: boolean;
   plans: BulletinSummary[];
 }
 
-export function OnboardingPanel({ plans }: OnboardingPanelProps) {
+export function OnboardingPanel({ plans, redirectedFromPlanner = false }: OnboardingPanelProps) {
   useSyncStudentCode();
 
   const profile = useStudentProfileStore((state) => state.profile);
@@ -43,6 +44,13 @@ export function OnboardingPanel({ plans }: OnboardingPanelProps) {
       </CardHeader>
       <CardContent className="space-y-5">
         <p className="text-sm leading-6 text-muted">{copy.onboardingPage.description}</p>
+
+        {redirectedFromPlanner ? (
+          <div className="rounded-[1.35rem] bg-accent-soft px-4 py-4 text-sm leading-6 text-accent">
+            <p className="font-semibold">{copy.onboardingPage.plannerGateTitle}</p>
+            <p className="mt-2">{copy.onboardingPage.plannerGateBody}</p>
+          </div>
+        ) : null}
 
         {onboardingComplete ? (
           <div className="rounded-[1.35rem] bg-accent-soft px-4 py-4 text-sm leading-6 text-accent">

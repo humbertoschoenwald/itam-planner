@@ -48,7 +48,7 @@ export function PlannerRouteShell(props: PlannerRouteShellProps) {
       return;
     }
 
-    router.replace("/onboarding");
+    router.replace("/onboarding?from=planner");
   }, [hydrated, onboardingComplete, router]);
 
   if (!hydrated || !onboardingComplete) {

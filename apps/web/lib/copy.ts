@@ -77,6 +77,9 @@ const uiCopy = {
       title: "Capture the academic basics once in this browser.",
       description:
         "Choose your entry term, active plans, and preferred locale. The planner route depends on this local state to know which documents apply to you.",
+      plannerGateBody:
+        "The planner route opened first, but this browser still needs the minimum onboarding state before the dedicated planner shell can load.",
+      plannerGateTitle: "Finish onboarding to enter the planner",
       readyBody:
         "This browser already has the minimum onboarding state. You can refine it here or jump straight into the planner.",
       readyTitle: "Onboarding already exists",
@@ -340,6 +343,9 @@ const uiCopy = {
       title: "Captura lo académico básico una vez en este navegador.",
       description:
         "Elige tu periodo de ingreso, tus planes activos y tu idioma preferido. La ruta del planner depende de este estado local para saber qué documentos te aplican.",
+      plannerGateBody:
+        "Entraste primero a la ruta del planner, pero este navegador todavía necesita el onboarding mínimo antes de abrir el shell dedicado del planner.",
+      plannerGateTitle: "Termina el onboarding para entrar al planner",
       readyBody:
         "Este navegador ya tiene el onboarding mínimo. Puedes ajustarlo aquí o saltar directo al planner.",
       readyTitle: "Ya existe onboarding",

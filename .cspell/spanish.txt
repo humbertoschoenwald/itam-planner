@@ -329,3 +329,6 @@ requiere
 activo
 Redirigiendo
 Ajustar
+Entraste
+necesita
+dedicado

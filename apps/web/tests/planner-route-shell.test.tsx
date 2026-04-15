@@ -41,7 +41,7 @@ describe("PlannerRouteShell", () => {
     );
 
     await waitFor(() => {
-      expect(replaceSpy).toHaveBeenCalledWith("/onboarding");
+      expect(replaceSpy).toHaveBeenCalledWith("/onboarding?from=planner");
     });
 
     expect(screen.getByText(/Redirigiendo a onboarding/u)).toBeInTheDocument();
