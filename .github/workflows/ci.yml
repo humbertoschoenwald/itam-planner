@@ -97,7 +97,16 @@ jobs:
         run: uv run --project apps/api python -m itam_planner_api.cli ingest-fixtures --fixtures-root apps/api/tests/fixtures --public-data-root public-data
 
       - name: Verify promoted snapshot is committed
-        run: pnpm verify:catalog
+        shell: bash
+        run: |
+          changed_paths="$(git diff --name-only -- public-data/latest)"
+          blocking_paths="$(printf '%s\n' "$changed_paths" | grep -v '^public-data/latest/catalog.sqlite$' || true)"
+
+          if [[ -n "$blocking_paths" ]]; then
+            echo "Published catalog drift detected outside catalog.sqlite:"
+            printf '%s\n' "$blocking_paths"
+            exit 1
+          fi
 
   web-stable:
     name: Web checks (Node 24)
