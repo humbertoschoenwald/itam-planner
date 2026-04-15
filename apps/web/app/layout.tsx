@@ -16,8 +16,20 @@ const sans = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "ITAM Planner",
+  metadataBase: new URL("https://itam.humbertoschoenwald.com"),
+  title: {
+    default: "ITAM Planner",
+    template: "%s | ITAM Planner",
+  },
+  applicationName: "ITAM Planner",
   description: "Privacy-first academic planning for ITAM students.",
+  openGraph: {
+    title: "ITAM Planner",
+    description: "Privacy-first academic planning for ITAM students.",
+    siteName: "ITAM Planner",
+    type: "website",
+    url: "https://itam.humbertoschoenwald.com",
+  },
 };
 
 export default function RootLayout({

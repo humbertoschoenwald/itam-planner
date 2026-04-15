@@ -5,14 +5,12 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export default function CommunityPage() {
   return (
-    <main className="mx-auto flex w-full max-w-5xl flex-1 flex-col gap-6 px-5 py-8 sm:px-8 sm:py-12">
+    <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col gap-6 px-5 py-8 sm:px-8 sm:py-12">
       <div className="flex flex-col gap-3">
         <Link className="text-sm font-medium text-accent underline-offset-4 hover:underline" href="/">
           Back to planner
         </Link>
-        <p className="text-sm font-semibold uppercase tracking-[0.24em] text-muted">
-          Community
-        </p>
+        <p className="eyebrow">Community</p>
         <h1 className="font-display text-4xl leading-tight text-foreground sm:text-5xl">
           Feedback, issues, and project contact
         </h1>
@@ -22,9 +20,10 @@ export default function CommunityPage() {
         </p>
       </div>
 
-      <div className="page-grid">
+      <div className="hero-grid">
         <Card>
           <CardHeader>
+            <p className="eyebrow">Canonical support path</p>
             <CardTitle>Open an issue</CardTitle>
           </CardHeader>
           <CardContent className="space-y-3 text-sm leading-6 text-muted">
@@ -52,11 +51,12 @@ export default function CommunityPage() {
 
         <Card>
           <CardHeader>
+            <p className="eyebrow">Creator surfaces</p>
             <CardTitle>Contact surfaces</CardTitle>
           </CardHeader>
           <CardContent>
             <CommunityLinks />
-            <p className="mt-4 text-xs leading-5 text-muted">
+            <p className="mt-4 rounded-[1.15rem] bg-accent-soft px-4 py-4 text-xs leading-5 text-accent">
               Instagram is for creator visibility and project updates. It is not support and
               it is not official ITAM contact.
             </p>

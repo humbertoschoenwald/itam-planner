@@ -25,6 +25,23 @@ const LOCALE_OPTIONS = [
   { value: "en", label: "English" },
 ] as const;
 
+const INPUT_CLASS_NAME = "field-shell text-sm";
+
+const STEP_NOTES = [
+  {
+    body: "Choose the plans that apply to you and keep that context in this browser only.",
+    title: "Onboard once",
+  },
+  {
+    body: "Pick a public period, keep the groups you want, and shape the first planner state.",
+    title: "Shape the timetable",
+  },
+  {
+    body: "Carry that state as a browser-owned code that later powers the external AI bridge.",
+    title: "Carry the code",
+  },
+] as const;
+
 export function PlannerHome() {
   useSyncStudentCode();
 
@@ -92,7 +109,6 @@ export function PlannerHome() {
     }
 
     const currentPeriodId = selectedPeriodId;
-
     let cancelled = false;
 
     async function loadPeriod() {
@@ -120,27 +136,43 @@ export function PlannerHome() {
     };
   }, [plannerState.selectedPeriodId]);
 
-  const selectedOfferings = selectedPeriod?.offerings.filter((offering) =>
-    plannerState.selectedOfferingIds.includes(offering.offering_id),
-  );
+  const selectedOfferings =
+    selectedPeriod?.offerings.filter((offering) =>
+      plannerState.selectedOfferingIds.includes(offering.offering_id),
+    ) ?? [];
+  const hasProfileData = profile.entryTerm.trim().length > 0 || profile.activePlanIds.length > 0;
+  const hasPlannerData =
+    plannerState.selectedPeriodId !== null || plannerState.selectedOfferingIds.length > 0;
+  const currentLocaleLabel =
+    LOCALE_OPTIONS.find((option) => option.value === profile.locale)?.label ?? profile.locale;
+  const activePeriodLabel =
+    periods.find((period) => period.period_id === plannerState.selectedPeriodId)?.label ??
+    "No period selected";
+
+  const heroMetrics = [
+    { label: "Published plans", value: loading ? "..." : String(plans.length) },
+    { label: "Public periods", value: loading ? "..." : String(periods.length) },
+    { label: "Selected groups", value: String(selectedOfferings.length) },
+    { label: "Current locale", value: currentLocaleLabel },
+  ] as const;
 
   return (
-    <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col gap-6 px-5 py-6 sm:px-8 sm:py-10">
-      <section className="overflow-hidden rounded-[2rem] border border-border bg-surface/90 p-6 shadow-[0_24px_80px_rgba(40,43,24,0.08)] sm:p-8">
-        <div className="page-grid">
+    <main className="mx-auto flex w-full max-w-7xl flex-1 flex-col gap-6 px-5 py-6 sm:px-8 sm:py-10">
+      <section className="overflow-hidden rounded-[2.2rem] border border-border bg-surface p-6 shadow-[0_30px_90px_rgba(40,43,24,0.08)] sm:p-8">
+        <div className="hero-grid">
           <div className="space-y-5">
-            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-accent">
-              ITAM Planner
-            </p>
+            <p className="eyebrow text-accent">ITAM Planner</p>
             <div className="space-y-4">
               <h1 className="font-display text-4xl leading-tight text-foreground sm:text-6xl">
-                Build your planner without accounts or cloud-stored personal data.
+                A browser-local planner with a normalized public catalog underneath.
               </h1>
               <p className="max-w-2xl text-base leading-7 text-muted sm:text-lg">
-                The public academic catalog comes from normalized ITAM sources. Your profile,
-                planner choices, and future student code stay in this browser only.
+                Start with onboarding, choose the plans that apply to you, and shape a timetable
+                from published ITAM schedule data. Your profile, selections, and future AI bridge
+                stay in this browser only.
               </p>
             </div>
+
             <div className="flex flex-wrap gap-3">
               <Button asChild>
                 <Link href="/connect-chatgpt">Connect to ChatGPT</Link>
@@ -158,9 +190,20 @@ export function PlannerHome() {
                 </a>
               </Button>
             </div>
+
+            <div className="metric-grid">
+              {heroMetrics.map((metric) => (
+                <div key={metric.label} className="metric-chip">
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted">
+                    {metric.label}
+                  </p>
+                  <p className="mt-3 text-2xl font-semibold text-foreground">{metric.value}</p>
+                </div>
+              ))}
+            </div>
           </div>
 
-          <div className="rounded-[1.75rem] border border-accent/15 bg-accent px-5 py-5 text-accent-soft">
+          <div className="glass-accent rounded-[1.9rem] border border-white/10 px-5 py-5 shadow-[0_24px_50px_rgba(18,40,33,0.26)]">
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-white/72">
               Independent project
             </p>
@@ -168,12 +211,34 @@ export function PlannerHome() {
               Independent open-source project, built by the community. Not affiliated with,
               endorsed by, or maintained by Instituto Tecnológico Autónomo de México (ITAM).
             </p>
-            <div className="mt-5 rounded-2xl bg-white/10 p-4 text-sm leading-6 text-white/86">
-              <p className="font-semibold text-white">No account required</p>
-              <p className="mt-2">
-                Start with onboarding, choose your plan and sections, and keep the resulting
-                planner state in localStorage.
-              </p>
+
+            <div className="mt-5 space-y-3">
+              <div className="rounded-2xl bg-white/10 p-4 text-sm leading-6 text-white/86">
+                <p className="font-semibold text-white">No account required</p>
+                <p className="mt-2">
+                  Start with onboarding, choose your plan and sections, and keep the resulting
+                  planner state in localStorage.
+                </p>
+              </div>
+              <div className="rounded-2xl bg-white/8 p-4 text-sm leading-6 text-white/84">
+                <p className="font-semibold text-white">Catalog delivery model</p>
+                <p className="mt-2">
+                  Public data is normalized outside request time, then shipped back to the app as a
+                  stable catalog artifact.
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-5 grid gap-3 sm:grid-cols-3">
+              {STEP_NOTES.map((step, index) => (
+                <div key={step.title} className="rounded-2xl bg-white/8 p-4 text-sm leading-6 text-white/84">
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/62">
+                    0{index + 1}
+                  </p>
+                  <p className="mt-2 font-semibold text-white">{step.title}</p>
+                  <p className="mt-2">{step.body}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -190,16 +255,27 @@ export function PlannerHome() {
       <section className="page-grid">
         <Card>
           <CardHeader>
+            <p className="eyebrow">Step 1</p>
             <CardTitle>Onboarding</CardTitle>
           </CardHeader>
           <CardContent className="space-y-5">
+            <div className="soft-panel">
+              <p className="font-semibold text-foreground">
+                {hasProfileData ? "Profile in progress" : "Start with the academic basics"}
+              </p>
+              <p className="mt-2 text-sm leading-6 text-muted">
+                This state is private to the current browser. It decides which bulletins and
+                regulations apply to you later.
+              </p>
+            </div>
+
             <div className="space-y-2">
               <label className="text-sm font-medium text-foreground" htmlFor="entry-term">
                 Entry term
               </label>
               <input
                 id="entry-term"
-                className="w-full rounded-2xl border border-border bg-white px-4 py-3 text-sm text-foreground outline-none transition focus:border-accent/45"
+                className={INPUT_CLASS_NAME}
                 onChange={(event) => setEntryTerm(event.target.value)}
                 placeholder="Example: OTOÑO 2025"
                 value={profile.entryTerm}
@@ -212,7 +288,7 @@ export function PlannerHome() {
               </label>
               <select
                 id="locale"
-                className="w-full rounded-2xl border border-border bg-white px-4 py-3 text-sm text-foreground outline-none transition focus:border-accent/45"
+                className={INPUT_CLASS_NAME}
                 onChange={(event) => setLocale(event.target.value as "es-MX" | "en")}
                 value={profile.locale}
               >
@@ -228,7 +304,8 @@ export function PlannerHome() {
               <div>
                 <p className="text-sm font-medium text-foreground">Active plans</p>
                 <p className="mt-1 text-xs leading-5 text-muted">
-                  Select the plans that currently apply to you. No account is required.
+                  Select the plans that currently apply to you. No account is required and nothing
+                  is stored in the backend.
                 </p>
               </div>
 
@@ -239,10 +316,7 @@ export function PlannerHome() {
                   {plans.map((plan) => {
                     const checked = profile.activePlanIds.includes(plan.plan_id);
                     return (
-                      <label
-                        key={plan.bulletin_id}
-                        className="flex cursor-pointer items-start gap-3 rounded-2xl border border-border bg-white px-4 py-3 text-sm transition hover:border-accent/35"
-                      >
+                      <label key={plan.bulletin_id} className="choice-card cursor-pointer items-start text-sm">
                         <input
                           checked={checked}
                           className="mt-1 h-4 w-4 accent-accent"
@@ -271,22 +345,35 @@ export function PlannerHome() {
               <span className="rounded-full bg-accent-soft px-3 py-2 text-xs font-medium text-accent">
                 {profile.entryTerm || DEFAULT_STUDENT_PROFILE.entryTerm || "No term yet"}
               </span>
+              <span className="rounded-full border border-border bg-white px-3 py-2 text-xs font-medium text-muted">
+                {profile.activePlanIds.length} active plan
+                {profile.activePlanIds.length === 1 ? "" : "s"}
+              </span>
             </div>
           </CardContent>
         </Card>
 
         <Card>
           <CardHeader>
+            <p className="eyebrow">Step 2</p>
             <CardTitle>Planner shell</CardTitle>
           </CardHeader>
           <CardContent className="space-y-5">
+            <div className="soft-panel">
+              <p className="font-semibold text-foreground">{activePeriodLabel}</p>
+              <p className="mt-2 text-sm leading-6 text-muted">
+                Choose one public period, then keep the groups you want in the browser-local
+                planner state.
+              </p>
+            </div>
+
             <div className="space-y-2">
               <label className="text-sm font-medium text-foreground" htmlFor="period">
                 Public schedule period
               </label>
               <select
                 id="period"
-                className="w-full rounded-2xl border border-border bg-white px-4 py-3 text-sm text-foreground outline-none transition focus:border-accent/45"
+                className={INPUT_CLASS_NAME}
                 onChange={(event) => setSelectedPeriodId(event.target.value)}
                 value={plannerState.selectedPeriodId ?? ""}
               >
@@ -303,7 +390,7 @@ export function PlannerHome() {
               <p className="text-sm text-muted">Loading offerings...</p>
             ) : selectedPeriod ? (
               <>
-                <div className="rounded-2xl bg-surface-strong px-4 py-3 text-sm text-foreground">
+                <div className="rounded-[1.35rem] bg-surface-strong px-4 py-3 text-sm text-foreground">
                   <p className="font-semibold">{selectedPeriod.label}</p>
                   <p className="mt-1 text-xs leading-5 text-muted">
                     Select the groups you want to keep in your current planner state.
@@ -316,7 +403,7 @@ export function PlannerHome() {
                     return (
                       <label
                         key={offering.offering_id}
-                        className="flex cursor-pointer items-start gap-3 rounded-2xl border border-border bg-white px-4 py-3 text-sm transition hover:border-accent/35"
+                        className="choice-card cursor-pointer items-start text-sm"
                       >
                         <input
                           checked={checked}
@@ -341,16 +428,16 @@ export function PlannerHome() {
                   })}
                 </div>
 
-                <div className="rounded-2xl border border-border bg-white px-4 py-4">
+                <div className="rounded-[1.35rem] border border-border bg-white px-4 py-4">
                   <p className="text-sm font-semibold text-foreground">
-                    Selected groups: {selectedOfferings?.length ?? 0}
+                    Selected groups: {selectedOfferings.length}
                   </p>
                   <div className="mt-3 grid gap-2">
-                    {selectedOfferings && selectedOfferings.length > 0 ? (
+                    {selectedOfferings.length > 0 ? (
                       selectedOfferings.map((offering) => (
                         <div
                           key={offering.offering_id}
-                          className="rounded-2xl bg-background px-3 py-3 text-xs leading-5 text-muted"
+                          className="rounded-[1.15rem] bg-background px-3 py-3 text-xs leading-5 text-muted"
                         >
                           <span className="font-semibold text-foreground">
                             {offering.course_code} · {offering.group_code}
@@ -380,9 +467,14 @@ export function PlannerHome() {
               </p>
             )}
 
-            <Button onClick={() => resetPlanner()} variant="secondary">
-              Reset planner
-            </Button>
+            <div className="flex flex-wrap gap-3">
+              <Button onClick={() => resetPlanner()} variant="secondary">
+                Reset planner
+              </Button>
+              <span className="rounded-full border border-border bg-white px-3 py-2 text-xs font-medium text-muted">
+                {hasPlannerData ? "Planner state exists" : "Planner state is empty"}
+              </span>
+            </div>
           </CardContent>
         </Card>
       </section>
@@ -392,11 +484,12 @@ export function PlannerHome() {
 
         <Card>
           <CardHeader>
+            <p className="eyebrow">Step 3</p>
             <CardTitle>Community and support</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
             <CommunityLinks />
-            <div className="rounded-2xl bg-accent-soft px-4 py-4 text-sm leading-6 text-accent">
+            <div className="rounded-[1.35rem] bg-accent-soft px-4 py-4 text-sm leading-6 text-accent">
               <p className="font-semibold">Support lives on GitHub</p>
               <p className="mt-2">
                 Bugs, data corrections, and source drift belong in GitHub issues. The Instagram

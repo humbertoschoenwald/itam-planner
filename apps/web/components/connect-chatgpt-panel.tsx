@@ -19,6 +19,7 @@ export function ConnectChatGptPanel() {
     <div className="page-grid">
       <Card>
         <CardHeader>
+          <p className="eyebrow">Deferred contract</p>
           <CardTitle>What this will do</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4 text-sm leading-6 text-muted">
@@ -26,12 +27,25 @@ export function ConnectChatGptPanel() {
             This page is the bridge to the future external AI flow. The final endpoint contract is
             intentionally still open, but the browser-local student code is already real.
           </p>
-          <ul className="space-y-2">
-            <li>Use GitHub issues for bugs or support.</li>
-            <li>No account is required.</li>
-            <li>Your student code stays browser-owned and derives from local planner state.</li>
-            <li>The later AI endpoint will remain read-only, JSON-only, and non-persistent.</li>
-          </ul>
+          <p>Use GitHub issues for bugs or support.</p>
+          <div className="timeline-grid">
+            <div className="soft-panel">
+              <p className="font-semibold text-foreground">1. Keep the planner local</p>
+              <p className="mt-1">No account is required and your planner data stays browser-owned.</p>
+            </div>
+            <div className="soft-panel">
+              <p className="font-semibold text-foreground">2. Freeze the AI endpoint contract</p>
+              <p className="mt-1">
+                The later AI endpoint will remain read-only, JSON-only, and non-persistent.
+              </p>
+            </div>
+            <div className="soft-panel">
+              <p className="font-semibold text-foreground">3. Publish setup guides</p>
+              <p className="mt-1">
+                Browser and iPhone setup assets land after the endpoint contract is accepted.
+              </p>
+            </div>
+          </div>
           <p className="rounded-2xl bg-surface-strong px-4 py-4 text-foreground">
             This also works with other AIs. ChatGPT is just the first named setup target.
           </p>
@@ -40,25 +54,26 @@ export function ConnectChatGptPanel() {
 
       <Card>
         <CardHeader>
+          <p className="eyebrow">Current snapshot</p>
           <CardTitle>Current planner context</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4 text-sm leading-6 text-muted">
-          <div className="grid gap-3 rounded-2xl border border-border bg-white p-4">
-            <div>
+          <div className="metric-grid">
+            <div className="metric-chip">
               <span className="font-semibold text-foreground">Entry term</span>
               <div>{profile.entryTerm || "Not set yet"}</div>
             </div>
-            <div>
+            <div className="metric-chip">
               <span className="font-semibold text-foreground">Selected plans</span>
               <div>{planCount}</div>
             </div>
-            <div>
+            <div className="metric-chip">
               <span className="font-semibold text-foreground">Selected offerings</span>
               <div>{offeringCount}</div>
             </div>
           </div>
 
-          <div className="rounded-2xl border border-border bg-white px-4 py-4 font-mono text-xs leading-6 text-foreground">
+          <div className="rounded-[1.4rem] border border-border bg-white px-4 py-4 font-mono text-xs leading-6 text-foreground">
             {code || "Finish onboarding and pick at least one plan or offering to generate a code."}
           </div>
 

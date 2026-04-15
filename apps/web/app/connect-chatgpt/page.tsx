@@ -4,9 +4,7 @@ export default function ConnectChatGptPage() {
   return (
     <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col gap-6 px-5 py-8 sm:px-8 sm:py-12">
       <div className="flex flex-col gap-3">
-        <p className="text-sm font-semibold uppercase tracking-[0.24em] text-muted">
-          Connect to ChatGPT
-        </p>
+        <p className="eyebrow">Connect to ChatGPT</p>
         <h1 className="font-display text-4xl leading-tight text-foreground sm:text-5xl">
           Prepare your browser-local planner for external AI use
         </h1>
