@@ -1,0 +1,70 @@
+name: Catalog Refresh
+
+on:
+  schedule:
+    - cron: "33 3 * * *"
+      timezone: "America/Mexico_City"
+  workflow_dispatch:
+
+concurrency:
+  group: catalog-refresh
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    name: Refresh public catalog snapshot
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6.0.2
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python 3.14
+        uses: actions/setup-python@v6.2.0
+        with:
+          python-version: "3.14"
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v8.0.0
+
+      - name: Sync API dependencies
+        run: uv sync --project apps/api --group dev
+
+      - name: Refresh live catalog
+        run: uv run --project apps/api python -m itam_planner_api.cli ingest-live --public-data-root public-data
+
+      - name: Re-run API regression suite
+        run: uv run --project apps/api --group dev pytest
+
+      - name: Detect promoted snapshot changes
+        id: diff
+        run: |
+          if git diff --quiet --exit-code -- public-data/latest; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+        shell: bash
+
+      - name: Commit refreshed snapshot
+        if: steps.diff.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public-data/latest
+          git commit -m "chore(data): refresh public catalog snapshot"
+          git push
+        shell: bash
+
+      - name: Upload working refresh diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: catalog-refresh-working
+          path: public-data/working
+          if-no-files-found: ignore
