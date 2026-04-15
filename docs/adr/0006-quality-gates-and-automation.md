@@ -19,6 +19,9 @@ Commit and versioning rules:
 - Pull requests are optional in single-maintainer mode. They may be used for review history, large changes, or safer merge boundaries, but they are not required for routine development.
 - Use CalVer with the format `YY.MM.PATCH`.
 - Generate `CHANGELOG.md` from conventional commit history rather than maintaining it manually.
+- Regenerate `CHANGELOG.md` automatically on every push to `main`.
+- Group automated changelog entries by the push date in `America/Mexico_City`.
+- Use GitHub Actions plus the repository `GITHUB_TOKEN` to commit the generated `CHANGELOG.md` update back to `main` when the file changed.
 - Use SSH for Git remotes and push operations. Do not normalize HTTPS push URLs as a routine workflow.
 
 Repository quality tools:
@@ -89,4 +92,4 @@ Rejected. The repository explicitly chose time-oriented versioning for governanc
 
 ## Open Questions
 
-- Whether release automation should tag every merge to the default branch or only explicit release commits.
+- Whether future release automation should also create Git tags or GitHub Releases alongside the push-driven changelog update.

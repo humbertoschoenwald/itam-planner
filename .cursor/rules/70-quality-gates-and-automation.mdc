@@ -9,6 +9,8 @@ alwaysApply: true
 
 - RULE: Use Conventional Commits and CalVer `YY.MM.PATCH`.
 - RULE: Derive changelog generation from conventional commit history.
+- RULE: Regenerate `CHANGELOG.md` automatically on every push to `main`.
+- RULE: Group generated changelog sections by the push date in `America/Mexico_City`.
 - RULE: Enforce quality with Ruff, basedpyright, ESLint, Prettier, CSpell, Commitlint, markdownlint-cli2, yamllint, ShellCheck, Hadolint, and actionlint.
 - RULE: Keep local hooks under `.githooks/`.
 - RULE: Prefer shift-left validation over CI-only enforcement.
