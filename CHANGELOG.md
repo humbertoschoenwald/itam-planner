@@ -22,6 +22,7 @@ Do not edit it manually.
 - web: harden browser storage persistence (`4ce6cb3`)
 - web: disable route prefetch on public shell (`2fdfecb`)
 - web: serve planner bootstrap from published catalog (`1628a45`)
+- web: split home onboarding and planner routes (`1fabc1d`)
 
 ### Documentation
 
@@ -34,6 +35,7 @@ Do not edit it manually.
 - doctrine: define push-driven changelog automation (`1f31ccb`)
 - docs: record the current custom domain target (`27eb578`)
 - doctrine: expand accessibility and delivery guidance (`000c0f3`)
+- frontend: define home onboarding planner routes (`92c5a35`)
 
 ### Tests
 
