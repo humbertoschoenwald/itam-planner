@@ -12,6 +12,7 @@ Do not edit it manually.
 - web: add navigation and chatgpt connection surface (`4e0f385`)
 - web: polish the planner experience (`470866d`)
 - web: enrich planner with catalog insights (`098f91f`)
+- web: add installable shell and secure catalog caching (`6ffa747`)
 
 ### Fixes
 
@@ -27,6 +28,7 @@ Do not edit it manually.
 - repo: add community entrypoints and issue templates (`fb19532`)
 - repo: clarify contribution and delivery surfaces (`bcb9986`)
 - doctrine: define push-driven changelog automation (`1f31ccb`)
+- docs: record the current custom domain target (`27eb578`)
 
 ### Tests
 
