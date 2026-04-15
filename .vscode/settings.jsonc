@@ -1,0 +1,137 @@
+{
+  // Derived from ADR-0000, ADR-0002, ADR-0006, and ADR-0007.
+  // This file is an operational projection of repository doctrine, not an independent policy source.
+
+  // RULE: Editor guesswork creates drift. The repository owns indentation policy.
+  "editor.detectIndentation": false,
+
+  // RULE: Two spaces are the repository baseline. Python gets a language-specific override below.
+  "editor.tabSize": 2,
+
+  // RULE: Spaces are deterministic across platforms, diffs, and review tools.
+  "editor.insertSpaces": true,
+
+  // RULE: Save is the normalization boundary for derived formatters and fixers.
+  "editor.formatOnSave": true,
+
+  // RULE: Make invisible whitespace visible during editing so formatting debt does not hide.
+  "editor.renderWhitespace": "all",
+
+  // RULE: Repository text files must stay normalized and portable.
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "files.eol": "\n",
+  "files.encoding": "utf8",
+
+  // RULE: The disk is the source of truth for hooks, lint runs, and generated artifacts.
+  "files.hotExit": "off",
+
+  // RULE: Keep diffs honest. Hidden trim-only changes create noisy reviews later.
+  "diffEditor.ignoreTrimWhitespace": false,
+
+  // RULE: Privacy-first means editor telemetry is disabled by default.
+  "telemetry.telemetryLevel": "off",
+  "redhat.telemetry.enabled": false,
+
+  // RULE: Review and supply-chain changes must be explicit, not background noise.
+  "update.mode": "manual",
+  "update.showReleaseNotes": false,
+  "extensions.autoUpdate": false,
+  "extensions.autoCheckUpdates": false,
+
+  // RULE: Repository hooks and Git discipline are mandatory.
+  "git.allowForcePush": false,
+  "git.useForcePushWithLease": true,
+  "git.useForcePushIfIncludes": true,
+  "git.allowNoVerifyCommit": false,
+  "git.requireGitUserConfig": true,
+  "git.enableCommitSigning": true,
+  "git.promptToSaveFilesBeforeCommit": "always",
+  "git.promptToSaveFilesBeforeStash": "always",
+  "git.pruneOnFetch": true,
+  "git.branchProtection": [
+    "main",
+    "master",
+    "develop",
+    "release/*"
+  ],
+  "git.branchProtectionPrompt": "alwaysPrompt",
+
+  // RULE: Commands should run against saved files, never against unsaved editor state.
+  "task.saveBeforeRun": "always",
+  "testing.saveBeforeTest": true,
+
+  // RULE: Multi-line terminal paste is risky enough to require an explicit warning.
+  "terminal.integrated.confirmOnExit": "hasChildProcesses",
+  "terminal.integrated.confirmOnKill": "always",
+  "terminal.integrated.enableMultiLinePasteWarning": "always",
+  "terminal.integrated.shellIntegration.enabled": true,
+  "terminal.integrated.splitCwd": "inherited",
+  "terminal.integrated.detectLocale": "on",
+  "terminal.integrated.inheritEnv": true,
+
+  // RULE: JavaScript and TypeScript formatting is delegated to Prettier plus ESLint fixers.
+  "js/ts.format.enabled": false,
+  "js/ts.implicitProjectConfig.checkJs": true,
+  "js/ts.updateImportsOnFileMove.enabled": "always",
+  "eslint.codeActionsOnSave.mode": "all",
+  "eslint.workingDirectories": [
+    {
+      "mode": "auto"
+    }
+  ],
+  "prettier.requireConfig": true,
+  "prettier.resolveGlobalModules": false,
+
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit",
+      "source.organizeImports": "explicit"
+    }
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit",
+      "source.organizeImports": "explicit"
+    }
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit",
+      "source.organizeImports": "explicit"
+    }
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit",
+      "source.organizeImports": "explicit"
+    }
+  },
+
+  // RULE: Use the current portable Pylance/Python settings, not Cursor-specific Pyright forks, in a universal workspace profile.
+  "python.analysis.typeCheckingMode": "strict",
+
+  // RULE: Cross-file Python breakage should surface immediately, even when the current file is not open.
+  "python.analysis.diagnosticMode": "workspace",
+
+  // RULE: Python environments are managed by uv, not by ad hoc interpreter discovery.
+  "python.terminal.activateEnvironment": true,
+
+  "[python]": {
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "editor.codeActionsOnSave": {
+      "source.fixAll.ruff": "explicit",
+      "source.organizeImports.ruff": "explicit"
+    }
+  },
+
+  // RULE: YAML should remain schema-aware because workflows and deployment files are high-risk configuration.
+  "yaml.validate": true,
+  "yaml.schemaStore.enable": true
+}

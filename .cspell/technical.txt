@@ -1,0 +1,30 @@
+# --- TECHNICAL ---
+# RULE: Add domain jargon, internal acronyms, protocol names, and stack-specific
+# terms here only when they are legitimate project vocabulary and not just typos.
+# If a term belongs to a single tool or library, prefer the project config of
+# that tool before relaxing the global repository dictionary.
+
+AppRouter
+Basedpyright
+BeautifulSoup
+CalVer
+Commitlint
+FastAPI
+GitHub
+ITAM
+JavaScript
+jsonc
+localStorage
+lxml
+mdc
+openapi
+OpenAPI
+Pydantic
+pyproject
+shadcn
+TypeScript
+uv
+Vercel
+WebKit
+Yamllint
+Zustand

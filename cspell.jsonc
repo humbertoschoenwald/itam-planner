@@ -1,0 +1,125 @@
+{
+  "$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json",
+
+  // --- CORE POLICY ---
+  // SOURCE: ADR-0006 (quality gates) and ADR-0008 (language and bibliography policy).
+
+  // RULE: Lock the configuration format so the checker behaves consistently across machines and upgrades.
+  "version": "0.2",
+
+  // RULE: Use one editorial baseline for repository-facing content. Product copy may include approved Spanish terms through curated dictionaries.
+  "language": "en-US",
+
+  // RULE: This file is policy, not a scratchpad. Prevent editor integrations from silently mutating repository rules.
+  "readonly": true,
+
+  // RULE: Honor the repository's own exclusion contract. Generated or intentionally ignored files must not create spell-noise.
+  "useGitignore": true,
+
+  // RULE: Serious repositories store critical configuration in dotfiles. Hidden files must be checked unless explicitly excluded.
+  "enableGlobDot": true,
+
+  // RULE: Hashes, opaque IDs, and token-like blobs are not prose. Ignoring them keeps diagnostics focused on human-authored text.
+  "ignoreRandomStrings": true,
+
+  // RULE: Exceptions inside source files must be spelled correctly too. A broken cSpell directive should fail loudly, not silently.
+  "validateDirectives": true,
+
+  // --- CUSTOM DICTIONARIES ---
+
+  "dictionaryDefinitions": [
+    {
+      // RULE: Spanish stays manually curated. This preserves strict English repository policy while still allowing approved product-facing terms.
+      "name": "Spanish",
+      "path": "./.cspell/spanish.txt",
+      "addWords": true,
+      "noSuggest": true
+    },
+    {
+      // RULE: Proper nouns are validity exceptions, not suggestion sources. Keep brands, people, and institutions reviewable and isolated.
+      "name": "NamedEntities",
+      "path": "./.cspell/named-entities.txt",
+      "addWords": true,
+      "noSuggest": true,
+      // RULE: Proper nouns should only validate in their approved spelling and case. Relaxed matching hides capitalization drift.
+      "supportNonStrictSearches": false
+    },
+    {
+      // RULE: Technical jargon evolves faster than bundled dictionaries. Keep project-approved terminology explicit and reviewable.
+      "name": "Technical",
+      "path": "./.cspell/technical.txt",
+      "addWords": true
+    }
+  ],
+
+  "dictionaries": [
+    "Spanish",
+    "NamedEntities",
+    "Technical"
+  ],
+
+  // --- EXCLUSIONS ---
+
+  "ignorePaths": [
+    // RULE: VCS internals are never spell-check targets.
+    ".git/**",
+
+    // RULE: The dictionaries themselves are policy inputs. Their comments and curated entries should not generate diagnostics.
+    ".cspell/**",
+
+    // RULE: Third-party or vendored code is not maintained here and creates false positives at scale.
+    "**/node_modules/**",
+    "**/vendor/**",
+
+    // RULE: Build artifacts, framework caches, and coverage outputs are disposable products, not source of truth.
+    "**/dist/**",
+    "**/build/**",
+    "**/coverage/**",
+    "**/target/**",
+    "**/.next/**",
+    "**/.nuxt/**",
+    "**/.svelte-kit/**",
+    "**/.turbo/**",
+    "**/.cache/**",
+    "**/.parcel-cache/**",
+    "**/.vercel/**",
+
+    // RULE: Virtual environments are generated dependency snapshots, not authored project content.
+    "**/.venv/**",
+    "**/venv/**",
+
+    // RULE: Lockfiles encode machine-resolved dependency graphs. Spell-checking them adds noise without improving code quality.
+    "**/package-lock.json",
+    "**/pnpm-lock.yaml",
+    "**/yarn.lock",
+    "**/bun.lock",
+    "**/bun.lockb",
+    "**/Cargo.lock",
+    "**/composer.lock",
+    "**/poetry.lock",
+    "**/Pipfile.lock",
+    "**/uv.lock",
+
+    // RULE: Minified assets are machine-generated and unreadable by design.
+    "**/*.min.*",
+
+    // RULE: Binary and media assets are outside the scope of spelling policy.
+    "**/*.png",
+    "**/*.jpg",
+    "**/*.jpeg",
+    "**/*.gif",
+    "**/*.svg",
+    "**/*.webp",
+    "**/*.avif",
+    "**/*.ico",
+    "**/*.pdf",
+    "**/*.zip",
+    "**/*.tar",
+    "**/*.gz",
+    "**/*.7z",
+    "**/*.woff",
+    "**/*.woff2",
+    "**/*.ttf",
+    "**/*.otf"
+  ]
+}
