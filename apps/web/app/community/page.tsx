@@ -18,7 +18,7 @@ export default function CommunityPage() {
       <div className="flex flex-col gap-3">
         <Link
           className="text-sm font-medium text-accent underline-offset-4 hover:underline"
-          href="/"
+          href="/planner"
           prefetch={false}
         >
           {copy.common.backToPlanner}

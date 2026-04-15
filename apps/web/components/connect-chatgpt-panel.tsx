@@ -70,7 +70,7 @@ export function ConnectChatGptPanel() {
 
           <Link
             className="inline-flex rounded-full bg-accent px-4 py-2 text-sm font-semibold text-accent-contrast transition hover:bg-accent/92"
-            href="/"
+            href="/planner"
             prefetch={false}
           >
             {copy.common.backToPlanner}

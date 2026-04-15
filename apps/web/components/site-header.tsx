@@ -11,7 +11,7 @@ export function SiteHeader() {
   const locale = useStudentProfileStore((state) => state.profile.locale);
   const copy = getUiCopy(locale);
   const links = [
-    { href: "/", label: copy.common.planner },
+    { href: "/planner", label: copy.common.planner },
     { href: "/connect-chatgpt", label: copy.common.connectToChatGpt },
     { href: "/community", label: copy.common.community },
   ] as const;

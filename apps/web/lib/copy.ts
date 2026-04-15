@@ -49,6 +49,40 @@ const uiCopy = {
       description:
         "Use GitHub issues for bugs, data corrections, source drift, and feature requests. Creator social links live here too, but support stays on GitHub.",
     },
+    homePage: {
+      eyebrow: "Home",
+      title: "A light home for the planner, not the planner itself.",
+      description:
+        "Start with onboarding, keep your student context in this browser, and open the planner only when you are ready to shape a timetable from the published catalog.",
+      primaryAction: "Start onboarding",
+      secondaryAction: "Open planner",
+      tertiaryAction: "Community",
+      panels: [
+        {
+          title: "No account wall",
+          body: "The flow starts in the browser. No sign-in, no server-side student profile, and no cloud-backed schedule identity.",
+        },
+        {
+          title: "Precomputed catalog",
+          body: "Course relationships, periods, and supporting academic data are shipped from promoted JSON artifacts instead of being recalculated at request time.",
+        },
+        {
+          title: "Designed for WebKit",
+          body: "The public home stays deliberately light while the dedicated planner shell lives under its own route.",
+        },
+      ],
+    },
+    onboardingPage: {
+      eyebrow: "Onboarding",
+      title: "Capture the academic basics once in this browser.",
+      description:
+        "Choose your entry term, active plans, and preferred locale. The planner route depends on this local state to know which documents apply to you.",
+      readyBody:
+        "This browser already has the minimum onboarding state. You can refine it here or jump straight into the planner.",
+      readyTitle: "Onboarding already exists",
+      openPlanner: "Open planner",
+      backHome: "Back to home",
+    },
     connectPage: {
       description:
         "The student code already reflects your browser-local planner state. The exact AI context endpoint shape is still deferred by doctrine, so this page stays focused on the current contract and what comes next.",
@@ -132,11 +166,15 @@ const uiCopy = {
       plannerShell: "Planner shell",
       plannerShellHelp:
         "Select the groups you want to keep in your current planner state.",
+      redirectingHelp:
+        "The planner route requires an entry term and at least one active plan in this browser.",
+      redirectingToOnboarding: "Redirecting to onboarding...",
       periodsMetric: "Public periods",
       plannerTitle: "A browser-local planner with a normalized public catalog underneath.",
       profileReset: "Reset profile",
       resetPlanner: "Reset planner",
       roomPending: "Room pending",
+      updateOnboarding: "Update onboarding",
       selectAtLeastOne:
         "Select at least one public offering to start building the browser-local planner state.",
       selectPeriod: "Select a period",
@@ -274,6 +312,40 @@ const uiCopy = {
       description:
         "Usa GitHub Issues para bugs, correcciones de datos, source drift y feature requests. Las redes del creador también viven aquí, pero el soporte se queda en GitHub.",
     },
+    homePage: {
+      eyebrow: "Inicio",
+      title: "Un home ligero para el planner, no el planner mismo.",
+      description:
+        "Empieza con onboarding, conserva tu contexto académico en este navegador y abre el planner solo cuando ya estés listo para armar un horario con el catálogo publicado.",
+      primaryAction: "Empezar onboarding",
+      secondaryAction: "Abrir planner",
+      tertiaryAction: "Comunidad",
+      panels: [
+        {
+          title: "Sin muro de cuentas",
+          body: "El flujo empieza en tu navegador. Sin sign-in, sin perfil del alumno en el servidor y sin identidad de horario guardada en la nube.",
+        },
+        {
+          title: "Catálogo precalculado",
+          body: "Las relaciones entre materias, los periodos y los datos académicos de soporte se sirven desde artefactos JSON promovidos, no se recalculan por request.",
+        },
+        {
+          title: "Pensado para WebKit",
+          body: "El home público se mantiene deliberadamente ligero mientras el shell real del planner vive en su propia ruta.",
+        },
+      ],
+    },
+    onboardingPage: {
+      eyebrow: "Onboarding",
+      title: "Captura lo académico básico una vez en este navegador.",
+      description:
+        "Elige tu periodo de ingreso, tus planes activos y tu idioma preferido. La ruta del planner depende de este estado local para saber qué documentos te aplican.",
+      readyBody:
+        "Este navegador ya tiene el onboarding mínimo. Puedes ajustarlo aquí o saltar directo al planner.",
+      readyTitle: "Ya existe onboarding",
+      openPlanner: "Abrir planner",
+      backHome: "Volver al inicio",
+    },
     connectPage: {
       description:
         "Tu student code ya refleja el estado local de tu planner en el navegador. La forma exacta del endpoint para IA sigue diferida por doctrina, así que esta página se concentra en el contrato actual y en lo que sigue.",
@@ -358,11 +430,15 @@ const uiCopy = {
       plannerShell: "Shell del planner",
       plannerShellHelp:
         "Selecciona los grupos que quieres conservar dentro del estado actual del planner.",
+      redirectingHelp:
+        "La ruta del planner requiere un periodo de ingreso y al menos un plan activo en este navegador.",
+      redirectingToOnboarding: "Redirigiendo a onboarding...",
       periodsMetric: "Periodos públicos",
       plannerTitle: "Un planner local con un catálogo público normalizado por debajo.",
       profileReset: "Reiniciar perfil",
       resetPlanner: "Reiniciar planner",
       roomPending: "Salón pendiente",
+      updateOnboarding: "Ajustar onboarding",
       selectAtLeastOne:
         "Selecciona al menos un grupo público para empezar a construir el estado local del planner.",
       selectPeriod: "Selecciona un periodo",
