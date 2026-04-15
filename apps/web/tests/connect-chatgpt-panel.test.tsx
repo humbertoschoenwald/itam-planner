@@ -2,6 +2,7 @@ import { render, screen } from "@testing-library/react";
 import { beforeEach, describe, expect, it } from "vitest";
 
 import { ConnectChatGptPanel } from "@/components/connect-chatgpt-panel";
+import { getUiCopy } from "@/lib/copy";
 import { DEFAULT_PLANNER_STATE, usePlannerStore } from "@/stores/planner-store";
 import { useStudentCodeStore } from "@/stores/student-code-store";
 import {
@@ -30,8 +31,10 @@ describe("ConnectChatGptPanel", () => {
   it("renders the current student code and the support guidance", () => {
     render(<ConnectChatGptPanel />);
 
+    const copy = getUiCopy("es-MX");
+
     expect(screen.getByText(/itp1\.example-token/i)).toBeInTheDocument();
-    expect(screen.getByText(/GitHub issues for bugs or support/i)).toBeInTheDocument();
-    expect(screen.getByText(/This also works with other AIs/i)).toBeInTheDocument();
+    expect(screen.getByText(copy.connectPanel.supportLead)).toBeInTheDocument();
+    expect(screen.getByText(copy.connectPanel.worksWithOtherAis)).toBeInTheDocument();
   });
 });

@@ -7,6 +7,7 @@ import { CommunityLinks } from "@/components/community-links";
 import { StudentCodeCard } from "@/components/student-code-card";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { getUiCopy } from "@/lib/copy";
 import {
   fetchBulletinIndex,
   fetchSchedulePeriodDetail,
@@ -27,25 +28,12 @@ const LOCALE_OPTIONS = [
 
 const INPUT_CLASS_NAME = "field-shell text-sm";
 
-const STEP_NOTES = [
-  {
-    body: "Choose the plans that apply to you and keep that context in this browser only.",
-    title: "Onboard once",
-  },
-  {
-    body: "Pick a public period, keep the groups you want, and shape the first planner state.",
-    title: "Shape the timetable",
-  },
-  {
-    body: "Carry that state as a browser-owned code that later powers the external AI bridge.",
-    title: "Carry the code",
-  },
-] as const;
-
 export function PlannerHome() {
   useSyncStudentCode();
 
   const profile = useStudentProfileStore((state) => state.profile);
+  const copy = getUiCopy(profile.locale);
+  const plannerErrorFallback = copy.plannerHome.noErrorFallback;
   const setEntryTerm = useStudentProfileStore((state) => state.setEntryTerm);
   const setLocale = useStudentProfileStore((state) => state.setLocale);
   const togglePlan = useStudentProfileStore((state) => state.toggleActivePlanId);
@@ -84,7 +72,7 @@ export function PlannerHome() {
         }
       } catch (error) {
         if (!cancelled) {
-          setErrorMessage(error instanceof Error ? error.message : "Unable to load planner data.");
+          setErrorMessage(error instanceof Error ? error.message : plannerErrorFallback);
         }
       } finally {
         if (!cancelled) {
@@ -98,7 +86,7 @@ export function PlannerHome() {
     return () => {
       cancelled = true;
     };
-  }, [plannerState.selectedPeriodId, setSelectedPeriodId]);
+  }, [plannerErrorFallback, plannerState.selectedPeriodId, setSelectedPeriodId]);
 
   useEffect(() => {
     const selectedPeriodId = plannerState.selectedPeriodId;
@@ -147,13 +135,13 @@ export function PlannerHome() {
     LOCALE_OPTIONS.find((option) => option.value === profile.locale)?.label ?? profile.locale;
   const activePeriodLabel =
     periods.find((period) => period.period_id === plannerState.selectedPeriodId)?.label ??
-    "No period selected";
+    copy.plannerHome.activePeriodFallback;
 
   const heroMetrics = [
-    { label: "Published plans", value: loading ? "..." : String(plans.length) },
-    { label: "Public periods", value: loading ? "..." : String(periods.length) },
-    { label: "Selected groups", value: String(selectedOfferings.length) },
-    { label: "Current locale", value: currentLocaleLabel },
+    { label: copy.plannerHome.plansMetric, value: loading ? "..." : String(plans.length) },
+    { label: copy.plannerHome.periodsMetric, value: loading ? "..." : String(periods.length) },
+    { label: copy.plannerHome.groupsSelected, value: String(selectedOfferings.length) },
+    { label: copy.plannerHome.currentLocale, value: currentLocaleLabel },
   ] as const;
 
   return (
@@ -164,21 +152,19 @@ export function PlannerHome() {
             <p className="eyebrow text-accent">ITAM Planner</p>
             <div className="space-y-4">
               <h1 className="font-display text-4xl leading-tight text-foreground sm:text-6xl">
-                A browser-local planner with a normalized public catalog underneath.
+                {copy.plannerHome.plannerTitle}
               </h1>
               <p className="max-w-2xl text-base leading-7 text-muted sm:text-lg">
-                Start with onboarding, choose the plans that apply to you, and shape a timetable
-                from published ITAM schedule data. Your profile, selections, and future AI bridge
-                stay in this browser only.
+                {copy.plannerHome.intro}
               </p>
             </div>
 
             <div className="flex flex-wrap gap-3">
               <Button asChild>
-                <Link href="/connect-chatgpt">Connect to ChatGPT</Link>
+                <Link href="/connect-chatgpt">{copy.common.connectToChatGpt}</Link>
               </Button>
               <Button asChild variant="secondary">
-                <Link href="/community">Community</Link>
+                <Link href="/community">{copy.common.community}</Link>
               </Button>
               <Button asChild variant="secondary">
                 <a
@@ -186,7 +172,7 @@ export function PlannerHome() {
                   rel="noreferrer"
                   target="_blank"
                 >
-                  Open GitHub Issues
+                  {copy.plannerHome.openGitHubIssues}
                 </a>
               </Button>
             </div>
@@ -205,32 +191,25 @@ export function PlannerHome() {
 
           <div className="glass-accent rounded-[1.9rem] border border-white/10 px-5 py-5 shadow-[0_24px_50px_rgba(18,40,33,0.26)]">
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-white/72">
-              Independent project
+              {copy.plannerHome.independentProject}
             </p>
             <p className="mt-3 text-sm leading-6 text-white/82">
-              Independent open-source project, built by the community. Not affiliated with,
-              endorsed by, or maintained by Instituto Tecnológico Autónomo de México (ITAM).
+              {copy.plannerHome.legal}
             </p>
 
             <div className="mt-5 space-y-3">
               <div className="rounded-2xl bg-white/10 p-4 text-sm leading-6 text-white/86">
-                <p className="font-semibold text-white">No account required</p>
-                <p className="mt-2">
-                  Start with onboarding, choose your plan and sections, and keep the resulting
-                  planner state in localStorage.
-                </p>
+                <p className="font-semibold text-white">{copy.plannerHome.noAccountRequired}</p>
+                <p className="mt-2">{copy.plannerHome.noAccountRequiredText}</p>
               </div>
               <div className="rounded-2xl bg-white/8 p-4 text-sm leading-6 text-white/84">
-                <p className="font-semibold text-white">Catalog delivery model</p>
-                <p className="mt-2">
-                  Public data is normalized outside request time, then shipped back to the app as a
-                  stable catalog artifact.
-                </p>
+                <p className="font-semibold text-white">{copy.plannerHome.browserOnlyLabel}</p>
+                <p className="mt-2">{copy.plannerHome.browserOnlyText}</p>
               </div>
             </div>
 
             <div className="mt-5 grid gap-3 sm:grid-cols-3">
-              {STEP_NOTES.map((step, index) => (
+              {copy.plannerHome.timeline.map((step, index) => (
                 <div key={step.title} className="rounded-2xl bg-white/8 p-4 text-sm leading-6 text-white/84">
                   <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/62">
                     0{index + 1}
@@ -255,36 +234,37 @@ export function PlannerHome() {
       <section className="page-grid">
         <Card>
           <CardHeader>
-            <p className="eyebrow">Step 1</p>
+            <p className="eyebrow">{copy.plannerHome.step1}</p>
             <CardTitle>Onboarding</CardTitle>
           </CardHeader>
           <CardContent className="space-y-5">
             <div className="soft-panel">
               <p className="font-semibold text-foreground">
-                {hasProfileData ? "Profile in progress" : "Start with the academic basics"}
+                {hasProfileData
+                  ? copy.plannerHome.currentProfileReady
+                  : copy.plannerHome.currentProfileFallback}
               </p>
               <p className="mt-2 text-sm leading-6 text-muted">
-                This state is private to the current browser. It decides which bulletins and
-                regulations apply to you later.
+                {copy.plannerHome.currentProfileHelp}
               </p>
             </div>
 
             <div className="space-y-2">
               <label className="text-sm font-medium text-foreground" htmlFor="entry-term">
-                Entry term
+                {copy.plannerHome.entryTerm}
               </label>
               <input
                 id="entry-term"
                 className={INPUT_CLASS_NAME}
                 onChange={(event) => setEntryTerm(event.target.value)}
-                placeholder="Example: OTOÑO 2025"
+                placeholder={copy.plannerHome.entryTermPlaceholder}
                 value={profile.entryTerm}
               />
             </div>
 
             <div className="space-y-2">
               <label className="text-sm font-medium text-foreground" htmlFor="locale">
-                Preferred locale
+                {copy.plannerHome.locale}
               </label>
               <select
                 id="locale"
@@ -302,15 +282,14 @@ export function PlannerHome() {
 
             <div className="space-y-3">
               <div>
-                <p className="text-sm font-medium text-foreground">Active plans</p>
+                <p className="text-sm font-medium text-foreground">{copy.plannerHome.activePlans}</p>
                 <p className="mt-1 text-xs leading-5 text-muted">
-                  Select the plans that currently apply to you. No account is required and nothing
-                  is stored in the backend.
+                  {copy.plannerHome.activePlansHelp}
                 </p>
               </div>
 
               {loading ? (
-                <p className="text-sm text-muted">Loading public plan list...</p>
+                <p className="text-sm text-muted">{copy.plannerHome.loadPlans}</p>
               ) : (
                 <div className="grid gap-3">
                   {plans.map((plan) => {
@@ -340,13 +319,13 @@ export function PlannerHome() {
 
             <div className="flex flex-wrap gap-3">
               <Button onClick={() => resetProfile()} variant="secondary">
-                Reset profile
+                {copy.plannerHome.profileReset}
               </Button>
               <span className="rounded-full bg-accent-soft px-3 py-2 text-xs font-medium text-accent">
-                {profile.entryTerm || DEFAULT_STUDENT_PROFILE.entryTerm || "No term yet"}
+                {profile.entryTerm || DEFAULT_STUDENT_PROFILE.entryTerm || copy.plannerHome.noTermYet}
               </span>
               <span className="rounded-full border border-border bg-white px-3 py-2 text-xs font-medium text-muted">
-                {profile.activePlanIds.length} active plan
+                {profile.activePlanIds.length} {copy.plannerHome.activePlansShort}
                 {profile.activePlanIds.length === 1 ? "" : "s"}
               </span>
             </div>
@@ -355,21 +334,18 @@ export function PlannerHome() {
 
         <Card>
           <CardHeader>
-            <p className="eyebrow">Step 2</p>
-            <CardTitle>Planner shell</CardTitle>
+            <p className="eyebrow">{copy.plannerHome.step2}</p>
+            <CardTitle>{copy.plannerHome.plannerShell}</CardTitle>
           </CardHeader>
           <CardContent className="space-y-5">
             <div className="soft-panel">
               <p className="font-semibold text-foreground">{activePeriodLabel}</p>
-              <p className="mt-2 text-sm leading-6 text-muted">
-                Choose one public period, then keep the groups you want in the browser-local
-                planner state.
-              </p>
+              <p className="mt-2 text-sm leading-6 text-muted">{copy.plannerHome.activePeriodTitle}</p>
             </div>
 
             <div className="space-y-2">
               <label className="text-sm font-medium text-foreground" htmlFor="period">
-                Public schedule period
+                {copy.plannerHome.period}
               </label>
               <select
                 id="period"
@@ -377,7 +353,7 @@ export function PlannerHome() {
                 onChange={(event) => setSelectedPeriodId(event.target.value)}
                 value={plannerState.selectedPeriodId ?? ""}
               >
-                <option value="">Select a period</option>
+                <option value="">{copy.plannerHome.selectPeriod}</option>
                 {periods.map((period) => (
                   <option key={period.period_id} value={period.period_id}>
                     {period.label}
@@ -387,13 +363,13 @@ export function PlannerHome() {
             </div>
 
             {detailLoading ? (
-              <p className="text-sm text-muted">Loading offerings...</p>
+              <p className="text-sm text-muted">{copy.plannerHome.loadOfferings}</p>
             ) : selectedPeriod ? (
               <>
                 <div className="rounded-[1.35rem] bg-surface-strong px-4 py-3 text-sm text-foreground">
                   <p className="font-semibold">{selectedPeriod.label}</p>
                   <p className="mt-1 text-xs leading-5 text-muted">
-                    Select the groups you want to keep in your current planner state.
+                    {copy.plannerHome.plannerShellHelp}
                   </p>
                 </div>
 
@@ -419,8 +395,8 @@ export function PlannerHome() {
                             {offering.display_title}
                           </span>
                           <span className="mt-1 block text-xs leading-5 text-muted">
-                            {offering.instructor_name ?? "Instructor pending"} ·{" "}
-                            {offering.room_code ?? "Room pending"}
+                            {offering.instructor_name ?? copy.plannerHome.offeredBy} ·{" "}
+                            {offering.room_code ?? copy.plannerHome.roomPending}
                           </span>
                         </span>
                       </label>
@@ -430,7 +406,7 @@ export function PlannerHome() {
 
                 <div className="rounded-[1.35rem] border border-border bg-white px-4 py-4">
                   <p className="text-sm font-semibold text-foreground">
-                    Selected groups: {selectedOfferings.length}
+                    {copy.plannerHome.groupsSelected}: {selectedOfferings.length}
                   </p>
                   <div className="mt-3 grid gap-2">
                     {selectedOfferings.length > 0 ? (
@@ -454,8 +430,7 @@ export function PlannerHome() {
                       ))
                     ) : (
                       <p className="text-xs text-muted">
-                        Select at least one public offering to start building the browser-local
-                        planner state.
+                        {copy.plannerHome.selectAtLeastOne}
                       </p>
                     )}
                   </div>
@@ -463,16 +438,16 @@ export function PlannerHome() {
               </>
             ) : (
               <p className="text-sm text-muted">
-                Select a public period to start capturing planner state.
+                {copy.plannerHome.noPeriodData}
               </p>
             )}
 
             <div className="flex flex-wrap gap-3">
               <Button onClick={() => resetPlanner()} variant="secondary">
-                Reset planner
+                {copy.plannerHome.resetPlanner}
               </Button>
               <span className="rounded-full border border-border bg-white px-3 py-2 text-xs font-medium text-muted">
-                {hasPlannerData ? "Planner state exists" : "Planner state is empty"}
+                {hasPlannerData ? copy.plannerHome.plannerExists : copy.plannerHome.noPlannerData}
               </span>
             </div>
           </CardContent>
@@ -484,17 +459,14 @@ export function PlannerHome() {
 
         <Card>
           <CardHeader>
-            <p className="eyebrow">Step 3</p>
-            <CardTitle>Community and support</CardTitle>
+            <p className="eyebrow">{copy.plannerHome.step3}</p>
+            <CardTitle>{copy.common.community}</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
             <CommunityLinks />
             <div className="rounded-[1.35rem] bg-accent-soft px-4 py-4 text-sm leading-6 text-accent">
-              <p className="font-semibold">Support lives on GitHub</p>
-              <p className="mt-2">
-                Bugs, data corrections, and source drift belong in GitHub issues. The Instagram
-                link is only for following the creator and the project journey.
-              </p>
+              <p className="font-semibold">{copy.plannerHome.communitySupportTitle}</p>
+              <p className="mt-2">{copy.plannerHome.communitySupport}</p>
             </div>
           </CardContent>
         </Card>

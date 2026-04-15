@@ -85,7 +85,7 @@ pnpm test:web
 pnpm typecheck:web
 ```
 
-The web app can read the published catalog directly from its own static build artifact. Set `NEXT_PUBLIC_ITAM_PLANNER_API_BASE_URL` only when you intentionally want the web client to talk to a separate API origin. See `apps/web/.env.example`.
+The web app can read the published catalog directly from its own static build artifact. The deployed site ships the generated JSON projections needed by the client; the canonical SQLite snapshot remains in `public-data/latest` and is not required inside the web bundle. Set `NEXT_PUBLIC_ITAM_PLANNER_API_BASE_URL` only when you intentionally want the web client to talk to a separate API origin. See `apps/web/.env.example`.
 
 Root delivery secrets for Vercel and Cloudflare should live in a local `.env` file that follows `.env.example`. Never commit those secrets.
 

@@ -13,6 +13,9 @@ if (!existsSync(sourceRoot)) {
 
 rmSync(targetRoot, { force: true, recursive: true });
 mkdirSync(resolve(repositoryRoot, "apps", "web", "public", "catalog"), { recursive: true });
-cpSync(sourceRoot, targetRoot, { recursive: true });
+cpSync(sourceRoot, targetRoot, {
+  filter: (sourcePath) => !sourcePath.endsWith("catalog.sqlite"),
+  recursive: true,
+});
 
 console.log(`Synced published catalog from ${sourceRoot} to ${targetRoot}.`);

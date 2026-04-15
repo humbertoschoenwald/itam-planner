@@ -3,12 +3,17 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
+import { getUiCopy } from "@/lib/copy";
+import { useStudentProfileStore } from "@/stores/student-profile-store";
+
 export function SiteHeader() {
   const pathname = usePathname();
+  const locale = useStudentProfileStore((state) => state.profile.locale);
+  const copy = getUiCopy(locale);
   const links = [
-    { href: "/", label: "Planner" },
-    { href: "/connect-chatgpt", label: "Connect to ChatGPT" },
-    { href: "/community", label: "Community" },
+    { href: "/", label: copy.common.planner },
+    { href: "/connect-chatgpt", label: copy.common.connectToChatGpt },
+    { href: "/community", label: copy.common.community },
   ] as const;
 
   return (
@@ -19,7 +24,7 @@ export function SiteHeader() {
             ITAM Planner
           </Link>
           <span className="rounded-full border border-accent/12 bg-accent-soft px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-accent">
-            Browser-local beta
+            {copy.siteHeader.badge}
           </span>
         </div>
 

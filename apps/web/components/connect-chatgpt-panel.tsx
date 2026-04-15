@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 
+import { getUiCopy } from "@/lib/copy";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { usePlannerStore } from "@/stores/planner-store";
 import { useStudentCodeStore } from "@/stores/student-code-store";
@@ -11,6 +12,7 @@ export function ConnectChatGptPanel() {
   const code = useStudentCodeStore((state) => state.code);
   const profile = useStudentProfileStore((state) => state.profile);
   const plannerState = usePlannerStore((state) => state.state);
+  const copy = getUiCopy(profile.locale);
 
   const planCount = profile.activePlanIds.length;
   const offeringCount = plannerState.selectedOfferingIds.length;
@@ -19,74 +21,58 @@ export function ConnectChatGptPanel() {
     <div className="page-grid">
       <Card>
         <CardHeader>
-          <p className="eyebrow">Deferred contract</p>
-          <CardTitle>What this will do</CardTitle>
+          <p className="eyebrow">{copy.connectPanel.deferredContract}</p>
+          <CardTitle>{copy.connectPanel.title}</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4 text-sm leading-6 text-muted">
-          <p>
-            This page is the bridge to the future external AI flow. The final endpoint contract is
-            intentionally still open, but the browser-local student code is already real.
-          </p>
-          <p>Use GitHub issues for bugs or support.</p>
+          <p>{copy.connectPanel.intro}</p>
+          <p>{copy.connectPanel.supportLead}</p>
           <div className="timeline-grid">
-            <div className="soft-panel">
-              <p className="font-semibold text-foreground">1. Keep the planner local</p>
-              <p className="mt-1">No account is required and your planner data stays browser-owned.</p>
-            </div>
-            <div className="soft-panel">
-              <p className="font-semibold text-foreground">2. Freeze the AI endpoint contract</p>
-              <p className="mt-1">
-                The later AI endpoint will remain read-only, JSON-only, and non-persistent.
-              </p>
-            </div>
-            <div className="soft-panel">
-              <p className="font-semibold text-foreground">3. Publish setup guides</p>
-              <p className="mt-1">
-                Browser and iPhone setup assets land after the endpoint contract is accepted.
-              </p>
-            </div>
+            {copy.connectPanel.timeline.map((step) => (
+              <div key={step.title} className="soft-panel">
+                <p className="font-semibold text-foreground">{step.title}</p>
+                <p className="mt-1">{step.body}</p>
+              </div>
+            ))}
           </div>
           <p className="rounded-2xl bg-surface-strong px-4 py-4 text-foreground">
-            This also works with other AIs. ChatGPT is just the first named setup target.
+            {copy.connectPanel.worksWithOtherAis}
           </p>
         </CardContent>
       </Card>
 
       <Card>
         <CardHeader>
-          <p className="eyebrow">Current snapshot</p>
-          <CardTitle>Current planner context</CardTitle>
+          <p className="eyebrow">{copy.connectPanel.currentSnapshot}</p>
+          <CardTitle>{copy.connectPanel.currentPlannerContext}</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4 text-sm leading-6 text-muted">
           <div className="metric-grid">
             <div className="metric-chip">
-              <span className="font-semibold text-foreground">Entry term</span>
-              <div>{profile.entryTerm || "Not set yet"}</div>
+              <span className="font-semibold text-foreground">{copy.connectPanel.entryTerm}</span>
+              <div>{profile.entryTerm || copy.connectPanel.notSetYet}</div>
             </div>
             <div className="metric-chip">
-              <span className="font-semibold text-foreground">Selected plans</span>
+              <span className="font-semibold text-foreground">{copy.connectPanel.plans}</span>
               <div>{planCount}</div>
             </div>
             <div className="metric-chip">
-              <span className="font-semibold text-foreground">Selected offerings</span>
+              <span className="font-semibold text-foreground">{copy.connectPanel.offerings}</span>
               <div>{offeringCount}</div>
             </div>
           </div>
 
           <div className="rounded-[1.4rem] border border-border bg-white px-4 py-4 font-mono text-xs leading-6 text-foreground">
-            {code || "Finish onboarding and pick at least one plan or offering to generate a code."}
+            {code || copy.connectPanel.finishOnboarding}
           </div>
 
-          <p>
-            The final ChatGPT setup instructions, iPhone screenshots, and the public AI-context
-            endpoint land in the next slice after the endpoint contract is frozen in doctrine.
-          </p>
+          <p>{copy.connectPanel.footer}</p>
 
           <Link
             className="inline-flex rounded-full bg-accent px-4 py-2 text-sm font-semibold text-white transition hover:bg-accent/92"
             href="/"
           >
-            Back to planner
+            {copy.common.backToPlanner}
           </Link>
         </CardContent>
       </Card>

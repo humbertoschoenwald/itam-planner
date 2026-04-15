@@ -3,11 +3,15 @@
 import Link from "next/link";
 import { useState } from "react";
 
+import { getUiCopy } from "@/lib/copy";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useStudentCodeStore } from "@/stores/student-code-store";
+import { useStudentProfileStore } from "@/stores/student-profile-store";
 
 export function StudentCodeCard() {
   const code = useStudentCodeStore((state) => state.code);
+  const locale = useStudentProfileStore((state) => state.profile.locale);
+  const copy = getUiCopy(locale);
   const [copied, setCopied] = useState(false);
   const codeLength = code.length;
 
@@ -23,27 +27,25 @@ export function StudentCodeCard() {
   return (
     <Card>
       <CardHeader>
-        <p className="eyebrow">Portable context</p>
-        <CardTitle>Student code</CardTitle>
+        <p className="eyebrow">{copy.studentCode.eyebrow}</p>
+        <CardTitle>{copy.studentCode.title}</CardTitle>
       </CardHeader>
       <CardContent className="space-y-4">
         <p className="text-sm leading-6 text-muted">
-          This browser-owned code is generated from your current onboarding profile and planner
-          state. No account is required and no personal data is stored in the backend. Use GitHub
-          issues for support; this code is the foundation for the later AI connection flow.
+          {copy.studentCode.description}
         </p>
 
         <div className="flex flex-wrap gap-2">
           <span className="rounded-full bg-accent-soft px-3 py-2 text-xs font-semibold text-accent">
-            Browser-owned
+            {copy.studentCode.browserOwned}
           </span>
           <span className="rounded-full border border-border bg-white px-3 py-2 text-xs font-semibold text-muted">
-            {code ? `${codeLength} characters` : "Waiting for planner data"}
+            {code ? `${codeLength} characters` : copy.studentCode.waitingForPlannerData}
           </span>
         </div>
 
         <div className="overflow-x-auto rounded-[1.4rem] border border-border bg-white px-4 py-4 font-mono text-xs leading-6 text-foreground">
-          {code || "Your student code appears here once profile and planner state exist."}
+          {code || copy.studentCode.waitingForStudentCode}
         </div>
 
         <div className="flex flex-wrap gap-3">
@@ -53,14 +55,14 @@ export function StudentCodeCard() {
             onClick={() => void copyCode()}
             type="button"
           >
-            {copied ? "Copied" : "Copy code"}
+            {copied ? copy.studentCode.copied : copy.studentCode.copyCode}
           </button>
 
           <Link
             className="inline-flex items-center rounded-full border border-border bg-white px-4 py-2 text-sm font-semibold text-foreground transition hover:-translate-y-0.5 hover:border-accent/35"
             href="/connect-chatgpt"
           >
-            Open the ChatGPT connection page
+            {copy.studentCode.openChatGpt}
           </Link>
         </div>
       </CardContent>

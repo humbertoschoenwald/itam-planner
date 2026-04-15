@@ -40,6 +40,7 @@ The public API origin is intentionally optional from the web runtime contract.
 
 - During local development, `apps/web` may use `http://127.0.0.1:8000`.
 - In deployed environments, the default path is to serve the published JSON catalog from the same web deployment.
+- The web bundle should ship JSON projections only; the canonical SQLite snapshot remains outside the deployed frontend artifact.
 - Set `NEXT_PUBLIC_ITAM_PLANNER_API_BASE_URL` only when you want the client to target a separate read-only API origin.
 
 ## Connect to ChatGPT and Future AI Context
