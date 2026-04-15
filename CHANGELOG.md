@@ -20,6 +20,7 @@ Do not edit it manually.
 - api: make fixture snapshot promotion deterministic (`2730b5a`)
 - api: stabilize fixture snapshots across platforms (`b582d7c`)
 - web: harden browser storage persistence (`4ce6cb3`)
+- web: disable route prefetch on public shell (`2fdfecb`)
 
 ### Documentation
 
