@@ -1,11 +1,19 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { getUiCopy } from "@/lib/copy";
-import { hasCompletedOnboarding } from "@/lib/onboarding";
+import {
+  buildEntryTerm,
+  ENTRY_TERM_SEASONS,
+  getEntryTermYearOptions,
+  hasCompletedOnboarding,
+  parseEntryTerm,
+} from "@/lib/onboarding";
 import type { BulletinSummary } from "@/lib/types";
 import { useSyncStudentCode } from "@/lib/use-sync-student-code";
 import {
@@ -21,13 +29,19 @@ const LOCALE_OPTIONS = [
 const INPUT_CLASS_NAME = "field-shell text-sm";
 
 interface OnboardingPanelProps {
+  recoveredFromError?: boolean;
   redirectedFromPlanner?: boolean;
   plans: BulletinSummary[];
 }
 
-export function OnboardingPanel({ plans, redirectedFromPlanner = false }: OnboardingPanelProps) {
+export function OnboardingPanel({
+  plans,
+  redirectedFromPlanner = false,
+  recoveredFromError = false,
+}: OnboardingPanelProps) {
   useSyncStudentCode();
 
+  const router = useRouter();
   const profile = useStudentProfileStore((state) => state.profile);
   const setEntryTerm = useStudentProfileStore((state) => state.setEntryTerm);
   const setLocale = useStudentProfileStore((state) => state.setLocale);
@@ -35,6 +49,74 @@ export function OnboardingPanel({ plans, redirectedFromPlanner = false }: Onboar
   const resetProfile = useStudentProfileStore((state) => state.resetProfile);
   const copy = getUiCopy(profile.locale);
   const onboardingComplete = hasCompletedOnboarding(profile);
+  const parsedEntryTerm = parseEntryTerm(profile.entryTerm);
+  const parsedEntrySeason = parsedEntryTerm.season;
+  const parsedEntryYear = parsedEntryTerm.year;
+  const [entryTermDraft, setEntryTermDraft] = useState(parsedEntryTerm);
+  const [showValidation, setShowValidation] = useState(false);
+  const yearOptions = getEntryTermYearOptions();
+  const entrySeason = entryTermDraft.season;
+  const entryYear = entryTermDraft.year;
+
+  useEffect(() => {
+    if (
+      parsedEntrySeason === entryTermDraft.season &&
+      parsedEntryYear === entryTermDraft.year
+    ) {
+      return undefined;
+    }
+
+    const frame = window.requestAnimationFrame(() => {
+      setEntryTermDraft({
+        season: parsedEntrySeason,
+        year: parsedEntryYear,
+      });
+    });
+
+    return () => window.cancelAnimationFrame(frame);
+  }, [
+    entryTermDraft.season,
+    entryTermDraft.year,
+    parsedEntrySeason,
+    parsedEntryYear,
+  ]);
+
+  function handleEntrySeasonChange(nextSeason: string) {
+    setEntryTermDraft((current) => {
+      const nextDraft = {
+        ...current,
+        season: nextSeason,
+      };
+
+      setEntryTerm(buildEntryTerm(nextDraft.season, nextDraft.year));
+
+      return nextDraft;
+    });
+    setShowValidation(false);
+  }
+
+  function handleEntryYearChange(nextYear: string) {
+    setEntryTermDraft((current) => {
+      const nextDraft = {
+        ...current,
+        year: nextYear,
+      };
+
+      setEntryTerm(buildEntryTerm(nextDraft.season, nextDraft.year));
+
+      return nextDraft;
+    });
+    setShowValidation(false);
+  }
+
+  function handleContinue() {
+    if (!onboardingComplete) {
+      setShowValidation(true);
+      return;
+    }
+
+    router.push("/planner");
+  }
 
   return (
     <Card className="section-shell">
@@ -49,6 +131,13 @@ export function OnboardingPanel({ plans, redirectedFromPlanner = false }: Onboar
           <div className="rounded-[1.35rem] bg-accent-soft px-4 py-4 text-sm leading-6 text-accent">
             <p className="font-semibold">{copy.onboardingPage.plannerGateTitle}</p>
             <p className="mt-2">{copy.onboardingPage.plannerGateBody}</p>
+          </div>
+        ) : null}
+
+        {recoveredFromError ? (
+          <div className="rounded-[1.35rem] border border-border bg-surface-elevated px-4 py-4 text-sm leading-6 text-muted">
+            <p className="font-semibold text-foreground">{copy.onboardingPage.recoveryTitle}</p>
+            <p className="mt-2">{copy.onboardingPage.recoveryBody}</p>
           </div>
         ) : null}
 
@@ -68,17 +157,62 @@ export function OnboardingPanel({ plans, redirectedFromPlanner = false }: Onboar
           </div>
         )}
 
-        <div className="space-y-2">
-          <label className="text-sm font-medium text-foreground" htmlFor="entry-term">
-            {copy.plannerHome.entryTerm}
-          </label>
-          <input
-            id="entry-term"
-            className={INPUT_CLASS_NAME}
-            onChange={(event) => setEntryTerm(event.target.value)}
-            placeholder={copy.plannerHome.entryTermPlaceholder}
-            value={profile.entryTerm}
-          />
+        <div className="space-y-3">
+          <div>
+            <p className="text-sm font-medium text-foreground">{copy.plannerHome.entryTerm}</p>
+            <p className="mt-1 text-xs leading-5 text-muted">
+              {copy.onboardingPage.entryTermHelp}
+            </p>
+          </div>
+
+          <div className="grid gap-3 sm:grid-cols-2">
+            <div className="space-y-2">
+              <label className="text-sm font-medium text-foreground" htmlFor="entry-season">
+                {copy.onboardingPage.entrySeason}
+              </label>
+              <select
+                aria-invalid={showValidation && entrySeason.length === 0}
+                id="entry-season"
+                className={INPUT_CLASS_NAME}
+                onChange={(event) => handleEntrySeasonChange(event.target.value)}
+                value={entrySeason}
+              >
+                <option value="">{copy.onboardingPage.selectSeason}</option>
+                {ENTRY_TERM_SEASONS.map((season) => (
+                  <option key={season} value={season}>
+                    {season}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            <div className="space-y-2">
+              <label className="text-sm font-medium text-foreground" htmlFor="entry-year">
+                {copy.onboardingPage.entryYear}
+              </label>
+              <select
+                aria-invalid={showValidation && entryYear.length === 0}
+                id="entry-year"
+                className={INPUT_CLASS_NAME}
+                onChange={(event) => handleEntryYearChange(event.target.value)}
+                value={entryYear}
+              >
+                <option value="">{copy.onboardingPage.selectYear}</option>
+                {yearOptions.map((year) => (
+                  <option key={year} value={year}>
+                    {year}
+                  </option>
+                ))}
+              </select>
+            </div>
+          </div>
+
+          {showValidation && !onboardingComplete ? (
+            <div className="rounded-[1.35rem] border border-border bg-surface-elevated px-4 py-4 text-sm leading-6 text-muted">
+              <p className="font-semibold text-foreground">{copy.onboardingPage.validationTitle}</p>
+              <p className="mt-2">{copy.onboardingPage.validationBody}</p>
+            </div>
+          ) : null}
         </div>
 
         <div className="space-y-2">
@@ -132,11 +266,7 @@ export function OnboardingPanel({ plans, redirectedFromPlanner = false }: Onboar
           <Button onClick={() => resetProfile()} variant="secondary">
             {copy.plannerHome.profileReset}
           </Button>
-          <Button asChild>
-            <Link href="/planner" prefetch={false}>
-              {copy.onboardingPage.openPlanner}
-            </Link>
-          </Button>
+          <Button onClick={handleContinue}>{copy.onboardingPage.openPlanner}</Button>
           <Button asChild variant="secondary">
             <Link href="/" prefetch={false}>
               {copy.onboardingPage.backHome}

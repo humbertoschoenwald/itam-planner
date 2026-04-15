@@ -78,14 +78,25 @@ const uiCopy = {
       title: "Capture the academic basics once in this browser.",
       description:
         "Choose your entry term, active plans, and preferred locale. The planner route depends on this local state to know which documents apply to you.",
+      entrySeason: "Season",
+      entryTermHelp: "Pick the academic season and year. Free-text entry is intentionally disabled.",
+      entryYear: "Year",
       plannerGateBody:
         "The planner route opened first, but this browser still needs the minimum onboarding state before the dedicated planner shell can load.",
       plannerGateTitle: "Finish onboarding to enter the planner",
+      recoveryBody:
+        "The previous route failed and the browser-local planner state was cleared to avoid another loop. Capture the academic basics again before continuing.",
+      recoveryTitle: "Local recovery completed",
       readyBody:
         "This browser already has the minimum onboarding state. You can refine it here or jump straight into the planner.",
       readyTitle: "Onboarding already exists",
-      openPlanner: "Open planner",
+      openPlanner: "Continue",
       backHome: "Back to home",
+      selectSeason: "Select a season",
+      selectYear: "Select a year",
+      validationBody:
+        "Choose both entry-term selectors and keep at least one active plan before moving to the planner.",
+      validationTitle: "Complete the required onboarding fields",
     },
     connectPage: {
       description:
@@ -145,7 +156,6 @@ const uiCopy = {
         "This state is private to the current browser. It decides which bulletins and regulations apply to you later.",
       currentProfileReady: "Profile in progress",
       entryTerm: "Entry term",
-      entryTermPlaceholder: "Example: OTOÑO 2025",
       groupsSelected: "Selected groups",
       independentProject: "Independent project",
       intro:
@@ -348,14 +358,26 @@ const uiCopy = {
       title: "Captura lo académico básico una vez en este navegador.",
       description:
         "Elige tu periodo de ingreso, tus planes activos y tu idioma preferido. La ruta del planner depende de este estado local para saber qué documentos te aplican.",
+      entrySeason: "Ciclo",
+      entryTermHelp:
+        "Elige el ciclo académico y el año. La captura manual de texto queda deshabilitada a propósito.",
+      entryYear: "Año",
       plannerGateBody:
         "Entraste primero a la ruta del planner, pero este navegador todavía necesita el onboarding mínimo antes de abrir el shell dedicado del planner.",
       plannerGateTitle: "Termina el onboarding para entrar al planner",
+      recoveryBody:
+        "La ruta anterior falló y el estado local del planner se limpió para evitar otro loop. Captura de nuevo lo básico antes de continuar.",
+      recoveryTitle: "La recuperación local ya terminó",
       readyBody:
         "Este navegador ya tiene el onboarding mínimo. Puedes ajustarlo aquí o saltar directo al planner.",
       readyTitle: "Ya existe onboarding",
-      openPlanner: "Abrir planner",
+      openPlanner: "Siguiente",
       backHome: "Volver al inicio",
+      selectSeason: "Selecciona un ciclo",
+      selectYear: "Selecciona un año",
+      validationBody:
+        "Completa ambos selectores del periodo de ingreso y deja al menos un plan activo antes de pasar al planner.",
+      validationTitle: "Falta completar onboarding",
     },
     connectPage: {
       description:
@@ -416,7 +438,6 @@ const uiCopy = {
         "Este estado es privado del navegador actual. Después decide qué boletines y reglamentos te aplican.",
       currentProfileReady: "Perfil en progreso",
       entryTerm: "Periodo de ingreso",
-      entryTermPlaceholder: "Ejemplo: OTOÑO 2025",
       groupsSelected: "Grupos seleccionados",
       independentProject: "Proyecto independiente",
       intro:
