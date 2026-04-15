@@ -1,0 +1,13 @@
+---
+description: Keep work inside the current doctrine-and-governance phase unless a stronger instruction explicitly expands scope.
+alwaysApply: true
+---
+
+@file ../../docs/adr/0001-scope-and-phase.md
+
+# Scope And Phase
+
+- RULE: The current slice is doctrine, rules, and derived config.
+- RULE: Do not jump ahead into full app scaffolding, scraping logic, CI pipelines, or deployment manifests unless directly instructed.
+- RULE: Prefer locking policy before generating structure.
+- RULE: Mark future implementation slices clearly instead of silently overbuilding.

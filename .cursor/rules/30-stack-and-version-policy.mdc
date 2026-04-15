@@ -1,0 +1,13 @@
+---
+description: Apply the canonical stack and latest-stable version policy for future scaffold work.
+alwaysApply: true
+---
+
+@file ../../docs/adr/0002-stack-and-version-policy.md
+
+# Stack And Version Policy
+
+- RULE: The canonical stack is `pnpm workspaces`, `Next.js`, `React`, `TypeScript`, `Tailwind CSS`, `shadcn/ui`, `Zustand`, `uv`, `FastAPI`, `Pydantic v2`, `BeautifulSoup4`, `lxml`, `Playwright`, and `openapi-typescript`.
+- RULE: Python workflow goes through `uv` only.
+- RULE: Prefer the latest stable release line at implementation time.
+- RULE: Do not introduce Rust, C, C++, or .NET into the initial production path.

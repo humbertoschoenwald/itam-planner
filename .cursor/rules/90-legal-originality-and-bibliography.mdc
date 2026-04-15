@@ -1,0 +1,14 @@
+---
+description: Enforce repository originality, legal positioning, licensing, and bibliography hygiene.
+alwaysApply: true
+---
+
+@file ../../docs/adr/0008-legal-originality-and-bibliography.md
+@file ../../docs/bibliography/tooling-and-standards.md
+
+# Legal Originality And Bibliography
+
+- RULE: The repository is MIT-licensed and must keep the independent-project disclaimer visible in docs and product surfaces.
+- RULE: All implementation must be original and written from scratch.
+- RULE: Do not copy code, proprietary assets, or unique documentation strings from prior repositories.
+- RULE: Keep the bibliography current when doctrine adopts or removes a major tool or standard.

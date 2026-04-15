@@ -1,0 +1,13 @@
+---
+description: Preserve the user experience target for the future runtime scaffold.
+alwaysApply: true
+---
+
+@file ../../docs/adr/0007-frontend-experience.md
+
+# Frontend Experience
+
+- RULE: Design mobile-first and Safari-first.
+- RULE: Keep product UI Spanish-first with English as the secondary locale.
+- RULE: Keep repository-facing content in English.
+- RULE: Favor stable browser APIs and lightweight frontend decisions that work well on WebKit.

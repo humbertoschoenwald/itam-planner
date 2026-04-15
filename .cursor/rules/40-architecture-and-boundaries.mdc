@@ -1,0 +1,13 @@
+---
+description: Preserve the layered, decoupled architecture between web, API, and data adapters.
+alwaysApply: true
+---
+
+@file ../../docs/adr/0003-architecture-and-boundaries.md
+
+# Architecture And Boundaries
+
+- RULE: Keep frontend, backend, and data adapters separated by contracts.
+- RULE: Do not couple the frontend to scraper internals or database schema.
+- RULE: Do not couple backend behavior to one source site.
+- RULE: Prefer interface-driven seams that make the service layer reusable in a normal server environment.

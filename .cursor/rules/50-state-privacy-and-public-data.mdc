@@ -1,0 +1,13 @@
+---
+description: Enforce the privacy model and the separation between personal state and public catalog data.
+alwaysApply: true
+---
+
+@file ../../docs/adr/0004-state-privacy-and-public-data.md
+
+# State Privacy And Public Data
+
+- RULE: Personal schedule state belongs only in browser `localStorage`.
+- RULE: Do not add auth, user accounts, sessions, analytics, tracking cookies, or personal telemetry.
+- RULE: Public catalog persistence is allowed, but it must stay strictly separate from user state.
+- RULE: Never use public-data persistence as a side channel for identity, preferences, or schedules.

@@ -1,0 +1,13 @@
+---
+description: Enforce doctrinal traceability from ADR to operational rules and config.
+alwaysApply: true
+---
+
+@file ../../docs/adr/0000-repository-doctrine.md
+
+# ADR Traceability
+
+- RULE: Every material rule in `.cursor/rules` must map to an ADR.
+- RULE: High-impact config files should cite their source ADR when the file format supports comments.
+- RULE: Do not invent policy directly inside config files.
+- RULE: If doctrine and an existing config disagree, ADR wins and the config must be updated.

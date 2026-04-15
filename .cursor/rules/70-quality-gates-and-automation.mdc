@@ -1,0 +1,14 @@
+---
+description: Apply the repository quality model, automation standards, and release conventions.
+alwaysApply: true
+---
+
+@file ../../docs/adr/0006-quality-gates-and-automation.md
+
+# Quality Gates And Automation
+
+- RULE: Use Conventional Commits and CalVer `YY.MM.PATCH`.
+- RULE: Derive changelog generation from conventional commit history.
+- RULE: Enforce quality with Ruff, basedpyright, ESLint, Prettier, CSpell, Commitlint, markdownlint-cli2, yamllint, ShellCheck, Hadolint, and actionlint.
+- RULE: Keep local hooks under `.githooks/`.
+- RULE: Prefer shift-left validation over CI-only enforcement.
