@@ -36,3 +36,8 @@ extraPaths = ["apps/api/src"]
 venvPath = "apps/api"
 venv = ".venv"
 reportMissingTypeStubs = false
+
+[tool.pytest.ini_options]
+addopts = "--basetemp=.pytest-tmp"
+pythonpath = ["apps/api/src"]
+testpaths = ["apps/api/tests"]
