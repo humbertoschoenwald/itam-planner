@@ -82,6 +82,7 @@ Initial product-surface rules:
 - SEO is a first-class public requirement: canonical metadata, crawlable route metadata, sitemap coverage, and machine-readable structured data must be treated as product work, not marketing afterthought.
 - Visible UI strings, route chrome labels, selector labels, locale labels, ARIA labels, and other locale-dependent text must come from locale dictionaries rather than hardcoded strings inside components or page modules.
 - Public metadata text, structured-data descriptions, and other crawlable locale-facing SEO copy must also come from locale dictionaries rather than hardcoded page-module strings.
+- Frontend identifiers, enum values, configuration keys, and non-locale component APIs should stay English-only. Spanish belongs in locale dictionaries, source-derived content, and compatibility aliases only.
 - The current product slice supports only two UI locales: Spanish (`es-MX`) and English (`en`).
 - Adding or changing locale-facing text requires updating the locale dictionaries and the relevant regression tests in the same change.
 - Keep interaction logic, browser persistence, and presentation styling loosely coupled so the visual system can be replaced without rewriting planner behavior.

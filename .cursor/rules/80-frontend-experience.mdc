@@ -44,6 +44,7 @@ alwaysApply: true
 - RULE: Treat SEO, crawlability, and structured metadata as product requirements.
 - RULE: Drive visible UI strings, route chrome labels, selector labels, ARIA labels, and locale-dependent option labels from locale dictionaries instead of hardcoded component or page strings.
 - RULE: Drive public metadata text, structured-data descriptions, and other crawlable locale-facing SEO copy from locale dictionaries instead of hardcoded page-module strings.
+- RULE: Keep frontend identifiers, enum values, configuration keys, and non-locale component APIs English-only; Spanish belongs only in locale dictionaries, source-derived content, and compatibility aliases.
 - RULE: Support only `es-MX` and `en` as product locales in the current slice.
 - RULE: Any locale-facing text change must update the locale dictionaries and regression tests in the same change.
 - RULE: Keep planner logic, browser persistence, and presentation styling loosely coupled so the visual system can be replaced without rewriting behavior.
