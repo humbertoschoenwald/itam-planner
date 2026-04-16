@@ -19,10 +19,15 @@ Do not edit it manually.
 - doctrine: expand official planner shell scope (`fe5d641`)
 - doctrine: refine planner onboarding policy (`993c3b6`)
 - doctrine: refine frontend route and planner rules (`fb10827`)
+- doctrine: mirror blocking CI before push (`ba60065`)
 
 ### Build
 
 - repo: allow repeated changelog headings (`7b43a64`)
+
+### Continuous Integration
+
+- repo: block broken pushes with local CI mirror (`1fb24e1`)
 
 ## 2026-04-15
 
