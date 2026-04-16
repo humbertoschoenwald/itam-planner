@@ -9,9 +9,18 @@ Do not edit it manually.
 
 - web: add official planner bootstrap surfaces (`2b71b67`)
 
+### Fixes
+
+- web: align planner onboarding with academic context (`8a03bcb`)
+
 ### Documentation
 
 - doctrine: expand official planner shell scope (`fe5d641`)
+- doctrine: refine planner onboarding policy (`993c3b6`)
+
+### Build
+
+- repo: allow repeated changelog headings (`7b43a64`)
 
 ## 2026-04-15
 
