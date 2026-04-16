@@ -10,6 +10,7 @@ Do not edit it manually.
 - web: add official planner bootstrap surfaces (`2b71b67`)
 - web: align planner shell with canonical routes (`4114e92`)
 - web: cover official joint programs in onboarding (`29c5030`)
+- web: add official graduate study references (`95b247f`)
 
 ### Fixes
 
@@ -22,6 +23,7 @@ Do not edit it manually.
 - doctrine: refine planner onboarding policy (`993c3b6`)
 - doctrine: refine frontend route and planner rules (`fb10827`)
 - doctrine: mirror blocking CI before push (`ba60065`)
+- doctrine: extend official study surfaces (`40b9207`)
 
 ### Build
 
