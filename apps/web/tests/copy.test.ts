@@ -18,4 +18,11 @@ describe("getUiCopy", () => {
   it("includes the under construction banner copy in Spanish-first mode", () => {
     expect(getUiCopy("es-MX").underConstruction.title).toBe("Under Construction");
   });
+
+  it("exposes localized entry-season labels instead of raw academic keys", () => {
+    expect(getUiCopy("es-MX").onboardingPage.seasonOptions.spring).toBe("Primavera");
+    expect(getUiCopy("es-MX").onboardingPage.seasonOptions.fall).toBe("Otoño");
+    expect(getUiCopy("en").onboardingPage.seasonOptions.spring).toBe("Spring");
+    expect(getUiCopy("en").onboardingPage.seasonOptions.fall).toBe("Fall");
+  });
 });

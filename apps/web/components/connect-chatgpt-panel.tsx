@@ -3,6 +3,7 @@
 import Link from "next/link";
 
 import { getUiCopy } from "@/lib/copy";
+import { formatEntryTermLabel } from "@/lib/onboarding";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { usePlannerStore } from "@/stores/planner-store";
 import { useStudentCodeStore } from "@/stores/student-code-store";
@@ -50,7 +51,11 @@ export function ConnectChatGptPanel() {
           <div className="metric-grid">
             <div className="metric-chip">
               <span className="font-semibold text-foreground">{copy.connectPanel.entryTerm}</span>
-              <div>{profile.entryTerm || copy.connectPanel.notSetYet}</div>
+              <div>
+                {profile.entryTerm
+                  ? formatEntryTermLabel(profile.entryTerm, copy.onboardingPage.seasonOptions)
+                  : copy.connectPanel.notSetYet}
+              </div>
             </div>
             <div className="metric-chip">
               <span className="font-semibold text-foreground">{copy.connectPanel.plans}</span>

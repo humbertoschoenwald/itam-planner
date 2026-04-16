@@ -10,27 +10,6 @@ interface SelectedWeekBoardProps {
   offerings: ScheduleOffering[];
 }
 
-const WEEKDAY_LABELS = {
-  en: {
-    DO: "Sun",
-    JU: "Thu",
-    LU: "Mon",
-    MA: "Tue",
-    MI: "Wed",
-    SA: "Sat",
-    VI: "Fri",
-  },
-  "es-MX": {
-    DO: "Dom",
-    JU: "Jue",
-    LU: "Lun",
-    MA: "Mar",
-    MI: "Mié",
-    SA: "Sáb",
-    VI: "Vie",
-  },
-} as const;
-
 export function SelectedWeekBoard({ locale, offerings }: SelectedWeekBoardProps) {
   const copy = getUiCopy(locale);
   const week = buildWeeklyAgenda(offerings);
@@ -50,7 +29,9 @@ export function SelectedWeekBoard({ locale, offerings }: SelectedWeekBoardProps)
               <section key={day.weekdayCode} className="day-column">
                 <div className="flex items-center justify-between gap-3">
                   <h3 className="text-sm font-semibold text-foreground">
-                    {WEEKDAY_LABELS[locale][day.weekdayCode as keyof (typeof WEEKDAY_LABELS)[typeof locale]]}
+                    {copy.common.weekdayLabels[
+                      day.weekdayCode as keyof typeof copy.common.weekdayLabels
+                    ]}
                   </h3>
                   <span className="text-xs font-semibold uppercase tracking-[0.18em] text-muted">
                     {day.items.length}

@@ -21,7 +21,7 @@ export function SiteHeader() {
       <div className="mx-auto flex w-full max-w-7xl flex-col gap-4 px-5 py-4 sm:px-8 lg:flex-row lg:items-center lg:justify-between">
         <div className="flex flex-wrap items-center gap-3">
           <Link className="font-display text-2xl text-foreground" href="/" prefetch={false}>
-            ITAM Planner
+            {copy.plannerHome.title}
           </Link>
           <span className="rounded-full border border-accent/12 bg-accent-soft px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-accent">
             {copy.siteHeader.badge}

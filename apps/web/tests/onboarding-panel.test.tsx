@@ -64,6 +64,17 @@ describe("OnboardingPanel", () => {
     ).not.toBeInTheDocument();
   });
 
+  it("keeps the selected season visible before the year is chosen", () => {
+    render(<OnboardingPanel plans={[]} />);
+
+    fireEvent.change(screen.getByLabelText(/Ciclo/u), {
+      target: { value: "spring" },
+    });
+
+    expect(screen.getByLabelText(/Ciclo/u)).toHaveValue("spring");
+    expect(screen.getByText(/Primero selecciona tu periodo de ingreso/u)).toBeInTheDocument();
+  });
+
   it("filters active plans to the selected entry term", () => {
     render(
       <OnboardingPanel
@@ -101,7 +112,7 @@ describe("OnboardingPanel", () => {
     );
 
     fireEvent.change(screen.getByLabelText(/Ciclo/u), {
-      target: { value: "OTOÑO" },
+      target: { value: "fall" },
     });
     fireEvent.change(screen.getByLabelText(/Año/u), {
       target: { value: "2025" },
@@ -134,7 +145,7 @@ describe("OnboardingPanel", () => {
     );
 
     fireEvent.change(screen.getByLabelText(/Ciclo/u), {
-      target: { value: "OTOÑO" },
+      target: { value: "fall" },
     });
     fireEvent.change(screen.getByLabelText(/Año/u), {
       target: { value: "2025" },

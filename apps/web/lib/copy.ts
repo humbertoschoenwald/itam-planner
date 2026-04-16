@@ -10,8 +10,21 @@ const uiCopy = {
         "This view hit an unexpected problem. We are moving you back to a safer route.",
       genericErrorTitle: "This view hit an unexpected problem.",
       goToOnboarding: "Go to onboarding",
+      localeLabels: {
+        "es-MX": "Spanish (MX)",
+        en: "English",
+      },
       open: "Open",
       planner: "Planner",
+      weekdayLabels: {
+        DO: "Sun",
+        JU: "Thu",
+        LU: "Mon",
+        MA: "Tue",
+        MI: "Wed",
+        SA: "Sat",
+        VI: "Fri",
+      },
     },
     communityLinks: {
       githubDescription:
@@ -58,7 +71,20 @@ const uiCopy = {
       title: "A light home for the planner, not the planner itself.",
       description:
         "Start with onboarding, keep your student context in this browser, and open the planner only when you are ready to shape a timetable from the published catalog.",
+      independentProject: "Independent project",
       primaryAction: "Start onboarding",
+      routeCards: [
+        {
+          body: "Set your entry term, active plans, and preferred locale. None of that leaves this browser.",
+          eyebrow: "Suggested route",
+          title: "1. /onboarding",
+        },
+        {
+          body: "The planner no longer shares the home payload. If onboarding is still incomplete, this route returns you to /onboarding.",
+          eyebrow: "Next step",
+          title: "2. /planner",
+        },
+      ],
       secondaryAction: "Open planner",
       tertiaryAction: "Community",
       panels: [
@@ -84,6 +110,10 @@ const uiCopy = {
       entrySeason: "Season",
       entryTermHelp: "Pick the academic season and year. Free-text entry is intentionally disabled.",
       entryYear: "Year",
+      seasonOptions: {
+        fall: "Fall",
+        spring: "Spring",
+      },
       plannerGateBody:
         "The planner route opened first, but this browser still needs the minimum onboarding state before the dedicated planner shell can load.",
       plannerGateTitle: "Finish onboarding to enter the planner",
@@ -186,6 +216,7 @@ const uiCopy = {
       plannerShell: "Planner shell",
       plannerShellHelp:
         "Select the groups you want to keep in your current planner state.",
+      groupLabel: "Group",
       selectedPeriodLoadError:
         "The selected public period could not be loaded from the published catalog.",
       selectedPeriodLoading: "Loading the selected public period...",
@@ -211,6 +242,7 @@ const uiCopy = {
         latestObservedSource: "Latest observed source",
         latestPromotion: "Last promotion",
         noData: "No published snapshot metadata yet.",
+        notAvailableYet: "Not available yet",
         releaseLabel: "Release",
         snapshots: "Snapshots",
         statusLabels: {
@@ -300,8 +332,21 @@ const uiCopy = {
         "Esta vista encontró un problema inesperado. Te vamos a mover a una ruta más segura.",
       genericErrorTitle: "Esta vista encontró un problema inesperado.",
       goToOnboarding: "Ir a onboarding",
+      localeLabels: {
+        "es-MX": "Español (MX)",
+        en: "English",
+      },
       open: "Abrir",
       planner: "Planner",
+      weekdayLabels: {
+        DO: "Dom",
+        JU: "Jue",
+        LU: "Lun",
+        MA: "Mar",
+        MI: "Mié",
+        SA: "Sáb",
+        VI: "Vie",
+      },
     },
     communityLinks: {
       githubDescription:
@@ -348,7 +393,20 @@ const uiCopy = {
       title: "Un home ligero para el planner, no el planner mismo.",
       description:
         "Empieza con onboarding, conserva tu contexto académico en este navegador y abre el planner solo cuando ya estés listo para armar un horario con el catálogo publicado.",
+      independentProject: "Proyecto independiente",
       primaryAction: "Empezar onboarding",
+      routeCards: [
+        {
+          body: "Define tu periodo de ingreso, tus planes activos y el idioma preferido. Nada de eso sale de este navegador.",
+          eyebrow: "Ruta sugerida",
+          title: "1. /onboarding",
+        },
+        {
+          body: "El planner ya no comparte la misma carga del home. Si todavía no hiciste onboarding, esa ruta te regresa a /onboarding.",
+          eyebrow: "Siguiente paso",
+          title: "2. /planner",
+        },
+      ],
       secondaryAction: "Abrir planner",
       tertiaryAction: "Comunidad",
       panels: [
@@ -375,6 +433,10 @@ const uiCopy = {
       entryTermHelp:
         "Elige el ciclo académico y el año. La captura manual de texto queda deshabilitada a propósito.",
       entryYear: "Año",
+      seasonOptions: {
+        fall: "Otoño",
+        spring: "Primavera",
+      },
       plannerGateBody:
         "Entraste primero a la ruta del planner, pero este navegador todavía necesita el onboarding mínimo antes de abrir el shell dedicado del planner.",
       plannerGateTitle: "Termina el onboarding para entrar al planner",
@@ -478,6 +540,7 @@ const uiCopy = {
       plannerShell: "Shell del planner",
       plannerShellHelp:
         "Selecciona los grupos que quieres conservar dentro del estado actual del planner.",
+      groupLabel: "Grupo",
       selectedPeriodLoadError:
         "No fue posible cargar el periodo público seleccionado desde el catálogo publicado.",
       selectedPeriodLoading: "Cargando el periodo público seleccionado...",
@@ -503,6 +566,7 @@ const uiCopy = {
         latestObservedSource: "Última fuente observada",
         latestPromotion: "Última promoción",
         noData: "Todavía no hay metadata publicada del snapshot.",
+        notAvailableYet: "Todavía no disponible",
         releaseLabel: "Release",
         snapshots: "Snapshots",
         statusLabels: {

@@ -20,11 +20,6 @@ import type {
 import { usePlannerStore } from "@/stores/planner-store";
 import { useStudentProfileStore } from "@/stores/student-profile-store";
 
-const LOCALE_OPTIONS = [
-  { value: "es-MX", label: "Español (MX)" },
-  { value: "en", label: "English" },
-] as const;
-
 const INPUT_CLASS_NAME = "field-shell text-sm";
 
 interface PlannerHomeProps {
@@ -50,6 +45,10 @@ export function PlannerHome({
   > | null>(null);
   const [resolvedPeriodId, setResolvedPeriodId] = useState<string | null>(null);
   const [selectedPeriodError, setSelectedPeriodError] = useState<string | null>(null);
+  const localeOptions = Object.entries(copy.common.localeLabels).map(([value, label]) => ({
+    label,
+    value,
+  }));
 
   const defaultPeriodId = periods[0]?.period_id ?? null;
   const activePeriodId = plannerState.selectedPeriodId ?? defaultPeriodId;
@@ -104,7 +103,7 @@ export function PlannerHome({
   const hasPlannerData =
     plannerState.selectedPeriodId !== null || plannerState.selectedOfferingIds.length > 0;
   const currentLocaleLabel =
-    LOCALE_OPTIONS.find((option) => option.value === profile.locale)?.label ?? profile.locale;
+    localeOptions.find((option) => option.value === profile.locale)?.label ?? profile.locale;
   const activePeriodLabel =
     periods.find((period) => period.period_id === activePeriodId)?.label ??
     copy.plannerHome.activePeriodFallback;
@@ -121,7 +120,7 @@ export function PlannerHome({
       <section className="overflow-hidden rounded-[2.2rem] border border-border bg-surface p-6 shadow-[0_30px_90px_rgba(40,43,24,0.08)] sm:p-8">
         <div className="hero-grid">
           <div className="space-y-5">
-            <p className="eyebrow text-accent">ITAM Planner</p>
+            <p className="eyebrow text-accent">{copy.plannerHome.title}</p>
             <div className="space-y-4">
               <h1 className="font-display text-4xl leading-tight text-foreground sm:text-6xl">
                 {copy.plannerHome.plannerTitle}
@@ -266,7 +265,8 @@ export function PlannerHome({
                         />
                         <span>
                           <span className="block font-semibold text-foreground">
-                            {offering.course_code} · Group {offering.group_code}
+                            {offering.course_code} · {copy.plannerHome.groupLabel}{" "}
+                            {offering.group_code}
                           </span>
                           <span className="mt-1 block text-xs leading-5 text-muted">
                             {offering.display_title}

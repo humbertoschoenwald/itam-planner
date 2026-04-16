@@ -1,6 +1,17 @@
 import type { BulletinSummary, StudentProfile } from "@/lib/types";
 
-export const ENTRY_TERM_SEASONS = ["PRIMAVERA", "OTOÑO"] as const;
+export const ENTRY_TERM_SEASON_KEYS = ["spring", "fall"] as const;
+export type EntryTermSeasonKey = (typeof ENTRY_TERM_SEASON_KEYS)[number];
+
+const ENTRY_TERM_SEASON_TO_ACADEMIC_SEASON: Record<EntryTermSeasonKey, "PRIMAVERA" | "OTOÑO"> =
+  {
+    spring: "PRIMAVERA",
+    fall: "OTOÑO",
+  };
+const ACADEMIC_SEASON_TO_ENTRY_TERM_SEASON = {
+  OTOÑO: "fall",
+  PRIMAVERA: "spring",
+} as const;
 
 const ENTRY_TERM_PATTERN = /^(PRIMAVERA|OTOÑO) (\d{4})$/u;
 const ACADEMIC_TERM_PATTERN = /^(PRIMAVERA|VERANO|OTOÑO) (\d{4})$/u;
@@ -11,10 +22,9 @@ const TERM_SEASON_ORDER = {
   OTOÑO: 3,
 } as const;
 
-export function buildEntryTerm(season: string, year: string) {
-  return ENTRY_TERM_SEASONS.includes(season as (typeof ENTRY_TERM_SEASONS)[number]) &&
-    /^\d{4}$/u.test(year)
-    ? `${season} ${year}`
+export function buildEntryTerm(seasonKey: string, year: string) {
+  return isEntryTermSeasonKey(seasonKey) && /^\d{4}$/u.test(year)
+    ? `${ENTRY_TERM_SEASON_TO_ACADEMIC_SEASON[seasonKey]} ${year}`
     : "";
 }
 
@@ -22,9 +32,20 @@ export function parseEntryTerm(entryTerm: string) {
   const match = ENTRY_TERM_PATTERN.exec(entryTerm.trim());
 
   return {
-    season: match?.[1] ?? "",
+    seasonKey: getEntryTermSeasonKey(match?.[1] ?? ""),
     year: match?.[2] ?? "",
   };
+}
+
+export function formatEntryTermLabel(
+  entryTerm: string,
+  seasonLabels: Record<EntryTermSeasonKey, string>,
+) {
+  const parsedEntryTerm = parseEntryTerm(entryTerm);
+
+  return parsedEntryTerm.seasonKey && parsedEntryTerm.year
+    ? `${seasonLabels[parsedEntryTerm.seasonKey]} ${parsedEntryTerm.year}`
+    : entryTerm.trim();
 }
 
 export function isValidEntryTerm(entryTerm: string) {
@@ -134,4 +155,16 @@ function compareAcademicTerms(
   }
 
   return left.seasonOrder - right.seasonOrder;
+}
+
+function getEntryTermSeasonKey(value: string): EntryTermSeasonKey | "" {
+  const normalized = value.trim().toUpperCase();
+
+  return ACADEMIC_SEASON_TO_ENTRY_TERM_SEASON[
+    normalized as keyof typeof ACADEMIC_SEASON_TO_ENTRY_TERM_SEASON
+  ] ?? "";
+}
+
+function isEntryTermSeasonKey(value: string): value is EntryTermSeasonKey {
+  return ENTRY_TERM_SEASON_KEYS.includes(value as EntryTermSeasonKey);
 }

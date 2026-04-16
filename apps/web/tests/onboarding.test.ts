@@ -1,6 +1,11 @@
 import { describe, expect, it } from "vitest";
 
-import { filterPlansForEntryTerm } from "@/lib/onboarding";
+import {
+  buildEntryTerm,
+  filterPlansForEntryTerm,
+  formatEntryTermLabel,
+  parseEntryTerm,
+} from "@/lib/onboarding";
 import type { BulletinSummary } from "@/lib/types";
 
 const samplePlans: BulletinSummary[] = [
@@ -35,6 +40,21 @@ const samplePlans: BulletinSummary[] = [
 ];
 
 describe("filterPlansForEntryTerm", () => {
+  it("keeps English-like selector keys separate from localized display labels", () => {
+    expect(buildEntryTerm("spring", "2025")).toBe("PRIMAVERA 2025");
+    expect(buildEntryTerm("fall", "2025")).toBe("OTOÑO 2025");
+    expect(parseEntryTerm("PRIMAVERA 2025")).toEqual({
+      seasonKey: "spring",
+      year: "2025",
+    });
+    expect(
+      formatEntryTermLabel("PRIMAVERA 2025", {
+        fall: "Otoño",
+        spring: "Primavera",
+      }),
+    ).toBe("Primavera 2025");
+  });
+
   it("returns no plans until the entry term is valid", () => {
     expect(filterPlansForEntryTerm(samplePlans, "")).toEqual([]);
     expect(filterPlansForEntryTerm(samplePlans, "2025")).toEqual([]);

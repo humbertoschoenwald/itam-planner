@@ -92,8 +92,10 @@ export function CatalogFreshnessCard({
 }
 
 function formatDateTime(value: string | null, locale: LocaleCode) {
+  const copy = getUiCopy(locale);
+
   if (!value) {
-    return locale === "es-MX" ? "Todavía no disponible" : "Not available yet";
+    return copy.plannerHome.catalogFreshness.notAvailableYet;
   }
 
   return new Intl.DateTimeFormat(locale, {

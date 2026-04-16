@@ -9,8 +9,10 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { getUiCopy } from "@/lib/copy";
 import {
   buildEntryTerm,
-  ENTRY_TERM_SEASONS,
+  type EntryTermSeasonKey,
+  ENTRY_TERM_SEASON_KEYS,
   filterPlansForEntryTerm,
+  formatEntryTermLabel,
   getEntryTermYearOptions,
   isValidEntryTerm,
   parseEntryTerm,
@@ -21,11 +23,6 @@ import {
   DEFAULT_STUDENT_PROFILE,
   useStudentProfileStore,
 } from "@/stores/student-profile-store";
-
-const LOCALE_OPTIONS = [
-  { value: "es-MX", label: "Español (MX)" },
-  { value: "en", label: "English" },
-] as const;
 
 const INPUT_CLASS_NAME = "field-shell text-sm";
 
@@ -49,14 +46,16 @@ export function OnboardingPanel({
   const resetProfile = useStudentProfileStore((state) => state.resetProfile);
   const copy = getUiCopy(profile.locale);
   const parsedEntryTerm = parseEntryTerm(profile.entryTerm);
-  const parsedEntrySeason = parsedEntryTerm.season;
-  const parsedEntryYear = parsedEntryTerm.year;
   const [entryTermDraft, setEntryTermDraft] = useState(parsedEntryTerm);
   const [showValidation, setShowValidation] = useState(false);
   const yearOptions = getEntryTermYearOptions();
-  const entrySeason = entryTermDraft.season;
+  const localeOptions = Object.entries(copy.common.localeLabels).map(([value, label]) => ({
+    label,
+    value,
+  }));
+  const entrySeasonKey = entryTermDraft.seasonKey;
   const entryYear = entryTermDraft.year;
-  const draftEntryTerm = buildEntryTerm(entrySeason, entryYear);
+  const draftEntryTerm = buildEntryTerm(entrySeasonKey, entryYear);
   const visiblePlans = filterPlansForEntryTerm(plans, draftEntryTerm);
   const canShowPlans = draftEntryTerm.length > 0;
   const activeVisiblePlanCount = profile.activePlanIds.filter((planId) =>
@@ -64,29 +63,6 @@ export function OnboardingPanel({
   ).length;
   const onboardingComplete =
     isValidEntryTerm(profile.entryTerm) && activeVisiblePlanCount > 0;
-
-  useEffect(() => {
-    if (
-      parsedEntrySeason === entryTermDraft.season &&
-      parsedEntryYear === entryTermDraft.year
-    ) {
-      return undefined;
-    }
-
-    const frame = window.requestAnimationFrame(() => {
-      setEntryTermDraft({
-        season: parsedEntrySeason,
-        year: parsedEntryYear,
-      });
-    });
-
-    return () => window.cancelAnimationFrame(frame);
-  }, [
-    entryTermDraft.season,
-    entryTermDraft.year,
-    parsedEntrySeason,
-    parsedEntryYear,
-  ]);
 
   useEffect(() => {
     const visiblePlanIds = new Set(visiblePlans.map((plan) => plan.plan_id));
@@ -98,14 +74,14 @@ export function OnboardingPanel({
     setActivePlanIds(profile.activePlanIds.filter((planId) => visiblePlanIds.has(planId)));
   }, [profile.activePlanIds, setActivePlanIds, visiblePlans]);
 
-  function handleEntrySeasonChange(nextSeason: string) {
+  function handleEntrySeasonChange(nextSeasonKey: EntryTermSeasonKey | "") {
     setEntryTermDraft((current) => {
       const nextDraft = {
         ...current,
-        season: nextSeason,
+        seasonKey: nextSeasonKey,
       };
 
-      setEntryTerm(buildEntryTerm(nextDraft.season, nextDraft.year));
+      setEntryTerm(buildEntryTerm(nextDraft.seasonKey, nextDraft.year));
 
       return nextDraft;
     });
@@ -119,7 +95,7 @@ export function OnboardingPanel({
         year: nextYear,
       };
 
-      setEntryTerm(buildEntryTerm(nextDraft.season, nextDraft.year));
+      setEntryTerm(buildEntryTerm(nextDraft.seasonKey, nextDraft.year));
 
       return nextDraft;
     });
@@ -133,6 +109,15 @@ export function OnboardingPanel({
     }
 
     router.push("/planner");
+  }
+
+  function handleResetProfile() {
+    setEntryTermDraft({
+      seasonKey: "",
+      year: "",
+    });
+    setShowValidation(false);
+    resetProfile();
   }
 
   return (
@@ -181,16 +166,18 @@ export function OnboardingPanel({
                 {copy.onboardingPage.entrySeason}
               </label>
               <select
-                aria-invalid={showValidation && entrySeason.length === 0}
+                aria-invalid={showValidation && entrySeasonKey.length === 0}
                 id="entry-season"
                 className={INPUT_CLASS_NAME}
-                onChange={(event) => handleEntrySeasonChange(event.target.value)}
-                value={entrySeason}
+                onChange={(event) =>
+                  handleEntrySeasonChange(event.target.value as EntryTermSeasonKey | "")
+                }
+                value={entrySeasonKey}
               >
                 <option value="">{copy.onboardingPage.selectSeason}</option>
-                {ENTRY_TERM_SEASONS.map((season) => (
-                  <option key={season} value={season}>
-                    {season}
+                {ENTRY_TERM_SEASON_KEYS.map((seasonKey) => (
+                  <option key={seasonKey} value={seasonKey}>
+                    {copy.onboardingPage.seasonOptions[seasonKey]}
                   </option>
                 ))}
               </select>
@@ -235,7 +222,7 @@ export function OnboardingPanel({
             onChange={(event) => setLocale(event.target.value as "es-MX" | "en")}
             value={profile.locale}
           >
-            {LOCALE_OPTIONS.map((option) => (
+            {localeOptions.map((option) => (
               <option key={option.value} value={option.value}>
                 {option.label}
               </option>
@@ -296,7 +283,7 @@ export function OnboardingPanel({
         </div>
 
         <div className="flex flex-wrap gap-3">
-          <Button onClick={() => resetProfile()} variant="secondary">
+          <Button onClick={handleResetProfile} variant="secondary">
             {copy.plannerHome.profileReset}
           </Button>
           <Button onClick={handleContinue}>{copy.onboardingPage.openPlanner}</Button>
@@ -309,7 +296,9 @@ export function OnboardingPanel({
 
         <div className="flex flex-wrap gap-3">
           <span className="rounded-full bg-accent-soft px-3 py-2 text-xs font-medium text-accent">
-            {profile.entryTerm || DEFAULT_STUDENT_PROFILE.entryTerm || copy.plannerHome.noTermYet}
+            {profile.entryTerm
+              ? formatEntryTermLabel(profile.entryTerm, copy.onboardingPage.seasonOptions)
+              : DEFAULT_STUDENT_PROFILE.entryTerm || copy.plannerHome.noTermYet}
           </span>
           <span className="rounded-full border border-border bg-surface-elevated px-3 py-2 text-xs font-medium text-muted">
             {activeVisiblePlanCount} {copy.plannerHome.activePlansShort}

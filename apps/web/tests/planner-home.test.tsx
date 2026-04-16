@@ -103,7 +103,7 @@ describe("PlannerHome", () => {
     });
 
     await waitFor(() => {
-      expect(screen.getByText(/ACT-11300 · Group 001/u)).toBeInTheDocument();
+      expect(screen.getByText(/ACT-11300 · Grupo 001/u)).toBeInTheDocument();
     });
   });
 });
