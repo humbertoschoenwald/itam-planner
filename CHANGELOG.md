@@ -27,6 +27,8 @@ Do not edit it manually.
 - web: slim planner bootstrap and gate safely (`302fc9c`)
 - web: validate onboarding before planner routing (`1b62d1a`)
 - api: tolerate mixed live bulletin formats (`9ca80fc`)
+- web: harden onboarding and browser-local resilience (`412ee4b`)
+- api: switch boletines to official itam sources (`046a063`)
 
 ### Documentation
 
@@ -42,6 +44,7 @@ Do not edit it manually.
 - frontend: define home onboarding planner routes (`92c5a35`)
 - frontend: harden planner route fallback (`265d110`)
 - frontend: refine onboarding and catalog doctrine (`ae26e5f`)
+- doctrine: harden source policy and frontend scope (`1f33fed`)
 
 ### Tests
 
@@ -73,3 +76,4 @@ Do not edit it manually.
 - data: add fixture-backed public catalog snapshot (`f367457`)
 - data: refresh published fixture snapshot (`c47d553`)
 - data: publish live academic catalog snapshot (`af8c559`)
+- data: publish official-source academic snapshot (`4d0fcdb`)
