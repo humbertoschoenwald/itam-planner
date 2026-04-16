@@ -21,6 +21,7 @@ Commit and versioning rules:
 - Generate `CHANGELOG.md` from conventional commit history rather than maintaining it manually.
 - Regenerate `CHANGELOG.md` automatically on every push to `main`.
 - Group automated changelog entries by the push date in `America/Mexico_City`.
+- Allow repeated generated subsection headings such as `Features` and `Documentation` across different changelog date sections. Markdown linting must treat those headings as valid when they are separated by parent date headings.
 - Use GitHub Actions plus the repository `GITHUB_TOKEN` to commit the generated `CHANGELOG.md` update back to `main` when the file changed.
 - Use SSH for Git remotes and push operations. Do not normalize HTTPS push URLs as a routine workflow.
 
