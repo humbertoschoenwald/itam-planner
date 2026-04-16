@@ -24,6 +24,40 @@ const SECURITY_HEADERS = [
 ];
 
 const nextConfig: NextConfig = {
+  async redirects() {
+    return [
+      {
+        destination: "/planner/onboarding",
+        permanent: true,
+        source: "/onboarding",
+      },
+      {
+        destination: "/project",
+        permanent: true,
+        source: "/community",
+      },
+      {
+        destination: "/connect-ai",
+        permanent: true,
+        source: "/connect-chatgpt",
+      },
+      {
+        destination: "/registration",
+        permanent: true,
+        source: "/inscripciones",
+      },
+      {
+        destination: "/map",
+        permanent: true,
+        source: "/mapa",
+      },
+      {
+        destination: "/settings",
+        permanent: true,
+        source: "/planner/settings",
+      },
+    ];
+  },
   async headers() {
     return [
       {

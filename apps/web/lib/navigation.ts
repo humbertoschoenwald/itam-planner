@@ -58,7 +58,7 @@ export function resolveSecondaryNavId(pathname: string): SecondaryNavId | null {
     return "project";
   }
 
-  if (pathname.startsWith("/map") || pathname.startsWith("/mapa")) {
+  if (pathname.startsWith("/map")) {
     return "map";
   }
 

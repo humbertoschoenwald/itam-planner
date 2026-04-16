@@ -1,26 +1,46 @@
-import { readFileSync } from "node:fs";
-import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 
-const appRoot = join(import.meta.dirname, "..", "app");
+import nextConfig from "../next.config";
 
 describe("routing contract", () => {
-  it("keeps the legacy onboarding route as a compatibility redirect to planner onboarding", () => {
-    const source = readFileSync(join(appRoot, "onboarding", "page.tsx"), "utf8");
+  it("keeps the legacy public routes as compatibility redirects to the English canonicals", async () => {
+    const redirects = await nextConfig.redirects?.();
 
-    expect(source).toContain('redirect("/planner/onboarding")');
-  });
-
-  it("keeps legacy Spanish utility routes as compatibility redirects to English canonicals", () => {
-    const legacyInscriptions = readFileSync(join(appRoot, "inscripciones", "page.tsx"), "utf8");
-    const legacyMap = readFileSync(join(appRoot, "mapa", "page.tsx"), "utf8");
-    const legacySettings = readFileSync(
-      join(appRoot, "planner", "settings", "page.tsx"),
-      "utf8",
+    expect(redirects).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          destination: "/planner/onboarding",
+          permanent: true,
+          source: "/onboarding",
+        }),
+        expect.objectContaining({
+          destination: "/project",
+          permanent: true,
+          source: "/community",
+        }),
+        expect.objectContaining({
+          destination: "/connect-ai",
+          permanent: true,
+          source: "/connect-chatgpt",
+        }),
+        expect.objectContaining({
+          destination: "/registration",
+          permanent: true,
+          source: "/inscripciones",
+        }),
+        expect.objectContaining({
+          destination: "/map",
+          permanent: true,
+          source: "/mapa",
+        }),
+        expect.objectContaining({
+          destination: "/settings",
+          permanent: true,
+          source: "/planner/settings",
+        }),
+      ]),
     );
 
-    expect(legacyInscriptions).toContain('redirect("/registration")');
-    expect(legacyMap).toContain('redirect("/map")');
-    expect(legacySettings).toContain('redirect("/settings")');
+    expect(redirects).toHaveLength(6);
   });
 });
