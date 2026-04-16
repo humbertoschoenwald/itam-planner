@@ -10,4 +10,17 @@ describe("routing contract", () => {
 
     expect(source).toContain('redirect("/planner/onboarding")');
   });
+
+  it("keeps legacy Spanish utility routes as compatibility redirects to English canonicals", () => {
+    const legacyInscriptions = readFileSync(join(appRoot, "inscripciones", "page.tsx"), "utf8");
+    const legacyMap = readFileSync(join(appRoot, "mapa", "page.tsx"), "utf8");
+    const legacySettings = readFileSync(
+      join(appRoot, "planner", "settings", "page.tsx"),
+      "utf8",
+    );
+
+    expect(legacyInscriptions).toContain('redirect("/registration")');
+    expect(legacyMap).toContain('redirect("/map")');
+    expect(legacySettings).toContain('redirect("/settings")');
+  });
 });

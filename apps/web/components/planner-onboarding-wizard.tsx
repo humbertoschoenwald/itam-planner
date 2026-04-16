@@ -10,7 +10,7 @@ import {
   ACADEMIC_LEVELS,
   buildCareerChoiceOptionsForLevel,
   buildEntryTerm,
-  buildJointProgramChoiceOptions,
+  buildJointProgramChoiceOptionsForLevel,
   filterPeriodsForAcademicLevel,
   type EntryTermSeasonKey,
   ENTRY_TERM_SEASON_KEYS,
@@ -149,23 +149,22 @@ export function PlannerOnboardingWizard({
     profile.academicLevel,
   );
   const filteredCareerOptions = filterCareerChoiceOptions(careerOptions, careerSearch);
-  const jointProgramOptions =
-    profile.academicLevel === "undergraduate"
-      ? buildJointProgramChoiceOptions(plans, draftEntryTerm, profile.selectedCareerIds)
-      : [];
+  const jointProgramOptions = buildJointProgramChoiceOptionsForLevel(
+    plans,
+    draftEntryTerm,
+    profile.academicLevel,
+    profile.selectedCareerIds,
+  );
   const activePlanDocuments = useMemo(
     () =>
       bulletinDocuments.filter((document) => profile.activePlanIds.includes(document.plan_id)),
     [bulletinDocuments, profile.activePlanIds],
   );
   const estimatedSemester =
-    profile.academicLevel === "undergraduate"
-      ? estimateSemesterNumber(draftEntryTerm, defaultPeriod)
-      : null;
-  const recommendedSubjectCodes = buildRecommendedSubjectCodes(
-    activePlanDocuments,
-    estimatedSemester,
-  );
+    profile.academicLevel === "graduate"
+      ? null
+      : estimateSemesterNumber(draftEntryTerm, defaultPeriod);
+  const recommendedSubjectCodes = buildRecommendedSubjectCodes(activePlanDocuments, estimatedSemester);
   const recommendedDirectory = useMemo(
     () => buildSubjectDirectory(activePlanDocuments),
     [activePlanDocuments],
@@ -174,29 +173,40 @@ export function PlannerOnboardingWizard({
     () => buildSubjectDirectory(bulletinDocuments),
     [bulletinDocuments],
   );
+  const selectedSubjectCodeSet = useMemo(
+    () => new Set(plannerState.selectedSubjectCodes),
+    [plannerState.selectedSubjectCodes],
+  );
   const subjectResults = useMemo(
     () =>
-      subjectSearch.trim()
+      (subjectSearch.trim()
         ? searchSubjectDirectory(fullSubjectDirectory, subjectSearch)
-        : recommendedDirectory,
-    [fullSubjectDirectory, recommendedDirectory, subjectSearch],
+        : recommendedDirectory
+      ).filter((entry) => !selectedSubjectCodeSet.has(entry.courseCode)),
+    [fullSubjectDirectory, recommendedDirectory, selectedSubjectCodeSet, subjectSearch],
   );
   const selectedSubjectEntries = useMemo(
     () => buildSelectedSubjectSummary(plannerState.selectedSubjectCodes, fullSubjectDirectory),
     [fullSubjectDirectory, plannerState.selectedSubjectCodes],
   );
   const shouldShowCareerSteps = profile.academicLevel === "undergraduate";
-  const shouldShowJointPrograms = shouldShowCareerSteps && jointProgramOptions.length > 0;
+  const shouldShowJointPrograms =
+    profile.academicLevel === "jointPrograms" ||
+    (shouldShowCareerSteps && jointProgramOptions.length > 0);
+  const shouldShowSubjects = profile.academicLevel !== "graduate";
   const wizardSteps = (isPhoneViewport
     ? MOBILE_WIZARD_STEPS
     : MOBILE_WIZARD_STEPS.filter((step) => step !== "swipe")
   ).filter((step) => {
     if (step === "careers" || step === "jointPrograms" || step === "subjects") {
-      if (!shouldShowCareerSteps) {
+      if (step === "careers" && !shouldShowCareerSteps) {
         return false;
       }
       if (step === "jointPrograms") {
         return shouldShowJointPrograms;
+      }
+      if (step === "subjects") {
+        return shouldShowSubjects;
       }
     }
 
@@ -229,7 +239,7 @@ export function PlannerOnboardingWizard({
   }, []);
 
   useEffect(() => {
-    if (profile.academicLevel !== "undergraduate") {
+    if (profile.academicLevel === "graduate") {
       if (
         profile.selectedCareerIds.length > 0 ||
         profile.selectedJointProgramIds.length > 0 ||
@@ -239,6 +249,11 @@ export function PlannerOnboardingWizard({
         setSelectedJointProgramIds([]);
         setActivePlanIds([]);
       }
+      return;
+    }
+
+    if (profile.academicLevel === "jointPrograms" && profile.selectedCareerIds.length > 0) {
+      setSelectedCareerIds([]);
       return;
     }
 
@@ -267,15 +282,11 @@ export function PlannerOnboardingWizard({
   ]);
 
   useEffect(() => {
-    if (profile.academicLevel !== "undergraduate") {
+    if (profile.academicLevel === "graduate") {
       return;
     }
 
-    const visibleJointProgramIds = new Set(
-      buildJointProgramChoiceOptions(plans, draftEntryTerm, profile.selectedCareerIds).map(
-        (option) => option.jointProgramId,
-      ),
-    );
+    const visibleJointProgramIds = new Set(jointProgramOptions.map((option) => option.jointProgramId));
     const sanitized = profile.selectedJointProgramIds.filter((value) =>
       visibleJointProgramIds.has(value),
     );
@@ -286,17 +297,15 @@ export function PlannerOnboardingWizard({
 
     setSelectedJointProgramIds(sanitized);
   }, [
-    draftEntryTerm,
-    plans,
     profile.academicLevel,
-    profile.selectedCareerIds,
     profile.selectedJointProgramIds,
+    jointProgramOptions,
     setSelectedJointProgramIds,
   ]);
 
   useEffect(() => {
     if (
-      profile.academicLevel !== "undergraduate" ||
+      profile.academicLevel === "graduate" ||
       plannerState.selectedSubjectCodes.length > 0 ||
       recommendedSubjectCodes.length === 0
     ) {
@@ -317,9 +326,11 @@ export function PlannerOnboardingWizard({
       value:
         profile.academicLevel === "graduate"
           ? productCopy.plannerWizard.academicLevelOptions.graduate.title
-          : profile.academicLevel === "undergraduate"
-            ? productCopy.plannerWizard.academicLevelOptions.undergraduate.title
-            : copy.plannerOnboarding.finishSummary.pending,
+          : profile.academicLevel === "jointPrograms"
+            ? productCopy.plannerWizard.academicLevelOptions.jointPrograms.title
+            : profile.academicLevel === "undergraduate"
+              ? productCopy.plannerWizard.academicLevelOptions.undergraduate.title
+              : copy.plannerOnboarding.finishSummary.pending,
     },
     {
       label: copy.plannerOnboarding.finishSummary.entryTerm,
@@ -357,6 +368,26 @@ export function PlannerOnboardingWizard({
                     .map((option) => option.displayLabel)
                     .join(" · ")
                 : copy.plannerOnboarding.finishSummary.pending,
+          },
+        ]
+      : []),
+    ...(profile.academicLevel === "jointPrograms"
+      ? [
+          {
+            label: productCopy.plannerWizard.stepLabels.jointPrograms,
+            value:
+              profile.selectedJointProgramIds.length > 0
+                ? jointProgramOptions
+                    .filter((option) =>
+                      profile.selectedJointProgramIds.includes(option.jointProgramId),
+                    )
+                    .map((option) => option.displayLabel)
+                    .join(" · ")
+                : copy.plannerOnboarding.finishSummary.pending,
+          },
+          {
+            label: productCopy.plannerWizard.stepLabels.subjects,
+            value: String(plannerState.selectedSubjectCodes.length),
           },
         ]
       : []),
@@ -486,6 +517,7 @@ export function PlannerOnboardingWizard({
         careerSelectionCount: profile.selectedCareerIds.length,
         draftEntryTerm,
         navSwipePreference,
+        selectedJointProgramCount: profile.selectedJointProgramIds.length,
         selectedSubjectCount: plannerState.selectedSubjectCodes.length,
         validYears: yearOptions,
       })
@@ -520,7 +552,7 @@ export function PlannerOnboardingWizard({
     }
 
     if (
-      profile.academicLevel === "undergraduate" &&
+      profile.academicLevel !== "graduate" &&
       plannerState.selectedSubjectCodes.length === 0 &&
       recommendedSubjectCodes.length > 0
     ) {
@@ -659,6 +691,7 @@ export function PlannerOnboardingWizard({
                   copy,
                   productCopy,
                   selectedCareerIds: profile.selectedCareerIds,
+                  selectedJointProgramIds: profile.selectedJointProgramIds,
                 })}
               </p>
             </div>
@@ -734,7 +767,7 @@ function renderStepContent({
   handleJointProgramToggle: (jointProgramId: string) => void;
   handleSwipePreferenceSelection: (preference: "natural" | "inverted") => void;
   isPhoneViewport: boolean;
-  jointProgramOptions: ReturnType<typeof buildJointProgramChoiceOptions>;
+  jointProgramOptions: ReturnType<typeof buildJointProgramChoiceOptionsForLevel>;
   navSwipePreference: "natural" | "inverted" | null;
   productCopy: ReturnType<typeof getProductCopy>;
   selectedSubjectCodes: string[];
@@ -922,7 +955,7 @@ function renderStepContent({
             </p>
           </div>
 
-          {selectedCareerIds.length === 0 ? (
+          {academicLevel === "undergraduate" && selectedCareerIds.length === 0 ? (
             <div className="soft-panel text-sm leading-6 text-muted">
               {productCopy.plannerWizard.careerNone}
             </div>
@@ -1157,15 +1190,15 @@ function getInitialWizardStep(
   }
 
   if (
-    academicLevel === "undergraduate" &&
-    shouldShowJointPrograms &&
+    ((academicLevel === "undergraduate" && shouldShowJointPrograms) ||
+      academicLevel === "jointPrograms") &&
     selectedJointProgramIds.length === 0 &&
     selectedSubjectCount === 0
   ) {
     return "jointPrograms";
   }
 
-  if (academicLevel === "undergraduate" && shouldShowSubjects && selectedSubjectCount === 0) {
+  if (academicLevel !== "graduate" && shouldShowSubjects && selectedSubjectCount === 0) {
     return "subjects";
   }
 
@@ -1201,12 +1234,14 @@ function getValidationBody({
   copy,
   productCopy,
   selectedCareerIds,
+  selectedJointProgramIds,
 }: {
   academicLevel: AcademicLevel | null;
   activeStep: PlannerOnboardingStep;
   copy: ReturnType<typeof getUiCopy>;
   productCopy: ReturnType<typeof getProductCopy>;
   selectedCareerIds: string[];
+  selectedJointProgramIds: string[];
 }) {
   switch (activeStep) {
     case "academicLevel":
@@ -1216,7 +1251,9 @@ function getValidationBody({
         ? productCopy.plannerWizard.careerLimit
         : productCopy.plannerWizard.validation.careers;
     case "jointPrograms":
-      return productCopy.plannerWizard.validation.jointPrograms;
+      return academicLevel === "jointPrograms" && selectedJointProgramIds.length === 0
+        ? productCopy.plannerWizard.validation.jointProgramsRequired
+        : productCopy.plannerWizard.validation.jointPrograms;
     case "subjects":
       return academicLevel === "graduate"
         ? copy.plannerOnboarding.validationBody.finish
@@ -1232,6 +1269,7 @@ function isStepValid({
   careerSelectionCount,
   draftEntryTerm,
   navSwipePreference,
+  selectedJointProgramCount,
   selectedSubjectCount,
   validYears,
 }: {
@@ -1240,12 +1278,12 @@ function isStepValid({
   careerSelectionCount: number;
   draftEntryTerm: string;
   navSwipePreference: "natural" | "inverted" | null;
+  selectedJointProgramCount: number;
   selectedSubjectCount: number;
   validYears: string[];
 }) {
   switch (activeStep) {
     case "intro":
-    case "jointPrograms":
     case "finish":
       return true;
     case "academicLevel":
@@ -1254,6 +1292,8 @@ function isStepValid({
       const parsedEntryTerm = parseEntryTerm(draftEntryTerm);
       return parsedEntryTerm.seasonKey.length > 0 && validYears.includes(parsedEntryTerm.year);
     }
+    case "jointPrograms":
+      return academicLevel === "jointPrograms" ? selectedJointProgramCount > 0 : true;
     case "careers":
       return academicLevel === "graduate"
         ? true

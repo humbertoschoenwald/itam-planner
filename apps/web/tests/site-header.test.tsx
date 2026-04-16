@@ -9,9 +9,10 @@ import {
 } from "@/stores/student-profile-store";
 
 const pushSpy = vi.fn();
+let mockedPathname = "/planner";
 
 vi.mock("next/navigation", () => ({
-  usePathname: () => "/planner",
+  usePathname: () => mockedPathname,
   useRouter: () => ({
     push: pushSpy,
   }),
@@ -20,6 +21,7 @@ vi.mock("next/navigation", () => ({
 describe("SiteHeader", () => {
   beforeEach(() => {
     pushSpy.mockReset();
+    mockedPathname = "/planner";
     setViewportWidth(1280);
     useStudentProfileStore.setState({ profile: DEFAULT_STUDENT_PROFILE });
     usePlannerUiStore.setState({ state: DEFAULT_PLANNER_UI_STATE });
@@ -33,14 +35,8 @@ describe("SiteHeader", () => {
     expect(screen.getByRole("link", { name: "Calendario" })).toHaveAttribute("href", "/calendar");
     expect(screen.getByRole("link", { name: "Proyecto" })).toHaveAttribute("href", "/project");
     expect(screen.getByRole("link", { name: "Connect to AI" })).toHaveAttribute("href", "/connect-ai");
-    expect(screen.getByRole("link", { name: "Inscripciones" })).toHaveAttribute(
-      "href",
-      "/inscripciones",
-    );
-    expect(screen.getByRole("link", { name: "Configuración" })).toHaveAttribute(
-      "href",
-      "/planner/settings",
-    );
+    expect(screen.getByRole("link", { name: "Inscripciones" })).toHaveAttribute("href", "/registration");
+    expect(screen.getByRole("link", { name: "Configuración" })).toHaveAttribute("href", "/settings");
     expect(screen.getByRole("link", { name: "Abrir búsqueda local" })).toHaveAttribute(
       "href",
       "/search",
@@ -76,6 +72,18 @@ describe("SiteHeader", () => {
     });
 
     expect(usePlannerUiStore.getState().state.navSwipePreference).toBe("natural");
+  });
+
+  it("collapses secondary routes into a menu when horizontal space is tight", async () => {
+    mockedPathname = "/settings";
+    setViewportWidth(900);
+
+    render(<SiteHeader />);
+
+    await waitFor(() => {
+      expect(screen.queryByRole("link", { name: "Proyecto" })).not.toBeInTheDocument();
+      expect(screen.getByRole("button", { name: "Abrir menú del producto" })).toBeInTheDocument();
+    });
   });
 });
 

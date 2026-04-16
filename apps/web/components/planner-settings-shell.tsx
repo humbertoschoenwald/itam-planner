@@ -45,8 +45,11 @@ export function PlannerSettingsShell({
   const recommendedDirectory = useMemo(() => buildSubjectDirectory(activePlanDocs), [activePlanDocs]);
   const fullDirectory = useMemo(() => buildSubjectDirectory(bulletinDocuments), [bulletinDocuments]);
   const visibleDirectory = useMemo(
-    () => (query.trim() ? searchSubjectDirectory(fullDirectory, query) : recommendedDirectory),
-    [fullDirectory, query, recommendedDirectory],
+    () =>
+      (query.trim() ? searchSubjectDirectory(fullDirectory, query) : recommendedDirectory).filter(
+        (entry) => !plannerState.selectedSubjectCodes.includes(entry.courseCode),
+      ),
+    [fullDirectory, plannerState.selectedSubjectCodes, query, recommendedDirectory],
   );
   const selectedSubjects = useMemo(
     () => buildSelectedSubjectSummary(plannerState.selectedSubjectCodes, fullDirectory),

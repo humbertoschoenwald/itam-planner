@@ -10,7 +10,6 @@ const filesWithDisabledPrefetch = [
   "components/community-page-shell.tsx",
   "components/connect-chatgpt-panel.tsx",
   "components/onboarding-panel.tsx",
-  "components/planner-home.tsx",
   "components/planner-route-shell.tsx",
   "components/site-header.tsx",
   "components/site-footer.tsx",

@@ -112,5 +112,12 @@ describe("PlannerHome", () => {
     await waitFor(() => {
       expect(screen.getByText(/ACT-11300 · Grupo 001/u)).toBeInTheDocument();
     });
+
+    expect(
+      screen.queryByText(/elige un periodo público y guarda los grupos/u),
+    ).not.toBeInTheDocument();
+    expect(
+      screen.queryByText(/un planner local con un catálogo público normalizado por debajo/u),
+    ).not.toBeInTheDocument();
   });
 });

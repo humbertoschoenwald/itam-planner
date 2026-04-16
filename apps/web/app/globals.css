@@ -9,9 +9,9 @@
   --surface-code: rgba(255, 255, 255, 0.94);
   --surface-hover: rgba(255, 255, 255, 0.98);
   --muted: #677063;
-  --accent: #1f4d3f;
+  --accent: #15473a;
   --accent-soft: #d8ece2;
-  --accent-contrast: #f4fbf8;
+  --accent-contrast: #ffffff;
   --inverse-muted: rgba(244, 251, 248, 0.82);
   --border: rgba(24, 32, 23, 0.1);
   --page-overlay-top-left: rgba(255, 255, 255, 0.82);
@@ -282,6 +282,7 @@ a {
 .nav-pill {
   min-width: 5.75rem;
   text-align: center;
+  white-space: nowrap;
 }
 
 @keyframes float-orb {

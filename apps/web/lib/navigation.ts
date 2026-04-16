@@ -7,6 +7,16 @@ export const PRIMARY_NAV_ITEMS = [
 ] as const;
 
 export type PrimaryNavId = (typeof PRIMARY_NAV_ITEMS)[number]["id"];
+export const SECONDARY_NAV_ITEMS = [
+  { href: "/project", id: "project" },
+  { href: "/connect-ai", id: "connectAi" },
+  { href: "/registration", id: "registration" },
+  { href: "/settings", id: "settings" },
+  { href: "/search", id: "search" },
+  { href: "/map", id: "map" },
+] as const;
+
+export type SecondaryNavId = (typeof SECONDARY_NAV_ITEMS)[number]["id"];
 
 const PRIMARY_NAV_INDEX = new Map(PRIMARY_NAV_ITEMS.map((item, index) => [item.id, index]));
 const SWIPE_THRESHOLD = 36;
@@ -21,6 +31,34 @@ export function resolvePrimaryNavId(pathname: string): PrimaryNavId {
   }
 
   return "home";
+}
+
+export function resolveSecondaryNavId(pathname: string): SecondaryNavId | null {
+  if (pathname.startsWith("/connect-ai")) {
+    return "connectAi";
+  }
+
+  if (pathname.startsWith("/registration")) {
+    return "registration";
+  }
+
+  if (pathname.startsWith("/settings") || pathname.startsWith("/planner/settings")) {
+    return "settings";
+  }
+
+  if (pathname.startsWith("/search")) {
+    return "search";
+  }
+
+  if (pathname.startsWith("/project") || pathname.startsWith("/community")) {
+    return "project";
+  }
+
+  if (pathname.startsWith("/map") || pathname.startsWith("/mapa")) {
+    return "map";
+  }
+
+  return null;
 }
 
 export function resolveSwipeNavigation(

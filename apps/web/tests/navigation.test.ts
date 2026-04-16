@@ -1,6 +1,10 @@
 import { describe, expect, it } from "vitest";
 
-import { resolvePrimaryNavId, resolveSwipeNavigation } from "@/lib/navigation";
+import {
+  resolvePrimaryNavId,
+  resolveSecondaryNavId,
+  resolveSwipeNavigation,
+} from "@/lib/navigation";
 
 describe("navigation helpers", () => {
   it("maps public routes to the Home / Planner / Calendario primary nav ids", () => {
@@ -8,6 +12,16 @@ describe("navigation helpers", () => {
     expect(resolvePrimaryNavId("/planner")).toBe("planner");
     expect(resolvePrimaryNavId("/planner/onboarding")).toBe("planner");
     expect(resolvePrimaryNavId("/calendar")).toBe("calendar");
+  });
+
+  it("maps secondary routes to the canonical English utility tabs", () => {
+    expect(resolveSecondaryNavId("/project")).toBe("project");
+    expect(resolveSecondaryNavId("/connect-ai")).toBe("connectAi");
+    expect(resolveSecondaryNavId("/registration")).toBe("registration");
+    expect(resolveSecondaryNavId("/settings")).toBe("settings");
+    expect(resolveSecondaryNavId("/search")).toBe("search");
+    expect(resolveSecondaryNavId("/map")).toBe("map");
+    expect(resolveSecondaryNavId("/inscripciones")).toBeNull();
   });
 
   it("learns the first planner swipe preference without changing the destination set", () => {

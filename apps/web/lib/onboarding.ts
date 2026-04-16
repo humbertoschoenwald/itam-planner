@@ -11,7 +11,11 @@ import type { AcademicLevel, BulletinSummary, SchedulePeriodSummary, StudentProf
 export const ENTRY_TERM_SEASON_KEYS = ["spring", "fall"] as const;
 export type EntryTermSeasonKey = (typeof ENTRY_TERM_SEASON_KEYS)[number];
 export type ProgramChoiceKind = "licenciatura" | "ingenieria" | "mixed" | "career";
-export const ACADEMIC_LEVELS = ["undergraduate", "graduate"] as const satisfies readonly AcademicLevel[];
+export const ACADEMIC_LEVELS = [
+  "undergraduate",
+  "jointPrograms",
+  "graduate",
+] as const satisfies readonly AcademicLevel[];
 
 export interface ProgramChoiceOption {
   displayLabel: string;
@@ -51,6 +55,7 @@ const ACADEMIC_TERM_PATTERN = /^(PRIMAVERA|VERANO|OTOÑO) (\d{4})$/u;
 const ENTRY_TERM_MIN_YEAR = 2000;
 const ACADEMIC_LEVEL_PERIOD_MATCHERS = {
   graduate: ["HIBRIDO", "MAESTRIA"],
+  jointPrograms: ["LICENCIATURA"],
   undergraduate: ["LICENCIATURA"],
 } as const;
 const TERM_SEASON_ORDER = {
@@ -153,11 +158,17 @@ export function hasCompletedOnboarding(profile: StudentProfile, plans?: Bulletin
   if (!plans) {
     return profile.academicLevel === "graduate"
       ? true
-      : profile.selectedCareerIds.length > 0;
+      : profile.academicLevel === "jointPrograms"
+        ? profile.selectedJointProgramIds.length > 0
+        : profile.selectedCareerIds.length > 0;
   }
 
   if (profile.academicLevel === "graduate") {
     return true;
+  }
+
+  if (profile.academicLevel === "jointPrograms") {
+    return profile.selectedJointProgramIds.length > 0 && hasApplicableActivePlans(profile, plans);
   }
 
   if (profile.selectedCareerIds.length === 0) {
@@ -262,11 +273,11 @@ export function filterCareerChoiceOptions(options: CareerChoiceOption[], query: 
   }
 
   return options.filter((option) =>
-    `${option.displayLabel} ${option.careerId}`
-      .toLocaleLowerCase("es-MX")
-      .normalize("NFD")
-      .replace(/\p{Diacritic}/gu, "")
-      .includes(normalizedQuery),
+    normalizeAcademicTitle(
+      `${option.displayLabel} ${option.careerId} ${
+        option.category === "ingenieria" ? "ingenieria" : "licenciatura carrera"
+      }`,
+    ).includes(normalizedQuery),
   );
 }
 
@@ -297,6 +308,38 @@ export function buildJointProgramChoiceOptions(
     .sort((left, right) =>
       left.displayLabel.localeCompare(right.displayLabel, "es-MX", { sensitivity: "base" }),
     );
+}
+
+export function buildJointProgramChoiceOptionsForLevel(
+  plans: BulletinSummary[],
+  entryTerm: string,
+  academicLevel: AcademicLevel | null,
+  selectedCareerIds: string[],
+) {
+  if (academicLevel === "jointPrograms") {
+    const applicablePlans = filterPlansForEntryTerm(plans, entryTerm);
+
+    return OFFICIAL_JOINT_PROGRAMS.map((program) => ({
+      componentCareerIds: [...program.component_career_ids],
+      displayLabel: program.display_name,
+      jointProgramId: program.joint_program_id,
+      planIds: findApplicableJointPlansForEntryTerm(applicablePlans, program.joint_program_id).map(
+        (plan) => plan.plan_id,
+      ),
+    }))
+      .filter((program) => program.planIds.length > 0)
+      .sort((left, right) =>
+        left.displayLabel.localeCompare(right.displayLabel, "es-MX", {
+          sensitivity: "base",
+        }),
+      );
+  }
+
+  if (academicLevel !== "undergraduate") {
+    return [];
+  }
+
+  return buildJointProgramChoiceOptions(plans, entryTerm, selectedCareerIds);
 }
 
 export function resolveCareerSelectionPlanIds(

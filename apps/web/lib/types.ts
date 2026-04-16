@@ -1,5 +1,5 @@
 export type LocaleCode = "es-MX" | "en";
-export type AcademicLevel = "undergraduate" | "graduate";
+export type AcademicLevel = "undergraduate" | "jointPrograms" | "graduate";
 
 export interface StudentProfile {
   academicLevel: AcademicLevel | null;

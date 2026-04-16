@@ -88,7 +88,7 @@ export const OFFICIAL_CAREERS: readonly AcademicCareerReference[] = [
   {
     career_id: "computacion",
     category: "ingenieria",
-    display_name: "Ingeniería y Ciencias de la Computación",
+    display_name: "Ciencias de la Computación",
     source_url: "https://carreras.itam.mx/carreras/",
     study_plan_url:
       "https://carreras.itam.mx/wp-content/uploads/licenciaturas/plan-de-estudios/plan-de-estudios-ingenieria-computacion.pdf",
@@ -164,19 +164,19 @@ export const OFFICIAL_JOINT_PROGRAMS: readonly JointProgramReference[] = [
   },
   {
     component_career_ids: ["computacion", "inteligencia-artificial"],
-    display_name: "Ingeniería y Ciencias de la Computación + Inteligencia Artificial",
+    display_name: "Ciencias de la Computación + Inteligencia Artificial",
     joint_program_id: "computacion-inteligencia-artificial",
     source_url: "https://www.itam.mx/es/programas-conjuntos",
   },
   {
     component_career_ids: ["computacion", "industrial-sistemas-inteligentes"],
-    display_name: "Ingeniería y Ciencias de la Computación + Ingeniería Industrial y en Sistemas Inteligentes",
+    display_name: "Ciencias de la Computación + Ingeniería Industrial y en Sistemas Inteligentes",
     joint_program_id: "computacion-industrial-sistemas-inteligentes",
     source_url: "https://www.itam.mx/es/programas-conjuntos",
   },
   {
     component_career_ids: ["computacion", "matematicas-aplicadas"],
-    display_name: "Ingeniería y Ciencias de la Computación + Matemáticas Aplicadas",
+    display_name: "Ciencias de la Computación + Matemáticas Aplicadas",
     joint_program_id: "computacion-matematicas-aplicadas",
     source_url: "https://www.itam.mx/es/programas-conjuntos",
   },

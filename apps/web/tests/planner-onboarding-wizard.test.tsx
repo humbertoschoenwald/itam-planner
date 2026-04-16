@@ -69,6 +69,20 @@ const samplePlans: BulletinSummary[] = [
     source_code: "ICC-A",
     title: "INGENIERÍA Y CIENCIAS DE LA COMPUTACIÓN Plan A",
   },
+  {
+    active_from: "2026-01-01",
+    active_to: "2026-05-31",
+    application_term: "PRIMAVERA 2026",
+    application_year: 2026,
+    bulletin_id: "bulletin:cd-ia",
+    entry_from_term: "PRIMAVERA 2021",
+    entry_to_term: "OTOÑO 2026",
+    plan_code: "JP",
+    plan_id: "plan:cd-ia",
+    program_title: "PLAN CONJUNTO DE CIENCIA DE DATOS E INTELIGENCIA ARTIFICIAL",
+    source_code: "CD-IA",
+    title: "PLAN CONJUNTO DE CIENCIA DE DATOS E INTELIGENCIA ARTIFICIAL",
+  },
 ];
 
 const sampleBulletinDocuments: BulletinDocument[] = [
@@ -98,6 +112,22 @@ const sampleBulletinDocuments: BulletinDocument[] = [
         prerequisite_references: [],
         raw_prerequisite_text: null,
         requirement_id: "req:eco-12002",
+        semester_label: "2",
+        semester_order: 2,
+        sort_order: 1,
+      },
+    ],
+  },
+  {
+    ...samplePlans[3],
+    requirements: [
+      {
+        course_code: "DAT-12010",
+        credits: 6,
+        display_title: "Modelado de Datos",
+        prerequisite_references: [],
+        raw_prerequisite_text: null,
+        requirement_id: "req:dat-12010",
         semester_label: "2",
         semester_order: 2,
         sort_order: 1,
@@ -211,7 +241,7 @@ describe("PlannerOnboardingWizard", () => {
     expect(screen.getByText(/¿Qué carrera estudias\?/u)).toBeInTheDocument();
     expect(screen.getAllByRole("button", { name: "Actuaría" })).toHaveLength(1);
     expect(
-      screen.getByRole("button", { name: "Ingeniería y Ciencias de la Computación" }),
+      screen.getByRole("button", { name: "Ciencias de la Computación" }),
     ).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "Inteligencia Artificial" })).toBeInTheDocument();
 
@@ -220,7 +250,7 @@ describe("PlannerOnboardingWizard", () => {
     });
 
     expect(
-      screen.getByRole("button", { name: "Ingeniería y Ciencias de la Computación" }),
+      screen.getByRole("button", { name: "Ciencias de la Computación" }),
     ).toBeInTheDocument();
     expect(screen.queryByRole("button", { name: "Economía" })).not.toBeInTheDocument();
 
@@ -243,6 +273,7 @@ describe("PlannerOnboardingWizard", () => {
     expect(usePlannerStore.getState().state.selectedSubjectCodes).toEqual(["ECO-12002"]);
 
     expect(screen.getByText(/Selección actual de materias/u)).toBeInTheDocument();
+    expect(screen.queryAllByRole("button", { name: /ECO-12002/u })).toHaveLength(1);
 
     fireEvent.click(screen.getByRole("button", { name: /Siguiente/u }));
 
@@ -273,6 +304,34 @@ describe("PlannerOnboardingWizard", () => {
     });
 
     expect(pushSpy).toHaveBeenCalledWith("/planner");
+  });
+
+  it("supports the dedicated joint-program mode without requiring a base career", async () => {
+    renderWizard();
+
+    fireEvent.click(screen.getByRole("button", { name: /Siguiente/u }));
+    fireEvent.click(screen.getByRole("button", { name: /Planes conjuntos/u }));
+    fireEvent.click(screen.getByRole("button", { name: /Siguiente/u }));
+    fireEvent.click(screen.getByRole("button", { name: /Otoño/u }));
+    fireEvent.change(screen.getByRole("combobox", { name: /Año de ingreso/u }), {
+      target: { value: "2025" },
+    });
+    fireEvent.click(screen.getByRole("button", { name: /Siguiente/u }));
+
+    expect(screen.queryByText(/¿Qué carrera estudias\?/u)).not.toBeInTheDocument();
+    expect(screen.getByText(/¿Qué planes conjuntos te aplican\?/u)).toBeInTheDocument();
+
+    fireEvent.click(
+      screen.getByRole("button", {
+        name: "Ciencia de Datos + Inteligencia Artificial",
+      }),
+    );
+    fireEvent.click(screen.getByRole("button", { name: /Siguiente/u }));
+
+    await waitFor(() => {
+      expect(useStudentProfileStore.getState().profile.activePlanIds).toEqual(["plan:cd-ia"]);
+      expect(usePlannerStore.getState().state.selectedSubjectCodes).toEqual(["DAT-12010"]);
+    });
   });
 });
 

@@ -30,7 +30,11 @@ interface StudentProfileStoreState {
 
 const storage = createSafeJsonStorage<StudentProfileStoreState>();
 const VALID_LOCALES: readonly LocaleCode[] = ["es-MX", "en"] as const;
-const VALID_ACADEMIC_LEVELS = ["undergraduate", "graduate"] as const satisfies readonly AcademicLevel[];
+const VALID_ACADEMIC_LEVELS = [
+  "undergraduate",
+  "jointPrograms",
+  "graduate",
+] as const satisfies readonly AcademicLevel[];
 
 export const useStudentProfileStore = create<StudentProfileStoreState>()(
   persist(

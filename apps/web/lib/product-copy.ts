@@ -6,7 +6,7 @@ const productCopy = {
       close: "Close",
       configuration: "Configuration",
       connectToAi: "Connect to AI",
-      inscriptions: "Inscriptions",
+      inscriptions: "Registration",
       map: "Map",
       menu: "Menu",
       project: "Project",
@@ -41,10 +41,10 @@ const productCopy = {
           title: "Project",
         },
         {
-          action: "Open inscriptions",
+          action: "Open registration",
           body: "Use a traceable guide for the official registration flow without proxying it.",
-          href: "/inscripciones",
-          title: "Inscriptions",
+          href: "/registration",
+          title: "Registration",
         },
       ],
     },
@@ -54,7 +54,7 @@ const productCopy = {
       secondaryNav: {
         configuration: "Configuration",
         connectToAi: "Connect to AI",
-        inscriptions: "Inscriptions",
+        inscriptions: "Registration",
         project: "Project",
       },
     },
@@ -65,6 +65,10 @@ const productCopy = {
         graduate: {
           body: "Use public master's and hybrid periods without forcing undergraduate career defaults.",
           title: "Graduate",
+        },
+        jointPrograms: {
+          body: "Use official joint-program choices only for the selected entry term, then seed planner subjects from those matching public plans.",
+          title: "Joint programs",
         },
         undergraduate: {
           body: "Use undergraduate careers, official joint programs, and default subjects from the public catalog.",
@@ -79,10 +83,10 @@ const productCopy = {
       careerSearch: "Search your career",
       careerTitle: "Which career do you study?",
       jointProgramsBody:
-        "Optional. If an official joint program matches your selected careers and entry term, you can add it here.",
+        "Choose the official joint programs that apply to you for the selected entry term.",
       jointProgramsEmpty:
         "No official joint programs matched the selected careers for this entry term.",
-      jointProgramsTitle: "Do any joint programs apply to you?",
+      jointProgramsTitle: "Which joint programs apply to you?",
       subjectsBody:
         "The planner already selected default subjects from your current academic context. Keep them, remove them, or search the full published catalog.",
       subjectsCount: "Selected subjects",
@@ -107,6 +111,7 @@ const productCopy = {
         academicLevel: "Choose the academic level before continuing.",
         careers: "Choose at least one career before continuing.",
         jointPrograms: "Continue with or without a joint program.",
+        jointProgramsRequired: "Choose at least one joint program before continuing.",
         subjects: "Choose at least one subject before continuing.",
       },
     },
@@ -131,10 +136,10 @@ const productCopy = {
     },
     plannerPage: {
       filteredSubjectsBody:
-        "The planner starts from the estimated current semester and the academic programs you selected. You can adjust the subject set later from configuration.",
+        "The planner keeps only the current subject set that shapes the visible public groups for the selected period.",
       filteredSubjectsEmpty:
         "No published groups matched the current subject selection for that period yet.",
-      filteredSubjectsTitle: "Visible subjects",
+      filteredSubjectsTitle: "Active subjects",
       quickActionsTitle: "Quick actions",
     },
     searchPage: {
@@ -203,7 +208,7 @@ const productCopy = {
         {
           action: "Abrir inscripciones",
           body: "Usa una guía trazable para el flujo oficial de inscripciones sin interceptarlo.",
-          href: "/inscripciones",
+          href: "/registration",
           title: "Inscripciones",
         },
       ],
@@ -226,6 +231,10 @@ const productCopy = {
           body: "Usa periodos públicos de maestría e híbrido sin forzar carreras ni materias de licenciatura.",
           title: "Maestría",
         },
+        jointPrograms: {
+          body: "Usa solo planes conjuntos oficiales para el ingreso seleccionado y deriva desde ahí las materias iniciales.",
+          title: "Planes conjuntos",
+        },
         undergraduate: {
           body: "Usa carreras de licenciatura/ingeniería, programas conjuntos oficiales y materias por defecto del catálogo público.",
           title: "Licenciatura / ingeniería",
@@ -239,10 +248,10 @@ const productCopy = {
       careerSearch: "Busca tu carrera",
       careerTitle: "¿Qué carrera estudias?",
       jointProgramsBody:
-        "Opcional. Si un programa conjunto oficial coincide con tus carreras y tu ingreso, puedes agregarlo aquí.",
+        "Elige los planes conjuntos oficiales que sí te aplican para el ingreso seleccionado.",
       jointProgramsEmpty:
         "Ningún programa conjunto oficial coincide con las carreras elegidas para ese ingreso.",
-      jointProgramsTitle: "¿Te aplica algún programa conjunto?",
+      jointProgramsTitle: "¿Qué planes conjuntos te aplican?",
       subjectsBody:
         "El planner ya marcó las materias por defecto según tu contexto académico actual. Puedes dejarlas, quitarlas o buscar cualquier otra materia publicada.",
       subjectsCount: "Materias seleccionadas",
@@ -267,6 +276,7 @@ const productCopy = {
         academicLevel: "Elige el nivel académico antes de continuar.",
         careers: "Elige al menos una carrera antes de continuar.",
         jointPrograms: "Continúa con o sin programa conjunto.",
+        jointProgramsRequired: "Elige al menos un plan conjunto antes de continuar.",
         subjects: "Elige al menos una materia antes de continuar.",
       },
     },
@@ -291,10 +301,10 @@ const productCopy = {
     },
     plannerPage: {
       filteredSubjectsBody:
-        "El planner arranca desde el semestre estimado y los programas académicos que elegiste. Luego puedes ajustar las materias desde configuración.",
+        "El planner conserva solo el conjunto actual de materias que define los grupos públicos visibles para el periodo seleccionado.",
       filteredSubjectsEmpty:
         "Todavía no hay grupos publicados que coincidan con la selección actual de materias para ese periodo.",
-      filteredSubjectsTitle: "Materias visibles",
+      filteredSubjectsTitle: "Materias activas",
       quickActionsTitle: "Acciones rápidas",
     },
     searchPage: {
