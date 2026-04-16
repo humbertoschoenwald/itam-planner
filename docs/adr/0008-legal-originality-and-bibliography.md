@@ -14,6 +14,8 @@ The user also requires a maintained bibliography of tools and standards used by 
 Licensing and legal notice rules:
 
 - The repository license is MIT.
+- The public product must expose Terms and Privacy pages.
+- The non-affiliation disclaimer belongs in the legal surfaces, especially Terms, rather than being repeated as noisy primary-screen marketing copy.
 - The repository and product must display a visible disclaimer stating that the project is an independent open-source community effort and is not affiliated with, endorsed by, or maintained by ITAM.
 - The repository must not present itself as an official institutional service.
 

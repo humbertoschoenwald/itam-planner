@@ -40,18 +40,24 @@ Framework discipline:
 Initial product-surface rules:
 
 - The home experience starts with onboarding rather than account creation.
+- The public navigation must center on `Home`, `Planner`, and `Calendario` as the primary destinations.
+- Secondary surfaces such as community/help and external-AI setup must live inside those primary destinations rather than competing for primary-nav space.
 - The onboarding flow must explicitly state that no account is required.
 - The onboarding flow must collect entry term through structured selectors for academic season and year rather than a free-text input.
 - The onboarding year selector must derive its options from the published catalog applicability window instead of exposing arbitrary years that the catalog cannot satisfy.
 - The onboarding flow must keep plan selection hidden until the entry-term selectors are complete enough to filter candidate plans.
-- The first stable user-facing routes are `/`, `/onboarding`, `/planner`, and a community/help surface.
-- `/` is a lightweight public home and must not be the primary planner shell.
-- `/onboarding` is the dedicated profile bootstrap route for browser-local student context.
+- The first stable user-facing routes are `/`, `/planner`, `/planner/onboarding`, `/calendar`, and a community/help surface.
+- `/` is the public home and discovery surface.
 - `/planner` is the dedicated planner shell route.
-- `/planner` must degrade safely when onboarding state is incomplete.
+- `/planner/onboarding` is the dedicated embedded onboarding route that prepares browser-local planner context.
+- `/planner` must degrade safely when onboarding state is incomplete and redirect toward `/planner/onboarding`.
 - `/planner` must treat stale browser-local profile state as incomplete whenever the stored entry term no longer yields an applicable active plan in the current published catalog.
-- Standard browser tabs may redirect browser-side from `/planner` to `/onboarding`, but the route must remain usable even if that redirect is blocked or unstable in a constrained client such as an installed web app.
+- Standard browser tabs may redirect browser-side from `/planner` to `/planner/onboarding`, but the route must remain usable even if that redirect is blocked or unstable in a constrained client such as an installed web app.
+- Compatibility redirects may exist temporarily for older public routes such as `/onboarding`, but they must not remain part of the primary user-facing flow.
 - The dedicated planner route must keep the initial document lean. Heavy schedule detail payloads belong in precomputed JSON artifacts fetched on demand, not embedded wholesale into the initial HTML shell.
+- Planner onboarding should use a one-question-per-screen wizard with explicit `Back` and `Next` progression.
+- Planner onboarding must include browser-local widget preferences for the launch planner surface.
+- The launch planner surface must support `Today`, `Week`, and `Subjects / Plans` widgets, and `Today` must keep the highest visual priority whenever it is enabled.
 - The public runtime should recover silently from browser-owned state failures whenever possible and should never announce storage-reset internals in normal UI copy.
 - If runtime recovery still needs a visible user-facing state, it must stay generic, must not leak implementation details such as `localStorage`, and must not crash the surrounding route shell.
 - Visible route-level error states must not wipe browser-local planner state automatically. If a recovery action really needs to reset browser-local state, it must be explicit and user-triggered.
@@ -59,6 +65,12 @@ Initial product-surface rules:
 - SEO is a first-class public requirement: canonical metadata, crawlable route metadata, sitemap coverage, and machine-readable structured data must be treated as product work, not marketing afterthought.
 - Visible UI strings, selector labels, locale labels, and other locale-dependent text must come from locale configuration rather than hardcoded component strings.
 - Keep interaction logic, browser persistence, and presentation styling loosely coupled so the visual system can be replaced without rewriting planner behavior.
+- The website must never instruct users to install the app manually through browser-native entries such as “Add to Home Screen”.
+- The primary navigation bar should remain sticky for a substantial portion of the scroll experience, respect browser safe areas, and use light blur without fighting Safari chrome.
+- Swipe navigation belongs only to the top navigation surface, not to the whole page.
+- Swipe preference may be learned and persisted browser-locally, but swipe behavior must remain deterministic and must never change the semantic destination set.
+- The embedded planner-onboarding experience should teach the planner-to-home swipe shortcut in a compact instructional card.
+- The public product must expose a small persistent footer with links to Terms and Privacy.
 - The visual language should favor layered gradients, monochrome noise, motion-driven atmosphere, and floating accent objects instead of large flat surfaces.
 - Treat Apple atmosphere, Proton Authenticator web, and Perplexity Comet as inspiration references for layout density, atmospheric surfaces, and motion cues only. Do not copy their assets, code, or distinctive strings.
 - The Connect to ChatGPT flow comes after the planner state exists and may be teased earlier, but its final route contract is deferred until that slice begins.

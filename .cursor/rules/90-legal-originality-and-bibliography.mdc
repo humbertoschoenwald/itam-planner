@@ -9,6 +9,7 @@ alwaysApply: true
 # Legal Originality And Bibliography
 
 - RULE: The repository is MIT-licensed and must keep the independent-project disclaimer visible in docs and product surfaces.
+- RULE: Keep the product's non-affiliation disclaimer in legal surfaces, especially Terms, instead of repeating it as primary-screen clutter.
 - RULE: All implementation must be original and written from scratch.
 - RULE: Do not copy code, proprietary assets, or unique documentation strings from prior repositories.
 - RULE: Keep the bibliography current when doctrine adopts or removes a major tool or standard.
