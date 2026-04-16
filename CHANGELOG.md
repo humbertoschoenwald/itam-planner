@@ -13,6 +13,7 @@ Do not edit it manually.
 - web: add official graduate study references (`95b247f`)
 - web: localize schedule surfaces cleanly (`0e139a7`)
 - web: align schedule wording across metadata (`d13b44e`)
+- web: centralize localized route metadata (`bd51afe`)
 
 ### Fixes
 
@@ -27,6 +28,11 @@ Do not edit it manually.
 - doctrine: mirror blocking CI before push (`ba60065`)
 - doctrine: extend official study surfaces (`40b9207`)
 - doctrine: enforce locale-driven frontend text (`fad4745`)
+- doctrine: localize crawlable metadata copy (`54390cb`)
+
+### Refactors
+
+- web: centralize legacy route redirects (`a9b3332`)
 
 ### Build
 
