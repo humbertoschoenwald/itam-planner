@@ -14,6 +14,7 @@ Do not edit it manually.
 - web: enrich planner with catalog insights (`098f91f`)
 - web: add installable shell and secure catalog caching (`6ffa747`)
 - web: add system theme foundations (`7dc4846`)
+- web: rebuild the mobile planner shell (`8cbaedc`)
 
 ### Fixes
 
@@ -51,6 +52,7 @@ Do not edit it manually.
 - doctrine: codify localized ui and design references (`3ec1ada`)
 - doctrine: constrain onboarding year availability (`877e3fd`)
 - doctrine: forbid automatic state wiping on route errors (`e89ae7c`)
+- doctrine: embed planner onboarding in frontend policy (`56658a4`)
 
 ### Tests
 
