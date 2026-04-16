@@ -7,7 +7,7 @@ const uiCopy = {
       calendar: "Calendar",
       backToPlanner: "Back to schedule",
       community: "Community",
-      connectToChatGpt: "Connect to ChatGPT",
+      connectToAi: "Connect to AI",
       genericErrorBody:
         "This view could not be loaded. Retry or open planner onboarding.",
       genericErrorTitle: "This view could not be loaded.",
@@ -20,6 +20,7 @@ const uiCopy = {
       open: "Open",
       planner: "Schedule",
       retry: "Retry",
+      timeColumnLabel: "Time",
       weekdayLabels: {
         DO: "Sun",
         JU: "Thu",
@@ -105,21 +106,21 @@ const uiCopy = {
           body: "See the general academic calendar first, then enrich it with today’s class context once planner onboarding exists.",
           eyebrow: "Top-level destination",
           href: "/calendar",
-          title: "Calendario",
+          title: "Calendar",
         },
         {
-          action: "Open community",
+          action: "Open project",
           body: "GitHub issues remain the support path for bugs, drift, and data corrections.",
           eyebrow: "Secondary surface",
-          href: "/community",
-          title: "Community",
+          href: "/project",
+          title: "Project",
         },
         {
-          action: "Open ChatGPT setup",
+          action: "Open AI setup",
           body: "The AI bridge stays secondary and lives here instead of competing for primary navigation space.",
           eyebrow: "Secondary surface",
-          href: "/connect-chatgpt",
-          title: "Connect to ChatGPT",
+          href: "/connect-ai",
+          title: "Connect to AI",
         },
       ],
     },
@@ -274,7 +275,7 @@ const uiCopy = {
       datePending: "Date pending",
       description:
         "Calendar stays useful before onboarding, then adds class-aware context once your schedule exists in this browser.",
-      eyebrow: "Calendario",
+      eyebrow: "Calendar",
       generalCalendarBody:
         "You can browse the public academic calendar right away. Schedule-specific class context appears here after completing schedule onboarding.",
       generalCalendarEyebrow: "General calendar",
@@ -482,9 +483,6 @@ const uiCopy = {
         title: "Class table",
       },
     },
-    siteHeader: {
-      badge: "Browser-local beta",
-    },
     underConstruction: {
       body: "The schedule, the catalog bridge, and the visual system are still being hardened. Expect fast changes while the public beta is under active construction.",
       title: "Under construction",
@@ -497,7 +495,7 @@ const uiCopy = {
         "This browser-owned code is generated from your current onboarding profile and schedule state. No account is required and no personal data is stored in the backend. Use GitHub issues for support; this code is the foundation for the later AI connection flow.",
       lengthSuffix: "characters",
       eyebrow: "Portable context",
-      openChatGpt: "Open the Connect to AI page",
+      openConnectToAi: "Open the Connect to AI page",
       title: "Student code",
       waitingForPlannerData: "Waiting for schedule data",
       waitingForStudentCode:
@@ -509,7 +507,7 @@ const uiCopy = {
       calendar: "Calendario",
       backToPlanner: "Volver al horario",
       community: "Comunidad",
-      connectToChatGpt: "Conectar con ChatGPT",
+      connectToAi: "Conectar con IA",
       genericErrorBody:
         "No se pudo cargar esta vista. Intenta de nuevo o abre la configuración del horario.",
       genericErrorTitle: "No se pudo cargar esta vista.",
@@ -522,6 +520,7 @@ const uiCopy = {
       open: "Abrir",
       planner: "Horario",
       retry: "Reintentar",
+      timeColumnLabel: "Hora",
       weekdayLabels: {
         DO: "Dom",
         JU: "Jue",
@@ -610,18 +609,18 @@ const uiCopy = {
           title: "Calendario",
         },
         {
-          action: "Abrir comunidad",
+          action: "Abrir proyecto",
           body: "GitHub Issues sigue siendo la ruta de soporte para bugs, drift y correcciones de datos.",
           eyebrow: "Superficie secundaria",
-          href: "/community",
-          title: "Comunidad",
+          href: "/project",
+          title: "Proyecto",
         },
         {
-          action: "Abrir conexión con ChatGPT",
+          action: "Abrir conexión con IA",
           body: "El puente hacia IA sigue siendo secundario y vive aquí en lugar de competir por la navegación principal.",
           eyebrow: "Superficie secundaria",
-          href: "/connect-chatgpt",
-          title: "Conectar con ChatGPT",
+          href: "/connect-ai",
+          title: "Conectar con IA",
         },
       ],
     },
@@ -990,9 +989,6 @@ const uiCopy = {
         title: "Tabla semanal",
       },
     },
-    siteHeader: {
-      badge: "Beta local en navegador",
-    },
     underConstruction: {
       body: "El horario, el puente al catálogo y el sistema visual siguen endureciéndose. Espera cambios rápidos mientras esta beta pública sigue en construcción.",
       title: "En construcción",
@@ -1005,7 +1001,7 @@ const uiCopy = {
         "Este código, propiedad del navegador, se genera a partir de tu perfil actual y del estado del horario. No necesitas cuenta y ningún dato personal se guarda en el backend. Usa GitHub Issues para soporte; este código es la base del flujo futuro con IA.",
       lengthSuffix: "caracteres",
       eyebrow: "Contexto portable",
-      openChatGpt: "Abrir la página Conectar con IA",
+      openConnectToAi: "Abrir la página Conectar con IA",
       title: "Código del alumno",
       waitingForPlannerData: "Esperando datos del horario",
       waitingForStudentCode:

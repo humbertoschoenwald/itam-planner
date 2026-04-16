@@ -34,7 +34,7 @@ export function SelectedWeekBoard({
               <thead>
                 <tr>
                   <th className="border-b border-border bg-background px-3 py-3 font-semibold text-foreground">
-                    Hora
+                    {copy.common.timeColumnLabel}
                   </th>
                   {timetable.days.map((weekdayCode) => (
                     <th

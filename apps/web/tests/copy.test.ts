@@ -14,7 +14,10 @@ describe("getUiCopy", () => {
   });
 
   it("returns English copy when requested", () => {
-    expect(getUiCopy("en").common.community).toBe("Community");
+    const copy = getUiCopy("en");
+
+    expect(copy.common.calendar).toBe("Calendar");
+    expect(copy.common.timeColumnLabel).toBe("Time");
   });
 
   it("includes the under construction banner copy in Spanish-first mode", () => {
@@ -39,5 +42,26 @@ describe("getUiCopy", () => {
     expect(copy.plannerOnboarding.programTitles.degree).toMatch(/licenciatura/u);
     expect(copy.plannerOnboarding.swipePreferenceTitle).toMatch(/deslizamiento/u);
     expect(copy.plannerOnboarding.finishHighlight).toMatch(/configuraste tu horario/u);
+  });
+
+  it("keeps home feature cards on the canonical English routes in both locales", () => {
+    const englishCopy = getUiCopy("en");
+    const spanishCopy = getUiCopy("es-MX");
+
+    expect(englishCopy.homePage.featureCards.map((card) => card.href)).toEqual([
+      "/planner",
+      "/calendar",
+      "/project",
+      "/connect-ai",
+    ]);
+    expect(spanishCopy.homePage.featureCards.map((card) => card.href)).toEqual([
+      "/planner",
+      "/calendar",
+      "/project",
+      "/connect-ai",
+    ]);
+    expect(englishCopy.homePage.featureCards[1]?.title).toBe("Calendar");
+    expect(englishCopy.homePage.featureCards[2]?.title).toBe("Project");
+    expect(englishCopy.homePage.featureCards[3]?.title).toBe("Connect to AI");
   });
 });

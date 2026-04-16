@@ -60,10 +60,10 @@ export function StudentCodeCard() {
 
           <Link
             className="inline-flex items-center rounded-full border border-border bg-surface-elevated px-4 py-2 text-sm font-semibold text-foreground transition hover:-translate-y-0.5 hover:border-accent/35 hover:bg-surface-hover"
-            href="/connect-chatgpt"
+            href="/connect-ai"
             prefetch={false}
           >
-            {copy.studentCode.openChatGpt}
+            {copy.studentCode.openConnectToAi}
           </Link>
         </div>
       </CardContent>
