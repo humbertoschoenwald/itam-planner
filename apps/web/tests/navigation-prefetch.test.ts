@@ -7,8 +7,8 @@ const webRoot = path.resolve(__dirname, "..");
 
 const filesWithDisabledPrefetch = [
   "components/home-page-shell.tsx",
-  "components/community-page-shell.tsx",
-  "components/connect-chatgpt-panel.tsx",
+  "components/project-page-shell.tsx",
+  "components/connect-ai-panel.tsx",
   "components/onboarding-panel.tsx",
   "components/planner-route-shell.tsx",
   "components/site-header.tsx",

@@ -31,13 +31,13 @@ const uiCopy = {
         VI: "Fri",
       },
     },
-    communityLinks: {
+    projectLinks: {
       githubDescription:
         "Report bugs, source drift, data corrections, and feature ideas through the canonical support path.",
       instagramDescription:
         "Follow the creator's work, quality experiments, and project updates. Not a support channel.",
     },
-    communityPage: {
+    projectPage: {
       creditsBody:
         "The repository credits Horarios-ITAM as inspiration in the same problem space, keeps this implementation fully original, and relies on public ITAM academic materials as source inputs for the normalized catalog.",
       creditsEyebrow: "Credits and sources",
@@ -531,13 +531,13 @@ const uiCopy = {
         VI: "Vie",
       },
     },
-    communityLinks: {
+    projectLinks: {
       githubDescription:
         "Reporta bugs, source drift, correcciones de datos e ideas de producto por la vía oficial del proyecto.",
       instagramDescription:
         "Sigue el trabajo del creador, sus experimentos de calidad y las actualizaciones del proyecto. No es un canal de soporte.",
     },
-    communityPage: {
+    projectPage: {
       creditsBody:
         "El repositorio reconoce a Horarios-ITAM como inspiración en el mismo problema, mantiene esta implementación completamente original y usa materiales académicos públicos del ITAM como insumo para el catálogo normalizado.",
       creditsEyebrow: "Créditos y fuentes",

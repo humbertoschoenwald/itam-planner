@@ -8,7 +8,7 @@ const productCopy = {
       configuration: "Configuration",
       connectToAi: "Connect to AI",
       executiveEducation: "Executive education",
-      inscriptions: "Registration",
+      registration: "Registration",
       map: "Map",
       menu: "Menu",
       news: "News",
@@ -61,7 +61,7 @@ const productCopy = {
         configuration: "Configuration",
         connectToAi: "Connect to AI",
         executiveEducation: "Executive education",
-        inscriptions: "Registration",
+        registration: "Registration",
         project: "Project",
       },
     },
@@ -208,7 +208,7 @@ const productCopy = {
       inputPlaceholder: "Search plans, periods, calendar events, routes, or official sources",
       title: "Local site search",
     },
-    inscriptionsPage: {
+    registrationPage: {
       body:
         "This route does not proxy or automate registration. It only points you to the official ITAM flow and records the source links used for the guidance.",
       steps: [
@@ -231,7 +231,7 @@ const productCopy = {
       configuration: "Configuración",
       connectToAi: "Conectar con IA",
       executiveEducation: "Educación ejecutiva",
-      inscriptions: "Inscripciones",
+      registration: "Inscripciones",
       map: "Mapa",
       menu: "Menú",
       news: "Noticias",
@@ -284,7 +284,7 @@ const productCopy = {
         configuration: "Configuración",
         connectToAi: "Conectar con IA",
         executiveEducation: "Educación ejecutiva",
-        inscriptions: "Inscripciones",
+        registration: "Inscripciones",
         project: "Proyecto",
       },
     },
@@ -432,7 +432,7 @@ const productCopy = {
         "Busca planes, periodos, eventos del calendario, rutas o fuentes oficiales",
       title: "Búsqueda local del sitio",
     },
-    inscriptionsPage: {
+    registrationPage: {
       body:
         "Esta ruta no intercepta ni automatiza inscripciones. Solo te dirige al flujo oficial del ITAM y deja trazables las fuentes usadas para la guía.",
       steps: [

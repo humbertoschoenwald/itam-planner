@@ -1,10 +1,10 @@
 "use client";
 
-import { ConnectChatGptPanel } from "@/components/connect-chatgpt-panel";
+import { ConnectAiPanel } from "@/components/connect-ai-panel";
 import { getUiCopy } from "@/lib/copy";
 import { useStudentProfileStore } from "@/stores/student-profile-store";
 
-export function ConnectChatGptPageShell() {
+export function ConnectAiPageShell() {
   const locale = useStudentProfileStore((state) => state.profile.locale);
   const copy = getUiCopy(locale);
 
@@ -20,7 +20,7 @@ export function ConnectChatGptPageShell() {
         </p>
       </div>
 
-      <ConnectChatGptPanel />
+      <ConnectAiPanel />
     </main>
   );
 }

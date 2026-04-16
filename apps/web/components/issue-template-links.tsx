@@ -11,19 +11,19 @@ export function IssueTemplateLinks() {
   const templates = [
     {
       href: `${ISSUE_BASE_URL}?template=bug_report.yml`,
-      label: copy.communityPage.issueShortcuts.bug,
+      label: copy.projectPage.issueShortcuts.bug,
     },
     {
       href: `${ISSUE_BASE_URL}?template=data_correction.yml`,
-      label: copy.communityPage.issueShortcuts.dataCorrection,
+      label: copy.projectPage.issueShortcuts.dataCorrection,
     },
     {
       href: `${ISSUE_BASE_URL}?template=source_drift.yml`,
-      label: copy.communityPage.issueShortcuts.sourceDrift,
+      label: copy.projectPage.issueShortcuts.sourceDrift,
     },
     {
       href: `${ISSUE_BASE_URL}?template=feature_request.yml`,
-      label: copy.communityPage.issueShortcuts.featureRequest,
+      label: copy.projectPage.issueShortcuts.featureRequest,
     },
   ] as const;
 

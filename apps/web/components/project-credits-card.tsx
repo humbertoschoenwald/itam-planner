@@ -11,26 +11,26 @@ export function ProjectCreditsCard() {
   const links = [
     {
       href: "https://github.com/Horarios-ITAM/horariosITAM",
-      label: copy.communityPage.creditsLinks.inspiration,
+      label: copy.projectPage.creditsLinks.inspiration,
     },
     {
       href: "https://escolar.itam.mx/servicios_escolares/servicios_calendarios.php",
-      label: copy.communityPage.creditsLinks.publicSources,
+      label: copy.projectPage.creditsLinks.publicSources,
     },
     {
       href: "https://github.com/humbertoschoenwald/itam-planner/blob/main/docs/bibliography/tooling-and-standards.md",
-      label: copy.communityPage.creditsLinks.bibliography,
+      label: copy.projectPage.creditsLinks.bibliography,
     },
   ] as const;
 
   return (
     <Card>
       <CardHeader>
-        <p className="eyebrow">{copy.communityPage.creditsEyebrow}</p>
-        <CardTitle>{copy.communityPage.creditsTitle}</CardTitle>
+        <p className="eyebrow">{copy.projectPage.creditsEyebrow}</p>
+        <CardTitle>{copy.projectPage.creditsTitle}</CardTitle>
       </CardHeader>
       <CardContent className="space-y-4 text-sm leading-6 text-muted">
-        <p>{copy.communityPage.creditsBody}</p>
+        <p>{copy.projectPage.creditsBody}</p>
         <div className="grid gap-3">
           {links.map((link) => (
             <a

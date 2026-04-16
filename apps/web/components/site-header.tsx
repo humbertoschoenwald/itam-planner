@@ -70,7 +70,7 @@ export function SiteHeader() {
     {
       href: "/registration",
       id: "registration" as const,
-      label: productCopy.common.inscriptions,
+      label: productCopy.common.registration,
     },
     {
       href: "/map",

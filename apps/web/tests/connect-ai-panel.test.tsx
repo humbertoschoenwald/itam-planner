@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { beforeEach, describe, expect, it } from "vitest";
 
-import { ConnectChatGptPanel } from "@/components/connect-chatgpt-panel";
+import { ConnectAiPanel } from "@/components/connect-ai-panel";
 import { getUiCopy } from "@/lib/copy";
 import { DEFAULT_PLANNER_STATE, usePlannerStore } from "@/stores/planner-store";
 import { useStudentCodeStore } from "@/stores/student-code-store";
@@ -10,7 +10,7 @@ import {
   useStudentProfileStore,
 } from "@/stores/student-profile-store";
 
-describe("ConnectChatGptPanel", () => {
+describe("ConnectAiPanel", () => {
   beforeEach(() => {
     useStudentProfileStore.setState({
       profile: {
@@ -29,7 +29,7 @@ describe("ConnectChatGptPanel", () => {
   });
 
   it("renders the current student code and the support guidance", () => {
-    render(<ConnectChatGptPanel />);
+    render(<ConnectAiPanel />);
 
     const copy = getUiCopy("es-MX");
 

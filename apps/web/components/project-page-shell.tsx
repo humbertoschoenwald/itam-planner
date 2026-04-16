@@ -2,14 +2,14 @@
 
 import Link from "next/link";
 
-import { CommunityLinks } from "@/components/community-links";
+import { ProjectLinks } from "@/components/project-links";
 import { IssueTemplateLinks } from "@/components/issue-template-links";
 import { ProjectCreditsCard } from "@/components/project-credits-card";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { getUiCopy } from "@/lib/copy";
 import { useStudentProfileStore } from "@/stores/student-profile-store";
 
-export function CommunityPageShell() {
+export function ProjectPageShell() {
   const locale = useStudentProfileStore((state) => state.profile.locale);
   const copy = getUiCopy(locale);
 
@@ -23,31 +23,31 @@ export function CommunityPageShell() {
         >
           {copy.common.backToPlanner}
         </Link>
-        <p className="eyebrow">{copy.communityPage.eyebrow}</p>
+        <p className="eyebrow">{copy.projectPage.eyebrow}</p>
         <h1 className="font-display text-4xl leading-tight text-foreground sm:text-5xl">
-          {copy.communityPage.title}
+          {copy.projectPage.title}
         </h1>
         <p className="max-w-2xl text-base leading-7 text-muted sm:text-lg">
-          {copy.communityPage.description}
+          {copy.projectPage.description}
         </p>
       </div>
 
       <div className="hero-grid">
         <Card>
           <CardHeader>
-            <p className="eyebrow">{copy.communityPage.supportPath}</p>
-            <CardTitle>{copy.communityPage.issueTitle}</CardTitle>
+            <p className="eyebrow">{copy.projectPage.supportPath}</p>
+            <CardTitle>{copy.projectPage.issueTitle}</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4 text-sm leading-6 text-muted">
-            <p>{copy.communityPage.issueLead}</p>
+            <p>{copy.projectPage.issueLead}</p>
             <IssueTemplateLinks />
             <ul className="space-y-2">
-              {copy.communityPage.issueBullets.map((bullet) => (
+              {copy.projectPage.issueBullets.map((bullet) => (
                 <li key={bullet}>{bullet}</li>
               ))}
             </ul>
             <p>
-              {copy.communityPage.signUpLead}{" "}
+              {copy.projectPage.signUpLead}{" "}
               <a
                 className="font-semibold text-accent underline-offset-4 hover:underline"
                 href="https://github.com/signup"
@@ -63,13 +63,13 @@ export function CommunityPageShell() {
 
         <Card>
           <CardHeader>
-            <p className="eyebrow">{copy.communityPage.creatorSurfaces}</p>
-            <CardTitle>{copy.communityPage.creatorSurfaces}</CardTitle>
+            <p className="eyebrow">{copy.projectPage.creatorSurfaces}</p>
+            <CardTitle>{copy.projectPage.creatorSurfaces}</CardTitle>
           </CardHeader>
           <CardContent>
-            <CommunityLinks />
+            <ProjectLinks />
             <p className="mt-4 rounded-[1.15rem] bg-accent-soft px-4 py-4 text-xs leading-5 text-accent">
-              {copy.communityPage.creatorNote}
+              {copy.projectPage.creatorNote}
             </p>
           </CardContent>
         </Card>

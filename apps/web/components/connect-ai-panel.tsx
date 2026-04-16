@@ -9,7 +9,7 @@ import { usePlannerStore } from "@/stores/planner-store";
 import { useStudentCodeStore } from "@/stores/student-code-store";
 import { useStudentProfileStore } from "@/stores/student-profile-store";
 
-export function ConnectChatGptPanel() {
+export function ConnectAiPanel() {
   const code = useStudentCodeStore((state) => state.code);
   const profile = useStudentProfileStore((state) => state.profile);
   const plannerState = usePlannerStore((state) => state.state);

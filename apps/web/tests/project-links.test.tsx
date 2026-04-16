@@ -1,11 +1,11 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 
-import { CommunityLinks } from "@/components/community-links";
+import { ProjectLinks } from "@/components/project-links";
 
-describe("CommunityLinks", () => {
+describe("ProjectLinks", () => {
   it("renders the GitHub issues link and Instagram contact", () => {
-    render(<CommunityLinks />);
+    render(<ProjectLinks />);
 
     expect(screen.getByRole("link", { name: /GitHub Issues/i })).toHaveAttribute(
       "href",
