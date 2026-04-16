@@ -27,7 +27,7 @@ export default function HomePage() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     description:
-      "Proyecto independiente para planeación académica del ITAM con onboarding local, planner dedicado y catálogo público precalculado.",
+      "Proyecto independiente para planeación académica del ITAM con onboarding local, horario dedicado y catálogo público precalculado.",
     inLanguage: "es-MX",
     name: "ITAM Planner",
     publisher: {

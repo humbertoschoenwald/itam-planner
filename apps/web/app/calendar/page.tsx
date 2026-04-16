@@ -8,10 +8,10 @@ export const metadata: Metadata = {
     canonical: "/calendar",
   },
   description:
-    "Calendario público de ITAM Planner con eventos académicos generales y contexto del día cuando el planner local ya existe.",
+    "Calendario público de ITAM Planner con eventos académicos generales y contexto del día cuando el horario local ya existe.",
   openGraph: {
     description:
-      "Calendario público de ITAM Planner con eventos académicos generales y contexto del día cuando el planner local ya existe.",
+      "Calendario público de ITAM Planner con eventos académicos generales y contexto del día cuando el horario local ya existe.",
     title: "Calendario",
     type: "website",
     url: "/calendar",
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   title: "Calendario",
   twitter: {
     description:
-      "Calendario público de ITAM Planner con eventos académicos generales y contexto del día cuando el planner local ya existe.",
+      "Calendario público de ITAM Planner con eventos académicos generales y contexto del día cuando el horario local ya existe.",
     title: "Calendario",
   },
 };

@@ -35,12 +35,12 @@ export default function AppleIcon() {
         </div>
         <div
           style={{
-            fontSize: 38,
+            fontSize: 30,
             fontWeight: 700,
             lineHeight: 1.05,
           }}
         >
-          Planner
+          Horario
         </div>
       </div>
     ),

@@ -8,19 +8,19 @@ export const metadata: Metadata = {
     canonical: "/planner/onboarding",
   },
   description:
-    "Onboarding embebido en el planner de ITAM Planner para elegir nivel académico, periodo de ingreso, carreras y materias por defecto.",
+    "Onboarding embebido en el horario de ITAM Planner para elegir nivel académico, periodo de ingreso, carreras y materias por defecto.",
   openGraph: {
     description:
-      "Onboarding embebido en el planner de ITAM Planner para elegir nivel académico, periodo de ingreso, carreras y materias por defecto.",
-    title: "Planner Onboarding",
+      "Onboarding embebido en el horario de ITAM Planner para elegir nivel académico, periodo de ingreso, carreras y materias por defecto.",
+    title: "Onboarding del horario",
     type: "website",
     url: "/planner/onboarding",
   },
-  title: "Planner Onboarding",
+  title: "Onboarding del horario",
   twitter: {
     description:
-      "Onboarding embebido en el planner de ITAM Planner para elegir nivel académico, periodo de ingreso, carreras y materias por defecto.",
-    title: "Planner Onboarding",
+      "Onboarding embebido en el horario de ITAM Planner para elegir nivel académico, periodo de ingreso, carreras y materias por defecto.",
+    title: "Onboarding del horario",
   },
 };
 

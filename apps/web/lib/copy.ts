@@ -601,7 +601,7 @@ const uiCopy = {
         },
         {
           action: "Abrir calendario",
-          body: "Consulta primero el calendario académico general y, después, enriquece esa vista con el contexto del día cuando tu planner ya exista.",
+          body: "Consulta primero el calendario académico general y, después, enriquece esa vista con el contexto del día cuando tu horario ya exista.",
           eyebrow: "Destino principal",
           href: "/calendar",
           title: "Calendario",
@@ -642,7 +642,7 @@ const uiCopy = {
         "Ningún plan activo del catálogo publicado coincide con el periodo de ingreso seleccionado. Prueba otro año o espera la siguiente actualización pública del catálogo.",
       noPlansForTermTitle: "No hay planes para ese periodo de ingreso",
       readyBody:
-        "Este navegador ya tiene el onboarding mínimo. Puedes ajustarlo aquí o saltar directo al planner.",
+        "Este navegador ya tiene el onboarding mínimo. Puedes ajustarlo aquí o saltar directo al horario.",
       readyTitle: "Ya existe onboarding",
       openPlanner: "Siguiente",
       backHome: "Volver al inicio",
@@ -793,7 +793,7 @@ const uiCopy = {
         eyebrow: "Privacidad",
         sections: [
           {
-            body: "Este producto guarda solo contexto local del planner, como tu periodo de ingreso, tus planes activos, tus grupos seleccionados, tus widgets y tus preferencias de navegación. Todo eso se queda en tu dispositivo.",
+            body: "Este producto guarda solo contexto local del horario, como tu periodo de ingreso, tus planes activos, tus grupos seleccionados, tus widgets y tus preferencias de navegación. Todo eso se queda en tu dispositivo.",
             title: "Qué sí se queda en el navegador",
           },
           {

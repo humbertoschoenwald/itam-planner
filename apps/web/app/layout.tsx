@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   },
   applicationName: "ITAM Planner",
   description:
-    "Planner académico para alumnos del ITAM con catálogo público precalculado, estado local en el navegador y sin cuentas.",
+    "Horario académico para alumnos del ITAM con catálogo público precalculado, estado local en el navegador y sin cuentas.",
   category: "education",
   creator: "Humberto Schoenwald",
   formatDetection: {
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "ITAM Planner",
     description:
-      "Planner académico para alumnos del ITAM con catálogo público precalculado, estado local en el navegador y sin cuentas.",
+      "Horario académico para alumnos del ITAM con catálogo público precalculado, estado local en el navegador y sin cuentas.",
     siteName: "ITAM Planner",
     locale: "es_MX",
     type: "website",
@@ -69,7 +69,7 @@ export const metadata: Metadata = {
     creator: "@humbertoschoenwald",
     title: "ITAM Planner",
     description:
-      "Planner académico para alumnos del ITAM con catálogo público precalculado y estado local en el navegador.",
+      "Horario académico para alumnos del ITAM con catálogo público precalculado y estado local en el navegador.",
   },
 };
 

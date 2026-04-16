@@ -45,12 +45,12 @@ export default function Icon() {
           </div>
           <div
             style={{
-              fontSize: 92,
+              fontSize: 76,
               fontWeight: 700,
               lineHeight: 1,
             }}
           >
-            Planner
+            Horario
           </div>
         </div>
       </div>
