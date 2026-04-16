@@ -9,6 +9,7 @@ Do not edit it manually.
 
 - web: add official planner bootstrap surfaces (`2b71b67`)
 - web: align planner shell with canonical routes (`4114e92`)
+- web: cover official joint programs in onboarding (`29c5030`)
 
 ### Fixes
 
