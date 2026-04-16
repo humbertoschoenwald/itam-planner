@@ -28,12 +28,13 @@ alwaysApply: true
 - RULE: Treat stale browser-local profile state as incomplete when the current published catalog no longer yields an applicable active plan for the stored entry term.
 - RULE: Keep the initial planner document lean and fetch heavy schedule detail from precomputed JSON on demand instead of embedding the full catalog detail into the first HTML response.
 - RULE: Keep planner onboarding as a guided stepper with explicit back/next progression and a lightweight introductory step.
-- RULE: Collect academic level, entry term, an explicit UI-locale choice, one or two searchable base-career choices when applicable, optional official joint-program choices when applicable, and default subject selection during planner onboarding.
+- RULE: Collect academic level, entry term, a UI-locale step, one or two searchable base-career choices when applicable, optional official joint-program choices when applicable, and default subject selection during planner onboarding.
+- RULE: Keep the onboarding locale step valid by default in `es-MX`; users may change it, but the default locale must not require a redundant confirmation click.
 - RULE: Support a dedicated `jointPrograms` planner-onboarding mode that skips base-career selection and shows only official joint-program choices for the selected entry term.
 - RULE: Sort visible career choices alphabetically and drive their labels from locale configuration rather than leaking raw uppercase catalog labels.
 - RULE: Use canonical academic names derived from official ITAM-owned references across onboarding, configuration, search, and planner UI, while keeping stable aliases for matching noisy upstream labels.
 - RULE: Deduplicate visible plan rows into searchable academic choices whenever the selected entry term exposes multiple plans for the same official career or joint-program grouping.
-- RULE: Seed planner subject selection automatically from the estimated current semester during onboarding, but allow the user to search and override the selected subjects later.
+- RULE: Seed planner subject selection automatically from the estimated current semester during onboarding, prefer applicable normalized bulletin plans first, and fall back to official ITAM-owned career study-plan references when the current published bulletin catalog lacks an applicable plan for the selected career.
 - RULE: Expose official graduate-program and official double-degree references through the public bootstrap/search layer so graduate discovery does not depend on unofficial mirrors.
 - RULE: Do not keep already-selected subjects duplicated in the lower available-subject directory.
 - RULE: Expose selected public classes explicitly in planner configuration after subject selection so users can keep or remove concrete public groups apart from the subject list.

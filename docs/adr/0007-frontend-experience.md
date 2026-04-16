@@ -59,7 +59,8 @@ Initial product-surface rules:
 - Compatibility redirects may exist temporarily for older public routes such as `/onboarding`, but they must not remain part of the primary user-facing flow.
 - The dedicated planner route must keep the initial document lean. Heavy schedule detail payloads belong in precomputed JSON artifacts fetched on demand, not embedded wholesale into the initial HTML shell.
 - Planner onboarding should use a guided stepper with explicit `Back` and `Next` progression, one primary decision per screen, and a lightweight introductory step that explains what the planner will configure.
-- Planner onboarding must collect academic level, entry term, an explicit UI-locale choice, one or two searchable base-career choices when applicable, optional official joint-program selections when applicable, and default subject selection before finalizing setup.
+- Planner onboarding must collect academic level, entry term, a UI-locale step, one or two searchable base-career choices when applicable, optional official joint-program selections when applicable, and default subject selection before finalizing setup.
+- The locale step must default to Spanish (`es-MX`) in a valid ready state on first render. Changing locale remains user-controlled, but the default locale must never require a redundant extra click before continuing.
 - Planner onboarding must support a dedicated `jointPrograms` academic mode that skips base-career picking and exposes only official joint-program choices for the selected entry term.
 - Planner onboarding must sort visible career choices alphabetically and must keep their labels user-facing and locale-driven instead of leaking internal uppercase catalog values.
 - Planner onboarding and planner configuration must use canonical academic names derived from official ITAM-owned references, with stable aliases for matching against noisy upstream titles.
@@ -69,6 +70,7 @@ Initial product-surface rules:
 - Planner onboarding should create the default launch planner widget set browser-locally during final setup instead of forcing widget selection as primary onboarding friction.
 - The launch planner surface must support `Today`, `Week`, and `Subjects / Plans` widgets, and `Today` must keep the highest visual priority whenever it is enabled.
 - The planner should derive an initial semester estimate from the stored entry term plus the current public period that matches the chosen academic level, then use that estimate to seed a default subject set during onboarding. The user must remain free to add or remove subjects later.
+- Default subject inference must prefer applicable normalized bulletin plans when they exist, and fall back to official ITAM-owned study-plan references for the selected career when the current published bulletin catalog does not expose an applicable plan for that career.
 - The planner should treat subject selection as a browser-local configuration surface. Default subjects should come from the selected academic programs, but the user must be able to search and add any public subject later.
 - The onboarding subject-selection step should foreground the default subjects derived from the chosen academic programs, while still allowing a local search across all published public subjects.
 - Planner configuration must expose the selected public classes explicitly after subject selection, so the user can keep or remove concrete public groups independently from the subject list.
