@@ -16,6 +16,7 @@ export const DEFAULT_STUDENT_PROFILE: StudentProfile = {
 interface StudentProfileStoreState {
   profile: StudentProfile;
   resetProfile: () => void;
+  setActivePlanIds: (planIds: string[]) => void;
   setEntryTerm: (entryTerm: string) => void;
   setLocale: (locale: LocaleCode) => void;
   toggleActivePlanId: (planId: string) => void;
@@ -28,6 +29,13 @@ export const useStudentProfileStore = create<StudentProfileStoreState>()(
     (set) => ({
       profile: DEFAULT_STUDENT_PROFILE,
       resetProfile: () => set({ profile: DEFAULT_STUDENT_PROFILE }),
+      setActivePlanIds: (planIds) =>
+        set((current) => ({
+          profile: {
+            ...current.profile,
+            activePlanIds: [...new Set(planIds)],
+          },
+        })),
       setEntryTerm: (entryTerm) =>
         set((current) => ({
           profile: {

@@ -1,7 +1,17 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://itam.humbertoschoenwald.com/",
+  },
+  description:
+    "Home público de ITAM Planner: onboarding local, planner separado y catálogo académico precalculado para aparecer mejor en buscadores y asistentes.",
+  title: "Home",
+};
 
 const panels = [
   {
@@ -19,8 +29,26 @@ const panels = [
 ] as const;
 
 export default function HomePage() {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    description:
+      "Proyecto independiente para planeación académica del ITAM con onboarding local, planner dedicado y catálogo público precalculado.",
+    inLanguage: "es-MX",
+    name: "ITAM Planner",
+    publisher: {
+      "@type": "Person",
+      name: "Humberto Schoenwald",
+    },
+    url: "https://itam.humbertoschoenwald.com/",
+  };
+
   return (
     <main className="mx-auto flex w-full max-w-7xl flex-1 flex-col gap-6 px-5 py-6 sm:px-8 sm:py-10">
+      <script
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        type="application/ld+json"
+      />
       <section className="overflow-hidden rounded-[2.2rem] border border-border bg-surface p-6 shadow-[0_30px_90px_rgba(40,43,24,0.08)] sm:p-8">
         <div className="hero-grid">
           <div className="space-y-5">

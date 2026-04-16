@@ -16,7 +16,7 @@ describe("persisted stores", () => {
 
   it("persists and rehydrates the student profile", async () => {
     useStudentProfileStore.getState().setEntryTerm("OTOÑO 2025");
-    useStudentProfileStore.getState().toggleActivePlanId("plan:ma-e");
+    useStudentProfileStore.getState().setActivePlanIds(["plan:ma-e", "plan:ma-e"]);
 
     const stored = JSON.parse(window.localStorage.getItem(STORAGE_KEYS.studentProfile) ?? "{}");
     expect(stored.state.profile.entryTerm).toBe("OTOÑO 2025");

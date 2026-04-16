@@ -6,6 +6,9 @@ const uiCopy = {
       backToPlanner: "Back to planner",
       community: "Community",
       connectToChatGpt: "Connect to ChatGPT",
+      genericErrorBody:
+        "This view hit an unexpected problem. We are moving you back to a safer route.",
+      genericErrorTitle: "This view hit an unexpected problem.",
       goToOnboarding: "Go to onboarding",
       open: "Open",
       planner: "Planner",
@@ -84,14 +87,17 @@ const uiCopy = {
       plannerGateBody:
         "The planner route opened first, but this browser still needs the minimum onboarding state before the dedicated planner shell can load.",
       plannerGateTitle: "Finish onboarding to enter the planner",
-      recoveryBody:
-        "The previous route failed and the browser-local planner state was cleared to avoid another loop. Capture the academic basics again before continuing.",
-      recoveryTitle: "Local recovery completed",
+      noPlansForTermBody:
+        "No active bulletin plans matched the selected entry term in the published catalog. Try another year or wait for the next public catalog refresh.",
+      noPlansForTermTitle: "No plans matched this entry term",
       readyBody:
         "This browser already has the minimum onboarding state. You can refine it here or jump straight into the planner.",
       readyTitle: "Onboarding already exists",
       openPlanner: "Continue",
       backHome: "Back to home",
+      plansLockedBody:
+        "Select the academic cycle and year first. Only then can the planner show the plans that actually apply to that entry term.",
+      plansLockedTitle: "Select the entry term first",
       selectSeason: "Select a season",
       selectYear: "Select a year",
       validationBody:
@@ -246,6 +252,10 @@ const uiCopy = {
     siteHeader: {
       badge: "Browser-local beta",
     },
+    underConstruction: {
+      body: "The planner, the catalog bridge, and the visual system are still being hardened. Expect fast changes while the public beta is under active construction.",
+      title: "Under Construction",
+    },
     installGuide: {
       eyebrow: "Installable web app",
       title: "Save the planner to your home screen",
@@ -286,6 +296,9 @@ const uiCopy = {
       backToPlanner: "Volver al planner",
       community: "Comunidad",
       connectToChatGpt: "Conectar con ChatGPT",
+      genericErrorBody:
+        "Esta vista encontró un problema inesperado. Te vamos a mover a una ruta más segura.",
+      genericErrorTitle: "Esta vista encontró un problema inesperado.",
       goToOnboarding: "Ir a onboarding",
       open: "Abrir",
       planner: "Planner",
@@ -365,14 +378,17 @@ const uiCopy = {
       plannerGateBody:
         "Entraste primero a la ruta del planner, pero este navegador todavía necesita el onboarding mínimo antes de abrir el shell dedicado del planner.",
       plannerGateTitle: "Termina el onboarding para entrar al planner",
-      recoveryBody:
-        "La ruta anterior falló y el estado local del planner se limpió para evitar otro loop. Captura de nuevo lo básico antes de continuar.",
-      recoveryTitle: "La recuperación local ya terminó",
+      noPlansForTermBody:
+        "Ningún plan activo del catálogo publicado coincide con el periodo de ingreso seleccionado. Prueba otro año o espera la siguiente actualización pública del catálogo.",
+      noPlansForTermTitle: "No hay planes para ese periodo de ingreso",
       readyBody:
         "Este navegador ya tiene el onboarding mínimo. Puedes ajustarlo aquí o saltar directo al planner.",
       readyTitle: "Ya existe onboarding",
       openPlanner: "Siguiente",
       backHome: "Volver al inicio",
+      plansLockedBody:
+        "Primero elige ciclo y año. Solo entonces te mostramos los planes que realmente aplican para ese periodo de ingreso.",
+      plansLockedTitle: "Primero selecciona tu periodo de ingreso",
       selectSeason: "Selecciona un ciclo",
       selectYear: "Selecciona un año",
       validationBody:
@@ -527,6 +543,10 @@ const uiCopy = {
     },
     siteHeader: {
       badge: "Beta local en navegador",
+    },
+    underConstruction: {
+      body: "El planner, el puente al catálogo y el sistema visual siguen endureciéndose. Espera cambios rápidos mientras esta beta pública sigue en construcción.",
+      title: "Under Construction",
     },
     installGuide: {
       eyebrow: "Web app instalable",

@@ -14,4 +14,8 @@ describe("getUiCopy", () => {
   it("includes the iOS install guidance in Spanish-first copy", () => {
     expect(getUiCopy("es-MX").installGuide.iosSteps[2]).toMatch(/Agregar a pantalla de inicio/u);
   });
+
+  it("includes the under construction banner copy in Spanish-first mode", () => {
+    expect(getUiCopy("es-MX").underConstruction.title).toBe("Under Construction");
+  });
 });

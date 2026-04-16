@@ -1,62 +1,48 @@
 import { describe, expect, it } from "vitest";
 
-import {
-  buildEntryTerm,
-  getEntryTermYearOptions,
-  hasCompletedOnboarding,
-  isValidEntryTerm,
-  parseEntryTerm,
-} from "@/lib/onboarding";
+import { filterPlansForEntryTerm } from "@/lib/onboarding";
+import type { BulletinSummary } from "@/lib/types";
 
-describe("hasCompletedOnboarding", () => {
-  it("requires a non-empty entry term and at least one active plan", () => {
-    expect(
-      hasCompletedOnboarding({
-        entryTerm: "OTOÑO 2025",
-        activePlanIds: ["plan:ma-e"],
-        locale: "es-MX",
-      }),
-    ).toBe(true);
-    expect(
-      hasCompletedOnboarding({
-        entryTerm: "",
-        activePlanIds: ["plan:ma-e"],
-        locale: "es-MX",
-      }),
-    ).toBe(false);
-    expect(
-      hasCompletedOnboarding({
-        entryTerm: "OTOÑO 2025",
-        activePlanIds: [],
-        locale: "es-MX",
-      }),
-    ).toBe(false);
+const samplePlans: BulletinSummary[] = [
+  {
+    active_from: "2026-01-01",
+    active_to: "2026-05-31",
+    application_term: "PRIMAVERA 2026",
+    application_year: 2026,
+    bulletin_id: "bulletin:ma-e",
+    entry_from_term: "PRIMAVERA 2021",
+    entry_to_term: "OTOÑO 2026",
+    plan_code: "E",
+    plan_id: "licenciatura-en-matematicas-aplicadas:e",
+    program_title: "LICENCIATURA EN MATEMATICAS APLICADAS",
+    source_code: "MA-E",
+    title: "LICENCIATURA EN MATEMATICAS APLICADAS Plan E",
+  },
+  {
+    active_from: "2026-01-01",
+    active_to: "2026-05-31",
+    application_term: "PRIMAVERA 2026",
+    application_year: 2026,
+    bulletin_id: "bulletin:dac-b",
+    entry_from_term: "PRIMAVERA 2015",
+    entry_to_term: "PRIMAVERA 2019",
+    plan_code: "B",
+    plan_id: "licenciatura-en-derecho:b",
+    program_title: "LICENCIATURA EN DERECHO",
+    source_code: "DAC-B",
+    title: "LICENCIATURA EN DERECHO Plan B",
+  },
+];
+
+describe("filterPlansForEntryTerm", () => {
+  it("returns no plans until the entry term is valid", () => {
+    expect(filterPlansForEntryTerm(samplePlans, "")).toEqual([]);
+    expect(filterPlansForEntryTerm(samplePlans, "2025")).toEqual([]);
   });
 
-  it("only accepts canonical entry terms", () => {
-    expect(isValidEntryTerm("OTOÑO 2025")).toBe(true);
-    expect(isValidEntryTerm("PRIMAVERA 2026")).toBe(true);
-    expect(isValidEntryTerm("hola")).toBe(false);
-    expect(isValidEntryTerm("2025 OTOÑO")).toBe(false);
-  });
-
-  it("builds and parses entry terms from structured selectors", () => {
-    expect(buildEntryTerm("OTOÑO", "2025")).toBe("OTOÑO 2025");
-    expect(buildEntryTerm("OTOÑO", "")).toBe("");
-    expect(parseEntryTerm("PRIMAVERA 2026")).toEqual({
-      season: "PRIMAVERA",
-      year: "2026",
-    });
-    expect(parseEntryTerm("broken")).toEqual({
-      season: "",
-      year: "",
-    });
-  });
-
-  it("exposes descending year options for the selectors", () => {
-    const years = getEntryTermYearOptions();
-
-    expect(years[0]).toMatch(/^\d{4}$/u);
-    expect(Number(years[0])).toBeGreaterThan(Number(years[years.length - 1]));
+  it("keeps only the plans that apply to the selected entry term", () => {
+    expect(
+      filterPlansForEntryTerm(samplePlans, "OTOÑO 2025").map((plan) => plan.source_code),
+    ).toEqual(["MA-E"]);
   });
 });

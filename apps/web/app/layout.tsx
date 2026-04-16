@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Fraunces, Space_Grotesk } from "next/font/google";
 
 import { SiteHeader } from "@/components/site-header";
+import { UnderConstructionBanner } from "@/components/under-construction-banner";
 
 import "./globals.css";
 
@@ -17,19 +18,33 @@ const sans = Space_Grotesk({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://itam.humbertoschoenwald.com"),
+  alternates: {
+    canonical: "https://itam.humbertoschoenwald.com",
+  },
   manifest: "/manifest.webmanifest",
   title: {
     default: "ITAM Planner",
     template: "%s | ITAM Planner",
   },
   applicationName: "ITAM Planner",
-  description: "Planeación académica para alumnos del ITAM con estado local y sin cuentas.",
+  description:
+    "Planner académico para alumnos del ITAM con catálogo público precalculado, estado local en el navegador y sin cuentas.",
   category: "education",
+  creator: "Humberto Schoenwald",
   formatDetection: {
     address: false,
     email: false,
     telephone: false,
   },
+  keywords: [
+    "ITAM",
+    "ITAM Planner",
+    "horarios ITAM",
+    "boletines ITAM",
+    "calendario ITAM",
+    "planes ITAM",
+    "planeación académica ITAM",
+  ],
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
@@ -37,10 +52,23 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "ITAM Planner",
-    description: "Planeación académica para alumnos del ITAM con estado local y sin cuentas.",
+    description:
+      "Planner académico para alumnos del ITAM con catálogo público precalculado, estado local en el navegador y sin cuentas.",
     siteName: "ITAM Planner",
+    locale: "es_MX",
     type: "website",
     url: "https://itam.humbertoschoenwald.com",
+  },
+  robots: {
+    follow: true,
+    index: true,
+  },
+  twitter: {
+    card: "summary_large_image",
+    creator: "@humbertoschoenwald",
+    title: "ITAM Planner",
+    description:
+      "Planner académico para alumnos del ITAM con catálogo público precalculado y estado local en el navegador.",
   },
 };
 
@@ -66,7 +94,13 @@ export default function RootLayout({
       className={`${display.variable} ${sans.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <div aria-hidden className="site-atmosphere">
+          <span className="site-orb site-orb-primary" />
+          <span className="site-orb site-orb-secondary" />
+          <span className="site-noise" />
+        </div>
         <SiteHeader />
+        <UnderConstructionBanner />
         {children}
       </body>
     </html>

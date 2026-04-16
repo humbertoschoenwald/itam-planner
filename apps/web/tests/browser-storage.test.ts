@@ -1,8 +1,40 @@
-import { describe, expect, it } from "vitest";
+import type { StorageValue } from "zustand/middleware";
+import { describe, expect, it, vi } from "vitest";
 
-import { createSafeStateStorage } from "@/lib/browser-storage";
+import { clearSafeBrowserState, createSafeJsonStorage } from "@/lib/browser-storage";
 
 describe("browser storage", () => {
+  it("falls back to in-memory persistence when localStorage access throws", () => {
+    const originalDescriptor = Object.getOwnPropertyDescriptor(window, "localStorage");
+
+    Object.defineProperty(window, "localStorage", {
+      configurable: true,
+      get() {
+        throw new Error("blocked");
+      },
+    });
+
+    try {
+      const storage = createSafeJsonStorage<{ value: string }>();
+      const storedValue: StorageValue<{ value: string }> = {
+        state: { value: "itam" },
+        version: 1,
+      };
+
+      storage.setItem("itam", storedValue);
+      expect(storage.getItem("itam")).toEqual(storedValue);
+
+      storage.removeItem("itam");
+      expect(storage.getItem("itam")).toBeNull();
+    } finally {
+      clearSafeBrowserState(["itam"]);
+
+      if (originalDescriptor) {
+        Object.defineProperty(window, "localStorage", originalDescriptor);
+      }
+    }
+  });
+
   it("falls back safely when localStorage access throws", () => {
     const originalDescriptor = Object.getOwnPropertyDescriptor(window, "localStorage");
 
@@ -14,12 +46,18 @@ describe("browser storage", () => {
     });
 
     try {
-      const storage = createSafeStateStorage();
+      const storage = createSafeJsonStorage<{ value: string }>();
+      const storedValue: StorageValue<{ value: string }> = {
+        state: { value: "itam" },
+        version: 1,
+      };
 
       expect(storage.getItem("itam")).toBeNull();
-      expect(() => storage.setItem("itam", "value")).not.toThrow();
+      expect(() => storage.setItem("itam", storedValue)).not.toThrow();
       expect(() => storage.removeItem("itam")).not.toThrow();
     } finally {
+      clearSafeBrowserState(["itam"]);
+
       if (originalDescriptor) {
         Object.defineProperty(window, "localStorage", originalDescriptor);
       }
@@ -45,12 +83,50 @@ describe("browser storage", () => {
     });
 
     try {
-      const storage = createSafeStateStorage();
+      const storage = createSafeJsonStorage<{ value: string }>();
+      const storedValue: StorageValue<{ value: string }> = {
+        state: { value: "itam" },
+        version: 1,
+      };
 
       expect(storage.getItem("itam")).toBeNull();
-      expect(() => storage.setItem("itam", "value")).not.toThrow();
+      expect(() => storage.setItem("itam", storedValue)).not.toThrow();
+      expect(storage.getItem("itam")).toEqual(storedValue);
       expect(() => storage.removeItem("itam")).not.toThrow();
     } finally {
+      clearSafeBrowserState(["itam"]);
+
+      if (originalDescriptor) {
+        Object.defineProperty(window, "localStorage", originalDescriptor);
+      }
+    }
+  });
+
+  it("drops malformed persisted JSON instead of crashing hydration", () => {
+    const removeItem = vi.fn();
+    const originalDescriptor = Object.getOwnPropertyDescriptor(window, "localStorage");
+
+    Object.defineProperty(window, "localStorage", {
+      configurable: true,
+      value: {
+        getItem() {
+          return "{broken";
+        },
+        removeItem,
+        setItem() {
+          return undefined;
+        },
+      },
+    });
+
+    try {
+      const storage = createSafeJsonStorage<{ value: string }>();
+
+      expect(storage.getItem("itam")).toBeNull();
+      expect(removeItem).toHaveBeenCalledWith("itam");
+    } finally {
+      clearSafeBrowserState(["itam"]);
+
       if (originalDescriptor) {
         Object.defineProperty(window, "localStorage", originalDescriptor);
       }

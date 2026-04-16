@@ -90,6 +90,7 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans), sans-serif;
   min-height: 100vh;
+  position: relative;
 }
 
 a {
@@ -201,6 +202,49 @@ a {
   color: var(--accent-contrast);
 }
 
+.site-atmosphere {
+  inset: 0;
+  overflow: clip;
+  pointer-events: none;
+  position: fixed;
+  z-index: -1;
+}
+
+.site-orb {
+  animation: float-orb 18s ease-in-out infinite;
+  border-radius: 999px;
+  filter: blur(0.6px);
+  position: absolute;
+}
+
+.site-orb-primary {
+  background: radial-gradient(circle, rgba(31, 77, 63, 0.26), transparent 68%);
+  height: 28rem;
+  right: -8rem;
+  top: 4rem;
+  width: 28rem;
+}
+
+.site-orb-secondary {
+  animation-duration: 24s;
+  animation-direction: alternate;
+  background: radial-gradient(circle, rgba(24, 32, 23, 0.12), transparent 70%);
+  bottom: -8rem;
+  height: 24rem;
+  left: -6rem;
+  width: 24rem;
+}
+
+.site-noise {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.016), rgba(255, 255, 255, 0.016)),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
+  inset: 0;
+  mix-blend-mode: soft-light;
+  opacity: 0.42;
+  position: absolute;
+}
+
 .timeline-grid {
   display: grid;
   gap: 0.9rem;
@@ -224,6 +268,20 @@ a {
   border: 1px solid rgba(31, 77, 63, 0.12);
   padding: 0.95rem 1rem;
   box-shadow: 0 16px 32px rgba(34, 64, 51, 0.06);
+}
+
+@keyframes float-orb {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: translate3d(0, -18px, 0);
+  }
+
+  100% {
+    transform: translate3d(12px, 10px, 0);
+  }
 }
 
 @media (min-width: 900px) {
