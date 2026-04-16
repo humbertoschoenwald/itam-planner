@@ -15,6 +15,7 @@ Do not edit it manually.
 - web: add installable shell and secure catalog caching (`6ffa747`)
 - web: add system theme foundations (`7dc4846`)
 - web: rebuild the mobile planner shell (`8cbaedc`)
+- web: add searchable planner onboarding wizard (`4b00f60`)
 
 ### Fixes
 
@@ -53,6 +54,7 @@ Do not edit it manually.
 - doctrine: constrain onboarding year availability (`877e3fd`)
 - doctrine: forbid automatic state wiping on route errors (`e89ae7c`)
 - doctrine: embed planner onboarding in frontend policy (`56658a4`)
+- doctrine: refine planner onboarding contract (`d4d3ccb`)
 
 ### Tests
 
