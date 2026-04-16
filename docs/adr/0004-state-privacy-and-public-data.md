@@ -14,6 +14,7 @@ At the same time, the public academic catalog is institution-derived public info
 User-specific state rules:
 
 - Personal schedule state lives only in browser `localStorage`.
+- Browser-local persistence is a convenience layer, not a single point of failure. If persistence is unavailable, the runtime must degrade to browser-memory state rather than breaking the route.
 - The backend must not store identity, preferences, or selected schedules.
 - No user accounts.
 - No server-side sessions.
@@ -34,7 +35,7 @@ Token portability:
 - Any such mechanism must remain client-driven and privacy-preserving.
 - The repository now adopts a portable browser-owned student code as a future-facing contract.
 - The student code must be self-contained and must not act as a backend record locator.
-- The student code may carry planner profile and planner state, but it must never carry identity fields such as name, email, phone number, or student ID.
+- The student code may carry planner profile and planner state, including selected academic programs, selected joint programs, selected subjects, widget preferences, and swipe/navigation preferences, but it must never carry identity fields such as name, email, phone number, or student ID.
 - Any future AI context endpoint must derive personalized read-only context on demand from the student code plus the promoted public dataset, without persisting the token or the derived response.
 
 ## Consequences

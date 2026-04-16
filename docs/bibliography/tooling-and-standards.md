@@ -77,3 +77,6 @@ This bibliography lists the primary official references for the tools and standa
 - [ITAM Reglamentos y Calendarios](https://escolar.itam.mx/servicios_escolares/servicios_calendarios.php)
 - [ITAM Boletines Index Redirect](https://escolar.itam.mx/licenciaturas/boletines/boletines.html)
 - [ITAM Boletines PDF Base](https://escolar.itam.mx/licenciaturas/boletines/)
+- [Carreras ITAM](https://carreras.itam.mx/carreras/)
+- [ITAM Programas Conjuntos](https://www.itam.mx/es/programas-conjuntos)
+- [ITAM News](https://news.itam.mx/)

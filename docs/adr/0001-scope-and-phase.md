@@ -29,6 +29,10 @@ The current active implementation slice includes:
 - `apps/web` onboarding and planner shell
 - browser-local planner state
 - portable student code generation
+- official-source browser bootstrap for careers and joint programs
+- planner configuration, local search, inscriptions guidance, project surface, and map placeholder routes
+- public home/editorial surfaces such as project introduction and traceable news links
+- SEO reinforcement for canonical metadata, previews, structured data, and crawlable utility routes
 - tests for new planner, state, and ingestion behavior
 - accessibility doctrine that targets modern web conformance without making premature conformance claims
 
@@ -38,7 +42,7 @@ The current active implementation slice does not yet include:
 - the final AI endpoint route shape
 - Cloudflare domain setup
 - authenticated scraping
-- the ITAM map UX
+- the completed ITAM map UX beyond a placeholder surface
 - semantic interpretation of free-text comments beyond raw preservation
 - automated parser self-repair
 - a completed accessibility audit or a formal public conformance claim
@@ -49,10 +53,11 @@ The artifact pipeline for the current phase is:
 2. derive rules
 3. derive configs if doctrine changes require them
 4. implement repository and community entry files
-5. implement runtime packages and local-state scaffolding
+5. implement runtime packages, official browser bootstrap data, and local-state scaffolding
 6. add fixtures and unit tests
-7. perform dedicated accessibility review work against the current UI slice
-8. run ingestion and promote only validated public artifacts
+7. implement public search, project/editorial surfaces, and SEO-hardening work for the current UI slice
+8. perform dedicated accessibility review work against the current UI slice
+9. run ingestion and promote only validated public artifacts
 
 ## Consequences
 

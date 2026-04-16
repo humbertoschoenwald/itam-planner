@@ -9,8 +9,10 @@ alwaysApply: true
 # State Privacy And Public Data
 
 - RULE: Personal schedule state belongs only in browser `localStorage`.
+- RULE: If browser persistence is unavailable, degrade to browser-memory state instead of breaking the route shell.
 - RULE: Do not add auth, user accounts, sessions, analytics, tracking cookies, or personal telemetry.
 - RULE: Public catalog persistence is allowed, but it must stay strictly separate from user state.
 - RULE: Never use public-data persistence as a side channel for identity, preferences, or schedules.
 - RULE: Student code must stay browser-owned, self-contained, and free of identity data.
+- RULE: Browser-local student state may include academic program choices, joint-program choices, selected subjects, widget preferences, and navigation preferences.
 - RULE: Any future AI-context endpoint must derive read-only context on demand without persisting the token or the response.
