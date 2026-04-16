@@ -6,6 +6,7 @@ const productCopy = {
       close: "Close",
       configuration: "Configuration",
       connectToAi: "Connect to AI",
+      executiveEducation: "Executive education",
       inscriptions: "Registration",
       map: "Map",
       menu: "Menu",
@@ -50,10 +51,12 @@ const productCopy = {
     },
     siteHeader: {
       mobileMenuLabel: "Open product menu",
+      officialLinksLabel: "Open official links menu",
       searchLabel: "Open local search",
       secondaryNav: {
         configuration: "Configuration",
         connectToAi: "Connect to AI",
+        executiveEducation: "Executive education",
         inscriptions: "Registration",
         project: "Project",
       },
@@ -171,6 +174,7 @@ const productCopy = {
       close: "Cerrar",
       configuration: "Configuración",
       connectToAi: "Connect to AI",
+      executiveEducation: "Educación ejecutiva",
       inscriptions: "Inscripciones",
       map: "Mapa",
       menu: "Menú",
@@ -215,10 +219,12 @@ const productCopy = {
     },
     siteHeader: {
       mobileMenuLabel: "Abrir menú del producto",
+      officialLinksLabel: "Abrir menú de links oficiales",
       searchLabel: "Abrir búsqueda local",
       secondaryNav: {
         configuration: "Configuración",
         connectToAi: "Connect to AI",
+        executiveEducation: "Educación ejecutiva",
         inscriptions: "Inscripciones",
         project: "Proyecto",
       },

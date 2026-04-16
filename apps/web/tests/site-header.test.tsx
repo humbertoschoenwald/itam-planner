@@ -41,7 +41,18 @@ describe("SiteHeader", () => {
       "href",
       "/search",
     );
+    expect(
+      screen.getByRole("button", { name: "Abrir menú de links oficiales" }),
+    ).toBeInTheDocument();
     expect(container.querySelector("header")).toHaveClass("sticky");
+  });
+
+  it("does not keep Home marked when a secondary route is active", () => {
+    mockedPathname = "/connect-ai";
+    render(<SiteHeader />);
+
+    expect(screen.getByRole("link", { name: "Home" })).not.toHaveClass("bg-accent");
+    expect(screen.getByRole("link", { name: "Connect to AI" })).toHaveClass("bg-accent");
   });
 
   it("ignores swipe-like pointer gestures outside phone layouts", () => {
@@ -84,6 +95,19 @@ describe("SiteHeader", () => {
       expect(screen.queryByRole("link", { name: "Proyecto" })).not.toBeInTheDocument();
       expect(screen.getByRole("button", { name: "Abrir menú del producto" })).toBeInTheDocument();
     });
+  });
+
+  it("keeps executive education in the overflow-only links menu", () => {
+    render(<SiteHeader />);
+
+    fireEvent.click(screen.getByRole("button", { name: "Abrir menú de links oficiales" }));
+
+    expect(
+      screen.getByRole("link", { name: "Educación ejecutiva" }),
+    ).toHaveAttribute(
+      "href",
+      "https://desarrolloejecutivo.itam.mx/Home/ProgramasO#sectionCorporate&0&menu",
+    );
   });
 });
 

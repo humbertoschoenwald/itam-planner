@@ -13,6 +13,7 @@ import {
   SECONDARY_NAV_ITEMS,
 } from "@/lib/navigation";
 import { getProductCopy } from "@/lib/product-copy";
+import { OFFICIAL_EXECUTIVE_EDUCATION_URL } from "@/lib/site-content";
 import { usePhoneViewport } from "@/lib/use-phone-viewport";
 import { usePlannerUiStore } from "@/stores/planner-ui-store";
 import { useStudentProfileStore } from "@/stores/student-profile-store";
@@ -44,31 +45,47 @@ export function SiteHeader() {
           ? copy.common.planner
           : copy.common.calendar,
   }));
-  const secondaryLinks = SECONDARY_NAV_ITEMS.filter((item) => item.id !== "search" && item.id !== "map").map(
-    (item) => ({
-      href: item.href,
-      id: item.id,
-      label:
-        item.id === "project"
-          ? productCopy.common.project
-          : item.id === "connectAi"
-            ? productCopy.common.connectToAi
-            : item.id === "registration"
-              ? productCopy.common.inscriptions
-              : productCopy.common.configuration,
-    }),
-  );
+  const secondaryLinks = SECONDARY_NAV_ITEMS.filter(
+    (item) => item.id !== "search" && item.id !== "map",
+  ).map((item) => ({
+    href: item.href,
+    id: item.id,
+    label:
+      item.id === "project"
+        ? productCopy.common.project
+        : item.id === "connectAi"
+          ? productCopy.common.connectToAi
+          : item.id === "registration"
+            ? productCopy.common.inscriptions
+            : productCopy.common.configuration,
+  }));
   const searchLink = {
     href: "/search",
     id: "search" as const,
     label: productCopy.common.search,
   };
-  const overflowLinks = [
-    ...secondaryLinks,
-    searchLink,
-    { href: "/map", id: "map" as const, label: productCopy.common.map },
-  ];
   const shouldUseOverflowMenu = isPhoneViewport || collapseSecondaryNav;
+  const hiddenOverflowLinks = [
+    {
+      href: "/map",
+      id: "map" as const,
+      label: productCopy.common.map,
+    },
+    {
+      external: true,
+      href: OFFICIAL_EXECUTIVE_EDUCATION_URL,
+      id: "executiveEducation" as const,
+      label: productCopy.common.executiveEducation,
+    },
+  ];
+  const overflowLinks = shouldUseOverflowMenu
+    ? [
+        ...secondaryLinks,
+        searchLink,
+        ...hiddenOverflowLinks,
+      ]
+    : hiddenOverflowLinks;
+  const shouldRenderOverflowMenuButton = shouldUseOverflowMenu || hiddenOverflowLinks.length > 0;
 
   useEffect(() => {
     function handleFallbackResize() {
@@ -235,34 +252,53 @@ export function SiteHeader() {
                 >
                   <SearchIcon />
                 </Link>
-              ) : (
+              ) : null}
+
+              {shouldRenderOverflowMenuButton ? (
                 <button
                   aria-expanded={mobileMenuOpen}
-                  aria-label={productCopy.siteHeader.mobileMenuLabel}
-                  className={getIconNavPillClassName(mobileMenuOpen)}
+                  aria-label={
+                    shouldUseOverflowMenu
+                      ? productCopy.siteHeader.mobileMenuLabel
+                      : productCopy.siteHeader.officialLinksLabel
+                  }
+                  className={getIconNavPillClassName(mobileMenuOpen || activeSecondaryTab === "map")}
                   onClick={() => setMobileMenuOpen((current) => !current)}
                   type="button"
                 >
                   <MenuIcon />
                 </button>
-              )}
+              ) : null}
             </nav>
           </div>
         </div>
 
-        {shouldUseOverflowMenu && mobileMenuOpen ? (
+        {shouldRenderOverflowMenuButton && mobileMenuOpen ? (
           <div className="grid gap-2 rounded-[1.5rem] border border-border bg-surface-elevated p-3 text-sm font-medium text-muted">
-            {overflowLinks.map((link) => (
-              <Link
-                key={link.href}
-                className={getNavPillClassName(activeSecondaryTab === link.id)}
-                href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
-                prefetch={false}
-              >
-                {link.label}
-              </Link>
-            ))}
+            {overflowLinks.map((link) =>
+              "external" in link && link.external ? (
+                <a
+                  key={link.href}
+                  className={getNavPillClassName(false)}
+                  href={link.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  rel="noreferrer"
+                  target="_blank"
+                >
+                  {link.label}
+                </a>
+              ) : (
+                <Link
+                  key={link.href}
+                  className={getNavPillClassName(activeSecondaryTab === link.id)}
+                  href={link.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  prefetch={false}
+                >
+                  {link.label}
+                </Link>
+              ),
+            )}
           </div>
         ) : null}
       </div>

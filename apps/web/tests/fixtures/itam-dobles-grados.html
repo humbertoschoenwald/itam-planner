@@ -1,0 +1,1239 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+		<title>Dobles grados | Intercambio Académico</title>
+		<style type="text/css" media="all">
+@import url("//intercambio.itam.mx/modules/system/system.base.css?tdlfu0");
+@import url("//intercambio.itam.mx/modules/system/system.menus.css?tdlfu0");
+@import url("//intercambio.itam.mx/modules/system/system.messages.css?tdlfu0");
+</style>
+<style type="text/css" media="all">
+@import url("//intercambio.itam.mx/sites/all/libraries/magnific-popup/dist/magnific-popup.css?tdlfu0");
+@import url("//intercambio.itam.mx/sites/all/modules/magnific_popup/css/mfp-formatter.css?tdlfu0");
+</style>
+<style type="text/css" media="all">
+@import url("//intercambio.itam.mx/sites/all/modules/simplenews/simplenews.css?tdlfu0");
+@import url("//intercambio.itam.mx/modules/aggregator/aggregator.css?tdlfu0");
+@import url("//intercambio.itam.mx/modules/book/book.css?tdlfu0");
+@import url("//intercambio.itam.mx/sites/all/modules/calendar/css/calendar_multiday.css?tdlfu0");
+@import url("//intercambio.itam.mx/sites/all/modules/ckeditor_accordion/css/ckeditor-accordion.css?tdlfu0");
+@import url("//intercambio.itam.mx/modules/comment/comment.css?tdlfu0");
+@import url("//intercambio.itam.mx/sites/all/modules/date/date_api/date.css?tdlfu0");
+@import url("//intercambio.itam.mx/sites/all/modules/date/date_popup/themes/datepicker.1.7.css?tdlfu0");
+@import url("//intercambio.itam.mx/sites/all/modules/date/date_repeat_field/date_repeat_field.css?tdlfu0");
+@import url("//intercambio.itam.mx/modules/field/theme/field.css?tdlfu0");
+@import url("//intercambio.itam.mx/sites/all/modules/fitvids/fitvids.css?tdlfu0");
+@import url("//intercambio.itam.mx/sites/all/modules/views_fractionslider/css/fractionslider.css?tdlfu0");
+@import url("//intercambio.itam.mx/modules/node/node.css?tdlfu0");
+@import url("//intercambio.itam.mx/modules/search/search.css?tdlfu0");
+@import url("//intercambio.itam.mx/modules/user/user.css?tdlfu0");
+@import url("//intercambio.itam.mx/sites/all/modules/youtube/css/youtube.css?tdlfu0");
+@import url("//intercambio.itam.mx/sites/all/modules/views/css/views.css?tdlfu0");
+@import url("//intercambio.itam.mx/sites/all/modules/ckeditor/css/ckeditor.css?tdlfu0");
+</style>
+<style type="text/css" media="all">
+@import url("//intercambio.itam.mx/sites/all/modules/colorbox/styles/default/colorbox_style.css?tdlfu0");
+@import url("//intercambio.itam.mx/sites/all/modules/ctools/css/ctools.css?tdlfu0");
+@import url("//intercambio.itam.mx/sites/all/modules/panels/css/panels.css?tdlfu0");
+</style>
+<link type="text/css" rel="stylesheet" href="//intercambio.itam.mx/sites/all/modules/popup/popup.css?tdlfu0" media="all" />
+<style type="text/css" media="all">
+@import url("//intercambio.itam.mx/sites/all/modules/book_made_simple/book_made_simple.css?tdlfu0");
+@import url("//intercambio.itam.mx/sites/all/modules/multi_image_slider/css/multi_image_slider.css?tdlfu0");
+@import url("//intercambio.itam.mx/sites/all/modules/tb_megamenu/css/bootstrap.css?tdlfu0");
+@import url("//intercambio.itam.mx/sites/all/modules/tb_megamenu/css/base.css?tdlfu0");
+@import url("//intercambio.itam.mx/sites/all/modules/tb_megamenu/css/default.css?tdlfu0");
+@import url("//intercambio.itam.mx/sites/all/modules/tb_megamenu/css/compatibility.css?tdlfu0");
+@import url("//intercambio.itam.mx/sites/all/modules/custom_search/custom_search.css?tdlfu0");
+@import url("//intercambio.itam.mx/sites/all/modules/text_resize/text_resize.css?tdlfu0");
+@import url("//intercambio.itam.mx/sites/all/libraries/jquery.prettyPhoto/css/prettyPhoto.css?tdlfu0");
+@import url("//intercambio.itam.mx/sites/all/modules/responsive_menus/styles/responsive_menus_simple/css/responsive_menus_simple.css?tdlfu0");
+@import url("//intercambio.itam.mx/sites/all/libraries/fontawesome/css/font-awesome.css?tdlfu0");
+</style>
+<link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,100,300,500,700,900" media="all" />
+<style type="text/css" media="all">
+@import url("//intercambio.itam.mx/sites/all/libraries/mmenu/main/src/css/jquery.mmenu.all.css?tdlfu0");
+@import url("//intercambio.itam.mx/sites/all/modules/mmenu/themes/mm-basic/styles/mm-basic.css?tdlfu0");
+</style>
+<style type="text/css" media="all">
+@import url("//intercambio.itam.mx/sites/all/themes/enhances/css/default.css?tdlfu0");
+@import url("//intercambio.itam.mx/sites/all/themes/enhances/css/theme_library.css?tdlfu0");
+@import url("//intercambio.itam.mx/sites/all/themes/enhances/fonts/themify-icons.css?tdlfu0");
+@import url("//intercambio.itam.mx/sites/all/themes/enhances/css/theme_style.css?tdlfu0");
+@import url("//intercambio.itam.mx/sites/all/themes/enhances/css/update.css?tdlfu0");
+@import url("//intercambio.itam.mx/sites/all/themes/enhances/css/base.css?tdlfu0");
+</style>
+<!--[if IE]><![endif]-->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="¿Qué es un Doble Grado o Grado Secuencial?" />
+<meta name="generator" content="Drupal 7 (https://www.drupal.org)" />
+<link rel="canonical" href="https://intercambio.itam.mx/es/dobles-grados" />
+<link rel="shortlink" href="https://intercambio.itam.mx/es/node/20483" />
+<meta property="og:site_name" content="Intercambio Académico" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://intercambio.itam.mx/es/dobles-grados" />
+<meta property="og:title" content="Dobles grados" />
+<meta property="og:description" content="¿Qué es un Doble Grado o Grado Secuencial? Los programas de Doble Grado permiten que estudiantes de las licenciaturas/ ingenierías hagan el 75% de su carrera en el ITAM y para el 25% restante se incorporen a alguno de los programas de maestría autorizados bajo este esquema. Las materias de la maestría se acreditan hacia el último año de la carrera en el ITAM y se acreditan como parte de los requisitos necesarios para obtener el título de maestría. El alumno podrá obtener ambos títulos en 4 años (3+1) o 5 años (3+2)." />
+<meta property="og:updated_time" content="2024-08-29T12:02:14-06:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:url" content="https://intercambio.itam.mx/es/dobles-grados" />
+<meta name="twitter:title" content="Dobles grados" />
+<meta name="twitter:description" content="¿Qué es un Doble Grado o Grado Secuencial? Los programas de Doble Grado permiten que estudiantes de las licenciaturas/ ingenierías hagan el 75% de su carrera en el ITAM y para el 25% restante se" />
+<meta property="article:published_time" content="2017-12-04T14:17:05-06:00" />
+<meta property="article:modified_time" content="2024-08-29T12:02:14-06:00" />
+<meta itemprop="name" content="Dobles grados" />
+<meta itemprop="description" content="¿Qué es un Doble Grado o Grado Secuencial? Los programas de Doble Grado permiten que estudiantes de las licenciaturas/ ingenierías hagan el 75% de su carrera en el ITAM y para el 25% restante se incorporen a alguno de los programas de maestría autorizados bajo este esquema. Las materias de la maestría se acreditan hacia el último año de la carrera en el ITAM y se acreditan como parte de los requisitos necesarios para obtener el título de maestría. El alumno podrá obtener ambos títulos en 4 años (3+1) o 5 años (3+2)." />
+<link rel="shortcut icon" href="//intercambio.itam.mx///facultad.itam.mx/sites/all/themes/b_facultad/favicon.ico" type="image/vnd.microsoft.icon" />
+			</head>
+	<body class="html not-front not-logged-in no-sidebars page-node page-node- page-node-20483 node-type-page domain-dev-intercambio-itam-mx i18n-es" >
+	<div id="skip-link">
+				<a href="#main-content" class="element-invisible element-focusable">Ir al contenido principal</a>
+			</div>
+		<div class="enh_page" id="enh_page">
+			
+			
+			<noscript aria-hidden="true">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX;visibility:hidden"></iframe></noscript>
+	<div class="enh_page_title enh_image_bck enh_fixed enh_wht_txt" data-stellar-background-ratio="0.2" data-image="https://www.itam.mx/sites/all/themes/coursat/images/rh-pr2.jpg" background-attachment: fixed; background-position: 50% 50%;">
+      <!-- Over -->
+        <div class="container text-left">
+        <div class="row">
+          
+          <div class="enh_h1_title"><span>Dobles grados</span></div>          
+        </div>
+      </div>
+</div>
+
+     
+  <a href="#enh_page" class="enh_top ti ti-angle-up enh_go"></a>
+<header>
+    <nav class="enh_light_nav enh_transp_nav">
+        <div class="container">
+            
+            <!-- Logo -->
+            <a class="enh_logo" href="https://intercambio.itam.mx"><img src="//intercambio.itam.mx/sites/all/themes/coursat/logo-itam.png" alt="" /></a>   
+            
+            <!-- Text Logo -->
+            <!--<div class="enh_logo_und"></div>-->
+            
+            
+            <div class="enh_top_menu_mobile_link">
+                <i class="ti ti-menu"></i>
+            </div>
+            <!-- Top Menu -->
+                        <div class="enh_top_menu_cont">
+                <div id="block-tb-megamenu-menu-intercambio-academico" class="block block-tb-megamenu contextual-links-region" ><div  class="tb-megamenu tb-megamenu-menu-intercambio-academico">
+      <button data-target=".nav-collapse" data-toggle="collapse" class="btn btn-navbar tb-megamenu-button" type="button">
+      <i class="fa fa-reorder"></i>
+    </button>
+    <div class="nav-collapse  always-show">
+    <ul  class="tb-megamenu-nav nav level-0 items-13">
+  <li  data-id="3537" data-level="1" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" class="tb-megamenu-item level-1 mega dropdown active active-trail">
+  <a href="#"  class="dropdown-toggle">
+        
+    Alumnos ITAM          <span class="caret"></span>
+          </a>
+  <div  data-class="" data-width="" class="tb-megamenu-submenu dropdown-menu mega-dropdown-menu nav-child">
+  <div class="mega-dropdown-inner">
+    <div  class="tb-megamenu-row row-fluid">
+  <div  data-class="" data-width="12" data-hidewcol="0" id="tb-megamenu-column-8" class="tb-megamenu-column span12  mega-col-nav">
+  <div class="tb-megamenu-column-inner mega-inner clearfix">
+        <ul  class="tb-megamenu-subnav mega-nav level-1 items-8">
+  <li  data-id="3538" data-level="2" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" class="tb-megamenu-item level-2 mega dropdown-submenu">
+  <a href="#"  class="dropdown-toggle">
+        
+    Licenciatura          <span class="caret"></span>
+          </a>
+  <div  data-class="" data-width="" class="tb-megamenu-submenu dropdown-menu mega-dropdown-menu nav-child">
+  <div class="mega-dropdown-inner">
+    <div  class="tb-megamenu-row row-fluid">
+  <div  data-class="" data-width="12" data-hidewcol="0" id="tb-megamenu-column-3" class="tb-megamenu-column span12  mega-col-nav">
+  <div class="tb-megamenu-column-inner mega-inner clearfix">
+        <ul  class="tb-megamenu-subnav mega-nav level-2 items-2">
+  <li  data-id="3539" data-level="3" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" class="tb-megamenu-item level-3 mega dropdown-submenu">
+  <a href="#"  class="dropdown-toggle">
+        
+    Intercambio Académico          <span class="caret"></span>
+          </a>
+  <div  data-class="" data-width="" class="tb-megamenu-submenu dropdown-menu mega-dropdown-menu nav-child">
+  <div class="mega-dropdown-inner">
+    <div  class="tb-megamenu-row row-fluid">
+  <div  data-class="" data-width="12" data-hidewcol="0" id="tb-megamenu-column-1" class="tb-megamenu-column span12  mega-col-nav">
+  <div class="tb-megamenu-column-inner mega-inner clearfix">
+        <ul  class="tb-megamenu-subnav mega-nav level-3 items-5">
+  <li  data-id="3540" data-level="4" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" class="tb-megamenu-item level-4 mega">
+  <a href="/es/licenciatura-intercambio-academico-introduccion" >
+        
+    Introducción          </a>
+  </li>
+
+<li  data-id="3573" data-level="4" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" class="tb-megamenu-item level-4 mega">
+  <a href="http://intercambio.itam.mx/es/licenciaturas-intercambio" >
+        
+    Países y Universidades          </a>
+  </li>
+
+<li  data-id="13209" data-level="4" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" class="tb-megamenu-item level-4 mega">
+  <a href="//intercambio.itam.mx/sites/default/files/intercambios_licenciatura.pdf" >
+        
+    Brochure          </a>
+  </li>
+
+<li  data-id="3574" data-level="4" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" class="tb-megamenu-item level-4 mega">
+  <a href="https://itamexchange.itam.mx/"  target="_blank" title="My exchange">
+        
+    My exchange          </a>
+  </li>
+
+<li  data-id="3575" data-level="4" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" class="tb-megamenu-item level-4 mega">
+  <a href="http://intercambio.itam.mx/es/testimonios-licenciaturas-intercambio" >
+        
+    Testimoniales          </a>
+  </li>
+</ul>
+  </div>
+</div>
+</div>
+  </div>
+</div>
+</li>
+
+<li  data-id="3541" data-level="3" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" class="tb-megamenu-item level-3 mega dropdown-submenu">
+  <a href="#"  class="dropdown-toggle">
+        
+    Verano ITAM en el Extranjero          <span class="caret"></span>
+          </a>
+  <div  data-class="" data-width="" class="tb-megamenu-submenu dropdown-menu mega-dropdown-menu nav-child">
+  <div class="mega-dropdown-inner">
+    <div  class="tb-megamenu-row row-fluid">
+  <div  data-class="" data-width="12" data-hidewcol="0" id="tb-megamenu-column-2" class="tb-megamenu-column span12  mega-col-nav">
+  <div class="tb-megamenu-column-inner mega-inner clearfix">
+        <ul  class="tb-megamenu-subnav mega-nav level-3 items-5">
+  <li  data-id="3547" data-level="4" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" class="tb-megamenu-item level-4 mega">
+  <a href="/es/licenciatura-verano-en-el-extranjero-introduccion" >
+        
+    Introducción          </a>
+  </li>
+
+<li  data-id="3576" data-level="4" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" class="tb-megamenu-item level-4 mega">
+  <a href="/es/licenciatura-verano-en-el-extranjero-requisitos" >
+        
+    Requisitos          </a>
+  </li>
+
+<li  data-id="3577" data-level="4" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" class="tb-megamenu-item level-4 mega">
+  <a href="http://intercambio.itam.mx/es/licenciaturas-verano" >
+        
+    Países y Universidades          </a>
+  </li>
+
+<li  data-id="6418" data-level="4" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" class="tb-megamenu-item level-4 mega">
+  <a href="/es/7/paginas/preguntas-frecuentes" >
+        
+    Preguntas frecuentes          </a>
+  </li>
+
+<li  data-id="3579" data-level="4" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" class="tb-megamenu-item level-4 mega">
+  <a href="http://intercambio.itam.mx/es/testimonios-licenciaturas-verano" >
+        
+    Testimoniales          </a>
+  </li>
+</ul>
+  </div>
+</div>
+</div>
+  </div>
+</div>
+</li>
+</ul>
+  </div>
+</div>
+</div>
+  </div>
+</div>
+</li>
+
+<li  data-id="3542" data-level="2" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" class="tb-megamenu-item level-2 mega dropdown-submenu">
+  <a href="#"  class="dropdown-toggle">
+        
+    Posgrados          <span class="caret"></span>
+          </a>
+  <div  data-class="" data-width="" class="tb-megamenu-submenu dropdown-menu mega-dropdown-menu nav-child">
+  <div class="mega-dropdown-inner">
+    <div  class="tb-megamenu-row row-fluid">
+  <div  data-class="" data-width="12" data-hidewcol="0" id="tb-megamenu-column-6" class="tb-megamenu-column span12  mega-col-nav">
+  <div class="tb-megamenu-column-inner mega-inner clearfix">
+        <ul  class="tb-megamenu-subnav mega-nav level-2 items-2">
+  <li  data-id="3564" data-level="3" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" class="tb-megamenu-item level-3 mega dropdown-submenu">
+  <a href="#"  class="dropdown-toggle">
+        
+    Intercambio Académico          <span class="caret"></span>
+          </a>
+  <div  data-class="" data-width="" class="tb-megamenu-submenu dropdown-menu mega-dropdown-menu nav-child">
+  <div class="mega-dropdown-inner">
+    <div  class="tb-megamenu-row row-fluid">
+  <div  data-class="" data-width="12" data-hidewcol="0" id="tb-megamenu-column-4" class="tb-megamenu-column span12  mega-col-nav">
+  <div class="tb-megamenu-column-inner mega-inner clearfix">
+        <ul  class="tb-megamenu-subnav mega-nav level-3 items-6">
+  <li  data-id="3580" data-level="4" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" class="tb-megamenu-item level-4 mega">
+  <a href="/es/posgrados-intercambio-academico-introduccion" >
+        
+    Introducción          </a>
+  </li>
+
+<li  data-id="3581" data-level="4" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" class="tb-megamenu-item level-4 mega">
+  <a href="/es/posgrados-intercambio-academico-requisitos" >
+        
+    Requisitos          </a>
+  </li>
+
+<li  data-id="3582" data-level="4" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" class="tb-megamenu-item level-4 mega">
+  <a href="http://intercambio.itam.mx/es/maestrias-intercambio" >
+        
+    Países y Universidades          </a>
+  </li>
+
+<li  data-id="13210" data-level="4" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" class="tb-megamenu-item level-4 mega">
+  <a href="//intercambio.itam.mx/sites/default/files/intercambios_posg_prim_2023.pdf" >
+        
+    Brochure          </a>
+  </li>
+
+<li  data-id="3583" data-level="4" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" class="tb-megamenu-item level-4 mega">
+  <a href="https://itamexchange.itam.mx"  target="_blank" title="My exchange">
+        
+    My exchange          </a>
+  </li>
+
+<li  data-id="8320" data-level="4" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" class="tb-megamenu-item level-4 mega">
+  <a href="/es/7/paginas/becas-de-manutencion-para-intercambio" >
+        
+    Becas de manutención para Intercambio          </a>
+  </li>
+</ul>
+  </div>
+</div>
+</div>
+  </div>
+</div>
+</li>
+
+<li  data-id="3565" data-level="3" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" class="tb-megamenu-item level-3 mega dropdown-submenu">
+  <a href="#"  class="dropdown-toggle">
+        
+    Verano ITAM en el Extranjero          <span class="caret"></span>
+          </a>
+  <div  data-class="" data-width="" class="tb-megamenu-submenu dropdown-menu mega-dropdown-menu nav-child">
+  <div class="mega-dropdown-inner">
+    <div  class="tb-megamenu-row row-fluid">
+  <div  data-class="" data-width="12" data-hidewcol="0" id="tb-megamenu-column-5" class="tb-megamenu-column span12  mega-col-nav">
+  <div class="tb-megamenu-column-inner mega-inner clearfix">
+        <ul  class="tb-megamenu-subnav mega-nav level-3 items-4">
+  <li  data-id="3586" data-level="4" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" class="tb-megamenu-item level-4 mega">
+  <a href="/es/1/paginas/posgrados-verano-en-el-extranjero-introduccion" >
+        
+    Introducción          </a>
+  </li>
+
+<li  data-id="3587" data-level="4" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" class="tb-megamenu-item level-4 mega">
+  <a href="/es/1/paginas/posgrados-verano-en-el-extranjero-requisitos" >
+        
+    Requisitos          </a>
+  </li>
+
+<li  data-id="3588" data-level="4" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" class="tb-megamenu-item level-4 mega">
+  <a href="http://intercambio.itam.mx/es/maestria-verano" >
+        
+    Países y Universidades          </a>
+  </li>
+
+<li  data-id="5509" data-level="4" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" class="tb-megamenu-item level-4 mega">
+  <a href="/es/preguntas-frecuentes-posgrados-verano" >
+        
+    Preguntas Frecuentes          </a>
+  </li>
+</ul>
+  </div>
+</div>
+</div>
+  </div>
+</div>
+</li>
+</ul>
+  </div>
+</div>
+</div>
+  </div>
+</div>
+</li>
+
+<li  data-id="3591" data-level="2" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" class="tb-megamenu-item level-2 mega">
+  <a href="/es/buddy-program-como-funciona" >
+        
+    Buddy Program          </a>
+  </li>
+
+<li  data-id="8610" data-level="2" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" class="tb-megamenu-item level-2 mega active active-trail">
+  <a href="/es/dobles-grados" >
+        
+    Dobles grados          </a>
+  </li>
+
+<li  data-id="11073" data-level="2" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" class="tb-megamenu-item level-2 mega">
+  <a href="http://intercambio.itam.mx/es/7/paginas/becas-manutencion-para-intercambio" >
+        
+    Becas Manutención Para Intercambio          </a>
+  </li>
+
+<li  data-id="11074" data-level="2" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" class="tb-megamenu-item level-2 mega">
+  <a href="http://intercambio.itam.mx/becas-para-posgrados" >
+        
+    Becas para Estudios de Posgrado en el Extranjero          </a>
+  </li>
+
+<li  data-id="8534" data-level="2" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" class="tb-megamenu-item level-2 mega dropdown-submenu">
+  <a href="#"  class="dropdown-toggle">
+        
+    Consorcios          <span class="caret"></span>
+          </a>
+  <div  data-class="" data-width="" class="tb-megamenu-submenu dropdown-menu mega-dropdown-menu nav-child">
+  <div class="mega-dropdown-inner">
+    <div  class="tb-megamenu-row row-fluid">
+  <div  data-class="" data-width="12" data-hidewcol="0" id="tb-megamenu-column-7" class="tb-megamenu-column span12  mega-col-nav">
+  <div class="tb-megamenu-column-inner mega-inner clearfix">
+        <ul  class="tb-megamenu-subnav mega-nav level-2 items-4">
+  <li  data-id="8535" data-level="3" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" class="tb-megamenu-item level-3 mega">
+  <a href="http://pimnetwork.org/"  target="_blank" title="Partnership in International Management">
+        
+    Partnership in International Management          </a>
+  </li>
+
+<li  data-id="8536" data-level="3" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" class="tb-megamenu-item level-3 mega">
+  <a href="https://lawschoolsgloballeague.com/"  target="_blank" title="Law Schools Global League">
+        
+    Law Schools Global League          </a>
+  </li>
+
+<li  data-id="8537" data-level="3" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" class="tb-megamenu-item level-3 mega">
+  <a href="https://www.iie.org/latinamerica"  target="_blank" title="Institute of International Education">
+        
+    Institute of International Education          </a>
+  </li>
+
+<li  data-id="12037" data-level="3" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" class="tb-megamenu-item level-3 mega">
+  <a href="/es/node/26287" >
+        
+    UMAP          </a>
+  </li>
+</ul>
+  </div>
+</div>
+</div>
+  </div>
+</div>
+</li>
+
+<li  data-id="17593" data-level="2" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" class="tb-megamenu-item level-2 mega">
+  <a href="http://www.itam-gnp.com.mx/" >
+        
+    Seguro de gastos médicos mayores          </a>
+  </li>
+</ul>
+  </div>
+</div>
+</div>
+  </div>
+</div>
+</li>
+
+<li  data-id="3543" data-level="1" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" class="tb-megamenu-item level-1 mega dropdown">
+  <a href="#"  class="dropdown-toggle">
+        
+    Alumnos Internacionales          <span class="caret"></span>
+          </a>
+  <div  data-class="" data-width="" class="tb-megamenu-submenu dropdown-menu mega-dropdown-menu nav-child">
+  <div class="mega-dropdown-inner">
+    <div  class="tb-megamenu-row row-fluid">
+  <div  data-class="" data-width="12" data-hidewcol="0" id="tb-megamenu-column-9" class="tb-megamenu-column span12  mega-col-nav">
+  <div class="tb-megamenu-column-inner mega-inner clearfix">
+        <ul  class="tb-megamenu-subnav mega-nav level-1 items-13">
+  <li  data-id="4032" data-level="2" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" class="tb-megamenu-item level-2 mega">
+  <a href="/es/alumnos-internacionales-por-que-itam" >
+        
+    ¿Por qué ITAM?          </a>
+  </li>
+
+<li  data-id="20302" data-level="2" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" class="tb-megamenu-item level-2 mega">
+  <a href="/es/convenios-universidades" >
+        
+    Convenios Universidades          </a>
+  </li>
+
+<li  data-id="14384" data-level="2" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" class="tb-megamenu-item level-2 mega">
+  <a href="/es/7/paginas/acreditaciones" >
+        
+    Acreditaciones          </a>
+  </li>
+
+<li  data-id="4033" data-level="2" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" class="tb-megamenu-item level-2 mega">
+  <a href="/es/alumnos-internacionales-nuestros-campus" >
+        
+    Nuestros Campus          </a>
+  </li>
+
+<li  data-id="8392" data-level="2" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" class="tb-megamenu-item level-2 mega">
+  <a href="https://intercambio.itam.mx/sites/default/files/itam_student_factsheet.pdf"  target="_blank" title="Fact Sheet">
+        
+    Fact Sheet          </a>
+  </li>
+
+<li  data-id="4034" data-level="2" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" class="tb-megamenu-item level-2 mega">
+  <a href="/es/alumnos-internacionales-alumnos-de-licenciatura" >
+        
+    Alumnos de Licenciatura          </a>
+  </li>
+
+<li  data-id="4035" data-level="2" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" class="tb-megamenu-item level-2 mega">
+  <a href="/es/alumnos-internacionales-alumnos-de-posgrados" >
+        
+    Alumnos de Posgrados          </a>
+  </li>
+
+<li  data-id="4036" data-level="2" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" class="tb-megamenu-item level-2 mega">
+  <a href="http://intercambio.itam.mx/en/summer/about"  target="_blank" title="ITAM Summer School">
+        
+    ITAM Summer School          </a>
+  </li>
+
+<li  data-id="4039" data-level="2" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" class="tb-megamenu-item level-2 mega">
+  <a href="/es/alumnos-internacionales-como-aplicar-para-tu-intercambio" >
+        
+    ¿Cómo aplicar para tu intercambio?          </a>
+  </li>
+
+<li  data-id="4043" data-level="2" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" class="tb-megamenu-item level-2 mega">
+  <a href="/es/alumnos-internacionales-seguro-de-gastos-medicos" >
+        
+    Seguro de Gastos Médicos          </a>
+  </li>
+
+<li  data-id="4044" data-level="2" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" class="tb-megamenu-item level-2 mega">
+  <a href="/es/1/paginas/alumnos-internacionales-migracion" >
+        
+    Migración          </a>
+  </li>
+
+<li  data-id="4045" data-level="2" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" class="tb-megamenu-item level-2 mega">
+  <a href="/es/7/paginas/alumnos-internacionales-espanol" >
+        
+    Español          </a>
+  </li>
+
+<li  data-id="4046" data-level="2" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" class="tb-megamenu-item level-2 mega">
+  <a href="/es/7/paginas/alumnos-internacionales-ayuda-antes-de-llegar" >
+        
+    Ayuda antes de llegar          </a>
+  </li>
+</ul>
+  </div>
+</div>
+</div>
+  </div>
+</div>
+</li>
+
+<li  data-id="3545" data-level="1" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" class="tb-megamenu-item level-1 mega">
+  <a href="https://intercambio.itam.mx/es/contacta-la-oficina-de-vinculacion-internacional" >
+        
+    Contacto          </a>
+  </li>
+
+<li  data-id="10457" data-level="1" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" class="tb-megamenu-item level-1 mega">
+  <a href="http://intercambio.itam.mx/en/summer/about" >
+        
+    Summer          </a>
+  </li>
+
+<li  data-id="8391" data-level="1" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" class="tb-megamenu-item level-1 mega">
+  <a href="http://intercambio.itam.mx/en/" >
+        
+     English          </a>
+  </li>
+</ul>
+      </div>
+  </div>
+</div>            </div>
+                        <!-- Top Menu End -->
+        </div>
+        <!-- container end -->
+         <div class="header_title">
+         <!--<div class="container"><a href="http://intercambio.itam.mx/es" title="Vinculación Internacional">Vinculación Internacional</a></div>
+         </div>-->
+                  	<div class="container"><a href="http://intercambio.itam.mx/es" title="Vinculación Internacional">Vinculación Internacional</a></div>
+                  </div>
+        
+    </nav>
+    
+
+
+</header>
+
+                                        <section id="enh_content" class="enh_content">
+            <div class = "container1" >
+                                                <div id="block-text-resize-0" class="block block-text-resize tamano-texto contextual-links-region" ><a href="javascript:;" class="changer" id="text_resize_decrease"><sup>-</sup>A</a> <a href="javascript:;" class="changer" id="text_resize_reset">A</a> <a href="javascript:;" class="changer" id="text_resize_increase"><sup>+</sup>A</a><div id="text_resize_clear"></div></div><div id="block-system-main" class="block block-system" ><div id="node-20483" class="node node-page clearfix" about="/es/dobles-grados" typeof="foaf:Document">
+
+  
+      <span property="dc:title" content="Dobles grados" class="rdf-meta element-hidden"></span><span property="sioc:num_replies" content="0" datatype="xsd:integer" class="rdf-meta element-hidden"></span>
+      
+  
+  
+   
+  <div id="content2">
+    <div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><style type="text/css">
+<!--/*--><![CDATA[/* ><!--*/
+.ckeditor-accordion-container > dl dt {
+    background-color: #5ac8af;
+    font-size: large;
+     color:#008080;
+}
+.ckeditor-accordion-container > dl {
+    border: 3px solid #008080;
+}
+.ckeditor-accordion-container > dl dt > a {
+    border-bottom: 3px solid #008080;
+}
+
+/*--><!]]>*/
+</style><div style="background-color:#22635d; padding: 15px;">
+<h2><strong><span style="color:#5ac8af;">¿Qué es un Doble Grado o Grado Secuencial?</span></strong></h2>
+<p><span style="font-size:14px;"><span style="color:#FFFFFF;">Los programas de Doble Grado permiten que estudiantes de las licenciaturas/ ingenierías hagan el 75% de su carrera en el ITAM y para el 25% restante se incorporen a alguno de los programas de maestría autorizados bajo este esquema. Las materias de la maestría se acreditan hacia el último año de la carrera en el ITAM y se acreditan como parte de los requisitos necesarios para obtener el título de maestría. El alumno podrá obtener ambos títulos en 4 años (3+1) o 5 años (3+2).</span></span></p>
+<p><span style="font-size:14px;"><span style="color:#FFFFFF;">Cada Doble Grado tiene sus propias particularidades por lo que recomendamos verificar cuidadosamente la información.</span></span></p>
+<p><span style="font-size:18px;"><a href="https://intercambio.itam.mx/sites/default/files/sites/default/files/aadjuntos/2020/11/hojas_de_rev_doble_grado.pdf"><span style="color:#5ac8af;">Hojas de revalidación para doble grado.</span></a></span></p>
+</div>
+<div>
+<h1><span style="font-size:20px;"><span style="color:#22635d;"><strong>Programas disponibles:</strong></span></span></h1>
+<dl class="ckeditor-accordion" style="color:#008080;">
+<dt><strong><span style="font-size:14px;"><span style="color:#008080;">Lic. en Administración</span></span></strong></dt>
+<dd>
+<div>
+<div style="margin-left: 30px;">
+<p> </p>
+<table align="left" border="0" cellpadding="1" cellspacing="1" style="width: 602px;">
+<tbody>
+<tr>
+<td class="rtecenter" dir="rtl" style="width: 239.25px;"><img alt="" src="https://intercambio.itam.mx/sites/default/files/intercambio-hec_2.jpg" style="width: 240px; height: 117px;" /></td>
+<td style="width: 15px;"> </td>
+<td style="width: 327px;">
+<div><span style="font-size:12px;"><strong>» Grado:</strong> Masters in Management</span></div>
+<div><span style="font-size:12px;"><strong>» Universidad:</strong> HEC</span></div>
+<div><span style="font-size:12px;"><strong>» Ubicación: </strong>París, Francia</span></div>
+<div><span style="font-size:12px;"><strong>» Idioma requerido:</strong> Inglés</span></div>
+<div><span style="font-size:12px;"><strong>Nota:</strong> <em>Esta maestría tiene una duración de dos años. </em></span></div>
+<div>
+<p><a href="https://intercambio.itam.mx/sites/default/files/sites/default/files/aadjuntos/2021/03/hec_admin.pdf"><span style="color:#5ac8af; font-size:18px;">Ver el folleto</span></a></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div> </div>
+<p> </p>
+<p> </p>
+<p> </p>
+</dd>
+<dt><span style="color:#008080; margin: 20px;">Lic. en Ciencia Política</span></dt>
+<dd>
+<div style="margin-left: 30px;">
+<p> </p>
+<table align="left" border="0" cellpadding="1" cellspacing="1" style="width: 602px;">
+<tbody>
+<tr>
+<td><img alt="" src="https://intercambio.itam.mx/sites/default/files/essex_0.jpg" style="width: 240px; height: 98px;" /></td>
+<td style="width: 15px;"> </td>
+<td style="width: 326px;">
+<div><strong style="font-size: 12px;">» Grados elegibles:</strong><span style="font-size: 12px;"> </span></div>
+<div><span style="font-size: 12px;">         </span>Mtía. en Ciencia Política</div>
+<div><span style="font-size: 12px;">         </span>Mtía. en Economía Política.</div>
+<div><span style="font-size:12px;"><strong>» Universidad:</strong> </span>Essex University</div>
+<div><span style="font-size:12px;"><strong>» Ubicación: </strong></span>Reino Unido</div>
+<div><span style="font-size:12px;"><strong>» Idioma requerido:</strong> Inglés</span></div>
+<div>
+<p><a href="https://intercambio.itam.mx/sites/default/files/sites/default/files/aadjuntos/2021/09/essex_cpol3_0.pdf"><span style="color:#5ac8af; font-size:18px;">Ver el folleto</span></a></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+</div>
+</dd>
+<dt><span style="color:#008080; margin: 20px;">Lic. en Derecho</span></dt>
+<dd>
+<div style="margin-left: 30px;">
+<div>
+<p> </p>
+<p><strong>El Departamento de Derecho te ofrece varias oportunidades de internacionalización que puedes aprovechar a lo largo de tu carrera; conócelas, entérate, aprovéchalas.</strong></p>
+<p><a href="https://intercambio.itam.mx/sites/default/files/sites/default/files/aadjuntos/2020/11/internacionalizacion_derecho.pdf"><span style="color:#5ac8af; font-size:18px;">Leer información completa</span></a></p>
+</div>
+<div>
+<table align="left" border="0" cellpadding="1" cellspacing="1" style="width: 602px;">
+<tbody>
+<tr>
+<td><img alt="" src="https://intercambio.itam.mx/sites/default/files/texas.jpg" style="width: 240px; height: 75px;" /></td>
+<td style="width: 15px;"> </td>
+<td style="width: 327px;">
+<div><span style="color: rgb(0, 128, 128); font-size: 12px;"><strong>» Grado:</strong> </span><span style="color: rgb(0, 128, 128);">J.D.</span></div>
+<div><span style="font-size:12px;"><strong>» Universidad:</strong> </span>University of Texas at Austin</div>
+<div><span style="font-size:12px;"><strong>» Ubicación: </strong></span>Texas, EUA</div>
+<div><span style="font-size:12px;"><strong>» Idioma requerido:</strong> Inglés</span></div>
+<div><span style="font-size:12px;"><strong>Nota:</strong> </span>Este doble grado tiene un proceso de selección particular, para más información contacta a la Departamento Académico de Derecho.</div>
+<div><strong><span style="font-size: 13px;">Ana María Zorrilla: </span></strong><span style="font-size: 13px;"><a href="mailto:ana.zorrilla@itam.mx">ana.zorrilla@itam.mx</a></span></div>
+<div> </div>
+<div>
+<p><a href="https://intercambio.itam.mx/sites/default/files/ut_dere.pdf"><span style="color: rgb(90, 200, 175); font-size: 18px;">Ver el folleto</span></a></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<div>
+<table align="left" border="0" cellpadding="1" cellspacing="1" style="width: 602px;">
+<tbody>
+<tr>
+<td dir="rtl" style="width: 244px;"><img alt="" src="https://intercambio.itam.mx/sites/default/files/fletcher.jpg" style="width: 240px; height: 69px;" /></td>
+<td style="width: 14px;"> </td>
+<td style="width: 326px;">
+<div><span style="font-size:12px;"><strong>» Grado:</strong> </span>LL.M. in International Law</div>
+<div><span style="font-size:12px;"><strong>» Universidad: </strong></span>Fletcher Graduate School of Global Affairs from Tufts University</div>
+<div><span style="font-size:12px;"><strong>» Ubicación: </strong></span>Boston, EUA</div>
+<div><span style="font-size:12px;"><strong>» Idioma requerido:</strong> Inglés</span></div>
+<div>
+<p><a href="https://intercambio.itam.mx/sites/default/files/intercambioitammx/aadjuntos/fletcher_dere.pdf"><span style="color:#5ac8af; font-size:18px;">Ver el folleto</span></a></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<div>
+<table align="left" border="0" cellpadding="1" cellspacing="1" style="width: 602px;">
+<tbody>
+<tr>
+<td><img alt="" src="https://intercambio.itam.mx/sites/default/files/syracuse3.jpg" style="width: 240px; height: 58px;" /></td>
+<td style="width: 15px;"> </td>
+<td style="width: 327px;">
+<div><span style="color: rgb(0, 128, 128); font-size: 12px;"><strong>» Grado:</strong> </span><span style="color: rgb(0, 128, 128);">LL.M. </span></div>
+<div><span style="font-size:12px;"><strong>» Universidad:</strong> </span>Syracuse University</div>
+<div><span style="font-size:12px;"><strong>» Ubicación: </strong></span>Nueva York, EUA</div>
+<div><span style="font-size:12px;"><strong>» Idioma requerido:</strong> Inglés</span></div>
+<div>
+<p><a href="https://intercambio.itam.mx/sites/default/files/intercambioitammx/aadjuntos/syracuse_derecho.pdf"><span style="color:#5ac8af; font-size:18px;">Ver el folleto</span></a></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- <p><p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<div>
+<table align="left" border="0" cellpadding="1" cellspacing="1" style="width: 602px;">
+<tbody>
+<tr>
+<td><img src="https://intercambio.itam.mx/sites/default/files/nebrija_3.jpg" style="height: 93px; width: 240px;"></td>
+<td style="width: 15px;">&nbsp;</td>
+<td style="width: 327px;">
+<div><span style="font-size:12px;"><strong>» Universidad:</strong>&nbsp;</span>Universidad de Nebrija</div>
+<div><span style="font-size:12px;"><strong>» Ubicación: </strong></span>Madrid, España&nbsp;</div>
+<div><span style="font-size:12px;"><strong>» Idioma requerido:</strong> Español</span></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>-->
+<p> </p>
+<p> </p>
+<p> </p>
+<div>
+<table align="left" border="0" cellpadding="1" cellspacing="1" style="width: 602px;">
+<tbody>
+<tr>
+<td><img src="https://intercambio.itam.mx/sites/default/files/ie_ls3.jpg" style="width: 240px;" /></td>
+<td style="width: 15px;"> </td>
+<td style="width: 327px;">
+<div><span style="color: rgb(0, 128, 128); font-size: 12px;"><strong>» Grado:</strong> </span><span style="color: rgb(0, 128, 128);">LL.M.</span></div>
+<div><span style="font-size:12px;"><strong>»</strong></span><span style="font-size:12px;"><strong> Universidad:</strong> </span>ie Law School</div>
+<div><span style="font-size:12px;"><strong>» Ubicación: </strong></span>Madrid, España </div>
+<div><span style="font-size:12px;"><strong>» Idioma requerido:</strong>Inglés</span></div>
+<div>
+<p><a href="https://intercambio.itam.mx/sites/default/files/sites/default/files/aadjuntos/2021/12/folleto_iedg.pdf"><span style="color:#5ac8af; font-size:18px;">Ver el folleto</span></a></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!--
+	<div><p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+</div>
+</dd>
+<dt><span style="color:#008080; margin: 20px;">Lic. en Economía</span></dt>
+<dd>
+<div style="margin-left: 30px;">
+<p>&nbsp;</p>
+<table align="left" border="0" cellpadding="1" cellspacing="1" style="width: 719px;">
+<tbody>
+<tr>
+<td><img alt="" src="https://intercambio.itam.mx/sites/default/files/shezen_universtity.jpg" style="width: 240px; height: 240px;"></td>
+<td style="width: 15px;">&nbsp;</td>
+<td style="width: 441px;">
+<div>
+<p class="rtecenter"><span style="font-size:18px;"><strong>Chinese University of Schenzen, Campus China</strong></span></p>
+</div>
+<div class="rtejustify"><span style="color: rgb(0, 128, 128); text-align: justify;">Only international students from de University of Schenzen are elegible for this program.</span></div>
+<div class="rtejustify">This program allows students who have done at least 3 years of their BA in Economics to join our master program in Economic Theory and get credit towards their BA while finishing the master program.<br><br />
+				&nbsp;</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>-->
+<div>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+</div>
+</div>
+</dd>
+<dt><span style="color:#008080; margin: 20px;">Ingenierías y Computación</span></dt>
+<dd>
+<div style="margin-left: 30px;">
+<p> </p>
+<table align="left" border="0" cellpadding="1" cellspacing="1" style="width: 760px;">
+<tbody>
+<tr>
+<td style="width: 247px;"><img alt="" src="https://intercambio.itam.mx/sites/default/files/essex_0.jpg" style="width: 240px; height: 98px;" /></td>
+<td style="width: 13px;"> </td>
+<td style="width: 484px;">
+<div><b style="font-size: 16px;">Para ingenierías y ciencia de datos</b></div>
+<div><span style="font-size:12px;"><strong>» Grado:</strong> </span><span style="font-size:12px;">Cada programa cuenta con varias opciones (Ver folletos)</span></div>
+<div><span style="font-size:12px;"><strong>» Universidad: </strong></span>ESSEX University</div>
+<div><span style="font-size:12px;"><strong>» Ubicación: </strong></span>Reino Unido</div>
+<div><span style="font-size:12px;"><strong>» Idioma requerido:</strong> Inglés</span></div>
+<div> </div>
+<div><a href="https://intercambio.itam.mx/sites/default/files/sites/default/files/aadjuntos/2021/10/essex_compu_meca_cd.pdf"><span style="color:#5ac8af; font-size:18px;">Folleto Ing. en Computación, Ing. Mecatrónica y Ciencia de Datos</span></a></div>
+<div> </div>
+<div><a href="https://intercambio.itam.mx/sites/default/files/sites/default/files/aadjuntos/2022/01/essex_neg_ind.pdf"><span style="color:#5ac8af; font-size:18px;">Folleto Ing. Industrial e Ing. en Negocios</span></a></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div> </div>
+<div> </div>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<div>
+<table align="left" border="0" cellpadding="1" cellspacing="1" style="width: 750px;">
+<tbody>
+<tr>
+<td class="rtecenter" style="width: 246px;"><img alt="" src="https://intercambio.itam.mx/sites/default/files/mit_business_school.png" style="width: 240px;" /></td>
+<td style="width: 13px;"> </td>
+<td style="width: 474px;">
+<div><b style="font-size: 16px;">Para cualquier ingeniería en el ITAM</b></div>
+<div><span style="font-size: 12px;"><strong>» Grado:</strong></span></div>
+<div><span style="font-size: 12px;"><strong>       </strong></span>MsC in International Management (IM)</div>
+<div><strong style="font-size: 12px;">       </strong>MsC ICT Business Management (of Innovation in the Digital Economy)</div>
+<div><span style="font-size:12px;"><strong>» Universidad:</strong> </span>Institut Mines-Télécom Business School</div>
+<div><span style="font-size:12px;"><strong>» Ubicación: </strong></span>Francia</div>
+<div><span style="font-size:12px;"><strong>» Idioma requerido:</strong> Inglés</span></div>
+<div><a href="https://intercambio.itam.mx/sites/default/files/sites/default/files/aadjuntos/2021/07/doble_grado-_institut_mines-teileicom.pdf"><span style="color:#5ac8af; font-size:18px;">Ver el folleto</span></a></div>
+</td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+</div>
+</dd>
+<dt><span style="color:#008080; margin: 20px;">Lic. en Matemáticas Aplicadas</span></dt>
+<dd>
+<div style="margin-left: 30px;">
+<p> </p>
+<table align="left" border="0" cellpadding="1" cellspacing="1" style="width: 760px;">
+<tbody>
+<tr>
+<td style="width: 247px;"><img alt="" src="https://intercambio.itam.mx/sites/default/files/essex_0.jpg" style="width: 240px; height: 98px;" /></td>
+<td style="width: 18px;"> </td>
+<td style="width: 340px;">
+<div>
+<div><span style="font-size: 12px;"><strong>» Grado:</strong></span></div>
+<div><span style="font-size: 12px;"><strong>       </strong></span>MSc Mathematics and Finance</div>
+<div><strong style="font-size: 12px;">       </strong>MSc Statistics and Operational Research </div>
+<div><strong style="font-size: 12px;">       </strong>Msc Mathematics</div>
+<div><strong style="font-size: 12px;">       </strong>Msc Statisctics</div>
+<div><strong style="font-size: 12px;">       </strong>Msc Actuarial Science</div>
+</div>
+<div><span style="font-size:12px;"><strong>» Universidad:</strong> </span>Essex University</div>
+<div><span style="font-size:12px;"><strong>» Ubicación: </strong></span>Reino Unido</div>
+<div><span style="font-size:12px;"><strong>» Idioma requerido:</strong> Inglés</span></div>
+<div> </div>
+<div><a href="https://intercambio.itam.mx/sites/default/files/sites/default/files/aadjuntos/2020/11/essex_mat.pdf"><span style="color:#5ac8af; font-size:18px;">Ver Folleto</span></a></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div> </div>
+<div> </div>
+<p> </p>
+<p> </p>
+<p> </p>
+<div> </div>
+<div> </div>
+<div> </div>
+</dd>
+<dt><strong><span style="font-size:14px;"><span style="color:#008080;">Lic. en Relaciones Internacionales</span></span></strong></dt>
+<dd>
+<div style="margin-left: 30px;">
+<p> </p>
+<table align="left" border="0" cellpadding="1" cellspacing="1" style="width: 609px;">
+<tbody>
+<tr>
+<td dir="rtl" style="width: 239.25px;"><img alt="" src="https://intercambio.itam.mx/sites/default/files/sciences_po2.jpg" style="width: 240px; height: 49px;" /></td>
+<td style="width: 20px;"> </td>
+<td style="width: 330px;">
+<div>
+<div><span style="font-size: 12px;"><strong>» Grado: </strong></span>Diploma d´Etudes Politiques, equivalente a                       una maestría en Europa.</div>
+</div>
+<div><span style="font-size:12px;"><strong>» Universidad:</strong> </span>SciencesPo</div>
+<div><span style="font-size:12px;"><strong>» Ubicación: </strong></span>París, Francia</div>
+<div><span style="font-size:12px;"><strong>» Idioma requerido:</strong> </span>Francés y/o inglés (depende de los                   cursos que elijas).</div>
+<div><a href="https://intercambio.itam.mx/sites/default/files/sites/default/files/aadjuntos/2020/11/240419_doble-grado_sciencepo_brochure_final_a_imprimir.pdf"><span style="color:#5ac8af; font-size:18px;">Ver el folleto</span></a></div>
+</td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<p> </p>
+<p> </p>
+</div>
+<p> </p>
+</dd>
+</dl>
+</div>
+</div></div></div><div class="field field-name-field-nodo-anterior field-type-link-field field-label-hidden"><div class="field-items"><div class="field-item even"><a href="http://intercambio.itam.mx/es">Inicio &gt;&gt;</a></div></div></div>
+
+  
+  
+</div><!-- /.node -->
+</div>                            </div>
+                              </section>
+        
+  
+
+ 
+ 
+<footer class= "enh_image_bck enh_wht_txt" data-color= "#06853">
+    	<div class="col-md-3 col-md-12 foter1">
+            <div id="block-block-1" class="block block-block logo footer footer_logo contextual-links-region" ><img alt="Logo ITAM" src="https://www.itam.mx/sites/all/themes/coursat/logo.png"  title="ITAM" width="124" /></div>          </div>
+          
+          <div class="col-md-3 col-md-12 foter2">
+            <div id="block-block-2" class="block block-block contextual-links-region" ><ul>
+
+	<li><a href="http://aspirantes.itam.mx/" target="_blank">Estudia una Licenciatura o Ingeniería</a></li>
+	<li><a href="http://posgrados.itam.mx/" target="_blank">Estudia un Posgrado</a></li>
+	<li><a href="http://biblioteca.itam.mx" target="_blank">Biblioteca Raúl Baillères</a></li>  
+	 <li><a href="http://bolsa.itam.mx/" target="_blank">Bolsa de Trabajo</a></li>
+<li><a href="https://www.itam.mx/es/comunicados-oficiales">Comunicados Oficiales</a></li>
+	<li><a href="https://comunidad.itam.mx" target="_blank">Comunidad ITAM</a></li>
+	<!-- li><a href="http://directorio.itam.mx/" target="_blank">Directorio</a></li -->
+	<li><a href="http://donar.itam.mx/es" target="_blank">Donar</a></li>
+<li><a href="http://eventos.itam.mx/" target="_blank">Eventos y Noticias</a></li>
+	<li><a href="https://eventos.itam.mx/es/noticia/lanzamiento-linea-origen-itam" target="_blank">Línea Origen-ITAM</a></li> 
+<li><a href="http://www.itam.mx/node/38248">Medidas ante COVID-19</a></li> 
+<li><a href="https://protocologenero.itam.mx/es" target="_blank">Protocolo de género</a></li> 
+	<li><a href="http://normatividad.itam.mx/fileupload/" target="_blank">Normatividad</a></li>  
+	<li><a href="http://www.itam.mx/node/25">Oficina de Comunicación</a></li>  
+	 
+        <li><a href="http://www.itam.mx/node/107">Preguntas frecuentes</a></li>  
+   <li><a href="http://proteccioncivil.itam.mx/" target="_blank">Protección Civil</a></li>  
+	<li><a href="http://www.itam.mx/node/80">Servicios / Pagos</a></li>
+
+  
+<li><a href="https://tienda.itam.mx" target="_blank">   Tienda ITAM</a></li> 
+
+
+</ul>
+
+</div>          </div>
+          
+           <div class="col-md-6 col-md-12 foter3">
+            <div id="block-block-3" class="block block-block contextual-links-region" ><div class="col-md-5 col-md-12">
+<ul><li class="camp"><a href="https://goo.gl/maps/rjvwXDW3usB2" target="_blank"><i class="fa fa-map-marker" aria-hidden="true"></i></a> Campus Río Hondo</li>
+	<li>Río Hondo #1</li>
+	<li>Col. Progreso Tizapán</li>
+	<li>CP. 01080. Alc. Álvaro Obregón,</li>
+	<li>Ciudad de México</li>
+</ul>
+</div>
+
+<div class="col-md-5 col-md-12">
+<ul>
+	<li class="camp"><a href="https://goo.gl/maps/9ohrMynLKiB2" target="_blank"><i class="fa fa-map-marker" aria-hidden="true"></i></a> Campus Santa Teresa</li>
+	<li>Av. Camino a Santa Teresa #930</li>
+	<li>Col. Héroes de Padierna</li>
+	<li>CP. 10700. Alc. Magdalena Contreras,</li>
+	<li>Ciudad de México</li>
+        <br>
+</ul>
+</div></div>          </div>
+          
+          <div class="col-md-6 col-md-12 foter4">
+            <div id="block-block-4" class="block block-block direccion contextual-links-region" > <div class="col-md-5 col-md-12">
+<ul>
+	<li><i class="fa fa-mobile" aria-hidden="true"></i><a href="tel:5556284000">Conmutador: 55 5628 4000</a></li>
+	<li><a href="tel:8000004826">Interior de la República: 800 000 ITAM</a></li>
+	<li><a href="tel:+011525556284000">EEUU: 011 52 55 56 28 4000</a></li>
+	<li><a href="tel:+00525556284000">Resto del Mundo: 00 52 55 56 28 4000</a></li>
+</ul>
+</div>
+
+<div class="col-md-6 col-md-12">
+<div class="iconsocial">
+<a href="https://www.facebook.com/itam.mx/" target="_blank"><img alt="Facebook ITAM" src="https://www.itam.mx/sites/all/themes/coursat/ico-f.png" style="height:27px; width:27px" /></a>
+<a href="https://twitter.com/itam_mx?lang=es" target="_blank"><img alt="Twitter ITAM" src="https://www.itam.mx/sites/all/themes/coursat/ico-t.png" style="height:27px; width:27px" /></a>
+<a href="https://www.instagram.com/itam_mx/" target="_blank"><img alt="Instagram ITAM" src="https://www.itam.mx/sites/all/themes/coursat/ico-itgm.png" style="height:27px; width:27px" /></a>
+<a href="https://www.linkedin.com/school/15249288?pathWildcard=15249288" target="_blank"><img alt="linkedin ITAM" src="https://www.itam.mx/sites/all/themes/coursat/ico-in.png" style="height:27px; width:27px" /></a>
+<a href="https://www.youtube.com/itam" target="_blank"><img alt="Youtube ITAM" src="https://www.itam.mx/sites/all/themes/coursat/ico-y.png" style="height:27px; width:27px" /></a>
+<!--<a href="https://plus.google.com/111190364358967801788" target="_blank"><img alt="Google ITAM" src="https://www.itam.mx/sites/all/themes/coursat/ico-g+.png" style="height:27px; width:27px" /></a>
+<a href="https://go.snapchat.com/add/itam_mx" target="_blank"><img alt="ySnapchat ITAM" src="https://www.itam.mx/sites/all/themes/coursat/ico-sch.png" style="height:27px; width:27px" /></a>-->
+</div>
+</div>
+
+</section>
+  </div>
+          </div>
+          
+</div>          </div>
+          
+          <div class="col-md-12 col-md-12 foter5">
+            <div id="block-block-75" class="block block-block contextual-links-region" ><script language="javascript" type="text/javascript">
+var today = new Date()
+var year = today.getFullYear()
+var userLang = navigator.language || navigator.userLanguage;
+var copry =  "Derechos Reservados © ITAM";
+var lbAviso = "Aviso de privacidad.";
+var link = "http://avisodeprivacidad.itam.mx/intercambio_academico/";
+if(document.documentElement.lang== "en"){
+      copry =  "Copyright © ITAM";
+      lbAviso = "Privacy Notice";
+      link = "http://avisodeprivacidad.itam.mx/intercambio_academico/en/";
+}
+
+</script>
+
+<p class="rtecenter " ><span id="copry"></span >, 2026. <a id="link" href="http://avisodeprivacidad.itam.mx/intercambio_academico" target="_blank"><font color="#FFFFFF"><span id="lbAviso"></span></dont></a></p>
+
+
+<script language="javascript" type="text/javascript">
+      document.getElementById("copry").innerHTML =  copry ;
+      document.getElementById("lbAviso").innerHTML =  lbAviso;
+      document.getElementById("link").href =  link;
+</script></div>          </div>
+          
+          <div class=" col-md-12 copyright">
+                      </div>
+    
+    
+    
+    
+<!--    <div class="container">
+        <div class="row">
+                    </div>
+        <div class="row">
+            <div class="col-md-12">
+                            </div>
+        </div>
+        
+    </div>-->
+</footer>
+	
+<nav id="mmenu_left" class="mmenu-nav clearfix">
+  <ul>
+                  <li class="mmenu-collapsed">
+                                <div id="block-block-42" class="block block-block contextual-links-region" >   <style>
+
+.entypo-search-2 .buscar
+{
+width: 37px;
+margin-left: -10px;
+float: right;
+position: absolute;
+background-color: black;
+border-radius: 20px;
+margin-top: 8px;
+}
+.entypo-search-2 fieldset   {
+width: 83%;
+float: left;
+margin: 10px;
+}
+
+.entypo-search-2 #search2 {
+    width: 96%;
+    float: left;
+    border-radius: 30px;
+    border: 0px;
+padding-left: 21px;
+    height: 34px;
+}
+
+</style>
+    <div id="form">
+
+
+    <form action="https://www.itam.mx/es/resultados" class="entypo-search-2"  id="searchbox_007881988168270459385:kgryvpami9i">
+    <input value="007881988168270459385:kgryvpami9i" name="cx" type="hidden"/>
+      <fieldset><input id="search2" name="#" placeholder="¿Qué Estás Buscando?" />
+      
+      </fieldset>   
+<input value="Buscar" class="buscar" name="sa" type="image" src="https://www.itam.mx/sites/all/themes/coursat/images/icon-search.png" /> 
+    </form>  
+  </div>
+</div>                  </li>
+                                  <li class="mmenu-expanded">
+            <span class="mmenu-block-expanded mmenu-block"><i class="mmenu-block-icon mmenu-block-icon-menu-menu-men-principal-espa-ol"></i><span class="mmenu-block-title">Menú Principal</span></span>
+          </li>
+                          <ul class="mmenu-mm-list-level-1"><li class="mmenu-mm-list-mlid-2547 mmenu-mm-list-path-nolink es"><a href="javascript:void(0);" class="mmenu-mm-list mmenu-mm-subopen"><i class="icon-plus"></i><span class="mmenu-block-title">Acerca del ITAM</span></a><ul class="mmenu-mm-list-level-2"><li class="mmenu-mm-list-mlid-19192 mmenu-mm-list-path-https:--www.itam.mx-pdf-DECLARACION-DE-PRINCIPIOS-ITAM.pdf"><a href="https://www.itam.mx/pdf/DECLARACION-DE-PRINCIPIOS-ITAM.pdf" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Declaración de Principios</span></a></li><li class="mmenu-mm-list-mlid-12368 mmenu-mm-list-path-https:--www.itam.mx-sites-www.itam.mx-files-dof-27082018-pub-estatutogenralitam.pdf"><a href="https://www.itam.mx/sites/www.itam.mx/files/dof-27082018-pub-estatutogenralitam.pdf" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Estatuto General</span></a></li><li class="mmenu-mm-list-mlid-2560 mmenu-mm-list-path-nolink es"><a href="javascript:void(0);" class="mmenu-mm-list mmenu-mm-subopen"><i class="icon-plus"></i><span class="mmenu-block-title">Perfil del ITAM</span></a><ul class="mmenu-mm-list-level-3"><li class="mmenu-mm-list-mlid-2561 mmenu-mm-list-path-node-1 es"><a href="/es/sobre-el-itam-0" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Sobre el ITAM</span></a></li></ul></li><li class="mmenu-mm-list-mlid-2552 mmenu-mm-list-path-nolink es"><a href="javascript:void(0);" class="mmenu-mm-list mmenu-mm-subopen"><i class="icon-plus"></i><span class="mmenu-block-title">Historias y Ceremonias</span></a></li><li class="mmenu-mm-list-mlid-2725 mmenu-mm-list-path-https:--mundoitam.wordpress.com"><a href="https://mundoitam.wordpress.com/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Mundo ITAM </span></a></li><li class="mmenu-mm-list-mlid-2728 mmenu-mm-list-path-nolink"><a href="javascript:void(0);" class="mmenu-mm-list mmenu-mm-subopen"><i class="icon-plus"></i><span class="mmenu-block-title">Fotogalería</span></a><ul class="mmenu-mm-list-level-3"><li class="mmenu-mm-list-mlid-2729 mmenu-mm-list-path-node-189"><a href="/es/1/contenido/rio-hondo" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Instalaciones Río Hondo</span></a></li><li class="mmenu-mm-list-mlid-2730 mmenu-mm-list-path-node-193"><a href="/es/1/contenido/santa-teresa" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Instalaciones Santa Teresa</span></a></li></ul></li><li class="mmenu-mm-list-mlid-2726 mmenu-mm-list-path-https:--www.youtube.com-user-itam"><a href="https://www.youtube.com/user/itam" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Videoteca</span></a></li></ul></li><li class="mmenu-mm-list-mlid-2581 mmenu-mm-list-path-nolink es"><a href="javascript:void(0);" class="mmenu-mm-list mmenu-mm-subopen"><i class="icon-plus"></i><span class="mmenu-block-title">Vida Académica</span></a><ul class="mmenu-mm-list-level-2"><li class="mmenu-mm-list-mlid-2582 mmenu-mm-list-path-http:--facultad.itam.mx-es es"><a href="http://facultad.itam.mx/es/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Facultad</span></a></li><li class="mmenu-mm-list-mlid-2591 mmenu-mm-list-path-nolink es"><a href="javascript:void(0);" class="mmenu-mm-list mmenu-mm-subopen"><i class="icon-plus"></i><span class="mmenu-block-title">Divisiones Académicas</span></a><ul class="mmenu-mm-list-level-3"><li class="mmenu-mm-list-mlid-21298 mmenu-mm-list-path-https:--www.itam.mx-es-division-academica-de-ciencias-de-la-computacion-0"><a href="https://www.itam.mx/es/division-academica-de-ciencias-de-la-computacion-0" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Ciencias de la Computación</span></a></li><li class="mmenu-mm-list-mlid-2592 mmenu-mm-list-path-http:--daaem.itam.mx es"><a href="http://daaem.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Ciencias Exactas</span></a></li><li class="mmenu-mm-list-mlid-2594 mmenu-mm-list-path-http:--daedcs.itam.mx es"><a href="http://daedcs.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Ciencias Sociales</span></a></li><li class="mmenu-mm-list-mlid-2595 mmenu-mm-list-path-http:--daegi.itam.mx es"><a href="http://daegi.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Estudios Generales y Estudios Internacionales</span></a></li><li class="mmenu-mm-list-mlid-2596 mmenu-mm-list-path-http:--dai.itam.mx es"><a href="http://dai.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Ingeniería</span></a></li><li class="mmenu-mm-list-mlid-2593 mmenu-mm-list-path-http:--daac.itam.mx es"><a href="http://daac.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Negocios</span></a></li></ul></li><li class="mmenu-mm-list-mlid-2597 mmenu-mm-list-path-nolink es departamentos_academicos"><a href="javascript:void(0);" class="mmenu-mm-list mmenu-mm-subopen"><i class="icon-plus"></i><span class="mmenu-block-title">Departamentos Académicos</span></a><ul class="mmenu-mm-list-level-3"><li class="mmenu-mm-list-mlid-2598 mmenu-mm-list-path-http:--departamentodeactuaria.itam.mx es"><a href="http://departamentodeactuaria.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Actuaría y Seguros</span></a></li><li class="mmenu-mm-list-mlid-2599 mmenu-mm-list-path-http:--departamentodeadministracion.itam.mx es"><a href="http://departamentodeadministracion.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Administración</span></a></li><li class="mmenu-mm-list-mlid-2600 mmenu-mm-list-path-http:--departamentodecienciapolitica.itam.mx es"><a href="http://departamentodecienciapolitica.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Ciencia Política</span></a></li><li class="mmenu-mm-list-mlid-2601 mmenu-mm-list-path-http:--dac.itam.mx es"><a href="http://dac.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Computación</span></a></li><li class="mmenu-mm-list-mlid-2602 mmenu-mm-list-path-http:--departamentodecontabilidad.itam.mx es"><a href="http://departamentodecontabilidad.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Contabilidad</span></a></li><li class="mmenu-mm-list-mlid-2603 mmenu-mm-list-path-http:--departamentodederecho.itam.mx es"><a href="http://departamentodederecho.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Derecho</span></a></li><li class="mmenu-mm-list-mlid-2604 mmenu-mm-list-path-http:--departamentodeeconomia.itam.mx es"><a href="http://departamentodeeconomia.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Economía</span></a></li><li class="mmenu-mm-list-mlid-2605 mmenu-mm-list-path-http:--estadistica.itam.mx es"><a href="http://estadistica.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Estadística</span></a></li><li class="mmenu-mm-list-mlid-2606 mmenu-mm-list-path-http:--generales.itam.mx es"><a href="http://generales.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Estudios Generales</span></a></li><li class="mmenu-mm-list-mlid-2607 mmenu-mm-list-path-http:--internacionales.itam.mx-es es"><a href="http://internacionales.itam.mx/es" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Estudios Internacionales</span></a></li><li class="mmenu-mm-list-mlid-2611 mmenu-mm-list-path-http:--digitales.itam.mx es"><a href="http://digitales.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Ingeniería Eléctrica y Electrónica</span></a></li><li class="mmenu-mm-list-mlid-2608 mmenu-mm-list-path-http:--industrialyoperaciones.itam.mx es"><a href="http://industrialyoperaciones.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Ingeniería Industrial y Operaciones</span></a></li><li class="mmenu-mm-list-mlid-2610 mmenu-mm-list-path-http:--lenguas.itam.mx es"><a href="http://lenguas.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Lenguas</span></a></li><li class="mmenu-mm-list-mlid-2609 mmenu-mm-list-path-http:--departamentodematematicas.itam.mx es"><a href="http://departamentodematematicas.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Matemáticas</span></a></li></ul></li><li class="mmenu-mm-list-mlid-2588 mmenu-mm-list-path-nolink es"><a href="javascript:void(0);" class="mmenu-mm-list mmenu-mm-subopen"><i class="icon-plus"></i><span class="mmenu-block-title">Centros interdisciplinarios</span></a><ul class="mmenu-mm-list-level-3"><li class="mmenu-mm-list-mlid-3126 mmenu-mm-list-path-http:--caie.itam.mx"><a href="http://caie.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Centro de Análisis e Investigación Económica (CAIE)</span></a></li><li class="mmenu-mm-list-mlid-18382 mmenu-mm-list-path-http:--cesig.itam.mx"><a href="http://cesig.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Centro de Estudios sobre Seguridad, Inteligencia y Gobernanza (CESIG)</span></a></li><li class="mmenu-mm-list-mlid-3128 mmenu-mm-list-path-http:--cec.itam.mx"><a href="http://cec.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Centro de Estudios de Competitividad (CEC)</span></a></li><li class="mmenu-mm-list-mlid-18672 mmenu-mm-list-path-http:--centrocovid.itam.mx cda"><a href="http://centrocovid.itam.mx" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Centro Interdisciplinario ITAM Covid-19</span></a></li><li class="mmenu-mm-list-mlid-3127 mmenu-mm-list-path-http:--centrodeenergia.itam.mx"><a href="http://centrodeenergia.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Centro ITAM Energía y Recursos Naturales (CERN)</span></a></li><li class="mmenu-mm-list-mlid-2590 mmenu-mm-list-path-http:--epiclab.itam.mx es"><a href="http://epiclab.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">EPIC Lab</span></a></li></ul></li><li class="mmenu-mm-list-mlid-2612 mmenu-mm-list-path-https:--biblioteca.itam.mx es"><a href="https://biblioteca.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Biblioteca Raúl Baillères Jr.</span></a></li><li class="mmenu-mm-list-mlid-2583 mmenu-mm-list-path-nolink es"><a href="javascript:void(0);" class="mmenu-mm-list mmenu-mm-subopen"><i class="icon-plus"></i><span class="mmenu-block-title">Publicaciones</span></a><ul class="mmenu-mm-list-level-3"><li class="mmenu-mm-list-mlid-2586 mmenu-mm-list-path-https:--www.itam.mx-sites-default-files-publicaciones-facultad.pdf es"><a href="https://www.itam.mx/sites/default/files/publicaciones-facultad.pdf" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Publicaciones de la Facultad (folleto en PDF)</span></a></li><li class="mmenu-mm-list-mlid-21528 mmenu-mm-list-path-https:--escritura.itam.mx-palabra"><a href="https://escritura.itam.mx/palabra/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Podcast - Una Palabra</span></a></li></ul></li></ul></li><li class="mmenu-mm-list-mlid-2613 mmenu-mm-list-path-nolink es"><a href="javascript:void(0);" class="mmenu-mm-list mmenu-mm-subopen"><i class="icon-plus"></i><span class="mmenu-block-title">Estudia en el ITAM</span></a><ul class="mmenu-mm-list-level-2"><li class="mmenu-mm-list-mlid-2614 mmenu-mm-list-path-https:--aspirantes.itam.mx-es es"><a href="https://aspirantes.itam.mx/es" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Licenciaturas e Ingenierías</span></a></li><li class="mmenu-mm-list-mlid-2672 mmenu-mm-list-path-https:--posgrados.itam.mx es"><a href="https://posgrados.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Posgrados</span></a></li><li class="mmenu-mm-list-mlid-2565 mmenu-mm-list-path-http:--desarrolloejecutivo.itam.mx es"><a href="http://desarrolloejecutivo.itam.mx" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Diplomados y Cursos</span></a></li><li class="mmenu-mm-list-mlid-2689 mmenu-mm-list-path-http:--escolar.itam.mx-licenciaturas-lics_admisiones.php es"><a href="http://escolar.itam.mx/licenciaturas/lics_admisiones.php" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Admisiones</span></a></li><li class="mmenu-mm-list-mlid-21256 mmenu-mm-list-path-nolink"><a href="javascript:void(0);" class="mmenu-mm-list mmenu-mm-subopen"><i class="icon-plus"></i><span class="mmenu-block-title">Oferta educativa</span></a><ul class="mmenu-mm-list-level-3"><li class="mmenu-mm-list-mlid-21257 mmenu-mm-list-path-nolink"><a href="javascript:void(0);" class="mmenu-mm-list mmenu-mm-subopen"><i class="icon-plus"></i><span class="mmenu-block-title">Licenciaturas e Ingenierías</span></a><ul class="mmenu-mm-list-level-4"><li class="mmenu-mm-list-mlid-2615 mmenu-mm-list-path-https:--actuaria.itam.mx es menuprogramas5"><a href="https://actuaria.itam.mx" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Actuaría</span></a></li><li class="mmenu-mm-list-mlid-2619 mmenu-mm-list-path-https:--administracion.itam.mx es"><a href="https://administracion.itam.mx" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Administración de Negocios </span></a></li><li class="mmenu-mm-list-mlid-13777 mmenu-mm-list-path-http:--cienciadedatos.itam.mx"><a href="http://cienciadedatos.itam.mx" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Ciencia de Datos</span></a></li><li class="mmenu-mm-list-mlid-2623 mmenu-mm-list-path-https:--politica.itam.mx es"><a href="https://politica.itam.mx" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Ciencia Política</span></a></li><li class="mmenu-mm-list-mlid-2627 mmenu-mm-list-path-https:--contaduria.itam.mx-es es"><a href="https://contaduria.itam.mx/es" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Contaduría Analítica y Finanzas Corporativas</span></a></li><li class="mmenu-mm-list-mlid-2631 mmenu-mm-list-path-https:--derecho.itam.mx es"><a href="https://derecho.itam.mx" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Derecho</span></a></li><li class="mmenu-mm-list-mlid-21381 mmenu-mm-list-path-https:--direccionmercadotecnia.itam.mx-es"><a href="https://direccionmercadotecnia.itam.mx/es" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Dirección de Mercadotecnia</span></a></li><li class="mmenu-mm-list-mlid-2635 mmenu-mm-list-path-https:--direccionfinanciera.itam.mx es"><a href="https://direccionfinanciera.itam.mx" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Dirección Financiera</span></a></li><li class="mmenu-mm-list-mlid-2639 mmenu-mm-list-path-https:--economia.itam.mx es"><a href="https://economia.itam.mx" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Economía</span></a></li><li class="mmenu-mm-list-mlid-21407 mmenu-mm-list-path-https:--inteligenciaartificial.itam.mx-es"><a href="https://inteligenciaartificial.itam.mx/es" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Ingeniería en Inteligencia Artificial</span></a></li><li class="mmenu-mm-list-mlid-2643 mmenu-mm-list-path-https:--computacion.itam.mx es"><a href="https://computacion.itam.mx" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Ingeniería y Ciencias de la Computación</span></a></li><li class="mmenu-mm-list-mlid-2659 mmenu-mm-list-path-http:--mecatronica.itam.mx es"><a href="http://mecatronica.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Ingeniería en Mecatrónica y Robótica Inteligente</span></a></li><li class="mmenu-mm-list-mlid-2647 mmenu-mm-list-path-https:--ingnegocios.itam.mx es"><a href="https://ingnegocios.itam.mx" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Ingeniería en Negocios</span></a></li><li class="mmenu-mm-list-mlid-2651 mmenu-mm-list-path-https:--industrial.itam.mx es"><a href="https://industrial.itam.mx" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Ingeniería Industrial y en Sistemas Inteligentes</span></a></li><li class="mmenu-mm-list-mlid-2663 mmenu-mm-list-path-https:--matematicas.itam.mx es"><a href="https://matematicas.itam.mx" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Matemáticas Aplicadas</span></a></li><li class="mmenu-mm-list-mlid-2667 mmenu-mm-list-path-https:--relacionesinternacionales.itam.mx es"><a href="https://relacionesinternacionales.itam.mx" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Relaciones Internacionales</span></a></li></ul></li><li class="mmenu-mm-list-mlid-21258 mmenu-mm-list-path-nolink"><a href="javascript:void(0);" class="mmenu-mm-list mmenu-mm-subopen"><i class="icon-plus"></i><span class="mmenu-block-title">Posgrados</span></a><ul class="mmenu-mm-list-level-4"><li class="mmenu-mm-list-mlid-2674 mmenu-mm-list-path-http:--mcienciadatos.itam.mx es"><a href="http://mcienciadatos.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Ciencia de Datos</span></a></li><li class="mmenu-mm-list-mlid-21259 mmenu-mm-list-path-https:--posgrados.itam.mx"><a href="https://posgrados.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Ciencia de Riesgo</span></a></li><li class="mmenu-mm-list-mlid-2675 mmenu-mm-list-path-http:--mcc.itam.mx-es es"><a href="http://mcc.itam.mx/es" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Ciencias en Computación</span></a></li><li class="mmenu-mm-list-mlid-2677 mmenu-mm-list-path-http:--mderecho.itam.mx es"><a href="http://mderecho.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Derechos Humanos y Garantías</span></a></li><li class="mmenu-mm-list-mlid-2680 mmenu-mm-list-path-http:--maestriaeconomia.itam.mx es"><a href="http://maestriaeconomia.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Economía Aplicada</span></a></li><li class="mmenu-mm-list-mlid-2681 mmenu-mm-list-path-http:--mef.itam.mx es"><a href="http://mef.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Finanzas</span></a></li><li class="mmenu-mm-list-mlid-3119 mmenu-mm-list-path-http:--mba.itam.mx"><a href="http://mba.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">MBA</span></a></li><li class="mmenu-mm-list-mlid-2679 mmenu-mm-list-path-http:--executivemba.itam.mx es"><a href="http://executivemba.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Executive MBA</span></a></li><li class="mmenu-mm-list-mlid-2683 mmenu-mm-list-path-http:--politicaspublicas.itam.mx-es es"><a href="http://politicaspublicas.itam.mx/es" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Políticas Públicas</span></a></li><li class="mmenu-mm-list-mlid-2684 mmenu-mm-list-path-http:--mteoriaeconomica.itam.mx es"><a href="http://mteoriaeconomica.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Teoría Económica</span></a></li><li class="mmenu-mm-list-mlid-2686 mmenu-mm-list-path-http:--phdeconomia.itam.mx es"><a href="http://phdeconomia.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Doctorado en Economía</span></a></li><li class="mmenu-mm-list-mlid-2687 mmenu-mm-list-path-http:--especialidades.itam.mx-es es"><a href="http://especialidades.itam.mx/es" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Especialidades</span></a></li></ul></li></ul></li></ul></li><li class="mmenu-mm-list-mlid-2693 mmenu-mm-list-path-nolink es"><a href="javascript:void(0);" class="mmenu-mm-list mmenu-mm-subopen"><i class="icon-plus"></i><span class="mmenu-block-title">Estudiantes</span></a><ul class="mmenu-mm-list-level-2"><li class="mmenu-mm-list-mlid-2701 mmenu-mm-list-path-nolink es"><a href="javascript:void(0);" class="mmenu-mm-list mmenu-mm-subopen"><i class="icon-plus"></i><span class="mmenu-block-title">Dirección Escolar</span></a><ul class="mmenu-mm-list-level-3"><li class="mmenu-mm-list-mlid-17713 mmenu-mm-list-path-http:--escolar.itam.mx"><a href="http://escolar.itam.mx" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">¿Que hacemos?</span></a></li><li class="mmenu-mm-list-mlid-2702 mmenu-mm-list-path-http:--escolar.itam.mx-servicios_escolares-servicios_reinscripciones.html es"><a href="http://escolar.itam.mx/servicios_escolares/servicios_reinscripciones.html" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Licenciaturas</span></a></li><li class="mmenu-mm-list-mlid-2703 mmenu-mm-list-path-http:--escolar.itam.mx-posgrados_admisiones-admisiones.php es"><a href="http://escolar.itam.mx/posgrados_admisiones/admisiones.php" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Posgrados</span></a></li></ul></li><li class="mmenu-mm-list-mlid-2704 mmenu-mm-list-path-https:--comunidad.itam.mx es"><a href="https://comunidad.itam.mx" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Comunidad ITAM</span></a></li><li class="mmenu-mm-list-mlid-2706 mmenu-mm-list-path-nolink es"><a href="javascript:void(0);" class="mmenu-mm-list mmenu-mm-subopen"><i class="icon-plus"></i><span class="mmenu-block-title">Ayuda Financiera</span></a><ul class="mmenu-mm-list-level-3"><li class="mmenu-mm-list-mlid-2709 mmenu-mm-list-path-http:--intercambio.itam.mx-becas-para-posgrados es"><a href="http://intercambio.itam.mx/becas-para-posgrados" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Becas posgrado en el extranjero</span></a></li><li class="mmenu-mm-list-mlid-2710 mmenu-mm-list-path-http:--www.itam.mx-sites-default-files-ayuda_financiera.pdf"><a href="http://www.itam.mx/sites/default/files/ayuda_financiera.pdf" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Reglamento</span></a></li></ul></li><li class="mmenu-mm-list-mlid-2695 mmenu-mm-list-path-http:--intercambio.itam.mx-es-alumnos-internacionales-por-que-itam es"><a href="http://intercambio.itam.mx/es/alumnos-internacionales-por-que-itam" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Extranjeros</span></a></li><li class="mmenu-mm-list-mlid-2696 mmenu-mm-list-path-http:--escolar.itam.mx-servicios_escolares-calendarios.php es"><a href="http://escolar.itam.mx/servicios_escolares/calendarios.php" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Calendario Escolar</span></a></li><li class="mmenu-mm-list-mlid-2714 mmenu-mm-list-path-nolink es"><a href="javascript:void(0);" class="mmenu-mm-list mmenu-mm-subopen"><i class="icon-plus"></i><span class="mmenu-block-title">Vida Universitaria</span></a><ul class="mmenu-mm-list-level-3"><li class="mmenu-mm-list-mlid-2716 mmenu-mm-list-path-http:--intercambio.itam.mx es"><a href="http://intercambio.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Vinculación Internacional</span></a></li><li class="mmenu-mm-list-mlid-2717 mmenu-mm-list-path-https:--escolar.itam.mx-documentos-reg_licenciatura.pdf es"><a href="https://escolar.itam.mx/documentos/reg_licenciatura.pdf" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Reglamento de Estudiantes</span></a></li><li class="mmenu-mm-list-mlid-2721 mmenu-mm-list-path-http:--salud.itam.mx es"><a href="http://salud.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Salud ITAM </span></a></li><li class="mmenu-mm-list-mlid-2722 mmenu-mm-list-path-http:--musica.itam.mx es"><a href="http://musica.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">ITAM Música</span></a></li><li class="mmenu-mm-list-mlid-21318 mmenu-mm-list-path-https:--itam.mx-es-noticia-lanzamiento-linea-origen-itam"><a href="https://itam.mx/es/noticia/lanzamiento-linea-origen-itam" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Linea Origen-ITAM</span></a></li><li class="mmenu-mm-list-mlid-21319 mmenu-mm-list-path-https:--protocologenero.itam.mx-es"><a href="https://protocologenero.itam.mx/es" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Protocolo de género</span></a></li></ul></li><li class="mmenu-mm-list-mlid-17168 mmenu-mm-list-path-http:--bolsa.itam.mx"><a href="http://bolsa.itam.mx" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Bolsa de Trabajo</span></a></li></ul></li><li class="mmenu-mm-list-mlid-2747 mmenu-mm-list-path-nolink es"><a href="javascript:void(0);" class="mmenu-mm-list mmenu-mm-subopen"><i class="icon-plus"></i><span class="mmenu-block-title">Exalumnos</span></a><ul class="mmenu-mm-list-level-2"><li class="mmenu-mm-list-mlid-2748 mmenu-mm-list-path-https:--exalumnos.itam.mx es"><a href="https://exalumnos.itam.mx" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Sitio ExITAM</span></a></li><li class="mmenu-mm-list-mlid-2570 mmenu-mm-list-path-http:--copal.itam.mx-bolsa es"><a href="http://copal.itam.mx/bolsa/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Bolsa de Trabajo</span></a></li><li class="mmenu-mm-list-mlid-2735 mmenu-mm-list-path-http:--donar.itam.mx-es es"><a href="http://donar.itam.mx/es" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Donar</span></a></li></ul></li></ul>                                          <li class="mmenu-expanded">
+            <span class="mmenu-block-expanded mmenu-block"><i class="mmenu-block-icon mmenu-block-icon-menu-menu-top-line-devitam"></i><span class="mmenu-block-title">TP</span></span>
+          </li>
+                          <ul class="mmenu-mm-list-level-1"><li class="mmenu-mm-list-mlid-1020 mmenu-mm-list-path-https:--biblioteca.itam.mx es"><a href="https://biblioteca.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Biblioteca</span></a></li><li class="mmenu-mm-list-mlid-17169 mmenu-mm-list-path-http:--bolsa.itam.mx"><a href="http://bolsa.itam.mx" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Bolsa de Trabajo</span></a></li><li class="mmenu-mm-list-mlid-3040 mmenu-mm-list-path-nolink es"><a href="javascript:void(0);" class="mmenu-mm-list mmenu-mm-subopen"><i class="icon-plus"></i><span class="mmenu-block-title">Eventos / Noticias</span></a><ul class="mmenu-mm-list-level-2"><li class="mmenu-mm-list-mlid-3041 mmenu-mm-list-path-http:--eventos.itam.mx es"><a href="http://eventos.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Sitio Eventos y Noticias</span></a></li><li class="mmenu-mm-list-mlid-3042 mmenu-mm-list-path-https:--mundoitam.wordpress.com es"><a href="https://mundoitam.wordpress.com/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Blog Mundo ITAM</span></a></li><li class="mmenu-mm-list-mlid-3043 mmenu-mm-list-path-https:--www.youtube.com-user-itam es"><a href="https://www.youtube.com/user/itam" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Videoteca</span></a></li><li class="mmenu-mm-list-mlid-3045 mmenu-mm-list-path-node-189 es"><a href="/es/1/contenido/rio-hondo" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Fotogalería Río Hondo</span></a></li><li class="mmenu-mm-list-mlid-3046 mmenu-mm-list-path-node-193 es"><a href="/es/1/contenido/santa-teresa" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Fotogalería Santa Teresa</span></a></li></ul></li><li class="mmenu-mm-list-mlid-3047 mmenu-mm-list-path-nolink es"><a href="javascript:void(0);" class="mmenu-mm-list mmenu-mm-subopen"><i class="icon-plus"></i><span class="mmenu-block-title">Vinculación Internacional</span></a><ul class="mmenu-mm-list-level-2"><li class="mmenu-mm-list-mlid-8673 mmenu-mm-list-path-nolink"><a href="javascript:void(0);" class="mmenu-mm-list mmenu-mm-subopen"><i class="icon-plus"></i><span class="mmenu-block-title">Alumno ITAM</span></a><ul class="mmenu-mm-list-level-3"><li class="mmenu-mm-list-mlid-3049 mmenu-mm-list-path-http:--intercambio.itam.mx-es-licenciatura-intercambio-acad%C3%A9mico-introducci%C3%B3n es"><a href="http://intercambio.itam.mx/es/licenciatura-intercambio-acad%C3%A9mico-introducci%C3%B3n" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Intercambio Académico</span></a></li><li class="mmenu-mm-list-mlid-3048 mmenu-mm-list-path-http:--intercambio.itam.mx-es-licenciatura-verano-en-el-extranjero-introduccion es"><a href="http://intercambio.itam.mx/es/licenciatura-verano-en-el-extranjero-introduccion" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Verano ITAM en el Extranjero</span></a></li></ul></li><li class="mmenu-mm-list-mlid-8674 mmenu-mm-list-path-http:--intercambio.itam.mx-es-alumnos-internacionales-por-que-itam"><a href="http://intercambio.itam.mx/es/alumnos-internacionales-por-que-itam" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Alumno Internacional</span></a></li></ul></li><li class="mmenu-mm-list-mlid-1022 mmenu-mm-list-path-http:--directorio.itam.mx-d.php es"><a href="http://directorio.itam.mx/d.php" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Directorio</span></a></li><li class="mmenu-mm-list-mlid-2412 mmenu-mm-list-path-nolink es"><a href="javascript:void(0);" class="mmenu-mm-list mmenu-mm-subopen"><i class="icon-plus"></i><span class="mmenu-block-title">Acceso Rápido</span></a><ul class="mmenu-mm-list-level-2"><li class="mmenu-mm-list-mlid-2416 mmenu-mm-list-path-http:--aspirantes.itam.mx es"><a href="http://aspirantes.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Aspirantes Licenciaturas e Ingenierías</span></a></li><li class="mmenu-mm-list-mlid-2417 mmenu-mm-list-path-http:--posgrados.itam.mx es"><a href="http://posgrados.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Aspirantes Maestrías</span></a></li><li class="mmenu-mm-list-mlid-2418 mmenu-mm-list-path-http:--aviso.itam.mx es"><a href="http://aviso.itam.mx" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Aviso</span></a></li><li class="mmenu-mm-list-mlid-2419 mmenu-mm-list-path-http:--escolar.itam.mx-servicios_escolares-calendarios.php es"><a href="http://escolar.itam.mx/servicios_escolares/calendarios.php" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Calendarios Licenciaturas</span></a></li><li class="mmenu-mm-list-mlid-2420 mmenu-mm-list-path-http:--escolar.itam.mx-posgrados_controlescolar-calendarios_pos.php es"><a href="http://escolar.itam.mx/posgrados_controlescolar/calendarios_pos.php" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Calendarios Posgrados</span></a></li><li class="mmenu-mm-list-mlid-2421 mmenu-mm-list-path-http:--ccmanuelgomezmorin.org.mx-ccmgm es"><a href="http://ccmanuelgomezmorin.org.mx/ccmgm/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Centro Cultural Manuel Gómez Morin</span></a></li><li class="mmenu-mm-list-mlid-2422 mmenu-mm-list-path-https:--comunidad.itam.mx es"><a href="https://comunidad.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Comunidad ITAM</span></a></li><li class="mmenu-mm-list-mlid-3122 mmenu-mm-list-path-http:--escolar.itam.mx-lics_control-control_html.htm"><a href="http://escolar.itam.mx/lics_control/control_html.htm" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Control Escolar Licenciatura</span></a></li><li class="mmenu-mm-list-mlid-2423 mmenu-mm-list-path-http:--escolar.itam.mx-posgrados_controlescolar-controlesc.html es"><a href="http://escolar.itam.mx/posgrados_controlescolar/controlesc.html" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Control Escolar Posgrados</span></a></li><li class="mmenu-mm-list-mlid-2424 mmenu-mm-list-path-https:--comunidadws.itam.mx-servicios-redirowa365.asp es"><a href="https://comunidadws.itam.mx/servicios/redirowa365.asp" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Correo Alumnos</span></a></li><li class="mmenu-mm-list-mlid-2425 mmenu-mm-list-path-http:--correo.itam.mx-es-index.php es"><a href="http://correo.itam.mx/es/index.php" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Correo Facultad y Empleados</span></a></li><li class="mmenu-mm-list-mlid-2426 mmenu-mm-list-path-http:--lenguas.itam.mx es"><a href="http://lenguas.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Depto. Académico de Lenguas</span></a></li><li class="mmenu-mm-list-mlid-2427 mmenu-mm-list-path-http:--escolar.itam.mx es"><a href="http://escolar.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Dirección Escolar</span></a></li><li class="mmenu-mm-list-mlid-2429 mmenu-mm-list-path-https:--exitam.itam.mx-exitam_login.php?sid es"><a href="https://exitam.itam.mx/exitam_login.php?sid" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Exalumnos</span></a></li><li class="mmenu-mm-list-mlid-2430 mmenu-mm-list-path-http:--aspirantes.itam.mx-examenes-aspirantes es"><a href="http://aspirantes.itam.mx/examenes-aspirantes" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Exámenes de Admisión para Licenciaturas e Ingenierías</span></a></li><li class="mmenu-mm-list-mlid-3134 mmenu-mm-list-path-http:--escolar.itam.mx-servicios_escolares-servicios_reinscripciones.html es"><a href="http://escolar.itam.mx/servicios_escolares/servicios_reinscripciones.html" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Horarios Licenciaturas</span></a></li><li class="mmenu-mm-list-mlid-3135 mmenu-mm-list-path-http:--salud.itam.mx es"><a href="http://salud.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Programa de Salud</span></a></li><li class="mmenu-mm-list-mlid-3133 mmenu-mm-list-path-http:--intercambio.itam.mx es"><a href="http://intercambio.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Intercambio Académico</span></a></li><li class="mmenu-mm-list-mlid-2428 mmenu-mm-list-path-http:--facultad.itam.mx-es es"><a href="http://facultad.itam.mx/es/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Facultad</span></a></li><li class="mmenu-mm-list-mlid-2434 mmenu-mm-list-path-http:--www.itammun.org.mx es"><a href="http://www.itammun.org.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">ITAMMUN</span></a></li><li class="mmenu-mm-list-mlid-2438 mmenu-mm-list-path-http:--proteccioncivil.itam.mx es"><a href="http://proteccioncivil.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Protección civil</span></a></li><li class="mmenu-mm-list-mlid-2440 mmenu-mm-list-path-http:--merlin.itam.mx-RegistroAdmisiones es"><a href="http://merlin.itam.mx/RegistroAdmisiones/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Solicitud de Admisión para Licenciaturas e Ingenierías</span></a></li><li class="mmenu-mm-list-mlid-3123 mmenu-mm-list-path-http:--merlin.itam.mx-RegistroAdmisionesPosg- "><a href="http://merlin.itam.mx/RegistroAdmisionesPosg/ " class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Solicitud de Admisión para Posgrados</span></a></li></ul></li><li class="mmenu-mm-list-mlid-1024 mmenu-mm-list-path-https:--www.itam.mx-en es"><a href="https://www.itam.mx/en" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title"> English-</span></a></li></ul>                                          <li class="mmenu-expanded">
+            <span class="mmenu-block-expanded mmenu-block"><i class="mmenu-block-icon mmenu-block-icon-tb_megamenu-menu-menu-principal-ingles"></i><span class="mmenu-block-title">Menu</span></span>
+          </li>
+                          <ul class="mmenu-mm-list-level-1"><li class="mmenu-mm-list-mlid-2753 mmenu-mm-list-path-nolink en"><a href="javascript:void(0);" class="mmenu-mm-list mmenu-mm-subopen"><i class="icon-plus"></i><span class="mmenu-block-title">About ITAM</span></a><ul class="mmenu-mm-list-level-2"><li class="mmenu-mm-list-mlid-19881 mmenu-mm-list-path-https:--www.itam.mx-pdf-code-of-honor-itam.pdf"><a href="https://www.itam.mx/pdf/code-of-honor-itam.pdf" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Code of Honor</span></a></li><li class="mmenu-mm-list-mlid-9338 mmenu-mm-list-path-https:--www.itam.mx-en-1-pages-coordinating-board"><a href="https://www.itam.mx/en/1/pages/coordinating-board" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Coordinating Board</span></a></li><li class="mmenu-mm-list-mlid-2758 mmenu-mm-list-path-nolink"><a href="javascript:void(0);" class="mmenu-mm-list mmenu-mm-subopen"><i class="icon-plus"></i><span class="mmenu-block-title">History and Ceremonies</span></a></li><li class="mmenu-mm-list-mlid-2766 mmenu-mm-list-path-nolink"><a href="javascript:void(0);" class="mmenu-mm-list mmenu-mm-subopen"><i class="icon-plus"></i><span class="mmenu-block-title">ITAM Profile</span></a></li><li class="mmenu-mm-list-mlid-2780 mmenu-mm-list-path-http:--www.normatividad.itam.mx"><a href="http://www.normatividad.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Regulations</span></a></li></ul></li><li class="mmenu-mm-list-mlid-2786 mmenu-mm-list-path-nolink en"><a href="javascript:void(0);" class="mmenu-mm-list mmenu-mm-subopen"><i class="icon-plus"></i><span class="mmenu-block-title">Campus Life</span></a><ul class="mmenu-mm-list-level-2"><li class="mmenu-mm-list-mlid-2808 mmenu-mm-list-path-http:--facultad.itam.mx-es"><a href="http://facultad.itam.mx/es/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Faculty</span></a></li><li class="mmenu-mm-list-mlid-2787 mmenu-mm-list-path-nolink"><a href="javascript:void(0);" class="mmenu-mm-list mmenu-mm-subopen"><i class="icon-plus"></i><span class="mmenu-block-title">Academic Divisions</span></a><ul class="mmenu-mm-list-level-3"><li class="mmenu-mm-list-mlid-2789 mmenu-mm-list-path-http:--daac.itam.mx"><a href="http://daac.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Business</span></a></li><li class="mmenu-mm-list-mlid-21320 mmenu-mm-list-path-https:--www.itam.mx-es-division-academica-de-ciencias-de-la-computacion-0"><a href="https://www.itam.mx/es/division-academica-de-ciencias-de-la-computacion-0" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Computer Sciences</span></a></li><li class="mmenu-mm-list-mlid-2792 mmenu-mm-list-path-http:--dai.itam.mx"><a href="http://dai.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Engineering</span></a></li><li class="mmenu-mm-list-mlid-2788 mmenu-mm-list-path-http:--daaem.itam.mx"><a href="http://daaem.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Exact Sciences</span></a></li><li class="mmenu-mm-list-mlid-2791 mmenu-mm-list-path-http:--daegi.itam.mx"><a href="http://daegi.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">General Studies and International Studies</span></a></li><li class="mmenu-mm-list-mlid-2790 mmenu-mm-list-path-http:--daedcs.itam.mx"><a href="http://daedcs.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Social Sciences</span></a></li></ul></li><li class="mmenu-mm-list-mlid-2793 mmenu-mm-list-path-nolink"><a href="javascript:void(0);" class="mmenu-mm-list mmenu-mm-subopen"><i class="icon-plus"></i><span class="mmenu-block-title">Academic Departments</span></a><ul class="mmenu-mm-list-level-3"><li class="mmenu-mm-list-mlid-2798 mmenu-mm-list-path-http:--departamentodecontabilidad.itam.mx"><a href="http://departamentodecontabilidad.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Accounting</span></a></li><li class="mmenu-mm-list-mlid-2794 mmenu-mm-list-path-http:--departamentodeactuaria.itam.mx"><a href="http://departamentodeactuaria.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Actuarial Science and Insurance</span></a></li><li class="mmenu-mm-list-mlid-2795 mmenu-mm-list-path-http:--departamentodeadministracion.itam.mx"><a href="http://departamentodeadministracion.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Business Administration</span></a></li><li class="mmenu-mm-list-mlid-2797 mmenu-mm-list-path-http:--dac.itam.mx"><a href="http://dac.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Computer Science</span></a></li><li class="mmenu-mm-list-mlid-2807 mmenu-mm-list-path-http:--digitales.itam.mx"><a href="http://digitales.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Electrical and Electronic Engineering</span></a></li><li class="mmenu-mm-list-mlid-2800 mmenu-mm-list-path-http:--departamentodeeconomia.itam.mx"><a href="http://departamentodeeconomia.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Economics</span></a></li><li class="mmenu-mm-list-mlid-2802 mmenu-mm-list-path-http:--generales.itam.mx"><a href="http://generales.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">General Studies</span></a></li><li class="mmenu-mm-list-mlid-2804 mmenu-mm-list-path-http:--industrialyoperaciones.itam.mx"><a href="http://industrialyoperaciones.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Industrial Engineering and Operations</span></a></li><li class="mmenu-mm-list-mlid-2803 mmenu-mm-list-path-http:--internacionales.itam.mx-es"><a href="http://internacionales.itam.mx/es" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">International Studies</span></a></li><li class="mmenu-mm-list-mlid-2806 mmenu-mm-list-path-http:--lenguas.itam.mx"><a href="http://lenguas.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Languages</span></a></li><li class="mmenu-mm-list-mlid-2799 mmenu-mm-list-path-http:--departamentodederecho.itam.mx"><a href="http://departamentodederecho.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Law</span></a></li><li class="mmenu-mm-list-mlid-2805 mmenu-mm-list-path-http:--departamentodematematicas.itam.mx"><a href="http://departamentodematematicas.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Mathematics</span></a></li><li class="mmenu-mm-list-mlid-2796 mmenu-mm-list-path-http:--departamentodecienciapolitica.itam.mx"><a href="http://departamentodecienciapolitica.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Political Science</span></a></li><li class="mmenu-mm-list-mlid-2801 mmenu-mm-list-path-http:--estadistica.itam.mx"><a href="http://estadistica.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Statistics</span></a></li></ul></li><li class="mmenu-mm-list-mlid-2813 mmenu-mm-list-path-nolink"><a href="javascript:void(0);" class="mmenu-mm-list mmenu-mm-subopen"><i class="icon-plus"></i><span class="mmenu-block-title">Interdisciplinary centers</span></a><ul class="mmenu-mm-list-level-3"><li class="mmenu-mm-list-mlid-3129 mmenu-mm-list-path-http:--caie.itam.mx"><a href="http://caie.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Center for Analysis and Economic Research</span></a></li><li class="mmenu-mm-list-mlid-2814 mmenu-mm-list-path-http:--centrodeenergia.itam.mx"><a href="http://centrodeenergia.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Energy and Natural Resources Center</span></a></li><li class="mmenu-mm-list-mlid-2815 mmenu-mm-list-path-http:--epiclab.itam.mx"><a href="http://epiclab.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">EPIC Lab</span></a></li></ul></li><li class="mmenu-mm-list-mlid-2817 mmenu-mm-list-path-http:--biblioteca.itam.mx-site"><a href="http://biblioteca.itam.mx/site/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Raúl Baillères Jr. Library</span></a></li><li class="mmenu-mm-list-mlid-2809 mmenu-mm-list-path-nolink"><a href="javascript:void(0);" class="mmenu-mm-list mmenu-mm-subopen"><i class="icon-plus"></i><span class="mmenu-block-title">Academic Publications</span></a><ul class="mmenu-mm-list-level-3"><li class="mmenu-mm-list-mlid-2812 mmenu-mm-list-path-https:--www.itam.mx-es-documentos-publicaciones.pdf"><a href="https://www.itam.mx/es/documentos/publicaciones.pdf" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Printable version</span></a></li></ul></li></ul></li><li class="mmenu-mm-list-mlid-2818 mmenu-mm-list-path-nolink en"><a href="javascript:void(0);" class="mmenu-mm-list mmenu-mm-subopen"><i class="icon-plus"></i><span class="mmenu-block-title">Study at ITAM</span></a><ul class="mmenu-mm-list-level-2"><li class="mmenu-mm-list-mlid-2819 mmenu-mm-list-path-nolink"><a href="javascript:void(0);" class="mmenu-mm-list mmenu-mm-subopen"><i class="icon-plus"></i><span class="mmenu-block-title">Undergraduate and Engineering Programs</span></a><ul class="mmenu-mm-list-level-3"><li class="mmenu-mm-list-mlid-2832 mmenu-mm-list-path-nolink"><a href="javascript:void(0);" class="mmenu-mm-list mmenu-mm-subopen"><i class="icon-plus"></i><span class="mmenu-block-title">Analytical Accounting and Corporate Finance</span></a><ul class="mmenu-mm-list-level-4"><li class="mmenu-mm-list-mlid-2833 mmenu-mm-list-path-http:--contaduria.itam.mx"><a href="http://contaduria.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Visit Site</span></a></li><li class="mmenu-mm-list-mlid-2834 mmenu-mm-list-path-http:--itam.mx-sites-default-files-programs-brochure-Accounting and Financial Strategy_2017_web.pdf"><a href="http://itam.mx/sites/default/files/programs/brochure/Accounting and Financial Strategy_2017_web.pdf" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Brochure (PDF)</span></a></li><li class="mmenu-mm-list-mlid-2835 mmenu-mm-list-path-http:--daac.itam.mx-sites-default-files-programas-planes-plan_conta_estrategia.pdf"><a href="http://daac.itam.mx/sites/default/files/programas/planes/plan_conta_estrategia.pdf" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Study Plan (PDF)</span></a></li></ul></li><li class="mmenu-mm-list-mlid-2820 mmenu-mm-list-path-nolink"><a href="javascript:void(0);" class="mmenu-mm-list mmenu-mm-subopen"><i class="icon-plus"></i><span class="mmenu-block-title">Actuarial Sciences</span></a><ul class="mmenu-mm-list-level-4"><li class="mmenu-mm-list-mlid-2821 mmenu-mm-list-path-http:--actuaria.itam.mx"><a href="http://actuaria.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Visit Site</span></a></li><li class="mmenu-mm-list-mlid-2822 mmenu-mm-list-path-http:--itam.mx-sites-default-files-programs-brochure-Actuarial Sciences_2017_web.pdf"><a href="http://itam.mx/sites/default/files/programs/brochure/Actuarial Sciences_2017_web.pdf" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Brochure (PDF)</span></a></li><li class="mmenu-mm-list-mlid-2823 mmenu-mm-list-path-http:--daaem.itam.mx-sites-default-files-programas-planes-plan_actuaria.pdf"><a href="http://daaem.itam.mx/sites/default/files/programas/planes/plan_actuaria.pdf" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Study Plan (PDF)</span></a></li></ul></li><li class="mmenu-mm-list-mlid-2868 mmenu-mm-list-path-nolink"><a href="javascript:void(0);" class="mmenu-mm-list mmenu-mm-subopen"><i class="icon-plus"></i><span class="mmenu-block-title">Applied Mathematics</span></a><ul class="mmenu-mm-list-level-4"><li class="mmenu-mm-list-mlid-2869 mmenu-mm-list-path-http:--matematicas.itam.mx"><a href="http://matematicas.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Visit Site</span></a></li><li class="mmenu-mm-list-mlid-2870 mmenu-mm-list-path-http:--itam.mx-sites-default-files-programs-brochure-Applied Mathematics_2017_web.pdf"><a href="http://itam.mx/sites/default/files/programs/brochure/Applied Mathematics_2017_web.pdf" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Brochure (PDF)</span></a></li><li class="mmenu-mm-list-mlid-2871 mmenu-mm-list-path-http:--daaem.itam.mx-sites-default-files-programas-planes-plan_matematicas.pdf"><a href="http://daaem.itam.mx/sites/default/files/programas/planes/plan_matematicas.pdf" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Study Plan (PDF)</span></a></li></ul></li><li class="mmenu-mm-list-mlid-21492 mmenu-mm-list-path-nolink"><a href="javascript:void(0);" class="mmenu-mm-list mmenu-mm-subopen"><i class="icon-plus"></i><span class="mmenu-block-title">Artificial Intelligence Engineering</span></a><ul class="mmenu-mm-list-level-4"><li class="mmenu-mm-list-mlid-21494 mmenu-mm-list-path-https:--inteligenciaartificial.itam.mx-es"><a href="https://inteligenciaartificial.itam.mx/es" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Visit Site</span></a></li></ul></li><li class="mmenu-mm-list-mlid-2824 mmenu-mm-list-path-nolink"><a href="javascript:void(0);" class="mmenu-mm-list mmenu-mm-subopen"><i class="icon-plus"></i><span class="mmenu-block-title">Business Administration</span></a><ul class="mmenu-mm-list-level-4"><li class="mmenu-mm-list-mlid-2825 mmenu-mm-list-path-http:--administracion.itam.mx"><a href="http://administracion.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Visit Site</span></a></li><li class="mmenu-mm-list-mlid-2826 mmenu-mm-list-path-http:--itam.mx-sites-default-files-programs-brochure-Business Administration_2017_web.pdf"><a href="http://itam.mx/sites/default/files/programs/brochure/Business Administration_2017_web.pdf" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Brochure (PDF)</span></a></li><li class="mmenu-mm-list-mlid-2827 mmenu-mm-list-path-http:--daac.itam.mx-sites-default-files-programas-planes-plan_administracion.pdf"><a href="http://daac.itam.mx/sites/default/files/programas/planes/plan_administracion.pdf" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Study Plan (PDF)</span></a></li></ul></li><li class="mmenu-mm-list-mlid-2852 mmenu-mm-list-path-nolink"><a href="javascript:void(0);" class="mmenu-mm-list mmenu-mm-subopen"><i class="icon-plus"></i><span class="mmenu-block-title">Business Engineering</span></a><ul class="mmenu-mm-list-level-4"><li class="mmenu-mm-list-mlid-2853 mmenu-mm-list-path-http:--ingnegocios.itam.mx"><a href="http://ingnegocios.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Visit Site</span></a></li><li class="mmenu-mm-list-mlid-2854 mmenu-mm-list-path-http:--itam.mx-sites-default-files-programs-brochure-Business Engineering_2017_web.pdf"><a href="http://itam.mx/sites/default/files/programs/brochure/Business Engineering_2017_web.pdf" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Brochure (PDF)</span></a></li><li class="mmenu-mm-list-mlid-2855 mmenu-mm-list-path-http:--dai.itam.mx-sites-default-files-programas-planes-plan_ing_negocios.pdf"><a href="http://dai.itam.mx/sites/default/files/programas/planes/plan_ing_negocios.pdf" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Study Plan (PDF)</span></a></li></ul></li><li class="mmenu-mm-list-mlid-2848 mmenu-mm-list-path-nolink"><a href="javascript:void(0);" class="mmenu-mm-list mmenu-mm-subopen"><i class="icon-plus"></i><span class="mmenu-block-title">Engineering and Computer Science</span></a><ul class="mmenu-mm-list-level-4"><li class="mmenu-mm-list-mlid-2849 mmenu-mm-list-path-http:--computacion.itam.mx"><a href="http://computacion.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Visit Site</span></a></li><li class="mmenu-mm-list-mlid-2850 mmenu-mm-list-path-http:--itam.mx-sites-default-files-programs-brochure-Computer Science_2017_web.pdf"><a href="http://itam.mx/sites/default/files/programs/brochure/Computer Science_2017_web.pdf" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Brochure (PDF)</span></a></li><li class="mmenu-mm-list-mlid-2851 mmenu-mm-list-path-http:--dai.itam.mx-sites-default-files-programas-planes-plan_ing_computacion.pdf"><a href="http://dai.itam.mx/sites/default/files/programas/planes/plan_ing_computacion.pdf" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Study Plan (PDF)</span></a></li></ul></li><li class="mmenu-mm-list-mlid-21322 mmenu-mm-list-path-nolink"><a href="javascript:void(0);" class="mmenu-mm-list mmenu-mm-subopen"><i class="icon-plus"></i><span class="mmenu-block-title">Data Science</span></a><ul class="mmenu-mm-list-level-4"><li class="mmenu-mm-list-mlid-21323 mmenu-mm-list-path-https:--cienciadedatos.itam.mx"><a href="https://cienciadedatos.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Visit Site</span></a></li></ul></li><li class="mmenu-mm-list-mlid-2844 mmenu-mm-list-path-nolink"><a href="javascript:void(0);" class="mmenu-mm-list mmenu-mm-subopen"><i class="icon-plus"></i><span class="mmenu-block-title">Economics</span></a><ul class="mmenu-mm-list-level-4"><li class="mmenu-mm-list-mlid-2845 mmenu-mm-list-path-http:--economia.itam.mx"><a href="http://economia.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Visit Site</span></a></li><li class="mmenu-mm-list-mlid-2846 mmenu-mm-list-path-http:--itam.mx-sites-default-files-programs-brochure-economics_2017_web.pdf"><a href="http://itam.mx/sites/default/files/programs/brochure/economics_2017_web.pdf" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Brochure (PDF)</span></a></li><li class="mmenu-mm-list-mlid-2847 mmenu-mm-list-path-http:--daedcs.itam.mx-sites-default-files-programas-planes-plan_economia.pdf"><a href="http://daedcs.itam.mx/sites/default/files/programas/planes/plan_economia.pdf" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Study Plan (PDF)</span></a></li></ul></li><li class="mmenu-mm-list-mlid-2840 mmenu-mm-list-path-nolink"><a href="javascript:void(0);" class="mmenu-mm-list mmenu-mm-subopen"><i class="icon-plus"></i><span class="mmenu-block-title">Financial Strategy</span></a><ul class="mmenu-mm-list-level-4"><li class="mmenu-mm-list-mlid-2841 mmenu-mm-list-path-http:--direccionfinanciera.itam.mx"><a href="http://direccionfinanciera.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Visit Site</span></a></li><li class="mmenu-mm-list-mlid-2842 mmenu-mm-list-path-http:--itam.mx-sites-default-files-programs-brochure-Financial Strategy_2017_web.pdf"><a href="http://itam.mx/sites/default/files/programs/brochure/Financial Strategy_2017_web.pdf" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Brochure (PDF)</span></a></li><li class="mmenu-mm-list-mlid-2843 mmenu-mm-list-path-http:--daac.itam.mx-sites-default-files-programas-planes-plan_direccion.pdf"><a href="http://daac.itam.mx/sites/default/files/programas/planes/plan_direccion.pdf" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Study Plan (PDF)</span></a></li></ul></li><li class="mmenu-mm-list-mlid-2856 mmenu-mm-list-path-nolink"><a href="javascript:void(0);" class="mmenu-mm-list mmenu-mm-subopen"><i class="icon-plus"></i><span class="mmenu-block-title">Industrial Engineering and Intelligent Systems</span></a><ul class="mmenu-mm-list-level-4"><li class="mmenu-mm-list-mlid-2857 mmenu-mm-list-path-http:--industrial.itam.mx"><a href="http://industrial.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Visit Site</span></a></li><li class="mmenu-mm-list-mlid-2858 mmenu-mm-list-path-http:--itam.mx-sites-default-files-programs-brochure-Industrial Engineering_2017_web.pdf"><a href="http://itam.mx/sites/default/files/programs/brochure/Industrial Engineering_2017_web.pdf" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Brochure (PDF)</span></a></li><li class="mmenu-mm-list-mlid-2859 mmenu-mm-list-path-http:--dai.itam.mx-sites-default-files-programas-planes-plan_ing_industrial.pdf"><a href="http://dai.itam.mx/sites/default/files/programas/planes/plan_ing_industrial.pdf" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Study Plan (PDF)</span></a></li></ul></li><li class="mmenu-mm-list-mlid-2872 mmenu-mm-list-path-nolink"><a href="javascript:void(0);" class="mmenu-mm-list mmenu-mm-subopen"><i class="icon-plus"></i><span class="mmenu-block-title">International Relations</span></a><ul class="mmenu-mm-list-level-4"><li class="mmenu-mm-list-mlid-2873 mmenu-mm-list-path-http:--relacionesinternacionales.itam.mx"><a href="http://relacionesinternacionales.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Visit Site</span></a></li><li class="mmenu-mm-list-mlid-2874 mmenu-mm-list-path-http:--itam.mx-sites-default-files-programs-brochure-International Relations_2017_web.pdf"><a href="http://itam.mx/sites/default/files/programs/brochure/International Relations_2017_web.pdf" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Brochure (PDF)</span></a></li><li class="mmenu-mm-list-mlid-2875 mmenu-mm-list-path-http:--daegi.itam.mx-sites-default-files-programas-planes-plan_rel_inter.pdf"><a href="http://daegi.itam.mx/sites/default/files/programas/planes/plan_rel_inter.pdf" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Study Plan (PDF)</span></a></li></ul></li><li class="mmenu-mm-list-mlid-2836 mmenu-mm-list-path-nolink"><a href="javascript:void(0);" class="mmenu-mm-list mmenu-mm-subopen"><i class="icon-plus"></i><span class="mmenu-block-title">Law</span></a><ul class="mmenu-mm-list-level-4"><li class="mmenu-mm-list-mlid-2837 mmenu-mm-list-path-http:--derecho.itam.mx"><a href="http://derecho.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Visit Site</span></a></li><li class="mmenu-mm-list-mlid-2838 mmenu-mm-list-path-http:--itam.mx-sites-default-files-programs-brochure-Law_2017_web.pdf"><a href="http://itam.mx/sites/default/files/programs/brochure/Law_2017_web.pdf" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Brochure (PDF)</span></a></li><li class="mmenu-mm-list-mlid-2839 mmenu-mm-list-path-http:--daedcs.itam.mx-sites-default-files-programas-planes-plan_derecho.pdf"><a href="http://daedcs.itam.mx/sites/default/files/programas/planes/plan_derecho.pdf" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Study Plan (PDF)</span></a></li></ul></li><li class="mmenu-mm-list-mlid-21493 mmenu-mm-list-path-nolink"><a href="javascript:void(0);" class="mmenu-mm-list mmenu-mm-subopen"><i class="icon-plus"></i><span class="mmenu-block-title">Marketing Management</span></a><ul class="mmenu-mm-list-level-4"><li class="mmenu-mm-list-mlid-21495 mmenu-mm-list-path-https:--mercadotecnia.itam.mx-es"><a href="https://mercadotecnia.itam.mx/es" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Visit Site</span></a></li></ul></li><li class="mmenu-mm-list-mlid-2864 mmenu-mm-list-path-nolink"><a href="javascript:void(0);" class="mmenu-mm-list mmenu-mm-subopen"><i class="icon-plus"></i><span class="mmenu-block-title">Mechatronics and Intelligent Robotics</span></a><ul class="mmenu-mm-list-level-4"><li class="mmenu-mm-list-mlid-2865 mmenu-mm-list-path-http:--ingmecatronica.itam.mx"><a href="http://ingmecatronica.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Visit Site</span></a></li><li class="mmenu-mm-list-mlid-2866 mmenu-mm-list-path-http:--itam.mx-sites-default-files-programs-brochure-Mechatronics Engineering_2017_web.pdf"><a href="http://itam.mx/sites/default/files/programs/brochure/Mechatronics Engineering_2017_web.pdf" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Brochure (PDF)</span></a></li><li class="mmenu-mm-list-mlid-2867 mmenu-mm-list-path-http:--dai.itam.mx-sites-default-files-programas-planes-plan_ing_mecatronica.pdf"><a href="http://dai.itam.mx/sites/default/files/programas/planes/plan_ing_mecatronica.pdf" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Study Plan (PDF)</span></a></li></ul></li><li class="mmenu-mm-list-mlid-2828 mmenu-mm-list-path-nolink"><a href="javascript:void(0);" class="mmenu-mm-list mmenu-mm-subopen"><i class="icon-plus"></i><span class="mmenu-block-title">Political Science</span></a><ul class="mmenu-mm-list-level-4"><li class="mmenu-mm-list-mlid-2829 mmenu-mm-list-path-http:--politica.itam.mx"><a href="http://politica.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Visit Site</span></a></li><li class="mmenu-mm-list-mlid-2830 mmenu-mm-list-path-http:--itam.mx-sites-default-files-programs-brochure-Political Science_2017_web.pdf"><a href="http://itam.mx/sites/default/files/programs/brochure/Political Science_2017_web.pdf" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Brochure (PDF)</span></a></li><li class="mmenu-mm-list-mlid-2831 mmenu-mm-list-path-http:--daedcs.itam.mx-sites-default-files-programas-folletos-lic_ciepol.pdf"><a href="http://daedcs.itam.mx/sites/default/files/programas/folletos/lic_ciepol.pdf" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Study Plan (PDF)</span></a></li></ul></li></ul></li><li class="mmenu-mm-list-mlid-2877 mmenu-mm-list-path-nolink"><a href="javascript:void(0);" class="mmenu-mm-list mmenu-mm-subopen"><i class="icon-plus"></i><span class="mmenu-block-title">Graduate Programs</span></a><ul class="mmenu-mm-list-level-3"><li class="mmenu-mm-list-mlid-2878 mmenu-mm-list-path-http:--mriesgos.itam.mx"><a href="http://mriesgos.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Master's in Risk Management</span></a></li><li class="mmenu-mm-list-mlid-2879 mmenu-mm-list-path-http:--mcienciadatos.itam.mx"><a href="http://mcienciadatos.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Master's in Data Science</span></a></li><li class="mmenu-mm-list-mlid-2880 mmenu-mm-list-path-http:--mcc.itam.mx-es"><a href="http://mcc.itam.mx/es" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Master's in Computer Science</span></a></li><li class="mmenu-mm-list-mlid-2881 mmenu-mm-list-path-http:--mcontaduria.itam.mx"><a href="http://mcontaduria.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Master's in Accounting</span></a></li><li class="mmenu-mm-list-mlid-2882 mmenu-mm-list-path-http:--mderecho.itam.mx"><a href="http://mderecho.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Master's in Human Rights and Fundamental Principles</span></a></li><li class="mmenu-mm-list-mlid-2883 mmenu-mm-list-path-http:--mdi.itam.mx"><a href="http://mdi.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Master's in International Management</span></a></li><li class="mmenu-mm-list-mlid-2884 mmenu-mm-list-path-http:--executivemba.itam.mx"><a href="http://executivemba.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">MBA (part time)</span></a></li><li class="mmenu-mm-list-mlid-3120 mmenu-mm-list-path-http:--mba.itam.mx"><a href="http://mba.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">MBA (full time)</span></a></li><li class="mmenu-mm-list-mlid-2885 mmenu-mm-list-path-http:--maestriaeconomia.itam.mx"><a href="http://maestriaeconomia.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Master's in Applied Economics</span></a></li><li class="mmenu-mm-list-mlid-2886 mmenu-mm-list-path-http:--mef.itam.mx"><a href="http://mef.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Master's in Finance</span></a></li><li class="mmenu-mm-list-mlid-2887 mmenu-mm-list-path-http:--mercadotecnia.itam.mx"><a href="http://mercadotecnia.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Master's in Marketing</span></a></li><li class="mmenu-mm-list-mlid-2888 mmenu-mm-list-path-http:--politicaspublicas.itam.mx-es"><a href="http://politicaspublicas.itam.mx/es" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Master's in Public Policy</span></a></li><li class="mmenu-mm-list-mlid-2889 mmenu-mm-list-path-http:--mteoriaeconomica.itam.mx"><a href="http://mteoriaeconomica.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Master's in Economic Theory</span></a></li><li class="mmenu-mm-list-mlid-2890 mmenu-mm-list-path-http:--mtia.itam.mx"><a href="http://mtia.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Master's in Information Technology and Management </span></a></li><li class="mmenu-mm-list-mlid-2891 mmenu-mm-list-path-http:--phdeconomia.itam.mx"><a href="http://phdeconomia.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Doctorate in Economics</span></a></li><li class="mmenu-mm-list-mlid-2892 mmenu-mm-list-path-http:--especialidades.itam.mx-es"><a href="http://especialidades.itam.mx/es" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Specialties</span></a></li></ul></li><li class="mmenu-mm-list-mlid-2893 mmenu-mm-list-path-http:--desarrolloejecutivo.itam.mx"><a href="http://desarrolloejecutivo.itam.mx" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Courses and Certificate Programs</span></a></li><li class="mmenu-mm-list-mlid-2894 mmenu-mm-list-path-http:--escolar.itam.mx"><a href="http://escolar.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Admissions</span></a></li></ul></li><li class="mmenu-mm-list-mlid-2939 mmenu-mm-list-path-nolink en"><a href="javascript:void(0);" class="mmenu-mm-list mmenu-mm-subopen"><i class="icon-plus"></i><span class="mmenu-block-title">Alumni</span></a><ul class="mmenu-mm-list-level-2"><li class="mmenu-mm-list-mlid-2941 mmenu-mm-list-path-https:--exitam.itam.mx"><a href="https://exitam.itam.mx" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Go to site</span></a></li><li class="mmenu-mm-list-mlid-2775 mmenu-mm-list-path-http:--copal.itam.mx-bolsa"><a href="http://copal.itam.mx/bolsa/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Career Office (Spanish)</span></a></li><li class="mmenu-mm-list-mlid-2925 mmenu-mm-list-path-http:--donar.itam.mx-es-69-paginas-donar-en-linea en"><a href="http://donar.itam.mx/es/69/paginas/donar-en-linea" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Donations</span></a></li></ul></li></ul>                                          <li class="mmenu-expanded">
+            <span class="mmenu-block-expanded mmenu-block"><i class="mmenu-block-icon mmenu-block-icon-tb_megamenu-menu-top-line-devitam-ingles"></i><span class="mmenu-block-title">TP</span></span>
+          </li>
+                          <ul class="mmenu-mm-list-level-1"><li class="mmenu-mm-list-mlid-3074 mmenu-mm-list-path-http:--biblioteca.itam.mx en"><a href="http://biblioteca.itam.mx" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Library</span></a></li><li class="mmenu-mm-list-mlid-3075 mmenu-mm-list-path-nolink en"><a href="javascript:void(0);" class="mmenu-mm-list mmenu-mm-subopen"><i class="icon-plus"></i><span class="mmenu-block-title">Events / News</span></a><ul class="mmenu-mm-list-level-2"><li class="mmenu-mm-list-mlid-3076 mmenu-mm-list-path-http:--news.itam.mx en"><a href="http://news.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Site</span></a></li><li class="mmenu-mm-list-mlid-3077 mmenu-mm-list-path-https:--mundoitam.wordpress.com en"><a href="https://mundoitam.wordpress.com/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Blog Mundo ITAM </span></a></li><li class="mmenu-mm-list-mlid-3078 mmenu-mm-list-path-https:--www.youtube.com-user-itam en"><a href="https://www.youtube.com/user/itam" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Videos</span></a></li><li class="mmenu-mm-list-mlid-3079 mmenu-mm-list-path-nolink en"><a href="javascript:void(0);" class="mmenu-mm-list mmenu-mm-subopen"><i class="icon-plus"></i><span class="mmenu-block-title">Photographic Gallery</span></a><ul class="mmenu-mm-list-level-3"><li class="mmenu-mm-list-mlid-3080 mmenu-mm-list-path-node-189 en"><a href="/es/1/contenido/rio-hondo" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Río Hondo</span></a></li><li class="mmenu-mm-list-mlid-3081 mmenu-mm-list-path-node-193 en"><a href="/es/1/contenido/santa-teresa" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Santa Teresa</span></a></li></ul></li></ul></li><li class="mmenu-mm-list-mlid-3082 mmenu-mm-list-path-nolink en"><a href="javascript:void(0);" class="mmenu-mm-list mmenu-mm-subopen"><i class="icon-plus"></i><span class="mmenu-block-title">Academic Exchange</span></a><ul class="mmenu-mm-list-level-2"><li class="mmenu-mm-list-mlid-3084 mmenu-mm-list-path-https:--intercambio.itam.mx-en-international-students-why-itam en"><a href="https://intercambio.itam.mx/en/international-students-why-itam" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Academic Exchange</span></a></li></ul></li><li class="mmenu-mm-list-mlid-3085 mmenu-mm-list-path-http:--directorio.itam.mx en"><a href="http://directorio.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Directory</span></a></li><li class="mmenu-mm-list-mlid-3061 mmenu-mm-list-path-nolink en"><a href="javascript:void(0);" class="mmenu-mm-list mmenu-mm-subopen"><i class="icon-plus"></i><span class="mmenu-block-title">Quick Links</span></a><ul class="mmenu-mm-list-level-2"><li class="mmenu-mm-list-mlid-3069 mmenu-mm-list-path-http:--lenguas.itam.mx en"><a href="http://lenguas.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Academic Department of Languages</span></a></li><li class="mmenu-mm-list-mlid-3062 mmenu-mm-list-path-http:--intercambio.itam.mx en"><a href="http://intercambio.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Academic Exchange</span></a></li><li class="mmenu-mm-list-mlid-3063 mmenu-mm-list-path-https:--exitam.itam.mx-exitam_login.php?sid en"><a href="https://exitam.itam.mx/exitam_login.php?sid" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Alumni Directory</span></a></li><li class="mmenu-mm-list-mlid-3064 mmenu-mm-list-path-http:--aviso.itam.mx en"><a href="http://aviso.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Classifieds</span></a></li><li class="mmenu-mm-list-mlid-3065 mmenu-mm-list-path-https:--www.itam.mx-en-node-80 en"><a href="https://www.itam.mx/en/node/80" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Current Students</span></a></li><li class="mmenu-mm-list-mlid-3068 mmenu-mm-list-path-https:--comunidad.itam.mx-CookieAuth.dll?GetLogon?curl=Z2F&amp;reason=0&amp;formdir=5 en"><a href="https://comunidad.itam.mx/CookieAuth.dll?GetLogon?curl=Z2F&amp;reason=0&amp;formdir=5" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">ITAM Community</span></a></li><li class="mmenu-mm-list-mlid-3070 mmenu-mm-list-path-http:--ccmanuelgomezmorin.org.mx-ccmgm en"><a href="http://ccmanuelgomezmorin.org.mx/ccmgm/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Manuel Gómez Morin Cultural Center</span></a></li><li class="mmenu-mm-list-mlid-3071 mmenu-mm-list-path-http:--aspirantes.itam.mx en"><a href="http://aspirantes.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">New Students</span></a></li><li class="mmenu-mm-list-mlid-3125 mmenu-mm-list-path-http:--escolar.itam.mx-servicios_escolares-calendarios.php"><a href="http://escolar.itam.mx/servicios_escolares/calendarios.php" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Undergraduate Calendar</span></a></li><li class="mmenu-mm-list-mlid-3072 mmenu-mm-list-path-http:--autoestudio.itam.mx en"><a href="http://autoestudio.itam.mx/" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Selfstudy ITAM/FIMPES</span></a></li></ul></li><li class="mmenu-mm-list-mlid-3087 mmenu-mm-list-path-https:--www.itam.mx-es en"><a href="https://www.itam.mx/es" class="mmenu-mm-list "><i class="icon-list2"></i><span class="mmenu-block-title">Español</span></a></li></ul>                    </ul>
+</nav>
+<div id="fb-root" class="fb_module"></div>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+  jQuery.extend(Drupal.settings, {"fb":{"base_url":"https:\/\/intercambio.itam.mx\/es","ajax_event_url":"https:\/\/intercambio.itam.mx\/es\/fb\/ajax","is_anonymous":true,"fb_init_settings":{"xfbml":false,"status":false,"oauth":true,"cookie":true,"channelUrl":"https:\/\/intercambio.itam.mx\/es\/fb\/channel"},"test_login_status":false,"get_login_status":1,"controls":"","js_sdk_url":"\/\/connect.facebook.net\/es_ES\/all.js"}});
+
+if (typeof(FB) == 'undefined') {
+  var e = document.createElement('script');
+  e.async = true;
+  e.src = Drupal.settings.fb.js_sdk_url;
+  document.getElementById('fb-root').appendChild(e);
+}
+
+
+//--><!]]>
+
+</script>
+<script type="text/javascript" src="//intercambio.itam.mx/sites/all/modules/prettyphoto_formatters/js/prettyphoto_formatters.js?tdlfu0"></script>
+<script type="text/javascript" src="//intercambio.itam.mx/sites/all/modules/addthis/addthis.js?tdlfu0"></script>
+		</div>
+		<script type="text/javascript" defer="defer" src="//intercambio.itam.mx/sites/default/files/google_tag/google_tag.script.js?tdlfu0"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function(h,o,t,j,a,r){
+  h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+  h._hjSettings={hjid:"916730",hjsv:"6"};
+  a=o.getElementsByTagName('head')[0];
+  r=o.createElement('script');r.async=1;
+  r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+  a.appendChild(r);
+})(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
+//--><!]]>
+</script>
+<script type="text/javascript" src="//intercambio.itam.mx/sites/all/modules/jquery_update/replace/jquery/2.1/jquery.min.js?v=2.1.4"></script>
+<script type="text/javascript" src="//intercambio.itam.mx/misc/jquery-extend-3.4.0.js?v=2.1.4"></script>
+<script type="text/javascript" src="//intercambio.itam.mx/misc/jquery-html-prefilter-3.5.0-backport.js?v=2.1.4"></script>
+<script type="text/javascript" src="//intercambio.itam.mx/misc/jquery.once.js?v=1.2"></script>
+<script type="text/javascript" src="//intercambio.itam.mx/misc/drupal.js?tdlfu0"></script>
+<script type="text/javascript" src="//intercambio.itam.mx/sites/all/modules/jquery_update/replace/ui/external/jquery.cookie.js?v=67fb34f6a866c40d0570"></script>
+<script type="text/javascript" src="//intercambio.itam.mx/sites/all/libraries/magnific-popup/dist/jquery.magnific-popup.js?v=1"></script>
+<script type="text/javascript" src="//intercambio.itam.mx/sites/all/modules/magnific_popup/js/behaviors.mfp-formatter.js?v=1"></script>
+<script type="text/javascript" src="//intercambio.itam.mx/sites/all/modules/fb/fb.js?tdlfu0"></script>
+<script type="text/javascript" src="//intercambio.itam.mx/sites/all/modules/admin_menu/admin_devel/admin_devel.js?tdlfu0"></script>
+<script type="text/javascript" src="//intercambio.itam.mx/sites/all/modules/ckeditor_accordion/js/ckeditor-accordion.js?tdlfu0"></script>
+<script type="text/javascript" src="//intercambio.itam.mx/sites/all/modules/fitvids/fitvids.js?tdlfu0"></script>
+<script type="text/javascript" src="//intercambio.itam.mx/sites/all/modules/views_fractionslider/js/fractionslider.js?tdlfu0"></script>
+<script type="text/javascript" src="//intercambio.itam.mx/sites/all/modules/pms/js/prevent_multiple_submit.js?tdlfu0"></script>
+<script type="text/javascript" src="//intercambio.itam.mx/sites/default/files/languages/es_eETmZgSj-FLJ2ZSjQbWXgm1jM1lqr5HwIpgWqyy0Gr0.js?tdlfu0"></script>
+<script type="text/javascript" src="//intercambio.itam.mx/sites/all/modules/behavior_weights/behavior_weights.js?tdlfu0"></script>
+<script type="text/javascript" src="//intercambio.itam.mx/sites/all/libraries/colorbox/jquery.colorbox-min.js?tdlfu0"></script>
+<script type="text/javascript" src="//intercambio.itam.mx/sites/all/modules/colorbox/js/colorbox.js?tdlfu0"></script>
+<script type="text/javascript" src="//intercambio.itam.mx/sites/all/modules/colorbox/styles/default/colorbox_style.js?tdlfu0"></script>
+<script type="text/javascript" src="//intercambio.itam.mx/sites/all/modules/views_fractionslider/library/FractionSlider/jquery.fractionslider.js?tdlfu0"></script>
+<script type="text/javascript" src="//intercambio.itam.mx/sites/all/modules/popup/popup.js?tdlfu0"></script>
+<script type="text/javascript" src="//intercambio.itam.mx/sites/all/modules/custom_search/js/custom_search.js?tdlfu0"></script>
+<script type="text/javascript" src="//intercambio.itam.mx/sites/all/modules/multi_image_slider/js/jquery.fitvids.js?tdlfu0"></script>
+<script type="text/javascript" src="//intercambio.itam.mx/sites/all/modules/multi_image_slider/js/jquery.bxslider.js?tdlfu0"></script>
+<script type="text/javascript" src="//intercambio.itam.mx/sites/all/modules/multi_image_slider/js/multi_image_slider.js?tdlfu0"></script>
+<script type="text/javascript" src="//intercambio.itam.mx/sites/all/modules/tb_megamenu/js/tb-megamenu-frontend.js?tdlfu0"></script>
+<script type="text/javascript" src="//intercambio.itam.mx/sites/all/modules/tb_megamenu/js/tb-megamenu-touch.js?tdlfu0"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+var text_resize_scope = "body";
+          var text_resize_minimum = "12";
+          var text_resize_maximum = "24";
+          var text_resize_line_height_allow = 1;
+          var text_resize_line_height_min = "16";
+          var text_resize_line_height_max = "36";
+//--><!]]>
+</script>
+<script type="text/javascript" src="//intercambio.itam.mx/sites/all/modules/text_resize/text_resize.js?tdlfu0"></script>
+<script type="text/javascript" src="//intercambio.itam.mx/sites/all/libraries/jquery.prettyPhoto/js/jquery.prettyPhoto.js?tdlfu0"></script>
+<script type="text/javascript" src="//intercambio.itam.mx/sites/all/modules/responsive_menus/styles/responsive_menus_simple/js/responsive_menus_simple.js?tdlfu0"></script>
+<script type="text/javascript" src="//intercambio.itam.mx/sites/all/modules/google_analytics/googleanalytics.js?tdlfu0"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","https://www.google-analytics.com/analytics.js","ga");ga("create", "UA-24419693-1", {"cookieDomain":"auto"});ga("set", "anonymizeIp", true);ga("send", "pageview");
+//--><!]]>
+</script>
+<script type="text/javascript" src="//intercambio.itam.mx/sites/all/modules/mmenu/js/mmenu.js?tdlfu0"></script>
+<script type="text/javascript" src="//intercambio.itam.mx/sites/all/libraries/mmenu/hammer/hammer.js?tdlfu0"></script>
+<script type="text/javascript" src="//intercambio.itam.mx/sites/all/libraries/mmenu/jquery.hammer/jquery.hammer.js?tdlfu0"></script>
+<script type="text/javascript" src="//intercambio.itam.mx/sites/all/libraries/mmenu/main/src/js/jquery.mmenu.min.all.js?tdlfu0"></script>
+<script type="text/javascript" src="//intercambio.itam.mx/sites/all/themes/enhances/js/theme_library.js?tdlfu0"></script>
+<script type="text/javascript" src="//intercambio.itam.mx/sites/all/themes/enhances/js/theme_script.js?tdlfu0"></script>
+<script type="text/javascript" src="//intercambio.itam.mx/sites/all/themes/enhances/js/update.js?tdlfu0"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"es\/","setHasJsCookie":0,"ajaxPageState":{"theme":"enhances","theme_token":"oeHqzTUyvwDpJlyjkGyFP56RoI43FxNFYTV7qEw4BaQ","css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"sites\/all\/libraries\/magnific-popup\/dist\/magnific-popup.css":1,"sites\/all\/modules\/magnific_popup\/css\/mfp-formatter.css":1,"sites\/all\/modules\/simplenews\/simplenews.css":1,"modules\/aggregator\/aggregator.css":1,"modules\/book\/book.css":1,"sites\/all\/modules\/calendar\/css\/calendar_multiday.css":1,"sites\/all\/modules\/ckeditor_accordion\/css\/ckeditor-accordion.css":1,"modules\/comment\/comment.css":1,"sites\/all\/modules\/date\/date_api\/date.css":1,"sites\/all\/modules\/date\/date_popup\/themes\/datepicker.1.7.css":1,"sites\/all\/modules\/date\/date_repeat_field\/date_repeat_field.css":1,"modules\/field\/theme\/field.css":1,"sites\/all\/modules\/fitvids\/fitvids.css":1,"sites\/all\/modules\/views_fractionslider\/css\/fractionslider.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/youtube\/css\/youtube.css":1,"sites\/all\/modules\/views\/css\/views.css":1,"sites\/all\/modules\/ckeditor\/css\/ckeditor.css":1,"sites\/all\/modules\/colorbox\/styles\/default\/colorbox_style.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"sites\/all\/modules\/panels\/css\/panels.css":1,"sites\/all\/modules\/popup\/popup.css":1,"sites\/all\/modules\/book_made_simple\/book_made_simple.css":1,"sites\/all\/modules\/multi_image_slider\/css\/multi_image_slider.css":1,"sites\/all\/modules\/tb_megamenu\/css\/bootstrap.css":1,"sites\/all\/modules\/tb_megamenu\/css\/base.css":1,"sites\/all\/modules\/tb_megamenu\/css\/default.css":1,"sites\/all\/modules\/tb_megamenu\/css\/compatibility.css":1,"sites\/all\/modules\/custom_search\/custom_search.css":1,"sites\/all\/modules\/text_resize\/text_resize.css":1,"sites\/all\/libraries\/jquery.prettyPhoto\/css\/prettyPhoto.css":1,"sites\/all\/modules\/responsive_menus\/styles\/responsive_menus_simple\/css\/responsive_menus_simple.css":1,"sites\/all\/libraries\/fontawesome\/css\/font-awesome.css":1,"https:\/\/fonts.googleapis.com\/css?family=Raleway:400,100,300,500,700,900":1,"sites\/all\/libraries\/mmenu\/main\/src\/css\/jquery.mmenu.all.css":1,"sites\/all\/libraries\/mmenu\/icomoon\/icomoon.css":1,"sites\/all\/modules\/mmenu\/themes\/mm-basic\/styles\/mm-basic.css":1,"sites\/all\/themes\/enhances\/css\/default.css":1,"sites\/all\/themes\/enhances\/css\/theme_library.css":1,"sites\/all\/themes\/enhances\/fonts\/themify-icons.css":1,"sites\/all\/themes\/enhances\/css\/theme_style.css":1,"sites\/all\/themes\/enhances\/css\/update.css":1,"sites\/all\/themes\/enhances\/css\/base.css":1},"js":{"sites\/all\/modules\/prettyphoto_formatters\/js\/prettyphoto_formatters.js":1,"sites\/all\/modules\/addthis\/addthis.js":1,"public:\/\/google_tag\/google_tag.script.js":1,"sites\/all\/modules\/jquery_update\/replace\/jquery\/2.1\/jquery.min.js":1,"misc\/jquery-extend-3.4.0.js":1,"misc\/jquery-html-prefilter-3.5.0-backport.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/modules\/jquery_update\/replace\/ui\/external\/jquery.cookie.js":1,"sites\/all\/libraries\/magnific-popup\/dist\/jquery.magnific-popup.js":1,"sites\/all\/modules\/magnific_popup\/js\/behaviors.mfp-formatter.js":1,"sites\/all\/modules\/fb\/fb.js":1,"sites\/all\/modules\/admin_menu\/admin_devel\/admin_devel.js":1,"sites\/all\/modules\/ckeditor_accordion\/js\/ckeditor-accordion.js":1,"sites\/all\/modules\/fitvids\/fitvids.js":1,"sites\/all\/modules\/views_fractionslider\/js\/fractionslider.js":1,"sites\/all\/modules\/pms\/js\/prevent_multiple_submit.js":1,"public:\/\/languages\/es_eETmZgSj-FLJ2ZSjQbWXgm1jM1lqr5HwIpgWqyy0Gr0.js":1,"sites\/all\/modules\/behavior_weights\/behavior_weights.js":1,"sites\/all\/libraries\/colorbox\/jquery.colorbox-min.js":1,"sites\/all\/modules\/colorbox\/js\/colorbox.js":1,"sites\/all\/modules\/colorbox\/styles\/default\/colorbox_style.js":1,"sites\/all\/modules\/views_fractionslider\/library\/FractionSlider\/jquery.fractionslider.js":1,"sites\/all\/modules\/popup\/popup.js":1,"sites\/all\/modules\/custom_search\/js\/custom_search.js":1,"sites\/all\/modules\/multi_image_slider\/js\/jquery.fitvids.js":1,"sites\/all\/modules\/multi_image_slider\/js\/jquery.bxslider.js":1,"sites\/all\/modules\/multi_image_slider\/js\/multi_image_slider.js":1,"sites\/all\/modules\/tb_megamenu\/js\/tb-megamenu-frontend.js":1,"sites\/all\/modules\/tb_megamenu\/js\/tb-megamenu-touch.js":1,"sites\/all\/modules\/text_resize\/text_resize.js":1,"sites\/all\/libraries\/jquery.prettyPhoto\/js\/jquery.prettyPhoto.js":1,"sites\/all\/modules\/responsive_menus\/styles\/responsive_menus_simple\/js\/responsive_menus_simple.js":1,"sites\/all\/modules\/google_analytics\/googleanalytics.js":1,"sites\/all\/modules\/mmenu\/js\/mmenu.js":1,"sites\/all\/libraries\/mmenu\/hammer\/hammer.js":1,"sites\/all\/libraries\/mmenu\/jquery.hammer\/jquery.hammer.js":1,"sites\/all\/libraries\/mmenu\/main\/src\/js\/jquery.mmenu.min.all.js":1,"sites\/all\/themes\/enhances\/js\/theme_library.js":1,"sites\/all\/themes\/enhances\/js\/theme_script.js":1,"sites\/all\/themes\/enhances\/js\/update.js":1}},"colorbox":{"opacity":"0.85","current":"{current} of {total}","previous":"\u00ab Prev","next":"Next \u00bb","close":"Close","maxWidth":"98%","maxHeight":"98%","fixed":true,"mobiledetect":true,"mobiledevicewidth":"480px"},"jcarousel":{"ajaxPath":"\/es\/jcarousel\/ajax\/views"},"popup":{"effects":{"show":{"default":"this.body.show();","fade":"\n        if (this.opacity){\n          this.body.fadeTo(\u0027medium\u0027,this.opacity);\n        }else{\n          this.body.fadeIn(\u0027medium\u0027);\n        }","slide-down":"this.body.slideDown(\u0027medium\u0027)","slide-down-fade":"\n        this.body.animate(\n          {\n            height:\u0027show\u0027,\n            opacity:(this.opacity ? this.opacity : \u0027show\u0027)\n          }, \u0027medium\u0027\n        );"},"hide":{"default":"this.body.hide();","fade":"this.body.fadeOut(\u0027medium\u0027);","slide-down":"this.body.slideUp(\u0027medium\u0027);","slide-down-fade":"\n        this.body.animate(\n          {\n            height:\u0027hide\u0027,\n            opacity:\u0027hide\u0027\n          }, \u0027medium\u0027\n        );"}},"linger":250,"delay":0},"custom_search":{"form_target":"_self","solr":0},"multi_image_slider":{"slider_mode":"horizontal","slider_control":"true","slider_autoslide":"false","slider_caption":"false","mode_speed":"500","slidewidth":"500","number_image":"1","slider_pager":"yes","infiniteLoop":"false","adaptiveHeight":"true","pagertype":"full"},"mmenu":{"mmenu_left":{"enabled":"1","title":"Left menu","name":"mmenu_left","blocks":[{"module_delta":"block|42","menu_parameters":{"min_depth":"1"},"title":"\u003Cnone\u003E","collapsed":"1","wrap":"0","module":"block","delta":"42"},{"module_delta":"menu|menu-men-principal-espa-ol","menu_parameters":{"min_depth":"1"},"title":"Men\u00fa Principal","collapsed":"0","wrap":"0","module":"menu","delta":"menu-men-principal-espa-ol"},{"module_delta":"menu|menu-top-line-devitam","menu_parameters":{"min_depth":"1"},"title":"TP","collapsed":"0","wrap":"0","module":"menu","delta":"menu-top-line-devitam"},{"module_delta":"tb_megamenu|menu-menu-principal-ingles","menu_parameters":{"min_depth":"1"},"title":"Menu","collapsed":"0","wrap":"0","module":"tb_megamenu","delta":"menu-menu-principal-ingles"},{"module_delta":"tb_megamenu|menu-top-line-devitam-ingles","menu_parameters":{"min_depth":"1"},"title":"TP","collapsed":"0","wrap":"0","module":"tb_megamenu","delta":"menu-top-line-devitam-ingles"}],"options":{"classes":"mm-basic mm-slide","effects":{"mm-slide":"mm-slide"},"slidingSubmenus":true,"clickOpen":{"open":true,"selector":"[id=BOTON]"},"counters":{"add":false,"update":false},"dragOpen":{"open":true,"pageNode":"body","threshold":800,"maxStartPos":50},"footer":{"add":true,"content":"","title":"Copyright \u00a92016","update":true},"header":{"add":false,"content":"","title":"Men\u00fa ITAM","update":true},"labels":{"collapse":true},"offCanvas":{"enabled":true,"modal":false,"moveBackground":false,"position":"left","zposition":"front"},"searchfield":{"add":false,"addTo":"menu","search":true,"placeholder":"Buscar","noResults":"No results found.","showLinksOnly":true}},"configurations":{"clone":false,"preventTabbing":false,"panelNodetype":"div, ul, ol","transitionDuration":400,"classNames":{"label":"Label","panel":"Panel","selected":"Selected","buttonbars":{"buttonbar":"anchors"},"counters":{"counter":"Counter"},"fixedElements":{"fixedTop":"FixedTop","fixedBottom":"FixedBottom"},"footer":{"panelFooter":"Footer"},"header":{"panelHeader":"Header","panelNext":"Next","panelPrev":"Prev"},"labels":{"collapsed":"Collapsed"},"toggles":{"toggle":"Toggle","check":"Check"}},"dragOpen":{"width":{"perc":0.8,"min":140,"max":440},"height":{"perc":0.8,"min":140,"max":880}},"offCanvas":{"menuInjectMethod":"prepend","menuWrapperSelector":"body","pageNodetype":"div","pageSelector":"body \u003E div"}},"custom":[],"position":"left"}},"prettyphoto":{"animation_speed":"fast","slideshow":5000,"autoplay_slideshow":false,"opacity":0.8,"show_title":true,"allow_resize":true,"default_width":500,"default_height":344,"counter_separator_label":"\/","theme":"pp_default","horizontal_padding":20,"hideflash":false,"wmode":"opaque","autoplay":true,"modal":false,"deeplinking":true,"overlay_gallery":true,"keyboard_shortcuts":true,"ie6_fallback":true,"markup":"\u003Cdiv class=\u0022pp_pic_holder\u0022\u003E\r\n  \u003Cdiv class=\u0022ppt\u0022\u003E\u0026nbsp;\u003C\/div\u003E\r\n  \u003Cdiv class=\u0022pp_top\u0022\u003E\r\n    \u003Cdiv class=\u0022pp_left\u0022\u003E\u003C\/div\u003E\r\n    \u003Cdiv class=\u0022pp_middle\u0022\u003E\u003C\/div\u003E\r\n    \u003Cdiv class=\u0022pp_right\u0022\u003E\u003C\/div\u003E\r\n  \u003C\/div\u003E\r\n  \u003Cdiv class=\u0022pp_content_container\u0022\u003E\r\n    \u003Cdiv class=\u0022pp_left\u0022\u003E\r\n      \u003Cdiv class=\u0022pp_right\u0022\u003E\r\n        \u003Cdiv class=\u0022pp_content\u0022\u003E\r\n          \u003Cdiv class=\u0022pp_loaderIcon\u0022\u003E\u003C\/div\u003E\r\n          \u003Cdiv class=\u0022pp_fade\u0022\u003E\r\n            \u003Ca href=\u0022#\u0022 class=\u0022pp_expand\u0022 title=\u0022Expand the image\u0022\u003EDesplegar\u003C\/a\u003E\r\n            \u003Cdiv class=\u0022pp_hoverContainer\u0022\u003E\r\n              \u003Ca class=\u0022pp_next\u0022 href=\u0022#\u0022\u003ESiguiente\u003C\/a\u003E\r\n              \u003Ca class=\u0022pp_previous\u0022 href=\u0022#\u0022\u003EPrevious\u003C\/a\u003E\r\n            \u003C\/div\u003E\r\n            \u003Cdiv id=\u0022pp_full_res\u0022\u003E\u003C\/div\u003E\r\n            \u003Cdiv class=\u0022pp_details\u0022\u003E\r\n              \u003Cdiv class=\u0022pp_nav\u0022\u003E\r\n                \u003Ca href=\u0022#\u0022 class=\u0022pp_arrow_previous\u0022\u003EPrevious\u003C\/a\u003E\r\n                \u003Cp class=\u0022currentTextHolder\u0022\u003E0\/0\u003C\/p\u003E\r\n                \u003Ca href=\u0022#\u0022 class=\u0022pp_arrow_next\u0022\u003ESiguiente\u003C\/a\u003E\r\n              \u003C\/div\u003E\r\n              \u003Cp class=\u0022pp_description\u0022\u003E\u003C\/p\u003E\r\n              \u003Cdiv class=\u0022pp_social\u0022\u003E{pp_social}\u003C\/div\u003E\r\n              \u003Ca class=\u0022pp_close\u0022 href=\u0022#\u0022\u003EClose\u003C\/a\u003E\r\n            \u003C\/div\u003E\r\n          \u003C\/div\u003E\r\n        \u003C\/div\u003E\r\n      \u003C\/div\u003E\r\n    \u003C\/div\u003E\r\n  \u003C\/div\u003E\r\n  \u003Cdiv class=\u0022pp_bottom\u0022\u003E\r\n    \u003Cdiv class=\u0022pp_left\u0022\u003E\u003C\/div\u003E\r\n    \u003Cdiv class=\u0022pp_middle\u0022\u003E\u003C\/div\u003E\r\n    \u003Cdiv class=\u0022pp_right\u0022\u003E\u003C\/div\u003E\r\n  \u003C\/div\u003E\r\n\u003C\/div\u003E\r\n\u003Cdiv class=\u0022pp_overlay\u0022\u003E\u003C\/div\u003E\r\n","gallery_markup":"\u003Cdiv class=\u0022pp_gallery\u0022\u003E\r\n  \u003Ca href=\u0022#\u0022 class=\u0022pp_arrow_previous\u0022\u003EPrevious\u003C\/a\u003E\r\n  \u003Cdiv\u003E\r\n    \u003Cul\u003E\r\n      {gallery}\r\n    \u003C\/ul\u003E\r\n  \u003C\/div\u003E\r\n  \u003Ca href=\u0022#\u0022 class=\u0022pp_arrow_next\u0022\u003ESiguiente\u003C\/a\u003E\r\n\u003C\/div\u003E\r\n","image_markup":"\u003Cimg id=\u0022fullResImage\u0022 src=\u0022{path}\u0022 \/\u003E\r\n","flash_markup":"\u003Cobject classid=\u0022clsid:D27CDB6E-AE6D-11cf-96B8-444553540000\u0022 width=\u0022{width}\u0022 height=\u0022{height}\u0022\u003E\u003Cparam name=\u0022wmode\u0022 value=\u0022{wmode}\u0022 \/\u003E\u003Cparam name=\u0022allowfullscreen\u0022 value=\u0022true\u0022 \/\u003E\u003Cparam name=\u0022allowscriptaccess\u0022 value=\u0022always\u0022 \/\u003E\u003Cparam name=\u0022movie\u0022 value=\u0022{path}\u0022 \/\u003E\u003Cembed src=\u0022{path}\u0022 type=\u0022application\/x-shockwave-flash\u0022 allowfullscreen=\u0022true\u0022 allowscriptaccess=\u0022always\u0022 width=\u0022{width}\u0022 height=\u0022{height}\u0022 wmode=\u0022{wmode}\u0022\u003E\u003C\/embed\u003E\u003C\/object\u003E\r\n","quicktime_markup":"\u003Cobject classid=\u0022clsid:02BF25D5-8C17-4B23-BC80-D3488ABDDC6B\u0022 codebase=\u0022http:\/\/www.apple.com\/qtactivex\/qtplugin.cab\u0022 height=\u0022{height}\u0022 width=\u0022{width}\u0022\u003E\u003Cparam name=\u0022src\u0022 value=\u0022{path}\u0022\u003E\u003Cparam name=\u0022autoplay\u0022 value=\u0022{autoplay}\u0022\u003E\u003Cparam name=\u0022type\u0022 value=\u0022video\/quicktime\u0022\u003E\u003Cembed src=\u0022{path}\u0022 height=\u0022{height}\u0022 width=\u0022{width}\u0022 autoplay=\u0022{autoplay}\u0022 type=\u0022video\/quicktime\u0022 pluginspage=\u0022http:\/\/www.apple.com\/quicktime\/download\/\u0022\u003E\u003C\/embed\u003E\u003C\/object\u003E\r\n","iframe_markup":"\u003Ciframe src =\u0022{path}\u0022 width=\u0022{width}\u0022 height=\u0022{height}\u0022 frameborder=\u0022no\u0022\u003E\u003C\/iframe\u003E\r\n","inline_markup":"\u003Cdiv class=\u0022pp_inline\u0022\u003E{content}\u003C\/div\u003E\r\n","custom_markup":"","social_tools":"\r\n"},"responsive_menus":[{"toggler_text":"\u2630 Menu","selectors":["#block-menu-menu-principal-exitam","#block-menu-menu-secundario-exitam","#menu-divisiones"],"media_size":"768","media_unit":"px","absolute":"1","remove_attributes":"1","responsive_menus_style":"responsive_menus_simple"}],"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc(x|m)?|dot(x|m)?|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt(x|m)?|pot(x|m)?|pps(x|m)?|ppam|sld(x|m)?|thmx|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls(x|m|b)?|xlt(x|m)|xlam|xml|z|zip","trackColorbox":1},"magnific_popup_api":{"iframe_patterns":[]}});
+//--><!]]>
+</script>
+	</body>
+</html>

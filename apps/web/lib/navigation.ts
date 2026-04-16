@@ -21,7 +21,11 @@ export type SecondaryNavId = (typeof SECONDARY_NAV_ITEMS)[number]["id"];
 const PRIMARY_NAV_INDEX = new Map(PRIMARY_NAV_ITEMS.map((item, index) => [item.id, index]));
 const SWIPE_THRESHOLD = 36;
 
-export function resolvePrimaryNavId(pathname: string): PrimaryNavId {
+export function resolvePrimaryNavId(pathname: string): PrimaryNavId | null {
+  if (pathname === "/") {
+    return "home";
+  }
+
   if (pathname.startsWith("/planner")) {
     return "planner";
   }
@@ -30,7 +34,7 @@ export function resolvePrimaryNavId(pathname: string): PrimaryNavId {
     return "calendar";
   }
 
-  return "home";
+  return null;
 }
 
 export function resolveSecondaryNavId(pathname: string): SecondaryNavId | null {
@@ -71,6 +75,9 @@ export function resolveSwipeNavigation(
   }
 
   const currentId = resolvePrimaryNavId(pathname);
+  if (currentId === null) {
+    return null;
+  }
   const currentIndex = PRIMARY_NAV_INDEX.get(currentId);
 
   if (currentIndex === undefined) {

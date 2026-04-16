@@ -1,6 +1,9 @@
+import { OFFICIAL_EXECUTIVE_EDUCATION_URL } from "@/lib/site-content";
 import type {
   AcademicCareerReference,
   BulletinSummary,
+  DoubleDegreeReference,
+  GraduateProgramReference,
   JointProgramReference,
   LocalSearchIndexItem,
   PaymentCalendarDocument,
@@ -11,6 +14,8 @@ import type {
 
 export interface SearchIndexBootstrap {
   careers: AcademicCareerReference[];
+  doubleDegrees: DoubleDegreeReference[];
+  graduatePrograms: GraduateProgramReference[];
   jointPrograms: JointProgramReference[];
   newsItems: SiteNewsItem[];
   paymentCalendar: PaymentCalendarDocument | null;
@@ -38,6 +43,57 @@ export function buildLocalSearchIndex(bootstrap: SearchIndexBootstrap): LocalSea
         ...program.component_career_ids,
         ...program.contact_emails,
         ...program.phone_extensions,
+      ],
+      title: program.display_name,
+    })),
+    ...bootstrap.graduatePrograms.map((program) => ({
+      body: [
+        "Official ITAM graduate program reference.",
+        program.display_name,
+        program.program_kind,
+        program.status,
+        program.contact_emails.join(" "),
+        program.calendar_url ?? "",
+        program.admission_process_url ?? "",
+        program.study_plan_url ?? "",
+      ]
+        .join(" ")
+        .trim(),
+      category: "Graduate program",
+      href:
+        program.microsite_url ??
+        program.brochure_url ??
+        program.calendar_url ??
+        program.source_url,
+      keywords: [
+        program.graduate_program_id,
+        program.program_kind,
+        program.status,
+        ...program.contact_emails,
+      ],
+      title: program.display_name,
+    })),
+    ...bootstrap.doubleDegrees.map((program) => ({
+      body: [
+        "Official ITAM double degree reference.",
+        program.base_program_label,
+        program.partner_institution ?? "",
+        program.eligibility_label ?? "",
+        program.degree_labels.join(" "),
+        program.language_requirement ?? "",
+        program.location ?? "",
+        program.notes.join(" "),
+      ]
+        .join(" ")
+        .trim(),
+      category: "Double degree",
+      href: program.brochure_urls[0] ?? program.source_url,
+      keywords: [
+        program.double_degree_id,
+        program.base_program_label,
+        program.partner_institution ?? "",
+        ...program.contact_emails,
+        ...program.degree_labels,
       ],
       title: program.display_name,
     })),
@@ -167,6 +223,13 @@ const STATIC_PAGES: LocalSearchIndexItem[] = [
     href: "/map",
     keywords: ["mapa", "map", "campus", "salones"],
     title: "Mapa",
+  },
+  {
+    body: "Official executive education and continuing-education surface hosted by ITAM.",
+    category: "Official source",
+    href: OFFICIAL_EXECUTIVE_EDUCATION_URL,
+    keywords: ["educacion ejecutiva", "extension universitaria", "executive education"],
+    title: "Educación ejecutiva",
   },
   {
     body: "Independent-project legal context and non-affiliation notice.",

@@ -12,6 +12,8 @@ describe("navigation helpers", () => {
     expect(resolvePrimaryNavId("/planner")).toBe("planner");
     expect(resolvePrimaryNavId("/planner/onboarding")).toBe("planner");
     expect(resolvePrimaryNavId("/calendar")).toBe("calendar");
+    expect(resolvePrimaryNavId("/connect-ai")).toBeNull();
+    expect(resolvePrimaryNavId("/project")).toBeNull();
   });
 
   it("maps secondary routes to the canonical English utility tabs", () => {

@@ -1,12 +1,19 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 
-import { OFFICIAL_CAREERS, OFFICIAL_JOINT_PROGRAMS } from "@/lib/official-academics";
+import {
+  OFFICIAL_CAREERS,
+  OFFICIAL_DOUBLE_DEGREES,
+  OFFICIAL_GRADUATE_PROGRAMS,
+  OFFICIAL_JOINT_PROGRAMS,
+} from "@/lib/official-academics";
 import { OFFICIAL_NEWS_ITEMS } from "@/lib/site-content";
 import type {
   AcademicCareerReference,
   BulletinDocument,
   BulletinSummary,
+  DoubleDegreeReference,
+  GraduateProgramReference,
   JointProgramReference,
   PaymentCalendarDocument,
   SchoolCalendarDocument,
@@ -18,6 +25,8 @@ import type {
 export interface PlannerShellBootstrap {
   bulletinDocuments: BulletinDocument[];
   careers: AcademicCareerReference[];
+  doubleDegrees: DoubleDegreeReference[];
+  graduatePrograms: GraduateProgramReference[];
   jointPrograms: JointProgramReference[];
   newsItems: SiteNewsItem[];
   plans: BulletinSummary[];
@@ -41,6 +50,8 @@ export async function readPlannerShellBootstrap(): Promise<PlannerShellBootstrap
   return {
     bulletinDocuments,
     careers: [...OFFICIAL_CAREERS],
+    doubleDegrees: [...OFFICIAL_DOUBLE_DEGREES],
+    graduatePrograms: [...OFFICIAL_GRADUATE_PROGRAMS],
     jointPrograms: [...OFFICIAL_JOINT_PROGRAMS],
     newsItems: [...OFFICIAL_NEWS_ITEMS],
     plans,
@@ -59,6 +70,8 @@ export async function readOnboardingBootstrap() {
   return {
     bulletinDocuments,
     careers: [...OFFICIAL_CAREERS],
+    doubleDegrees: [...OFFICIAL_DOUBLE_DEGREES],
+    graduatePrograms: [...OFFICIAL_GRADUATE_PROGRAMS],
     jointPrograms: [...OFFICIAL_JOINT_PROGRAMS],
     periods,
     plans,
@@ -86,6 +99,8 @@ export async function readPlannerSettingsBootstrap() {
   return {
     bulletinDocuments,
     careers: [...OFFICIAL_CAREERS],
+    doubleDegrees: [...OFFICIAL_DOUBLE_DEGREES],
+    graduatePrograms: [...OFFICIAL_GRADUATE_PROGRAMS],
     jointPrograms: [...OFFICIAL_JOINT_PROGRAMS],
     periods,
   };
@@ -99,6 +114,8 @@ export async function readSearchBootstrap() {
 
   return {
     careers: plannerBootstrap.careers,
+    doubleDegrees: plannerBootstrap.doubleDegrees,
+    graduatePrograms: plannerBootstrap.graduatePrograms,
     jointPrograms: plannerBootstrap.jointPrograms,
     newsItems: plannerBootstrap.newsItems,
     paymentCalendar: calendarBootstrap.paymentCalendar,

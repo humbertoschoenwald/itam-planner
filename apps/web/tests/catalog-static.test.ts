@@ -8,6 +8,8 @@ describe("catalog static bootstrap readers", () => {
 
     expect(bootstrap.plans.length).toBeGreaterThan(0);
     expect(bootstrap.periods.length).toBeGreaterThan(0);
+    expect(bootstrap.graduatePrograms.length).toBeGreaterThan(0);
+    expect(bootstrap.doubleDegrees.length).toBeGreaterThan(0);
     expect(bootstrap.sourcesMetadata).not.toBeNull();
   });
 

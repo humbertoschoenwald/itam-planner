@@ -202,6 +202,35 @@ export interface JointProgramReference {
   source_url: string;
 }
 
+export interface GraduateProgramReference {
+  admission_process_url: string | null;
+  brochure_url: string | null;
+  calendar_url: string | null;
+  contact_emails: string[];
+  display_name: string;
+  graduate_program_id: string;
+  microsite_url: string | null;
+  program_kind: "doctorado" | "especialidad" | "maestria" | "mba";
+  source_url: string;
+  status: "active" | "under-review";
+  study_plan_url: string | null;
+}
+
+export interface DoubleDegreeReference {
+  base_program_label: string;
+  brochure_urls: string[];
+  contact_emails: string[];
+  degree_labels: string[];
+  display_name: string;
+  double_degree_id: string;
+  eligibility_label: string | null;
+  language_requirement: string | null;
+  location: string | null;
+  notes: string[];
+  partner_institution: string | null;
+  source_url: string;
+}
+
 export interface SiteNewsItem {
   category: string;
   href: string;

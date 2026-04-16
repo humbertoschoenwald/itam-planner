@@ -4,12 +4,16 @@ import path from "node:path";
 import { describe, expect, it } from "vitest";
 
 import {
+  extractOfficialDoubleDegreesFromHtml,
+  extractOfficialGraduateProgramsFromHtml,
   extractOfficialJointProgramRowsFromHtml,
   extractOfficialJointProgramsFromHtml,
   findApplicableJointPlansForEntryTerm,
   isIndividualCareerProgram,
   normalizeAcademicTitle,
   OFFICIAL_CAREERS,
+  OFFICIAL_DOUBLE_DEGREES,
+  OFFICIAL_GRADUATE_PROGRAMS,
   OFFICIAL_JOINT_PROGRAMS,
 } from "@/lib/official-academics";
 import type { BulletinSummary } from "@/lib/types";
@@ -48,6 +52,14 @@ const samplePlans: BulletinSummary[] = [
 describe("official academics helpers", () => {
   const officialJointProgramsFixture = fs.readFileSync(
     path.resolve(process.cwd(), "tests/fixtures/itam-programas-conjuntos.html"),
+    "utf8",
+  );
+  const officialGraduateProgramsFixture = fs.readFileSync(
+    path.resolve(process.cwd(), "tests/fixtures/itam-posgrados.html"),
+    "utf8",
+  );
+  const officialDoubleDegreesFixture = fs.readFileSync(
+    path.resolve(process.cwd(), "tests/fixtures/itam-dobles-grados.html"),
     "utf8",
   );
 
@@ -105,5 +117,23 @@ describe("official academics helpers", () => {
 
     expect(extractedPrograms).toHaveLength(39);
     expect(extractedPrograms).toEqual(OFFICIAL_JOINT_PROGRAMS);
+  });
+
+  it("matches the committed graduate-program reference against the official ITAM fixture", () => {
+    const extractedPrograms = extractOfficialGraduateProgramsFromHtml(
+      officialGraduateProgramsFixture,
+    );
+
+    expect(extractedPrograms).toHaveLength(12);
+    expect(extractedPrograms).toEqual(OFFICIAL_GRADUATE_PROGRAMS);
+  });
+
+  it("matches the committed double-degree reference against the official ITAM fixture", () => {
+    const extractedPrograms = extractOfficialDoubleDegreesFromHtml(
+      officialDoubleDegreesFixture,
+    );
+
+    expect(extractedPrograms).toHaveLength(10);
+    expect(extractedPrograms).toEqual(OFFICIAL_DOUBLE_DEGREES);
   });
 });
