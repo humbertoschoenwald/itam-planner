@@ -5,6 +5,7 @@ from dataclasses import replace
 
 import pytest
 from itam_planner_api.common import stable_hash_bytes
+from itam_planner_api.models import BulletinLink
 from itam_planner_api.pipeline import builder
 from itam_planner_api.pipeline.builder import ValidationError, build_from_fixtures
 from itam_planner_api.storage.repository import CatalogRepository
@@ -202,3 +203,30 @@ def test_fixture_text_payload_normalization_is_platform_stable(tmp_path) -> None
     assert builder._read_fixture_text_payload(windows_path) == builder._read_fixture_text_payload(
         unix_path
     )
+
+
+def test_fetch_official_bulletin_payloads_skips_missing_documents() -> None:
+    links = [
+        BulletinLink(code="AAC-D", url="https://example.com/AAC-D.pdf"),
+        BulletinLink(code="DPL-C", url="https://example.com/DPL-C.pdf"),
+    ]
+
+    class FakeResponse:
+        def __init__(self, *, content: bytes, status_code: int) -> None:
+            self.content = content
+            self.status_code = status_code
+
+        def raise_for_status(self) -> None:
+            if self.status_code >= 400:
+                raise RuntimeError(f"unexpected status {self.status_code}")
+
+    class FakeClient:
+        def get(self, url: str) -> FakeResponse:
+            if url.endswith("DPL-C.pdf"):
+                return FakeResponse(content=b"", status_code=404)
+            return FakeResponse(content=b"ok", status_code=200)
+
+    resolved_links, payloads = builder._fetch_official_bulletin_payloads(FakeClient(), links)
+
+    assert [link.code for link in resolved_links] == ["AAC-D"]
+    assert payloads == {"AAC-D": b"ok"}

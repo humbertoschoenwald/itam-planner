@@ -33,7 +33,7 @@ def test_parse_calendars_page_extracts_expected_documents(fixtures_root) -> None
 
 def test_parse_boletines_index_extracts_cache_time_and_pdf_links(fixtures_root) -> None:
     html = (fixtures_root / "html" / "boletines_index.html").read_text(encoding="utf-8")
-    observed_at, links = parse_boletines_index(html, "https://horariositam.com/boletines.html")
+    observed_at, links = parse_boletines_index(html, "https://example.com/boletines/")
 
     assert observed_at is not None
     assert len(links) > 100

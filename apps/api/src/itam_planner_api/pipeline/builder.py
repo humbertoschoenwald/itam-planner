@@ -14,8 +14,8 @@ import httpx
 from ..common import ensure_directory, stable_hash_bytes
 from ..config import Settings
 from ..exports.json_exporter import export_public_dataset
-from ..models import ScheduleOffering, ScheduleSubject, SourceSnapshot
-from ..parsers.boletines import parse_boletines_index, parse_bulletin_pdf
+from ..models import BulletinLink, ScheduleOffering, ScheduleSubject, SourceSnapshot
+from ..parsers.boletines import parse_bulletin_pdf
 from ..parsers.calendars import (
     parse_calendars_page,
     parse_payment_calendar_pdf,
@@ -32,9 +32,12 @@ from ..storage.repository import CatalogRepository
 
 SERVICES_URL = "https://servicios.itam.mx/"
 CALENDARS_URL = "https://escolar.itam.mx/servicios_escolares/servicios_calendarios.php"
-BOLETINES_URL = "https://horariositam.com/boletines.html"
+OFFICIAL_BOLETINES_BASE_URL = "https://escolar.itam.mx/licenciaturas/boletines/"
 MENU_URL = "https://itaca2.itam.mx:8443/b9prod/edsup/BWZKSENP.P_MenuServNoPers"
 HORARIOS_FORM_URL = "https://itaca2.itam.mx:8443/b9prod/edsup/BWZKSENP.P_Horarios2"
+REFERENCE_BULLETIN_CODES_PATH = (
+    Path(__file__).resolve().parents[1] / "reference" / "official_bulletin_codes.json"
+)
 FIXTURE_RUN_STARTED_AT = datetime(2026, 4, 15, 11, 36, 0, tzinfo=UTC)
 FIXTURE_RUN_COMPLETED_AT = datetime(2026, 4, 15, 11, 36, 2, tzinfo=UTC)
 FIXTURE_PROMOTED_AT = datetime(2026, 4, 15, 11, 36, 3, tzinfo=UTC)
@@ -265,11 +268,12 @@ def _build_fixture_live_bundle(fixtures_root: Path) -> LiveSourceBundle:
     calendars_payload = _read_fixture_text_payload(html_root / "servicios_calendarios.html")
     calendar_links = parse_calendars_page(calendars_payload.decode("utf-8"), CALENDARS_URL)
 
-    boletines_payload = _read_fixture_text_payload(html_root / "boletines_index.html")
-    boletines_observed_at, bulletin_links = parse_boletines_index(
-        boletines_payload.decode("utf-8"), BOLETINES_URL
-    )
-    bulletin_url_by_code = {bulletin.code: bulletin.url for bulletin in bulletin_links}
+    fixture_bulletin_codes = ["MA-E", "ACT-G"]
+    boletines_payload = _build_bulletin_seed_manifest_payload(fixture_bulletin_codes)
+    bulletin_url_by_code = {
+        bulletin.code: bulletin.url
+        for bulletin in _build_official_bulletin_links(fixture_bulletin_codes)
+    }
 
     schedule_menu_payload = _read_fixture_text_payload(
         html_root / "menu_servicios_no_personalizados.html"
@@ -343,10 +347,10 @@ def _build_fixture_live_bundle(fixtures_root: Path) -> LiveSourceBundle:
         boletines_index=_material(
             "boletines-index",
             "boletines",
-            BOLETINES_URL,
+            OFFICIAL_BOLETINES_BASE_URL,
             boletines_payload,
-            boletines_observed_at or observed_at,
-            "text/html",
+            observed_at,
+            "application/json",
         ),
         bulletin_documents=[
             BulletinSourceAsset(
@@ -418,10 +422,8 @@ def _collect_live_source_bundle(client: httpx.Client, raw_root: Path) -> LiveSou
         CALENDARS_URL,
     )
 
-    boletines_payload = _fetch(client, BOLETINES_URL)
-    boletines_observed_at, bulletin_links = parse_boletines_index(
-        boletines_payload.decode("utf-8", errors="ignore"), BOLETINES_URL
-    )
+    bulletin_codes = _load_official_bulletin_codes(raw_root.parent.parent)
+    bulletin_links = _build_official_bulletin_links(bulletin_codes)
 
     menu_payload = _fetch(client, MENU_URL)
     periods = parse_schedule_periods_menu(menu_payload.decode("utf-8", errors="ignore"), MENU_URL)
@@ -431,9 +433,13 @@ def _collect_live_source_bundle(client: httpx.Client, raw_root: Path) -> LiveSou
     payment_calendar_payload = _fetch(client, calendar_links["payment_calendar"])
     regulation_pre_payload = _fetch(client, calendar_links["regulation_pre_2025"])
     regulation_post_payload = _fetch(client, calendar_links["regulation_post_2025"])
-    bulletin_payloads = {
-        bulletin_link.code: _fetch(client, bulletin_link.url) for bulletin_link in bulletin_links
-    }
+    resolved_bulletin_links, bulletin_payloads = _fetch_official_bulletin_payloads(
+        client,
+        bulletin_links,
+    )
+    boletines_payload = _build_bulletin_seed_manifest_payload(
+        [bulletin_link.code for bulletin_link in resolved_bulletin_links]
+    )
 
     schedule_period_pages: dict[str, LiveSourceMaterial] = {}
     schedule_offering_pages: dict[str, dict[str, LiveSourceMaterial]] = {}
@@ -579,11 +585,17 @@ def _collect_live_source_bundle(client: httpx.Client, raw_root: Path) -> LiveSou
         boletines_index=_material(
             "boletines-index",
             "boletines",
-            BOLETINES_URL,
+            OFFICIAL_BOLETINES_BASE_URL,
             boletines_payload,
-            boletines_observed_at or observed_at,
-            "text/html",
-            artifact_path=_cache(raw_root, "boletines-index", BOLETINES_URL, boletines_payload),
+            observed_at,
+            "application/json",
+            artifact_path=_cache(
+                raw_root,
+                "boletines-index",
+                OFFICIAL_BOLETINES_BASE_URL,
+                boletines_payload,
+                suffix=".json",
+            ),
         ),
         bulletin_documents=[
             BulletinSourceAsset(
@@ -603,7 +615,7 @@ def _collect_live_source_bundle(client: httpx.Client, raw_root: Path) -> LiveSou
                     ),
                 ),
             )
-            for bulletin_link in bulletin_links
+            for bulletin_link in resolved_bulletin_links
         ],
         schedule_menu=_material(
             "schedule-menu",
@@ -617,6 +629,70 @@ def _collect_live_source_bundle(client: httpx.Client, raw_root: Path) -> LiveSou
         schedule_period_pages=schedule_period_pages,
         schedule_offering_pages=schedule_offering_pages,
     )
+
+
+def _build_bulletin_seed_manifest_payload(codes: list[str]) -> bytes:
+    payload = {
+        "codes": sorted(codes),
+        "base_url": OFFICIAL_BOLETINES_BASE_URL,
+    }
+    return json.dumps(payload, ensure_ascii=False, indent=2).encode("utf-8")
+
+
+def _build_official_bulletin_links(codes: list[str]) -> list[BulletinLink]:
+    return [
+        BulletinLink(
+            code=code,
+            url=f"{OFFICIAL_BOLETINES_BASE_URL}{code.upper()}.pdf",
+        )
+        for code in sorted({code.strip().upper() for code in codes if code.strip()})
+    ]
+
+
+def _fetch_official_bulletin_payloads(
+    client: httpx.Client,
+    bulletin_links: list[BulletinLink],
+) -> tuple[list[BulletinLink], dict[str, bytes]]:
+    resolved_links: list[BulletinLink] = []
+    payloads: dict[str, bytes] = {}
+
+    for bulletin_link in bulletin_links:
+        response = client.get(bulletin_link.url)
+
+        if response.status_code == 404:
+            continue
+
+        response.raise_for_status()
+        resolved_links.append(bulletin_link)
+        payloads[bulletin_link.code] = response.content
+
+    if not resolved_links:
+        raise ValidationError("No official ITAM bulletin PDFs were reachable.")
+
+    return resolved_links, payloads
+
+
+def _load_official_bulletin_codes(public_data_root: Path) -> list[str]:
+    latest_index_path = public_data_root / "latest" / "boletines" / "index.json"
+
+    if latest_index_path.exists():
+        latest_index_payload = json.loads(latest_index_path.read_text(encoding="utf-8"))
+        latest_codes = sorted(
+            {
+                str(document.get("source_code", "")).strip().upper()
+                for document in latest_index_payload
+                if str(document.get("source_code", "")).strip()
+            }
+        )
+        if latest_codes:
+            return latest_codes
+
+    return _read_reference_bulletin_codes()
+
+
+def _read_reference_bulletin_codes() -> list[str]:
+    payload = json.loads(REFERENCE_BULLETIN_CODES_PATH.read_text(encoding="utf-8"))
+    return sorted({str(code).strip().upper() for code in payload if str(code).strip()})
 
 
 def _read_fixture_text_payload(path: Path) -> bytes:
