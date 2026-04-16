@@ -16,6 +16,7 @@ Do not edit it manually.
 - web: add system theme foundations (`7dc4846`)
 - web: rebuild the mobile planner shell (`8cbaedc`)
 - web: add searchable planner onboarding wizard (`4b00f60`)
+- web: limit planner swipe to phone layouts (`131dd5a`)
 
 ### Fixes
 
@@ -55,6 +56,7 @@ Do not edit it manually.
 - doctrine: forbid automatic state wiping on route errors (`e89ae7c`)
 - doctrine: embed planner onboarding in frontend policy (`56658a4`)
 - doctrine: refine planner onboarding contract (`d4d3ccb`)
+- doctrine: make swipe guidance phone-only (`906ec9d`)
 
 ### Tests
 
