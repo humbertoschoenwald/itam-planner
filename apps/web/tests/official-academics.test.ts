@@ -104,17 +104,6 @@ describe("official academics helpers", () => {
     const extractedPrograms = extractOfficialJointProgramsFromHtml(officialJointProgramsFixture);
 
     expect(extractedPrograms).toHaveLength(39);
-    expect(extractedPrograms.map((program) => program.joint_program_id)).toEqual(
-      OFFICIAL_JOINT_PROGRAMS.map((program) => program.joint_program_id),
-    );
-    expect(
-      extractedPrograms.find(
-        (program) => program.joint_program_id === "administracion-negocios-economia",
-      ),
-    ).toMatchObject({
-      component_career_ids: ["administracion-negocios", "economia"],
-      contact_emails: ["javier.medrano@itam.mx", "arturo.aguilar@itam.mx"],
-      phone_extensions: ["4049", "4179"],
-    });
+    expect(extractedPrograms).toEqual(OFFICIAL_JOINT_PROGRAMS);
   });
 });

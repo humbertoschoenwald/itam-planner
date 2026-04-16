@@ -367,7 +367,7 @@ const OFFICIAL_JOINT_PROGRAM_DEFINITIONS = [
   {
     componentCareerIds: ["ciencia-datos", "computacion"],
     contactEmails: ["fernando.esponda@itam.mx", "marco.morales@itam.mx"],
-    coordinators: ["Dr. Fernando Esponda Darlington", "Dr. Marco Antonio Morales Aguirre"],
+    coordinators: ["Dr. Fernando Esponda Darlington", "Dr. Marco Antonio Morales Aguirrei"],
     phoneExtensions: ["4699", "3626"],
   },
   {
