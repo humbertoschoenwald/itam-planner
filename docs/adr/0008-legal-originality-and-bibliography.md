@@ -29,7 +29,7 @@ Originality rules:
 - Public academic ITAM source pages and documents must be acknowledged as source material for ingestion when repository docs describe data provenance.
 - Third-party mirrors, caches, or unofficial ITAM aggregators are prohibited as canonical production scraping sources.
 - `horariositam.com` must not be used as a production scraping source or as authoritative data provenance.
-- Official ITAM-owned supporting pages such as `carreras.itam.mx`, `www.itam.mx/es/programas-conjuntos`, and `news.itam.mx` may be used as source material for browser bootstrap, official career vocabulary, traceable joint-program references, or traceable editorial/news surfaces.
+- Official ITAM-owned supporting pages such as `carreras.itam.mx`, `www.itam.mx/es/programas-conjuntos`, `posgrados.itam.mx`, `intercambio.itam.mx`, `desarrolloejecutivo.itam.mx`, and `news.itam.mx` may be used as source material for browser bootstrap, official academic-reference vocabularies, traceable double-degree references, executive-education references, or traceable editorial/news surfaces.
 - Official editorial/news surfaces shown in the product must cite their source URLs and stay on ITAM-owned domains.
 
 Bibliography rules:

@@ -29,7 +29,7 @@ The current active implementation slice includes:
 - `apps/web` onboarding and planner shell
 - browser-local planner state
 - portable student code generation
-- official-source browser bootstrap for careers and joint programs
+- official-source browser bootstrap for careers, joint programs, graduate programs, double degrees, and executive-education references
 - planner configuration, local search, inscriptions guidance, project surface, and map placeholder routes
 - public home/editorial surfaces such as project introduction and traceable news links
 - SEO reinforcement for canonical metadata, previews, structured data, and crawlable utility routes

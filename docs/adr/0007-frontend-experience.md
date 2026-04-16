@@ -42,6 +42,7 @@ Initial product-surface rules:
 - The home experience starts with onboarding rather than account creation.
 - The public navigation must center on `Home`, `Planner`, and `Calendario` as the primary destinations.
 - Desktop and tablet layouts may expose additional secondary navigation actions such as project/help, external-AI setup, inscriptions guidance, configuration, and search in the same top navigation cluster as the primary destinations, but those surfaces must still remain visually secondary to `Home`, `Planner`, and `Calendario`.
+- Secondary navigation may also expose less-common official-reference surfaces such as executive education only through secondary or overflow navigation, not as primary destinations.
 - The onboarding flow must explicitly state that no account is required.
 - The onboarding flow must ask the student to choose the academic level (`undergraduate` or `graduate`) before deriving planner defaults.
 - The onboarding flow must collect entry term through structured selectors for academic season and year rather than a free-text input.
@@ -63,6 +64,7 @@ Initial product-surface rules:
 - Planner onboarding must sort visible career choices alphabetically and must keep their labels user-facing and locale-driven instead of leaking internal uppercase catalog values.
 - Planner onboarding should deduplicate visible plan rows into searchable official career and joint-program choices whenever multiple visible plans belong to the same academic program grouping for the selected entry term.
 - Planner onboarding should derive its base-career vocabulary from official ITAM-owned career sources and derive its joint-program vocabulary from official ITAM-owned joint-program sources, while still matching those choices against the published normalized catalog for the selected entry term.
+- The public bootstrap layer should also expose official graduate-program references and official double-degree references from ITAM-owned sources for discovery, search, and future graduate onboarding work.
 - Planner onboarding should create the default launch planner widget set browser-locally during final setup instead of forcing widget selection as primary onboarding friction.
 - The launch planner surface must support `Today`, `Week`, and `Subjects / Plans` widgets, and `Today` must keep the highest visual priority whenever it is enabled.
 - The planner should derive an initial semester estimate from the stored entry term plus the current public period that matches the chosen academic level, then use that estimate to seed a default subject set during onboarding. The user must remain free to add or remove subjects later.
@@ -94,6 +96,7 @@ Initial product-surface rules:
 - The public home should explain the project in non-technical language and expose a traceable news section whose links stay attached to official sources.
 - The calendar surface should foreground current and near-term academic events and payment milestones, while keeping older published items available as secondary history rather than leading the page with stale dates.
 - Public search must remain local to the published site artifact and precomputed public data. It must not require backend personal state or remote search infrastructure for the initial runtime slice.
+- Public search should index official graduate-program references, official double-degree references, and other official secondary study options that the current slice exposes.
 - An inscriptions surface may guide the user through official ITAM flows with traceable links and source citations, but it must not intercept or automate authenticated registration.
 - A map surface may exist as a placeholder during the current slice, but detailed campus mapping remains deferred until a dedicated map phase begins.
 - The Connect to ChatGPT flow comes after the planner state exists and may be teased earlier, but its final route contract is deferred until that slice begins.

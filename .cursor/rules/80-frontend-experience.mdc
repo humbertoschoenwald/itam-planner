@@ -16,6 +16,7 @@ alwaysApply: true
 - RULE: Target WCAG 2.2 AA in product decisions and avoid public conformance claims until the relevant UI slice is actually audited.
 - RULE: Use `Home`, `Planner`, and `Calendario` as the primary public navigation destinations.
 - RULE: Keep project/help, AI-connection, inscriptions, configuration, and search surfaces secondary to the primary navigation destinations even when desktop and tablet layouts place them in the same top navigation cluster.
+- RULE: Keep executive-education or other less-common official-reference surfaces secondary or overflow-only; they must not become primary navigation destinations.
 - RULE: Start the product flow with onboarding inside the planner flow, not behind an account wall.
 - RULE: Collect academic level in planner onboarding before deriving entry-term years, planner defaults, or level-specific periods.
 - RULE: Collect entry term in onboarding with controlled season/year selectors instead of free-text input.
@@ -32,6 +33,7 @@ alwaysApply: true
 - RULE: Sort visible career choices alphabetically and drive their labels from locale configuration rather than leaking raw uppercase catalog labels.
 - RULE: Deduplicate visible plan rows into searchable academic choices whenever the selected entry term exposes multiple plans for the same official career or joint-program grouping.
 - RULE: Seed planner subject selection automatically from the estimated current semester during onboarding, but allow the user to search and override the selected subjects later.
+- RULE: Expose official graduate-program and official double-degree references through the public bootstrap/search layer so graduate discovery does not depend on unofficial mirrors.
 - RULE: Do not keep already-selected subjects duplicated in the lower available-subject directory.
 - RULE: Treat launch planner widget preferences as browser-local UI state, initialize the default launch widget set during planner setup, and keep `Today` visually dominant when present.
 - RULE: Show swipe-preference controls only on phone layouts, where swipe navigation exists.
@@ -56,5 +58,6 @@ alwaysApply: true
 - RULE: Keep the home surface editorial and non-technical, and keep any news cards traceable to official source URLs.
 - RULE: Foreground current and near-term calendar and payment items before older published history.
 - RULE: Keep search local to the site artifact and published data for the current slice.
+- RULE: Keep local search broad enough to cover official graduate-program references, official double-degree references, and official secondary-study options that the product exposes.
 - RULE: Keep inscriptions guidance highly traceable and link-driven; do not automate authenticated registration.
 - RULE: Treat the final Connect to ChatGPT route and setup flow as a follow-up slice after planner state exists.

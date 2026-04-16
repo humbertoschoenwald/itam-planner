@@ -17,4 +17,4 @@ alwaysApply: true
 - RULE: Acknowledge public ITAM source material where repository docs describe data provenance.
 - RULE: Use only official ITAM-owned domains as production scraping sources.
 - RULE: Treat `horariositam.com` as prohibited for production ingestion and authoritative provenance.
-- RULE: Treat `carreras.itam.mx`, `www.itam.mx`, and `news.itam.mx` as eligible official-source references when the product needs career vocabulary, joint-program references, or traceable editorial links.
+- RULE: Treat `carreras.itam.mx`, `www.itam.mx`, `posgrados.itam.mx`, `intercambio.itam.mx`, `desarrolloejecutivo.itam.mx`, and `news.itam.mx` as eligible official-source references when the product needs official academic-reference vocabulary, double-degree references, executive-education references, or traceable editorial links.
