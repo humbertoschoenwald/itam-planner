@@ -4,7 +4,7 @@ import { clearPlannerBrowserState } from "@/lib/browser-state";
 import { STORAGE_KEYS } from "@/lib/storage-keys";
 
 describe("clearPlannerBrowserState", () => {
-  it("removes every browser-owned planner key", () => {
+  it("removes every persisted browser-owned planner key", () => {
     for (const key of Object.values(STORAGE_KEYS)) {
       window.localStorage.setItem(key, "value");
     }

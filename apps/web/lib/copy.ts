@@ -7,8 +7,8 @@ const uiCopy = {
       community: "Community",
       connectToChatGpt: "Connect to ChatGPT",
       genericErrorBody:
-        "This view hit an unexpected problem. We are moving you back to a safer route.",
-      genericErrorTitle: "This view hit an unexpected problem.",
+        "This view could not be loaded. Retry or return to onboarding.",
+      genericErrorTitle: "This view could not be loaded.",
       goToOnboarding: "Go to onboarding",
       localeLabels: {
         "es-MX": "Spanish (MX)",
@@ -330,8 +330,8 @@ const uiCopy = {
       community: "Comunidad",
       connectToChatGpt: "Conectar con ChatGPT",
       genericErrorBody:
-        "Esta vista encontró un problema inesperado. Te vamos a mover a una ruta más segura.",
-      genericErrorTitle: "Esta vista encontró un problema inesperado.",
+        "No se pudo cargar esta vista. Intenta de nuevo o vuelve al onboarding.",
+      genericErrorTitle: "No se pudo cargar esta vista.",
       goToOnboarding: "Ir a onboarding",
       localeLabels: {
         "es-MX": "Español (MX)",

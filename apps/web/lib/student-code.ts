@@ -38,7 +38,7 @@ export function buildStudentCode(profile: StudentProfile, planner: PlannerState)
 }
 
 function toBase64Url(bytes: Uint8Array): string {
-  if (typeof Buffer !== "undefined") {
+  if (typeof window === "undefined" && typeof Buffer !== "undefined") {
     return Buffer.from(bytes).toString("base64url");
   }
   let binary = "";
@@ -49,7 +49,7 @@ function toBase64Url(bytes: Uint8Array): string {
 }
 
 function fromBase64Url(value: string): Uint8Array {
-  if (typeof Buffer !== "undefined") {
+  if (typeof window === "undefined" && typeof Buffer !== "undefined") {
     return Uint8Array.from(Buffer.from(value, "base64url"));
   }
   const base64 = value.replace(/-/g, "+").replace(/_/g, "/");

@@ -1,10 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect } from "react";
 
 import { Button } from "@/components/ui/button";
-import { clearPlannerBrowserState } from "@/lib/browser-state";
 import { getUiCopy } from "@/lib/copy";
 import { useStudentProfileStore } from "@/stores/student-profile-store";
 
@@ -18,10 +16,6 @@ export default function RouteError({
   const locale = useStudentProfileStore((state) => state.profile.locale);
   const copy = getUiCopy(locale);
   void _error;
-
-  useEffect(() => {
-    clearPlannerBrowserState();
-  }, []);
 
   return (
     <main className="mx-auto flex w-full max-w-4xl flex-1 flex-col gap-6 px-5 py-8 sm:px-8 sm:py-12">

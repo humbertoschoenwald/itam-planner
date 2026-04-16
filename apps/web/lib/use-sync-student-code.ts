@@ -25,18 +25,22 @@ export function useSyncStudentCode() {
       return;
     }
 
-    setCode(
-      buildStudentCode(
-        {
-          entryTerm,
-          activePlanIds,
-          locale,
-        },
-        {
-          selectedPeriodId,
-          selectedOfferingIds,
-        },
-      ),
-    );
+    try {
+      setCode(
+        buildStudentCode(
+          {
+            entryTerm,
+            activePlanIds,
+            locale,
+          },
+          {
+            selectedPeriodId,
+            selectedOfferingIds,
+          },
+        ),
+      );
+    } catch {
+      clearCode();
+    }
   }, [activePlanIds, clearCode, entryTerm, locale, selectedOfferingIds, selectedPeriodId, setCode]);
 }

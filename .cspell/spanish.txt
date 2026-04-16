@@ -374,8 +374,12 @@ derecho
 encontró
 entonces
 espera
+Intenta
 inesperado
 mostramos
+no
+No
+pudo
 Prueba
 rápidos
 realmente

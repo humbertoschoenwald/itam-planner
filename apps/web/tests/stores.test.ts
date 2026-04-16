@@ -87,19 +87,10 @@ describe("persisted stores", () => {
     expect(usePlannerStore.getState().state).toEqual(DEFAULT_PLANNER_STATE);
   });
 
-  it("sanitizes malformed student code state during rehydration", async () => {
-    window.localStorage.setItem(
-      STORAGE_KEYS.studentCode,
-      JSON.stringify({
-        state: {
-          code: ["bad"],
-        },
-        version: 0,
-      }),
-    );
+  it("keeps student code derived in memory instead of persisting it", () => {
+    useStudentCodeStore.getState().setCode("itp1.example-token");
 
-    await useStudentCodeStore.persist.rehydrate();
-
-    expect(useStudentCodeStore.getState().code).toBe("");
+    expect(window.localStorage.getItem("itamPlanner.studentCode.v1")).toBeNull();
+    expect(useStudentCodeStore.getState().code).toBe("itp1.example-token");
   });
 });
