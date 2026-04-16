@@ -25,3 +25,6 @@ alwaysApply: true
 - RULE: Use SSH for Git remotes and push operations.
 - RULE: GitHub Actions may use `GITHUB_TOKEN` for repository automation when hosted runners cannot use SSH.
 - RULE: Stable CI must stay green on `Node.js 24`, while current-line compatibility may run as a non-blocking canary.
+- RULE: `pre-push` must mirror the blocking CI jobs closely enough to catch stable web, current-line web, and API fixture-promotion failures before any push leaves the machine.
+- RULE: Local blocking gates must run both the stable `Node.js 24` web path and the current-line `Node.js 25` web path.
+- RULE: API fixture-ingest validation must run against an isolated temporary public-data root and must not require overwriting the committed promoted public snapshot during quality checks.

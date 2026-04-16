@@ -52,11 +52,14 @@ Execution rules:
 - Local hooks must be version-controlled under `.githooks/`.
 - `pre-commit` runs the fast local gate.
 - `pre-push` runs the stronger local gate.
+- `pre-push` must mirror the blocking CI jobs closely enough to catch stable web, current-line web, and API fixture-promotion failures before network push.
+- Local blocking gates must run the stable `Node.js 24` web path and the current-line `Node.js 25` web path before allowing a push.
 - CI must enforce the same policy classes as local tooling.
 - Repository settings and tool configs must not silently relax these rules.
 - Local workflow must not introduce artificial PR or branch overhead for a single maintainer.
 - GitHub Actions may use the repository `GITHUB_TOKEN` for repository automation such as scheduled public-data refresh commits when SSH is not available in the hosted runner context.
 - Required checks should stay green on the stable Node baseline, while current-line Node compatibility may run as a non-blocking canary.
+- API fixture-ingest validation must run against an isolated temporary public-data root during quality gates. Quality checks must not require overwriting the committed promoted public snapshot just to validate fixture ingest.
 
 Text normalization rules:
 
