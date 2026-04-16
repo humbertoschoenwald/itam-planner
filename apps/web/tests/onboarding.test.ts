@@ -2,15 +2,47 @@ import { describe, expect, it } from "vitest";
 
 import {
   buildEntryTerm,
+  buildProgramChoiceOptions,
+  filterProgramChoiceOptions,
+  findSelectedProgramChoice,
   filterPlansForEntryTerm,
   formatEntryTermLabel,
   getEntryTermYearOptions,
+  getProgramChoiceMode,
   hasApplicableActivePlans,
   parseEntryTerm,
 } from "@/lib/onboarding";
 import type { BulletinSummary } from "@/lib/types";
 
 const samplePlans: BulletinSummary[] = [
+  {
+    active_from: "2026-01-01",
+    active_to: "2026-05-31",
+    application_term: "PRIMAVERA 2026",
+    application_year: 2026,
+    bulletin_id: "bulletin:act-g",
+    entry_from_term: "PRIMAVERA 2021",
+    entry_to_term: "OTOÑO 2026",
+    plan_code: "G",
+    plan_id: "licenciatura-en-actuaria:g",
+    program_title: "LICENCIATURA EN ACTUARÍA",
+    source_code: "ACT-G",
+    title: "LICENCIATURA EN ACTUARÍA Plan G",
+  },
+  {
+    active_from: "2026-01-01",
+    active_to: "2026-05-31",
+    application_term: "PRIMAVERA 2026",
+    application_year: 2026,
+    bulletin_id: "bulletin:act-h",
+    entry_from_term: "PRIMAVERA 2021",
+    entry_to_term: "OTOÑO 2026",
+    plan_code: "H",
+    plan_id: "licenciatura-en-actuaria:h",
+    program_title: "LICENCIATURA EN ACTUARÍA",
+    source_code: "ACT-H",
+    title: "LICENCIATURA EN ACTUARÍA Plan H",
+  },
   {
     active_from: "2026-01-01",
     active_to: "2026-05-31",
@@ -38,6 +70,20 @@ const samplePlans: BulletinSummary[] = [
     program_title: "LICENCIATURA EN DERECHO",
     source_code: "DAC-B",
     title: "LICENCIATURA EN DERECHO Plan B",
+  },
+  {
+    active_from: "2026-01-01",
+    active_to: "2026-05-31",
+    application_term: "PRIMAVERA 2026",
+    application_year: 2026,
+    bulletin_id: "bulletin:iin-a",
+    entry_from_term: "PRIMAVERA 2021",
+    entry_to_term: "OTOÑO 2026",
+    plan_code: "A",
+    plan_id: "ingenieria-en-industrial:a",
+    program_title: "INGENIERÍA EN INDUSTRIAL",
+    source_code: "IIN-A",
+    title: "INGENIERÍA EN INDUSTRIAL Plan A",
   },
 ];
 
@@ -78,10 +124,31 @@ describe("filterPlansForEntryTerm", () => {
     ]);
   });
 
+  it("builds searchable and deduplicated program options from the applicable plans", () => {
+    const options = buildProgramChoiceOptions(samplePlans, "OTOÑO 2025");
+
+    expect(options.map((option) => option.displayLabel)).toEqual([
+      "Actuaría",
+      "Industrial",
+      "Matematicas Aplicadas",
+    ]);
+    expect(options[0]?.planIds).toEqual([
+      "licenciatura-en-actuaria:g",
+      "licenciatura-en-actuaria:h",
+    ]);
+    expect(getProgramChoiceMode(options)).toBe("mixed");
+    expect(filterProgramChoiceOptions(options, "indu").map((option) => option.displayLabel)).toEqual(
+      ["Industrial"],
+    );
+    expect(
+      findSelectedProgramChoice(options, ["licenciatura-en-actuaria:h"])?.displayLabel,
+    ).toBe("Actuaría");
+  });
+
   it("keeps only the plans that apply to the selected entry term", () => {
     expect(
       filterPlansForEntryTerm(samplePlans, "OTOÑO 2025").map((plan) => plan.source_code),
-    ).toEqual(["MA-E"]);
+    ).toEqual(["IIN-A", "ACT-G", "ACT-H", "MA-E"]);
   });
 
   it("requires at least one active plan that still applies to the selected entry term", () => {

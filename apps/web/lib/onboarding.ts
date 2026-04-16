@@ -2,6 +2,16 @@ import type { BulletinSummary, StudentProfile } from "@/lib/types";
 
 export const ENTRY_TERM_SEASON_KEYS = ["spring", "fall"] as const;
 export type EntryTermSeasonKey = (typeof ENTRY_TERM_SEASON_KEYS)[number];
+export type ProgramChoiceKind = "licenciatura" | "ingenieria" | "mixed" | "career";
+
+export interface ProgramChoiceOption {
+  displayLabel: string;
+  kind: Exclude<ProgramChoiceKind, "mixed" | "career"> | "career";
+  planIds: string[];
+  programKey: string;
+  programTitle: string;
+  sourceCodes: string[];
+}
 
 const ENTRY_TERM_SEASON_TO_ACADEMIC_SEASON: Record<EntryTermSeasonKey, "PRIMAVERA" | "OTOÑO"> =
   {
@@ -130,6 +140,80 @@ export function filterPlansForEntryTerm(plans: BulletinSummary[], entryTerm: str
     });
 }
 
+export function buildProgramChoiceOptions(plans: BulletinSummary[], entryTerm: string) {
+  const groupedPrograms = new Map<string, ProgramChoiceOption>();
+
+  for (const plan of filterPlansForEntryTerm(plans, entryTerm)) {
+    const programKey = normalizeProgramTitle(plan.program_title);
+    const existing = groupedPrograms.get(programKey);
+
+    if (existing) {
+      existing.planIds = [...new Set([...existing.planIds, plan.plan_id])];
+      existing.sourceCodes = [...new Set([...existing.sourceCodes, plan.source_code])];
+      continue;
+    }
+
+    groupedPrograms.set(programKey, {
+      displayLabel: formatProgramChoiceLabel(plan.program_title),
+      kind: getProgramChoiceKind(plan.program_title),
+      planIds: [plan.plan_id],
+      programKey,
+      programTitle: plan.program_title,
+      sourceCodes: [plan.source_code],
+    });
+  }
+
+  return [...groupedPrograms.values()].sort((left, right) =>
+    left.displayLabel.localeCompare(right.displayLabel, "es-MX", { sensitivity: "base" }),
+  );
+}
+
+export function filterProgramChoiceOptions(
+  options: ProgramChoiceOption[],
+  query: string,
+) {
+  const normalizedQuery = query.trim().toLocaleLowerCase("es-MX");
+
+  if (!normalizedQuery) {
+    return options;
+  }
+
+  return options.filter((option) =>
+    `${option.displayLabel} ${option.programTitle} ${option.sourceCodes.join(" ")}`
+      .toLocaleLowerCase("es-MX")
+      .includes(normalizedQuery),
+  );
+}
+
+export function getProgramChoiceMode(options: ProgramChoiceOption[]): ProgramChoiceKind {
+  const hasLicenciatura = options.some((option) => option.kind === "licenciatura");
+  const hasIngenieria = options.some((option) => option.kind === "ingenieria");
+  const hasCareer = options.some((option) => option.kind === "career");
+
+  if (hasCareer || (hasLicenciatura && hasIngenieria)) {
+    return hasLicenciatura && hasIngenieria ? "mixed" : "career";
+  }
+
+  if (hasLicenciatura) {
+    return "licenciatura";
+  }
+
+  if (hasIngenieria) {
+    return "ingenieria";
+  }
+
+  return "career";
+}
+
+export function findSelectedProgramChoice(
+  options: ProgramChoiceOption[],
+  activePlanIds: string[],
+) {
+  return (
+    options.find((option) => option.planIds.some((planId) => activePlanIds.includes(planId))) ?? null
+  );
+}
+
 function getMaximumEntryTermYear() {
   return new Date().getFullYear() + 1;
 }
@@ -206,4 +290,42 @@ function getEntryTermSeasonKey(value: string): EntryTermSeasonKey | "" {
 
 function isEntryTermSeasonKey(value: string): value is EntryTermSeasonKey {
   return ENTRY_TERM_SEASON_KEYS.includes(value as EntryTermSeasonKey);
+}
+
+function normalizeProgramTitle(programTitle: string) {
+  return programTitle.trim().replace(/\s+/gu, " ").toUpperCase();
+}
+
+function getProgramChoiceKind(programTitle: string): ProgramChoiceOption["kind"] {
+  const normalizedTitle = normalizeProgramTitle(programTitle);
+
+  if (normalizedTitle.startsWith("LICENCIATURA EN ")) {
+    return "licenciatura";
+  }
+
+  if (
+    normalizedTitle.startsWith("INGENIERIA EN ") ||
+    normalizedTitle.startsWith("INGENIERÍA EN ")
+  ) {
+    return "ingenieria";
+  }
+
+  return "career";
+}
+
+function formatProgramChoiceLabel(programTitle: string) {
+  const normalizedTitle = programTitle
+    .trim()
+    .replace(/^LICENCIATURA EN /iu, "")
+    .replace(/^INGENIER[IÍ]A EN /iu, "")
+    .toLocaleLowerCase("es-MX");
+
+  return normalizedTitle
+    .split(/\s+/u)
+    .filter(Boolean)
+    .map((word) => {
+      const [firstLetter = "", ...rest] = [...word];
+      return `${firstLetter.toLocaleUpperCase("es-MX")}${rest.join("")}`;
+    })
+    .join(" ");
 }

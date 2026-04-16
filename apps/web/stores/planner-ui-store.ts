@@ -12,6 +12,7 @@ export type NavSwipePreference = "natural" | "inverted" | null;
 export const PLANNER_WIDGET_IDS = ["today", "week", "subjects"] as const satisfies readonly PlannerWidgetId[];
 
 export interface PlannerUiState {
+  hasCompletedSetupAnimation: boolean;
   navSwipePreference: NavSwipePreference;
   plannerWidgetIds: PlannerWidgetId[];
 }
@@ -19,12 +20,14 @@ export interface PlannerUiState {
 interface PlannerUiStoreState {
   state: PlannerUiState;
   resetPlannerUi: () => void;
+  setHasCompletedSetupAnimation: (value: boolean) => void;
   setNavSwipePreference: (preference: Exclude<NavSwipePreference, null>) => void;
   setPlannerWidgetIds: (widgetIds: PlannerWidgetId[]) => void;
   togglePlannerWidgetId: (widgetId: PlannerWidgetId) => void;
 }
 
 export const DEFAULT_PLANNER_UI_STATE: PlannerUiState = {
+  hasCompletedSetupAnimation: false,
   navSwipePreference: null,
   plannerWidgetIds: [],
 };
@@ -36,6 +39,13 @@ export const usePlannerUiStore = create<PlannerUiStoreState>()(
     (set) => ({
       state: DEFAULT_PLANNER_UI_STATE,
       resetPlannerUi: () => set({ state: DEFAULT_PLANNER_UI_STATE }),
+      setHasCompletedSetupAnimation: (value) =>
+        set((current) => ({
+          state: {
+            ...current.state,
+            hasCompletedSetupAnimation: value,
+          },
+        })),
       setNavSwipePreference: (preference) =>
         set((current) => ({
           state: {
@@ -84,6 +94,7 @@ function sanitizePlannerUiState(value: unknown): PlannerUiState {
   const candidate = value as Partial<PlannerUiState>;
 
   return {
+    hasCompletedSetupAnimation: candidate.hasCompletedSetupAnimation === true,
     navSwipePreference:
       candidate.navSwipePreference === "natural" || candidate.navSwipePreference === "inverted"
         ? candidate.navSwipePreference

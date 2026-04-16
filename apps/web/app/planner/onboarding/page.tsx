@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     canonical: "https://itam.humbertoschoenwald.com/planner/onboarding",
   },
   description:
-    "Onboarding embebido en el planner de ITAM Planner para elegir periodo de ingreso, planes, idioma y widgets locales.",
+    "Onboarding embebido en el planner de ITAM Planner para elegir periodo de ingreso, carrera y preferencia de deslizamiento local.",
   title: "Planner Onboarding",
 };
 

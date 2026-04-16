@@ -155,36 +155,112 @@ const uiCopy = {
       validationTitle: "Complete the required onboarding fields",
     },
     plannerOnboarding: {
-      activePlansBody:
-        "Select the plans that currently apply to you. No account is required and nothing is stored in the backend.",
-      activePlansTitle: "Which plans apply to you right now?",
       back: "Back",
       eyebrow: "Planner onboarding",
-      entrySeasonBody: "Choose the academic cycle that matches your entry term.",
-      entrySeasonTitle: "Which cycle did you enter in?",
-      entryYearBody: "Choose only a year that exists in the current published catalog.",
-      entryYearTitle: "Which year applies to that cycle?",
-      localeBody: "This controls visible product copy. You can change it later.",
-      localeTitle: "Which language should the planner use?",
+      entryTermBody:
+        "Choose the academic cycle and year that match your ITAM entry term. Only real years from the published catalog appear here.",
+      entryTermTitle: "What is your entry term?",
+      entryYearLabel: "Entry year",
+      finish: "Finish and open planner",
+      finishBody:
+        "You already gave the minimum data the planner needs to shape your local context.",
+      finishHighlight: "Perfect, you configured ITAM Planner.",
+      finishSummary: {
+        entryTerm: "Entry term",
+        pending: "Pending",
+        program: "Career",
+        swipe: "Swipe preference",
+      },
+      finishSupport:
+        "On the next screen the browser will assemble your local planner shell and take you straight into Planner.",
+      finishTitle: "Ready to create your planner",
+      introBody:
+        "We will ask for a few basics so this browser can decide which public plans apply to you and how the planner should feel from the first swipe.",
+      introCards: [
+        {
+          body: "Your academic basics stay in this browser only. No account, no backend profile, no cloud sync.",
+          title: "Private by default",
+        },
+        {
+          body: "The planner reads precomputed public data so it can adapt the visible documents and routes to your context.",
+          title: "Real public catalog",
+        },
+        {
+          body: "The first setup is short. After that you can go straight into Planner and adjust details later.",
+          title: "Quick setup",
+        },
+      ],
+      introTitle: "Let’s configure the planner once",
+      loadingBody:
+        "The browser is assembling your local planner shell, matching the public catalog, and preparing the first route state.",
+      loadingCards: [
+        {
+          body: "Matching your entry term to the published plans that actually apply.",
+          title: "Catalog context",
+        },
+        {
+          body: "Preparing the planner widgets and the navigation preferences for this browser.",
+          title: "Local shell",
+        },
+        {
+          body: "Generating the first browser-owned code from the profile you just configured.",
+          title: "Portable context",
+        },
+      ],
+      loadingEyebrow: "Configuring this browser",
+      loadingTitle: "Preparing your planner",
       next: "Next",
-      openPlanner: "Open planner",
+      openPlanner: "Continue onboarding",
+      programBody:
+        "Search and pick the career that applies to you for that entry term. Repeated plan titles are collapsed on purpose.",
+      programLockedBody:
+        "Choose the academic cycle and year first. Only then can the planner show the careers that really match your entry term.",
+      programSearchEmpty:
+        "No careers matched that search in the current published catalog.",
+      programSearchLabel: "Search your career",
+      programSearchPlaceholder: {
+        career: "Search your career",
+        ingenieria: "Search your engineering",
+        licenciatura: "Search your degree",
+        mixed: "Search your degree or engineering",
+      },
+      programTitles: {
+        career: "Select your career:",
+        ingenieria: "Select your engineering:",
+        licenciatura: "Select your degree:",
+        mixed: "Select your degree / engineering:",
+      },
       redirectBody: "Planner needs the embedded onboarding flow before this browser can render your schedule shell.",
       redirectTitle: "Planner is preparing your onboarding flow",
-      swipeBody: "Swipe on the top navigation bar to jump back to Home from Planner. The first swipe teaches the browser which horizontal direction you prefer.",
-      swipeTitle: "Swipe to reach Home from Planner",
+      stepLabels: {
+        entryTerm: "Entry term",
+        finish: "Finish",
+        intro: "Overview",
+        program: "Career",
+        swipe: "Swipe",
+      },
+      swipeOptions: {
+        inverted: {
+          body: "Swipe right and animate toward the opposite side. The destination still stays deterministic.",
+          title: "Inverted motion",
+        },
+        natural: {
+          body: "Swipe right and animate in the same visual direction as the movement.",
+          title: "Natural motion",
+        },
+      },
+      swipePreferenceBody:
+        "Planner always moves you to the adjacent destination, but you can choose whether the animation should feel natural or inverted on this device.",
+      swipePreferenceTitle: "How should swipe motion feel?",
       title: "Answer the planner questions one step at a time",
-      widgetDescriptions: {
-        subjects: "Show your selected plans and the current subjects or groups stored in this browser.",
-        today: "Prioritize the classes that matter today in America/Mexico_City.",
-        week: "Keep the weekly view available below the daily summary.",
+      validationBody: {
+        entryTerm: "Choose both the academic cycle and a real year from the published catalog before continuing.",
+        finish: "Review the summary and then finish the setup.",
+        intro: "Continue to capture the minimum planner data.",
+        program: "Choose one career from the filtered list before continuing.",
+        swipe: "Choose how swipe motion should feel on this device before continuing.",
       },
-      widgetLabels: {
-        subjects: "Subjects / plans",
-        today: "Today",
-        week: "Week",
-      },
-      widgetsBody: "Choose the widgets you want to keep in the planner launch view.",
-      widgetsTitle: "What should appear in your planner?",
+      validationTitle: "A required step is still missing",
     },
     calendarPage: {
       datePending: "Date pending",
@@ -574,36 +650,114 @@ const uiCopy = {
       validationTitle: "Falta completar onboarding",
     },
     plannerOnboarding: {
-      activePlansBody:
-        "Selecciona los planes que te aplican actualmente. No necesitas cuenta y nada se guarda en el backend.",
-      activePlansTitle: "¿Qué planes te aplican hoy?",
       back: "Atrás",
       eyebrow: "Onboarding del planner",
-      entrySeasonBody: "Elige el ciclo académico que corresponde a tu ingreso.",
-      entrySeasonTitle: "¿En qué ciclo ingresaste?",
-      entryYearBody: "Elige solo un año que exista en el catálogo publicado actual.",
-      entryYearTitle: "¿Qué año corresponde a ese ciclo?",
-      localeBody: "Esto controla el copy visible del producto. Después podrás cambiarlo.",
-      localeTitle: "¿En qué idioma quieres ver el planner?",
+      entryTermBody:
+        "Elige el ciclo académico y el año que corresponden a tu ingreso al ITAM. Aquí solo aparecen años reales del catálogo publicado.",
+      entryTermTitle: "¿Cuál es tu periodo de ingreso?",
+      entryYearLabel: "Año de ingreso",
+      finish: "Finalizar e ir al planner",
+      finishBody:
+        "Ya capturaste lo mínimo que necesita el planner para adaptar el catálogo público a este navegador.",
+      finishHighlight: "Perfecto, configuraste ITAM Planner.",
+      finishSummary: {
+        entryTerm: "Periodo de ingreso",
+        pending: "Pendiente",
+        program: "Carrera",
+        swipe: "Deslizamiento",
+      },
+      finishSupport:
+        "En la siguiente pantalla el navegador terminará de preparar tu shell local y te llevará directo al planner.",
+      finishTitle: "Ya puedes crear tu planner",
+      introBody:
+        "Te vamos a pedir unos pocos datos para que este navegador sepa qué planes públicos te aplican y cómo quieres sentir la navegación desde el primer swipe.",
+      introCards: [
+        {
+          body: "Lo básico de tu contexto académico se queda solo en este navegador. No necesitas cuenta y no hay perfil en el backend.",
+          title: "Privado por defecto",
+        },
+        {
+          body: "El planner lee datos públicos ya precalculados para adaptar documentos y rutas según tu contexto real.",
+          title: "Catálogo público real",
+        },
+        {
+          body: "El setup inicial es corto. Después podrás entrar al planner y ajustar detalles cuando quieras.",
+          title: "Setup rápido",
+        },
+      ],
+      introTitle: "Vamos a configurar el planner una sola vez",
+      loadingBody:
+        "El navegador está armando tu shell local, cruzando el catálogo público y preparando el primer estado del planner.",
+      loadingCards: [
+        {
+          body: "Empatando tu periodo de ingreso con los planes publicados que sí te aplican.",
+          title: "Contexto académico",
+        },
+        {
+          body: "Preparando los widgets iniciales y la navegación de este navegador.",
+          title: "Shell local",
+        },
+        {
+          body: "Generando el primer código portable a partir del perfil que acabas de configurar.",
+          title: "Contexto portable",
+        },
+      ],
+      loadingEyebrow: "Configurando este navegador",
+      loadingTitle: "Preparando tu planner",
       next: "Siguiente",
-      openPlanner: "Abrir planner",
+      openPlanner: "Continuar onboarding",
+      programBody:
+        "Busca y elige la carrera que te aplica para ese periodo de ingreso. Los títulos repetidos se colapsan a propósito.",
+      programLockedBody:
+        "Primero elige ciclo y año. Solo entonces el planner puede mostrarte las carreras que sí coinciden con tu ingreso.",
+      programSearchEmpty:
+        "Ninguna carrera coincide con esa búsqueda dentro del catálogo publicado actual.",
+      programSearchLabel: "Buscar carrera",
+      programSearchPlaceholder: {
+        career: "Busca tu carrera",
+        ingenieria: "Busca tu ingeniería",
+        licenciatura: "Busca tu licenciatura",
+        mixed: "Busca tu licenciatura o ingeniería",
+      },
+      programTitles: {
+        career: "Selecciona tu carrera:",
+        ingenieria: "Selecciona tu ingeniería:",
+        licenciatura: "Selecciona tu licenciatura:",
+        mixed: "Selecciona tu licenciatura / ingeniería:",
+      },
       redirectBody: "Planner necesita terminar su onboarding embebido antes de renderizar el shell de horario en este navegador.",
       redirectTitle: "Planner está preparando tu onboarding",
-      swipeBody: "Desliza sobre la barra superior para volver a Home desde Planner. El primer deslizamiento le enseña al navegador qué dirección horizontal prefieres.",
-      swipeTitle: "Desliza para llegar a Home desde Planner",
+      stepLabels: {
+        entryTerm: "Ingreso",
+        finish: "Finalizar",
+        intro: "Inicio",
+        program: "Carrera",
+        swipe: "Deslizamiento",
+      },
+      swipeOptions: {
+        inverted: {
+          body: "Deslizas a la derecha y la animación responde hacia el lado contrario. El destino sigue siendo determinista.",
+          title: "Movimiento invertido",
+        },
+        natural: {
+          body: "Deslizas a la derecha y la animación acompaña la misma dirección visual del gesto.",
+          title: "Movimiento natural",
+        },
+      },
+      swipePreferenceBody:
+        "Planner siempre te mueve al destino adyacente, pero aquí puedes decidir si la animación debe sentirse natural o invertida en este dispositivo.",
+      swipePreferenceTitle: "¿Cómo quieres que se sienta el deslizamiento?",
       title: "Responde el onboarding del planner paso a paso",
-      widgetDescriptions: {
-        subjects: "Muestra tus planes activos y las materias o grupos ya guardados en este navegador.",
-        today: "Da prioridad a las clases que importan hoy en America/Mexico_City.",
-        week: "Mantén disponible la vista semanal debajo del resumen diario.",
+      validationBody: {
+        entryTerm:
+          "Elige tanto el ciclo académico como un año real del catálogo publicado antes de continuar.",
+        finish: "Revisa el resumen y luego finaliza la configuración.",
+        intro: "Continúa para capturar lo mínimo que necesita el planner.",
+        program: "Elige una carrera de la lista filtrada antes de continuar.",
+        swipe:
+          "Elige cómo quieres que se sienta el deslizamiento en este dispositivo antes de continuar.",
       },
-      widgetLabels: {
-        subjects: "Materias / planes",
-        today: "Hoy",
-        week: "Semana",
-      },
-      widgetsBody: "Elige los widgets que quieres ver en la vista inicial del planner.",
-      widgetsTitle: "¿Qué quieres ver en tu planner?",
+      validationTitle: "Todavía falta un paso obligatorio",
     },
     calendarPage: {
       datePending: "Fecha pendiente",

@@ -1,21 +1,27 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import { act, fireEvent, render, screen } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
-import { PlannerOnboardingWizard } from "@/components/planner-onboarding-wizard";
+import {
+  PlannerOnboardingWizard,
+  getPlannerSetupDelayMs,
+} from "@/components/planner-onboarding-wizard";
 import { DEFAULT_PLANNER_STATE, usePlannerStore } from "@/stores/planner-store";
-import { DEFAULT_PLANNER_UI_STATE, usePlannerUiStore } from "@/stores/planner-ui-store";
+import {
+  DEFAULT_PLANNER_UI_STATE,
+  PLANNER_WIDGET_IDS,
+  usePlannerUiStore,
+} from "@/stores/planner-ui-store";
 import {
   DEFAULT_STUDENT_PROFILE,
   useStudentProfileStore,
 } from "@/stores/student-profile-store";
 
 const pushSpy = vi.fn();
-const replaceSpy = vi.fn();
 
 vi.mock("next/navigation", () => ({
   useRouter: () => ({
     push: pushSpy,
-    replace: replaceSpy,
+    replace: vi.fn(),
   }),
 }));
 
@@ -25,14 +31,56 @@ const samplePlans = [
     active_to: "2026-05-31",
     application_term: "PRIMAVERA 2026",
     application_year: 2026,
-    bulletin_id: "bulletin:ma-e",
+    bulletin_id: "bulletin:act-g",
     entry_from_term: "PRIMAVERA 2021",
     entry_to_term: "OTOÑO 2026",
-    plan_code: "E",
-    plan_id: "plan:ma-e",
-    program_title: "LICENCIATURA EN MATEMATICAS APLICADAS",
-    source_code: "MA-E",
-    title: "LICENCIATURA EN MATEMATICAS APLICADAS Plan E",
+    plan_code: "G",
+    plan_id: "plan:act-g",
+    program_title: "LICENCIATURA EN ACTUARÍA",
+    source_code: "ACT-G",
+    title: "LICENCIATURA EN ACTUARÍA Plan G",
+  },
+  {
+    active_from: "2026-01-01",
+    active_to: "2026-05-31",
+    application_term: "PRIMAVERA 2026",
+    application_year: 2026,
+    bulletin_id: "bulletin:act-h",
+    entry_from_term: "PRIMAVERA 2021",
+    entry_to_term: "OTOÑO 2026",
+    plan_code: "H",
+    plan_id: "plan:act-h",
+    program_title: "LICENCIATURA EN ACTUARÍA",
+    source_code: "ACT-H",
+    title: "LICENCIATURA EN ACTUARÍA Plan H",
+  },
+  {
+    active_from: "2026-01-01",
+    active_to: "2026-05-31",
+    application_term: "PRIMAVERA 2026",
+    application_year: 2026,
+    bulletin_id: "bulletin:econ-f",
+    entry_from_term: "PRIMAVERA 2021",
+    entry_to_term: "OTOÑO 2026",
+    plan_code: "F",
+    plan_id: "plan:econ-f",
+    program_title: "LICENCIATURA EN ECONOMÍA",
+    source_code: "ECO-F",
+    title: "LICENCIATURA EN ECONOMÍA Plan F",
+  },
+  {
+    active_from: "2026-01-01",
+    active_to: "2026-05-31",
+    application_term: "PRIMAVERA 2026",
+    application_year: 2026,
+    bulletin_id: "bulletin:iin-a",
+    entry_from_term: "PRIMAVERA 2021",
+    entry_to_term: "OTOÑO 2026",
+    plan_code: "A",
+    plan_id: "plan:iin-a",
+    program_title: "INGENIERÍA EN INDUSTRIAL",
+    source_code: "IIN-A",
+    title: "INGENIERÍA EN INDUSTRIAL Plan A",
   },
   {
     active_from: "2026-01-01",
@@ -53,57 +101,86 @@ const samplePlans = [
 describe("PlannerOnboardingWizard", () => {
   beforeEach(() => {
     pushSpy.mockReset();
-    replaceSpy.mockReset();
+    vi.useRealTimers();
+    vi.restoreAllMocks();
     window.localStorage.clear();
     useStudentProfileStore.setState({ profile: DEFAULT_STUDENT_PROFILE });
     usePlannerStore.setState({ state: DEFAULT_PLANNER_STATE });
     usePlannerUiStore.setState({ state: DEFAULT_PLANNER_UI_STATE });
   });
 
-  it("keeps plan selection hidden until season and year are complete", () => {
+  it("starts with the intro step and blocks program search until entry term is complete", () => {
     render(<PlannerOnboardingWizard plans={[...samplePlans]} />);
 
-    expect(screen.getByText(/¿En qué ciclo ingresaste\?/u)).toBeInTheDocument();
-    expect(
-      screen.queryByText(/LICENCIATURA EN MATEMATICAS APLICADAS · E/u),
-    ).not.toBeInTheDocument();
+    expect(screen.getByText(/Vamos a configurar el planner una sola vez/u)).toBeInTheDocument();
+    expect(screen.queryByLabelText(/Buscar carrera/u)).not.toBeInTheDocument();
 
     fireEvent.click(screen.getByRole("button", { name: /Siguiente/u }));
 
-    expect(screen.getByText(/Falta completar onboarding/u)).toBeInTheDocument();
+    expect(screen.getByText(/¿Cuál es tu periodo de ingreso\?/u)).toBeInTheDocument();
+
+    fireEvent.click(screen.getByRole("button", { name: /Siguiente/u }));
+
+    expect(screen.getByText(/Todavía falta un paso obligatorio/u)).toBeInTheDocument();
+    expect(screen.queryByLabelText(/Buscar carrera/u)).not.toBeInTheDocument();
   });
 
-  it("walks through the embedded wizard and persists widget preferences before opening planner", () => {
+  it("deduplicates careers, filters alphabetically, and finishes setup with a bounded delay", async () => {
+    vi.useFakeTimers();
+    vi.spyOn(Math, "random").mockReturnValue(0);
+
     render(<PlannerOnboardingWizard plans={[...samplePlans]} />);
 
-    fireEvent.click(screen.getByRole("button", { name: /Otoño/u }));
     fireEvent.click(screen.getByRole("button", { name: /Siguiente/u }));
 
-    expect(screen.getByText(/¿Qué año corresponde a ese ciclo\?/u)).toBeInTheDocument();
-
-    fireEvent.change(screen.getByRole("combobox"), {
+    fireEvent.click(screen.getByRole("button", { name: /Otoño/u }));
+    fireEvent.change(screen.getByRole("combobox", { name: /Año de ingreso/u }), {
       target: { value: "2025" },
     });
     fireEvent.click(screen.getByRole("button", { name: /Siguiente/u }));
 
-    expect(screen.getByText(/¿Qué planes te aplican hoy\?/u)).toBeInTheDocument();
-    expect(screen.getByText(/LICENCIATURA EN MATEMATICAS APLICADAS · E/u)).toBeInTheDocument();
-    expect(screen.queryByText(/LICENCIATURA EN DERECHO · B/u)).not.toBeInTheDocument();
+    expect(screen.getByText(/Selecciona tu licenciatura \/ ingeniería:/u)).toBeInTheDocument();
+    expect(screen.getAllByText("Actuaría")).toHaveLength(1);
 
-    fireEvent.click(screen.getByRole("checkbox"));
+    const visibleChoices = screen
+      .getAllByRole("button")
+      .map((button) => button.textContent?.trim())
+      .filter((text): text is string =>
+        ["Actuaría", "Economía", "Industrial"].includes(text ?? ""),
+      );
+
+    expect(visibleChoices).toEqual(["Actuaría", "Economía", "Industrial"]);
+
+    fireEvent.change(screen.getByRole("searchbox", { name: /Buscar carrera/u }), {
+      target: { value: "eco" },
+    });
+
+    expect(screen.getByRole("button", { name: "Economía" })).toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: "Actuaría" })).not.toBeInTheDocument();
+
+    fireEvent.click(screen.getByRole("button", { name: "Economía" }));
     fireEvent.click(screen.getByRole("button", { name: /Siguiente/u }));
 
-    expect(screen.getByText(/¿En qué idioma quieres ver el planner\?/u)).toBeInTheDocument();
+    expect(
+      screen.getByText(/¿Cómo quieres que se sienta el deslizamiento\?/u),
+    ).toBeInTheDocument();
 
+    fireEvent.click(screen.getByRole("button", { name: /Movimiento natural/u }));
     fireEvent.click(screen.getByRole("button", { name: /Siguiente/u }));
 
-    expect(screen.getByText(/¿Qué quieres ver en tu planner\?/u)).toBeInTheDocument();
+    expect(screen.getByText(/Perfecto, configuraste ITAM Planner\./u)).toBeInTheDocument();
+    expect(screen.getByText("Otoño 2025")).toBeInTheDocument();
+    expect(screen.getByText("Economía")).toBeInTheDocument();
 
-    fireEvent.click(screen.getByRole("checkbox", { name: /Hoy/u }));
+    fireEvent.click(screen.getByRole("button", { name: /Finalizar e ir al planner/u }));
 
-    expect(usePlannerUiStore.getState().state.plannerWidgetIds).toEqual(["today"]);
+    expect(usePlannerUiStore.getState().state.plannerWidgetIds).toEqual([...PLANNER_WIDGET_IDS]);
+    expect(usePlannerUiStore.getState().state.hasCompletedSetupAnimation).toBe(true);
+    expect(screen.getByText(/Preparando tu planner/u)).toBeInTheDocument();
 
-    fireEvent.click(screen.getByRole("button", { name: /Abrir planner/u }));
+    await act(async () => {
+      vi.advanceTimersByTime(getPlannerSetupDelayMs(0));
+    });
 
     expect(pushSpy).toHaveBeenCalledWith("/planner");
   });

@@ -28,6 +28,9 @@ describe("getUiCopy", () => {
     expect(copy.common.home).toBe("Home");
     expect(copy.common.calendar).toBe("Calendario");
     expect(copy.footer.terms).toBe("Términos y condiciones");
-    expect(copy.plannerOnboarding.swipeTitle).toMatch(/Desliza/u);
+    expect(copy.plannerOnboarding.introTitle).toMatch(/configurar/u);
+    expect(copy.plannerOnboarding.programTitles.licenciatura).toMatch(/licenciatura/u);
+    expect(copy.plannerOnboarding.swipePreferenceTitle).toMatch(/deslizamiento/u);
+    expect(copy.plannerOnboarding.finishHighlight).toMatch(/configuraste ITAM Planner/u);
   });
 });

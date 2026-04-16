@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 
 import { Button } from "@/components/ui/button";
@@ -8,22 +8,33 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { getUiCopy } from "@/lib/copy";
 import {
   buildEntryTerm,
+  buildProgramChoiceOptions,
   type EntryTermSeasonKey,
   ENTRY_TERM_SEASON_KEYS,
-  filterPlansForEntryTerm,
+  filterProgramChoiceOptions,
+  findSelectedProgramChoice,
+  formatEntryTermLabel,
   getEntryTermYearOptions,
+  getProgramChoiceMode,
   parseEntryTerm,
 } from "@/lib/onboarding";
-import { hasCompletedPlannerBootstrap } from "@/lib/planner-bootstrap";
-import type { BulletinSummary, PlannerWidgetId } from "@/lib/types";
+import type { BulletinSummary } from "@/lib/types";
 import { useSyncStudentCode } from "@/lib/use-sync-student-code";
 import { PLANNER_WIDGET_IDS, usePlannerUiStore } from "@/stores/planner-ui-store";
 import { useStudentProfileStore } from "@/stores/student-profile-store";
 
-type PlannerOnboardingStep = "season" | "year" | "plans" | "locale" | "widgets";
+type PlannerOnboardingStep = "intro" | "entryTerm" | "program" | "swipe" | "finish";
 
-const WIZARD_STEPS: PlannerOnboardingStep[] = ["season", "year", "plans", "locale", "widgets"];
+const WIZARD_STEPS: PlannerOnboardingStep[] = [
+  "intro",
+  "entryTerm",
+  "program",
+  "swipe",
+  "finish",
+];
 const INPUT_CLASS_NAME = "field-shell text-sm";
+const SETUP_DELAY_MIN_MS = 3000;
+const SETUP_DELAY_MAX_MS = 5000;
 
 interface PlannerOnboardingWizardProps {
   plans: BulletinSummary[];
@@ -33,58 +44,86 @@ export function PlannerOnboardingWizard({ plans }: PlannerOnboardingWizardProps)
   useSyncStudentCode();
 
   const router = useRouter();
+  const setupTimeoutRef = useRef<number | null>(null);
+
   const profile = useStudentProfileStore((state) => state.profile);
   const setActivePlanIds = useStudentProfileStore((state) => state.setActivePlanIds);
   const setEntryTerm = useStudentProfileStore((state) => state.setEntryTerm);
-  const setLocale = useStudentProfileStore((state) => state.setLocale);
-  const togglePlan = useStudentProfileStore((state) => state.toggleActivePlanId);
+  const setNavSwipePreference = usePlannerUiStore((state) => state.setNavSwipePreference);
+  const setPlannerWidgetIds = usePlannerUiStore((state) => state.setPlannerWidgetIds);
+  const setHasCompletedSetupAnimation = usePlannerUiStore(
+    (state) => state.setHasCompletedSetupAnimation,
+  );
   const plannerWidgetIds = usePlannerUiStore((state) => state.state.plannerWidgetIds);
-  const togglePlannerWidgetId = usePlannerUiStore((state) => state.togglePlannerWidgetId);
+  const navSwipePreference = usePlannerUiStore((state) => state.state.navSwipePreference);
+  const hasCompletedSetupAnimation = usePlannerUiStore(
+    (state) => state.state.hasCompletedSetupAnimation,
+  );
   const copy = getUiCopy(profile.locale);
 
   const [entryTermDraft, setEntryTermDraft] = useState(parseEntryTerm(profile.entryTerm));
-  const [currentStep, setCurrentStep] = useState<PlannerOnboardingStep>(
-    getInitialWizardStep(profile.entryTerm, profile.activePlanIds, plans),
-  );
+  const [programSearch, setProgramSearch] = useState("");
+  const [isFinishing, setIsFinishing] = useState(false);
   const [showValidation, setShowValidation] = useState(false);
+  const [currentStep, setCurrentStep] = useState<PlannerOnboardingStep>(
+    getInitialWizardStep(profile.entryTerm, profile.activePlanIds, navSwipePreference, plans),
+  );
 
   const yearOptions = getEntryTermYearOptions(plans);
-  const localeOptions = Object.entries(copy.common.localeLabels).map(([value, label]) => ({
-    label,
-    value,
-  }));
   const draftEntryTerm = buildEntryTerm(entryTermDraft.seasonKey, entryTermDraft.year);
-  const visiblePlans = filterPlansForEntryTerm(plans, draftEntryTerm);
-  const canShowPlans = draftEntryTerm.length > 0;
-  const activeVisiblePlanCount = profile.activePlanIds.filter((planId) =>
-    visiblePlans.some((plan) => plan.plan_id === planId),
-  ).length;
-  const onboardingComplete = hasCompletedPlannerBootstrap(profile, plannerWidgetIds, plans);
-  const [redirectIfAlreadyComplete] = useState(onboardingComplete);
+  const programOptions = buildProgramChoiceOptions(plans, draftEntryTerm);
+  const filteredProgramOptions = filterProgramChoiceOptions(programOptions, programSearch);
+  const selectedProgram = findSelectedProgramChoice(programOptions, profile.activePlanIds);
+  const programChoiceMode = getProgramChoiceMode(programOptions);
+  const progressIndex = WIZARD_STEPS.indexOf(currentStep);
+  const progressPercent = ((progressIndex + 1) / WIZARD_STEPS.length) * 100;
+  const isFinishStep = currentStep === "finish";
 
   useEffect(() => {
-    if (redirectIfAlreadyComplete && onboardingComplete) {
-      router.replace("/planner");
-    }
-  }, [onboardingComplete, redirectIfAlreadyComplete, router]);
+    return () => {
+      if (setupTimeoutRef.current !== null) {
+        window.clearTimeout(setupTimeoutRef.current);
+      }
+    };
+  }, []);
 
   useEffect(() => {
-    const visiblePlanIds = new Set(visiblePlans.map((plan) => plan.plan_id));
+    const visiblePlanIds = new Set(programOptions.flatMap((option) => option.planIds));
 
     if (profile.activePlanIds.every((planId) => visiblePlanIds.has(planId))) {
       return;
     }
 
     setActivePlanIds(profile.activePlanIds.filter((planId) => visiblePlanIds.has(planId)));
-  }, [profile.activePlanIds, setActivePlanIds, visiblePlans]);
+  }, [profile.activePlanIds, programOptions, setActivePlanIds]);
 
-  const progressIndex = WIZARD_STEPS.indexOf(currentStep);
-  const isLastStep = progressIndex === WIZARD_STEPS.length - 1;
+  const finishSummary = [
+    {
+      label: copy.plannerOnboarding.finishSummary.entryTerm,
+      value: draftEntryTerm
+        ? formatEntryTermLabel(draftEntryTerm, copy.onboardingPage.seasonOptions)
+        : copy.plannerOnboarding.finishSummary.pending,
+    },
+    {
+      label: copy.plannerOnboarding.finishSummary.program,
+      value: selectedProgram?.displayLabel ?? copy.plannerOnboarding.finishSummary.pending,
+    },
+    {
+      label: copy.plannerOnboarding.finishSummary.swipe,
+      value:
+        navSwipePreference === "inverted"
+          ? copy.plannerOnboarding.swipeOptions.inverted.title
+          : navSwipePreference === "natural"
+            ? copy.plannerOnboarding.swipeOptions.natural.title
+            : copy.plannerOnboarding.finishSummary.pending,
+    },
+  ];
 
   function handleEntrySeasonChange(nextSeasonKey: EntryTermSeasonKey | "") {
     const nextDraft = { ...entryTermDraft, seasonKey: nextSeasonKey };
     setEntryTermDraft(nextDraft);
     setEntryTerm(buildEntryTerm(nextDraft.seasonKey, nextDraft.year));
+    setProgramSearch("");
     setShowValidation(false);
   }
 
@@ -95,34 +134,31 @@ export function PlannerOnboardingWizard({ plans }: PlannerOnboardingWizardProps)
     };
     setEntryTermDraft(nextDraft);
     setEntryTerm(buildEntryTerm(nextDraft.seasonKey, nextDraft.year));
+    setProgramSearch("");
     setShowValidation(false);
   }
 
-  function handleNext() {
-    if (
-      !isStepValid(
-        currentStep,
-        entryTermDraft,
-        activeVisiblePlanCount,
-        plannerWidgetIds,
-        yearOptions,
-      )
-    ) {
-      setShowValidation(true);
+  function handleProgramSelection(programKey: string) {
+    const nextProgram = programOptions.find((option) => option.programKey === programKey);
+
+    if (!nextProgram) {
       return;
     }
 
+    setActivePlanIds(nextProgram.planIds);
     setShowValidation(false);
+  }
 
-    if (isLastStep) {
-      router.push("/planner");
-      return;
-    }
-
-    setCurrentStep(WIZARD_STEPS[progressIndex + 1] ?? currentStep);
+  function handleSwipePreferenceSelection(preference: "natural" | "inverted") {
+    setNavSwipePreference(preference);
+    setShowValidation(false);
   }
 
   function handleBack() {
+    if (isFinishing) {
+      return;
+    }
+
     if (progressIndex === 0) {
       router.push("/");
       return;
@@ -132,20 +168,247 @@ export function PlannerOnboardingWizard({ plans }: PlannerOnboardingWizardProps)
     setCurrentStep(WIZARD_STEPS[progressIndex - 1] ?? currentStep);
   }
 
-  let stepContent: React.ReactNode;
+  function handleNext() {
+    if (isFinishing) {
+      return;
+    }
 
+    if (
+      !isStepValid(
+        currentStep,
+        draftEntryTerm,
+        selectedProgram !== null,
+        navSwipePreference,
+        yearOptions,
+      )
+    ) {
+      setShowValidation(true);
+      return;
+    }
+
+    setShowValidation(false);
+
+    if (isFinishStep) {
+      finalizePlannerSetup();
+      return;
+    }
+
+    setCurrentStep(WIZARD_STEPS[progressIndex + 1] ?? currentStep);
+  }
+
+  function finalizePlannerSetup() {
+    if (plannerWidgetIds.length === 0) {
+      setPlannerWidgetIds([...PLANNER_WIDGET_IDS]);
+    }
+
+    if (hasCompletedSetupAnimation) {
+      router.push("/planner");
+      return;
+    }
+
+    const delayMs = getPlannerSetupDelayMs();
+
+    setHasCompletedSetupAnimation(true);
+    setIsFinishing(true);
+    setupTimeoutRef.current = window.setTimeout(() => {
+      router.push("/planner");
+    }, delayMs);
+  }
+
+  if (isFinishing) {
+    return (
+      <main className="mx-auto flex w-full max-w-5xl flex-1 flex-col gap-6 px-5 py-8 sm:px-8 sm:py-12">
+        <Card className="section-shell overflow-hidden">
+          <CardHeader>
+            <p className="eyebrow">{copy.plannerOnboarding.eyebrow}</p>
+            <CardTitle>{copy.plannerOnboarding.loadingTitle}</CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-6">
+            <div className="flex items-center gap-4">
+              <span className="h-12 w-12 animate-spin rounded-full border-2 border-accent/20 border-t-accent" />
+              <div className="space-y-2">
+                <p className="font-semibold text-foreground">
+                  {copy.plannerOnboarding.loadingEyebrow}
+                </p>
+                <p className="text-sm leading-6 text-muted">
+                  {copy.plannerOnboarding.loadingBody}
+                </p>
+              </div>
+            </div>
+            <div className="grid gap-3 sm:grid-cols-3">
+              {copy.plannerOnboarding.loadingCards.map((card) => (
+                <div key={card.title} className="soft-panel">
+                  <p className="font-semibold text-foreground">{card.title}</p>
+                  <p className="mt-2 text-sm leading-6 text-muted">{card.body}</p>
+                </div>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
+      </main>
+    );
+  }
+
+  return (
+    <main className="mx-auto flex w-full max-w-5xl flex-1 flex-col gap-6 px-5 py-8 sm:px-8 sm:py-12">
+      <Card className="section-shell overflow-hidden">
+        <CardHeader className="space-y-5">
+          <div className="space-y-3">
+            <p className="eyebrow">{copy.plannerOnboarding.eyebrow}</p>
+            <CardTitle>{copy.plannerOnboarding.title}</CardTitle>
+          </div>
+
+          <div className="space-y-3">
+            <div className="h-2 overflow-hidden rounded-full bg-surface-elevated">
+              <div
+                className="h-full rounded-full bg-accent transition-[width] duration-500"
+                style={{ width: `${progressPercent}%` }}
+              />
+            </div>
+
+            <div className="grid grid-cols-5 gap-2">
+              {WIZARD_STEPS.map((step, index) => (
+                <div
+                  key={step}
+                  className={[
+                    "rounded-[1.15rem] border px-3 py-3 text-left text-xs transition",
+                    index <= progressIndex
+                      ? "border-accent/20 bg-accent-soft text-accent"
+                      : "border-border bg-surface-elevated text-muted",
+                  ].join(" ")}
+                >
+                  <p className="font-semibold tracking-[0.16em]">0{index + 1}</p>
+                  <p className="mt-2 text-[11px] leading-5">
+                    {copy.plannerOnboarding.stepLabels[step]}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </CardHeader>
+
+        <CardContent className="space-y-5">
+          {renderStepContent({
+            canShowPrograms: draftEntryTerm.length > 0,
+            copy,
+            currentStep,
+            entryTermDraft,
+            filteredProgramOptions,
+            handleEntrySeasonChange,
+            handleEntryYearChange,
+            handleProgramSelection,
+            handleSwipePreferenceSelection,
+            navSwipePreference,
+            programChoiceMode,
+            programSearch,
+            selectedProgramKey: selectedProgram?.programKey ?? null,
+            setProgramSearch,
+            yearOptions,
+          })}
+
+          {showValidation ? (
+            <div className="rounded-[1.35rem] border border-border bg-surface-elevated px-4 py-4 text-sm leading-6 text-muted">
+              <p className="font-semibold text-foreground">
+                {copy.plannerOnboarding.validationTitle}
+              </p>
+              <p className="mt-2">{copy.plannerOnboarding.validationBody[currentStep]}</p>
+            </div>
+          ) : null}
+
+          {currentStep === "finish" ? (
+            <div className="grid gap-3 sm:grid-cols-3">
+              {finishSummary.map((item) => (
+                <div key={item.label} className="soft-panel">
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted">
+                    {item.label}
+                  </p>
+                  <p className="mt-2 text-sm font-semibold text-foreground">{item.value}</p>
+                </div>
+              ))}
+            </div>
+          ) : null}
+
+          <div className="flex flex-wrap gap-3">
+            <Button onClick={handleBack} variant="secondary">
+              {copy.plannerOnboarding.back}
+            </Button>
+            <Button onClick={handleNext}>
+              {isFinishStep ? copy.plannerOnboarding.finish : copy.plannerOnboarding.next}
+            </Button>
+          </div>
+        </CardContent>
+      </Card>
+    </main>
+  );
+}
+
+function renderStepContent({
+  canShowPrograms,
+  copy,
+  currentStep,
+  entryTermDraft,
+  filteredProgramOptions,
+  handleEntrySeasonChange,
+  handleEntryYearChange,
+  handleProgramSelection,
+  handleSwipePreferenceSelection,
+  navSwipePreference,
+  programChoiceMode,
+  programSearch,
+  selectedProgramKey,
+  setProgramSearch,
+  yearOptions,
+}: {
+  canShowPrograms: boolean;
+  copy: ReturnType<typeof getUiCopy>;
+  currentStep: PlannerOnboardingStep;
+  entryTermDraft: { seasonKey: EntryTermSeasonKey | ""; year: string };
+  filteredProgramOptions: ReturnType<typeof filterProgramChoiceOptions>;
+  handleEntrySeasonChange: (nextSeasonKey: EntryTermSeasonKey | "") => void;
+  handleEntryYearChange: (nextYear: string) => void;
+  handleProgramSelection: (programKey: string) => void;
+  handleSwipePreferenceSelection: (preference: "natural" | "inverted") => void;
+  navSwipePreference: "natural" | "inverted" | null;
+  programChoiceMode: ReturnType<typeof getProgramChoiceMode>;
+  programSearch: string;
+  selectedProgramKey: string | null;
+  setProgramSearch: (value: string) => void;
+  yearOptions: string[];
+}) {
   switch (currentStep) {
-    case "season":
-      stepContent = (
-        <div className="space-y-4">
-          <div>
+    case "intro":
+      return (
+        <div className="space-y-5">
+          <div className="space-y-3">
             <p className="text-sm font-medium text-foreground">
-              {copy.plannerOnboarding.entrySeasonTitle}
+              {copy.plannerOnboarding.introTitle}
             </p>
-            <p className="mt-1 text-sm leading-6 text-muted">
-              {copy.plannerOnboarding.entrySeasonBody}
+            <p className="text-sm leading-6 text-muted">
+              {copy.plannerOnboarding.introBody}
             </p>
           </div>
+          <div className="grid gap-3 sm:grid-cols-3">
+            {copy.plannerOnboarding.introCards.map((card) => (
+              <div key={card.title} className="soft-panel">
+                <p className="font-semibold text-foreground">{card.title}</p>
+                <p className="mt-2 text-sm leading-6 text-muted">{card.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      );
+    case "entryTerm":
+      return (
+        <div className="space-y-5">
+          <div className="space-y-3">
+            <p className="text-sm font-medium text-foreground">
+              {copy.plannerOnboarding.entryTermTitle}
+            </p>
+            <p className="text-sm leading-6 text-muted">
+              {copy.plannerOnboarding.entryTermBody}
+            </p>
+          </div>
+
           <div className="grid gap-3 sm:grid-cols-2">
             {ENTRY_TERM_SEASON_KEYS.map((seasonKey) => (
               <button
@@ -163,22 +426,9 @@ export function PlannerOnboardingWizard({ plans }: PlannerOnboardingWizardProps)
               </button>
             ))}
           </div>
-        </div>
-      );
-      break;
-    case "year":
-      stepContent = (
-        <div className="space-y-4">
-          <div>
-            <p className="text-sm font-medium text-foreground">
-              {copy.plannerOnboarding.entryYearTitle}
-            </p>
-            <p className="mt-1 text-sm leading-6 text-muted">
-              {copy.plannerOnboarding.entryYearBody}
-            </p>
-          </div>
+
           <select
-            aria-invalid={showValidation && entryTermDraft.year.length === 0}
+            aria-label={copy.plannerOnboarding.entryYearLabel}
             className={INPUT_CLASS_NAME}
             onChange={(event) => handleEntryYearChange(event.target.value)}
             value={entryTermDraft.year}
@@ -192,207 +442,179 @@ export function PlannerOnboardingWizard({ plans }: PlannerOnboardingWizardProps)
           </select>
         </div>
       );
-      break;
-    case "plans":
-      stepContent = (
-        <div className="space-y-4">
-          <div>
+    case "program":
+      return (
+        <div className="space-y-5">
+          <div className="space-y-3">
             <p className="text-sm font-medium text-foreground">
-              {copy.plannerOnboarding.activePlansTitle}
+              {copy.plannerOnboarding.programTitles[programChoiceMode]}
             </p>
-            <p className="mt-1 text-sm leading-6 text-muted">
-              {copy.plannerOnboarding.activePlansBody}
+            <p className="text-sm leading-6 text-muted">
+              {copy.plannerOnboarding.programBody}
             </p>
           </div>
-          {!canShowPlans ? (
+
+          {!canShowPrograms ? (
             <div className="soft-panel text-sm leading-6 text-muted">
-              {copy.onboardingPage.plansLockedBody}
-            </div>
-          ) : visiblePlans.length === 0 ? (
-            <div className="soft-panel text-sm leading-6 text-muted">
-              {copy.onboardingPage.noPlansForTermBody}
+              {copy.plannerOnboarding.programLockedBody}
             </div>
           ) : (
-            <div className="grid gap-3">
-              {visiblePlans.map((plan) => {
-                const checked = profile.activePlanIds.includes(plan.plan_id);
-                return (
-                  <label key={plan.bulletin_id} className="choice-card cursor-pointer items-start text-sm">
-                    <input
-                      checked={checked}
-                      className="mt-1 h-4 w-4 accent-accent"
-                      onChange={() => togglePlan(plan.plan_id)}
-                      type="checkbox"
-                    />
-                    <span>
+            <>
+              <input
+                aria-label={copy.plannerOnboarding.programSearchLabel}
+                className={INPUT_CLASS_NAME}
+                onChange={(event) => setProgramSearch(event.target.value)}
+                placeholder={copy.plannerOnboarding.programSearchPlaceholder[programChoiceMode]}
+                type="search"
+                value={programSearch}
+              />
+
+              {filteredProgramOptions.length === 0 ? (
+                <div className="soft-panel text-sm leading-6 text-muted">
+                  {copy.plannerOnboarding.programSearchEmpty}
+                </div>
+              ) : (
+                <div className="grid gap-3">
+                  {filteredProgramOptions.map((option) => (
+                    <button
+                      key={option.programKey}
+                      className={[
+                        "choice-card text-left",
+                        selectedProgramKey === option.programKey
+                          ? "border-accent bg-surface-hover"
+                          : "",
+                      ].join(" ")}
+                      onClick={() => handleProgramSelection(option.programKey)}
+                      type="button"
+                    >
                       <span className="block font-semibold text-foreground">
-                        {plan.program_title} · {plan.plan_code}
+                        {option.displayLabel}
                       </span>
-                      <span className="mt-1 block text-xs leading-5 text-muted">{plan.title}</span>
-                    </span>
-                  </label>
-                );
-              })}
-            </div>
+                    </button>
+                  ))}
+                </div>
+              )}
+            </>
           )}
         </div>
       );
-      break;
-    case "locale":
-      stepContent = (
-        <div className="space-y-4">
-          <div>
+    case "swipe":
+      return (
+        <div className="space-y-5">
+          <div className="space-y-3">
             <p className="text-sm font-medium text-foreground">
-              {copy.plannerOnboarding.localeTitle}
+              {copy.plannerOnboarding.swipePreferenceTitle}
             </p>
-            <p className="mt-1 text-sm leading-6 text-muted">
-              {copy.plannerOnboarding.localeBody}
+            <p className="text-sm leading-6 text-muted">
+              {copy.plannerOnboarding.swipePreferenceBody}
             </p>
-          </div>
-          <select
-            className={INPUT_CLASS_NAME}
-            onChange={(event) => setLocale(event.target.value as "es-MX" | "en")}
-            value={profile.locale}
-          >
-            {localeOptions.map((option) => (
-              <option key={option.value} value={option.value}>
-                {option.label}
-              </option>
-            ))}
-          </select>
-        </div>
-      );
-      break;
-    case "widgets":
-      stepContent = (
-        <div className="space-y-4">
-          <div>
-            <p className="text-sm font-medium text-foreground">
-              {copy.plannerOnboarding.widgetsTitle}
-            </p>
-            <p className="mt-1 text-sm leading-6 text-muted">
-              {copy.plannerOnboarding.widgetsBody}
-            </p>
-          </div>
-          <div className="grid gap-3">
-            {PLANNER_WIDGET_IDS.map((widgetId) => {
-              const checked = plannerWidgetIds.includes(widgetId);
-              return (
-                <label key={widgetId} className="choice-card cursor-pointer items-start text-sm">
-                  <input
-                    checked={checked}
-                    className="mt-1 h-4 w-4 accent-accent"
-                    onChange={() => togglePlannerWidgetId(widgetId)}
-                    type="checkbox"
-                  />
-                  <span>
-                    <span className="block font-semibold text-foreground">
-                      {copy.plannerOnboarding.widgetLabels[widgetId]}
-                    </span>
-                    <span className="mt-1 block text-xs leading-5 text-muted">
-                      {copy.plannerOnboarding.widgetDescriptions[widgetId]}
-                    </span>
-                  </span>
-                </label>
-              );
-            })}
-          </div>
-        </div>
-      );
-      break;
-  }
-
-  return (
-    <main className="mx-auto flex w-full max-w-5xl flex-1 flex-col gap-6 px-5 py-8 sm:px-8 sm:py-12">
-      <Card className="section-shell">
-        <CardHeader>
-          <p className="eyebrow">{copy.plannerOnboarding.eyebrow}</p>
-          <CardTitle>{copy.plannerOnboarding.title}</CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-5">
-          <div className="soft-panel">
-            <p className="font-semibold text-foreground">{copy.plannerOnboarding.swipeTitle}</p>
-            <p className="mt-2 text-sm leading-6 text-muted">{copy.plannerOnboarding.swipeBody}</p>
           </div>
 
-          <div className="flex flex-wrap gap-2">
-            {WIZARD_STEPS.map((step, index) => (
-              <span
-                key={step}
+          <div className="grid gap-3 sm:grid-cols-2">
+            {(["natural", "inverted"] as const).map((preference) => (
+              <button
+                key={preference}
                 className={[
-                  "rounded-full px-3 py-2 text-xs font-medium",
-                  index <= progressIndex
-                    ? "bg-accent-soft text-accent"
-                    : "border border-border bg-surface-elevated text-muted",
+                  "choice-card text-left",
+                  navSwipePreference === preference ? "border-accent bg-surface-hover" : "",
                 ].join(" ")}
+                onClick={() => handleSwipePreferenceSelection(preference)}
+                type="button"
               >
-                0{index + 1}
-              </span>
+                <span className="block font-semibold text-foreground">
+                  {copy.plannerOnboarding.swipeOptions[preference].title}
+                </span>
+                <span className="mt-2 block text-sm leading-6 text-muted">
+                  {copy.plannerOnboarding.swipeOptions[preference].body}
+                </span>
+              </button>
             ))}
           </div>
-
-          {stepContent}
-
-          {showValidation ? (
-            <div className="rounded-[1.35rem] border border-border bg-surface-elevated px-4 py-4 text-sm leading-6 text-muted">
-              <p className="font-semibold text-foreground">{copy.onboardingPage.validationTitle}</p>
-              <p className="mt-2">{copy.onboardingPage.validationBody}</p>
-            </div>
-          ) : null}
-
-          <div className="flex flex-wrap gap-3">
-            <Button onClick={handleBack} variant="secondary">
-              {copy.plannerOnboarding.back}
-            </Button>
-            <Button onClick={handleNext}>
-              {isLastStep ? copy.plannerOnboarding.openPlanner : copy.plannerOnboarding.next}
-            </Button>
+        </div>
+      );
+    case "finish":
+      return (
+        <div className="space-y-5">
+          <div className="space-y-3">
+            <p className="text-sm font-medium text-foreground">
+              {copy.plannerOnboarding.finishTitle}
+            </p>
+            <p className="text-sm leading-6 text-muted">
+              {copy.plannerOnboarding.finishBody}
+            </p>
           </div>
-        </CardContent>
-      </Card>
-    </main>
-  );
+          <div className="soft-panel">
+            <p className="font-semibold text-foreground">
+              {copy.plannerOnboarding.finishHighlight}
+            </p>
+            <p className="mt-2 text-sm leading-6 text-muted">
+              {copy.plannerOnboarding.finishSupport}
+            </p>
+          </div>
+        </div>
+      );
+  }
 }
 
 function getInitialWizardStep(
   entryTerm: string,
   activePlanIds: string[],
+  navSwipePreference: "natural" | "inverted" | null,
   plans: BulletinSummary[],
 ): PlannerOnboardingStep {
   const parsedEntryTerm = parseEntryTerm(entryTerm);
 
-  if (!parsedEntryTerm.seasonKey) {
-    return "season";
+  if (!parsedEntryTerm.seasonKey && !parsedEntryTerm.year && activePlanIds.length === 0 && navSwipePreference === null) {
+    return "intro";
   }
 
-  if (!parsedEntryTerm.year) {
-    return "year";
+  if (!parsedEntryTerm.seasonKey || !parsedEntryTerm.year) {
+    return "entryTerm";
   }
 
-  if (filterPlansForEntryTerm(plans, entryTerm).length === 0 || activePlanIds.length === 0) {
-    return "plans";
+  const selectedProgram = findSelectedProgramChoice(
+    buildProgramChoiceOptions(plans, entryTerm),
+    activePlanIds,
+  );
+
+  if (selectedProgram === null) {
+    return "program";
   }
 
-  return "locale";
+  if (navSwipePreference === null) {
+    return "swipe";
+  }
+
+  return "finish";
 }
 
 function isStepValid(
   step: PlannerOnboardingStep,
-  draftEntryTerm: { seasonKey: EntryTermSeasonKey | ""; year: string },
-  activeVisiblePlanCount: number,
-  plannerWidgetIds: PlannerWidgetId[],
+  draftEntryTerm: string,
+  hasSelectedProgram: boolean,
+  navSwipePreference: "natural" | "inverted" | null,
   validYears: string[],
 ) {
   switch (step) {
-    case "season":
-      return draftEntryTerm.seasonKey.length > 0;
-    case "year":
-      return validYears.includes(draftEntryTerm.year);
-    case "plans":
-      return activeVisiblePlanCount > 0;
-    case "locale":
+    case "intro":
       return true;
-    case "widgets":
-      return plannerWidgetIds.length > 0;
+    case "entryTerm": {
+      const parsedEntryTerm = parseEntryTerm(draftEntryTerm);
+      return parsedEntryTerm.seasonKey.length > 0 && validYears.includes(parsedEntryTerm.year);
+    }
+    case "program":
+      return hasSelectedProgram;
+    case "swipe":
+      return navSwipePreference !== null;
+    case "finish":
+      return true;
   }
+}
+
+export function getPlannerSetupDelayMs(randomValue: number = Math.random()) {
+  const clampedRandom = Number.isFinite(randomValue)
+    ? Math.min(Math.max(randomValue, 0), 0.999999)
+    : 0.5;
+
+  return SETUP_DELAY_MIN_MS + Math.floor(clampedRandom * (SETUP_DELAY_MAX_MS - SETUP_DELAY_MIN_MS + 1));
 }

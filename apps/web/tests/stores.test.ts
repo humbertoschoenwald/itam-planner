@@ -90,6 +90,7 @@ describe("persisted stores", () => {
   });
 
   it("persists and rehydrates planner UI preferences", async () => {
+    usePlannerUiStore.getState().setHasCompletedSetupAnimation(true);
     usePlannerUiStore.getState().setNavSwipePreference("natural");
     usePlannerUiStore.getState().setPlannerWidgetIds(["today", "week", "today"]);
 
@@ -101,6 +102,7 @@ describe("persisted stores", () => {
     await usePlannerUiStore.persist.rehydrate();
 
     expect(usePlannerUiStore.getState().state).toEqual({
+      hasCompletedSetupAnimation: true,
       navSwipePreference: "natural",
       plannerWidgetIds: ["today", "week"],
     });
@@ -112,6 +114,7 @@ describe("persisted stores", () => {
       JSON.stringify({
         state: {
           state: {
+            hasCompletedSetupAnimation: "yes",
             navSwipePreference: "sideways",
             plannerWidgetIds: ["today", "broken", 7],
           },
@@ -123,6 +126,7 @@ describe("persisted stores", () => {
     await usePlannerUiStore.persist.rehydrate();
 
     expect(usePlannerUiStore.getState().state).toEqual({
+      hasCompletedSetupAnimation: false,
       navSwipePreference: null,
       plannerWidgetIds: ["today"],
     });

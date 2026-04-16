@@ -41,7 +41,7 @@ describe("PlannerRouteShell", () => {
     });
 
     expect(screen.getByText(/Planner está preparando tu onboarding/u)).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: /Abrir planner/u })).toHaveAttribute(
+    expect(screen.getByRole("link", { name: /Continuar onboarding/u })).toHaveAttribute(
       "href",
       "/planner/onboarding",
     );
@@ -57,6 +57,7 @@ describe("PlannerRouteShell", () => {
     });
     usePlannerUiStore.setState({
       state: {
+        hasCompletedSetupAnimation: false,
         navSwipePreference: null,
         plannerWidgetIds: ["today", "week"],
       },
@@ -99,6 +100,7 @@ describe("PlannerRouteShell", () => {
     });
     usePlannerUiStore.setState({
       state: {
+        hasCompletedSetupAnimation: false,
         navSwipePreference: null,
         plannerWidgetIds: ["today"],
       },
@@ -137,7 +139,7 @@ describe("PlannerRouteShell", () => {
   it("keeps a stable fallback link to planner onboarding while redirecting", () => {
     render(<PlannerRouteShell periods={[]} plans={[]} sourcesMetadata={null} />);
 
-    expect(screen.getByRole("link", { name: /Abrir planner/u })).toHaveAttribute(
+    expect(screen.getByRole("link", { name: /Continuar onboarding/u })).toHaveAttribute(
       "href",
       "/planner/onboarding",
     );

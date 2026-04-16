@@ -126,6 +126,7 @@ describe("CalendarPageShell", () => {
     });
     usePlannerUiStore.setState({
       state: {
+        hasCompletedSetupAnimation: false,
         navSwipePreference: null,
         plannerWidgetIds: ["today"],
       },
