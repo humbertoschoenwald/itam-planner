@@ -29,10 +29,12 @@ Do not edit it manually.
 - doctrine: extend official study surfaces (`40b9207`)
 - doctrine: enforce locale-driven frontend text (`fad4745`)
 - doctrine: localize crawlable metadata copy (`54390cb`)
+- doctrine: require English frontend identifiers (`107feea`)
 
 ### Refactors
 
 - web: centralize legacy route redirects (`a9b3332`)
+- web: rename locale-independent academic enums (`a262d1b`)
 
 ### Build
 
