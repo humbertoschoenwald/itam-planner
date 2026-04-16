@@ -109,15 +109,8 @@ describe("PlannerHome", () => {
       expect(fetchSchedulePeriodDetailMock).toHaveBeenCalledWith("2938");
     });
 
-    await waitFor(() => {
-      expect(screen.getByText(/ACT-11300 · Grupo 001/u)).toBeInTheDocument();
-    });
-
-    expect(
-      screen.queryByText(/elige un periodo público y guarda los grupos/u),
-    ).not.toBeInTheDocument();
-    expect(
-      screen.queryByText(/un planner local con un catálogo público normalizado por debajo/u),
-    ).not.toBeInTheDocument();
+    expect(screen.queryByRole("combobox")).not.toBeInTheDocument();
+    expect(screen.queryByText(/Periodo público de horarios/u)).not.toBeInTheDocument();
+    expect(screen.queryByText(/ACT-11300 · Grupo 001/u)).not.toBeInTheDocument();
   });
 });

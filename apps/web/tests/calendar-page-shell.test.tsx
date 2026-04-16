@@ -63,6 +63,17 @@ const paymentCalendar: PaymentCalendarDocument = {
       date_range_end: null,
       notes: null,
     },
+    {
+      academic_period: "OTOÑO 2026",
+      active_from: "2026-08-01",
+      active_to: "2026-08-31",
+      code: "P2",
+      event_date: "2026-08-10",
+      label: "Pago otoño",
+      date_range_start: null,
+      date_range_end: null,
+      notes: null,
+    },
   ],
 };
 
@@ -101,6 +112,7 @@ describe("CalendarPageShell", () => {
     );
 
     expect(screen.getByText(/Primero el calendario público/u)).toBeInTheDocument();
+    expect(screen.getByText(/días con eventos/u)).toBeInTheDocument();
     expect(screen.queryByText(/Clases de hoy/u)).not.toBeInTheDocument();
   });
 
@@ -154,5 +166,7 @@ describe("CalendarPageShell", () => {
     });
 
     expect(screen.getByText(/Clases de hoy/u)).toBeInTheDocument();
+    expect(screen.getByText("PRIMAVERA 2026")).toBeInTheDocument();
+    expect(screen.queryByText("OTOÑO 2026")).not.toBeInTheDocument();
   });
 });

@@ -8,19 +8,19 @@ export const metadata: Metadata = {
     canonical: "/planner",
   },
   description:
-    "Planner local de ITAM Planner para construir un horario privado en el navegador con el catálogo público ya precalculado.",
+    "Horario local de ITAM Planner para construir un horario privado en el navegador con el catálogo público ya precalculado.",
   openGraph: {
     description:
-      "Planner local de ITAM Planner para construir un horario privado en el navegador con el catálogo público ya precalculado.",
-    title: "Planner",
+      "Horario local de ITAM Planner para construir un horario privado en el navegador con el catálogo público ya precalculado.",
+    title: "Horario",
     type: "website",
     url: "/planner",
   },
-  title: "Planner",
+  title: "Horario",
   twitter: {
     description:
-      "Planner local de ITAM Planner para construir un horario privado en el navegador con el catálogo público ya precalculado.",
-    title: "Planner",
+      "Horario local de ITAM Planner para construir un horario privado en el navegador con el catálogo público ya precalculado.",
+    title: "Horario",
   },
 };
 

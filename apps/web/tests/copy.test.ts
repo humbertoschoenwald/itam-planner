@@ -1,8 +1,14 @@
 import { describe, expect, it } from "vitest";
 
 import { getUiCopy } from "@/lib/copy";
+import { DEFAULT_LOCALE, SUPPORTED_LOCALES } from "@/lib/locale";
 
 describe("getUiCopy", () => {
+  it("supports only the current Spanish and English locales", () => {
+    expect(SUPPORTED_LOCALES).toEqual(["es-MX", "en"]);
+    expect(DEFAULT_LOCALE).toBe("es-MX");
+  });
+
   it("returns Spanish-first copy by default locale selection", () => {
     expect(getUiCopy("es-MX").plannerHome.noAccountRequired).toMatch(/No necesitas cuenta/u);
   });
@@ -12,7 +18,7 @@ describe("getUiCopy", () => {
   });
 
   it("includes the under construction banner copy in Spanish-first mode", () => {
-    expect(getUiCopy("es-MX").underConstruction.title).toBe("Under Construction");
+    expect(getUiCopy("es-MX").underConstruction.title).toBe("En construcción");
   });
 
   it("exposes localized entry-season labels instead of raw academic keys", () => {
@@ -25,12 +31,13 @@ describe("getUiCopy", () => {
   it("exposes the new primary navigation, footer, and planner-onboarding copy", () => {
     const copy = getUiCopy("es-MX");
 
-    expect(copy.common.home).toBe("Home");
+    expect(copy.common.home).toBe("Inicio");
+    expect(copy.common.planner).toBe("Horario");
     expect(copy.common.calendar).toBe("Calendario");
     expect(copy.footer.terms).toBe("Términos y condiciones");
     expect(copy.plannerOnboarding.introTitle).toMatch(/configurar/u);
     expect(copy.plannerOnboarding.programTitles.licenciatura).toMatch(/licenciatura/u);
     expect(copy.plannerOnboarding.swipePreferenceTitle).toMatch(/deslizamiento/u);
-    expect(copy.plannerOnboarding.finishHighlight).toMatch(/configuraste ITAM Planner/u);
+    expect(copy.plannerOnboarding.finishHighlight).toMatch(/configuraste tu horario/u);
   });
 });

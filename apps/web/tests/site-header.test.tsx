@@ -30,12 +30,11 @@ describe("SiteHeader", () => {
   it("renders the primary nav and keeps the secondary actions in the same desktop cluster", () => {
     const { container } = render(<SiteHeader />);
 
-    expect(screen.getByRole("link", { name: "Home" })).toHaveAttribute("href", "/");
-    expect(screen.getByRole("link", { name: "Planner" })).toHaveAttribute("href", "/planner");
+    expect(screen.getByRole("link", { name: "Inicio" })).toHaveAttribute("href", "/");
+    expect(screen.getByRole("link", { name: "Horario" })).toHaveAttribute("href", "/planner");
     expect(screen.getByRole("link", { name: "Calendario" })).toHaveAttribute("href", "/calendar");
     expect(screen.getByRole("link", { name: "Proyecto" })).toHaveAttribute("href", "/project");
-    expect(screen.getByRole("link", { name: "Connect to AI" })).toHaveAttribute("href", "/connect-ai");
-    expect(screen.getByRole("link", { name: "Inscripciones" })).toHaveAttribute("href", "/registration");
+    expect(screen.getByRole("link", { name: "Conectar con IA" })).toHaveAttribute("href", "/connect-ai");
     expect(screen.getByRole("link", { name: "Configuración" })).toHaveAttribute("href", "/settings");
     expect(screen.getByRole("link", { name: "Abrir búsqueda local" })).toHaveAttribute(
       "href",
@@ -51,14 +50,14 @@ describe("SiteHeader", () => {
     mockedPathname = "/connect-ai";
     render(<SiteHeader />);
 
-    expect(screen.getByRole("link", { name: "Home" })).not.toHaveClass("bg-accent");
-    expect(screen.getByRole("link", { name: "Connect to AI" })).toHaveClass("bg-accent");
+    expect(screen.getByRole("link", { name: "Inicio" })).not.toHaveClass("bg-accent");
+    expect(screen.getByRole("link", { name: "Conectar con IA" })).toHaveClass("bg-accent");
   });
 
   it("ignores swipe-like pointer gestures outside phone layouts", () => {
     render(<SiteHeader />);
 
-    const nav = screen.getByRole("link", { name: "Planner" }).closest("nav");
+    const nav = screen.getByRole("link", { name: "Horario" }).closest("nav");
     expect(nav).not.toBeNull();
 
     fireEvent.pointerDown(nav!, { clientX: 10 });
@@ -72,7 +71,7 @@ describe("SiteHeader", () => {
     setViewportWidth(390);
     render(<SiteHeader />);
 
-    const nav = screen.getByRole("link", { name: "Planner" }).closest("nav");
+    const nav = screen.getByRole("link", { name: "Horario" }).closest("nav");
     expect(nav).not.toBeNull();
 
     await waitFor(() => {
@@ -102,6 +101,14 @@ describe("SiteHeader", () => {
 
     fireEvent.click(screen.getByRole("button", { name: "Abrir menú de links oficiales" }));
 
+    expect(screen.getByRole("link", { name: "Inscripciones" })).toHaveAttribute(
+      "href",
+      "/registration",
+    );
+    expect(screen.getByRole("link", { name: "Noticias" })).toHaveAttribute(
+      "href",
+      "https://news.itam.mx/",
+    );
     expect(
       screen.getByRole("link", { name: "Educación ejecutiva" }),
     ).toHaveAttribute(

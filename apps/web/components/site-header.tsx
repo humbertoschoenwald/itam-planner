@@ -13,7 +13,10 @@ import {
   SECONDARY_NAV_ITEMS,
 } from "@/lib/navigation";
 import { getProductCopy } from "@/lib/product-copy";
-import { OFFICIAL_EXECUTIVE_EDUCATION_URL } from "@/lib/site-content";
+import {
+  OFFICIAL_EXECUTIVE_EDUCATION_URL,
+  OFFICIAL_ITAM_NEWS_URL,
+} from "@/lib/site-content";
 import { usePhoneViewport } from "@/lib/use-phone-viewport";
 import { usePlannerUiStore } from "@/stores/planner-ui-store";
 import { useStudentProfileStore } from "@/stores/student-profile-store";
@@ -46,7 +49,7 @@ export function SiteHeader() {
           : copy.common.calendar,
   }));
   const secondaryLinks = SECONDARY_NAV_ITEMS.filter(
-    (item) => item.id !== "search" && item.id !== "map",
+    (item) => item.id !== "search" && item.id !== "map" && item.id !== "registration",
   ).map((item) => ({
     href: item.href,
     id: item.id,
@@ -55,9 +58,7 @@ export function SiteHeader() {
         ? productCopy.common.project
         : item.id === "connectAi"
           ? productCopy.common.connectToAi
-          : item.id === "registration"
-            ? productCopy.common.inscriptions
-            : productCopy.common.configuration,
+          : productCopy.common.configuration,
   }));
   const searchLink = {
     href: "/search",
@@ -67,9 +68,20 @@ export function SiteHeader() {
   const shouldUseOverflowMenu = isPhoneViewport || collapseSecondaryNav;
   const hiddenOverflowLinks = [
     {
+      href: "/registration",
+      id: "registration" as const,
+      label: productCopy.common.inscriptions,
+    },
+    {
       href: "/map",
       id: "map" as const,
       label: productCopy.common.map,
+    },
+    {
+      external: true,
+      href: OFFICIAL_ITAM_NEWS_URL,
+      id: "news" as const,
+      label: productCopy.common.news,
     },
     {
       external: true,
@@ -85,6 +97,11 @@ export function SiteHeader() {
         ...hiddenOverflowLinks,
       ]
     : hiddenOverflowLinks;
+  const overflowMenuActive =
+    activeSecondaryTab !== null &&
+    overflowLinks.some(
+      (link) => !("external" in link && link.external) && link.id === activeSecondaryTab,
+    );
   const shouldRenderOverflowMenuButton = shouldUseOverflowMenu || hiddenOverflowLinks.length > 0;
 
   useEffect(() => {
@@ -262,7 +279,7 @@ export function SiteHeader() {
                       ? productCopy.siteHeader.mobileMenuLabel
                       : productCopy.siteHeader.officialLinksLabel
                   }
-                  className={getIconNavPillClassName(mobileMenuOpen || activeSecondaryTab === "map")}
+                  className={getIconNavPillClassName(mobileMenuOpen || overflowMenuActive)}
                   onClick={() => setMobileMenuOpen((current) => !current)}
                   type="button"
                 >

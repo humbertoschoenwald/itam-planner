@@ -30,6 +30,7 @@ export function CalendarPageShell({
   const [loadedSelectedOfferings, setLoadedSelectedOfferings] = useState<
     Awaited<ReturnType<typeof fetchSchedulePeriodDetail>>["offerings"]
   >([]);
+  const [loadedSelectedPeriodLabel, setLoadedSelectedPeriodLabel] = useState<string | null>(null);
   const todayIso = useMemo(() => getMexicoCityTodayIso(), []);
 
   const shouldLoadTodayContext =
@@ -56,12 +57,14 @@ export function CalendarPageShell({
             plannerState.selectedOfferingIds.includes(offering.offering_id),
           ),
         );
+        setLoadedSelectedPeriodLabel(detail.label);
       })
       .catch(() => {
         if (!active) {
           return;
         }
         setLoadedSelectedOfferings([]);
+        setLoadedSelectedPeriodLabel(null);
       });
 
     return () => {
@@ -73,9 +76,19 @@ export function CalendarPageShell({
     () => getRelevantSchoolEvents(schoolCalendar.events, todayIso).slice(0, 8),
     [schoolCalendar.events, todayIso],
   );
+  const focusCalendarMonthIso = upcomingSchoolEvents[0]?.event_date ?? todayIso;
+  const calendarMonthView = useMemo(
+    () => buildCalendarMonthView(focusCalendarMonthIso, schoolCalendar.events, profile.locale, todayIso),
+    [focusCalendarMonthIso, profile.locale, schoolCalendar.events, todayIso],
+  );
   const paymentHighlights = useMemo(
-    () => getRelevantPaymentEvents(paymentCalendar.payment_events, todayIso).slice(0, 6),
-    [paymentCalendar.payment_events, todayIso],
+    () =>
+      getRelevantPaymentEvents(
+        paymentCalendar.payment_events,
+        todayIso,
+        resolvedSelectedAcademicPeriod(loadedSelectedPeriodLabel),
+      ).slice(0, 6),
+    [loadedSelectedPeriodLabel, paymentCalendar.payment_events, todayIso],
   );
 
   return (
@@ -113,6 +126,48 @@ export function CalendarPageShell({
             <CardTitle>{schoolCalendar.title}</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
+            <div className="overflow-hidden rounded-[1.5rem] border border-border bg-surface-elevated p-4">
+              <div className="flex items-center justify-between gap-4">
+                <p className="text-sm font-semibold text-foreground">
+                  {calendarMonthView.monthLabel}
+                </p>
+                <p className="text-xs uppercase tracking-[0.18em] text-muted">
+                  {calendarMonthView.eventCount} {copy.calendarPage.calendarGridEventDays}
+                </p>
+              </div>
+              <div className="mt-4 grid grid-cols-7 gap-2 text-center text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-muted">
+                {calendarMonthView.weekdayLabels.map((label) => (
+                  <span key={label}>{label}</span>
+                ))}
+              </div>
+              <div className="mt-3 grid grid-cols-7 gap-2">
+                {calendarMonthView.days.map((day) => (
+                  <div
+                    key={day.iso}
+                    className={[
+                      "min-h-16 rounded-[1rem] border px-2 py-2 text-left",
+                      day.inCurrentMonth
+                        ? "border-border bg-background"
+                        : "border-transparent bg-surface text-muted/70",
+                      day.isToday ? "ring-1 ring-accent/70" : "",
+                      day.events.length > 0 ? "shadow-[0_12px_24px_rgba(31,77,63,0.08)]" : "",
+                    ].join(" ")}
+                  >
+                    <p className="text-xs font-semibold text-foreground">{day.dayLabel}</p>
+                    <div className="mt-2 grid gap-1">
+                      {day.events.slice(0, 2).map((event) => (
+                        <span
+                          key={`${day.iso}:${event.symbol}:${event.label}`}
+                          className="rounded-full bg-accent-soft px-2 py-1 text-[0.68rem] font-medium leading-4 text-foreground"
+                        >
+                          {event.symbol}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
             <div className="grid gap-3">
               {upcomingSchoolEvents.map((event) => (
                 <div key={`${event.symbol}-${event.event_date}`} className="soft-panel">
@@ -190,8 +245,14 @@ function getRelevantSchoolEvents(
 function getRelevantPaymentEvents(
   events: PaymentCalendarDocument["payment_events"],
   todayIso: string,
+  preferredAcademicPeriod: string | null,
 ) {
-  return [...events].sort((left, right) => {
+  const candidateEvents =
+    preferredAcademicPeriod !== null
+      ? events.filter((event) => academicPeriodMatches(event.academic_period, preferredAcademicPeriod))
+      : [];
+
+  return [...(candidateEvents.length > 0 ? candidateEvents : events)].sort((left, right) => {
     const leftAnchor = left.event_date ?? left.date_range_start ?? left.active_from ?? "9999-12-31";
     const rightAnchor = right.event_date ?? right.date_range_start ?? right.active_from ?? "9999-12-31";
     const leftDistance = Math.abs(compareDateDistance(leftAnchor, todayIso));
@@ -203,6 +264,82 @@ function getRelevantPaymentEvents(
 
     return leftAnchor.localeCompare(rightAnchor, "en");
   });
+}
+
+function resolvedSelectedAcademicPeriod(label: string | null) {
+  if (!label) {
+    return null;
+  }
+
+  return label
+    .replace(/[()]/gu, "")
+    .replace(/\s+/gu, " ")
+    .trim();
+}
+
+function academicPeriodMatches(source: string | null, target: string) {
+  if (!source) {
+    return false;
+  }
+
+  const normalizedSource = source.toLocaleUpperCase("es-MX");
+  const normalizedTarget = target.toLocaleUpperCase("es-MX");
+
+  return normalizedSource.includes(normalizedTarget) || normalizedTarget.includes(normalizedSource);
+}
+
+function buildCalendarMonthView(
+  focusIso: string,
+  events: SchoolCalendarDocument["events"],
+  locale: string,
+  todayIso: string,
+) {
+  const [yearPart, monthPart] = focusIso.split("-").map(Number);
+  const firstOfMonth = new Date(Date.UTC(yearPart, monthPart - 1, 1));
+  const firstWeekday = (firstOfMonth.getUTCDay() + 6) % 7;
+  const gridStart = new Date(firstOfMonth);
+  gridStart.setUTCDate(gridStart.getUTCDate() - firstWeekday);
+  const eventMap = new Map<string, SchoolCalendarDocument["events"]>();
+
+  for (const event of events) {
+    const existing = eventMap.get(event.event_date) ?? [];
+    existing.push(event);
+    eventMap.set(event.event_date, existing);
+  }
+
+  const days = Array.from({ length: 35 }, (_, index) => {
+    const current = new Date(gridStart);
+    current.setUTCDate(gridStart.getUTCDate() + index);
+    const iso = current.toISOString().slice(0, 10);
+
+    return {
+      dayLabel: current.getUTCDate().toString(),
+      events: eventMap.get(iso) ?? [],
+      inCurrentMonth: current.getUTCMonth() === firstOfMonth.getUTCMonth(),
+      isToday: iso === todayIso,
+      iso,
+    };
+  });
+
+  return {
+    days,
+    eventCount: days.filter((day) => day.events.length > 0).length,
+    monthLabel: new Intl.DateTimeFormat(locale, {
+      month: "long",
+      timeZone: "UTC",
+      year: "numeric",
+    }).format(firstOfMonth),
+    weekdayLabels: Array.from({ length: 7 }, (_, index) => {
+      const date = new Date(Date.UTC(2026, 0, 5 + index));
+      return new Intl.DateTimeFormat(locale, {
+        timeZone: "UTC",
+        weekday: "short",
+      })
+        .format(date)
+        .replace(/\./gu, "")
+        .slice(0, 3);
+    }),
+  };
 }
 
 function compareDateDistance(leftIso: string, rightIso: string) {

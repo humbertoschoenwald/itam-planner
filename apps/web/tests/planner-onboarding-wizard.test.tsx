@@ -172,7 +172,7 @@ describe("PlannerOnboardingWizard", () => {
   it("starts at the intro step and blocks progress until the academic level is chosen", () => {
     renderWizard();
 
-    expect(screen.getByText(/Vamos a configurar el planner una sola vez/u)).toBeInTheDocument();
+    expect(screen.getByText(/Vamos a configurar el horario una sola vez/u)).toBeInTheDocument();
     expect(screen.queryByLabelText(/Busca tu carrera/u)).not.toBeInTheDocument();
 
     fireEvent.click(screen.getByRole("button", { name: /Siguiente/u }));
@@ -204,11 +204,11 @@ describe("PlannerOnboardingWizard", () => {
       expect(usePlannerStore.getState().state.selectedSubjectCodes).toEqual(["ECO-12002"]);
     });
 
-    expect(screen.getByText(/¿Con qué materias debe arrancar el planner\?/u)).toBeInTheDocument();
+    expect(screen.getByText(/¿Con qué materias debe arrancar el horario\?/u)).toBeInTheDocument();
 
     fireEvent.click(screen.getByRole("button", { name: /Siguiente/u }));
 
-    expect(screen.getByText(/Ya puedes crear tu planner/u)).toBeInTheDocument();
+    expect(screen.getByText(/Ya puedes crear tu horario/u)).toBeInTheDocument();
     expect(
       screen.queryByText(/¿Cómo quieres que se sienta el deslizamiento\?/u),
     ).not.toBeInTheDocument();
@@ -284,20 +284,20 @@ describe("PlannerOnboardingWizard", () => {
     fireEvent.click(screen.getByRole("button", { name: /Movimiento natural/u }));
     fireEvent.click(screen.getByRole("button", { name: /Siguiente/u }));
 
-    expect(screen.getByText(/Perfecto, configuraste ITAM Planner\./u)).toBeInTheDocument();
+    expect(screen.getByText(/Perfecto, configuraste tu horario\./u)).toBeInTheDocument();
     expect(screen.getByText("Licenciatura / ingeniería")).toBeInTheDocument();
     expect(screen.getByText("Otoño 2025")).toBeInTheDocument();
     expect(screen.getByText("Economía")).toBeInTheDocument();
 
     vi.useFakeTimers();
     vi.spyOn(Math, "random").mockReturnValue(0);
-    fireEvent.click(screen.getByRole("button", { name: /Finalizar e ir al planner/u }));
+    fireEvent.click(screen.getByRole("button", { name: /Finalizar e ir al horario/u }));
 
     expect(usePlannerUiStore.getState().state.plannerWidgetIds).toEqual([...PLANNER_WIDGET_IDS]);
     expect(usePlannerUiStore.getState().state.hasCompletedSetupAnimation).toBe(true);
     expect(usePlannerStore.getState().state.selectedPeriodId).toBe("2938");
     expect(useStudentProfileStore.getState().profile.activePlanIds).toEqual(["plan:econ-f"]);
-    expect(screen.getByText(/Preparando tu planner/u)).toBeInTheDocument();
+    expect(screen.getByText(/Preparando tu horario/u)).toBeInTheDocument();
 
     await act(async () => {
       vi.advanceTimersByTime(getPlannerSetupDelayMs(0));

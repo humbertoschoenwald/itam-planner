@@ -155,25 +155,25 @@ export function searchLocalIndex(index: LocalSearchIndexItem[], query: string) {
 
 const STATIC_PAGES: LocalSearchIndexItem[] = [
   {
-    body: "Project introduction and official-source update cards.",
+    body: "Introducción del proyecto y tarjetas con fuentes oficiales actualizadas.",
     category: "Page",
     href: "/",
     keywords: ["home", "inicio", "proyecto", "planner"],
-    title: "Home",
+    title: "Inicio",
   },
   {
-    body: "Browser-local planner shell with selected subjects, groups, and widgets.",
+    body: "Horario local del navegador con materias, grupos y widgets seleccionados.",
     category: "Page",
     href: "/planner",
     keywords: ["planner", "horario", "materias"],
-    title: "Planner",
+    title: "Horario",
   },
   {
-    body: "Embedded planner onboarding wizard.",
+    body: "Wizard embebido para configurar el horario.",
     category: "Page",
     href: "/planner/onboarding",
     keywords: ["onboarding", "ingreso", "carrera"],
-    title: "Planner onboarding",
+    title: "Onboarding del horario",
   },
   {
     body: "Academic calendar and payment milestones.",
@@ -183,18 +183,18 @@ const STATIC_PAGES: LocalSearchIndexItem[] = [
     title: "Calendario",
   },
   {
-    body: "Project links, support path, credits, and repository surfaces.",
+    body: "Links del proyecto, ruta de soporte, créditos y superficies del repositorio.",
     category: "Page",
     href: "/project",
     keywords: ["project", "proyecto", "support", "github"],
-    title: "Project",
+    title: "Proyecto",
   },
   {
-    body: "Read-only AI bridge and future student-code flow.",
+    body: "Puente read-only hacia IA y flujo futuro del código del estudiante.",
     category: "Page",
     href: "/connect-ai",
     keywords: ["ai", "chatgpt", "student code"],
-    title: "Connect to AI",
+    title: "Conectar con IA",
   },
   {
     body: "Local search across routes, published catalog data, and official sources.",
@@ -204,11 +204,11 @@ const STATIC_PAGES: LocalSearchIndexItem[] = [
     title: "Buscar",
   },
   {
-    body: "Configuration for subjects, swipe mode, and browser-local state.",
+    body: "Configuración de materias, modo de deslizamiento y estado local del navegador.",
     category: "Page",
     href: "/settings",
     keywords: ["settings", "configuration", "materias", "deslizamiento"],
-    title: "Configuration",
+    title: "Configuración",
   },
   {
     body: "Traceable inscriptions guidance linked to the official ITAM services flow.",

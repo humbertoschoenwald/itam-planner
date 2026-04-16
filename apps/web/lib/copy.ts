@@ -1,10 +1,11 @@
+import { DEFAULT_LOCALE } from "@/lib/locale";
 import type { LocaleCode } from "@/lib/types";
 
 const uiCopy = {
   en: {
     common: {
       calendar: "Calendar",
-      backToPlanner: "Back to planner",
+      backToPlanner: "Back to schedule",
       community: "Community",
       connectToChatGpt: "Connect to ChatGPT",
       genericErrorBody:
@@ -17,7 +18,7 @@ const uiCopy = {
         en: "English",
       },
       open: "Open",
-      planner: "Planner",
+      planner: "Schedule",
       retry: "Retry",
       weekdayLabels: {
         DO: "Sun",
@@ -53,7 +54,7 @@ const uiCopy = {
         "Bug report for broken app or pipeline behavior.",
         "Data correction for incorrect normalized academic data.",
         "Source drift when an upstream ITAM page or PDF changed shape.",
-        "Feature request for new planner or UX ideas.",
+        "Feature request for new schedule or UX ideas.",
       ],
       issueLead: "Choose the issue template that matches your report:",
       issueShortcuts: {
@@ -71,15 +72,15 @@ const uiCopy = {
     },
     homePage: {
       eyebrow: "Home",
-      title: "The mobile shell for planner, calendar, and secondary tools.",
+      title: "The mobile shell for schedule, calendar, and secondary tools.",
       description:
-        "Use Home as the discovery surface, keep Planner focused on your browser-local schedule, and open Calendar for the general academic timeline.",
-      primaryAction: "Open planner",
+        "Use Home as the discovery surface, keep Schedule focused on your browser-local timetable, and open Calendar for the general academic timeline.",
+      primaryAction: "Open schedule",
       secondaryAction: "Open calendar",
       surfaceEyebrow: "Mobile-first shell",
       panels: [
         {
-          title: "Browser-local planner",
+          title: "Browser-local schedule",
           body: "Your academic profile, selected groups, and UI preferences stay in this browser.",
         },
         {
@@ -88,16 +89,16 @@ const uiCopy = {
         },
         {
           title: "Safari-first navigation",
-          body: "The top bar is the main mobile navigation surface, including the planner-to-home swipe shortcut.",
+          body: "The top bar is the main mobile navigation surface, including the schedule-to-home swipe shortcut.",
         },
       ],
       featureCards: [
         {
-          action: "Open planner",
-          body: "Planner now owns onboarding, schedule selection, and widget preferences inside a single route family.",
+          action: "Open schedule",
+          body: "Schedule now owns onboarding, schedule selection, and widget preferences inside a single route family.",
           eyebrow: "Primary flow",
           href: "/planner",
-          title: "Planner",
+          title: "Schedule",
         },
         {
           action: "Open calendar",
@@ -126,7 +127,7 @@ const uiCopy = {
       eyebrow: "Onboarding",
       title: "Capture the academic basics once in this browser.",
       description:
-        "Choose your entry term, active plans, and preferred locale. The planner route depends on this local state to know which documents apply to you.",
+        "Choose your entry term, active plans, and preferred locale. The schedule route depends on this local state to know which documents apply to you.",
       entrySeason: "Season",
       entryTermHelp: "Pick the academic season and year. Free-text entry is intentionally disabled.",
       entryYear: "Year",
@@ -135,36 +136,36 @@ const uiCopy = {
         spring: "Spring",
       },
       plannerGateBody:
-        "The planner route opened first, but this browser still needs the minimum onboarding state before the dedicated planner shell can load.",
-      plannerGateTitle: "Finish onboarding to enter the planner",
+        "The schedule route opened first, but this browser still needs the minimum onboarding state before the dedicated schedule shell can load.",
+      plannerGateTitle: "Finish onboarding to enter the schedule",
       noPlansForTermBody:
         "No active bulletin plans matched the selected entry term in the published catalog. Try another year or wait for the next public catalog refresh.",
       noPlansForTermTitle: "No plans matched this entry term",
       readyBody:
-        "This browser already has the minimum onboarding state. You can refine it here or jump straight into the planner.",
+        "This browser already has the minimum onboarding state. You can refine it here or jump straight into the schedule.",
       readyTitle: "Onboarding already exists",
       openPlanner: "Continue",
       backHome: "Back to home",
       plansLockedBody:
-        "Select the academic cycle and year first. Only then can the planner show the plans that actually apply to that entry term.",
+        "Select the academic cycle and year first. Only then can the schedule show the plans that actually apply to that entry term.",
       plansLockedTitle: "Select the entry term first",
       selectSeason: "Select a season",
       selectYear: "Select a year",
       validationBody:
-        "Choose both entry-term selectors and keep at least one active plan before moving to the planner.",
+        "Choose both entry-term selectors and keep at least one active plan before moving to the schedule.",
       validationTitle: "Complete the required onboarding fields",
     },
     plannerOnboarding: {
       back: "Back",
-      eyebrow: "Planner onboarding",
+      eyebrow: "Schedule onboarding",
       entryTermBody:
         "Choose the academic cycle and year that match your ITAM entry term. Only real years from the published catalog appear here.",
       entryTermTitle: "What is your entry term?",
       entryYearLabel: "Entry year",
-      finish: "Finish and open planner",
+      finish: "Finish and open schedule",
       finishBody:
-        "You already gave the minimum data the planner needs to shape your local context.",
-      finishHighlight: "Perfect, you configured ITAM Planner.",
+        "You already gave the minimum data the schedule needs to shape your local context.",
+      finishHighlight: "Perfect, you configured your schedule.",
       finishSummary: {
         entryTerm: "Entry term",
         pending: "Pending",
@@ -172,34 +173,34 @@ const uiCopy = {
         swipe: "Swipe preference",
       },
       finishSupport:
-        "On the next screen the browser will assemble your local planner shell and take you straight into Planner.",
-      finishTitle: "Ready to create your planner",
+        "On the next screen the browser will assemble your local schedule shell and take you straight into Schedule.",
+      finishTitle: "Ready to create your schedule",
       introBody:
-        "We will ask for a few basics so this browser can decide which public plans apply to you and how the planner should feel from the first swipe.",
+        "We will ask for a few basics so this browser can decide which public plans apply to you and how the schedule should feel from the first swipe.",
       introCards: [
         {
           body: "Your academic basics stay in this browser only. No account, no backend profile, no cloud sync.",
           title: "Private by default",
         },
         {
-          body: "The planner reads precomputed public data so it can adapt the visible documents and routes to your context.",
+          body: "The schedule reads precomputed public data so it can adapt the visible documents and routes to your context.",
           title: "Real public catalog",
         },
         {
-          body: "The first setup is short. After that you can go straight into Planner and adjust details later.",
+          body: "The first setup is short. After that you can go straight into Schedule and adjust details later.",
           title: "Quick setup",
         },
       ],
-      introTitle: "Let’s configure the planner once",
+      introTitle: "Let’s configure the schedule once",
       loadingBody:
-        "The browser is assembling your local planner shell, matching the public catalog, and preparing the first route state.",
+        "The browser is assembling your local schedule shell, matching the public catalog, and preparing the first route state.",
       loadingCards: [
         {
           body: "Matching your entry term to the published plans that actually apply.",
           title: "Catalog context",
         },
         {
-          body: "Preparing the planner widgets and the navigation preferences for this browser.",
+          body: "Preparing the schedule widgets and the navigation preferences for this browser.",
           title: "Local shell",
         },
         {
@@ -208,13 +209,13 @@ const uiCopy = {
         },
       ],
       loadingEyebrow: "Configuring this browser",
-      loadingTitle: "Preparing your planner",
+      loadingTitle: "Preparing your schedule",
       next: "Next",
       openPlanner: "Continue onboarding",
       programBody:
         "Search and pick the career that applies to you for that entry term. Repeated plan titles are collapsed on purpose.",
       programLockedBody:
-        "Choose the academic cycle and year first. Only then can the planner show the careers that really match your entry term.",
+        "Choose the academic cycle and year first. Only then can the schedule show the careers that really match your entry term.",
       programSearchEmpty:
         "No careers matched that search in the current published catalog.",
       programSearchLabel: "Search your career",
@@ -230,8 +231,8 @@ const uiCopy = {
         licenciatura: "Select your degree:",
         mixed: "Select your degree / engineering:",
       },
-      redirectBody: "Planner needs the embedded onboarding flow before this browser can render your schedule shell.",
-      redirectTitle: "Planner is preparing your onboarding flow",
+      redirectBody: "Schedule needs the embedded onboarding flow before this browser can render your timetable shell.",
+      redirectTitle: "Schedule is preparing your onboarding flow",
       stepLabels: {
         academicLevel: "Academic level",
         entryTerm: "Entry term",
@@ -252,14 +253,14 @@ const uiCopy = {
         },
       },
       swipePreferenceBody:
-        "Planner always moves you to the adjacent destination, but you can choose whether the animation should feel natural or inverted on this device.",
+        "Schedule always moves you to the adjacent destination, but you can choose whether the animation should feel natural or inverted on this device.",
       swipePreferenceTitle: "How should swipe motion feel?",
-      title: "Answer the planner questions one step at a time",
+      title: "Answer the schedule questions one step at a time",
       validationBody: {
         academicLevel: "Choose the academic level before continuing.",
         entryTerm: "Choose both the academic cycle and a real year from the published catalog before continuing.",
         finish: "Review the summary and then finish the setup.",
-        intro: "Continue to capture the minimum planner data.",
+        intro: "Continue to capture the minimum schedule data.",
         program: "Choose one career from the filtered list before continuing.",
         subjects: "Choose at least one subject before continuing.",
         swipe: "Choose how swipe motion should feel on this device before continuing.",
@@ -267,12 +268,13 @@ const uiCopy = {
       validationTitle: "A required step is still missing",
     },
     calendarPage: {
+      calendarGridEventDays: "days with events",
       datePending: "Date pending",
       description:
-        "Calendar stays useful before onboarding, then adds class-aware context once your planner exists in this browser.",
+        "Calendar stays useful before onboarding, then adds class-aware context once your schedule exists in this browser.",
       eyebrow: "Calendario",
       generalCalendarBody:
-        "You can browse the public academic calendar right away. Planner-specific class context appears here after completing planner onboarding.",
+        "You can browse the public academic calendar right away. Schedule-specific class context appears here after completing schedule onboarding.",
       generalCalendarEyebrow: "General calendar",
       generalCalendarTitle: "Public calendar first",
       noAcademicPeriod: "General",
@@ -287,7 +289,7 @@ const uiCopy = {
         eyebrow: "Privacy",
         sections: [
           {
-            body: "This product stores only browser-local planner context such as your entry term, active plans, selected groups, widget preferences, and navigation preferences. That data stays on your device.",
+            body: "This product stores only browser-local schedule context such as your entry term, active plans, selected groups, widget preferences, and navigation preferences. That data stays on your device.",
             title: "What stays in the browser",
           },
           {
@@ -320,13 +322,13 @@ const uiCopy = {
     },
     connectPage: {
       description:
-        "The student code already reflects your browser-local planner state. The exact AI-context endpoint shape is still deferred by doctrine, so this page stays focused on the current contract and what comes next.",
+        "The student code already reflects your browser-local schedule state. The exact AI-context endpoint shape is still deferred by doctrine, so this page stays focused on the current contract and what comes next.",
       eyebrow: "Connect to AI",
-      title: "Prepare your browser-local planner for external AI use",
+      title: "Prepare your browser-local schedule for external AI use",
     },
     connectPanel: {
       currentSnapshot: "Current snapshot",
-      currentPlannerContext: "Current planner context",
+      currentPlannerContext: "Current schedule context",
       deferredContract: "Deferred contract",
       entryTerm: "Entry term",
       finishOnboarding:
@@ -339,8 +341,8 @@ const uiCopy = {
       supportLead: "Use GitHub issues for bugs or support.",
       timeline: [
         {
-          body: "No account is required and your planner data stays browser-owned.",
-          title: "1. Keep the planner local",
+          body: "No account is required and your schedule data stays browser-owned.",
+          title: "1. Keep the schedule local",
         },
         {
           body: "The later AI endpoint will remain read-only, JSON-only, and non-persistent.",
@@ -363,7 +365,7 @@ const uiCopy = {
       activePlansShort: "active plans",
       activePeriodFallback: "No period selected",
       activePeriodTitle:
-        "Choose one public period, then keep the groups you want in the browser-local planner state.",
+        "Choose one public period, then keep the groups you want in the browser-local schedule state.",
       browserOnlyLabel: "Current build direction",
       browserOnlyText:
         "Public data is normalized outside request time, then shipped back to the app as a stable catalog artifact.",
@@ -381,33 +383,33 @@ const uiCopy = {
       locale: "Preferred locale",
       noAccountRequired: "No account required",
       noAccountRequiredText:
-        "Start with onboarding, choose your plan and sections, and keep the resulting planner state in localStorage.",
-      noPlannerData: "Planner state is empty",
+        "Start with onboarding, choose your plan and sections, and keep the resulting schedule state in localStorage.",
+      noPlannerData: "Schedule state is empty",
       noTermYet: "No term yet",
-      noErrorFallback: "Unable to load planner data.",
-      noPeriodData: "Select a public period to start capturing planner state.",
+      noErrorFallback: "Unable to load schedule data.",
+      noPeriodData: "Select a public period to start capturing schedule state.",
       offeredBy: "Instructor pending",
       period: "Public schedule period",
       plansMetric: "Published plans",
-      plannerExists: "Planner state exists",
-      plannerShell: "Planner shell",
+      plannerExists: "Schedule state exists",
+      plannerShell: "Schedule shell",
       plannerShellHelp:
-        "Select the groups you want to keep in your current planner state.",
+        "Select the groups you want to keep in your current schedule state.",
       groupLabel: "Group",
       selectedPeriodLoadError:
         "The selected public period could not be loaded from the published catalog.",
       selectedPeriodLoading: "Loading the selected public period...",
       redirectingHelp:
-        "The planner route requires an entry term and at least one active plan in this browser.",
+        "The schedule route requires an entry term and at least one active plan in this browser.",
       redirectingToOnboarding: "Redirecting to onboarding...",
       periodsMetric: "Public periods",
-      plannerTitle: "A browser-local planner with a normalized public catalog underneath.",
+      plannerTitle: "A browser-local schedule with a normalized public catalog underneath.",
       profileReset: "Reset profile",
-      resetPlanner: "Reset planner",
+      resetPlanner: "Reset schedule",
       roomPending: "Room pending",
       updateOnboarding: "Update onboarding",
       selectAtLeastOne:
-        "Select at least one public offering to start building the browser-local planner state.",
+        "Select at least one public offering to start building the browser-local schedule state.",
       selectPeriod: "Select a period",
       step1: "Step 1",
       step2: "Step 2",
@@ -440,7 +442,7 @@ const uiCopy = {
           title: "Onboard once",
         },
         {
-          body: "Pick a public period, keep the groups you want, and shape the first planner state.",
+          body: "Pick a public period, keep the groups you want, and shape the first schedule state.",
           title: "Shape the timetable",
         },
         {
@@ -449,11 +451,11 @@ const uiCopy = {
         },
       ],
       surfaceBody:
-        "Planner focuses on browser-local onboarding, schedule capture, and the widgets you chose for launch.",
-      surfaceEyebrow: "Planner shell",
+        "Schedule focuses on browser-local onboarding, schedule capture, and the widgets you chose for launch.",
+      surfaceEyebrow: "Schedule shell",
       subjectsBoard: {
         activePlansLabel: "Active plans",
-        description: "Keep your applicable plans and the subjects already captured in the browser visible without leaving Planner.",
+        description: "Keep your applicable plans and the subjects already captured in the browser visible without leaving Schedule.",
         eyebrow: "Subjects / plans",
         noPlans: "No active plans selected yet.",
         noSubjects: "No selected groups yet.",
@@ -461,7 +463,7 @@ const uiCopy = {
         title: "Academic context",
       },
       todayBoard: {
-        description: "The planner prioritizes today first whenever the daily widget is enabled.",
+        description: "The schedule prioritizes today first whenever the daily widget is enabled.",
         empty: "No classes selected for today yet.",
         eyebrow: "Today",
         roomPending: "Room pending",
@@ -469,9 +471,9 @@ const uiCopy = {
       },
       weekBoard: {
         description:
-          "Every selected public group is mapped into a simple weekly board so you can see the browser-local planner state at a glance.",
+          "Every selected public group is mapped into a simple weekly board so you can see the browser-local schedule state at a glance.",
         empty:
-          "Select public groups to see the first weekly version of your local planner here.",
+          "Select public groups to see the first weekly version of your local schedule here.",
         eyebrow: "Selected week",
         roomPending: "Room pending",
         title: "Weekly board",
@@ -481,41 +483,41 @@ const uiCopy = {
       badge: "Browser-local beta",
     },
     underConstruction: {
-      body: "The planner, the catalog bridge, and the visual system are still being hardened. Expect fast changes while the public beta is under active construction.",
-      title: "Under Construction",
+      body: "The schedule, the catalog bridge, and the visual system are still being hardened. Expect fast changes while the public beta is under active construction.",
+      title: "Under construction",
     },
     studentCode: {
       browserOwned: "Browser-owned",
       copied: "Copied",
       copyCode: "Copy code",
       description:
-        "This browser-owned code is generated from your current onboarding profile and planner state. No account is required and no personal data is stored in the backend. Use GitHub issues for support; this code is the foundation for the later AI connection flow.",
+        "This browser-owned code is generated from your current onboarding profile and schedule state. No account is required and no personal data is stored in the backend. Use GitHub issues for support; this code is the foundation for the later AI connection flow.",
       lengthSuffix: "characters",
       eyebrow: "Portable context",
       openChatGpt: "Open the Connect to AI page",
       title: "Student code",
-      waitingForPlannerData: "Waiting for planner data",
+      waitingForPlannerData: "Waiting for schedule data",
       waitingForStudentCode:
-        "Your student code appears here once profile and planner state exist.",
+        "Your student code appears here once profile and schedule state exist.",
     },
   },
   "es-MX": {
     common: {
       calendar: "Calendario",
-      backToPlanner: "Volver al planner",
+      backToPlanner: "Volver al horario",
       community: "Comunidad",
       connectToChatGpt: "Conectar con ChatGPT",
       genericErrorBody:
-        "No se pudo cargar esta vista. Intenta de nuevo o abre el onboarding del planner.",
+        "No se pudo cargar esta vista. Intenta de nuevo o abre la configuración del horario.",
       genericErrorTitle: "No se pudo cargar esta vista.",
       goToOnboarding: "Abrir onboarding",
-      home: "Home",
+      home: "Inicio",
       localeLabels: {
         "es-MX": "Español (MX)",
-        en: "English",
+        en: "Inglés",
       },
       open: "Abrir",
-      planner: "Planner",
+      planner: "Horario",
       retry: "Reintentar",
       weekdayLabels: {
         DO: "Dom",
@@ -548,17 +550,17 @@ const uiCopy = {
       creatorSurfaces: "Canales del creador",
       eyebrow: "Proyecto",
       issueBullets: [
-        "Bug report para comportamiento roto de la app o del pipeline.",
-        "Data correction para datos académicos normalizados incorrectos.",
-        "Source drift cuando cambió la forma de una página o PDF upstream del ITAM.",
-        "Feature request para nuevas ideas de planner o UX.",
+        "Reporte de errores para comportamiento roto de la app o del pipeline.",
+        "Corrección de datos para información académica normalizada incorrecta.",
+        "Cambio en fuente oficial cuando varía la forma de una página o PDF del ITAM.",
+        "Solicitud de mejora para nuevas ideas de horario o UX.",
       ],
       issueLead: "Elige el template que mejor describa tu reporte:",
       issueShortcuts: {
-        bug: "Bug report",
-        dataCorrection: "Data correction",
-        featureRequest: "Feature request",
-        sourceDrift: "Source drift",
+        bug: "Reporte de errores",
+        dataCorrection: "Corrección de datos",
+        featureRequest: "Solicitud de mejora",
+        sourceDrift: "Cambio en fuente oficial",
       },
       issueTitle: "Abrir un issue",
       signUpLead: "Si todavía no tienes cuenta de GitHub, créala en",
@@ -569,15 +571,15 @@ const uiCopy = {
     },
     homePage: {
       eyebrow: "Inicio",
-      title: "El shell móvil para planner, calendario y superficies secundarias.",
+      title: "El shell móvil para horario, calendario y superficies secundarias.",
       description:
-        "Usa Home como superficie de descubrimiento, deja que Planner se enfoque en tu horario local y abre Calendario para la línea académica general.",
-      primaryAction: "Abrir planner",
+        "Usa Inicio como superficie de descubrimiento, deja que Horario se enfoque en tu horario local y abre Calendario para la línea académica general.",
+      primaryAction: "Abrir horario",
       secondaryAction: "Abrir calendario",
       surfaceEyebrow: "Shell mobile-first",
       panels: [
         {
-          title: "Planner solo en navegador",
+          title: "Horario solo en navegador",
           body: "Tu perfil académico, tus grupos y tus preferencias visuales se quedan en este navegador.",
         },
         {
@@ -586,16 +588,16 @@ const uiCopy = {
         },
         {
           title: "Navegación pensada para Safari",
-          body: "La barra superior es la superficie principal de navegación móvil, incluido el swipe entre Planner y Home.",
+          body: "La barra superior es la superficie principal de navegación móvil, incluido el deslizamiento entre Horario e Inicio.",
         },
       ],
       featureCards: [
         {
-          action: "Abrir planner",
-          body: "Planner ahora absorbe onboarding, selección de grupos y preferencias visuales dentro de una sola familia de rutas.",
+          action: "Abrir horario",
+          body: "Horario ahora absorbe onboarding, selección de grupos y preferencias visuales dentro de una sola familia de rutas.",
           eyebrow: "Flujo principal",
           href: "/planner",
-          title: "Planner",
+          title: "Horario",
         },
         {
           action: "Abrir calendario",
@@ -624,7 +626,7 @@ const uiCopy = {
       eyebrow: "Onboarding",
       title: "Captura lo académico básico una vez en este navegador.",
       description:
-        "Elige tu periodo de ingreso, tus planes activos y tu idioma preferido. La ruta del planner depende de este estado local para saber qué documentos te aplican.",
+        "Elige tu periodo de ingreso, tus planes activos y tu idioma preferido. La ruta del horario depende de este estado local para saber qué documentos te aplican.",
       entrySeason: "Ciclo",
       entryTermHelp:
         "Elige el ciclo académico y el año. La captura manual de texto queda deshabilitada a propósito.",
@@ -634,8 +636,8 @@ const uiCopy = {
         spring: "Primavera",
       },
       plannerGateBody:
-        "Entraste primero a la ruta del planner, pero este navegador todavía necesita el onboarding mínimo antes de abrir el shell dedicado del planner.",
-      plannerGateTitle: "Termina el onboarding para entrar al planner",
+        "Entraste primero a la ruta del horario, pero este navegador todavía necesita el onboarding mínimo antes de abrir el shell dedicado del horario.",
+      plannerGateTitle: "Termina el onboarding para entrar al horario",
       noPlansForTermBody:
         "Ningún plan activo del catálogo publicado coincide con el periodo de ingreso seleccionado. Prueba otro año o espera la siguiente actualización pública del catálogo.",
       noPlansForTermTitle: "No hay planes para ese periodo de ingreso",
@@ -650,20 +652,20 @@ const uiCopy = {
       selectSeason: "Selecciona un ciclo",
       selectYear: "Selecciona un año",
       validationBody:
-        "Completa ambos selectores del periodo de ingreso y deja al menos un plan activo antes de pasar al planner.",
+        "Completa ambos selectores del periodo de ingreso y deja al menos un plan activo antes de pasar al horario.",
       validationTitle: "Falta completar onboarding",
     },
     plannerOnboarding: {
       back: "Atrás",
-      eyebrow: "Onboarding del planner",
+      eyebrow: "Onboarding del horario",
       entryTermBody:
         "Elige el ciclo académico y el año que corresponden a tu ingreso al ITAM. Aquí solo aparecen años reales del catálogo publicado.",
       entryTermTitle: "¿Cuál es tu periodo de ingreso?",
       entryYearLabel: "Año de ingreso",
-      finish: "Finalizar e ir al planner",
+      finish: "Finalizar e ir al horario",
       finishBody:
-        "Ya capturaste lo mínimo que necesita el planner para adaptar el catálogo público a este navegador.",
-      finishHighlight: "Perfecto, configuraste ITAM Planner.",
+        "Ya capturaste lo mínimo que necesita el horario para adaptar el catálogo público a este navegador.",
+      finishHighlight: "Perfecto, configuraste tu horario.",
       finishSummary: {
         entryTerm: "Periodo de ingreso",
         pending: "Pendiente",
@@ -671,8 +673,8 @@ const uiCopy = {
         swipe: "Deslizamiento",
       },
       finishSupport:
-        "En la siguiente pantalla el navegador terminará de preparar tu shell local y te llevará directo al planner.",
-      finishTitle: "Ya puedes crear tu planner",
+        "En la siguiente pantalla el navegador terminará de preparar tu shell local y te llevará directo al horario.",
+      finishTitle: "Ya puedes crear tu horario",
       introBody:
         "Te vamos a pedir unos pocos datos para que este navegador sepa qué planes públicos te aplican y cómo quieres sentir la navegación desde el primer swipe.",
       introCards: [
@@ -681,17 +683,17 @@ const uiCopy = {
           title: "Privado por defecto",
         },
         {
-          body: "El planner lee datos públicos ya precalculados para adaptar documentos y rutas según tu contexto real.",
+          body: "El horario lee datos públicos ya precalculados para adaptar documentos y rutas según tu contexto real.",
           title: "Catálogo público real",
         },
         {
-          body: "El setup inicial es corto. Después podrás entrar al planner y ajustar detalles cuando quieras.",
+          body: "El setup inicial es corto. Después podrás entrar al horario y ajustar detalles cuando quieras.",
           title: "Setup rápido",
         },
       ],
-      introTitle: "Vamos a configurar el planner una sola vez",
+      introTitle: "Vamos a configurar el horario una sola vez",
       loadingBody:
-        "El navegador está armando tu shell local, cruzando el catálogo público y preparando el primer estado del planner.",
+        "El navegador está armando tu shell local, cruzando el catálogo público y preparando el primer estado del horario.",
       loadingCards: [
         {
           body: "Empatando tu periodo de ingreso con los planes publicados que sí te aplican.",
@@ -707,13 +709,13 @@ const uiCopy = {
         },
       ],
       loadingEyebrow: "Configurando este navegador",
-      loadingTitle: "Preparando tu planner",
+      loadingTitle: "Preparando tu horario",
       next: "Siguiente",
       openPlanner: "Continuar onboarding",
       programBody:
         "Busca y elige la carrera que te aplica para ese periodo de ingreso. Los títulos repetidos se colapsan a propósito.",
       programLockedBody:
-        "Primero elige ciclo y año. Solo entonces el planner puede mostrarte las carreras que sí coinciden con tu ingreso.",
+        "Primero elige ciclo y año. Solo entonces el horario puede mostrarte las carreras que sí coinciden con tu ingreso.",
       programSearchEmpty:
         "Ninguna carrera coincide con esa búsqueda dentro del catálogo publicado actual.",
       programSearchLabel: "Buscar carrera",
@@ -729,8 +731,8 @@ const uiCopy = {
         licenciatura: "Selecciona tu licenciatura:",
         mixed: "Selecciona tu licenciatura / ingeniería:",
       },
-      redirectBody: "Planner necesita terminar su onboarding embebido antes de renderizar el shell de horario en este navegador.",
-      redirectTitle: "Planner está preparando tu onboarding",
+      redirectBody: "Horario necesita terminar su onboarding embebido antes de renderizar el shell de horario en este navegador.",
+      redirectTitle: "Horario está preparando tu onboarding",
       stepLabels: {
         academicLevel: "Nivel",
         entryTerm: "Ingreso",
@@ -751,16 +753,16 @@ const uiCopy = {
         },
       },
       swipePreferenceBody:
-        "Planner siempre te mueve al destino adyacente, pero aquí puedes decidir si la animación debe sentirse natural o invertida en este dispositivo.",
+        "Horario siempre te mueve al destino adyacente, pero aquí puedes decidir si la animación debe sentirse natural o invertida en este dispositivo.",
       swipePreferenceTitle: "¿Cómo quieres que se sienta el deslizamiento?",
-      title: "Responde el onboarding del planner paso a paso",
+      title: "Responde el onboarding del horario paso a paso",
       validationBody: {
         academicLevel:
           "Elige el nivel académico antes de continuar.",
         entryTerm:
           "Elige tanto el ciclo académico como un año real del catálogo publicado antes de continuar.",
         finish: "Revisa el resumen y luego finaliza la configuración.",
-        intro: "Continúa para capturar lo mínimo que necesita el planner.",
+        intro: "Continúa para capturar lo mínimo que necesita el horario.",
         program: "Elige una carrera de la lista filtrada antes de continuar.",
         subjects:
           "Elige al menos una materia antes de continuar.",
@@ -770,12 +772,13 @@ const uiCopy = {
       validationTitle: "Todavía falta un paso obligatorio",
     },
     calendarPage: {
+      calendarGridEventDays: "días con eventos",
       datePending: "Fecha pendiente",
       description:
-        "Calendario sigue siendo útil antes del onboarding y luego añade contexto de clases del día cuando el planner ya existe en este navegador.",
+        "Calendario sigue siendo útil antes del onboarding y luego añade contexto de clases del día cuando el horario ya existe en este navegador.",
       eyebrow: "Calendario",
       generalCalendarBody:
-        "Puedes revisar el calendario académico público desde ahora. El contexto de clases del planner aparece aquí después de completar el onboarding del planner.",
+        "Puedes revisar el calendario académico público desde ahora. El contexto de clases del horario aparece aquí después de completar el onboarding del horario.",
       generalCalendarEyebrow: "Calendario general",
       generalCalendarTitle: "Primero el calendario público",
       noAcademicPeriod: "General",
@@ -823,13 +826,13 @@ const uiCopy = {
     },
     connectPage: {
       description:
-        "Tu student code ya refleja el estado local de tu planner en el navegador. La forma exacta del endpoint para IA sigue diferida por doctrina, así que esta página se concentra en el contrato actual y en lo que sigue.",
-      eyebrow: "Connect to AI",
-      title: "Prepara tu planner local para usarlo con IA externa",
+        "Tu código del estudiante ya refleja el estado local de tu horario en el navegador. La forma exacta del endpoint para IA sigue diferida por doctrina, así que esta página se concentra en el contrato actual y en lo que sigue.",
+      eyebrow: "Conectar con IA",
+      title: "Prepara tu horario local para usarlo con IA externa",
     },
     connectPanel: {
       currentSnapshot: "Estado actual",
-      currentPlannerContext: "Contexto actual del planner",
+      currentPlannerContext: "Contexto actual del horario",
       deferredContract: "Contrato diferido",
       entryTerm: "Periodo de ingreso",
       finishOnboarding:
@@ -842,8 +845,8 @@ const uiCopy = {
       supportLead: "Usa GitHub Issues para bugs o soporte.",
       timeline: [
         {
-          body: "No necesitas cuenta y tus datos del planner se quedan en tu navegador.",
-          title: "1. Mantén el planner local",
+          body: "No necesitas cuenta y tus datos del horario se quedan en tu navegador.",
+          title: "1. Mantén el horario local",
         },
         {
           body: "El endpoint futuro para IA seguirá siendo read-only, JSON-only y no persistente.",
@@ -858,7 +861,7 @@ const uiCopy = {
       worksWithOtherAis:
         "Esto también funciona con otras IAs. ChatGPT es solo el primer objetivo nombrado.",
       intro:
-        "Esta página es el puente hacia el flujo futuro con IA externa. El contrato final del endpoint sigue abierto a propósito, pero el student code local ya es real.",
+        "Esta página es el puente hacia el flujo futuro con IA externa. El contrato final del endpoint sigue abierto a propósito, pero el código local del estudiante ya es real.",
     },
     plannerHome: {
       activePlans: "Planes activos",
@@ -867,7 +870,7 @@ const uiCopy = {
       activePlansShort: "planes activos",
       activePeriodFallback: "Todavía no hay periodo seleccionado",
       activePeriodTitle:
-        "Elige un periodo público y guarda los grupos que quieres dentro del estado local del planner.",
+        "Elige un periodo público y guarda los grupos que quieres dentro del estado local del horario.",
       browserOnlyLabel: "Dirección actual del build",
       browserOnlyText:
         "Los datos públicos se normalizan fuera del request-time y luego regresan a la app como un artefacto estable del catálogo.",
@@ -886,32 +889,32 @@ const uiCopy = {
       noAccountRequired: "No necesitas cuenta",
       noAccountRequiredText:
         "Haz onboarding, elige tu plan y tus grupos, y conserva el estado resultante en localStorage.",
-      noPlannerData: "El planner todavía está vacío",
+      noPlannerData: "El horario todavía está vacío",
       noTermYet: "Todavía sin periodo",
-      noErrorFallback: "No fue posible cargar el planner.",
-      noPeriodData: "Selecciona un periodo público para empezar a capturar el estado del planner.",
+      noErrorFallback: "No fue posible cargar el horario.",
+      noPeriodData: "Selecciona un periodo público para empezar a capturar el estado del horario.",
       offeredBy: "Profesor pendiente",
       period: "Periodo público de horarios",
       plansMetric: "Planes publicados",
-      plannerExists: "Ya existe estado del planner",
-      plannerShell: "Shell del planner",
+      plannerExists: "Ya existe estado del horario",
+      plannerShell: "Shell del horario",
       plannerShellHelp:
-        "Selecciona los grupos que quieres conservar dentro del estado actual del planner.",
+        "Selecciona los grupos que quieres conservar dentro del estado actual del horario.",
       groupLabel: "Grupo",
       selectedPeriodLoadError:
         "No fue posible cargar el periodo público seleccionado desde el catálogo publicado.",
       selectedPeriodLoading: "Cargando el periodo público seleccionado...",
       redirectingHelp:
-        "La ruta del planner requiere un periodo de ingreso y al menos un plan activo en este navegador.",
+        "La ruta del horario requiere un periodo de ingreso y al menos un plan activo en este navegador.",
       redirectingToOnboarding: "Redirigiendo a onboarding...",
       periodsMetric: "Periodos públicos",
-      plannerTitle: "Un planner local con un catálogo público normalizado por debajo.",
+      plannerTitle: "Un horario local con un catálogo público normalizado por debajo.",
       profileReset: "Reiniciar perfil",
-      resetPlanner: "Reiniciar planner",
+      resetPlanner: "Reiniciar horario",
       roomPending: "Salón pendiente",
       updateOnboarding: "Ajustar onboarding",
       selectAtLeastOne:
-        "Selecciona al menos un grupo público para empezar a construir el estado local del planner.",
+        "Selecciona al menos un grupo público para empezar a construir el estado local del horario.",
       selectPeriod: "Selecciona un periodo",
       step1: "Paso 1",
       step2: "Paso 2",
@@ -944,7 +947,7 @@ const uiCopy = {
           title: "Empieza con onboarding",
         },
         {
-          body: "Toma un periodo público, conserva los grupos que te interesan y forma tu primer estado de planner.",
+          body: "Toma un periodo público, conserva los grupos que te interesan y forma tu primer estado de horario.",
           title: "Arma el horario",
         },
         {
@@ -953,11 +956,11 @@ const uiCopy = {
         },
       ],
       surfaceBody:
-        "Planner se enfoca en onboarding local, captura de horario y widgets elegidos para el lanzamiento.",
-      surfaceEyebrow: "Shell del planner",
+        "Horario se enfoca en onboarding local, captura de horario y widgets elegidos para el lanzamiento.",
+      surfaceEyebrow: "Shell del horario",
       subjectsBoard: {
         activePlansLabel: "Planes activos",
-        description: "Mantén visibles los planes que te aplican y las materias o grupos ya guardados en este navegador sin salir del planner.",
+        description: "Mantén visibles los planes que te aplican y las materias o grupos ya guardados en este navegador sin salir del horario.",
         eyebrow: "Materias / planes",
         noPlans: "Todavía no hay planes activos seleccionados.",
         noSubjects: "Todavía no hay grupos seleccionados.",
@@ -965,7 +968,7 @@ const uiCopy = {
         title: "Contexto académico",
       },
       todayBoard: {
-        description: "El planner prioriza hoy siempre que el widget diario esté activado.",
+        description: "El horario prioriza hoy siempre que el widget diario esté activado.",
         empty: "Todavía no hay clases seleccionadas para hoy.",
         eyebrow: "Hoy",
         roomPending: "Salón pendiente",
@@ -973,9 +976,9 @@ const uiCopy = {
       },
       weekBoard: {
         description:
-          "Cada grupo público que seleccionas se proyecta en un tablero semanal simple para que veas el estado local de tu planner de un vistazo.",
+          "Cada grupo público que seleccionas se proyecta en un tablero semanal simple para que veas el estado local de tu horario de un vistazo.",
         empty:
-          "Selecciona grupos públicos para ver aquí la primera versión semanal de tu planner local.",
+          "Selecciona grupos públicos para ver aquí la primera versión semanal de tu horario local.",
         eyebrow: "Semana seleccionada",
         roomPending: "Salón pendiente",
         title: "Tablero semanal",
@@ -985,26 +988,26 @@ const uiCopy = {
       badge: "Beta local en navegador",
     },
     underConstruction: {
-      body: "El planner, el puente al catálogo y el sistema visual siguen endureciéndose. Espera cambios rápidos mientras esta beta pública sigue en construcción.",
-      title: "Under Construction",
+      body: "El horario, el puente al catálogo y el sistema visual siguen endureciéndose. Espera cambios rápidos mientras esta beta pública sigue en construcción.",
+      title: "En construcción",
     },
     studentCode: {
       browserOwned: "Solo de este navegador",
       copied: "Copiado",
       copyCode: "Copiar código",
       description:
-        "Este código, propiedad del navegador, se genera a partir de tu perfil actual y del estado del planner. No necesitas cuenta y ningún dato personal se guarda en el backend. Usa GitHub Issues para soporte; este código es la base del flujo futuro con IA.",
+        "Este código, propiedad del navegador, se genera a partir de tu perfil actual y del estado del horario. No necesitas cuenta y ningún dato personal se guarda en el backend. Usa GitHub Issues para soporte; este código es la base del flujo futuro con IA.",
       lengthSuffix: "caracteres",
       eyebrow: "Contexto portable",
-      openChatGpt: "Abrir la página Connect to AI",
+      openChatGpt: "Abrir la página Conectar con IA",
       title: "Código del alumno",
-      waitingForPlannerData: "Esperando datos del planner",
+      waitingForPlannerData: "Esperando datos del horario",
       waitingForStudentCode:
-        "Tu código aparece aquí en cuanto exista perfil o estado del planner.",
+        "Tu código aparece aquí en cuanto exista perfil o estado del horario.",
     },
   },
 } satisfies Record<LocaleCode, unknown>;
 
 export function getUiCopy(locale: LocaleCode) {
-  return uiCopy[locale] ?? uiCopy["es-MX"];
+  return uiCopy[locale] ?? uiCopy[DEFAULT_LOCALE];
 }

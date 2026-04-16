@@ -2,6 +2,7 @@ import type { SiteNewsItem } from "@/lib/types";
 
 export const OFFICIAL_EXECUTIVE_EDUCATION_URL =
   "https://desarrolloejecutivo.itam.mx/Home/ProgramasO#sectionCorporate&0&menu";
+export const OFFICIAL_ITAM_NEWS_URL = "https://news.itam.mx/";
 
 export const OFFICIAL_NEWS_ITEMS: readonly SiteNewsItem[] = [
   {
@@ -66,10 +67,10 @@ export const OFFICIAL_NEWS_ITEMS: readonly SiteNewsItem[] = [
   },
   {
     category: "News",
-    href: "https://news.itam.mx/",
+    href: OFFICIAL_ITAM_NEWS_URL,
     published_at: null,
     source_label: "ITAM News",
-    source_url: "https://news.itam.mx/",
+    source_url: OFFICIAL_ITAM_NEWS_URL,
     summary:
       "Use the official ITAM news surface for institutional announcements, events, and editorial updates.",
     title: "ITAM News",

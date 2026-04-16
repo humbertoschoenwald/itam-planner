@@ -7,19 +7,19 @@ export const metadata: Metadata = {
     canonical: "/connect-ai",
   },
   description:
-    "Puente read-only de ITAM Planner hacia IA externa con estado del planner controlado por el navegador.",
+    "Puente read-only de ITAM Planner hacia IA externa con estado del horario controlado por el navegador.",
   openGraph: {
     description:
-      "Puente read-only de ITAM Planner hacia IA externa con estado del planner controlado por el navegador.",
-    title: "Connect to AI",
+      "Puente read-only de ITAM Planner hacia IA externa con estado del horario controlado por el navegador.",
+    title: "Conectar con IA",
     type: "website",
     url: "/connect-ai",
   },
-  title: "Connect to AI",
+  title: "Conectar con IA",
   twitter: {
     description:
-      "Puente read-only de ITAM Planner hacia IA externa con estado del planner controlado por el navegador.",
-    title: "Connect to AI",
+      "Puente read-only de ITAM Planner hacia IA externa con estado del horario controlado por el navegador.",
+    title: "Conectar con IA",
   },
 };
 

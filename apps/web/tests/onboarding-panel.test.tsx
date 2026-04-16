@@ -24,7 +24,7 @@ describe("OnboardingPanel", () => {
   it("explains when the user was redirected from the planner route", () => {
     render(<OnboardingPanel plans={[]} redirectedFromPlanner />);
 
-    expect(screen.getByText(/Termina el onboarding para entrar al planner/u)).toBeInTheDocument();
+    expect(screen.getByText(/Termina el onboarding para entrar al horario/u)).toBeInTheDocument();
   });
 
   it("blocks planner navigation until the required selectors and plans are complete", () => {

@@ -47,7 +47,7 @@ describe("PlannerRouteShell", () => {
       expect(replaceSpy).toHaveBeenCalledWith("/planner/onboarding");
     });
 
-    expect(screen.getByText(/Planner está preparando tu onboarding/u)).toBeInTheDocument();
+    expect(screen.getByText(/Horario está preparando tu onboarding/u)).toBeInTheDocument();
     expect(screen.getByRole("link", { name: /Continuar onboarding/u })).toHaveAttribute(
       "href",
       "/planner/onboarding",

@@ -1,3 +1,4 @@
+import { DEFAULT_LOCALE } from "@/lib/locale";
 import type { LocaleCode } from "@/lib/types";
 
 const productCopy = {
@@ -10,12 +11,13 @@ const productCopy = {
       inscriptions: "Registration",
       map: "Map",
       menu: "Menu",
+      news: "News",
       project: "Project",
       search: "Search",
     },
     home: {
       introEyebrow: "Why this exists",
-      introTitle: "A private academic planner built around official ITAM public data.",
+      introTitle: "A private academic schedule built around official ITAM public data.",
       introBody:
         "This project exists to make public ITAM academic information easier to navigate without accounts, hidden sync, or unofficial mirrors.",
       newsEyebrow: "Official updates",
@@ -24,10 +26,10 @@ const productCopy = {
         "Every card below points back to an official ITAM-owned source so you can verify the original context yourself.",
       cards: [
         {
-          action: "Open planner",
+          action: "Open schedule",
           body: "Set up your entry term, careers, joint programs, and subject defaults in the browser only.",
           href: "/planner",
-          title: "Planner",
+          title: "Schedule",
         },
         {
           action: "Open calendar",
@@ -63,7 +65,7 @@ const productCopy = {
     },
     plannerWizard: {
       academicLevelBody:
-        "Choose whether you want the planner to start from undergraduate public data or graduate public periods.",
+        "Choose whether you want the schedule to start from undergraduate public data or graduate public periods.",
       academicLevelOptions: {
         graduate: {
           body: "Use public master's and hybrid periods without forcing undergraduate career defaults.",
@@ -80,7 +82,7 @@ const productCopy = {
       },
       academicLevelTitle: "What academic level are you in?",
       careerBody:
-        "Choose one or two base careers. The planner will use them to derive applicable plans and default subjects.",
+        "Choose one or two base careers. The schedule will use them to derive applicable plans and default subjects.",
       careerLimit: "You can choose up to two careers.",
       careerNone: "Pick at least one career before continuing.",
       careerSearch: "Search your career",
@@ -91,14 +93,14 @@ const productCopy = {
         "No official joint programs matched the selected careers for this entry term.",
       jointProgramsTitle: "Which joint programs apply to you?",
       subjectsBody:
-        "The planner already selected default subjects from your current academic context. Keep them, remove them, or search the full published catalog.",
+        "The schedule already selected default subjects from your current academic context. Keep them, remove them, or search the full published catalog.",
       subjectsCount: "Selected subjects",
       subjectsDefaultEmpty:
         "No default subjects were inferred from the current public catalog. Search the published catalog and choose the ones you want to keep.",
       subjectsRecommended: "Default subjects",
       subjectsSearchPlaceholder: "Search any public subject",
       subjectsSelected: "Current subject selection",
-      subjectsTitle: "Which subjects should the planner start with?",
+      subjectsTitle: "Which subjects should the schedule start with?",
       selectedCount: "Selected",
       stepLabels: {
         academicLevel: "Level",
@@ -122,9 +124,21 @@ const productCopy = {
       eyebrow: "Configuration",
       resetBody:
         "Clear the browser-local profile, selected subjects, groups, and UI preferences in this browser only.",
-      resetButton: "Reset local planner",
+      resetButton: "Reset local schedule",
       resetConfirm:
-        "This clears the browser-local planner context for this browser only. Continue?",
+        "This clears the browser-local schedule context for this browser only. Continue?",
+      availableSubjectBadge: "Available",
+      scheduleBody:
+        "Choose the public period and the public groups you want to keep in this browser-local schedule state.",
+      scheduleEmpty:
+        "No published groups matched the current subject selection for that period yet.",
+      scheduleLoadError:
+        "The selected public period could not be loaded from the published catalog.",
+      scheduleLoading: "Loading the selected public period...",
+      scheduleTitle: "Public schedule",
+      selectedOfferingsEmpty: "No public groups selected yet.",
+      selectedOfferingsTitle: "Selected groups",
+      selectedSubjectBadge: "Selected",
       subjectsBody:
         "Recommended subjects come from your selected careers and the estimated current semester. Search to add anything else from the published public catalog.",
       subjectsDefaultTitle: "Default subjects",
@@ -135,11 +149,11 @@ const productCopy = {
       swipeBody:
         "Phone-only gesture preference. Desktop and tablet keep pointer and keyboard navigation.",
       swipeTitle: "Swipe mode",
-      title: "Planner configuration",
+      title: "Schedule configuration",
     },
     plannerPage: {
       filteredSubjectsBody:
-        "The planner keeps only the current subject set that shapes the visible public groups for the selected period.",
+        "The schedule keeps only the current subject set that shapes the visible public groups for the selected period.",
       filteredSubjectsEmpty:
         "No published groups matched the current subject selection for that period yet.",
       filteredSubjectsTitle: "Active subjects",
@@ -173,17 +187,18 @@ const productCopy = {
     common: {
       close: "Cerrar",
       configuration: "Configuración",
-      connectToAi: "Connect to AI",
+      connectToAi: "Conectar con IA",
       executiveEducation: "Educación ejecutiva",
       inscriptions: "Inscripciones",
       map: "Mapa",
       menu: "Menú",
+      news: "Noticias",
       project: "Proyecto",
       search: "Buscar",
     },
     home: {
       introEyebrow: "Por qué existe",
-      introTitle: "Un planner académico privado construido sobre datos públicos oficiales del ITAM.",
+      introTitle: "Un horario académico privado construido sobre datos públicos oficiales del ITAM.",
       introBody:
         "Este proyecto existe para hacer navegable la información académica pública del ITAM sin cuentas, sin sync oculto y sin espejos no oficiales.",
       newsEyebrow: "Actualizaciones oficiales",
@@ -192,10 +207,10 @@ const productCopy = {
         "Cada tarjeta de abajo apunta a una fuente oficial del ITAM para que puedas verificar el contexto original por tu cuenta.",
       cards: [
         {
-          action: "Abrir planner",
+          action: "Abrir horario",
           body: "Configura tu ingreso, tus carreras, tus planes conjuntos y tus materias por defecto solo en el navegador.",
           href: "/planner",
-          title: "Planner",
+          title: "Horario",
         },
         {
           action: "Abrir calendario",
@@ -223,7 +238,7 @@ const productCopy = {
       searchLabel: "Abrir búsqueda local",
       secondaryNav: {
         configuration: "Configuración",
-        connectToAi: "Connect to AI",
+        connectToAi: "Conectar con IA",
         executiveEducation: "Educación ejecutiva",
         inscriptions: "Inscripciones",
         project: "Proyecto",
@@ -231,7 +246,7 @@ const productCopy = {
     },
     plannerWizard: {
       academicLevelBody:
-        "Elige si quieres que el planner arranque desde datos públicos de licenciatura o desde periodos públicos de maestría.",
+        "Elige si quieres que el horario arranque desde datos públicos de licenciatura o desde periodos públicos de maestría.",
       academicLevelOptions: {
         graduate: {
           body: "Usa periodos públicos de maestría e híbrido sin forzar carreras ni materias de licenciatura.",
@@ -248,7 +263,7 @@ const productCopy = {
       },
       academicLevelTitle: "¿En qué nivel académico estás?",
       careerBody:
-        "Elige una o dos carreras base. Con eso el planner puede derivar planes aplicables y materias por defecto.",
+        "Elige una o dos carreras base. Con eso el horario puede derivar planes aplicables y materias por defecto.",
       careerLimit: "Puedes elegir hasta dos carreras.",
       careerNone: "Elige al menos una carrera antes de continuar.",
       careerSearch: "Busca tu carrera",
@@ -259,14 +274,14 @@ const productCopy = {
         "Ningún programa conjunto oficial coincide con las carreras elegidas para ese ingreso.",
       jointProgramsTitle: "¿Qué planes conjuntos te aplican?",
       subjectsBody:
-        "El planner ya marcó las materias por defecto según tu contexto académico actual. Puedes dejarlas, quitarlas o buscar cualquier otra materia publicada.",
+        "El horario ya marcó las materias por defecto según tu contexto académico actual. Puedes dejarlas, quitarlas o buscar cualquier otra materia publicada.",
       subjectsCount: "Materias seleccionadas",
       subjectsDefaultEmpty:
         "El catálogo público actual no permitió inferir materias por defecto. Busca en el catálogo publicado y marca las que quieras conservar.",
       subjectsRecommended: "Materias por defecto",
       subjectsSearchPlaceholder: "Busca cualquier materia pública",
       subjectsSelected: "Selección actual de materias",
-      subjectsTitle: "¿Con qué materias debe arrancar el planner?",
+      subjectsTitle: "¿Con qué materias debe arrancar el horario?",
       selectedCount: "Seleccionadas",
       stepLabels: {
         academicLevel: "Nivel",
@@ -290,9 +305,21 @@ const productCopy = {
       eyebrow: "Configuración",
       resetBody:
         "Borra el perfil local, las materias seleccionadas, los grupos y las preferencias visuales solo en este navegador.",
-      resetButton: "Borrar planner local",
+      resetButton: "Borrar horario local",
       resetConfirm:
-        "Esto borra el contexto local del planner solo en este navegador. ¿Continuar?",
+        "Esto borra el contexto local del horario solo en este navegador. ¿Continuar?",
+      availableSubjectBadge: "Disponible",
+      scheduleBody:
+        "Elige el periodo público y los grupos públicos que quieres conservar dentro del estado local del horario.",
+      scheduleEmpty:
+        "Todavía no hay grupos publicados que coincidan con la selección actual de materias para ese periodo.",
+      scheduleLoadError:
+        "No fue posible cargar el periodo público seleccionado desde el catálogo publicado.",
+      scheduleLoading: "Cargando el periodo público seleccionado...",
+      scheduleTitle: "Horario público",
+      selectedOfferingsEmpty: "Todavía no hay grupos públicos seleccionados.",
+      selectedOfferingsTitle: "Grupos seleccionados",
+      selectedSubjectBadge: "Seleccionada",
       subjectsBody:
         "Las materias recomendadas salen de las carreras que elegiste y del semestre estimado. Usa la búsqueda para agregar cualquier otra materia del catálogo público publicado.",
       subjectsDefaultTitle: "Materias por defecto",
@@ -303,11 +330,11 @@ const productCopy = {
       swipeBody:
         "Preferencia del gesto solo para teléfono. En tablet y computadora la navegación sigue por mouse, trackpad y teclado.",
       swipeTitle: "Modo de deslizamiento",
-      title: "Configuración del planner",
+      title: "Configuración del horario",
     },
     plannerPage: {
       filteredSubjectsBody:
-        "El planner conserva solo el conjunto actual de materias que define los grupos públicos visibles para el periodo seleccionado.",
+        "El horario conserva solo el conjunto actual de materias que define los grupos públicos visibles para el periodo seleccionado.",
       filteredSubjectsEmpty:
         "Todavía no hay grupos publicados que coincidan con la selección actual de materias para ese periodo.",
       filteredSubjectsTitle: "Materias activas",
@@ -341,5 +368,5 @@ const productCopy = {
 } satisfies Record<LocaleCode, unknown>;
 
 export function getProductCopy(locale: LocaleCode) {
-  return productCopy[locale] ?? productCopy["es-MX"];
+  return productCopy[locale] ?? productCopy[DEFAULT_LOCALE];
 }

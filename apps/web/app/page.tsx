@@ -6,19 +6,19 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   description:
-    "Home público de ITAM Planner: planner móvil, calendario académico y superficies secundarias como comunidad y conexión con ChatGPT.",
+    "Inicio público de ITAM Planner: horario móvil, calendario académico y superficies secundarias como proyecto y conexión con IA.",
   openGraph: {
     description:
-      "Home público de ITAM Planner: planner móvil, calendario académico y superficies secundarias como proyecto y conexión con IA.",
-    title: "Home",
+      "Inicio público de ITAM Planner: horario móvil, calendario académico y superficies secundarias como proyecto y conexión con IA.",
+    title: "Inicio",
     type: "website",
     url: "/",
   },
-  title: "Home",
+  title: "Inicio",
   twitter: {
     description:
-      "Home público de ITAM Planner: planner móvil, calendario académico y superficies secundarias como proyecto y conexión con IA.",
-    title: "Home",
+      "Inicio público de ITAM Planner: horario móvil, calendario académico y superficies secundarias como proyecto y conexión con IA.",
+    title: "Inicio",
   },
 };
 
