@@ -9,12 +9,12 @@ export function ProjectLinks() {
   const projectLinks = [
     {
       href: "https://github.com/humbertoschoenwald/itam-planner/issues",
-      label: "GitHub Issues",
+      label: copy.projectLinks.githubIssuesLabel,
       description: copy.projectLinks.githubDescription,
     },
     {
       href: "https://www.instagram.com/humbertoschoenwald/",
-      label: "Instagram",
+      label: copy.projectLinks.instagramLabel,
       description: copy.projectLinks.instagramDescription,
     },
   ] as const;

@@ -211,6 +211,10 @@ const productCopy = {
     registrationPage: {
       body:
         "This route does not proxy or automate registration. It only points you to the official ITAM flow and records the source links used for the guidance.",
+      sourceLabels: {
+        destination: "Official registration destination",
+        services: "Servicios ITAM",
+      },
       steps: [
         "Open the official Servicios ITAM page.",
         "Choose the Inscripciones option inside that official site.",
@@ -435,6 +439,10 @@ const productCopy = {
     registrationPage: {
       body:
         "Esta ruta no intercepta ni automatiza inscripciones. Solo te dirige al flujo oficial del ITAM y deja trazables las fuentes usadas para la guía.",
+      sourceLabels: {
+        destination: "Destino oficial de inscripciones",
+        services: "Servicios ITAM",
+      },
       steps: [
         "Abre la página oficial de Servicios ITAM.",
         "Elige la opción Inscripciones dentro de ese sitio oficial.",

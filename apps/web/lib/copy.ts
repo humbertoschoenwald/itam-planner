@@ -32,8 +32,10 @@ const uiCopy = {
       },
     },
     projectLinks: {
+      githubIssuesLabel: "GitHub Issues",
       githubDescription:
         "Report bugs, source drift, data corrections, and feature ideas through the canonical support path.",
+      instagramLabel: "Instagram",
       instagramDescription:
         "Follow the creator's work, quality experiments, and project updates. Not a support channel.",
     },
@@ -532,8 +534,10 @@ const uiCopy = {
       },
     },
     projectLinks: {
+      githubIssuesLabel: "GitHub Issues",
       githubDescription:
         "Reporta bugs, source drift, correcciones de datos e ideas de producto por la vía oficial del proyecto.",
+      instagramLabel: "Instagram",
       instagramDescription:
         "Sigue el trabajo del creador, sus experimentos de calidad y las actualizaciones del proyecto. No es un canal de soporte.",
     },

@@ -6,11 +6,11 @@ import { useStudentProfileStore } from "@/stores/student-profile-store";
 const OFFICIAL_REGISTRATION_SOURCES = [
   {
     href: "https://servicios.itam.mx/",
-    label: "Servicios ITAM",
+    labelKey: "services" as const,
   },
   {
     href: "https://alter.itam.mx:8443/StudentRegistrationSsb/ssb/registration?mepCode=EDSUP",
-    label: "Official inscriptions destination",
+    labelKey: "destination" as const,
   },
 ];
 
@@ -49,7 +49,9 @@ export function RegistrationPageShell() {
               rel="noreferrer"
               target="_blank"
             >
-              <span className="block font-semibold text-foreground">{source.label}</span>
+              <span className="block font-semibold text-foreground">
+                {copy.registrationPage.sourceLabels[source.labelKey]}
+              </span>
               <span className="mt-2 block text-sm leading-6 text-muted">{source.href}</span>
             </a>
           ))}
