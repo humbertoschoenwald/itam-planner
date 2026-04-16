@@ -71,6 +71,7 @@ Initial product-surface rules:
 - The planner should treat subject selection as a browser-local configuration surface. Default subjects should come from the selected academic programs, but the user must be able to search and add any public subject later.
 - The onboarding subject-selection step should foreground the default subjects derived from the chosen academic programs, while still allowing a local search across all published public subjects.
 - Planner configuration must allow the user to change swipe preference, review or reset browser-local planner state, and edit selected subjects without rerunning the entire onboarding flow.
+- Planner configuration must also own the selected public period and public-group selection controls; the main planner route should not lead with configuration-heavy schedule-picking UI.
 - Planner configuration should surface swipe-preference controls only on phone layouts, where swipe navigation actually exists.
 - The main planner route should foreground current schedule controls, selected offerings, and planner widgets. Explanatory onboarding-shell marketing copy belongs to home or onboarding, not to the main planner surface.
 - Selected subjects must not remain duplicated inside the lower available-subject directory once they already belong to the current browser-local selection.
@@ -79,7 +80,9 @@ Initial product-surface rules:
 - Visible route-level error states must not wipe browser-local planner state automatically. If a recovery action really needs to reset browser-local state, it must be explicit and user-triggered.
 - The public product should keep an explicit `Under Construction` notice visible while core planner, data, and AI slices are still incomplete.
 - SEO is a first-class public requirement: canonical metadata, crawlable route metadata, sitemap coverage, and machine-readable structured data must be treated as product work, not marketing afterthought.
-- Visible UI strings, selector labels, locale labels, and other locale-dependent text must come from locale configuration rather than hardcoded component strings.
+- Visible UI strings, route chrome labels, selector labels, locale labels, ARIA labels, and other locale-dependent text must come from locale dictionaries rather than hardcoded strings inside components or page modules.
+- The current product slice supports only two UI locales: Spanish (`es-MX`) and English (`en`).
+- Adding or changing locale-facing text requires updating the locale dictionaries and the relevant regression tests in the same change.
 - Keep interaction logic, browser persistence, and presentation styling loosely coupled so the visual system can be replaced without rewriting planner behavior.
 - The website must never instruct users to install the app manually through browser-native entries such as “Add to Home Screen”.
 - The primary navigation bar should remain sticky for a substantial portion of the scroll experience, respect browser safe areas, and use light blur without fighting Safari chrome.
