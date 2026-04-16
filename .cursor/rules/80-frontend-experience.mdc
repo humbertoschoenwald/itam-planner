@@ -36,6 +36,7 @@ alwaysApply: true
 - RULE: Drive visible UI strings, selector labels, and locale-dependent option labels from locale configuration instead of hardcoded component strings.
 - RULE: Keep planner logic, browser persistence, and presentation styling loosely coupled so the visual system can be replaced without rewriting behavior.
 - RULE: Keep swipe navigation scoped to the top navigation surface only.
+- RULE: Keep swipe interaction and swipe-teaching UI mobile-phone-only; tablet and desktop navigation should use pointer and keyboard interactions instead.
 - RULE: Persist the chosen or learned swipe-direction preference browser-locally without changing the semantic destination set.
 - RULE: Keep any setup/loading transition browser-local, bounded, and purely cosmetic.
 - RULE: Do not instruct users to install the site through browser-native menu entries from within the website UI.

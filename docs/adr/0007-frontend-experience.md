@@ -70,8 +70,9 @@ Initial product-surface rules:
 - The website must never instruct users to install the app manually through browser-native entries such as “Add to Home Screen”.
 - The primary navigation bar should remain sticky for a substantial portion of the scroll experience, respect browser safe areas, and use light blur without fighting Safari chrome.
 - Swipe navigation belongs only to the top navigation surface, not to the whole page.
+- Swipe interaction and swipe-teaching copy are mobile-phone-only behavior. Tablet and desktop navigation should rely on pointer and keyboard interactions instead of swipe gestures.
 - Swipe preference may be chosen during onboarding and updated later through interaction, but swipe behavior must remain deterministic and must never change the semantic destination set.
-- The embedded planner-onboarding experience should teach the planner-to-home swipe shortcut in a compact instructional card.
+- The embedded planner-onboarding experience should teach the planner-to-home swipe shortcut only on mobile-phone layouts.
 - The embedded planner-onboarding experience may finish with a short client-side setup transition, but that transition must stay browser-local, bounded, and non-blocking.
 - The public product must expose a small persistent footer with links to Terms and Privacy.
 - The visual language should favor layered gradients, monochrome noise, motion-driven atmosphere, and floating accent objects instead of large flat surfaces.
