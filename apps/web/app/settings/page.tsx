@@ -2,27 +2,10 @@ import type { Metadata } from "next";
 
 import { PlannerSettingsShell } from "@/components/planner-settings-shell";
 import { readPlannerSettingsBootstrap } from "@/lib/catalog-static";
+import { DEFAULT_LOCALE } from "@/lib/locale";
+import { buildPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  alternates: {
-    canonical: "/settings",
-  },
-  description:
-    "Configuración local de ITAM Planner para materias, deslizamiento y estado privado del navegador.",
-  openGraph: {
-    description:
-      "Configuración local de ITAM Planner para materias, deslizamiento y estado privado del navegador.",
-    title: "Configuración",
-    type: "website",
-    url: "/settings",
-  },
-  title: "Configuración",
-  twitter: {
-    description:
-      "Configuración local de ITAM Planner para materias, deslizamiento y estado privado del navegador.",
-    title: "Configuración",
-  },
-};
+export const metadata: Metadata = buildPageMetadata(DEFAULT_LOCALE, "settings");
 
 export default async function SettingsPage() {
   const bootstrap = await readPlannerSettingsBootstrap();

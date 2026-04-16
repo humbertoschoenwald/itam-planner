@@ -2,27 +2,10 @@ import type { Metadata } from "next";
 
 import { PlannerRouteShell } from "@/components/planner-route-shell";
 import { readPlannerShellBootstrap } from "@/lib/catalog-static";
+import { DEFAULT_LOCALE } from "@/lib/locale";
+import { buildPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  alternates: {
-    canonical: "/planner",
-  },
-  description:
-    "Horario local de ITAM Planner para construir un horario privado en el navegador con el catálogo público ya precalculado.",
-  openGraph: {
-    description:
-      "Horario local de ITAM Planner para construir un horario privado en el navegador con el catálogo público ya precalculado.",
-    title: "Horario",
-    type: "website",
-    url: "/planner",
-  },
-  title: "Horario",
-  twitter: {
-    description:
-      "Horario local de ITAM Planner para construir un horario privado en el navegador con el catálogo público ya precalculado.",
-    title: "Horario",
-  },
-};
+export const metadata: Metadata = buildPageMetadata(DEFAULT_LOCALE, "planner");
 
 export default async function PlannerPage() {
   const bootstrap = await readPlannerShellBootstrap();

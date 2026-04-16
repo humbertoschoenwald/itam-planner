@@ -2,17 +2,12 @@ import type { Metadata } from "next";
 
 import { LegalPageShell } from "@/components/legal-page-shell";
 import { getUiCopy } from "@/lib/copy";
+import { DEFAULT_LOCALE } from "@/lib/locale";
+import { buildPageMetadata } from "@/lib/seo";
 
-const copy = getUiCopy("es-MX");
+const copy = getUiCopy(DEFAULT_LOCALE);
 
-export const metadata: Metadata = {
-  alternates: {
-    canonical: "https://itam.humbertoschoenwald.com/privacy",
-  },
-  description:
-    "Aviso de privacidad de ITAM Planner con detalle de los datos locales que sí se guardan y los que nunca salen al backend.",
-  title: "Aviso de privacidad",
-};
+export const metadata: Metadata = buildPageMetadata(DEFAULT_LOCALE, "privacy");
 
 export default function PrivacyPage() {
   return (

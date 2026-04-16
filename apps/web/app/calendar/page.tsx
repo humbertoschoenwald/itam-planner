@@ -2,27 +2,10 @@ import type { Metadata } from "next";
 
 import { CalendarPageShell } from "@/components/calendar-page-shell";
 import { readCalendarBootstrap, readOnboardingBootstrap } from "@/lib/catalog-static";
+import { DEFAULT_LOCALE } from "@/lib/locale";
+import { buildPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  alternates: {
-    canonical: "/calendar",
-  },
-  description:
-    "Calendario público de ITAM Planner con eventos académicos generales y contexto del día cuando el horario local ya existe.",
-  openGraph: {
-    description:
-      "Calendario público de ITAM Planner con eventos académicos generales y contexto del día cuando el horario local ya existe.",
-    title: "Calendario",
-    type: "website",
-    url: "/calendar",
-  },
-  title: "Calendario",
-  twitter: {
-    description:
-      "Calendario público de ITAM Planner con eventos académicos generales y contexto del día cuando el horario local ya existe.",
-    title: "Calendario",
-  },
-};
+export const metadata: Metadata = buildPageMetadata(DEFAULT_LOCALE, "calendar");
 
 export default async function CalendarPage() {
   const [calendarBootstrap, onboardingBootstrap] = await Promise.all([
