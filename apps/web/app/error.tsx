@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { useEffect } from "react";
-import { useRouter } from "next/navigation";
 
 import { Button } from "@/components/ui/button";
 import { clearPlannerBrowserState } from "@/lib/browser-state";
@@ -10,23 +9,19 @@ import { getUiCopy } from "@/lib/copy";
 import { useStudentProfileStore } from "@/stores/student-profile-store";
 
 export default function RouteError({
+  error: _error,
   reset,
 }: {
   error: Error & { digest?: string };
   reset: () => void;
 }) {
-  const router = useRouter();
   const locale = useStudentProfileStore((state) => state.profile.locale);
   const copy = getUiCopy(locale);
+  void _error;
 
   useEffect(() => {
     clearPlannerBrowserState();
-    const timeout = window.setTimeout(() => {
-      router.replace("/onboarding?from=planner");
-    }, 120);
-
-    return () => window.clearTimeout(timeout);
-  }, [router]);
+  }, []);
 
   return (
     <main className="mx-auto flex w-full max-w-4xl flex-1 flex-col gap-6 px-5 py-8 sm:px-8 sm:py-12">
@@ -41,11 +36,11 @@ export default function RouteError({
         <div className="flex flex-wrap gap-3">
           <Button asChild>
             <Link href="/onboarding?from=planner" prefetch={false}>
-              Volver a onboarding
+              {copy.common.goToOnboarding}
             </Link>
           </Button>
           <Button onClick={reset} variant="secondary">
-            Reintentar
+            {copy.common.retry}
           </Button>
         </div>
       </section>

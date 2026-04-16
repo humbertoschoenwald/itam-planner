@@ -28,7 +28,7 @@ export function PlannerRouteShell(props: PlannerRouteShellProps) {
   const profile = useStudentProfileStore((state) => state.profile);
   const router = useRouter();
   const [hydrated, setHydrated] = useState(useStudentProfileStore.persist.hasHydrated());
-  const onboardingComplete = hasCompletedOnboarding(profile);
+  const onboardingComplete = hasCompletedOnboarding(profile, props.plans);
   const copy = getUiCopy(profile.locale);
   const standaloneFallback =
     hydrated &&

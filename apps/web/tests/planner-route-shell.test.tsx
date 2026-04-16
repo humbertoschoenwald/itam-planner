@@ -61,7 +61,22 @@ describe("PlannerRouteShell", () => {
 
     render(
       <PlannerRouteShell
-        plans={[]}
+        plans={[
+          {
+            active_from: "2026-01-01",
+            active_to: "2026-05-31",
+            application_term: "PRIMAVERA 2026",
+            application_year: 2026,
+            bulletin_id: "bulletin:ma-e",
+            entry_from_term: null,
+            entry_to_term: null,
+            plan_code: "E",
+            plan_id: "plan:ma-e",
+            program_title: "LICENCIATURA EN MATEMATICAS APLICADAS",
+            source_code: "MA-E",
+            title: "LICENCIATURA EN MATEMATICAS APLICADAS Plan E",
+          },
+        ]}
         periods={[]}
         sourcesMetadata={null}
       />,
@@ -69,6 +84,45 @@ describe("PlannerRouteShell", () => {
 
     expect(screen.getByText("Planner shell")).toBeInTheDocument();
     expect(replaceSpy).not.toHaveBeenCalled();
+  });
+
+  it("redirects to onboarding when the stored active plans no longer apply", async () => {
+    useStudentProfileStore.setState({
+      profile: {
+        entryTerm: "OTOÑO 2025",
+        activePlanIds: ["plan:ma-e"],
+        locale: "es-MX",
+      },
+    });
+
+    render(
+      <PlannerRouteShell
+        plans={[
+          {
+            active_from: "2026-01-01",
+            active_to: "2026-05-31",
+            application_term: "PRIMAVERA 2026",
+            application_year: 2026,
+            bulletin_id: "bulletin:dac-b",
+            entry_from_term: "PRIMAVERA 2015",
+            entry_to_term: "PRIMAVERA 2019",
+            plan_code: "B",
+            plan_id: "plan:dac-b",
+            program_title: "LICENCIATURA EN DERECHO",
+            source_code: "DAC-B",
+            title: "LICENCIATURA EN DERECHO Plan B",
+          },
+        ]}
+        periods={[]}
+        sourcesMetadata={null}
+      />,
+    );
+
+    await waitFor(() => {
+      expect(replaceSpy).toHaveBeenCalledWith("/onboarding?from=planner");
+    });
+
+    expect(screen.queryByText("Planner shell")).not.toBeInTheDocument();
   });
 
   it("keeps a stable fallback path to onboarding in standalone mode", async () => {

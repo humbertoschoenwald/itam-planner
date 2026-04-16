@@ -16,6 +16,7 @@ const uiCopy = {
       },
       open: "Open",
       planner: "Planner",
+      retry: "Retry",
       weekdayLabels: {
         DO: "Sun",
         JU: "Thu",
@@ -338,6 +339,7 @@ const uiCopy = {
       },
       open: "Abrir",
       planner: "Planner",
+      retry: "Reintentar",
       weekdayLabels: {
         DO: "Dom",
         JU: "Jue",

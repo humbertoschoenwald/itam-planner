@@ -23,6 +23,7 @@ interface StudentProfileStoreState {
 }
 
 const storage = createSafeJsonStorage<StudentProfileStoreState>();
+const VALID_LOCALES: readonly LocaleCode[] = ["es-MX", "en"] as const;
 
 export const useStudentProfileStore = create<StudentProfileStoreState>()(
   persist(
@@ -65,7 +66,31 @@ export const useStudentProfileStore = create<StudentProfileStoreState>()(
     }),
     {
       name: STORAGE_KEYS.studentProfile,
+      merge: (persistedState, currentState) => ({
+        ...currentState,
+        profile: sanitizeStudentProfile(
+          (persistedState as Partial<StudentProfileStoreState> | undefined)?.profile,
+        ),
+      }),
       storage,
     },
   ),
 );
+
+function sanitizeStudentProfile(value: unknown): StudentProfile {
+  if (!value || typeof value !== "object") {
+    return DEFAULT_STUDENT_PROFILE;
+  }
+
+  const candidate = value as Partial<StudentProfile>;
+
+  return {
+    activePlanIds: Array.isArray(candidate.activePlanIds)
+      ? [...new Set(candidate.activePlanIds.filter((planId): planId is string => typeof planId === "string"))]
+      : [],
+    entryTerm: typeof candidate.entryTerm === "string" ? candidate.entryTerm : "",
+    locale: VALID_LOCALES.includes(candidate.locale as LocaleCode)
+      ? (candidate.locale as LocaleCode)
+      : DEFAULT_STUDENT_PROFILE.locale,
+  };
+}

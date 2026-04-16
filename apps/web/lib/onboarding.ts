@@ -60,18 +60,57 @@ export function isValidEntryTerm(entryTerm: string) {
   return Number.isInteger(year) && year >= ENTRY_TERM_MIN_YEAR && year <= getMaximumEntryTermYear();
 }
 
-export function getEntryTermYearOptions() {
-  const years: string[] = [];
+export function getEntryTermYearOptions(plans: BulletinSummary[]) {
+  const years = new Set<number>();
 
-  for (let year = getMaximumEntryTermYear(); year >= ENTRY_TERM_MIN_YEAR; year -= 1) {
-    years.push(String(year));
+  for (const plan of plans) {
+    const start = parseComparableAcademicTerm(plan.entry_from_term);
+    const end = parseComparableAcademicTerm(plan.entry_to_term);
+
+    if (start !== null && end !== null) {
+      for (let year = Math.min(start.year, end.year); year <= Math.max(start.year, end.year); year += 1) {
+        years.add(year);
+      }
+      continue;
+    }
+
+    if (start !== null) {
+      years.add(start.year);
+    }
+
+    if (end !== null) {
+      years.add(end.year);
+    }
   }
 
-  return years;
+  return [...years]
+    .filter((year) => year >= ENTRY_TERM_MIN_YEAR && year <= getMaximumEntryTermYear())
+    .sort((left, right) => right - left)
+    .map(String);
 }
 
-export function hasCompletedOnboarding(profile: StudentProfile) {
-  return isValidEntryTerm(profile.entryTerm) && profile.activePlanIds.length > 0;
+export function hasCompletedOnboarding(profile: StudentProfile, plans?: BulletinSummary[]) {
+  if (!isValidEntryTerm(profile.entryTerm)) {
+    return false;
+  }
+
+  if (!plans) {
+    return profile.activePlanIds.length > 0;
+  }
+
+  return hasApplicableActivePlans(profile, plans);
+}
+
+export function hasApplicableActivePlans(profile: StudentProfile, plans: BulletinSummary[]) {
+  if (!isValidEntryTerm(profile.entryTerm)) {
+    return false;
+  }
+
+  const visiblePlanIds = new Set(
+    filterPlansForEntryTerm(plans, profile.entryTerm).map((plan) => plan.plan_id),
+  );
+
+  return profile.activePlanIds.some((planId) => visiblePlanIds.has(planId));
 }
 
 export function filterPlansForEntryTerm(plans: BulletinSummary[], entryTerm: string) {

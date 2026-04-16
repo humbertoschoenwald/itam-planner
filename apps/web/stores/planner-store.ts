@@ -48,7 +48,37 @@ export const usePlannerStore = create<PlannerStoreState>()(
     }),
     {
       name: STORAGE_KEYS.plannerState,
+      merge: (persistedState, currentState) => ({
+        ...currentState,
+        state: sanitizePlannerState(
+          (persistedState as Partial<PlannerStoreState> | undefined)?.state,
+        ),
+      }),
       storage,
     },
   ),
 );
+
+function sanitizePlannerState(value: unknown): PlannerState {
+  if (!value || typeof value !== "object") {
+    return DEFAULT_PLANNER_STATE;
+  }
+
+  const candidate = value as Partial<PlannerState>;
+
+  return {
+    selectedOfferingIds: Array.isArray(candidate.selectedOfferingIds)
+      ? [
+          ...new Set(
+            candidate.selectedOfferingIds.filter(
+              (offeringId): offeringId is string => typeof offeringId === "string",
+            ),
+          ),
+        ]
+      : [],
+    selectedPeriodId:
+      typeof candidate.selectedPeriodId === "string" && candidate.selectedPeriodId.length > 0
+        ? candidate.selectedPeriodId
+        : null,
+  };
+}

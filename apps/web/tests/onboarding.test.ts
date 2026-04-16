@@ -4,6 +4,8 @@ import {
   buildEntryTerm,
   filterPlansForEntryTerm,
   formatEntryTermLabel,
+  getEntryTermYearOptions,
+  hasApplicableActivePlans,
   parseEntryTerm,
 } from "@/lib/onboarding";
 import type { BulletinSummary } from "@/lib/types";
@@ -60,9 +62,49 @@ describe("filterPlansForEntryTerm", () => {
     expect(filterPlansForEntryTerm(samplePlans, "2025")).toEqual([]);
   });
 
+  it("derives the year selector from the published plan ranges", () => {
+    expect(getEntryTermYearOptions(samplePlans)).toEqual([
+      "2026",
+      "2025",
+      "2024",
+      "2023",
+      "2022",
+      "2021",
+      "2019",
+      "2018",
+      "2017",
+      "2016",
+      "2015",
+    ]);
+  });
+
   it("keeps only the plans that apply to the selected entry term", () => {
     expect(
       filterPlansForEntryTerm(samplePlans, "OTOÑO 2025").map((plan) => plan.source_code),
     ).toEqual(["MA-E"]);
+  });
+
+  it("requires at least one active plan that still applies to the selected entry term", () => {
+    expect(
+      hasApplicableActivePlans(
+        {
+          activePlanIds: ["licenciatura-en-matematicas-aplicadas:e"],
+          entryTerm: "OTOÑO 2025",
+          locale: "es-MX",
+        },
+        samplePlans,
+      ),
+    ).toBe(true);
+
+    expect(
+      hasApplicableActivePlans(
+        {
+          activePlanIds: ["licenciatura-en-matematicas-aplicadas:e"],
+          entryTerm: "OTOÑO 2011",
+          locale: "es-MX",
+        },
+        samplePlans,
+      ),
+    ).toBe(false);
   });
 });

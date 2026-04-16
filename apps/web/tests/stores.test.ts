@@ -2,6 +2,7 @@ import { beforeEach, describe, expect, it } from "vitest";
 
 import { STORAGE_KEYS } from "@/lib/storage-keys";
 import { DEFAULT_PLANNER_STATE, usePlannerStore } from "@/stores/planner-store";
+import { useStudentCodeStore } from "@/stores/student-code-store";
 import {
   DEFAULT_STUDENT_PROFILE,
   useStudentProfileStore,
@@ -12,6 +13,7 @@ describe("persisted stores", () => {
     window.localStorage.clear();
     useStudentProfileStore.setState({ profile: DEFAULT_STUDENT_PROFILE });
     usePlannerStore.setState({ state: DEFAULT_PLANNER_STATE });
+    useStudentCodeStore.setState({ code: "" });
   });
 
   it("persists and rehydrates the student profile", async () => {
@@ -44,5 +46,60 @@ describe("persisted stores", () => {
     expect(usePlannerStore.getState().state.selectedOfferingIds).toEqual([
       "2938:ACT-11300:001",
     ]);
+  });
+
+  it("sanitizes malformed student profile state during rehydration", async () => {
+    window.localStorage.setItem(
+      STORAGE_KEYS.studentProfile,
+      JSON.stringify({
+        state: {
+          profile: {
+            activePlanIds: "plan:broken",
+            entryTerm: 2025,
+            locale: "pt-BR",
+          },
+        },
+        version: 0,
+      }),
+    );
+
+    await useStudentProfileStore.persist.rehydrate();
+
+    expect(useStudentProfileStore.getState().profile).toEqual(DEFAULT_STUDENT_PROFILE);
+  });
+
+  it("sanitizes malformed planner state during rehydration", async () => {
+    window.localStorage.setItem(
+      STORAGE_KEYS.plannerState,
+      JSON.stringify({
+        state: {
+          state: {
+            selectedOfferingIds: "2938:ACT-11300:001",
+            selectedPeriodId: 2938,
+          },
+        },
+        version: 0,
+      }),
+    );
+
+    await usePlannerStore.persist.rehydrate();
+
+    expect(usePlannerStore.getState().state).toEqual(DEFAULT_PLANNER_STATE);
+  });
+
+  it("sanitizes malformed student code state during rehydration", async () => {
+    window.localStorage.setItem(
+      STORAGE_KEYS.studentCode,
+      JSON.stringify({
+        state: {
+          code: ["bad"],
+        },
+        version: 0,
+      }),
+    );
+
+    await useStudentCodeStore.persist.rehydrate();
+
+    expect(useStudentCodeStore.getState().code).toBe("");
   });
 });

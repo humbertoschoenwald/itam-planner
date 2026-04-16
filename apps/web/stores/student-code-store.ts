@@ -23,7 +23,15 @@ export const useStudentCodeStore = create<StudentCodeStoreState>()(
     }),
     {
       name: STORAGE_KEYS.studentCode,
+      merge: (persistedState, currentState) => ({
+        ...currentState,
+        code: sanitizeStudentCode((persistedState as Partial<StudentCodeStoreState> | undefined)?.code),
+      }),
       storage,
     },
   ),
 );
+
+function sanitizeStudentCode(value: unknown) {
+  return typeof value === "string" ? value : "";
+}
