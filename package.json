@@ -14,6 +14,11 @@
     "catalog:fixtures": "uv run --project apps/api python -m itam_planner_api.cli ingest-fixtures --fixtures-root apps/api/tests/fixtures --public-data-root public-data",
     "catalog:live": "uv run --project apps/api python -m itam_planner_api.cli ingest-live --public-data-root public-data",
     "changelog:generate": "node scripts/generate-changelog.mjs --mode full",
+    "ci:api": "uv sync --project apps/api --group dev && pnpm lint:api && pnpm typecheck:api && pnpm test:api && pnpm verify:api:fixtures",
+    "ci:local": "pnpm install --frozen-lockfile && pnpm lint:repo && pnpm ci:api && pnpm ci:local:web:node24 && pnpm ci:local:web:node25",
+    "ci:local:web:node24": "node scripts/run-pnpm-with-node-version.mjs 24 ci:web",
+    "ci:local:web:node25": "node scripts/run-pnpm-with-node-version.mjs 25 ci:web",
+    "ci:web": "pnpm lint:web && pnpm test:web && pnpm typecheck:web && pnpm build:web",
     "lint": "pnpm lint:repo && pnpm lint:web && pnpm lint:api",
     "lint:commit-range": "commitlint --from=HEAD~10 --to=HEAD",
     "lint:repo": "pnpm lint:repo:markdown && pnpm lint:repo:spelling",
@@ -30,8 +35,9 @@
     "typecheck:api": "uv run --project apps/api --group dev basedpyright apps/api/src",
     "test": "pnpm test:repo && pnpm test:web && pnpm test:api",
     "typecheck": "pnpm typecheck:web && pnpm typecheck:api",
+    "verify:api:fixtures": "node scripts/verify-api-fixture-promotion.mjs",
     "verify:catalog": "node scripts/verify-published-catalog-diff.mjs",
-    "verify": "pnpm lint && pnpm typecheck && pnpm test && pnpm build"
+    "verify": "pnpm lint && pnpm typecheck && pnpm test && pnpm build && pnpm verify:api:fixtures"
   },
   "devDependencies": {
     "@commitlint/cli": "^20.1.0",
