@@ -602,20 +602,6 @@
     "entry_to_term": null
   },
   {
-    "bulletin_id": "bulletin:dpl-c",
-    "source_code": "DPL-C",
-    "title": "LICENCIATURA EN CIENCIA POLÍTICA: Tesis o tesina. Plan C",
-    "program_title": "LICENCIATURA EN CIENCIA POLÍTICA: Tesis o tesina.",
-    "plan_code": "C",
-    "plan_id": "licenciatura-en-ciencia-politica-tesis-o-tesina:c",
-    "application_term": "MATERIAS OPTATIVAS VERANO 2023",
-    "application_year": 2023,
-    "active_from": "2023-06-01",
-    "active_to": "2023-07-31",
-    "entry_from_term": "VERANO 2015",
-    "entry_to_term": "PRIMAVERA 2019"
-  },
-  {
     "bulletin_id": "bulletin:dpl-d",
     "source_code": "DPL-D",
     "title": "LICENCIATURA EN CIENCIA POLÍTICA: Tesis, tesina, o caso. Los requerimientos de cada Plan D",
