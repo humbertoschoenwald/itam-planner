@@ -7,7 +7,7 @@ const bootstrap: SearchIndexBootstrap = {
   careers: [
     {
       career_id: "actuaria",
-      category: "licenciatura",
+      category: "degree",
       display_name: "Actuaría",
       source_url: "https://carreras.itam.mx/carreras/",
       study_plan_url: "https://carreras.itam.mx/plan-actuaria.pdf",
@@ -41,7 +41,7 @@ const bootstrap: SearchIndexBootstrap = {
       display_name: "Especialidad en Inteligencia Artificial",
       graduate_program_id: "especialidad-en-inteligencia-artificial",
       microsite_url: null,
-      program_kind: "especialidad",
+      program_kind: "specialization",
       source_url: "https://posgrados.itam.mx/",
       status: "active",
       study_plan_url:

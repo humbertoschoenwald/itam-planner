@@ -186,7 +186,7 @@ export interface PaymentCalendarDocument {
 
 export interface AcademicCareerReference {
   career_id: string;
-  category: "ingenieria" | "licenciatura";
+  category: "engineering" | "degree";
   display_name: string;
   source_url: string;
   study_plan_url: string | null;
@@ -210,7 +210,7 @@ export interface GraduateProgramReference {
   display_name: string;
   graduate_program_id: string;
   microsite_url: string | null;
-  program_kind: "doctorado" | "especialidad" | "maestria" | "mba";
+  program_kind: "doctorate" | "specialization" | "master" | "mba";
   source_url: string;
   status: "active" | "under-review";
   study_plan_url: string | null;

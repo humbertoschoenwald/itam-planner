@@ -10,7 +10,7 @@ import type { AcademicLevel, BulletinSummary, SchedulePeriodSummary, StudentProf
 
 export const ENTRY_TERM_SEASON_KEYS = ["spring", "fall"] as const;
 export type EntryTermSeasonKey = (typeof ENTRY_TERM_SEASON_KEYS)[number];
-export type ProgramChoiceKind = "licenciatura" | "ingenieria" | "mixed" | "career";
+export type ProgramChoiceKind = "degree" | "engineering" | "mixed" | "career";
 export const ACADEMIC_LEVELS = [
   "undergraduate",
   "jointPrograms",
@@ -27,7 +27,7 @@ export interface ProgramChoiceOption {
 }
 
 export interface CareerChoiceOption {
-  category: "ingenieria" | "licenciatura";
+  category: "engineering" | "degree";
   careerId: string;
   displayLabel: string;
   planIds: string[];
@@ -275,7 +275,9 @@ export function filterCareerChoiceOptions(options: CareerChoiceOption[], query: 
   return options.filter((option) =>
     normalizeAcademicTitle(
       `${option.displayLabel} ${option.careerId} ${
-        option.category === "ingenieria" ? "ingenieria" : "licenciatura carrera"
+        option.category === "engineering"
+          ? "ingenieria engineering"
+          : "licenciatura degree carrera"
       }`,
     ).includes(normalizedQuery),
   );
@@ -381,19 +383,19 @@ export function resolveActivePlanIdsFromSelections(
 }
 
 export function getCareerChoiceMode(options: CareerChoiceOption[]): ProgramChoiceKind {
-  const hasLicenciatura = options.some((option) => option.category === "licenciatura");
-  const hasIngenieria = options.some((option) => option.category === "ingenieria");
+  const hasDegree = options.some((option) => option.category === "degree");
+  const hasEngineering = options.some((option) => option.category === "engineering");
 
-  if (hasLicenciatura && hasIngenieria) {
+  if (hasDegree && hasEngineering) {
     return "mixed";
   }
 
-  if (hasLicenciatura) {
-    return "licenciatura";
+  if (hasDegree) {
+    return "degree";
   }
 
-  if (hasIngenieria) {
-    return "ingenieria";
+  if (hasEngineering) {
+    return "engineering";
   }
 
   return "career";
@@ -445,20 +447,20 @@ export function filterProgramChoiceOptions(
 }
 
 export function getProgramChoiceMode(options: ProgramChoiceOption[]): ProgramChoiceKind {
-  const hasLicenciatura = options.some((option) => option.kind === "licenciatura");
-  const hasIngenieria = options.some((option) => option.kind === "ingenieria");
+  const hasDegree = options.some((option) => option.kind === "degree");
+  const hasEngineering = options.some((option) => option.kind === "engineering");
   const hasCareer = options.some((option) => option.kind === "career");
 
-  if (hasCareer || (hasLicenciatura && hasIngenieria)) {
-    return hasLicenciatura && hasIngenieria ? "mixed" : "career";
+  if (hasCareer || (hasDegree && hasEngineering)) {
+    return hasDegree && hasEngineering ? "mixed" : "career";
   }
 
-  if (hasLicenciatura) {
-    return "licenciatura";
+  if (hasDegree) {
+    return "degree";
   }
 
-  if (hasIngenieria) {
-    return "ingenieria";
+  if (hasEngineering) {
+    return "engineering";
   }
 
   return "career";
@@ -583,14 +585,14 @@ function getProgramChoiceKind(programTitle: string): ProgramChoiceOption["kind"]
   const normalizedTitle = normalizeProgramTitle(programTitle);
 
   if (normalizedTitle.startsWith("LICENCIATURA EN ")) {
-    return "licenciatura";
+    return "degree";
   }
 
   if (
     normalizedTitle.startsWith("INGENIERIA EN ") ||
     normalizedTitle.startsWith("INGENIERÍA EN ")
   ) {
-    return "ingenieria";
+    return "engineering";
   }
 
   return "career";

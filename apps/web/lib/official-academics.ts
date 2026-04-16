@@ -89,110 +89,110 @@ export interface ExtractedOfficialDoubleDegreeRow {
 const OFFICIAL_CAREER_DEFINITIONS = [
   {
     careerId: "actuaria",
-    category: "licenciatura",
+    category: "degree",
     displayName: "Actuaría",
     studyPlanUrl:
       "https://carreras.itam.mx/wp-content/uploads/licenciaturas/plan-de-estudios/plan-de-estudios-licenciatura-actuaria.pdf",
   },
   {
     careerId: "administracion-negocios",
-    category: "licenciatura",
+    category: "degree",
     displayName: "Administración de Negocios",
     studyPlanUrl:
       "https://carreras.itam.mx/wp-content/uploads/licenciaturas/plan-de-estudios/plan-de-estudios-licenciatura-administracion.pdf",
   },
   {
     careerId: "ciencia-datos",
-    category: "licenciatura",
+    category: "degree",
     displayName: "Ciencia de Datos",
     studyPlanUrl:
       "https://carreras.itam.mx/wp-content/uploads/licenciaturas/plan-de-estudios/plan-de-estudios-licenciatura-ciencia-de-datos.pdf",
   },
   {
     careerId: "ciencia-politica",
-    category: "licenciatura",
+    category: "degree",
     displayName: "Ciencia Política",
     studyPlanUrl:
       "https://carreras.itam.mx/wp-content/uploads/licenciaturas/plan-de-estudios/plan-de-estudios-licenciatura-ciencia-politica.pdf",
   },
   {
     careerId: "contaduria-analitica-finanzas-corporativas",
-    category: "licenciatura",
+    category: "degree",
     displayName: "Contaduría Analítica y Finanzas Corporativas",
     studyPlanUrl: null,
   },
   {
     careerId: "derecho",
-    category: "licenciatura",
+    category: "degree",
     displayName: "Derecho",
     studyPlanUrl:
       "https://carreras.itam.mx/wp-content/uploads/licenciaturas/plan-de-estudios/plan-de-estudios-licenciatura-derecho.pdf",
   },
   {
     careerId: "direccion-mercadotecnia",
-    category: "licenciatura",
+    category: "degree",
     displayName: "Dirección de Mercadotecnia",
     studyPlanUrl: null,
   },
   {
     careerId: "direccion-financiera",
-    category: "licenciatura",
+    category: "degree",
     displayName: "Dirección Financiera",
     studyPlanUrl:
       "https://carreras.itam.mx/wp-content/uploads/licenciaturas/plan-de-estudios/plan-de-estudios-licenciatura-direccion-financiera.pdf",
   },
   {
     careerId: "economia",
-    category: "licenciatura",
+    category: "degree",
     displayName: "Economía",
     studyPlanUrl:
       "https://carreras.itam.mx/wp-content/uploads/licenciaturas/plan-de-estudios/plan-de-estudios-licenciatura-economia.pdf",
   },
   {
     careerId: "matematicas-aplicadas",
-    category: "licenciatura",
+    category: "degree",
     displayName: "Matemáticas Aplicadas",
     studyPlanUrl:
       "https://carreras.itam.mx/wp-content/uploads/licenciaturas/plan-de-estudios/plan-de-estudios-licenciatura-matematicas-aplicadas.pdf",
   },
   {
     careerId: "relaciones-internacionales",
-    category: "licenciatura",
+    category: "degree",
     displayName: "Relaciones Internacionales",
     studyPlanUrl:
       "https://carreras.itam.mx/wp-content/uploads/licenciaturas/plan-de-estudios/plan-de-estudios-licenciatura-relaciones-internacionales.pdf",
   },
   {
     careerId: "inteligencia-artificial",
-    category: "ingenieria",
+    category: "engineering",
     displayName: "Inteligencia Artificial",
     studyPlanUrl:
       "https://carreras.itam.mx/wp-content/uploads/licenciaturas/plan-de-estudios/plan-de-estudios-ingenieria-inteligencia-artificial.pdf",
   },
   {
     careerId: "computacion",
-    category: "ingenieria",
+    category: "engineering",
     displayName: "Ciencias de la Computación",
     studyPlanUrl:
       "https://carreras.itam.mx/wp-content/uploads/licenciaturas/plan-de-estudios/plan-de-estudios-ingenieria-computacion.pdf",
   },
   {
     careerId: "mecatronica-robotica-inteligente",
-    category: "ingenieria",
+    category: "engineering",
     displayName: "Ingeniería en Mecatrónica y Robótica Inteligente",
     studyPlanUrl:
       "https://carreras.itam.mx/wp-content/uploads/licenciaturas/plan-de-estudios/plan-de-estudios-ingenieria-mecatronica.pdf",
   },
   {
     careerId: "ingenieria-negocios",
-    category: "ingenieria",
+    category: "engineering",
     displayName: "Ingeniería en Negocios",
     studyPlanUrl:
       "https://carreras.itam.mx/wp-content/uploads/licenciaturas/plan-de-estudios/plan-de-estudios-ingenieria-negocios.pdf",
   },
   {
     careerId: "industrial-sistemas-inteligentes",
-    category: "ingenieria",
+    category: "engineering",
     displayName: "Ingeniería Industrial y en Sistemas Inteligentes",
     studyPlanUrl:
       "https://carreras.itam.mx/wp-content/uploads/licenciaturas/plan-de-estudios/plan-de-estudios-ingenieria-industrial.pdf",
@@ -510,7 +510,7 @@ const OFFICIAL_GRADUATE_PROGRAM_DEFINITIONS = [
     displayName: "Ciencia de Datos",
     graduateProgramId: "ciencia-de-datos",
     micrositeUrl: "https://mcdatos.itam.mx/es",
-    programKind: "maestria",
+    programKind: "master",
     status: "active",
     studyPlanUrl: null,
   },
@@ -525,7 +525,7 @@ const OFFICIAL_GRADUATE_PROGRAM_DEFINITIONS = [
     displayName: "Ciencia de Riesgo",
     graduateProgramId: "ciencia-de-riesgo",
     micrositeUrl: "https://mcriesgo.itam.mx/es",
-    programKind: "maestria",
+    programKind: "master",
     status: "active",
     studyPlanUrl: null,
   },
@@ -540,7 +540,7 @@ const OFFICIAL_GRADUATE_PROGRAM_DEFINITIONS = [
     displayName: "Ciencias Computacionales Aplicadas",
     graduateProgramId: "ciencias-computacionales-aplicadas",
     micrositeUrl: "https://maestriaencomputacion.itam.mx/es",
-    programKind: "maestria",
+    programKind: "master",
     status: "active",
     studyPlanUrl: null,
   },
@@ -555,7 +555,7 @@ const OFFICIAL_GRADUATE_PROGRAM_DEFINITIONS = [
     displayName: "Derechos Humanos y Garantías",
     graduateProgramId: "derechos-humanos-y-garantias",
     micrositeUrl: "https://mderecho.itam.mx/es",
-    programKind: "maestria",
+    programKind: "master",
     status: "active",
     studyPlanUrl: null,
   },
@@ -570,7 +570,7 @@ const OFFICIAL_GRADUATE_PROGRAM_DEFINITIONS = [
     displayName: "Economía Aplicada",
     graduateProgramId: "economia-aplicada",
     micrositeUrl: "https://maestriaeconomia.itam.mx/",
-    programKind: "maestria",
+    programKind: "master",
     status: "active",
     studyPlanUrl: null,
   },
@@ -585,7 +585,7 @@ const OFFICIAL_GRADUATE_PROGRAM_DEFINITIONS = [
     displayName: "Finanzas",
     graduateProgramId: "finanzas",
     micrositeUrl: "https://mef.itam.mx/es",
-    programKind: "maestria",
+    programKind: "master",
     status: "active",
     studyPlanUrl: null,
   },
@@ -626,7 +626,7 @@ const OFFICIAL_GRADUATE_PROGRAM_DEFINITIONS = [
     displayName: "Teoría Económica",
     graduateProgramId: "teoria-economica",
     micrositeUrl: "https://mteoriaeconomica.itam.mx/es",
-    programKind: "maestria",
+    programKind: "master",
     status: "active",
     studyPlanUrl: null,
   },
@@ -641,7 +641,7 @@ const OFFICIAL_GRADUATE_PROGRAM_DEFINITIONS = [
     displayName: "Políticas Públicas (en revisión)",
     graduateProgramId: "politicas-publicas",
     micrositeUrl: "https://politicaspublicas.itam.mx/es",
-    programKind: "maestria",
+    programKind: "master",
     status: "under-review",
     studyPlanUrl: null,
   },
@@ -656,7 +656,7 @@ const OFFICIAL_GRADUATE_PROGRAM_DEFINITIONS = [
     displayName: "Doctorado en Economía",
     graduateProgramId: "doctorado-en-economia",
     micrositeUrl: "https://phdeconomia.itam.mx/es",
-    programKind: "doctorado",
+    programKind: "doctorate",
     status: "active",
     studyPlanUrl: null,
   },
@@ -671,7 +671,7 @@ const OFFICIAL_GRADUATE_PROGRAM_DEFINITIONS = [
     displayName: "Especialidad en Inteligencia Artificial",
     graduateProgramId: "especialidad-en-inteligencia-artificial",
     micrositeUrl: null,
-    programKind: "especialidad",
+    programKind: "specialization",
     status: "active",
     studyPlanUrl:
       "https://posgrados.itam.mx/sites/default/files/posgrados/plan-de-estudios/plan-de-estudios-especialidad-inteligencia-artificial.pdf",
@@ -1338,18 +1338,18 @@ function buildDoubleDegreeId(baseProgramLabel: string, partnerInstitution: strin
 
 function classifyGraduateProgramKind(displayName: string): GraduateProgramReference["program_kind"] {
   if (displayName.startsWith("Doctorado")) {
-    return "doctorado";
+    return "doctorate";
   }
 
   if (displayName.startsWith("Especialidad")) {
-    return "especialidad";
+    return "specialization";
   }
 
   if (displayName.includes("MBA")) {
     return "mba";
   }
 
-  return "maestria";
+  return "master";
 }
 
 function isPdfLikeUrl(value: string) {
