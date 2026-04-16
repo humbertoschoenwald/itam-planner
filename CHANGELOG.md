@@ -30,6 +30,7 @@ Do not edit it manually.
 - web: harden onboarding and browser-local resilience (`412ee4b`)
 - api: switch boletines to official itam sources (`046a063`)
 - web: stabilize onboarding selectors and locale copy (`7854af2`)
+- web: harden planner entry against stale local state (`3fc428a`)
 
 ### Documentation
 
@@ -47,6 +48,7 @@ Do not edit it manually.
 - frontend: refine onboarding and catalog doctrine (`ae26e5f`)
 - doctrine: harden source policy and frontend scope (`1f33fed`)
 - doctrine: codify localized ui and design references (`3ec1ada`)
+- doctrine: constrain onboarding year availability (`877e3fd`)
 
 ### Tests
 
