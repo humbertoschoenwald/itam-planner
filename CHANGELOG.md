@@ -11,6 +11,7 @@ Do not edit it manually.
 - web: align planner shell with canonical routes (`4114e92`)
 - web: cover official joint programs in onboarding (`29c5030`)
 - web: add official graduate study references (`95b247f`)
+- web: localize schedule surfaces cleanly (`0e139a7`)
 
 ### Fixes
 
@@ -24,6 +25,7 @@ Do not edit it manually.
 - doctrine: refine frontend route and planner rules (`fb10827`)
 - doctrine: mirror blocking CI before push (`ba60065`)
 - doctrine: extend official study surfaces (`40b9207`)
+- doctrine: enforce locale-driven frontend text (`fad4745`)
 
 ### Build
 
