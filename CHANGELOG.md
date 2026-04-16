@@ -21,6 +21,7 @@ Do not edit it manually.
 - web: align planner onboarding with academic context (`8a03bcb`)
 - web: align official joint program references (`f85e258`)
 - web: infer ai schedule defaults from official plans (`5096b0f`)
+- web: align localized copy with canonical routes (`86f0c91`)
 
 ### Documentation
 
