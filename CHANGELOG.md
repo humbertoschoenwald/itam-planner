@@ -14,6 +14,7 @@ Do not edit it manually.
 - web: localize schedule surfaces cleanly (`0e139a7`)
 - web: align schedule wording across metadata (`d13b44e`)
 - web: centralize localized route metadata (`bd51afe`)
+- web: add canonical schedule onboarding flow (`3e52124`)
 
 ### Fixes
 
@@ -30,6 +31,7 @@ Do not edit it manually.
 - doctrine: enforce locale-driven frontend text (`fad4745`)
 - doctrine: localize crawlable metadata copy (`54390cb`)
 - doctrine: require English frontend identifiers (`107feea`)
+- doctrine: codify localized schedule onboarding (`0441cc6`)
 
 ### Refactors
 
