@@ -55,8 +55,10 @@ Initial product-surface rules:
 - Standard browser tabs may redirect browser-side from `/planner` to `/planner/onboarding`, but the route must remain usable even if that redirect is blocked or unstable in a constrained client such as an installed web app.
 - Compatibility redirects may exist temporarily for older public routes such as `/onboarding`, but they must not remain part of the primary user-facing flow.
 - The dedicated planner route must keep the initial document lean. Heavy schedule detail payloads belong in precomputed JSON artifacts fetched on demand, not embedded wholesale into the initial HTML shell.
-- Planner onboarding should use a one-question-per-screen wizard with explicit `Back` and `Next` progression.
-- Planner onboarding must include browser-local widget preferences for the launch planner surface.
+- Planner onboarding should use a guided stepper with explicit `Back` and `Next` progression, one primary decision per screen, and a lightweight introductory step that explains what the planner will configure.
+- Planner onboarding must collect the entry term, a searchable deduplicated program choice, and the preferred swipe-direction mode for the planner shell before finalizing setup.
+- Planner onboarding should deduplicate visible plan rows into alphabetized searchable program choices whenever multiple visible plans belong to the same program title for the selected entry term.
+- Planner onboarding should create the default launch planner widget set browser-locally during final setup instead of forcing widget selection as primary onboarding friction.
 - The launch planner surface must support `Today`, `Week`, and `Subjects / Plans` widgets, and `Today` must keep the highest visual priority whenever it is enabled.
 - The public runtime should recover silently from browser-owned state failures whenever possible and should never announce storage-reset internals in normal UI copy.
 - If runtime recovery still needs a visible user-facing state, it must stay generic, must not leak implementation details such as `localStorage`, and must not crash the surrounding route shell.
@@ -68,8 +70,9 @@ Initial product-surface rules:
 - The website must never instruct users to install the app manually through browser-native entries such as “Add to Home Screen”.
 - The primary navigation bar should remain sticky for a substantial portion of the scroll experience, respect browser safe areas, and use light blur without fighting Safari chrome.
 - Swipe navigation belongs only to the top navigation surface, not to the whole page.
-- Swipe preference may be learned and persisted browser-locally, but swipe behavior must remain deterministic and must never change the semantic destination set.
+- Swipe preference may be chosen during onboarding and updated later through interaction, but swipe behavior must remain deterministic and must never change the semantic destination set.
 - The embedded planner-onboarding experience should teach the planner-to-home swipe shortcut in a compact instructional card.
+- The embedded planner-onboarding experience may finish with a short client-side setup transition, but that transition must stay browser-local, bounded, and non-blocking.
 - The public product must expose a small persistent footer with links to Terms and Privacy.
 - The visual language should favor layered gradients, monochrome noise, motion-driven atmosphere, and floating accent objects instead of large flat surfaces.
 - Treat Apple atmosphere, Proton Authenticator web, and Perplexity Comet as inspiration references for layout density, atmospheric surfaces, and motion cues only. Do not copy their assets, code, or distinctive strings.
