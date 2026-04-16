@@ -40,6 +40,7 @@ Do not edit it manually.
 
 - web: centralize legacy route redirects (`a9b3332`)
 - web: rename locale-independent academic enums (`a262d1b`)
+- web: rename legacy utility surfaces (`09c37a6`)
 
 ### Build
 
