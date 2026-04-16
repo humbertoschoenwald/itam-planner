@@ -47,7 +47,8 @@ Initial product-surface rules:
 - The onboarding flow must collect entry term through structured selectors for academic season and year rather than a free-text input.
 - The onboarding year selector must derive its options from published official catalog signals for the selected academic level, including applicable bulletin windows and currently published public periods, instead of exposing arbitrary years unrelated to the current public dataset.
 - The onboarding flow must keep plan selection hidden until the entry-term selectors are complete enough to filter candidate plans.
-- The first stable user-facing routes are `/`, `/planner`, `/planner/onboarding`, `/calendar`, `/search`, `/project`, `/inscripciones`, `/planner/settings`, `/terms`, and `/privacy`.
+- The first stable user-facing routes are `/`, `/planner`, `/planner/onboarding`, `/calendar`, `/search`, `/project`, `/connect-ai`, `/registration`, `/settings`, `/terms`, and `/privacy`.
+- Public route slugs must stay English-only even when the visible UI is Spanish-first.
 - `/` is the public home and discovery surface.
 - `/planner` is the dedicated planner shell route.
 - `/planner/onboarding` is the dedicated embedded onboarding route that prepares browser-local planner context.
@@ -58,6 +59,7 @@ Initial product-surface rules:
 - The dedicated planner route must keep the initial document lean. Heavy schedule detail payloads belong in precomputed JSON artifacts fetched on demand, not embedded wholesale into the initial HTML shell.
 - Planner onboarding should use a guided stepper with explicit `Back` and `Next` progression, one primary decision per screen, and a lightweight introductory step that explains what the planner will configure.
 - Planner onboarding must collect academic level, entry term, one or two searchable base-career choices when applicable, optional official joint-program selections when applicable, default subject selection, and the preferred swipe-direction mode for the planner shell before finalizing setup.
+- Planner onboarding must support a dedicated `jointPrograms` academic mode that skips base-career picking and exposes only official joint-program choices for the selected entry term.
 - Planner onboarding must sort visible career choices alphabetically and must keep their labels user-facing and locale-driven instead of leaking internal uppercase catalog values.
 - Planner onboarding should deduplicate visible plan rows into searchable official career and joint-program choices whenever multiple visible plans belong to the same academic program grouping for the selected entry term.
 - Planner onboarding should derive its base-career vocabulary from official ITAM-owned career sources and derive its joint-program vocabulary from official ITAM-owned joint-program sources, while still matching those choices against the published normalized catalog for the selected entry term.
@@ -68,6 +70,8 @@ Initial product-surface rules:
 - The onboarding subject-selection step should foreground the default subjects derived from the chosen academic programs, while still allowing a local search across all published public subjects.
 - Planner configuration must allow the user to change swipe preference, review or reset browser-local planner state, and edit selected subjects without rerunning the entire onboarding flow.
 - Planner configuration should surface swipe-preference controls only on phone layouts, where swipe navigation actually exists.
+- The main planner route should foreground current schedule controls, selected offerings, and planner widgets. Explanatory onboarding-shell marketing copy belongs to home or onboarding, not to the main planner surface.
+- Selected subjects must not remain duplicated inside the lower available-subject directory once they already belong to the current browser-local selection.
 - The public runtime should recover silently from browser-owned state failures whenever possible and should never announce storage-reset internals in normal UI copy.
 - If runtime recovery still needs a visible user-facing state, it must stay generic, must not leak implementation details such as `localStorage`, and must not crash the surrounding route shell.
 - Visible route-level error states must not wipe browser-local planner state automatically. If a recovery action really needs to reset browser-local state, it must be explicit and user-triggered.
@@ -83,6 +87,7 @@ Initial product-surface rules:
 - The embedded planner-onboarding experience should teach the planner-to-home swipe shortcut only on mobile-phone layouts.
 - The embedded planner-onboarding experience may finish with a short client-side setup transition, but that transition must stay browser-local, bounded, and non-blocking.
 - Mobile layouts may expose secondary product surfaces through a menu trigger instead of the primary nav row when horizontal space is constrained.
+- Tablet and desktop layouts must also collapse secondary navigation actions into a menu trigger whenever the available top-bar width cannot fit the full navigation cluster without wrapping.
 - The public product must expose a small persistent footer with links to Terms and Privacy.
 - The visual language should favor layered gradients, monochrome noise, motion-driven atmosphere, and floating accent objects instead of large flat surfaces.
 - Treat Apple atmosphere, Proton Authenticator web, and Perplexity Comet as inspiration references for layout density, atmospheric surfaces, and motion cues only. Do not copy their assets, code, or distinctive strings.
