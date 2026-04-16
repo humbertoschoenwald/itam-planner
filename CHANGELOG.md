@@ -8,6 +8,7 @@ Do not edit it manually.
 ### Features
 
 - web: add official planner bootstrap surfaces (`2b71b67`)
+- web: align planner shell with canonical routes (`4114e92`)
 
 ### Fixes
 
@@ -17,6 +18,7 @@ Do not edit it manually.
 
 - doctrine: expand official planner shell scope (`fe5d641`)
 - doctrine: refine planner onboarding policy (`993c3b6`)
+- doctrine: refine frontend route and planner rules (`fb10827`)
 
 ### Build
 
