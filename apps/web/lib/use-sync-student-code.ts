@@ -11,9 +11,6 @@ export function useSyncStudentCode() {
   const academicLevel = useStudentProfileStore((state) => state.profile.academicLevel);
   const entryTerm = useStudentProfileStore((state) => state.profile.entryTerm);
   const activePlanIds = useStudentProfileStore((state) => state.profile.activePlanIds);
-  const hasExplicitLocalePreference = useStudentProfileStore(
-    (state) => state.profile.hasExplicitLocalePreference,
-  );
   const locale = useStudentProfileStore((state) => state.profile.locale);
   const selectedCareerIds = useStudentProfileStore((state) => state.profile.selectedCareerIds);
   const selectedJointProgramIds = useStudentProfileStore(
@@ -49,7 +46,6 @@ export function useSyncStudentCode() {
             academicLevel,
             entryTerm,
             activePlanIds,
-            hasExplicitLocalePreference,
             locale,
             selectedCareerIds,
             selectedJointProgramIds,
@@ -69,7 +65,6 @@ export function useSyncStudentCode() {
     academicLevel,
     clearCode,
     entryTerm,
-    hasExplicitLocalePreference,
     locale,
     selectedCareerIds,
     selectedJointProgramIds,

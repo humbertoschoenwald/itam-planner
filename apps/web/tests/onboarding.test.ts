@@ -161,7 +161,6 @@ describe("filterPlansForEntryTerm", () => {
           selectedJointProgramIds: [],
           activePlanIds: ["licenciatura-en-matematicas-aplicadas:e"],
           entryTerm: "OTOÑO 2025",
-          hasExplicitLocalePreference: true,
           locale: "es-MX",
         },
         samplePlans,
@@ -176,7 +175,6 @@ describe("filterPlansForEntryTerm", () => {
           selectedJointProgramIds: [],
           activePlanIds: ["licenciatura-en-matematicas-aplicadas:e"],
           entryTerm: "OTOÑO 2011",
-          hasExplicitLocalePreference: true,
           locale: "es-MX",
         },
         samplePlans,
@@ -184,17 +182,16 @@ describe("filterPlansForEntryTerm", () => {
     ).toBe(false);
   });
 
-  it("requires an explicit locale choice before onboarding counts as complete", () => {
+  it("treats the default Spanish locale as valid during onboarding", () => {
     expect(
       hasCompletedOnboarding({
         academicLevel: "undergraduate",
         activePlanIds: ["licenciatura-en-matematicas-aplicadas:e"],
         entryTerm: "OTOÑO 2025",
-        hasExplicitLocalePreference: false,
         locale: "es-MX",
         selectedCareerIds: ["matematicas-aplicadas"],
         selectedJointProgramIds: [],
       }),
-    ).toBe(false);
+    ).toBe(true);
   });
 });

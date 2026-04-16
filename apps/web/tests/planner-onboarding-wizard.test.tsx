@@ -139,6 +139,82 @@ const sampleBulletinDocuments: BulletinDocument[] = [
       },
     ],
   },
+  {
+    ...samplePlans[0],
+    bulletin_id: "bulletin:ai-reference",
+    plan_id: "plan:ai-reference",
+    program_title: "LICENCIATURA EN ACTUARÍA",
+    requirements: [
+      {
+        course_code: "COM-16306",
+        credits: 6,
+        display_title: "Razonamiento Algorítmico",
+        prerequisite_references: [],
+        raw_prerequisite_text: null,
+        requirement_id: "req:ai-1",
+        semester_label: "1",
+        semester_order: 1,
+        sort_order: 1,
+      },
+      {
+        course_code: "MAT-14280",
+        credits: 6,
+        display_title: "Pensamiento Matemático",
+        prerequisite_references: [],
+        raw_prerequisite_text: null,
+        requirement_id: "req:ai-2",
+        semester_label: "1",
+        semester_order: 1,
+        sort_order: 2,
+      },
+      {
+        course_code: "MAT-12200",
+        credits: 6,
+        display_title: "Cálculo Univariado",
+        prerequisite_references: [],
+        raw_prerequisite_text: null,
+        requirement_id: "req:ai-3",
+        semester_label: "1",
+        semester_order: 1,
+        sort_order: 3,
+      },
+      {
+        course_code: "MAT-14250",
+        credits: 6,
+        display_title: "Geometría Vectorial",
+        prerequisite_references: [],
+        raw_prerequisite_text: null,
+        requirement_id: "req:ai-4",
+        semester_label: "1",
+        semester_order: 1,
+        sort_order: 4,
+      },
+      {
+        course_code: "EGN-17141",
+        credits: 6,
+        display_title: "Problemas de la Civilización Contemporánea I",
+        prerequisite_references: [],
+        raw_prerequisite_text: null,
+        requirement_id: "req:ai-5",
+        semester_label: "1",
+        semester_order: 1,
+        sort_order: 5,
+      },
+      {
+        course_code: "LEN-12701",
+        credits: 6,
+        display_title: "Estrategias de Comunicación Escrita",
+        prerequisite_references: [],
+        raw_prerequisite_text: null,
+        requirement_id: "req:ai-6",
+        semester_label: "1",
+        semester_order: 1,
+        sort_order: 6,
+      },
+    ],
+    source_code: "AI-REF",
+    title: "Referencia académica IA",
+  },
 ];
 
 const samplePeriods: SchedulePeriodSummary[] = [
@@ -285,7 +361,6 @@ describe("PlannerOnboardingWizard", () => {
     });
     fireEvent.click(screen.getByRole("button", { name: /Siguiente/u }));
     expect(screen.getByText(/¿En qué idioma quieres usar el producto\?/u)).toBeInTheDocument();
-    fireEvent.click(screen.getByRole("button", { name: /Español \(MX\)/u }));
     fireEvent.click(screen.getByRole("button", { name: /Siguiente/u }));
     fireEvent.click(screen.getByRole("button", { name: "Economía" }));
     fireEvent.click(screen.getByRole("button", { name: /Siguiente/u }));
@@ -310,6 +385,40 @@ describe("PlannerOnboardingWizard", () => {
     expect(
       screen.queryByText(/¿Cómo quieres que se sienta el deslizamiento\?/u),
     ).not.toBeInTheDocument();
+  });
+
+  it("infers default subjects for Inteligencia Artificial from the official study-plan fallback", async () => {
+    renderWizard();
+
+    fireEvent.click(screen.getByRole("button", { name: /Siguiente/u }));
+    fireEvent.click(screen.getByRole("button", { name: /Licenciatura \/ ingeniería/u }));
+    fireEvent.click(screen.getByRole("button", { name: /Siguiente/u }));
+    fireEvent.click(screen.getByRole("button", { name: /Primavera/u }));
+    fireEvent.change(screen.getByRole("combobox", { name: /Año de ingreso/u }), {
+      target: { value: "2026" },
+    });
+    fireEvent.click(screen.getByRole("button", { name: /Siguiente/u }));
+    fireEvent.click(screen.getByRole("button", { name: /Siguiente/u }));
+    fireEvent.change(screen.getByRole("searchbox", { name: /Busca tu carrera/u }), {
+      target: { value: "inteligencia" },
+    });
+    fireEvent.click(screen.getByRole("button", { name: "Inteligencia Artificial" }));
+    fireEvent.click(screen.getByRole("button", { name: /Siguiente/u }));
+
+    await waitFor(() => {
+      expect(usePlannerStore.getState().state.selectedSubjectCodes).toEqual([
+        "COM-16306",
+        "EGN-17141",
+        "LEN-12701",
+        "MAT-12200",
+        "MAT-14250",
+        "MAT-14280",
+      ]);
+    });
+
+    expect(screen.getByText(/Selección actual de materias/u)).toBeInTheDocument();
+    expect(screen.getAllByRole("button", { name: /COM-16306/u })).toHaveLength(1);
+    expect(screen.getAllByRole("button", { name: /MAT-14280/u })).toHaveLength(1);
   });
 
   it("shows all official careers, filters them, marks selections visually, and finishes with a bounded delay", async () => {

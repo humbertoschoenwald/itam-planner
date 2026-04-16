@@ -17,7 +17,6 @@ describe("ConnectChatGptPanel", () => {
         ...DEFAULT_STUDENT_PROFILE,
         entryTerm: "OTOÑO 2025",
         activePlanIds: ["plan:ma-e"],
-        hasExplicitLocalePreference: true,
       },
     });
     usePlannerStore.setState({

@@ -10,6 +10,7 @@ interface SubjectsPlansCardProps {
   locale: LocaleCode;
   plans: BulletinSummary[];
   selectedPlanIds: string[];
+  selectedAcademicLabels: string[];
   offerings: ScheduleOffering[];
   subjectTitleLookup: ReadonlyMap<string, string>;
 }
@@ -18,6 +19,7 @@ export function SubjectsPlansCard({
   locale,
   plans,
   selectedPlanIds,
+  selectedAcademicLabels,
   offerings,
   subjectTitleLookup,
 }: SubjectsPlansCardProps) {
@@ -49,6 +51,15 @@ export function SubjectsPlansCard({
                       {getCanonicalProgramDisplayName(plan.program_title)} · {plan.plan_code}
                     </span>
                     <span className="mt-1 block">{plan.title}</span>
+                  </div>
+                ))
+              ) : selectedAcademicLabels.length > 0 ? (
+                selectedAcademicLabels.map((label) => (
+                  <div
+                    key={label}
+                    className="rounded-[1.15rem] bg-background px-3 py-3 text-xs leading-5 text-muted"
+                  >
+                    <span className="font-semibold text-foreground">{label}</span>
                   </div>
                 ))
               ) : (

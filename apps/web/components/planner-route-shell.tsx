@@ -8,6 +8,7 @@ import { PlannerHome } from "@/components/planner-home";
 import { Button } from "@/components/ui/button";
 import { getUiCopy } from "@/lib/copy";
 import { hasCompletedPlannerBootstrap } from "@/lib/planner-bootstrap";
+import { usePlannerStore } from "@/stores/planner-store";
 import type {
   BulletinDocument,
   BulletinSummary,
@@ -32,10 +33,11 @@ export function PlannerRouteShell(props: PlannerRouteShellProps) {
   const router = useRouter();
   const plannerWidgetIds = usePlannerUiStore((state) => state.state.plannerWidgetIds);
   const [profileHydrated, setProfileHydrated] = useState(useStudentProfileStore.persist.hasHydrated());
+  const [plannerHydrated, setPlannerHydrated] = useState(usePlannerStore.persist.hasHydrated());
   const [plannerUiHydrated, setPlannerUiHydrated] = useState(usePlannerUiStore.persist.hasHydrated());
   const onboardingComplete = hasCompletedPlannerBootstrap(profile, plannerWidgetIds, props.plans);
   const copy = getUiCopy(profile.locale);
-  const fullyHydrated = profileHydrated && plannerUiHydrated;
+  const fullyHydrated = profileHydrated && plannerHydrated && plannerUiHydrated;
 
   useEffect(() => {
     if (profileHydrated) {
@@ -48,6 +50,18 @@ export function PlannerRouteShell(props: PlannerRouteShellProps) {
 
     return unsubscribe;
   }, [profileHydrated]);
+
+  useEffect(() => {
+    if (plannerHydrated) {
+      return undefined;
+    }
+
+    const unsubscribe = usePlannerStore.persist.onFinishHydration(() => {
+      setPlannerHydrated(true);
+    });
+
+    return unsubscribe;
+  }, [plannerHydrated]);
 
   useEffect(() => {
     if (plannerUiHydrated) {

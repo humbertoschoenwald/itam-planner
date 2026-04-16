@@ -106,6 +106,8 @@ const productCopy = {
       subjectsCount: "Selected subjects",
       subjectsDefaultEmpty:
         "No default subjects were inferred from the current public catalog. Search the published catalog and choose the ones you want to keep.",
+      subjectsRecommendedApplied:
+        "The default subjects are already selected above. Search the published catalog if you want to add more.",
       subjectsRecommended: "Default subjects",
       subjectsSearchPlaceholder: "Search any public subject",
       subjectsSelected: "Current subject selection",
@@ -327,6 +329,8 @@ const productCopy = {
       subjectsCount: "Materias seleccionadas",
       subjectsDefaultEmpty:
         "El catálogo público actual no permitió inferir materias por defecto. Busca en el catálogo publicado y marca las que quieras conservar.",
+      subjectsRecommendedApplied:
+        "Las materias por defecto ya quedaron marcadas arriba. Usa la búsqueda si quieres agregar más.",
       subjectsRecommended: "Materias por defecto",
       subjectsSearchPlaceholder: "Busca cualquier materia pública",
       subjectsSelected: "Selección actual de materias",

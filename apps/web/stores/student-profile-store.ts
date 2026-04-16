@@ -11,7 +11,6 @@ export const DEFAULT_STUDENT_PROFILE: StudentProfile = {
   academicLevel: null,
   entryTerm: "",
   activePlanIds: [],
-  hasExplicitLocalePreference: false,
   locale: "es-MX",
   selectedCareerIds: [],
   selectedJointProgramIds: [],
@@ -81,7 +80,6 @@ export const useStudentProfileStore = create<StudentProfileStoreState>()(
         set((current) => ({
           profile: {
             ...current.profile,
-            hasExplicitLocalePreference: true,
             locale,
           },
         })),
@@ -126,7 +124,6 @@ function sanitizeStudentProfile(value: unknown): StudentProfile {
       ? [...new Set(candidate.activePlanIds.filter((planId): planId is string => typeof planId === "string"))]
       : [],
     entryTerm: typeof candidate.entryTerm === "string" ? candidate.entryTerm : "",
-    hasExplicitLocalePreference: candidate.hasExplicitLocalePreference === true,
     locale: VALID_LOCALES.includes(candidate.locale as LocaleCode)
       ? (candidate.locale as LocaleCode)
       : DEFAULT_STUDENT_PROFILE.locale,

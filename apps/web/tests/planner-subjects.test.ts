@@ -70,6 +70,100 @@ describe("planner subject helpers", () => {
     expect(buildRecommendedSubjectCodes(bulletinDocuments, 2)).toEqual(["ACT-11300"]);
   });
 
+  it("falls back to official study-plan subjects when no applicable bulletin plan exists", () => {
+    expect(
+      buildRecommendedSubjectCodes([], 1, {
+        allDocuments: [
+          ...bulletinDocuments,
+          {
+            ...bulletinDocuments[0],
+            bulletin_id: "bulletin:ai-fallback",
+            plan_id: "plan:ai-fallback",
+            program_title: "LICENCIATURA EN CIENCIA DE DATOS",
+            requirements: [
+              {
+                course_code: "COM-16306",
+                credits: 6,
+                display_title: "Razonamiento Algorítmico",
+                prerequisite_references: [],
+                raw_prerequisite_text: null,
+                requirement_id: "req:ai-1",
+                semester_label: "1",
+                semester_order: 1,
+                sort_order: 1,
+              },
+              {
+                course_code: "MAT-14280",
+                credits: 6,
+                display_title: "Pensamiento Matemático",
+                prerequisite_references: [],
+                raw_prerequisite_text: null,
+                requirement_id: "req:ai-2",
+                semester_label: "1",
+                semester_order: 1,
+                sort_order: 2,
+              },
+              {
+                course_code: "MAT-12200",
+                credits: 6,
+                display_title: "Cálculo Univariado",
+                prerequisite_references: [],
+                raw_prerequisite_text: null,
+                requirement_id: "req:ai-3",
+                semester_label: "1",
+                semester_order: 1,
+                sort_order: 3,
+              },
+              {
+                course_code: "MAT-14250",
+                credits: 6,
+                display_title: "Geometría Vectorial",
+                prerequisite_references: [],
+                raw_prerequisite_text: null,
+                requirement_id: "req:ai-4",
+                semester_label: "1",
+                semester_order: 1,
+                sort_order: 4,
+              },
+              {
+                course_code: "EGN-17141",
+                credits: 6,
+                display_title: "Problemas de la Civilización Contemporánea I",
+                prerequisite_references: [],
+                raw_prerequisite_text: null,
+                requirement_id: "req:ai-5",
+                semester_label: "1",
+                semester_order: 1,
+                sort_order: 5,
+              },
+              {
+                course_code: "LEN-12701",
+                credits: 6,
+                display_title: "Estrategias de Comunicación Escrita",
+                prerequisite_references: [],
+                raw_prerequisite_text: null,
+                requirement_id: "req:ai-6",
+                semester_label: "1",
+                semester_order: 1,
+                sort_order: 6,
+              },
+            ],
+            source_code: "CDA-C",
+            title: "LICENCIATURA EN CIENCIA DE DATOS Plan C",
+          },
+        ],
+        fallbackCareerIds: ["inteligencia-artificial"],
+      }),
+    ).toEqual([
+      "COM-16306",
+      "EGN-17141",
+      "LEN-12701",
+      "MAT-12200",
+      "MAT-14250",
+      "MAT-14280",
+    ]);
+  });
+
   it("builds and searches the subject directory without accents", () => {
     const directory = buildSubjectDirectory(bulletinDocuments);
 

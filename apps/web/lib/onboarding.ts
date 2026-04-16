@@ -1,11 +1,13 @@
 import {
   findApplicableJointPlansForEntryTerm,
+  findOfficialCareer,
   isIndividualCareerProgram,
   matchesOfficialCareerProgramTitle,
   normalizeAcademicTitle,
   OFFICIAL_CAREERS,
   OFFICIAL_JOINT_PROGRAMS,
 } from "@/lib/official-academics";
+import { hasOfficialCareerStudyPlanFallback } from "@/lib/official-study-plan-fallbacks";
 import type { AcademicLevel, BulletinSummary, SchedulePeriodSummary, StudentProfile } from "@/lib/types";
 
 export const ENTRY_TERM_SEASON_KEYS = ["spring", "fall"] as const;
@@ -153,7 +155,6 @@ export function getEntryTermYearOptions(
 export function hasCompletedOnboarding(profile: StudentProfile, plans?: BulletinSummary[]) {
   if (
     profile.academicLevel === null ||
-    !profile.hasExplicitLocalePreference ||
     !isValidEntryTerm(profile.entryTerm)
   ) {
     return false;
@@ -250,7 +251,7 @@ export function buildCareerChoiceOptions(plans: BulletinSummary[], entryTerm: st
     planIds: applicablePlans
       .filter((plan) => matchesOfficialCareerProgramTitle(plan.program_title, career.career_id))
       .map((plan) => plan.plan_id),
-  }));
+  })).filter((option) => option.planIds.length > 0 || hasOfficialCareerStudyPlanFallback(option.careerId));
 
   return options.sort((left, right) =>
     left.displayLabel.localeCompare(right.displayLabel, "es-MX", { sensitivity: "base" }),
@@ -285,6 +286,22 @@ export function filterCareerChoiceOptions(options: CareerChoiceOption[], query: 
       }`,
     ).includes(normalizedQuery),
   );
+}
+
+export function buildSelectedAcademicChoiceLabels(
+  selectedCareerIds: string[],
+  selectedJointProgramIds: string[],
+) {
+  const careerLabels = selectedCareerIds
+    .map((careerId) => findOfficialCareer(careerId)?.display_name ?? null)
+    .filter((value): value is string => typeof value === "string");
+  const jointProgramLabels = selectedJointProgramIds
+    .map((jointProgramId) =>
+      OFFICIAL_JOINT_PROGRAMS.find((program) => program.joint_program_id === jointProgramId)?.display_name ?? null,
+    )
+    .filter((value): value is string => typeof value === "string");
+
+  return [...careerLabels, ...jointProgramLabels];
 }
 
 export function buildJointProgramChoiceOptions(

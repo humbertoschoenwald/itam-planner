@@ -2,6 +2,7 @@ import { render, screen, waitFor } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 import { PlannerRouteShell } from "@/components/planner-route-shell";
+import { DEFAULT_PLANNER_STATE, usePlannerStore } from "@/stores/planner-store";
 import { DEFAULT_PLANNER_UI_STATE, usePlannerUiStore } from "@/stores/planner-ui-store";
 import {
   DEFAULT_STUDENT_PROFILE,
@@ -24,8 +25,10 @@ describe("PlannerRouteShell", () => {
   beforeEach(() => {
     replaceSpy.mockReset();
     useStudentProfileStore.setState({ profile: DEFAULT_STUDENT_PROFILE });
+    usePlannerStore.setState({ state: DEFAULT_PLANNER_STATE });
     usePlannerUiStore.setState({ state: DEFAULT_PLANNER_UI_STATE });
     vi.spyOn(useStudentProfileStore.persist, "hasHydrated").mockReturnValue(true);
+    vi.spyOn(usePlannerStore.persist, "hasHydrated").mockReturnValue(true);
     vi.spyOn(usePlannerUiStore.persist, "hasHydrated").mockReturnValue(true);
   });
 
@@ -61,7 +64,6 @@ describe("PlannerRouteShell", () => {
         academicLevel: "undergraduate",
         entryTerm: "OTOÑO 2025",
         activePlanIds: ["plan:ma-e"],
-        hasExplicitLocalePreference: true,
         selectedCareerIds: ["matematicas-aplicadas"],
       },
     });
@@ -108,7 +110,6 @@ describe("PlannerRouteShell", () => {
         academicLevel: "undergraduate",
         entryTerm: "OTOÑO 2025",
         activePlanIds: ["plan:ma-e"],
-        hasExplicitLocalePreference: true,
         selectedCareerIds: ["matematicas-aplicadas"],
       },
     });

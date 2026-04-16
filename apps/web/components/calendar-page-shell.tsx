@@ -1,12 +1,12 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useMemo } from "react";
 
 import { TodayClassesCard } from "@/components/today-classes-card";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { fetchSchedulePeriodDetail } from "@/lib/api";
 import { getUiCopy } from "@/lib/copy";
 import { hasCompletedPlannerBootstrap } from "@/lib/planner-bootstrap";
+import { useSchedulePeriodDetail } from "@/lib/use-schedule-period-detail";
 import type { PaymentCalendarDocument, SchoolCalendarDocument } from "@/lib/types";
 import { usePlannerStore } from "@/stores/planner-store";
 import { usePlannerUiStore } from "@/stores/planner-ui-store";
@@ -27,50 +27,25 @@ export function CalendarPageShell({
   const plannerState = usePlannerStore((state) => state.state);
   const plannerWidgetIds = usePlannerUiStore((state) => state.state.plannerWidgetIds);
   const copy = getUiCopy(profile.locale);
-  const [loadedSelectedOfferings, setLoadedSelectedOfferings] = useState<
-    Awaited<ReturnType<typeof fetchSchedulePeriodDetail>>["offerings"]
-  >([]);
-  const [loadedSelectedPeriodLabel, setLoadedSelectedPeriodLabel] = useState<string | null>(null);
   const todayIso = useMemo(() => getMexicoCityTodayIso(), []);
 
   const shouldLoadTodayContext =
     plannerState.selectedPeriodId !== null && plannerState.selectedOfferingIds.length > 0;
-  const selectedOfferings = shouldLoadTodayContext ? loadedSelectedOfferings : [];
+  const { detail: selectedPeriodDetail } = useSchedulePeriodDetail(
+    shouldLoadTodayContext ? plannerState.selectedPeriodId : null,
+    copy.plannerHome.selectedPeriodLoadError,
+  );
+  const selectedOfferings = useMemo(
+    () =>
+      shouldLoadTodayContext
+        ? (selectedPeriodDetail?.offerings.filter((offering) =>
+            plannerState.selectedOfferingIds.includes(offering.offering_id),
+          ) ?? [])
+        : [],
+    [plannerState.selectedOfferingIds, selectedPeriodDetail, shouldLoadTodayContext],
+  );
 
   const onboardingComplete = hasCompletedPlannerBootstrap(profile, plannerWidgetIds, plans);
-
-  useEffect(() => {
-    if (!shouldLoadTodayContext || plannerState.selectedPeriodId === null) {
-      return;
-    }
-
-    let active = true;
-
-    void fetchSchedulePeriodDetail(plannerState.selectedPeriodId)
-      .then((detail) => {
-        if (!active) {
-          return;
-        }
-
-        setLoadedSelectedOfferings(
-          detail.offerings.filter((offering) =>
-            plannerState.selectedOfferingIds.includes(offering.offering_id),
-          ),
-        );
-        setLoadedSelectedPeriodLabel(detail.label);
-      })
-      .catch(() => {
-        if (!active) {
-          return;
-        }
-        setLoadedSelectedOfferings([]);
-        setLoadedSelectedPeriodLabel(null);
-      });
-
-    return () => {
-      active = false;
-    };
-  }, [plannerState.selectedOfferingIds, plannerState.selectedPeriodId, shouldLoadTodayContext]);
 
   const upcomingSchoolEvents = useMemo(
     () => getRelevantSchoolEvents(schoolCalendar.events, todayIso).slice(0, 8),
@@ -86,9 +61,9 @@ export function CalendarPageShell({
       getRelevantPaymentEvents(
         paymentCalendar.payment_events,
         todayIso,
-        resolvedSelectedAcademicPeriod(loadedSelectedPeriodLabel),
+        resolvedSelectedAcademicPeriod(selectedPeriodDetail?.label ?? null),
       ).slice(0, 6),
-    [loadedSelectedPeriodLabel, paymentCalendar.payment_events, todayIso],
+    [paymentCalendar.payment_events, selectedPeriodDetail?.label, todayIso],
   );
 
   return (
@@ -230,16 +205,14 @@ function getRelevantSchoolEvents(
   events: SchoolCalendarDocument["events"],
   todayIso: string,
 ) {
-  return [...events].sort((left, right) => {
-    const leftDistance = Math.abs(compareDateDistance(left.event_date, todayIso));
-    const rightDistance = Math.abs(compareDateDistance(right.event_date, todayIso));
+  const upcomingEvents = events
+    .filter((event) => compareDateDistance(event.event_date, todayIso) >= 0)
+    .sort((left, right) => left.event_date.localeCompare(right.event_date, "en"));
+  const recentPastEvents = events
+    .filter((event) => compareDateDistance(event.event_date, todayIso) < 0)
+    .sort((left, right) => right.event_date.localeCompare(left.event_date, "en"));
 
-    if (leftDistance !== rightDistance) {
-      return leftDistance - rightDistance;
-    }
-
-    return left.event_date.localeCompare(right.event_date, "en");
-  });
+  return [...upcomingEvents, ...recentPastEvents];
 }
 
 function getRelevantPaymentEvents(
@@ -252,18 +225,19 @@ function getRelevantPaymentEvents(
       ? events.filter((event) => academicPeriodMatches(event.academic_period, preferredAcademicPeriod))
       : [];
 
-  return [...(candidateEvents.length > 0 ? candidateEvents : events)].sort((left, right) => {
-    const leftAnchor = left.event_date ?? left.date_range_start ?? left.active_from ?? "9999-12-31";
-    const rightAnchor = right.event_date ?? right.date_range_start ?? right.active_from ?? "9999-12-31";
-    const leftDistance = Math.abs(compareDateDistance(leftAnchor, todayIso));
-    const rightDistance = Math.abs(compareDateDistance(rightAnchor, todayIso));
+  const relevantEvents = candidateEvents.length > 0 ? candidateEvents : events;
+  const upcomingEvents = relevantEvents
+    .filter((event) => compareDateDistance(resolvePaymentAnchor(event), todayIso) >= 0)
+    .sort((left, right) =>
+      resolvePaymentAnchor(left).localeCompare(resolvePaymentAnchor(right), "en"),
+    );
+  const recentPastEvents = relevantEvents
+    .filter((event) => compareDateDistance(resolvePaymentAnchor(event), todayIso) < 0)
+    .sort((left, right) =>
+      resolvePaymentAnchor(right).localeCompare(resolvePaymentAnchor(left), "en"),
+    );
 
-    if (leftDistance !== rightDistance) {
-      return leftDistance - rightDistance;
-    }
-
-    return leftAnchor.localeCompare(rightAnchor, "en");
-  });
+  return [...upcomingEvents, ...recentPastEvents];
 }
 
 function resolvedSelectedAcademicPeriod(label: string | null) {
@@ -286,6 +260,10 @@ function academicPeriodMatches(source: string | null, target: string) {
   const normalizedTarget = target.toLocaleUpperCase("es-MX");
 
   return normalizedSource.includes(normalizedTarget) || normalizedTarget.includes(normalizedSource);
+}
+
+function resolvePaymentAnchor(event: PaymentCalendarDocument["payment_events"][number]) {
+  return event.event_date ?? event.date_range_start ?? event.active_from ?? "9999-12-31";
 }
 
 function buildCalendarMonthView(

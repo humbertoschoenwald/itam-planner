@@ -6,7 +6,7 @@ export function hasCompletedPlannerBootstrap(
   plannerWidgetIds: PlannerWidgetId[],
   plans: BulletinSummary[],
 ) {
-  if (profile.academicLevel === null || !profile.hasExplicitLocalePreference) {
+  if (profile.academicLevel === null) {
     return false;
   }
 

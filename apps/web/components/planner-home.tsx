@@ -6,7 +6,7 @@ import { SelectedWeekBoard } from "@/components/selected-week-board";
 import { SubjectsPlansCard } from "@/components/subjects-plans-card";
 import { TodayClassesCard } from "@/components/today-classes-card";
 import { fetchSchedulePeriodDetail } from "@/lib/api";
-import { filterPeriodsForAcademicLevel } from "@/lib/onboarding";
+import { buildSelectedAcademicChoiceLabels, filterPeriodsForAcademicLevel } from "@/lib/onboarding";
 import {
   buildRecommendedSubjectCodes,
   buildSubjectTitleLookup,
@@ -72,8 +72,16 @@ export function PlannerHome({
     [activePeriodSummary, profile.entryTerm],
   );
   const recommendedSubjectCodes = useMemo(
-    () => buildRecommendedSubjectCodes(activePlanDocuments, estimatedSemester),
-    [activePlanDocuments, estimatedSemester],
+    () =>
+      buildRecommendedSubjectCodes(activePlanDocuments, estimatedSemester, {
+        allDocuments: bulletinDocuments,
+        fallbackCareerIds: profile.selectedCareerIds,
+      }),
+    [activePlanDocuments, bulletinDocuments, estimatedSemester, profile.selectedCareerIds],
+  );
+  const selectedAcademicLabels = useMemo(
+    () => buildSelectedAcademicChoiceLabels(profile.selectedCareerIds, profile.selectedJointProgramIds),
+    [profile.selectedCareerIds, profile.selectedJointProgramIds],
   );
   const resolvedSelectedPeriod = resolvedPeriodId === activePeriodId ? selectedPeriod : null;
 
@@ -158,6 +166,7 @@ export function PlannerHome({
             locale={profile.locale}
             offerings={selectedOfferings}
             plans={plans}
+            selectedAcademicLabels={selectedAcademicLabels}
             selectedPlanIds={profile.activePlanIds}
             subjectTitleLookup={subjectTitleLookup}
           />

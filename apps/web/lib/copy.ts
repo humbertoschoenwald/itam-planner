@@ -474,12 +474,12 @@ const uiCopy = {
       },
       weekBoard: {
         description:
-          "The weekly schedule spans Monday through Sunday and only the time range covered by your selected classes.",
+          "The weekly class table spans Monday through Sunday and only the time range covered by your selected classes.",
         empty:
-          "Select public classes to see the weekly schedule grid here.",
+          "Select public classes to see the weekly class table here.",
         eyebrow: "Weekly schedule",
         roomPending: "Room pending",
-        title: "Schedule grid",
+        title: "Class table",
       },
     },
     siteHeader: {
@@ -982,12 +982,12 @@ const uiCopy = {
       },
       weekBoard: {
         description:
-          "La retícula semanal cubre de lunes a domingo y solo el rango horario donde realmente caen tus clases seleccionadas.",
+          "La tabla semanal cubre de lunes a domingo y solo el rango horario donde realmente caen tus clases seleccionadas.",
         empty:
-          "Selecciona clases públicas para ver aquí la retícula semanal de tu horario.",
+          "Selecciona clases públicas para ver aquí la tabla semanal de tu horario.",
         eyebrow: "Horario semanal",
         roomPending: "Salón pendiente",
-        title: "Retícula semanal",
+        title: "Tabla semanal",
       },
     },
     siteHeader: {
