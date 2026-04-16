@@ -3,6 +3,16 @@
 This file is generated automatically from Conventional Commits on push to `main`.
 Do not edit it manually.
 
+## 2026-04-16
+
+### Features
+
+- web: add official planner bootstrap surfaces (`2b71b67`)
+
+### Documentation
+
+- doctrine: expand official planner shell scope (`fe5d641`)
+
 ## 2026-04-15
 
 ### Features
