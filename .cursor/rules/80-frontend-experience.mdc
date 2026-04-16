@@ -24,6 +24,9 @@ alwaysApply: true
 - RULE: If a visible runtime error state is unavoidable, keep it generic and keep the surrounding route alive.
 - RULE: Keep an explicit `Under Construction` notice visible while the product is still in scaffold-heavy mode.
 - RULE: Treat SEO, crawlability, and structured metadata as product requirements.
+- RULE: Drive visible UI strings, selector labels, and locale-dependent option labels from locale configuration instead of hardcoded component strings.
+- RULE: Keep planner logic, browser persistence, and presentation styling loosely coupled so the visual system can be replaced without rewriting behavior.
 - RULE: Favor layered gradients, monochrome noise, and floating accent objects over large flat surfaces.
+- RULE: Treat Apple atmosphere, Proton Authenticator web, and Perplexity Comet as inspiration only; never copy their assets, code, or distinctive strings.
 - RULE: State clearly that no account is required.
 - RULE: Treat the final Connect to ChatGPT route and setup flow as a follow-up slice after planner state exists.

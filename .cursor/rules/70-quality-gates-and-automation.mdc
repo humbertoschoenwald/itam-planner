@@ -18,6 +18,7 @@ alwaysApply: true
 - RULE: `main` is the default working branch and default integration branch for routine development.
 - RULE: Short-lived branches and pull requests are optional tools for risky, disruptive, or experimental work, not mandatory workflow steps.
 - RULE: Every parser, normalizer, repository, exporter, and applicability resolver must have unit tests.
+- RULE: Every user-facing control, locale-dependent label mapping, and browser-owned state boundary must get regression coverage when behavior changes.
 - RULE: Behavior changes must add or update tests when needed.
 - RULE: Browser-storage adapters, onboarding guards, and runtime recovery changes require explicit edge-case coverage.
 - RULE: Use SSH for Git remotes and push operations.

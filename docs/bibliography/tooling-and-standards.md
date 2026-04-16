@@ -72,6 +72,7 @@ This bibliography lists the primary official references for the tools and standa
 
 - [Horarios-ITAM](https://github.com/Horarios-ITAM/horariosITAM)
 - [Proton Pass Common: proton-authenticator-web](https://github.com/protonpass/proton-pass-common/tree/main/proton-authenticator-web)
+- [Perplexity Comet](https://www.perplexity.ai/comet)
 - [ITAM Servicios](https://servicios.itam.mx/)
 - [ITAM Reglamentos y Calendarios](https://escolar.itam.mx/servicios_escolares/servicios_calendarios.php)
 - [ITAM Boletines Index Redirect](https://escolar.itam.mx/licenciaturas/boletines/boletines.html)

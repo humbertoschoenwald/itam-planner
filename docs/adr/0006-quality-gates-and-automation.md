@@ -39,6 +39,7 @@ Repository quality tools:
 Mandatory test policy:
 
 - Every parser, normalizer, repository, exporter, and applicability resolver must have unit tests.
+- Every user-facing control, locale-dependent label mapping, and browser-owned state boundary must have regression coverage when its behavior changes.
 - Every behavior change must add or update tests in the same change when needed.
 - No parser or schema change ships without matching fixture coverage.
 - Unit tests must be network-free and deterministic.

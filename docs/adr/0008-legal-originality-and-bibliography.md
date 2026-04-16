@@ -35,6 +35,7 @@ Bibliography rules:
 - ADRs may reference those materials rather than duplicating link lists in every file.
 - The bibliography may include inspiration and public-source references in addition to tooling references when they materially shape repository doctrine.
 - Design inspiration references may be listed there when they shape the intended public visual language, but they remain inspiration only and may not be copied directly.
+- Proton Authenticator web and Perplexity Comet may be cited as visual inspiration references when repository docs describe the intended design direction, but they remain non-authoritative inspiration only.
 
 ## Consequences
 
