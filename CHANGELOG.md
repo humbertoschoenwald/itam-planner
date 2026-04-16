@@ -14,6 +14,7 @@ Do not edit it manually.
 ### Fixes
 
 - web: align planner onboarding with academic context (`8a03bcb`)
+- web: align official joint program references (`f85e258`)
 
 ### Documentation
 
