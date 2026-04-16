@@ -20,6 +20,7 @@ Do not edit it manually.
 
 - web: align planner onboarding with academic context (`8a03bcb`)
 - web: align official joint program references (`f85e258`)
+- web: infer ai schedule defaults from official plans (`5096b0f`)
 
 ### Documentation
 
@@ -32,6 +33,7 @@ Do not edit it manually.
 - doctrine: localize crawlable metadata copy (`54390cb`)
 - doctrine: require English frontend identifiers (`107feea`)
 - doctrine: codify localized schedule onboarding (`0441cc6`)
+- doctrine: harden localized onboarding defaults (`60c829a`)
 
 ### Refactors
 
