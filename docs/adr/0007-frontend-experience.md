@@ -59,9 +59,10 @@ Initial product-surface rules:
 - Compatibility redirects may exist temporarily for older public routes such as `/onboarding`, but they must not remain part of the primary user-facing flow.
 - The dedicated planner route must keep the initial document lean. Heavy schedule detail payloads belong in precomputed JSON artifacts fetched on demand, not embedded wholesale into the initial HTML shell.
 - Planner onboarding should use a guided stepper with explicit `Back` and `Next` progression, one primary decision per screen, and a lightweight introductory step that explains what the planner will configure.
-- Planner onboarding must collect academic level, entry term, one or two searchable base-career choices when applicable, optional official joint-program selections when applicable, default subject selection, and the preferred swipe-direction mode for the planner shell before finalizing setup.
+- Planner onboarding must collect academic level, entry term, an explicit UI-locale choice, one or two searchable base-career choices when applicable, optional official joint-program selections when applicable, and default subject selection before finalizing setup.
 - Planner onboarding must support a dedicated `jointPrograms` academic mode that skips base-career picking and exposes only official joint-program choices for the selected entry term.
 - Planner onboarding must sort visible career choices alphabetically and must keep their labels user-facing and locale-driven instead of leaking internal uppercase catalog values.
+- Planner onboarding and planner configuration must use canonical academic names derived from official ITAM-owned references, with stable aliases for matching against noisy upstream titles.
 - Planner onboarding should deduplicate visible plan rows into searchable official career and joint-program choices whenever multiple visible plans belong to the same academic program grouping for the selected entry term.
 - Planner onboarding should derive its base-career vocabulary from official ITAM-owned career sources and derive its joint-program vocabulary from official ITAM-owned joint-program sources, while still matching those choices against the published normalized catalog for the selected entry term.
 - The public bootstrap layer should also expose official graduate-program references and official double-degree references from ITAM-owned sources for discovery, search, and future graduate onboarding work.
@@ -70,10 +71,14 @@ Initial product-surface rules:
 - The planner should derive an initial semester estimate from the stored entry term plus the current public period that matches the chosen academic level, then use that estimate to seed a default subject set during onboarding. The user must remain free to add or remove subjects later.
 - The planner should treat subject selection as a browser-local configuration surface. Default subjects should come from the selected academic programs, but the user must be able to search and add any public subject later.
 - The onboarding subject-selection step should foreground the default subjects derived from the chosen academic programs, while still allowing a local search across all published public subjects.
+- Planner configuration must expose the selected public classes explicitly after subject selection, so the user can keep or remove concrete public groups independently from the subject list.
 - Planner configuration must allow the user to change swipe preference, review or reset browser-local planner state, and edit selected subjects without rerunning the entire onboarding flow.
+- Planner configuration must also expose browser-local schedule-generation preferences for teacher-ranking, class clustering, daily time range, lighter-day preference, theory/lab matching, and relative importance weights.
 - Planner configuration must also own the selected public period and public-group selection controls; the main planner route should not lead with configuration-heavy schedule-picking UI.
 - Planner configuration should surface swipe-preference controls only on phone layouts, where swipe navigation actually exists.
 - The main planner route should foreground current schedule controls, selected offerings, and planner widgets. Explanatory onboarding-shell marketing copy belongs to home or onboarding, not to the main planner surface.
+- The main planner route must include a weekly timetable grid that spans Monday through Sunday and vertically covers only the time range from the earliest selected class start to the latest selected class end.
+- When a canonical subject title is available from official or bulletin-derived sources, planner surfaces should prefer that title over raw noisy public-schedule abbreviations.
 - Selected subjects must not remain duplicated inside the lower available-subject directory once they already belong to the current browser-local selection.
 - The public runtime should recover silently from browser-owned state failures whenever possible and should never announce storage-reset internals in normal UI copy.
 - If runtime recovery still needs a visible user-facing state, it must stay generic, must not leak implementation details such as `localStorage`, and must not crash the surrounding route shell.
