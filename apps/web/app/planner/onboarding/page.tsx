@@ -5,11 +5,23 @@ import { readOnboardingBootstrap } from "@/lib/catalog-static";
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: "https://itam.humbertoschoenwald.com/planner/onboarding",
+    canonical: "/planner/onboarding",
   },
   description:
     "Onboarding embebido en el planner de ITAM Planner para elegir periodo de ingreso, carrera y preferencia de deslizamiento local.",
+  openGraph: {
+    description:
+      "Onboarding embebido en el planner de ITAM Planner para elegir periodo de ingreso, carrera y preferencia de deslizamiento local.",
+    title: "Planner Onboarding",
+    type: "website",
+    url: "/planner/onboarding",
+  },
   title: "Planner Onboarding",
+  twitter: {
+    description:
+      "Onboarding embebido en el planner de ITAM Planner para elegir periodo de ingreso, carrera y preferencia de deslizamiento local.",
+    title: "Planner Onboarding",
+  },
 };
 
 export default async function PlannerOnboardingPage() {

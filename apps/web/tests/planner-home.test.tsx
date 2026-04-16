@@ -23,9 +23,15 @@ describe("PlannerHome", () => {
         ...DEFAULT_STUDENT_PROFILE,
         entryTerm: "OTOÑO 2025",
         activePlanIds: ["licenciatura-en-matematicas-aplicadas:e"],
+        selectedCareerIds: ["matematicas-aplicadas"],
       },
     });
-    usePlannerStore.setState({ state: DEFAULT_PLANNER_STATE });
+    usePlannerStore.setState({
+      state: {
+        ...DEFAULT_PLANNER_STATE,
+        selectedSubjectCodes: ["ACT-11300"],
+      },
+    });
   });
 
   it("loads the selected public period detail on demand", async () => {
@@ -67,6 +73,7 @@ describe("PlannerHome", () => {
 
     render(
       <PlannerHome
+        bulletinDocuments={[]}
         plans={[
           {
             bulletin_id: "bulletin:ma-e",

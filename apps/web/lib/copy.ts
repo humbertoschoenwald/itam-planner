@@ -48,7 +48,7 @@ const uiCopy = {
       creatorNote:
         "Instagram is for creator visibility and project updates. It is not support and it is not official ITAM contact.",
       creatorSurfaces: "Creator surfaces",
-      eyebrow: "Community",
+      eyebrow: "Project",
       issueBullets: [
         "Bug report for broken app or pipeline behavior.",
         "Data correction for incorrect normalized academic data.",
@@ -65,7 +65,7 @@ const uiCopy = {
       issueTitle: "Open an issue",
       signUpLead: "If you still need a GitHub account, create one at",
       supportPath: "Canonical support path",
-      title: "Feedback, issues, and project contact",
+      title: "Project, issues, and creator links",
       description:
         "Use GitHub issues for bugs, data corrections, source drift, and feature requests. Creator social links live here too, but support stays on GitHub.",
     },
@@ -316,8 +316,8 @@ const uiCopy = {
     },
     connectPage: {
       description:
-        "The student code already reflects your browser-local planner state. The exact AI context endpoint shape is still deferred by doctrine, so this page stays focused on the current contract and what comes next.",
-      eyebrow: "Connect to ChatGPT",
+        "The student code already reflects your browser-local planner state. The exact AI-context endpoint shape is still deferred by doctrine, so this page stays focused on the current contract and what comes next.",
+      eyebrow: "Connect to AI",
       title: "Prepare your browser-local planner for external AI use",
     },
     connectPanel: {
@@ -488,7 +488,7 @@ const uiCopy = {
         "This browser-owned code is generated from your current onboarding profile and planner state. No account is required and no personal data is stored in the backend. Use GitHub issues for support; this code is the foundation for the later AI connection flow.",
       lengthSuffix: "characters",
       eyebrow: "Portable context",
-      openChatGpt: "Open the ChatGPT connection page",
+      openChatGpt: "Open the Connect to AI page",
       title: "Student code",
       waitingForPlannerData: "Waiting for planner data",
       waitingForStudentCode:
@@ -542,7 +542,7 @@ const uiCopy = {
       creatorNote:
         "Instagram existe para visibilidad del creador y actualizaciones del proyecto. No es soporte ni contacto oficial del ITAM.",
       creatorSurfaces: "Canales del creador",
-      eyebrow: "Comunidad",
+      eyebrow: "Proyecto",
       issueBullets: [
         "Bug report para comportamiento roto de la app o del pipeline.",
         "Data correction para datos académicos normalizados incorrectos.",
@@ -559,7 +559,7 @@ const uiCopy = {
       issueTitle: "Abrir un issue",
       signUpLead: "Si todavía no tienes cuenta de GitHub, créala en",
       supportPath: "Ruta oficial de soporte",
-      title: "Feedback, issues y contacto del proyecto",
+      title: "Proyecto, issues y links del creador",
       description:
         "Usa GitHub Issues para bugs, correcciones de datos, source drift y feature requests. Las redes del creador también viven aquí, pero el soporte se queda en GitHub.",
     },
@@ -814,7 +814,7 @@ const uiCopy = {
     connectPage: {
       description:
         "Tu student code ya refleja el estado local de tu planner en el navegador. La forma exacta del endpoint para IA sigue diferida por doctrina, así que esta página se concentra en el contrato actual y en lo que sigue.",
-      eyebrow: "Conectar con ChatGPT",
+      eyebrow: "Connect to AI",
       title: "Prepara tu planner local para usarlo con IA externa",
     },
     connectPanel: {
@@ -986,7 +986,7 @@ const uiCopy = {
         "Este código, propiedad del navegador, se genera a partir de tu perfil actual y del estado del planner. No necesitas cuenta y ningún dato personal se guarda en el backend. Usa GitHub Issues para soporte; este código es la base del flujo futuro con IA.",
       lengthSuffix: "caracteres",
       eyebrow: "Contexto portable",
-      openChatGpt: "Abrir la página de ChatGPT",
+      openChatGpt: "Abrir la página Connect to AI",
       title: "Código del alumno",
       waitingForPlannerData: "Esperando datos del planner",
       waitingForStudentCode:

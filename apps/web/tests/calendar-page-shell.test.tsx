@@ -119,9 +119,10 @@ describe("CalendarPageShell", () => {
 
     useStudentProfileStore.setState({
       profile: {
+        ...DEFAULT_STUDENT_PROFILE,
         entryTerm: "OTOÑO 2025",
         activePlanIds: ["plan:ma-e"],
-        locale: "es-MX",
+        selectedCareerIds: ["matematicas-aplicadas"],
       },
     });
     usePlannerUiStore.setState({
@@ -133,6 +134,7 @@ describe("CalendarPageShell", () => {
     });
     usePlannerStore.setState({
       state: {
+        ...DEFAULT_PLANNER_STATE,
         selectedOfferingIds: ["2938:ACT-11300:001"],
         selectedPeriodId: "2938",
       },

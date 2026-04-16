@@ -1,3 +1,10 @@
+import {
+  findApplicableJointPlansForEntryTerm,
+  isIndividualCareerProgram,
+  normalizeAcademicTitle,
+  OFFICIAL_CAREERS,
+  OFFICIAL_JOINT_PROGRAMS,
+} from "@/lib/official-academics";
 import type { BulletinSummary, StudentProfile } from "@/lib/types";
 
 export const ENTRY_TERM_SEASON_KEYS = ["spring", "fall"] as const;
@@ -11,6 +18,20 @@ export interface ProgramChoiceOption {
   programKey: string;
   programTitle: string;
   sourceCodes: string[];
+}
+
+export interface CareerChoiceOption {
+  category: "ingenieria" | "licenciatura";
+  careerId: string;
+  displayLabel: string;
+  planIds: string[];
+}
+
+export interface JointProgramChoiceOption {
+  componentCareerIds: string[];
+  displayLabel: string;
+  jointProgramId: string;
+  planIds: string[];
 }
 
 const ENTRY_TERM_SEASON_TO_ACADEMIC_SEASON: Record<EntryTermSeasonKey, "PRIMAVERA" | "OTOÑO"> =
@@ -105,7 +126,7 @@ export function hasCompletedOnboarding(profile: StudentProfile, plans?: Bulletin
   }
 
   if (!plans) {
-    return profile.activePlanIds.length > 0;
+    return profile.activePlanIds.length > 0 && profile.selectedCareerIds.length > 0;
   }
 
   return hasApplicableActivePlans(profile, plans);
@@ -166,6 +187,141 @@ export function buildProgramChoiceOptions(plans: BulletinSummary[], entryTerm: s
   return [...groupedPrograms.values()].sort((left, right) =>
     left.displayLabel.localeCompare(right.displayLabel, "es-MX", { sensitivity: "base" }),
   );
+}
+
+export function buildCareerChoiceOptions(plans: BulletinSummary[], entryTerm: string) {
+  const applicablePlans = filterPlansForEntryTerm(plans, entryTerm).filter((plan) =>
+    isIndividualCareerProgram(plan.program_title),
+  );
+  const groupedOptions = new Map<string, CareerChoiceOption>();
+
+  for (const plan of applicablePlans) {
+    const officialCareer =
+      OFFICIAL_CAREERS.find((career) =>
+        normalizeAcademicTitle(plan.program_title).includes(normalizeAcademicTitle(career.display_name)),
+      ) ?? null;
+
+    const careerId = officialCareer?.career_id ?? normalizeProgramTitle(plan.program_title);
+    const existing = groupedOptions.get(careerId);
+
+    if (existing) {
+      existing.planIds = [...new Set([...existing.planIds, plan.plan_id])];
+      continue;
+    }
+
+    groupedOptions.set(careerId, {
+      category: officialCareer?.category ?? "licenciatura",
+      careerId,
+      displayLabel: officialCareer?.display_name ?? formatProgramChoiceLabel(plan.program_title),
+      planIds: [plan.plan_id],
+    });
+  }
+
+  return [...groupedOptions.values()].sort((left, right) =>
+    left.displayLabel.localeCompare(right.displayLabel, "es-MX", { sensitivity: "base" }),
+  );
+}
+
+export function filterCareerChoiceOptions(options: CareerChoiceOption[], query: string) {
+  const normalizedQuery = normalizeAcademicTitle(query);
+
+  if (!normalizedQuery) {
+    return options;
+  }
+
+  return options.filter((option) =>
+    `${option.displayLabel} ${option.careerId}`
+      .toLocaleLowerCase("es-MX")
+      .normalize("NFD")
+      .replace(/\p{Diacritic}/gu, "")
+      .includes(normalizedQuery),
+  );
+}
+
+export function buildJointProgramChoiceOptions(
+  plans: BulletinSummary[],
+  entryTerm: string,
+  selectedCareerIds: string[],
+) {
+  if (selectedCareerIds.length === 0) {
+    return [];
+  }
+
+  const applicablePlans = filterPlansForEntryTerm(plans, entryTerm);
+  const selectedCareerSet = new Set(selectedCareerIds);
+
+  return OFFICIAL_JOINT_PROGRAMS.filter((program) =>
+    program.component_career_ids.every((careerId) => selectedCareerSet.has(careerId)),
+  )
+    .map((program) => ({
+      componentCareerIds: [...program.component_career_ids],
+      displayLabel: program.display_name,
+      jointProgramId: program.joint_program_id,
+      planIds: findApplicableJointPlansForEntryTerm(applicablePlans, program.joint_program_id).map(
+        (plan) => plan.plan_id,
+      ),
+    }))
+    .filter((program) => program.planIds.length > 0)
+    .sort((left, right) =>
+      left.displayLabel.localeCompare(right.displayLabel, "es-MX", { sensitivity: "base" }),
+    );
+}
+
+export function resolveCareerSelectionPlanIds(
+  plans: BulletinSummary[],
+  entryTerm: string,
+  selectedCareerIds: string[],
+) {
+  const visibleCareerIds = new Set(selectedCareerIds);
+
+  return buildCareerChoiceOptions(plans, entryTerm)
+    .filter((option) => visibleCareerIds.has(option.careerId))
+    .flatMap((option) => option.planIds);
+}
+
+export function resolveJointProgramSelectionPlanIds(
+  plans: BulletinSummary[],
+  entryTerm: string,
+  selectedJointProgramIds: string[],
+) {
+  const applicablePlans = filterPlansForEntryTerm(plans, entryTerm);
+
+  return selectedJointProgramIds.flatMap((jointProgramId) =>
+    findApplicableJointPlansForEntryTerm(applicablePlans, jointProgramId).map((plan) => plan.plan_id),
+  );
+}
+
+export function resolveActivePlanIdsFromSelections(
+  plans: BulletinSummary[],
+  entryTerm: string,
+  selectedCareerIds: string[],
+  selectedJointProgramIds: string[],
+) {
+  return [
+    ...new Set([
+      ...resolveCareerSelectionPlanIds(plans, entryTerm, selectedCareerIds),
+      ...resolveJointProgramSelectionPlanIds(plans, entryTerm, selectedJointProgramIds),
+    ]),
+  ];
+}
+
+export function getCareerChoiceMode(options: CareerChoiceOption[]): ProgramChoiceKind {
+  const hasLicenciatura = options.some((option) => option.category === "licenciatura");
+  const hasIngenieria = options.some((option) => option.category === "ingenieria");
+
+  if (hasLicenciatura && hasIngenieria) {
+    return "mixed";
+  }
+
+  if (hasLicenciatura) {
+    return "licenciatura";
+  }
+
+  if (hasIngenieria) {
+    return "ingenieria";
+  }
+
+  return "career";
 }
 
 export function filterProgramChoiceOptions(

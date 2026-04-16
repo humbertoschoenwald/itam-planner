@@ -159,7 +159,7 @@ describe("PlannerOnboardingWizard", () => {
     });
     fireEvent.click(screen.getByRole("button", { name: /Siguiente/u }));
 
-    expect(screen.getByText(/Selecciona tu licenciatura \/ ingeniería:/u)).toBeInTheDocument();
+    expect(screen.getByText(/¿Qué carrera estudias\?/u)).toBeInTheDocument();
     expect(screen.getAllByText("Actuaría")).toHaveLength(1);
 
     const visibleChoices = screen
@@ -171,7 +171,7 @@ describe("PlannerOnboardingWizard", () => {
 
     expect(visibleChoices).toEqual(["Actuaría", "Economía", "Industrial"]);
 
-    fireEvent.change(screen.getByRole("searchbox", { name: /Buscar carrera/u }), {
+    fireEvent.change(screen.getByRole("searchbox", { name: /Busca tu carrera/u }), {
       target: { value: "eco" },
     });
 

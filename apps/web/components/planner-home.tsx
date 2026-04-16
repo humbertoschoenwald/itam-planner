@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import { CatalogFreshnessCard } from "@/components/catalog-freshness-card";
 import { SelectedWeekBoard } from "@/components/selected-week-board";
@@ -11,7 +11,14 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { fetchSchedulePeriodDetail } from "@/lib/api";
 import { getUiCopy } from "@/lib/copy";
+import {
+  buildRecommendedSubjectCodes,
+  buildSubjectDirectory,
+  estimateSemesterNumber,
+} from "@/lib/planner-subjects";
+import { getProductCopy } from "@/lib/product-copy";
 import type {
+  BulletinDocument,
   BulletinSummary,
   SchedulePeriodSummary,
   SourcesMetadata,
@@ -23,22 +30,26 @@ import { useStudentProfileStore } from "@/stores/student-profile-store";
 const INPUT_CLASS_NAME = "field-shell text-sm";
 
 interface PlannerHomeProps {
+  bulletinDocuments: BulletinDocument[];
   plans: BulletinSummary[];
   periods: SchedulePeriodSummary[];
   sourcesMetadata: SourcesMetadata | null;
 }
 
 export function PlannerHome({
+  bulletinDocuments,
   plans,
   periods,
   sourcesMetadata,
 }: PlannerHomeProps) {
   const profile = useStudentProfileStore((state) => state.profile);
   const copy = getUiCopy(profile.locale);
+  const productCopy = getProductCopy(profile.locale);
 
   const plannerState = usePlannerStore((state) => state.state);
   const plannerWidgetIds = usePlannerUiStore((state) => state.state.plannerWidgetIds);
   const setSelectedPeriodId = usePlannerStore((state) => state.setSelectedPeriodId);
+  const setSelectedSubjectCodes = usePlannerStore((state) => state.setSelectedSubjectCodes);
   const toggleOfferingId = usePlannerStore((state) => state.toggleOfferingId);
   const resetPlanner = usePlannerStore((state) => state.resetPlanner);
   const [selectedPeriod, setSelectedPeriod] = useState<Awaited<
@@ -46,13 +57,38 @@ export function PlannerHome({
   > | null>(null);
   const [resolvedPeriodId, setResolvedPeriodId] = useState<string | null>(null);
   const [selectedPeriodError, setSelectedPeriodError] = useState<string | null>(null);
+
   const localeOptions = Object.entries(copy.common.localeLabels).map(([value, label]) => ({
     label,
     value,
   }));
-
   const defaultPeriodId = periods[0]?.period_id ?? null;
   const activePeriodId = plannerState.selectedPeriodId ?? defaultPeriodId;
+  const activePeriodSummary =
+    periods.find((period) => period.period_id === activePeriodId) ?? null;
+  const activePlanDocuments = useMemo(
+    () => bulletinDocuments.filter((document) => profile.activePlanIds.includes(document.plan_id)),
+    [bulletinDocuments, profile.activePlanIds],
+  );
+  const estimatedSemester = useMemo(
+    () => estimateSemesterNumber(profile.entryTerm, activePeriodSummary),
+    [activePeriodSummary, profile.entryTerm],
+  );
+  const recommendedSubjectCodes = useMemo(
+    () => buildRecommendedSubjectCodes(activePlanDocuments, estimatedSemester),
+    [activePlanDocuments, estimatedSemester],
+  );
+  const subjectDirectory = useMemo(
+    () => buildSubjectDirectory(activePlanDocuments),
+    [activePlanDocuments],
+  );
+  const effectiveSubjectCodes =
+    plannerState.selectedSubjectCodes.length > 0
+      ? plannerState.selectedSubjectCodes
+      : recommendedSubjectCodes;
+  const selectedSubjectEntries = subjectDirectory.filter((entry) =>
+    effectiveSubjectCodes.includes(entry.courseCode),
+  );
   const resolvedSelectedPeriod = resolvedPeriodId === activePeriodId ? selectedPeriod : null;
   const resolvedSelectedPeriodError =
     resolvedPeriodId === activePeriodId ? selectedPeriodError : null;
@@ -66,6 +102,21 @@ export function PlannerHome({
       setSelectedPeriodId(defaultPeriodId);
     }
   }, [defaultPeriodId, plannerState.selectedPeriodId, setSelectedPeriodId]);
+
+  useEffect(() => {
+    if (
+      plannerState.selectedSubjectCodes.length > 0 ||
+      recommendedSubjectCodes.length === 0
+    ) {
+      return;
+    }
+
+    setSelectedSubjectCodes(recommendedSubjectCodes);
+  }, [
+    plannerState.selectedSubjectCodes.length,
+    recommendedSubjectCodes,
+    setSelectedSubjectCodes,
+  ]);
 
   useEffect(() => {
     if (!activePeriodId) {
@@ -97,12 +148,20 @@ export function PlannerHome({
     };
   }, [activePeriodId, copy.plannerHome.selectedPeriodLoadError]);
 
+  const visibleOfferings =
+    resolvedSelectedPeriod?.offerings.filter(
+      (offering) =>
+        effectiveSubjectCodes.length === 0 ||
+        effectiveSubjectCodes.includes(offering.course_code),
+    ) ?? [];
   const selectedOfferings =
     resolvedSelectedPeriod?.offerings.filter((offering) =>
       plannerState.selectedOfferingIds.includes(offering.offering_id),
     ) ?? [];
   const hasPlannerData =
-    plannerState.selectedPeriodId !== null || plannerState.selectedOfferingIds.length > 0;
+    plannerState.selectedPeriodId !== null ||
+    plannerState.selectedOfferingIds.length > 0 ||
+    effectiveSubjectCodes.length > 0;
   const currentLocaleLabel =
     localeOptions.find((option) => option.value === profile.locale)?.label ?? profile.locale;
   const activePeriodLabel =
@@ -115,6 +174,7 @@ export function PlannerHome({
   const heroMetrics = [
     { label: copy.plannerHome.plansMetric, value: String(plans.length) },
     { label: copy.plannerHome.periodsMetric, value: String(periods.length) },
+    { label: productCopy.plannerPage.filteredSubjectsTitle, value: String(selectedSubjectEntries.length) },
     { label: copy.plannerHome.groupsSelected, value: String(selectedOfferings.length) },
     { label: copy.plannerHome.currentLocale, value: currentLocaleLabel },
   ] as const;
@@ -138,6 +198,11 @@ export function PlannerHome({
               <Button asChild variant="secondary">
                 <Link href="/planner/onboarding" prefetch={false}>
                   {copy.plannerHome.updateOnboarding}
+                </Link>
+              </Button>
+              <Button asChild variant="secondary">
+                <Link href="/planner/settings" prefetch={false}>
+                  {productCopy.common.configuration}
                 </Link>
               </Button>
               <Button asChild variant="secondary">
@@ -174,18 +239,25 @@ export function PlannerHome({
 
             <div className="mt-5 space-y-3">
               <div className="rounded-2xl bg-white/10 p-4 text-sm leading-6 text-inverse-muted">
-                <p className="font-semibold text-accent-contrast">{copy.plannerHome.noAccountRequired}</p>
+                <p className="font-semibold text-accent-contrast">
+                  {copy.plannerHome.noAccountRequired}
+                </p>
                 <p className="mt-2">{copy.plannerHome.noAccountRequiredText}</p>
               </div>
               <div className="rounded-2xl bg-white/8 p-4 text-sm leading-6 text-inverse-muted">
-                <p className="font-semibold text-accent-contrast">{copy.plannerHome.browserOnlyLabel}</p>
+                <p className="font-semibold text-accent-contrast">
+                  {copy.plannerHome.browserOnlyLabel}
+                </p>
                 <p className="mt-2">{copy.plannerHome.browserOnlyText}</p>
               </div>
             </div>
 
             <div className="mt-5 grid gap-3 sm:grid-cols-3">
               {copy.plannerHome.timeline.map((step, index) => (
-                <div key={step.title} className="rounded-2xl bg-white/8 p-4 text-sm leading-6 text-inverse-muted">
+                <div
+                  key={step.title}
+                  className="rounded-2xl bg-white/8 p-4 text-sm leading-6 text-inverse-muted"
+                >
                   <p className="text-xs font-semibold uppercase tracking-[0.18em] text-inverse-muted">
                     0{index + 1}
                   </p>
@@ -207,7 +279,67 @@ export function PlannerHome({
           <CardContent className="space-y-5">
             <div className="soft-panel">
               <p className="font-semibold text-foreground">{activePeriodLabel}</p>
-              <p className="mt-2 text-sm leading-6 text-muted">{copy.plannerHome.activePeriodTitle}</p>
+              <p className="mt-2 text-sm leading-6 text-muted">
+                {copy.plannerHome.activePeriodTitle}
+              </p>
+            </div>
+
+            <div className="soft-panel space-y-3">
+              <div className="flex items-center justify-between gap-3">
+                <p className="font-semibold text-foreground">
+                  {productCopy.plannerPage.filteredSubjectsTitle}
+                </p>
+                <span className="text-xs font-semibold uppercase tracking-[0.18em] text-muted">
+                  {selectedSubjectEntries.length}
+                </span>
+              </div>
+              <p className="text-sm leading-6 text-muted">
+                {productCopy.plannerPage.filteredSubjectsBody}
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {selectedSubjectEntries.length > 0 ? (
+                  selectedSubjectEntries.map((entry) => (
+                    <span
+                      key={entry.courseCode}
+                      className="rounded-full border border-border bg-background px-3 py-2 text-xs font-medium text-foreground"
+                    >
+                      {entry.courseCode}
+                    </span>
+                  ))
+                ) : (
+                  <span className="rounded-full border border-border bg-background px-3 py-2 text-xs font-medium text-muted">
+                    {productCopy.plannerPage.filteredSubjectsEmpty}
+                  </span>
+                )}
+              </div>
+            </div>
+
+            <div className="space-y-3">
+              <p className="text-sm font-medium text-foreground">
+                {productCopy.plannerPage.quickActionsTitle}
+              </p>
+              <div className="flex flex-wrap gap-3">
+                <Button asChild variant="secondary">
+                  <Link href="/planner/settings" prefetch={false}>
+                    {productCopy.common.configuration}
+                  </Link>
+                </Button>
+                <Button asChild variant="secondary">
+                  <Link href="/inscripciones" prefetch={false}>
+                    {productCopy.common.inscriptions}
+                  </Link>
+                </Button>
+                <Button asChild variant="secondary">
+                  <Link href="/connect-ai" prefetch={false}>
+                    {productCopy.common.connectToAi}
+                  </Link>
+                </Button>
+                <Button asChild variant="secondary">
+                  <Link href="/project" prefetch={false}>
+                    {productCopy.common.project}
+                  </Link>
+                </Button>
+              </div>
             </div>
 
             <div className="space-y-2">
@@ -243,35 +375,44 @@ export function PlannerHome({
                 </div>
 
                 <div className="grid gap-3">
-                  {resolvedSelectedPeriod.offerings.map((offering) => {
-                    const checked = plannerState.selectedOfferingIds.includes(offering.offering_id);
-                    return (
-                      <label
-                        key={offering.offering_id}
-                        className="choice-card cursor-pointer items-start text-sm"
-                      >
-                        <input
-                          checked={checked}
-                          className="mt-1 h-4 w-4 accent-accent"
-                          onChange={() => toggleOfferingId(offering.offering_id)}
-                          type="checkbox"
-                        />
-                        <span>
-                          <span className="block font-semibold text-foreground">
-                            {offering.course_code} · {copy.plannerHome.groupLabel}{" "}
-                            {offering.group_code}
+                  {visibleOfferings.length > 0 ? (
+                    visibleOfferings.map((offering) => {
+                      const checked = plannerState.selectedOfferingIds.includes(
+                        offering.offering_id,
+                      );
+
+                      return (
+                        <label
+                          key={offering.offering_id}
+                          className="choice-card cursor-pointer items-start text-sm"
+                        >
+                          <input
+                            checked={checked}
+                            className="mt-1 h-4 w-4 accent-accent"
+                            onChange={() => toggleOfferingId(offering.offering_id)}
+                            type="checkbox"
+                          />
+                          <span>
+                            <span className="block font-semibold text-foreground">
+                              {offering.course_code} · {copy.plannerHome.groupLabel}{" "}
+                              {offering.group_code}
+                            </span>
+                            <span className="mt-1 block text-xs leading-5 text-muted">
+                              {offering.display_title}
+                            </span>
+                            <span className="mt-1 block text-xs leading-5 text-muted">
+                              {offering.instructor_name ?? copy.plannerHome.offeredBy} ·{" "}
+                              {offering.room_code ?? copy.plannerHome.roomPending}
+                            </span>
                           </span>
-                          <span className="mt-1 block text-xs leading-5 text-muted">
-                            {offering.display_title}
-                          </span>
-                          <span className="mt-1 block text-xs leading-5 text-muted">
-                            {offering.instructor_name ?? copy.plannerHome.offeredBy} ·{" "}
-                            {offering.room_code ?? copy.plannerHome.roomPending}
-                          </span>
-                        </span>
-                      </label>
-                    );
-                  })}
+                        </label>
+                      );
+                    })
+                  ) : (
+                    <div className="soft-panel text-sm leading-6 text-muted">
+                      {productCopy.plannerPage.filteredSubjectsEmpty}
+                    </div>
+                  )}
                 </div>
 
                 <div className="rounded-[1.35rem] border border-border bg-surface-elevated px-4 py-4">
@@ -299,17 +440,13 @@ export function PlannerHome({
                         </div>
                       ))
                     ) : (
-                      <p className="text-xs text-muted">
-                        {copy.plannerHome.selectAtLeastOne}
-                      </p>
+                      <p className="text-xs text-muted">{copy.plannerHome.selectAtLeastOne}</p>
                     )}
                   </div>
                 </div>
               </>
             ) : (
-              <p className="text-sm text-muted">
-                {copy.plannerHome.noPeriodData}
-              </p>
+              <p className="text-sm text-muted">{copy.plannerHome.noPeriodData}</p>
             )}
 
             <div className="flex flex-wrap gap-3">
@@ -325,7 +462,9 @@ export function PlannerHome({
       </section>
 
       <section className="page-grid">
-        {showTodayWidget ? <TodayClassesCard locale={profile.locale} offerings={selectedOfferings} /> : null}
+        {showTodayWidget ? (
+          <TodayClassesCard locale={profile.locale} offerings={selectedOfferings} />
+        ) : null}
         <CatalogFreshnessCard
           isLoading={false}
           locale={profile.locale}
@@ -334,7 +473,9 @@ export function PlannerHome({
       </section>
 
       <section className="page-grid">
-        {showWeekWidget ? <SelectedWeekBoard locale={profile.locale} offerings={selectedOfferings} /> : null}
+        {showWeekWidget ? (
+          <SelectedWeekBoard locale={profile.locale} offerings={selectedOfferings} />
+        ) : null}
         {showSubjectsWidget ? (
           <SubjectsPlansCard
             locale={profile.locale}

@@ -12,6 +12,8 @@ describe("student code", () => {
   it("round-trips the current profile and planner state", () => {
     const payload = buildStudentCodePayload(
       {
+        selectedCareerIds: ["matematicas-aplicadas"],
+        selectedJointProgramIds: [],
         entryTerm: "OTOÑO 2025",
         activePlanIds: ["plan:ma-e"],
         locale: "es-MX",
@@ -19,6 +21,7 @@ describe("student code", () => {
       {
         selectedPeriodId: "2938",
         selectedOfferingIds: ["2938:ACT-11300:001"],
+        selectedSubjectCodes: ["ACT-11300"],
       },
     );
 
@@ -34,6 +37,8 @@ describe("student code", () => {
   it("uses browser-safe base64 helpers even when Buffer exists in the window context", () => {
     const payload = buildStudentCodePayload(
       {
+        selectedCareerIds: ["matematicas-aplicadas"],
+        selectedJointProgramIds: [],
         entryTerm: "PRIMAVERA 2024",
         activePlanIds: ["plan:ma-e"],
         locale: "es-MX",
@@ -41,6 +46,7 @@ describe("student code", () => {
       {
         selectedPeriodId: "2938",
         selectedOfferingIds: ["2938:ACT-11300:001"],
+        selectedSubjectCodes: ["ACT-11300"],
       },
     );
 

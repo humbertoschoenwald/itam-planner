@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { getUiCopy } from "@/lib/copy";
 import { hasCompletedPlannerBootstrap } from "@/lib/planner-bootstrap";
 import type {
+  BulletinDocument,
   BulletinSummary,
   SchedulePeriodSummary,
   SourcesMetadata,
@@ -18,6 +19,7 @@ import { useSyncStudentCode } from "@/lib/use-sync-student-code";
 import { useStudentProfileStore } from "@/stores/student-profile-store";
 
 interface PlannerRouteShellProps {
+  bulletinDocuments: BulletinDocument[];
   plans: BulletinSummary[];
   periods: SchedulePeriodSummary[];
   sourcesMetadata: SourcesMetadata | null;

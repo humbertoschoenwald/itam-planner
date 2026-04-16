@@ -5,11 +5,23 @@ import { readCalendarBootstrap, readOnboardingBootstrap } from "@/lib/catalog-st
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: "https://itam.humbertoschoenwald.com/calendar",
+    canonical: "/calendar",
   },
   description:
     "Calendario público de ITAM Planner con eventos académicos generales y contexto del día cuando el planner local ya existe.",
+  openGraph: {
+    description:
+      "Calendario público de ITAM Planner con eventos académicos generales y contexto del día cuando el planner local ya existe.",
+    title: "Calendario",
+    type: "website",
+    url: "/calendar",
+  },
   title: "Calendario",
+  twitter: {
+    description:
+      "Calendario público de ITAM Planner con eventos académicos generales y contexto del día cuando el planner local ya existe.",
+    title: "Calendario",
+  },
 };
 
 export default async function CalendarPage() {

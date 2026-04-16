@@ -8,6 +8,7 @@ export function hasCompletedPlannerBootstrap(
 ) {
   return (
     isValidEntryTerm(profile.entryTerm) &&
+    profile.selectedCareerIds.length > 0 &&
     hasApplicableActivePlans(profile, plans) &&
     plannerWidgetIds.length > 0
   );

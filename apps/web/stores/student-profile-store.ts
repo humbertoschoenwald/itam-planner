@@ -11,12 +11,16 @@ export const DEFAULT_STUDENT_PROFILE: StudentProfile = {
   entryTerm: "",
   activePlanIds: [],
   locale: "es-MX",
+  selectedCareerIds: [],
+  selectedJointProgramIds: [],
 };
 
 interface StudentProfileStoreState {
   profile: StudentProfile;
   resetProfile: () => void;
   setActivePlanIds: (planIds: string[]) => void;
+  setSelectedCareerIds: (careerIds: string[]) => void;
+  setSelectedJointProgramIds: (jointProgramIds: string[]) => void;
   setEntryTerm: (entryTerm: string) => void;
   setLocale: (locale: LocaleCode) => void;
   toggleActivePlanId: (planId: string) => void;
@@ -35,6 +39,20 @@ export const useStudentProfileStore = create<StudentProfileStoreState>()(
           profile: {
             ...current.profile,
             activePlanIds: [...new Set(planIds)],
+          },
+        })),
+      setSelectedCareerIds: (careerIds) =>
+        set((current) => ({
+          profile: {
+            ...current.profile,
+            selectedCareerIds: [...new Set(careerIds)],
+          },
+        })),
+      setSelectedJointProgramIds: (jointProgramIds) =>
+        set((current) => ({
+          profile: {
+            ...current.profile,
+            selectedJointProgramIds: [...new Set(jointProgramIds)],
           },
         })),
       setEntryTerm: (entryTerm) =>
@@ -92,5 +110,24 @@ function sanitizeStudentProfile(value: unknown): StudentProfile {
     locale: VALID_LOCALES.includes(candidate.locale as LocaleCode)
       ? (candidate.locale as LocaleCode)
       : DEFAULT_STUDENT_PROFILE.locale,
+    selectedCareerIds: Array.isArray(candidate.selectedCareerIds)
+      ? [
+          ...new Set(
+            candidate.selectedCareerIds.filter(
+              (careerId): careerId is string => typeof careerId === "string",
+            ),
+          ),
+        ]
+      : [],
+    selectedJointProgramIds: Array.isArray(candidate.selectedJointProgramIds)
+      ? [
+          ...new Set(
+            candidate.selectedJointProgramIds.filter(
+              (jointProgramId): jointProgramId is string =>
+                typeof jointProgramId === "string",
+            ),
+          ),
+        ]
+      : [],
   };
 }

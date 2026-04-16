@@ -5,11 +5,14 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { getUiCopy } from "@/lib/copy";
+import { getProductCopy } from "@/lib/product-copy";
+import { OFFICIAL_NEWS_ITEMS } from "@/lib/site-content";
 import { useStudentProfileStore } from "@/stores/student-profile-store";
 
 export function HomePageShell() {
   const locale = useStudentProfileStore((state) => state.profile.locale);
   const copy = getUiCopy(locale);
+  const productCopy = getProductCopy(locale);
 
   return (
     <main className="mx-auto flex w-full max-w-7xl flex-1 flex-col gap-6 px-5 py-6 sm:px-8 sm:py-10">
@@ -19,10 +22,10 @@ export function HomePageShell() {
             <p className="eyebrow text-accent">{copy.homePage.eyebrow}</p>
             <div className="space-y-4">
               <h1 className="font-display text-4xl leading-tight text-foreground sm:text-6xl">
-                {copy.homePage.title}
+                {productCopy.home.introTitle}
               </h1>
               <p className="max-w-2xl text-base leading-7 text-muted sm:text-lg">
-                {copy.homePage.description}
+                {productCopy.home.introBody}
               </p>
             </div>
 
@@ -42,7 +45,7 @@ export function HomePageShell() {
 
           <div className="glass-accent rounded-[1.9rem] border border-white/10 px-5 py-5 shadow-[0_24px_50px_rgba(18,40,33,0.26)]">
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-inverse-muted">
-              {copy.homePage.surfaceEyebrow}
+              {productCopy.home.introEyebrow}
             </p>
             <div className="mt-5 grid gap-3 sm:grid-cols-3">
               {copy.homePage.panels.map((panel) => (
@@ -57,10 +60,9 @@ export function HomePageShell() {
       </section>
 
       <section className="page-grid">
-        {copy.homePage.featureCards.map((card) => (
+        {productCopy.home.cards.map((card) => (
           <Card key={card.title}>
             <CardHeader>
-              <p className="eyebrow">{card.eyebrow}</p>
               <CardTitle>{card.title}</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4 text-sm leading-6 text-muted">
@@ -73,6 +75,38 @@ export function HomePageShell() {
             </CardContent>
           </Card>
         ))}
+      </section>
+
+      <section className="space-y-4">
+        <div className="space-y-2">
+          <p className="eyebrow">{productCopy.home.newsEyebrow}</p>
+          <h2 className="font-display text-3xl leading-tight text-foreground sm:text-4xl">
+            {productCopy.home.newsTitle}
+          </h2>
+          <p className="max-w-3xl text-base leading-7 text-muted">{productCopy.home.newsBody}</p>
+        </div>
+
+        <div className="page-grid">
+          {OFFICIAL_NEWS_ITEMS.map((item) => (
+            <Card key={item.href}>
+              <CardHeader>
+                <p className="eyebrow">{item.category}</p>
+                <CardTitle>{item.title}</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4 text-sm leading-6 text-muted">
+                <p>{item.summary}</p>
+                <a
+                  className="inline-flex rounded-full border border-border px-4 py-2 font-medium text-foreground transition hover:bg-surface-elevated"
+                  href={item.href}
+                  rel="noreferrer"
+                  target="_blank"
+                >
+                  {item.source_label}
+                </a>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
       </section>
     </main>
   );

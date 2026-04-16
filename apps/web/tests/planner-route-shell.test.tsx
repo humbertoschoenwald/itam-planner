@@ -34,7 +34,14 @@ describe("PlannerRouteShell", () => {
   });
 
   it("redirects to planner onboarding when the required local state is missing", async () => {
-    render(<PlannerRouteShell periods={[]} plans={[]} sourcesMetadata={null} />);
+    render(
+      <PlannerRouteShell
+        bulletinDocuments={[]}
+        periods={[]}
+        plans={[]}
+        sourcesMetadata={null}
+      />,
+    );
 
     await waitFor(() => {
       expect(replaceSpy).toHaveBeenCalledWith("/planner/onboarding");
@@ -50,9 +57,10 @@ describe("PlannerRouteShell", () => {
   it("renders the planner shell when onboarding and widget preferences are complete", () => {
     useStudentProfileStore.setState({
       profile: {
+        ...DEFAULT_STUDENT_PROFILE,
         entryTerm: "OTOÑO 2025",
         activePlanIds: ["plan:ma-e"],
-        locale: "es-MX",
+        selectedCareerIds: ["matematicas-aplicadas"],
       },
     });
     usePlannerUiStore.setState({
@@ -81,6 +89,7 @@ describe("PlannerRouteShell", () => {
             title: "LICENCIATURA EN MATEMATICAS APLICADAS Plan E",
           },
         ]}
+        bulletinDocuments={[]}
         periods={[]}
         sourcesMetadata={null}
       />,
@@ -93,9 +102,10 @@ describe("PlannerRouteShell", () => {
   it("treats stale active plans as incomplete and redirects back to planner onboarding", async () => {
     useStudentProfileStore.setState({
       profile: {
+        ...DEFAULT_STUDENT_PROFILE,
         entryTerm: "OTOÑO 2025",
         activePlanIds: ["plan:ma-e"],
-        locale: "es-MX",
+        selectedCareerIds: ["matematicas-aplicadas"],
       },
     });
     usePlannerUiStore.setState({
@@ -124,6 +134,7 @@ describe("PlannerRouteShell", () => {
             title: "LICENCIATURA EN DERECHO Plan B",
           },
         ]}
+        bulletinDocuments={[]}
         periods={[]}
         sourcesMetadata={null}
       />,
@@ -137,7 +148,14 @@ describe("PlannerRouteShell", () => {
   });
 
   it("keeps a stable fallback link to planner onboarding while redirecting", () => {
-    render(<PlannerRouteShell periods={[]} plans={[]} sourcesMetadata={null} />);
+    render(
+      <PlannerRouteShell
+        bulletinDocuments={[]}
+        periods={[]}
+        plans={[]}
+        sourcesMetadata={null}
+      />,
+    );
 
     expect(screen.getByRole("link", { name: /Continuar onboarding/u })).toHaveAttribute(
       "href",

@@ -155,6 +155,8 @@ describe("filterPlansForEntryTerm", () => {
     expect(
       hasApplicableActivePlans(
         {
+          selectedCareerIds: ["matematicas-aplicadas"],
+          selectedJointProgramIds: [],
           activePlanIds: ["licenciatura-en-matematicas-aplicadas:e"],
           entryTerm: "OTOÑO 2025",
           locale: "es-MX",
@@ -166,6 +168,8 @@ describe("filterPlansForEntryTerm", () => {
     expect(
       hasApplicableActivePlans(
         {
+          selectedCareerIds: ["matematicas-aplicadas"],
+          selectedJointProgramIds: [],
           activePlanIds: ["licenciatura-en-matematicas-aplicadas:e"],
           entryTerm: "OTOÑO 2011",
           locale: "es-MX",

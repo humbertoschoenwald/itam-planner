@@ -2,10 +2,11 @@
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 import { getUiCopy } from "@/lib/copy";
 import { PRIMARY_NAV_ITEMS, resolvePrimaryNavId, resolveSwipeNavigation } from "@/lib/navigation";
+import { getProductCopy } from "@/lib/product-copy";
 import { usePhoneViewport } from "@/lib/use-phone-viewport";
 import { usePlannerUiStore } from "@/stores/planner-ui-store";
 import { useStudentProfileStore } from "@/stores/student-profile-store";
@@ -18,8 +19,10 @@ export function SiteHeader() {
   const setNavSwipePreference = usePlannerUiStore((state) => state.setNavSwipePreference);
   const isPhoneViewport = usePhoneViewport();
   const copy = getUiCopy(locale);
+  const productCopy = getProductCopy(locale);
   const activeTab = resolvePrimaryNavId(pathname);
   const gestureStartX = useRef<number | null>(null);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const links = PRIMARY_NAV_ITEMS.map((item) => ({
     href: item.href,
     id: item.id,
@@ -27,9 +30,27 @@ export function SiteHeader() {
       item.id === "home"
         ? copy.common.home
         : item.id === "planner"
-          ? copy.common.planner
-          : copy.common.calendar,
+        ? copy.common.planner
+        : copy.common.calendar,
   }));
+  const secondaryLinks = [
+    {
+      href: "/project",
+      label: productCopy.siteHeader.secondaryNav.project,
+    },
+    {
+      href: "/connect-ai",
+      label: productCopy.siteHeader.secondaryNav.connectToAi,
+    },
+    {
+      href: "/inscripciones",
+      label: productCopy.siteHeader.secondaryNav.inscriptions,
+    },
+    {
+      href: "/planner/settings",
+      label: productCopy.siteHeader.secondaryNav.configuration,
+    },
+  ] as const;
 
   function commitSwipe(clientX: number) {
     if (!isPhoneViewport || gestureStartX.current === null) {
@@ -53,16 +74,51 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 border-b border-border/70 bg-surface/84 backdrop-blur-xl">
       <div
-        className="mx-auto flex w-full max-w-7xl flex-col gap-4 px-5 py-4 sm:px-8 lg:flex-row lg:items-center lg:justify-between"
+        className="mx-auto flex w-full max-w-7xl flex-col gap-4 px-5 py-4 sm:px-8"
         style={{ paddingTop: "max(env(safe-area-inset-top), 1rem)" }}
       >
-        <div className="flex flex-wrap items-center gap-3">
-          <Link className="font-display text-2xl text-foreground" href="/" prefetch={false}>
-            {copy.plannerHome.title}
-          </Link>
-          <span className="rounded-full border border-accent/12 bg-accent-soft px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-accent">
-            {copy.siteHeader.badge}
-          </span>
+        <div className="flex items-center justify-between gap-3">
+          <div className="flex items-center gap-3">
+            {isPhoneViewport ? (
+              <button
+                aria-label={productCopy.siteHeader.mobileMenuLabel}
+                className="nav-pill rounded-full px-3 py-2 text-sm text-foreground hover:bg-surface-elevated"
+                onClick={() => setMobileMenuOpen((current) => !current)}
+                type="button"
+              >
+                {productCopy.common.menu}
+              </button>
+            ) : null}
+            <Link className="font-display text-2xl text-foreground" href="/" prefetch={false}>
+              {copy.plannerHome.title}
+            </Link>
+            <span className="rounded-full border border-accent/12 bg-accent-soft px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-accent">
+              {copy.siteHeader.badge}
+            </span>
+          </div>
+
+          {!isPhoneViewport ? (
+            <div className="flex flex-wrap items-center gap-2 text-sm font-medium text-muted">
+              {secondaryLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  className="nav-pill rounded-full px-3 py-2 transition hover:bg-surface-elevated hover:text-foreground"
+                  href={link.href}
+                  prefetch={false}
+                >
+                  {link.label}
+                </Link>
+              ))}
+              <Link
+                aria-label={productCopy.siteHeader.searchLabel}
+                className="nav-pill rounded-full px-3 py-2 transition hover:bg-surface-elevated hover:text-foreground"
+                href="/search"
+                prefetch={false}
+              >
+                {productCopy.common.search}
+              </Link>
+            </div>
+          ) : null}
         </div>
 
         <nav
@@ -112,6 +168,22 @@ export function SiteHeader() {
             </Link>
           ))}
         </nav>
+
+        {isPhoneViewport && mobileMenuOpen ? (
+          <div className="grid gap-2 rounded-[1.5rem] border border-border bg-surface-elevated p-3 text-sm font-medium text-muted">
+            {[...secondaryLinks, { href: "/search", label: productCopy.common.search }, { href: "/mapa", label: productCopy.common.map }].map((link) => (
+              <Link
+                key={link.href}
+                className="nav-pill rounded-full px-3 py-2 transition hover:bg-surface-hover hover:text-foreground"
+                href={link.href}
+                onClick={() => setMobileMenuOpen(false)}
+                prefetch={false}
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
+        ) : null}
       </div>
     </header>
   );
