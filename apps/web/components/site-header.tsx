@@ -6,6 +6,7 @@ import { useRef } from "react";
 
 import { getUiCopy } from "@/lib/copy";
 import { PRIMARY_NAV_ITEMS, resolvePrimaryNavId, resolveSwipeNavigation } from "@/lib/navigation";
+import { usePhoneViewport } from "@/lib/use-phone-viewport";
 import { usePlannerUiStore } from "@/stores/planner-ui-store";
 import { useStudentProfileStore } from "@/stores/student-profile-store";
 
@@ -15,6 +16,7 @@ export function SiteHeader() {
   const locale = useStudentProfileStore((state) => state.profile.locale);
   const navSwipePreference = usePlannerUiStore((state) => state.state.navSwipePreference);
   const setNavSwipePreference = usePlannerUiStore((state) => state.setNavSwipePreference);
+  const isPhoneViewport = usePhoneViewport();
   const copy = getUiCopy(locale);
   const activeTab = resolvePrimaryNavId(pathname);
   const gestureStartX = useRef<number | null>(null);
@@ -30,7 +32,7 @@ export function SiteHeader() {
   }));
 
   function commitSwipe(clientX: number) {
-    if (gestureStartX.current === null) {
+    if (!isPhoneViewport || gestureStartX.current === null) {
       return;
     }
 
@@ -65,18 +67,34 @@ export function SiteHeader() {
 
         <nav
           className="mobile-nav-shell flex flex-wrap items-center gap-2 text-sm font-medium text-muted"
-          onPointerDown={(event) => {
-            gestureStartX.current = event.clientX;
-          }}
-          onPointerUp={(event) => {
-            commitSwipe(event.clientX);
-          }}
-          onTouchStart={(event) => {
-            gestureStartX.current = event.touches[0]?.clientX ?? null;
-          }}
-          onTouchEnd={(event) => {
-            commitSwipe(event.changedTouches[0]?.clientX ?? 0);
-          }}
+          onPointerDown={
+            isPhoneViewport
+              ? (event) => {
+                  gestureStartX.current = event.clientX;
+                }
+              : undefined
+          }
+          onPointerUp={
+            isPhoneViewport
+              ? (event) => {
+                  commitSwipe(event.clientX);
+                }
+              : undefined
+          }
+          onTouchStart={
+            isPhoneViewport
+              ? (event) => {
+                  gestureStartX.current = event.touches[0]?.clientX ?? null;
+                }
+              : undefined
+          }
+          onTouchEnd={
+            isPhoneViewport
+              ? (event) => {
+                  commitSwipe(event.changedTouches[0]?.clientX ?? 0);
+                }
+              : undefined
+          }
         >
           {links.map((link) => (
             <Link

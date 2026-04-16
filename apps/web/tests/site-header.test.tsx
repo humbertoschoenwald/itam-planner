@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import { SiteHeader } from "@/components/site-header";
@@ -20,6 +20,7 @@ vi.mock("next/navigation", () => ({
 describe("SiteHeader", () => {
   beforeEach(() => {
     pushSpy.mockReset();
+    setViewportWidth(1280);
     useStudentProfileStore.setState({ profile: DEFAULT_STUDENT_PROFILE });
     usePlannerUiStore.setState({ state: DEFAULT_PLANNER_UI_STATE });
   });
@@ -35,7 +36,7 @@ describe("SiteHeader", () => {
     expect(container.querySelector("header")).toHaveClass("sticky");
   });
 
-  it("stores the first learned swipe preference while moving from planner to home", () => {
+  it("ignores swipe-like pointer gestures outside phone layouts", () => {
     render(<SiteHeader />);
 
     const nav = screen.getByRole("link", { name: "Planner" }).closest("nav");
@@ -44,7 +45,33 @@ describe("SiteHeader", () => {
     fireEvent.pointerDown(nav!, { clientX: 10 });
     fireEvent.pointerUp(nav!, { clientX: 90 });
 
-    expect(pushSpy).toHaveBeenCalledWith("/");
+    expect(pushSpy).not.toHaveBeenCalled();
+    expect(usePlannerUiStore.getState().state.navSwipePreference).toBeNull();
+  });
+
+  it("stores the first learned swipe preference while moving from planner to home on phone layouts", async () => {
+    setViewportWidth(390);
+    render(<SiteHeader />);
+
+    const nav = screen.getByRole("link", { name: "Planner" }).closest("nav");
+    expect(nav).not.toBeNull();
+
+    await waitFor(() => {
+      fireEvent.pointerDown(nav!, { clientX: 10 });
+      fireEvent.pointerUp(nav!, { clientX: 90 });
+
+      expect(pushSpy).toHaveBeenCalledWith("/");
+    });
+
     expect(usePlannerUiStore.getState().state.navSwipePreference).toBe("natural");
   });
 });
+
+function setViewportWidth(width: number) {
+  Object.defineProperty(window, "innerWidth", {
+    configurable: true,
+    value: width,
+    writable: true,
+  });
+  window.dispatchEvent(new Event("resize"));
+}

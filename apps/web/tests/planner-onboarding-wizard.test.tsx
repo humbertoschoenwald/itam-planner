@@ -103,6 +103,7 @@ describe("PlannerOnboardingWizard", () => {
     pushSpy.mockReset();
     vi.useRealTimers();
     vi.restoreAllMocks();
+    setViewportWidth(390);
     window.localStorage.clear();
     useStudentProfileStore.setState({ profile: DEFAULT_STUDENT_PROFILE });
     usePlannerStore.setState({ state: DEFAULT_PLANNER_STATE });
@@ -123,6 +124,25 @@ describe("PlannerOnboardingWizard", () => {
 
     expect(screen.getByText(/Todavía falta un paso obligatorio/u)).toBeInTheDocument();
     expect(screen.queryByLabelText(/Buscar carrera/u)).not.toBeInTheDocument();
+  });
+
+  it("skips the swipe step outside phone layouts", () => {
+    setViewportWidth(1280);
+    render(<PlannerOnboardingWizard plans={[...samplePlans]} />);
+
+    fireEvent.click(screen.getByRole("button", { name: /Siguiente/u }));
+    fireEvent.click(screen.getByRole("button", { name: /Otoño/u }));
+    fireEvent.change(screen.getByRole("combobox", { name: /Año de ingreso/u }), {
+      target: { value: "2025" },
+    });
+    fireEvent.click(screen.getByRole("button", { name: /Siguiente/u }));
+    fireEvent.click(screen.getByRole("button", { name: "Economía" }));
+    fireEvent.click(screen.getByRole("button", { name: /Siguiente/u }));
+
+    expect(screen.getByText(/Ya puedes crear tu planner/u)).toBeInTheDocument();
+    expect(
+      screen.queryByText(/¿Cómo quieres que se sienta el deslizamiento\?/u),
+    ).not.toBeInTheDocument();
   });
 
   it("deduplicates careers, filters alphabetically, and finishes setup with a bounded delay", async () => {
@@ -185,3 +205,12 @@ describe("PlannerOnboardingWizard", () => {
     expect(pushSpy).toHaveBeenCalledWith("/planner");
   });
 });
+
+function setViewportWidth(width: number) {
+  Object.defineProperty(window, "innerWidth", {
+    configurable: true,
+    value: width,
+    writable: true,
+  });
+  window.dispatchEvent(new Event("resize"));
+}

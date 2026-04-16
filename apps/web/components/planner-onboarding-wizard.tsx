@@ -19,13 +19,14 @@ import {
   parseEntryTerm,
 } from "@/lib/onboarding";
 import type { BulletinSummary } from "@/lib/types";
+import { usePhoneViewport } from "@/lib/use-phone-viewport";
 import { useSyncStudentCode } from "@/lib/use-sync-student-code";
 import { PLANNER_WIDGET_IDS, usePlannerUiStore } from "@/stores/planner-ui-store";
 import { useStudentProfileStore } from "@/stores/student-profile-store";
 
 type PlannerOnboardingStep = "intro" | "entryTerm" | "program" | "swipe" | "finish";
 
-const WIZARD_STEPS: PlannerOnboardingStep[] = [
+const MOBILE_WIZARD_STEPS: PlannerOnboardingStep[] = [
   "intro",
   "entryTerm",
   "program",
@@ -59,14 +60,24 @@ export function PlannerOnboardingWizard({ plans }: PlannerOnboardingWizardProps)
   const hasCompletedSetupAnimation = usePlannerUiStore(
     (state) => state.state.hasCompletedSetupAnimation,
   );
+  const isPhoneViewport = usePhoneViewport();
   const copy = getUiCopy(profile.locale);
+  const wizardSteps = isPhoneViewport
+    ? MOBILE_WIZARD_STEPS
+    : MOBILE_WIZARD_STEPS.filter((step) => step !== "swipe");
 
   const [entryTermDraft, setEntryTermDraft] = useState(parseEntryTerm(profile.entryTerm));
   const [programSearch, setProgramSearch] = useState("");
   const [isFinishing, setIsFinishing] = useState(false);
   const [showValidation, setShowValidation] = useState(false);
   const [currentStep, setCurrentStep] = useState<PlannerOnboardingStep>(
-    getInitialWizardStep(profile.entryTerm, profile.activePlanIds, navSwipePreference, plans),
+    getInitialWizardStep(
+      profile.entryTerm,
+      profile.activePlanIds,
+      navSwipePreference,
+      plans,
+      false,
+    ),
   );
 
   const yearOptions = getEntryTermYearOptions(plans);
@@ -75,9 +86,18 @@ export function PlannerOnboardingWizard({ plans }: PlannerOnboardingWizardProps)
   const filteredProgramOptions = filterProgramChoiceOptions(programOptions, programSearch);
   const selectedProgram = findSelectedProgramChoice(programOptions, profile.activePlanIds);
   const programChoiceMode = getProgramChoiceMode(programOptions);
-  const progressIndex = WIZARD_STEPS.indexOf(currentStep);
-  const progressPercent = ((progressIndex + 1) / WIZARD_STEPS.length) * 100;
-  const isFinishStep = currentStep === "finish";
+  const activeStep = wizardSteps.includes(currentStep)
+    ? currentStep
+    : getInitialWizardStep(
+        profile.entryTerm,
+        profile.activePlanIds,
+        navSwipePreference,
+        plans,
+        isPhoneViewport,
+      );
+  const progressIndex = wizardSteps.indexOf(activeStep);
+  const progressPercent = ((progressIndex + 1) / wizardSteps.length) * 100;
+  const isFinishStep = activeStep === "finish";
 
   useEffect(() => {
     return () => {
@@ -108,15 +128,19 @@ export function PlannerOnboardingWizard({ plans }: PlannerOnboardingWizardProps)
       label: copy.plannerOnboarding.finishSummary.program,
       value: selectedProgram?.displayLabel ?? copy.plannerOnboarding.finishSummary.pending,
     },
-    {
-      label: copy.plannerOnboarding.finishSummary.swipe,
-      value:
-        navSwipePreference === "inverted"
-          ? copy.plannerOnboarding.swipeOptions.inverted.title
-          : navSwipePreference === "natural"
-            ? copy.plannerOnboarding.swipeOptions.natural.title
-            : copy.plannerOnboarding.finishSummary.pending,
-    },
+    ...(isPhoneViewport
+      ? [
+          {
+            label: copy.plannerOnboarding.finishSummary.swipe,
+            value:
+              navSwipePreference === "inverted"
+                ? copy.plannerOnboarding.swipeOptions.inverted.title
+                : navSwipePreference === "natural"
+                  ? copy.plannerOnboarding.swipeOptions.natural.title
+                  : copy.plannerOnboarding.finishSummary.pending,
+          },
+        ]
+      : []),
   ];
 
   function handleEntrySeasonChange(nextSeasonKey: EntryTermSeasonKey | "") {
@@ -165,7 +189,7 @@ export function PlannerOnboardingWizard({ plans }: PlannerOnboardingWizardProps)
     }
 
     setShowValidation(false);
-    setCurrentStep(WIZARD_STEPS[progressIndex - 1] ?? currentStep);
+    setCurrentStep(wizardSteps[progressIndex - 1] ?? activeStep);
   }
 
   function handleNext() {
@@ -175,7 +199,7 @@ export function PlannerOnboardingWizard({ plans }: PlannerOnboardingWizardProps)
 
     if (
       !isStepValid(
-        currentStep,
+        activeStep,
         draftEntryTerm,
         selectedProgram !== null,
         navSwipePreference,
@@ -193,7 +217,7 @@ export function PlannerOnboardingWizard({ plans }: PlannerOnboardingWizardProps)
       return;
     }
 
-    setCurrentStep(WIZARD_STEPS[progressIndex + 1] ?? currentStep);
+    setCurrentStep(wizardSteps[progressIndex + 1] ?? activeStep);
   }
 
   function finalizePlannerSetup() {
@@ -266,8 +290,11 @@ export function PlannerOnboardingWizard({ plans }: PlannerOnboardingWizardProps)
               />
             </div>
 
-            <div className="grid grid-cols-5 gap-2">
-              {WIZARD_STEPS.map((step, index) => (
+            <div
+              className="grid gap-2"
+              style={{ gridTemplateColumns: `repeat(${wizardSteps.length}, minmax(0, 1fr))` }}
+            >
+              {wizardSteps.map((step, index) => (
                 <div
                   key={step}
                   className={[
@@ -291,13 +318,14 @@ export function PlannerOnboardingWizard({ plans }: PlannerOnboardingWizardProps)
           {renderStepContent({
             canShowPrograms: draftEntryTerm.length > 0,
             copy,
-            currentStep,
+            currentStep: activeStep,
             entryTermDraft,
             filteredProgramOptions,
             handleEntrySeasonChange,
             handleEntryYearChange,
             handleProgramSelection,
             handleSwipePreferenceSelection,
+            isPhoneViewport,
             navSwipePreference,
             programChoiceMode,
             programSearch,
@@ -311,12 +339,12 @@ export function PlannerOnboardingWizard({ plans }: PlannerOnboardingWizardProps)
               <p className="font-semibold text-foreground">
                 {copy.plannerOnboarding.validationTitle}
               </p>
-              <p className="mt-2">{copy.plannerOnboarding.validationBody[currentStep]}</p>
+              <p className="mt-2">{copy.plannerOnboarding.validationBody[activeStep]}</p>
             </div>
           ) : null}
 
-          {currentStep === "finish" ? (
-            <div className="grid gap-3 sm:grid-cols-3">
+          {activeStep === "finish" ? (
+            <div className={`grid gap-3 ${isPhoneViewport ? "sm:grid-cols-3" : "sm:grid-cols-2"}`}>
               {finishSummary.map((item) => (
                 <div key={item.label} className="soft-panel">
                   <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted">
@@ -352,6 +380,7 @@ function renderStepContent({
   handleEntryYearChange,
   handleProgramSelection,
   handleSwipePreferenceSelection,
+  isPhoneViewport,
   navSwipePreference,
   programChoiceMode,
   programSearch,
@@ -368,6 +397,7 @@ function renderStepContent({
   handleEntryYearChange: (nextYear: string) => void;
   handleProgramSelection: (programKey: string) => void;
   handleSwipePreferenceSelection: (preference: "natural" | "inverted") => void;
+  isPhoneViewport: boolean;
   navSwipePreference: "natural" | "inverted" | null;
   programChoiceMode: ReturnType<typeof getProgramChoiceMode>;
   programSearch: string;
@@ -499,6 +529,10 @@ function renderStepContent({
         </div>
       );
     case "swipe":
+      if (!isPhoneViewport) {
+        return null;
+      }
+
       return (
         <div className="space-y-5">
           <div className="space-y-3">
@@ -561,10 +595,16 @@ function getInitialWizardStep(
   activePlanIds: string[],
   navSwipePreference: "natural" | "inverted" | null,
   plans: BulletinSummary[],
+  isPhoneViewport: boolean,
 ): PlannerOnboardingStep {
   const parsedEntryTerm = parseEntryTerm(entryTerm);
 
-  if (!parsedEntryTerm.seasonKey && !parsedEntryTerm.year && activePlanIds.length === 0 && navSwipePreference === null) {
+  if (
+    !parsedEntryTerm.seasonKey &&
+    !parsedEntryTerm.year &&
+    activePlanIds.length === 0 &&
+    navSwipePreference === null
+  ) {
     return "intro";
   }
 
@@ -581,7 +621,7 @@ function getInitialWizardStep(
     return "program";
   }
 
-  if (navSwipePreference === null) {
+  if (isPhoneViewport && navSwipePreference === null) {
     return "swipe";
   }
 
