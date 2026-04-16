@@ -41,10 +41,11 @@ Initial product-surface rules:
 
 - The home experience starts with onboarding rather than account creation.
 - The public navigation must center on `Home`, `Planner`, and `Calendario` as the primary destinations.
-- Desktop and tablet layouts may expose additional secondary navigation actions such as project/help, external-AI setup, inscriptions guidance, configuration, and search, but those surfaces must still remain secondary to `Home`, `Planner`, and `Calendario`.
+- Desktop and tablet layouts may expose additional secondary navigation actions such as project/help, external-AI setup, inscriptions guidance, configuration, and search in the same top navigation cluster as the primary destinations, but those surfaces must still remain visually secondary to `Home`, `Planner`, and `Calendario`.
 - The onboarding flow must explicitly state that no account is required.
+- The onboarding flow must ask the student to choose the academic level (`undergraduate` or `graduate`) before deriving planner defaults.
 - The onboarding flow must collect entry term through structured selectors for academic season and year rather than a free-text input.
-- The onboarding year selector must derive its options from the published catalog applicability window instead of exposing arbitrary years that the catalog cannot satisfy.
+- The onboarding year selector must derive its options from published official catalog signals for the selected academic level, including applicable bulletin windows and currently published public periods, instead of exposing arbitrary years unrelated to the current public dataset.
 - The onboarding flow must keep plan selection hidden until the entry-term selectors are complete enough to filter candidate plans.
 - The first stable user-facing routes are `/`, `/planner`, `/planner/onboarding`, `/calendar`, `/search`, `/project`, `/inscripciones`, `/planner/settings`, `/terms`, and `/privacy`.
 - `/` is the public home and discovery surface.
@@ -56,15 +57,17 @@ Initial product-surface rules:
 - Compatibility redirects may exist temporarily for older public routes such as `/onboarding`, but they must not remain part of the primary user-facing flow.
 - The dedicated planner route must keep the initial document lean. Heavy schedule detail payloads belong in precomputed JSON artifacts fetched on demand, not embedded wholesale into the initial HTML shell.
 - Planner onboarding should use a guided stepper with explicit `Back` and `Next` progression, one primary decision per screen, and a lightweight introductory step that explains what the planner will configure.
-- Planner onboarding must collect the entry term, one or two searchable base-career choices, optional official joint-program selections, and the preferred swipe-direction mode for the planner shell before finalizing setup.
+- Planner onboarding must collect academic level, entry term, one or two searchable base-career choices when applicable, optional official joint-program selections when applicable, default subject selection, and the preferred swipe-direction mode for the planner shell before finalizing setup.
 - Planner onboarding must sort visible career choices alphabetically and must keep their labels user-facing and locale-driven instead of leaking internal uppercase catalog values.
 - Planner onboarding should deduplicate visible plan rows into searchable official career and joint-program choices whenever multiple visible plans belong to the same academic program grouping for the selected entry term.
 - Planner onboarding should derive its base-career vocabulary from official ITAM-owned career sources and derive its joint-program vocabulary from official ITAM-owned joint-program sources, while still matching those choices against the published normalized catalog for the selected entry term.
 - Planner onboarding should create the default launch planner widget set browser-locally during final setup instead of forcing widget selection as primary onboarding friction.
 - The launch planner surface must support `Today`, `Week`, and `Subjects / Plans` widgets, and `Today` must keep the highest visual priority whenever it is enabled.
-- The planner should derive an initial semester estimate from the stored entry term plus the current public undergraduate period, then use that estimate only to seed a default subject set. The user must remain free to add or remove subjects later.
+- The planner should derive an initial semester estimate from the stored entry term plus the current public period that matches the chosen academic level, then use that estimate to seed a default subject set during onboarding. The user must remain free to add or remove subjects later.
 - The planner should treat subject selection as a browser-local configuration surface. Default subjects should come from the selected academic programs, but the user must be able to search and add any public subject later.
+- The onboarding subject-selection step should foreground the default subjects derived from the chosen academic programs, while still allowing a local search across all published public subjects.
 - Planner configuration must allow the user to change swipe preference, review or reset browser-local planner state, and edit selected subjects without rerunning the entire onboarding flow.
+- Planner configuration should surface swipe-preference controls only on phone layouts, where swipe navigation actually exists.
 - The public runtime should recover silently from browser-owned state failures whenever possible and should never announce storage-reset internals in normal UI copy.
 - If runtime recovery still needs a visible user-facing state, it must stay generic, must not leak implementation details such as `localStorage`, and must not crash the surrounding route shell.
 - Visible route-level error states must not wipe browser-local planner state automatically. If a recovery action really needs to reset browser-local state, it must be explicit and user-triggered.
@@ -84,6 +87,7 @@ Initial product-surface rules:
 - The visual language should favor layered gradients, monochrome noise, motion-driven atmosphere, and floating accent objects instead of large flat surfaces.
 - Treat Apple atmosphere, Proton Authenticator web, and Perplexity Comet as inspiration references for layout density, atmospheric surfaces, and motion cues only. Do not copy their assets, code, or distinctive strings.
 - The public home should explain the project in non-technical language and expose a traceable news section whose links stay attached to official sources.
+- The calendar surface should foreground current and near-term academic events and payment milestones, while keeping older published items available as secondary history rather than leading the page with stale dates.
 - Public search must remain local to the published site artifact and precomputed public data. It must not require backend personal state or remote search infrastructure for the initial runtime slice.
 - An inscriptions surface may guide the user through official ITAM flows with traceable links and source citations, but it must not intercept or automate authenticated registration.
 - A map surface may exist as a placeholder during the current slice, but detailed campus mapping remains deferred until a dedicated map phase begins.

@@ -14,5 +14,5 @@ alwaysApply: true
 - RULE: Public catalog persistence is allowed, but it must stay strictly separate from user state.
 - RULE: Never use public-data persistence as a side channel for identity, preferences, or schedules.
 - RULE: Student code must stay browser-owned, self-contained, and free of identity data.
-- RULE: Browser-local student state may include academic program choices, joint-program choices, selected subjects, widget preferences, and navigation preferences.
+- RULE: Browser-local student state may include academic level, academic program choices, joint-program choices, selected subjects, widget preferences, and navigation preferences.
 - RULE: Any future AI-context endpoint must derive read-only context on demand without persisting the token or the response.

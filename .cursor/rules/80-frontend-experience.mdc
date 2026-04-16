@@ -15,21 +15,23 @@ alwaysApply: true
 - RULE: Support both light and dark presentation and default to the system color-scheme preference.
 - RULE: Target WCAG 2.2 AA in product decisions and avoid public conformance claims until the relevant UI slice is actually audited.
 - RULE: Use `Home`, `Planner`, and `Calendario` as the primary public navigation destinations.
-- RULE: Keep project/help, AI-connection, inscriptions, configuration, and search surfaces secondary to the primary navigation destinations.
+- RULE: Keep project/help, AI-connection, inscriptions, configuration, and search surfaces secondary to the primary navigation destinations even when desktop and tablet layouts place them in the same top navigation cluster.
 - RULE: Start the product flow with onboarding inside the planner flow, not behind an account wall.
+- RULE: Collect academic level in planner onboarding before deriving entry-term years, planner defaults, or level-specific periods.
 - RULE: Collect entry term in onboarding with controlled season/year selectors instead of free-text input.
-- RULE: Derive onboarding year-selector options from the published catalog applicability window instead of exposing arbitrary years.
+- RULE: Derive onboarding year-selector options from official published catalog signals for the selected academic level, including bulletin applicability windows and current public periods, instead of exposing arbitrary years.
 - RULE: Hide plan selection until the entry-term selectors are complete enough to filter candidate plans.
 - RULE: Keep `/` as the public home, `/planner` as the dedicated planner shell, `/planner/onboarding` as the embedded planner-onboarding route, `/calendar` as the public calendar surface, and add secondary public routes for search, project, inscriptions, planner settings, terms, and privacy.
 - RULE: Keep `/planner` safe even when onboarding is incomplete; browser-side redirects may be used, but the route must still expose a stable fallback path to `/planner/onboarding`.
 - RULE: Treat stale browser-local profile state as incomplete when the current published catalog no longer yields an applicable active plan for the stored entry term.
 - RULE: Keep the initial planner document lean and fetch heavy schedule detail from precomputed JSON on demand instead of embedding the full catalog detail into the first HTML response.
 - RULE: Keep planner onboarding as a guided stepper with explicit back/next progression and a lightweight introductory step.
-- RULE: Collect entry term, one or two searchable base-career choices, optional official joint-program choices, and preferred swipe-direction mode during planner onboarding.
+- RULE: Collect academic level, entry term, one or two searchable base-career choices when applicable, optional official joint-program choices when applicable, default subject selection, and preferred swipe-direction mode during planner onboarding.
 - RULE: Sort visible career choices alphabetically and drive their labels from locale configuration rather than leaking raw uppercase catalog labels.
 - RULE: Deduplicate visible plan rows into searchable academic choices whenever the selected entry term exposes multiple plans for the same official career or joint-program grouping.
-- RULE: Seed planner subject selection automatically from the estimated current semester, but allow the user to search and override the selected subjects later.
+- RULE: Seed planner subject selection automatically from the estimated current semester during onboarding, but allow the user to search and override the selected subjects later.
 - RULE: Treat launch planner widget preferences as browser-local UI state, initialize the default launch widget set during planner setup, and keep `Today` visually dominant when present.
+- RULE: Show swipe-preference controls only on phone layouts, where swipe navigation exists.
 - RULE: Recover silently from browser-owned state failures whenever possible and never expose storage-reset internals in routine UI copy.
 - RULE: If a visible runtime error state is unavoidable, keep it generic and keep the surrounding route alive.
 - RULE: Never wipe browser-local planner state automatically just because a route-level error boundary rendered.
@@ -48,6 +50,7 @@ alwaysApply: true
 - RULE: Treat Apple atmosphere, Proton Authenticator web, and Perplexity Comet as inspiration only; never copy their assets, code, or distinctive strings.
 - RULE: State clearly that no account is required.
 - RULE: Keep the home surface editorial and non-technical, and keep any news cards traceable to official source URLs.
+- RULE: Foreground current and near-term calendar and payment items before older published history.
 - RULE: Keep search local to the site artifact and published data for the current slice.
 - RULE: Keep inscriptions guidance highly traceable and link-driven; do not automate authenticated registration.
 - RULE: Treat the final Connect to ChatGPT route and setup flow as a follow-up slice after planner state exists.
