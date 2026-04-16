@@ -15,9 +15,12 @@ const bootstrap: SearchIndexBootstrap = {
   ],
   jointPrograms: [
     {
+      contact_emails: ["mercedes@itam.mx", "ezequiel.soto@itam.mx"],
       component_career_ids: ["actuaria", "matematicas-aplicadas"],
+      coordinators: ["Dra. María Mercedes Gregorio Domínguez", "Dr. José Ezequiel Soto Sánchez"],
       display_name: "Actuaría + Matemáticas Aplicadas",
       joint_program_id: "actuaria-matematicas-aplicadas",
+      phone_extensions: ["3839", "3812"],
       source_url: "https://www.itam.mx/es/programas-conjuntos",
     },
   ],
@@ -123,5 +126,8 @@ describe("local search index", () => {
     expect(searchLocalIndex(index, "primer pago").map((item) => item.title)).toContain(
       "Primer pago",
     );
+    expect(
+      searchLocalIndex(index, "ezequiel.soto@itam.mx").map((item) => item.title),
+    ).toContain("Actuaría + Matemáticas Aplicadas");
   });
 });

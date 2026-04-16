@@ -193,9 +193,12 @@ export interface AcademicCareerReference {
 }
 
 export interface JointProgramReference {
+  contact_emails: string[];
   component_career_ids: string[];
+  coordinators: string[];
   display_name: string;
   joint_program_id: string;
+  phone_extensions: string[];
   source_url: string;
 }
 

@@ -1,9 +1,16 @@
+import fs from "node:fs";
+import path from "node:path";
+
 import { describe, expect, it } from "vitest";
 
 import {
+  extractOfficialJointProgramRowsFromHtml,
+  extractOfficialJointProgramsFromHtml,
   findApplicableJointPlansForEntryTerm,
   isIndividualCareerProgram,
   normalizeAcademicTitle,
+  OFFICIAL_CAREERS,
+  OFFICIAL_JOINT_PROGRAMS,
 } from "@/lib/official-academics";
 import type { BulletinSummary } from "@/lib/types";
 
@@ -39,11 +46,26 @@ const samplePlans: BulletinSummary[] = [
 ];
 
 describe("official academics helpers", () => {
+  const officialJointProgramsFixture = fs.readFileSync(
+    path.resolve(process.cwd(), "tests/fixtures/itam-programas-conjuntos.html"),
+    "utf8",
+  );
+
   it("normalizes official and catalog title variants consistently", () => {
     expect(normalizeAcademicTitle("LICENCIATURA EN ACTUARÍA")).toBe("actuaria");
     expect(
       normalizeAcademicTitle("Ingeniería Industrial y Sistemas Inteligentes"),
     ).toBe("ingenieria industrial y en sistemas inteligentes");
+  });
+
+  it("keeps the official career vocabulary aligned with ITAM-owned sources", () => {
+    expect(OFFICIAL_CAREERS.map((career) => career.career_id)).toEqual(
+      expect.arrayContaining([
+        "contaduria-analitica-finanzas-corporativas",
+        "direccion-mercadotecnia",
+        "inteligencia-artificial",
+      ]),
+    );
   });
 
   it("distinguishes individual careers from joint programs", () => {
@@ -65,5 +87,34 @@ describe("official academics helpers", () => {
         (plan) => plan.plan_id,
       ),
     ).toEqual(["plan:act-ma-a"]);
+  });
+
+  it("extracts every official joint-program row from the official ITAM fixture", () => {
+    const extractedRows = extractOfficialJointProgramRowsFromHtml(officialJointProgramsFixture);
+
+    expect(extractedRows).toHaveLength(39);
+    expect(extractedRows[0]).toMatchObject({
+      component_titles: ["Licenciatura en Actuaría", "Licenciatura en Matemáticas Aplicadas"],
+      contact_emails: ["mercedes@itam.mx", "ezequiel.soto@itam.mx"],
+      phone_extensions: ["3839", "3812"],
+    });
+  });
+
+  it("matches the committed joint-program reference against the official ITAM fixture", () => {
+    const extractedPrograms = extractOfficialJointProgramsFromHtml(officialJointProgramsFixture);
+
+    expect(extractedPrograms).toHaveLength(39);
+    expect(extractedPrograms.map((program) => program.joint_program_id)).toEqual(
+      OFFICIAL_JOINT_PROGRAMS.map((program) => program.joint_program_id),
+    );
+    expect(
+      extractedPrograms.find(
+        (program) => program.joint_program_id === "administracion-negocios-economia",
+      ),
+    ).toMatchObject({
+      component_career_ids: ["administracion-negocios", "economia"],
+      contact_emails: ["javier.medrano@itam.mx", "arturo.aguilar@itam.mx"],
+      phone_extensions: ["4049", "4179"],
+    });
   });
 });

@@ -30,10 +30,15 @@ export function buildLocalSearchIndex(bootstrap: SearchIndexBootstrap): LocalSea
       title: career.display_name,
     })),
     ...bootstrap.jointPrograms.map((program) => ({
-      body: `Official ITAM joint program reference. ${program.display_name}.`,
+      body: `Official ITAM joint program reference. ${program.display_name}. ${program.coordinators.join(" ")} ${program.contact_emails.join(" ")} ${program.phone_extensions.join(" ")}`.trim(),
       category: "Joint program",
       href: "/planner/onboarding",
-      keywords: [program.joint_program_id, ...program.component_career_ids],
+      keywords: [
+        program.joint_program_id,
+        ...program.component_career_ids,
+        ...program.contact_emails,
+        ...program.phone_extensions,
+      ],
       title: program.display_name,
     })),
     ...bootstrap.plans.map((plan) => ({
