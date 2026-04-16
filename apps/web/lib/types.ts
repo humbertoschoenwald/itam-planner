@@ -5,6 +5,7 @@ export interface StudentProfile {
   academicLevel: AcademicLevel | null;
   entryTerm: string;
   activePlanIds: string[];
+  hasExplicitLocalePreference: boolean;
   locale: LocaleCode;
   selectedCareerIds: string[];
   selectedJointProgramIds: string[];

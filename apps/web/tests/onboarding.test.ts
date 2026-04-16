@@ -10,6 +10,7 @@ import {
   getEntryTermYearOptions,
   getProgramChoiceMode,
   hasApplicableActivePlans,
+  hasCompletedOnboarding,
   parseEntryTerm,
 } from "@/lib/onboarding";
 import type { BulletinSummary } from "@/lib/types";
@@ -160,6 +161,7 @@ describe("filterPlansForEntryTerm", () => {
           selectedJointProgramIds: [],
           activePlanIds: ["licenciatura-en-matematicas-aplicadas:e"],
           entryTerm: "OTOÑO 2025",
+          hasExplicitLocalePreference: true,
           locale: "es-MX",
         },
         samplePlans,
@@ -174,10 +176,25 @@ describe("filterPlansForEntryTerm", () => {
           selectedJointProgramIds: [],
           activePlanIds: ["licenciatura-en-matematicas-aplicadas:e"],
           entryTerm: "OTOÑO 2011",
+          hasExplicitLocalePreference: true,
           locale: "es-MX",
         },
         samplePlans,
       ),
+    ).toBe(false);
+  });
+
+  it("requires an explicit locale choice before onboarding counts as complete", () => {
+    expect(
+      hasCompletedOnboarding({
+        academicLevel: "undergraduate",
+        activePlanIds: ["licenciatura-en-matematicas-aplicadas:e"],
+        entryTerm: "OTOÑO 2025",
+        hasExplicitLocalePreference: false,
+        locale: "es-MX",
+        selectedCareerIds: ["matematicas-aplicadas"],
+        selectedJointProgramIds: [],
+      }),
     ).toBe(false);
   });
 });

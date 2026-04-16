@@ -3,15 +3,21 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { buildWeeklyAgenda } from "@/lib/catalog-insights";
 import { getUiCopy } from "@/lib/copy";
+import { getCanonicalSubjectTitle } from "@/lib/planner-subjects";
 import { getMexicoCityDateContext } from "@/lib/time";
 import type { LocaleCode, ScheduleOffering } from "@/lib/types";
 
 interface TodayClassesCardProps {
   locale: LocaleCode;
   offerings: ScheduleOffering[];
+  subjectTitleLookup?: ReadonlyMap<string, string>;
 }
 
-export function TodayClassesCard({ locale, offerings }: TodayClassesCardProps) {
+export function TodayClassesCard({
+  locale,
+  offerings,
+  subjectTitleLookup = new Map<string, string>(),
+}: TodayClassesCardProps) {
   const copy = getUiCopy(locale);
   const today = getMexicoCityDateContext();
   const day = buildWeeklyAgenda(offerings).find((item) => item.weekdayCode === today.weekdayCode);
@@ -46,7 +52,13 @@ export function TodayClassesCard({ locale, offerings }: TodayClassesCardProps) {
                 <p className="mt-2 text-sm font-semibold text-foreground">
                   {item.courseCode} · {item.groupCode}
                 </p>
-                <p className="mt-1 text-xs leading-5 text-muted">{item.displayTitle}</p>
+                <p className="mt-1 text-xs leading-5 text-muted">
+                  {getCanonicalSubjectTitle(
+                    item.courseCode,
+                    subjectTitleLookup,
+                    item.displayTitle,
+                  )}
+                </p>
                 <p className="mt-2 text-xs leading-5 text-muted">
                   {item.roomCode ?? copy.plannerHome.todayBoard.roomPending}
                   {item.campusName ? ` · ${item.campusName}` : ""}

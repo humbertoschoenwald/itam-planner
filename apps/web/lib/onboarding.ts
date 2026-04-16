@@ -151,7 +151,11 @@ export function getEntryTermYearOptions(
 }
 
 export function hasCompletedOnboarding(profile: StudentProfile, plans?: BulletinSummary[]) {
-  if (profile.academicLevel === null || !isValidEntryTerm(profile.entryTerm)) {
+  if (
+    profile.academicLevel === null ||
+    !profile.hasExplicitLocalePreference ||
+    !isValidEntryTerm(profile.entryTerm)
+  ) {
     return false;
   }
 

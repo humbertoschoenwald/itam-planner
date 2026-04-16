@@ -17,6 +17,7 @@ describe("student code", () => {
         selectedJointProgramIds: [],
         entryTerm: "OTOÑO 2025",
         activePlanIds: ["plan:ma-e"],
+        hasExplicitLocalePreference: true,
         locale: "es-MX",
       },
       {
@@ -43,6 +44,7 @@ describe("student code", () => {
         selectedJointProgramIds: [],
         entryTerm: "PRIMAVERA 2024",
         activePlanIds: ["plan:ma-e"],
+        hasExplicitLocalePreference: true,
         locale: "es-MX",
       },
       {

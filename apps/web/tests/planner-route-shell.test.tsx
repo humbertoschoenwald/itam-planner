@@ -61,6 +61,7 @@ describe("PlannerRouteShell", () => {
         academicLevel: "undergraduate",
         entryTerm: "OTOÑO 2025",
         activePlanIds: ["plan:ma-e"],
+        hasExplicitLocalePreference: true,
         selectedCareerIds: ["matematicas-aplicadas"],
       },
     });
@@ -107,6 +108,7 @@ describe("PlannerRouteShell", () => {
         academicLevel: "undergraduate",
         entryTerm: "OTOÑO 2025",
         activePlanIds: ["plan:ma-e"],
+        hasExplicitLocalePreference: true,
         selectedCareerIds: ["matematicas-aplicadas"],
       },
     });

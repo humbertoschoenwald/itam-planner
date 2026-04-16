@@ -12,8 +12,10 @@ const productCopy = {
       map: "Map",
       menu: "Menu",
       news: "News",
+      no: "No",
       project: "Project",
       search: "Search",
+      yes: "Yes",
     },
     home: {
       introEyebrow: "Why this exists",
@@ -87,6 +89,13 @@ const productCopy = {
       careerNone: "Pick at least one career before continuing.",
       careerSearch: "Search your career",
       careerTitle: "Which career do you study?",
+      classesBody:
+        "Choose the public classes you actually want to keep from the published period that matches your current level.",
+      classesCount: "Selected classes",
+      classesTitle: "Which public classes should stay in your schedule?",
+      localeBody:
+        "Choose the language this browser should use across the visible product UI. You can change it later from configuration.",
+      localeTitle: "Which language should the product use?",
       jointProgramsBody:
         "Choose the official joint programs that apply to you for the selected entry term.",
       jointProgramsEmpty:
@@ -105,23 +114,43 @@ const productCopy = {
       stepLabels: {
         academicLevel: "Level",
         careers: "Careers",
+        classes: "Classes",
         entryTerm: "Entry term",
         finish: "Finish",
         intro: "Intro",
         jointPrograms: "Joint programs",
+        locale: "Language",
         subjects: "Subjects",
         swipe: "Swipe",
       },
       validation: {
         academicLevel: "Choose the academic level before continuing.",
         careers: "Choose at least one career before continuing.",
+        classes:
+          "Choose at least one public class before continuing, unless nothing has been published yet for the current subject set.",
         jointPrograms: "Continue with or without a joint program.",
         jointProgramsRequired: "Choose at least one joint program before continuing.",
+        locale: "Choose the interface language before continuing.",
         subjects: "Choose at least one subject before continuing.",
       },
     },
     plannerSettings: {
       eyebrow: "Configuration",
+      classSpacingBody:
+        "Choose whether to prioritize tighter class blocks or more separation between classes.",
+      classSpacingOptions: {
+        clustered: "Classes together",
+        separated: "Classes separated",
+      },
+      classSpacingTitle: "Class spacing",
+      importanceLabel: "Importance",
+      lighterDayBody:
+        "Pick the weekday you would prefer to keep lighter than the rest when the future generator ranks schedule variants.",
+      lighterDayTitle: "Day with fewer classes",
+      noPreference: "No preference",
+      preferencesBody:
+        "These browser-local preferences stay separate from the public catalog and shape how the future schedule generator should rank schedule variants.",
+      preferencesTitle: "Schedule preferences",
       resetBody:
         "Clear the browser-local profile, selected subjects, groups, and UI preferences in this browser only.",
       resetButton: "Reset local schedule",
@@ -136,9 +165,12 @@ const productCopy = {
         "The selected public period could not be loaded from the published catalog.",
       scheduleLoading: "Loading the selected public period...",
       scheduleTitle: "Public schedule",
-      selectedOfferingsEmpty: "No public groups selected yet.",
-      selectedOfferingsTitle: "Selected groups",
+      selectedClassesEmpty: "No public classes selected yet.",
+      selectedClassesTitle: "Selected classes",
       selectedSubjectBadge: "Selected",
+      sameTheoryLabGroupBody:
+        "Keep theory and lab on the same group when a subject exposes both sections and that pairing exists publicly.",
+      sameTheoryLabGroupTitle: "Same theory and lab group",
       subjectsBody:
         "Recommended subjects come from your selected careers and the estimated current semester. Search to add anything else from the published public catalog.",
       subjectsDefaultTitle: "Default subjects",
@@ -149,6 +181,14 @@ const productCopy = {
       swipeBody:
         "Phone-only gesture preference. Desktop and tablet keep pointer and keyboard navigation.",
       swipeTitle: "Swipe mode",
+      teacherRankingBody:
+        "Decide whether future schedule ranking should prioritize teachers that have higher general evaluations and visible profiles on MisProfes.com.",
+      teacherRankingTitle: "Rank with MisProfes.com",
+      timeRangeBody:
+        "Choose the time window where you would prefer all selected classes to land.",
+      timeRangeEndLabel: "Latest class end",
+      timeRangeStartLabel: "Earliest class start",
+      timeRangeTitle: "Time range",
       title: "Schedule configuration",
     },
     plannerPage: {
@@ -193,8 +233,10 @@ const productCopy = {
       map: "Mapa",
       menu: "Menú",
       news: "Noticias",
+      no: "No",
       project: "Proyecto",
       search: "Buscar",
+      yes: "Sí",
     },
     home: {
       introEyebrow: "Por qué existe",
@@ -268,6 +310,13 @@ const productCopy = {
       careerNone: "Elige al menos una carrera antes de continuar.",
       careerSearch: "Busca tu carrera",
       careerTitle: "¿Qué carrera estudias?",
+      classesBody:
+        "Elige las clases públicas que sí quieres conservar dentro del periodo publicado que corresponde a tu nivel actual.",
+      classesCount: "Clases seleccionadas",
+      classesTitle: "¿Qué clases públicas deben quedarse en tu horario?",
+      localeBody:
+        "Elige el idioma que debe usar este navegador en toda la interfaz visible del producto. Después puedes cambiarlo desde configuración.",
+      localeTitle: "¿En qué idioma quieres usar el producto?",
       jointProgramsBody:
         "Elige los planes conjuntos oficiales que sí te aplican para el ingreso seleccionado.",
       jointProgramsEmpty:
@@ -286,23 +335,43 @@ const productCopy = {
       stepLabels: {
         academicLevel: "Nivel",
         careers: "Carreras",
+        classes: "Clases",
         entryTerm: "Ingreso",
         finish: "Finalizar",
         intro: "Inicio",
         jointPrograms: "Conjuntos",
+        locale: "Idioma",
         subjects: "Materias",
         swipe: "Deslizamiento",
       },
       validation: {
         academicLevel: "Elige el nivel académico antes de continuar.",
         careers: "Elige al menos una carrera antes de continuar.",
+        classes:
+          "Elige al menos una clase pública antes de continuar, salvo que todavía no exista una publicada para las materias actuales.",
         jointPrograms: "Continúa con o sin programa conjunto.",
         jointProgramsRequired: "Elige al menos un plan conjunto antes de continuar.",
+        locale: "Elige el idioma de la interfaz antes de continuar.",
         subjects: "Elige al menos una materia antes de continuar.",
       },
     },
     plannerSettings: {
       eyebrow: "Configuración",
+      classSpacingBody:
+        "Indica si prefieres clases más juntas o más separadas entre sí.",
+      classSpacingOptions: {
+        clustered: "Clases juntas",
+        separated: "Clases separadas",
+      },
+      classSpacingTitle: "Clases juntas o separadas",
+      importanceLabel: "Importancia",
+      lighterDayBody:
+        "Elige el día de la semana que te gustaría dejar con menos clases cuando el generador futuro ordene variantes del horario.",
+      lighterDayTitle: "Día con menos clases",
+      noPreference: "Sin preferencia",
+      preferencesBody:
+        "Estas preferencias se guardan solo en el navegador y quedan separadas del catálogo público. Después le dirán al generador de horarios cómo priorizar variantes.",
+      preferencesTitle: "Preferencias del horario",
       resetBody:
         "Borra el perfil local, las materias seleccionadas, los grupos y las preferencias visuales solo en este navegador.",
       resetButton: "Borrar horario local",
@@ -317,9 +386,12 @@ const productCopy = {
         "No fue posible cargar el periodo público seleccionado desde el catálogo publicado.",
       scheduleLoading: "Cargando el periodo público seleccionado...",
       scheduleTitle: "Horario público",
-      selectedOfferingsEmpty: "Todavía no hay grupos públicos seleccionados.",
-      selectedOfferingsTitle: "Grupos seleccionados",
+      selectedClassesEmpty: "Todavía no hay clases públicas seleccionadas.",
+      selectedClassesTitle: "Clases seleccionadas",
       selectedSubjectBadge: "Seleccionada",
+      sameTheoryLabGroupBody:
+        "Si una materia tiene teoría y laboratorio, prioriza combinaciones donde ambos queden en el mismo grupo cuando eso exista públicamente.",
+      sameTheoryLabGroupTitle: "Mismo grupo teoría y lab",
       subjectsBody:
         "Las materias recomendadas salen de las carreras que elegiste y del semestre estimado. Usa la búsqueda para agregar cualquier otra materia del catálogo público publicado.",
       subjectsDefaultTitle: "Materias por defecto",
@@ -330,6 +402,14 @@ const productCopy = {
       swipeBody:
         "Preferencia del gesto solo para teléfono. En tablet y computadora la navegación sigue por mouse, trackpad y teclado.",
       swipeTitle: "Modo de deslizamiento",
+      teacherRankingBody:
+        "Indica si se deben tomar en cuenta las evaluaciones generales de MisProfes.com para priorizar profesores con mejor calificación y perfil visible.",
+      teacherRankingTitle: "Rankear con MisProfes.com",
+      timeRangeBody:
+        "Indica el rango del día donde te gustaría que cayeran todas tus clases.",
+      timeRangeEndLabel: "Última clase",
+      timeRangeStartLabel: "Primera clase",
+      timeRangeTitle: "Rango de horario",
       title: "Configuración del horario",
     },
     plannerPage: {

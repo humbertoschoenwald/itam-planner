@@ -2,6 +2,10 @@ import { render, screen, waitFor } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import { PlannerSettingsShell } from "@/components/planner-settings-shell";
+import {
+  DEFAULT_SCHEDULE_GENERATION_PREFERENCES,
+  usePlannerPreferencesStore,
+} from "@/stores/planner-preferences-store";
 import { DEFAULT_PLANNER_STATE, usePlannerStore } from "@/stores/planner-store";
 import { DEFAULT_PLANNER_UI_STATE, usePlannerUiStore } from "@/stores/planner-ui-store";
 import {
@@ -36,6 +40,9 @@ describe("PlannerSettingsShell", () => {
       },
     });
     usePlannerUiStore.setState({ state: DEFAULT_PLANNER_UI_STATE });
+    usePlannerPreferencesStore.setState({
+      preferences: DEFAULT_SCHEDULE_GENERATION_PREFERENCES,
+    });
   });
 
   it("keeps period and public-group controls in configuration", async () => {
@@ -122,13 +129,14 @@ describe("PlannerSettingsShell", () => {
 
     expect(screen.getByRole("heading", { name: "Configuración del horario" })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "Horario público" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "Preferencias del horario" })).toBeInTheDocument();
 
     await waitFor(() => {
       expect(fetchSchedulePeriodDetailMock).toHaveBeenCalledWith("2938");
     });
 
-    expect(screen.getByText(/ACT-15360 · Grupo 001/u)).toBeInTheDocument();
-    expect(screen.getAllByText("Seleccionada")).toHaveLength(2);
+    expect(screen.getByRole("button", { name: /ACT-15360 · 001/u })).toBeInTheDocument();
+    expect(screen.getByText(/Clases seleccionadas: 1/u)).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: /Materias/u })).toBeInTheDocument();
   });
 });

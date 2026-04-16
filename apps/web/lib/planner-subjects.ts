@@ -84,6 +84,12 @@ export function buildSubjectDirectory(documents: BulletinDocument[]) {
   );
 }
 
+export function buildSubjectTitleLookup(documents: BulletinDocument[]) {
+  return new Map(
+    buildSubjectDirectory(documents).map((entry) => [entry.courseCode, entry.title] as const),
+  );
+}
+
 export function buildRecommendedSubjectCodes(
   documents: BulletinDocument[],
   estimatedSemester: number | null,
@@ -132,6 +138,20 @@ export function searchSubjectDirectory(
   );
 }
 
+export function getCanonicalSubjectTitle(
+  courseCode: string,
+  titleLookup: ReadonlyMap<string, string>,
+  fallbackTitle: string,
+) {
+  const canonicalTitle = titleLookup.get(courseCode)?.trim();
+
+  if (canonicalTitle) {
+    return canonicalTitle;
+  }
+
+  return formatVisibleAcademicTitle(fallbackTitle);
+}
+
 function normalizePeriodSeason(value: string | null) {
   if (!value) {
     return null;
@@ -157,4 +177,30 @@ function normalizeQuery(value: string) {
     .replace(/\p{Diacritic}/gu, "")
     .replace(/\s+/gu, " ")
     .trim();
+}
+
+function formatVisibleAcademicTitle(value: string) {
+  const normalized = value.trim();
+
+  if (!normalized) {
+    return "";
+  }
+
+  if (/[a-záéíóúñ]/u.test(normalized)) {
+    return normalized;
+  }
+
+  return normalized
+    .toLocaleLowerCase("es-MX")
+    .split(/\s+/u)
+    .filter(Boolean)
+    .map((word) => {
+      if (/^(i|ii|iii|iv|v|vi|vii|viii|ix|x)$/u.test(word)) {
+        return word.toUpperCase();
+      }
+
+      const [firstLetter = "", ...rest] = [...word];
+      return `${firstLetter.toLocaleUpperCase("es-MX")}${rest.join("")}`;
+    })
+    .join(" ");
 }

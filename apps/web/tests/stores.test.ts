@@ -1,6 +1,10 @@
 import { beforeEach, describe, expect, it } from "vitest";
 
 import { STORAGE_KEYS } from "@/lib/storage-keys";
+import {
+  DEFAULT_SCHEDULE_GENERATION_PREFERENCES,
+  usePlannerPreferencesStore,
+} from "@/stores/planner-preferences-store";
 import { DEFAULT_PLANNER_STATE, usePlannerStore } from "@/stores/planner-store";
 import { DEFAULT_PLANNER_UI_STATE, usePlannerUiStore } from "@/stores/planner-ui-store";
 import { useStudentCodeStore } from "@/stores/student-code-store";
@@ -14,6 +18,9 @@ describe("persisted stores", () => {
     window.localStorage.clear();
     useStudentProfileStore.setState({ profile: DEFAULT_STUDENT_PROFILE });
     usePlannerStore.setState({ state: DEFAULT_PLANNER_STATE });
+    usePlannerPreferencesStore.setState({
+      preferences: DEFAULT_SCHEDULE_GENERATION_PREFERENCES,
+    });
     usePlannerUiStore.setState({ state: DEFAULT_PLANNER_UI_STATE });
     useStudentCodeStore.setState({ code: "" });
   });
@@ -22,10 +29,13 @@ describe("persisted stores", () => {
     useStudentProfileStore.getState().setAcademicLevel("undergraduate");
     useStudentProfileStore.getState().setEntryTerm("OTOÑO 2025");
     useStudentProfileStore.getState().setActivePlanIds(["plan:ma-e", "plan:ma-e"]);
+    useStudentProfileStore.getState().setLocale("en");
 
     const stored = JSON.parse(window.localStorage.getItem(STORAGE_KEYS.studentProfile) ?? "{}");
     expect(stored.state.profile.academicLevel).toBe("undergraduate");
     expect(stored.state.profile.entryTerm).toBe("OTOÑO 2025");
+    expect(stored.state.profile.hasExplicitLocalePreference).toBe(true);
+    expect(stored.state.profile.locale).toBe("en");
 
     useStudentProfileStore.setState({ profile: DEFAULT_STUDENT_PROFILE });
     window.localStorage.setItem(STORAGE_KEYS.studentProfile, JSON.stringify(stored));
@@ -34,6 +44,8 @@ describe("persisted stores", () => {
     expect(useStudentProfileStore.getState().profile.entryTerm).toBe("OTOÑO 2025");
     expect(useStudentProfileStore.getState().profile.academicLevel).toBe("undergraduate");
     expect(useStudentProfileStore.getState().profile.activePlanIds).toEqual(["plan:ma-e"]);
+    expect(useStudentProfileStore.getState().profile.hasExplicitLocalePreference).toBe(true);
+    expect(useStudentProfileStore.getState().profile.locale).toBe("en");
   });
 
   it("persists and rehydrates planner state", async () => {
@@ -109,6 +121,37 @@ describe("persisted stores", () => {
       navSwipePreference: "natural",
       plannerWidgetIds: ["today", "week"],
     });
+  });
+
+  it("persists and rehydrates schedule-generation preferences", async () => {
+    usePlannerPreferencesStore.getState().setUseTeacherRanking(false);
+    usePlannerPreferencesStore.getState().setClassSpacing("separated");
+    usePlannerPreferencesStore.getState().setTimeRange("09:00", "18:30");
+    usePlannerPreferencesStore.getState().setLighterDayPreference("VI");
+    usePlannerPreferencesStore.getState().setSameTheoryLabGroup(true);
+    usePlannerPreferencesStore.getState().setWeight("teacherRanking", 80);
+
+    const stored = JSON.parse(
+      window.localStorage.getItem(STORAGE_KEYS.plannerPreferences) ?? "{}",
+    );
+    expect(stored.state.preferences.classSpacing).toBe("separated");
+    expect(stored.state.preferences.timeRangeStart).toBe("09:00");
+
+    usePlannerPreferencesStore.setState({
+      preferences: DEFAULT_SCHEDULE_GENERATION_PREFERENCES,
+    });
+    window.localStorage.setItem(STORAGE_KEYS.plannerPreferences, JSON.stringify(stored));
+    await usePlannerPreferencesStore.persist.rehydrate();
+
+    expect(usePlannerPreferencesStore.getState().preferences).toMatchObject({
+      classSpacing: "separated",
+      lighterDayPreference: "VI",
+      sameTheoryLabGroup: true,
+      timeRangeEnd: "18:30",
+      timeRangeStart: "09:00",
+      useTeacherRanking: false,
+    });
+    expect(usePlannerPreferencesStore.getState().preferences.weights.teacherRanking).toBe(80);
   });
 
   it("sanitizes malformed planner UI state during rehydration", async () => {

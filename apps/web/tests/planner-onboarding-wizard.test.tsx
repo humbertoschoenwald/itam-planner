@@ -18,12 +18,17 @@ import {
 } from "@/stores/student-profile-store";
 
 const pushSpy = vi.fn();
+const fetchSchedulePeriodDetailMock = vi.fn();
 
 vi.mock("next/navigation", () => ({
   useRouter: () => ({
     push: pushSpy,
     replace: vi.fn(),
   }),
+}));
+
+vi.mock("@/lib/api", () => ({
+  fetchSchedulePeriodDetail: (...args: unknown[]) => fetchSchedulePeriodDetailMock(...args),
 }));
 
 const samplePlans: BulletinSummary[] = [
@@ -160,6 +165,7 @@ const samplePeriods: SchedulePeriodSummary[] = [
 describe("PlannerOnboardingWizard", () => {
   beforeEach(() => {
     pushSpy.mockReset();
+    fetchSchedulePeriodDetailMock.mockReset();
     vi.useRealTimers();
     vi.restoreAllMocks();
     setViewportWidth(390);
@@ -167,6 +173,87 @@ describe("PlannerOnboardingWizard", () => {
     useStudentProfileStore.setState({ profile: DEFAULT_STUDENT_PROFILE });
     usePlannerStore.setState({ state: DEFAULT_PLANNER_STATE });
     usePlannerUiStore.setState({ state: DEFAULT_PLANNER_UI_STATE });
+    fetchSchedulePeriodDetailMock.mockResolvedValue({
+      active_from: "2026-01-01",
+      active_to: "2026-05-31",
+      label: "PRIMAVERA 2026 LICENCIATURA",
+      level: "LICENCIATURA",
+      offerings: [
+        {
+          campus_name: "RIO HONDO",
+          course_code: "ACT-12002",
+          credits: 6,
+          crn: "12002",
+          display_title: "CALCULO DE PROBABILIDADES I",
+          group_code: "001",
+          instructor_name: "DOCENTE ACT",
+          meetings: [
+            {
+              campus_name: "RIO HONDO",
+              end_time: "09:00:00",
+              room_code: "RH101",
+              start_time: "07:30:00",
+              weekday_code: "LU",
+            },
+          ],
+          offering_id: "2938:ACT-12002:001",
+          period_id: "2938",
+          raw_comments: null,
+          room_code: "RH101",
+          section_type: "T",
+        },
+        {
+          campus_name: "RIO HONDO",
+          course_code: "ECO-12002",
+          credits: 6,
+          crn: "22002",
+          display_title: "PRINCIPIOS DE MICROECONOMIA",
+          group_code: "001",
+          instructor_name: "DOCENTE ECO",
+          meetings: [
+            {
+              campus_name: "RIO HONDO",
+              end_time: "11:30:00",
+              room_code: "RH102",
+              start_time: "10:00:00",
+              weekday_code: "MA",
+            },
+          ],
+          offering_id: "2938:ECO-12002:001",
+          period_id: "2938",
+          raw_comments: null,
+          room_code: "RH102",
+          section_type: "T",
+        },
+        {
+          campus_name: "RIO HONDO",
+          course_code: "DAT-12010",
+          credits: 6,
+          crn: "32010",
+          display_title: "MODELADO DE DATOS",
+          group_code: "001",
+          instructor_name: "DOCENTE DAT",
+          meetings: [
+            {
+              campus_name: "RIO HONDO",
+              end_time: "13:00:00",
+              room_code: "RH103",
+              start_time: "11:30:00",
+              weekday_code: "MI",
+            },
+          ],
+          offering_id: "2938:DAT-12010:001",
+          period_id: "2938",
+          raw_comments: null,
+          room_code: "RH103",
+          section_type: "T",
+        },
+      ],
+      period_id: "2938",
+      subjects: [],
+      term: "PRIMAVERA",
+      year: 2026,
+    });
   });
 
   it("starts at the intro step and blocks progress until the academic level is chosen", () => {
@@ -185,7 +272,7 @@ describe("PlannerOnboardingWizard", () => {
     expect(screen.queryByLabelText(/Busca tu carrera/u)).not.toBeInTheDocument();
   });
 
-  it("skips the swipe step outside phone layouts and lands on finish after subjects", async () => {
+  it("skips the swipe step outside phone layouts and lands on finish after classes", async () => {
     setViewportWidth(1280);
     renderWizard();
 
@@ -197,6 +284,9 @@ describe("PlannerOnboardingWizard", () => {
       target: { value: "2025" },
     });
     fireEvent.click(screen.getByRole("button", { name: /Siguiente/u }));
+    expect(screen.getByText(/¿En qué idioma quieres usar el producto\?/u)).toBeInTheDocument();
+    fireEvent.click(screen.getByRole("button", { name: /Español \(MX\)/u }));
+    fireEvent.click(screen.getByRole("button", { name: /Siguiente/u }));
     fireEvent.click(screen.getByRole("button", { name: "Economía" }));
     fireEvent.click(screen.getByRole("button", { name: /Siguiente/u }));
 
@@ -206,6 +296,14 @@ describe("PlannerOnboardingWizard", () => {
 
     expect(screen.getByText(/¿Con qué materias debe arrancar el horario\?/u)).toBeInTheDocument();
 
+    fireEvent.click(screen.getByRole("button", { name: /Siguiente/u }));
+
+    await waitFor(() => {
+      expect(fetchSchedulePeriodDetailMock).toHaveBeenCalledWith("2938");
+    });
+
+    expect(screen.getByText(/¿Qué clases públicas deben quedarse en tu horario\?/u)).toBeInTheDocument();
+    fireEvent.click(screen.getByRole("button", { name: /ECO-12002 · Grupo 001/u }));
     fireEvent.click(screen.getByRole("button", { name: /Siguiente/u }));
 
     expect(screen.getByText(/Ya puedes crear tu horario/u)).toBeInTheDocument();
@@ -236,6 +334,9 @@ describe("PlannerOnboardingWizard", () => {
     fireEvent.change(screen.getByRole("combobox", { name: /Año de ingreso/u }), {
       target: { value: "2025" },
     });
+    fireEvent.click(screen.getByRole("button", { name: /Siguiente/u }));
+    expect(screen.getByText(/¿En qué idioma quieres usar el producto\?/u)).toBeInTheDocument();
+    fireEvent.click(screen.getByRole("button", { name: /Español \(MX\)/u }));
     fireEvent.click(screen.getByRole("button", { name: /Siguiente/u }));
 
     expect(screen.getByText(/¿Qué carrera estudias\?/u)).toBeInTheDocument();
@@ -277,6 +378,14 @@ describe("PlannerOnboardingWizard", () => {
 
     fireEvent.click(screen.getByRole("button", { name: /Siguiente/u }));
 
+    await waitFor(() => {
+      expect(fetchSchedulePeriodDetailMock).toHaveBeenCalledWith("2938");
+    });
+
+    expect(screen.getByText(/¿Qué clases públicas deben quedarse en tu horario\?/u)).toBeInTheDocument();
+    fireEvent.click(screen.getByRole("button", { name: /ECO-12002 · Grupo 001/u }));
+    fireEvent.click(screen.getByRole("button", { name: /Siguiente/u }));
+
     expect(
       screen.getByText(/¿Cómo quieres que se sienta el deslizamiento\?/u),
     ).toBeInTheDocument();
@@ -287,6 +396,7 @@ describe("PlannerOnboardingWizard", () => {
     expect(screen.getByText(/Perfecto, configuraste tu horario\./u)).toBeInTheDocument();
     expect(screen.getByText("Licenciatura / ingeniería")).toBeInTheDocument();
     expect(screen.getByText("Otoño 2025")).toBeInTheDocument();
+    expect(screen.getByText("Español (MX)")).toBeInTheDocument();
     expect(screen.getByText("Economía")).toBeInTheDocument();
 
     vi.useFakeTimers();
@@ -317,6 +427,9 @@ describe("PlannerOnboardingWizard", () => {
       target: { value: "2025" },
     });
     fireEvent.click(screen.getByRole("button", { name: /Siguiente/u }));
+    expect(screen.getByText(/¿En qué idioma quieres usar el producto\?/u)).toBeInTheDocument();
+    fireEvent.click(screen.getByRole("button", { name: /Español \(MX\)/u }));
+    fireEvent.click(screen.getByRole("button", { name: /Siguiente/u }));
 
     expect(screen.queryByText(/¿Qué carrera estudias\?/u)).not.toBeInTheDocument();
     expect(screen.getByText(/¿Qué planes conjuntos te aplican\?/u)).toBeInTheDocument();
@@ -332,6 +445,51 @@ describe("PlannerOnboardingWizard", () => {
       expect(useStudentProfileStore.getState().profile.activePlanIds).toEqual(["plan:cd-ia"]);
       expect(usePlannerStore.getState().state.selectedSubjectCodes).toEqual(["DAT-12010"]);
     });
+
+    fireEvent.click(screen.getByRole("button", { name: /Siguiente/u }));
+
+    await waitFor(() => {
+      expect(fetchSchedulePeriodDetailMock).toHaveBeenCalledWith("2938");
+    });
+
+    expect(screen.getByText(/¿Qué clases públicas deben quedarse en tu horario\?/u)).toBeInTheDocument();
+    fireEvent.click(screen.getByRole("button", { name: /DAT-12010 · Grupo 001/u }));
+    fireEvent.click(screen.getByRole("button", { name: /Siguiente/u }));
+  });
+
+  it("blocks progress on the classes step until a public class is selected", async () => {
+    renderWizard();
+
+    fireEvent.click(screen.getByRole("button", { name: /Siguiente/u }));
+    fireEvent.click(screen.getByRole("button", { name: /Licenciatura \/ ingeniería/u }));
+    fireEvent.click(screen.getByRole("button", { name: /Siguiente/u }));
+    fireEvent.click(screen.getByRole("button", { name: /Otoño/u }));
+    fireEvent.change(screen.getByRole("combobox", { name: /Año de ingreso/u }), {
+      target: { value: "2025" },
+    });
+    fireEvent.click(screen.getByRole("button", { name: /Siguiente/u }));
+    fireEvent.click(screen.getByRole("button", { name: /Español \(MX\)/u }));
+    fireEvent.click(screen.getByRole("button", { name: /Siguiente/u }));
+    fireEvent.click(screen.getByRole("button", { name: "Actuaría" }));
+    fireEvent.click(screen.getByRole("button", { name: /Siguiente/u }));
+
+    await waitFor(() => {
+      expect(usePlannerStore.getState().state.selectedSubjectCodes).toEqual(["ACT-12002"]);
+    });
+
+    fireEvent.click(screen.getByRole("button", { name: /Siguiente/u }));
+
+    await waitFor(() => {
+      expect(fetchSchedulePeriodDetailMock).toHaveBeenCalledWith("2938");
+    });
+
+    expect(screen.getByText(/¿Qué clases públicas deben quedarse en tu horario\?/u)).toBeInTheDocument();
+
+    fireEvent.click(screen.getByRole("button", { name: /Siguiente/u }));
+
+    expect(
+      screen.getByText(/Elige al menos una clase pública antes de continuar/u),
+    ).toBeInTheDocument();
   });
 });
 

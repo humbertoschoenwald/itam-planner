@@ -135,6 +135,7 @@ describe("CalendarPageShell", () => {
         academicLevel: "undergraduate",
         entryTerm: "OTOÑO 2025",
         activePlanIds: ["plan:ma-e"],
+        hasExplicitLocalePreference: true,
         selectedCareerIds: ["matematicas-aplicadas"],
       },
     });

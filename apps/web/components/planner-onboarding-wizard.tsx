@@ -3,15 +3,18 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 
+import { PublicClassSelectionPanel } from "@/components/public-class-selection-panel";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { getUiCopy } from "@/lib/copy";
+import { SUPPORTED_LOCALES } from "@/lib/locale";
 import {
   ACADEMIC_LEVELS,
   buildCareerChoiceOptionsForLevel,
   buildEntryTerm,
   buildJointProgramChoiceOptionsForLevel,
   filterPeriodsForAcademicLevel,
+  formatSchedulePeriodLabel,
   type EntryTermSeasonKey,
   ENTRY_TERM_SEASON_KEYS,
   filterCareerChoiceOptions,
@@ -26,14 +29,18 @@ import {
   buildRecommendedSubjectCodes,
   buildSelectedSubjectSummary,
   buildSubjectDirectory,
+  buildSubjectTitleLookup,
   estimateSemesterNumber,
   searchSubjectDirectory,
 } from "@/lib/planner-subjects";
 import { getProductCopy } from "@/lib/product-copy";
+import { useSchedulePeriodDetail } from "@/lib/use-schedule-period-detail";
 import type {
   AcademicLevel,
   BulletinDocument,
   BulletinSummary,
+  LocaleCode,
+  SchedulePeriodDetail,
   SchedulePeriodSummary,
 } from "@/lib/types";
 import { usePhoneViewport } from "@/lib/use-phone-viewport";
@@ -46,9 +53,11 @@ type PlannerOnboardingStep =
   | "intro"
   | "academicLevel"
   | "entryTerm"
+  | "locale"
   | "careers"
   | "jointPrograms"
   | "subjects"
+  | "classes"
   | "swipe"
   | "finish";
 
@@ -56,9 +65,11 @@ const MOBILE_WIZARD_STEPS: PlannerOnboardingStep[] = [
   "intro",
   "academicLevel",
   "entryTerm",
+  "locale",
   "careers",
   "jointPrograms",
   "subjects",
+  "classes",
   "swipe",
   "finish",
 ];
@@ -88,6 +99,7 @@ export function PlannerOnboardingWizard({
   const setAcademicLevel = useStudentProfileStore((state) => state.setAcademicLevel);
   const setActivePlanIds = useStudentProfileStore((state) => state.setActivePlanIds);
   const setEntryTerm = useStudentProfileStore((state) => state.setEntryTerm);
+  const setLocale = useStudentProfileStore((state) => state.setLocale);
   const setSelectedCareerIds = useStudentProfileStore((state) => state.setSelectedCareerIds);
   const setSelectedJointProgramIds = useStudentProfileStore(
     (state) => state.setSelectedJointProgramIds,
@@ -95,6 +107,7 @@ export function PlannerOnboardingWizard({
   const plannerState = usePlannerStore((state) => state.state);
   const setSelectedOfferingIds = usePlannerStore((state) => state.setSelectedOfferingIds);
   const setSelectedPeriodId = usePlannerStore((state) => state.setSelectedPeriodId);
+  const toggleOfferingId = usePlannerStore((state) => state.toggleOfferingId);
   const setNavSwipePreference = usePlannerUiStore((state) => state.setNavSwipePreference);
   const setPlannerWidgetIds = usePlannerUiStore((state) => state.setPlannerWidgetIds);
   const setHasCompletedSetupAnimation = usePlannerUiStore(
@@ -120,9 +133,11 @@ export function PlannerOnboardingWizard({
     getInitialWizardStep(
       profile.academicLevel,
       profile.entryTerm,
+      profile.hasExplicitLocalePreference,
       profile.selectedCareerIds,
       profile.selectedJointProgramIds,
       plannerState.selectedSubjectCodes.length,
+      plannerState.selectedOfferingIds.length,
       navSwipePreference,
       false,
       false,
@@ -169,6 +184,10 @@ export function PlannerOnboardingWizard({
     () => buildSubjectDirectory(activePlanDocuments),
     [activePlanDocuments],
   );
+  const subjectTitleLookup = useMemo(
+    () => buildSubjectTitleLookup(bulletinDocuments),
+    [bulletinDocuments],
+  );
   const fullSubjectDirectory = useMemo(
     () => buildSubjectDirectory(bulletinDocuments),
     [bulletinDocuments],
@@ -194,11 +213,17 @@ export function PlannerOnboardingWizard({
     profile.academicLevel === "jointPrograms" ||
     (shouldShowCareerSteps && jointProgramOptions.length > 0);
   const shouldShowSubjects = profile.academicLevel !== "graduate";
+  const shouldShowClasses = shouldShowSubjects;
   const wizardSteps = (isPhoneViewport
     ? MOBILE_WIZARD_STEPS
     : MOBILE_WIZARD_STEPS.filter((step) => step !== "swipe")
   ).filter((step) => {
-    if (step === "careers" || step === "jointPrograms" || step === "subjects") {
+    if (
+      step === "careers" ||
+      step === "jointPrograms" ||
+      step === "subjects" ||
+      step === "classes"
+    ) {
       if (step === "careers" && !shouldShowCareerSteps) {
         return false;
       }
@@ -208,22 +233,42 @@ export function PlannerOnboardingWizard({
       if (step === "subjects") {
         return shouldShowSubjects;
       }
+      if (step === "classes") {
+        return shouldShowClasses;
+      }
     }
 
     return true;
   });
+  const activePeriodId = filteredPeriods.some((period) => period.period_id === plannerState.selectedPeriodId)
+    ? plannerState.selectedPeriodId
+    : defaultPeriod?.period_id ?? null;
+  const {
+    detail: resolvedSelectedPeriod,
+    error: resolvedSelectedPeriodError,
+    isLoading: selectedPeriodLoading,
+  } = useSchedulePeriodDetail(activePeriodId, productCopy.plannerSettings.scheduleLoadError);
+  const visibleOfferings = useMemo(
+    () =>
+      resolvedSelectedPeriod?.offerings.filter((offering) =>
+        plannerState.selectedSubjectCodes.includes(offering.course_code),
+      ) ?? [],
+    [plannerState.selectedSubjectCodes, resolvedSelectedPeriod],
+  );
   const careerChoiceMode = getCareerChoiceMode(careerOptions);
   const activeStep = wizardSteps.includes(currentStep)
     ? currentStep
     : getInitialWizardStep(
         profile.academicLevel,
         profile.entryTerm,
+        profile.hasExplicitLocalePreference,
         profile.selectedCareerIds,
         profile.selectedJointProgramIds,
         plannerState.selectedSubjectCodes.length,
+        plannerState.selectedOfferingIds.length,
         navSwipePreference,
         shouldShowJointPrograms,
-        shouldShowCareerSteps,
+        shouldShowSubjects,
         isPhoneViewport,
       );
   const progressIndex = wizardSteps.indexOf(activeStep);
@@ -320,6 +365,36 @@ export function PlannerOnboardingWizard({
     setSelectedSubjectCodes,
   ]);
 
+  useEffect(() => {
+    if (activePeriodId) {
+      setSelectedPeriodId(activePeriodId);
+    }
+  }, [activePeriodId, setSelectedPeriodId]);
+
+  useEffect(() => {
+    if (!resolvedSelectedPeriod) {
+      return;
+    }
+
+    const visibleOfferingIds = new Set(
+      resolvedSelectedPeriod.offerings
+        .filter((offering) => plannerState.selectedSubjectCodes.includes(offering.course_code))
+        .map((offering) => offering.offering_id),
+    );
+    const sanitizedSelectedOfferingIds = plannerState.selectedOfferingIds.filter((offeringId) =>
+      visibleOfferingIds.has(offeringId),
+    );
+
+    if (sanitizedSelectedOfferingIds.length !== plannerState.selectedOfferingIds.length) {
+      setSelectedOfferingIds(sanitizedSelectedOfferingIds);
+    }
+  }, [
+    plannerState.selectedOfferingIds,
+    plannerState.selectedSubjectCodes,
+    resolvedSelectedPeriod,
+    setSelectedOfferingIds,
+  ]);
+
   const finishSummary = [
     {
       label: productCopy.plannerWizard.stepLabels.academicLevel,
@@ -337,6 +412,10 @@ export function PlannerOnboardingWizard({
       value: draftEntryTerm
         ? formatEntryTermLabel(draftEntryTerm, copy.onboardingPage.seasonOptions)
         : copy.plannerOnboarding.finishSummary.pending,
+    },
+    {
+      label: copy.plannerOnboarding.finishSummary.locale,
+      value: copy.common.localeLabels[profile.locale],
     },
     ...(shouldShowCareerSteps
       ? [
@@ -356,6 +435,10 @@ export function PlannerOnboardingWizard({
           {
             label: productCopy.plannerWizard.stepLabels.subjects,
             value: String(plannerState.selectedSubjectCodes.length),
+          },
+          {
+            label: productCopy.plannerWizard.stepLabels.classes,
+            value: String(plannerState.selectedOfferingIds.length),
           },
           {
             label: productCopy.plannerWizard.stepLabels.jointPrograms,
@@ -388,6 +471,10 @@ export function PlannerOnboardingWizard({
           {
             label: productCopy.plannerWizard.stepLabels.subjects,
             value: String(plannerState.selectedSubjectCodes.length),
+          },
+          {
+            label: productCopy.plannerWizard.stepLabels.classes,
+            value: String(plannerState.selectedOfferingIds.length),
           },
         ]
       : []),
@@ -475,6 +562,11 @@ export function PlannerOnboardingWizard({
     setShowValidation(false);
   }
 
+  function handleLocaleChange(nextLocale: LocaleCode) {
+    setLocale(nextLocale);
+    setShowValidation(false);
+  }
+
   function handleJointProgramToggle(jointProgramId: string) {
     const exists = profile.selectedJointProgramIds.includes(jointProgramId);
     setSelectedJointProgramIds(
@@ -515,10 +607,14 @@ export function PlannerOnboardingWizard({
         academicLevel: profile.academicLevel,
         activeStep,
         careerSelectionCount: profile.selectedCareerIds.length,
+        isClassSelectionLoading: selectedPeriodLoading,
         draftEntryTerm,
+        hasExplicitLocalePreference: profile.hasExplicitLocalePreference,
         navSwipePreference,
+        selectedOfferingCount: plannerState.selectedOfferingIds.length,
         selectedJointProgramCount: profile.selectedJointProgramIds.length,
         selectedSubjectCount: plannerState.selectedSubjectCodes.length,
+        visibleOfferingCount: visibleOfferings.length,
         validYears: yearOptions,
       })
     ) {
@@ -662,10 +758,22 @@ export function PlannerOnboardingWizard({
             handleEntrySeasonChange,
             handleEntryYearChange,
             handleJointProgramToggle,
+            handleLocaleChange,
             handleSwipePreferenceSelection,
             isPhoneViewport,
             jointProgramOptions,
+            activePeriodLabel:
+              activePeriodId === null
+                ? copy.plannerHome.activePeriodFallback
+                : formatSchedulePeriodLabel(
+                    filteredPeriods.find((period) => period.period_id === activePeriodId)?.label ??
+                      copy.plannerHome.activePeriodFallback,
+                  ),
+            classSelectionError: resolvedSelectedPeriodError,
+            classSelectionLoading: selectedPeriodLoading,
+            locale: profile.locale,
             navSwipePreference,
+            selectedOfferingIds: plannerState.selectedOfferingIds,
             productCopy,
             selectedSubjectCodes: plannerState.selectedSubjectCodes,
             selectedSubjectEntries,
@@ -675,7 +783,10 @@ export function PlannerOnboardingWizard({
             setSubjectSearch,
             subjectResults,
             subjectSearch,
+            subjectTitleLookup,
+            toggleOfferingId,
             toggleSubjectCode,
+            visibleOfferings,
             yearOptions,
           })}
 
@@ -725,10 +836,13 @@ export function PlannerOnboardingWizard({
 }
 
 function renderStepContent({
+  activePeriodLabel,
   academicLevel,
   careerChoiceMode,
   careerOptions,
   careerSearch,
+  classSelectionError,
+  classSelectionLoading,
   copy,
   currentStep,
   entryTermDraft,
@@ -737,10 +851,13 @@ function renderStepContent({
   handleEntrySeasonChange,
   handleEntryYearChange,
   handleJointProgramToggle,
+  handleLocaleChange,
   handleSwipePreferenceSelection,
   isPhoneViewport,
   jointProgramOptions,
+  locale,
   navSwipePreference,
+  selectedOfferingIds,
   productCopy,
   selectedSubjectCodes,
   selectedSubjectEntries,
@@ -750,13 +867,19 @@ function renderStepContent({
   setSubjectSearch,
   subjectResults,
   subjectSearch,
+  subjectTitleLookup,
+  toggleOfferingId,
   toggleSubjectCode,
+  visibleOfferings,
   yearOptions,
 }: {
+  activePeriodLabel: string;
   academicLevel: AcademicLevel | null;
   careerChoiceMode: ReturnType<typeof getCareerChoiceMode>;
   careerOptions: ReturnType<typeof buildCareerChoiceOptionsForLevel>;
   careerSearch: string;
+  classSelectionError: string | null;
+  classSelectionLoading: boolean;
   copy: ReturnType<typeof getUiCopy>;
   currentStep: PlannerOnboardingStep;
   entryTermDraft: { seasonKey: EntryTermSeasonKey | ""; year: string };
@@ -765,10 +888,13 @@ function renderStepContent({
   handleEntrySeasonChange: (nextSeasonKey: EntryTermSeasonKey | "") => void;
   handleEntryYearChange: (nextYear: string) => void;
   handleJointProgramToggle: (jointProgramId: string) => void;
+  handleLocaleChange: (nextLocale: LocaleCode) => void;
   handleSwipePreferenceSelection: (preference: "natural" | "inverted") => void;
   isPhoneViewport: boolean;
   jointProgramOptions: ReturnType<typeof buildJointProgramChoiceOptionsForLevel>;
+  locale: LocaleCode;
   navSwipePreference: "natural" | "inverted" | null;
+  selectedOfferingIds: string[];
   productCopy: ReturnType<typeof getProductCopy>;
   selectedSubjectCodes: string[];
   selectedSubjectEntries: ReturnType<typeof buildSelectedSubjectSummary>;
@@ -778,7 +904,10 @@ function renderStepContent({
   setSubjectSearch: (value: string) => void;
   subjectResults: ReturnType<typeof buildSubjectDirectory>;
   subjectSearch: string;
+  subjectTitleLookup: ReadonlyMap<string, string>;
+  toggleOfferingId: (offeringId: string) => void;
   toggleSubjectCode: (subjectCode: string) => void;
+  visibleOfferings: SchedulePeriodDetail["offerings"];
   yearOptions: string[];
 }) {
   switch (currentStep) {
@@ -884,6 +1013,41 @@ function renderStepContent({
               </option>
             ))}
           </select>
+        </div>
+      );
+    case "locale":
+      return (
+        <div className="space-y-5">
+          <div className="space-y-3">
+            <p className="text-sm font-medium text-foreground">
+              {productCopy.plannerWizard.localeTitle}
+            </p>
+            <p className="text-sm leading-6 text-muted">
+              {productCopy.plannerWizard.localeBody}
+            </p>
+          </div>
+
+          <div className="grid gap-3 sm:grid-cols-2">
+            {SUPPORTED_LOCALES.map((localeCode) => {
+              const selected = locale === localeCode;
+              return (
+                <button
+                  key={localeCode}
+                  aria-pressed={selected}
+                  className={getSelectableChoiceCardClassName(selected)}
+                  onClick={() => handleLocaleChange(localeCode)}
+                  type="button"
+                >
+                  <div className="min-w-0 flex-1">
+                    <span className="block font-semibold text-foreground">
+                      {copy.common.localeLabels[localeCode]}
+                    </span>
+                  </div>
+                  <SelectionIndicator selected={selected} />
+                </button>
+              );
+            })}
+          </div>
         </div>
       );
     case "careers":
@@ -1087,6 +1251,35 @@ function renderStepContent({
           </div>
         </div>
       );
+    case "classes":
+      return (
+        <div className="space-y-5">
+          <div className="space-y-3">
+            <p className="text-sm font-medium text-foreground">
+              {productCopy.plannerWizard.classesTitle}
+            </p>
+            <p className="text-sm leading-6 text-muted">
+              {productCopy.plannerWizard.classesBody}
+            </p>
+          </div>
+
+          <div className="soft-panel flex flex-wrap items-center justify-between gap-3 text-sm leading-6 text-muted">
+            <span>{productCopy.plannerWizard.classesCount}</span>
+            <span className="font-semibold text-foreground">{selectedOfferingIds.length}</span>
+          </div>
+
+          <PublicClassSelectionPanel
+            activePeriodLabel={activePeriodLabel}
+            isLoading={classSelectionLoading}
+            loadError={classSelectionError}
+            locale={locale}
+            offerings={visibleOfferings}
+            selectedOfferingIds={selectedOfferingIds}
+            subjectTitleLookup={subjectTitleLookup}
+            toggleOfferingId={toggleOfferingId}
+          />
+        </div>
+      );
     case "swipe":
       if (!isPhoneViewport) {
         return null;
@@ -1155,9 +1348,11 @@ function renderStepContent({
 function getInitialWizardStep(
   academicLevel: AcademicLevel | null,
   entryTerm: string,
+  hasExplicitLocalePreference: boolean,
   selectedCareerIds: string[],
   selectedJointProgramIds: string[],
   selectedSubjectCount: number,
+  selectedOfferingCount: number,
   navSwipePreference: "natural" | "inverted" | null,
   shouldShowJointPrograms: boolean,
   shouldShowSubjects: boolean,
@@ -1169,9 +1364,11 @@ function getInitialWizardStep(
     academicLevel === null &&
     !parsedEntryTerm.seasonKey &&
     !parsedEntryTerm.year &&
+    !hasExplicitLocalePreference &&
     selectedCareerIds.length === 0 &&
     selectedJointProgramIds.length === 0 &&
     selectedSubjectCount === 0 &&
+    selectedOfferingCount === 0 &&
     navSwipePreference === null
   ) {
     return "intro";
@@ -1183,6 +1380,10 @@ function getInitialWizardStep(
 
   if (!parsedEntryTerm.seasonKey || !parsedEntryTerm.year) {
     return "entryTerm";
+  }
+
+  if (!hasExplicitLocalePreference) {
+    return "locale";
   }
 
   if (academicLevel === "undergraduate" && selectedCareerIds.length === 0) {
@@ -1200,6 +1401,10 @@ function getInitialWizardStep(
 
   if (academicLevel !== "graduate" && shouldShowSubjects && selectedSubjectCount === 0) {
     return "subjects";
+  }
+
+  if (academicLevel !== "graduate" && shouldShowSubjects && selectedOfferingCount === 0) {
+    return "classes";
   }
 
   if (isPhoneViewport && navSwipePreference === null) {
@@ -1221,6 +1426,10 @@ function getStepLabel(
       return productCopy.plannerWizard.stepLabels.careers;
     case "jointPrograms":
       return productCopy.plannerWizard.stepLabels.jointPrograms;
+    case "classes":
+      return productCopy.plannerWizard.stepLabels.classes;
+    case "locale":
+      return productCopy.plannerWizard.stepLabels.locale;
     case "subjects":
       return productCopy.plannerWizard.stepLabels.subjects;
     default:
@@ -1254,6 +1463,10 @@ function getValidationBody({
       return academicLevel === "jointPrograms" && selectedJointProgramIds.length === 0
         ? productCopy.plannerWizard.validation.jointProgramsRequired
         : productCopy.plannerWizard.validation.jointPrograms;
+    case "classes":
+      return productCopy.plannerWizard.validation.classes;
+    case "locale":
+      return productCopy.plannerWizard.validation.locale;
     case "subjects":
       return academicLevel === "graduate"
         ? copy.plannerOnboarding.validationBody.finish
@@ -1268,18 +1481,26 @@ function isStepValid({
   activeStep,
   careerSelectionCount,
   draftEntryTerm,
+  hasExplicitLocalePreference,
+  isClassSelectionLoading,
   navSwipePreference,
+  selectedOfferingCount,
   selectedJointProgramCount,
   selectedSubjectCount,
+  visibleOfferingCount,
   validYears,
 }: {
   academicLevel: AcademicLevel | null;
   activeStep: PlannerOnboardingStep;
   careerSelectionCount: number;
   draftEntryTerm: string;
+  hasExplicitLocalePreference: boolean;
+  isClassSelectionLoading: boolean;
   navSwipePreference: "natural" | "inverted" | null;
+  selectedOfferingCount: number;
   selectedJointProgramCount: number;
   selectedSubjectCount: number;
+  visibleOfferingCount: number;
   validYears: string[];
 }) {
   switch (activeStep) {
@@ -1292,6 +1513,8 @@ function isStepValid({
       const parsedEntryTerm = parseEntryTerm(draftEntryTerm);
       return parsedEntryTerm.seasonKey.length > 0 && validYears.includes(parsedEntryTerm.year);
     }
+    case "locale":
+      return hasExplicitLocalePreference;
     case "jointPrograms":
       return academicLevel === "jointPrograms" ? selectedJointProgramCount > 0 : true;
     case "careers":
@@ -1300,6 +1523,11 @@ function isStepValid({
         : careerSelectionCount > 0 && careerSelectionCount <= MAX_SELECTED_CAREERS;
     case "subjects":
       return academicLevel === "graduate" ? true : selectedSubjectCount > 0;
+    case "classes":
+      return academicLevel === "graduate"
+        ? true
+        : !isClassSelectionLoading &&
+            (selectedOfferingCount > 0 || visibleOfferingCount === 0);
     case "swipe":
       return navSwipePreference !== null;
   }

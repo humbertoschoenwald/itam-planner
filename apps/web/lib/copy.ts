@@ -168,6 +168,7 @@ const uiCopy = {
       finishHighlight: "Perfect, you configured your schedule.",
       finishSummary: {
         entryTerm: "Entry term",
+        locale: "Language",
         pending: "Pending",
         program: "Career",
         swipe: "Swipe preference",
@@ -238,6 +239,7 @@ const uiCopy = {
         entryTerm: "Entry term",
         finish: "Finish",
         intro: "Overview",
+        locale: "Language",
         program: "Career",
         subjects: "Subjects",
         swipe: "Swipe",
@@ -455,11 +457,12 @@ const uiCopy = {
       surfaceEyebrow: "Schedule shell",
       subjectsBoard: {
         activePlansLabel: "Active plans",
-        description: "Keep your applicable plans and the subjects already captured in the browser visible without leaving Schedule.",
+        description:
+          "Keep the applicable plans and the classes already selected in this browser visible without leaving Schedule.",
         eyebrow: "Subjects / plans",
         noPlans: "No active plans selected yet.",
-        noSubjects: "No selected groups yet.",
-        selectedSubjectsLabel: "Selected subjects",
+        noSubjects: "No selected classes yet.",
+        selectedSubjectsLabel: "Selected classes",
         title: "Academic context",
       },
       todayBoard: {
@@ -471,12 +474,12 @@ const uiCopy = {
       },
       weekBoard: {
         description:
-          "Every selected public group is mapped into a simple weekly board so you can see the browser-local schedule state at a glance.",
+          "The weekly schedule spans Monday through Sunday and only the time range covered by your selected classes.",
         empty:
-          "Select public groups to see the first weekly version of your local schedule here.",
-        eyebrow: "Selected week",
+          "Select public classes to see the weekly schedule grid here.",
+        eyebrow: "Weekly schedule",
         roomPending: "Room pending",
-        title: "Weekly board",
+        title: "Schedule grid",
       },
     },
     siteHeader: {
@@ -668,6 +671,7 @@ const uiCopy = {
       finishHighlight: "Perfecto, configuraste tu horario.",
       finishSummary: {
         entryTerm: "Periodo de ingreso",
+        locale: "Idioma",
         pending: "Pendiente",
         program: "Carrera",
         swipe: "Deslizamiento",
@@ -738,6 +742,7 @@ const uiCopy = {
         entryTerm: "Ingreso",
         finish: "Finalizar",
         intro: "Inicio",
+        locale: "Idioma",
         program: "Carrera",
         subjects: "Materias",
         swipe: "Deslizamiento",
@@ -960,11 +965,12 @@ const uiCopy = {
       surfaceEyebrow: "Shell del horario",
       subjectsBoard: {
         activePlansLabel: "Planes activos",
-        description: "Mantén visibles los planes que te aplican y las materias o grupos ya guardados en este navegador sin salir del horario.",
+        description:
+          "Mantén visibles los planes que te aplican y las clases ya seleccionadas en este navegador sin salir del horario.",
         eyebrow: "Materias / planes",
         noPlans: "Todavía no hay planes activos seleccionados.",
-        noSubjects: "Todavía no hay grupos seleccionados.",
-        selectedSubjectsLabel: "Materias seleccionadas",
+        noSubjects: "Todavía no hay clases seleccionadas.",
+        selectedSubjectsLabel: "Clases seleccionadas",
         title: "Contexto académico",
       },
       todayBoard: {
@@ -976,12 +982,12 @@ const uiCopy = {
       },
       weekBoard: {
         description:
-          "Cada grupo público que seleccionas se proyecta en un tablero semanal simple para que veas el estado local de tu horario de un vistazo.",
+          "La retícula semanal cubre de lunes a domingo y solo el rango horario donde realmente caen tus clases seleccionadas.",
         empty:
-          "Selecciona grupos públicos para ver aquí la primera versión semanal de tu horario local.",
-        eyebrow: "Semana seleccionada",
+          "Selecciona clases públicas para ver aquí la retícula semanal de tu horario.",
+        eyebrow: "Horario semanal",
         roomPending: "Salón pendiente",
-        title: "Tablero semanal",
+        title: "Retícula semanal",
       },
     },
     siteHeader: {

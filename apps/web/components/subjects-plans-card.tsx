@@ -2,6 +2,8 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { getUiCopy } from "@/lib/copy";
+import { getCanonicalProgramDisplayName } from "@/lib/official-academics";
+import { getCanonicalSubjectTitle } from "@/lib/planner-subjects";
 import type { BulletinSummary, LocaleCode, ScheduleOffering } from "@/lib/types";
 
 interface SubjectsPlansCardProps {
@@ -9,6 +11,7 @@ interface SubjectsPlansCardProps {
   plans: BulletinSummary[];
   selectedPlanIds: string[];
   offerings: ScheduleOffering[];
+  subjectTitleLookup: ReadonlyMap<string, string>;
 }
 
 export function SubjectsPlansCard({
@@ -16,6 +19,7 @@ export function SubjectsPlansCard({
   plans,
   selectedPlanIds,
   offerings,
+  subjectTitleLookup,
 }: SubjectsPlansCardProps) {
   const copy = getUiCopy(locale);
   const visiblePlans = plans.filter((plan) => selectedPlanIds.includes(plan.plan_id));
@@ -42,7 +46,7 @@ export function SubjectsPlansCard({
                     className="rounded-[1.15rem] bg-background px-3 py-3 text-xs leading-5 text-muted"
                   >
                     <span className="font-semibold text-foreground">
-                      {plan.program_title} · {plan.plan_code}
+                      {getCanonicalProgramDisplayName(plan.program_title)} · {plan.plan_code}
                     </span>
                     <span className="mt-1 block">{plan.title}</span>
                   </div>
@@ -67,7 +71,13 @@ export function SubjectsPlansCard({
                     <span className="font-semibold text-foreground">
                       {offering.course_code} · {offering.group_code}
                     </span>
-                    <span className="mt-1 block">{offering.display_title}</span>
+                    <span className="mt-1 block">
+                      {getCanonicalSubjectTitle(
+                        offering.course_code,
+                        subjectTitleLookup,
+                        offering.display_title,
+                      )}
+                    </span>
                   </div>
                 ))
               ) : (

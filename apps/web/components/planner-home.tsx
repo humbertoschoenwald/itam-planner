@@ -9,6 +9,7 @@ import { fetchSchedulePeriodDetail } from "@/lib/api";
 import { filterPeriodsForAcademicLevel } from "@/lib/onboarding";
 import {
   buildRecommendedSubjectCodes,
+  buildSubjectTitleLookup,
   estimateSemesterNumber,
 } from "@/lib/planner-subjects";
 import type {
@@ -39,7 +40,6 @@ export function PlannerHome({
   const profile = useStudentProfileStore((state) => state.profile);
   const plannerState = usePlannerStore((state) => state.state);
   const plannerWidgetIds = usePlannerUiStore((state) => state.state.plannerWidgetIds);
-  const setSelectedOfferingIds = usePlannerStore((state) => state.setSelectedOfferingIds);
   const setSelectedPeriodId = usePlannerStore((state) => state.setSelectedPeriodId);
   const setSelectedSubjectCodes = usePlannerStore((state) => state.setSelectedSubjectCodes);
   const [selectedPeriod, setSelectedPeriod] = useState<Awaited<
@@ -63,6 +63,10 @@ export function PlannerHome({
     () => bulletinDocuments.filter((document) => profile.activePlanIds.includes(document.plan_id)),
     [bulletinDocuments, profile.activePlanIds],
   );
+  const subjectTitleLookup = useMemo(
+    () => buildSubjectTitleLookup(bulletinDocuments),
+    [bulletinDocuments],
+  );
   const estimatedSemester = useMemo(
     () => estimateSemesterNumber(profile.entryTerm, activePeriodSummary),
     [activePeriodSummary, profile.entryTerm],
@@ -71,10 +75,6 @@ export function PlannerHome({
     () => buildRecommendedSubjectCodes(activePlanDocuments, estimatedSemester),
     [activePlanDocuments, estimatedSemester],
   );
-  const effectiveSubjectCodes =
-    plannerState.selectedSubjectCodes.length > 0
-      ? plannerState.selectedSubjectCodes
-      : recommendedSubjectCodes;
   const resolvedSelectedPeriod = resolvedPeriodId === activePeriodId ? selectedPeriod : null;
 
   useEffect(() => {
@@ -125,33 +125,6 @@ export function PlannerHome({
     };
   }, [activePeriodId]);
 
-  const visibleOfferings = useMemo(
-    () =>
-      resolvedSelectedPeriod?.offerings.filter(
-        (offering) =>
-          effectiveSubjectCodes.length === 0 ||
-          effectiveSubjectCodes.includes(offering.course_code),
-      ) ?? [],
-    [effectiveSubjectCodes, resolvedSelectedPeriod],
-  );
-
-  useEffect(() => {
-    if (plannerState.selectedOfferingIds.length > 0 || visibleOfferings.length === 0) {
-      return;
-    }
-
-    const defaultOfferingIds = [...new Set(visibleOfferings.map((offering) => offering.course_code))]
-      .map(
-        (courseCode) =>
-          visibleOfferings.find((offering) => offering.course_code === courseCode)?.offering_id ?? null,
-      )
-      .filter((offeringId): offeringId is string => typeof offeringId === "string");
-
-    if (defaultOfferingIds.length > 0) {
-      setSelectedOfferingIds(defaultOfferingIds);
-    }
-  }, [plannerState.selectedOfferingIds.length, setSelectedOfferingIds, visibleOfferings]);
-
   const selectedOfferings =
     resolvedSelectedPeriod?.offerings.filter((offering) =>
       plannerState.selectedOfferingIds.includes(offering.offering_id),
@@ -164,10 +137,18 @@ export function PlannerHome({
     <main className="mx-auto flex w-full max-w-7xl flex-1 flex-col gap-6 px-5 py-6 sm:px-8 sm:py-10">
       <section className="page-grid">
         {showTodayWidget ? (
-          <TodayClassesCard locale={profile.locale} offerings={selectedOfferings} />
+          <TodayClassesCard
+            locale={profile.locale}
+            offerings={selectedOfferings}
+            subjectTitleLookup={subjectTitleLookup}
+          />
         ) : null}
         {showWeekWidget ? (
-          <SelectedWeekBoard locale={profile.locale} offerings={selectedOfferings} />
+          <SelectedWeekBoard
+            locale={profile.locale}
+            offerings={selectedOfferings}
+            subjectTitleLookup={subjectTitleLookup}
+          />
         ) : null}
       </section>
 
@@ -178,6 +159,7 @@ export function PlannerHome({
             offerings={selectedOfferings}
             plans={plans}
             selectedPlanIds={profile.activePlanIds}
+            subjectTitleLookup={subjectTitleLookup}
           />
         </section>
       ) : null}

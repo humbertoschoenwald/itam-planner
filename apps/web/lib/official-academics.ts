@@ -179,21 +179,21 @@ const OFFICIAL_CAREER_DEFINITIONS = [
   {
     careerId: "mecatronica-robotica-inteligente",
     category: "engineering",
-    displayName: "Ingeniería en Mecatrónica y Robótica Inteligente",
+    displayName: "Mecatrónica y Robótica Inteligente",
     studyPlanUrl:
       "https://carreras.itam.mx/wp-content/uploads/licenciaturas/plan-de-estudios/plan-de-estudios-ingenieria-mecatronica.pdf",
   },
   {
     careerId: "ingenieria-negocios",
     category: "engineering",
-    displayName: "Ingeniería en Negocios",
+    displayName: "Negocios",
     studyPlanUrl:
       "https://carreras.itam.mx/wp-content/uploads/licenciaturas/plan-de-estudios/plan-de-estudios-ingenieria-negocios.pdf",
   },
   {
     careerId: "industrial-sistemas-inteligentes",
     category: "engineering",
-    displayName: "Ingeniería Industrial y en Sistemas Inteligentes",
+    displayName: "Industrial y Sistemas Inteligentes",
     studyPlanUrl:
       "https://carreras.itam.mx/wp-content/uploads/licenciaturas/plan-de-estudios/plan-de-estudios-ingenieria-industrial.pdf",
   },
@@ -1131,6 +1131,20 @@ export function classifyProgramTitle(programTitle: string) {
   };
 }
 
+export function getCanonicalProgramDisplayName(programTitle: string) {
+  const classification = classifyProgramTitle(programTitle);
+
+  if (classification.matchedCareers.length > 1) {
+    return classification.matchedCareers.map((career) => career.display_name).join(" + ");
+  }
+
+  if (classification.officialCareer) {
+    return classification.officialCareer.display_name;
+  }
+
+  return formatCanonicalProgramFallback(programTitle);
+}
+
 export function isIndividualCareerProgram(programTitle: string) {
   const classification = classifyProgramTitle(programTitle);
   return classification.officialCareer !== null && classification.matchedCareers.length === 1;
@@ -1398,4 +1412,29 @@ function slugifyAcademicReference(value: string) {
     .replace(/\p{Diacritic}/gu, "")
     .replace(/[^a-z0-9]+/gu, "-")
     .replace(/^-+|-+$/gu, "");
+}
+
+function formatCanonicalProgramFallback(programTitle: string) {
+  const normalized = programTitle
+    .trim()
+    .replace(/^LICENCIATURA EN /iu, "")
+    .replace(/^INGENIER[IÍ]A (Y CIENCIAS DE LA COMPUTACI[OÓ]N|EN )/iu, (_, matched) =>
+      matched?.toLocaleUpperCase("es-MX").includes("CIENCIAS") ? "" : "",
+    )
+    .replace(/^PLAN CONJUNTO (DE(LA)? )?/iu, "")
+    .replace(/\s+PLAN [A-Z]+$/u, "")
+    .toLocaleLowerCase("es-MX");
+
+  return normalized
+    .split(/\s+/u)
+    .filter(Boolean)
+    .map((word) => {
+      if (/^(i|ii|iii|iv|v|vi|vii|viii|ix|x)$/u.test(word)) {
+        return word.toUpperCase();
+      }
+
+      const [firstLetter = "", ...rest] = [...word];
+      return `${firstLetter.toLocaleUpperCase("es-MX")}${rest.join("")}`;
+    })
+    .join(" ");
 }
