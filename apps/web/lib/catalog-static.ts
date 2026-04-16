@@ -50,10 +50,18 @@ export async function readPlannerShellBootstrap(): Promise<PlannerShellBootstrap
 }
 
 export async function readOnboardingBootstrap() {
+  const [plans, periods, bulletinDocuments] = await Promise.all([
+    readPublishedCatalogJson<BulletinSummary[]>("boletines", "index.json"),
+    readPublishedCatalogJson<SchedulePeriodSummary[]>("schedules", "periods.json"),
+    readPublishedBulletinDocuments(),
+  ]);
+
   return {
+    bulletinDocuments,
     careers: [...OFFICIAL_CAREERS],
     jointPrograms: [...OFFICIAL_JOINT_PROGRAMS],
-    plans: await readPublishedCatalogJson<BulletinSummary[]>("boletines", "index.json"),
+    periods,
+    plans,
   };
 }
 

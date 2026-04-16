@@ -1,15 +1,17 @@
 import {
   findApplicableJointPlansForEntryTerm,
   isIndividualCareerProgram,
+  matchesOfficialCareerProgramTitle,
   normalizeAcademicTitle,
   OFFICIAL_CAREERS,
   OFFICIAL_JOINT_PROGRAMS,
 } from "@/lib/official-academics";
-import type { BulletinSummary, StudentProfile } from "@/lib/types";
+import type { AcademicLevel, BulletinSummary, SchedulePeriodSummary, StudentProfile } from "@/lib/types";
 
 export const ENTRY_TERM_SEASON_KEYS = ["spring", "fall"] as const;
 export type EntryTermSeasonKey = (typeof ENTRY_TERM_SEASON_KEYS)[number];
 export type ProgramChoiceKind = "licenciatura" | "ingenieria" | "mixed" | "career";
+export const ACADEMIC_LEVELS = ["undergraduate", "graduate"] as const satisfies readonly AcademicLevel[];
 
 export interface ProgramChoiceOption {
   displayLabel: string;
@@ -47,6 +49,10 @@ const ACADEMIC_SEASON_TO_ENTRY_TERM_SEASON = {
 const ENTRY_TERM_PATTERN = /^(PRIMAVERA|OTOÑO) (\d{4})$/u;
 const ACADEMIC_TERM_PATTERN = /^(PRIMAVERA|VERANO|OTOÑO) (\d{4})$/u;
 const ENTRY_TERM_MIN_YEAR = 2000;
+const ACADEMIC_LEVEL_PERIOD_MATCHERS = {
+  graduate: ["HIBRIDO", "MAESTRIA"],
+  undergraduate: ["LICENCIATURA"],
+} as const;
 const TERM_SEASON_ORDER = {
   PRIMAVERA: 1,
   VERANO: 2,
@@ -91,10 +97,15 @@ export function isValidEntryTerm(entryTerm: string) {
   return Number.isInteger(year) && year >= ENTRY_TERM_MIN_YEAR && year <= getMaximumEntryTermYear();
 }
 
-export function getEntryTermYearOptions(plans: BulletinSummary[]) {
+export function getEntryTermYearOptions(
+  plans: BulletinSummary[],
+  academicLevel: AcademicLevel | null,
+  periods: SchedulePeriodSummary[] = [],
+) {
   const years = new Set<number>();
+  const relevantPlans = academicLevel === "graduate" ? [] : plans;
 
-  for (const plan of plans) {
+  for (const plan of relevantPlans) {
     const start = parseComparableAcademicTerm(plan.entry_from_term);
     const end = parseComparableAcademicTerm(plan.entry_to_term);
 
@@ -102,15 +113,29 @@ export function getEntryTermYearOptions(plans: BulletinSummary[]) {
       for (let year = Math.min(start.year, end.year); year <= Math.max(start.year, end.year); year += 1) {
         years.add(year);
       }
-      continue;
+    } else if (start !== null && end === null) {
+      for (let year = start.year; year <= getMaximumEntryTermYear(); year += 1) {
+        years.add(year);
+      }
+    } else if (end !== null) {
+      years.add(end.year);
+    } else if (typeof plan.application_year === "number") {
+      years.add(plan.application_year);
+    } else if (typeof plan.active_from === "string") {
+      const year = Number.parseInt(plan.active_from.slice(0, 4), 10);
+      if (Number.isInteger(year)) {
+        years.add(year);
+      }
     }
 
     if (start !== null) {
       years.add(start.year);
     }
+  }
 
-    if (end !== null) {
-      years.add(end.year);
+  for (const period of filterPeriodsForAcademicLevel(periods, academicLevel)) {
+    if (typeof period.year === "number") {
+      years.add(period.year);
     }
   }
 
@@ -121,19 +146,29 @@ export function getEntryTermYearOptions(plans: BulletinSummary[]) {
 }
 
 export function hasCompletedOnboarding(profile: StudentProfile, plans?: BulletinSummary[]) {
-  if (!isValidEntryTerm(profile.entryTerm)) {
+  if (profile.academicLevel === null || !isValidEntryTerm(profile.entryTerm)) {
     return false;
   }
 
   if (!plans) {
-    return profile.activePlanIds.length > 0 && profile.selectedCareerIds.length > 0;
+    return profile.academicLevel === "graduate"
+      ? true
+      : profile.selectedCareerIds.length > 0;
   }
 
-  return hasApplicableActivePlans(profile, plans);
+  if (profile.academicLevel === "graduate") {
+    return true;
+  }
+
+  if (profile.selectedCareerIds.length === 0) {
+    return false;
+  }
+
+  return profile.activePlanIds.length === 0 || hasApplicableActivePlans(profile, plans);
 }
 
 export function hasApplicableActivePlans(profile: StudentProfile, plans: BulletinSummary[]) {
-  if (!isValidEntryTerm(profile.entryTerm)) {
+  if (profile.academicLevel === "graduate" || !isValidEntryTerm(profile.entryTerm)) {
     return false;
   }
 
@@ -193,33 +228,30 @@ export function buildCareerChoiceOptions(plans: BulletinSummary[], entryTerm: st
   const applicablePlans = filterPlansForEntryTerm(plans, entryTerm).filter((plan) =>
     isIndividualCareerProgram(plan.program_title),
   );
-  const groupedOptions = new Map<string, CareerChoiceOption>();
+  const options = OFFICIAL_CAREERS.map((career) => ({
+    category: career.category,
+    careerId: career.career_id,
+    displayLabel: career.display_name,
+    planIds: applicablePlans
+      .filter((plan) => matchesOfficialCareerProgramTitle(plan.program_title, career.career_id))
+      .map((plan) => plan.plan_id),
+  }));
 
-  for (const plan of applicablePlans) {
-    const officialCareer =
-      OFFICIAL_CAREERS.find((career) =>
-        normalizeAcademicTitle(plan.program_title).includes(normalizeAcademicTitle(career.display_name)),
-      ) ?? null;
-
-    const careerId = officialCareer?.career_id ?? normalizeProgramTitle(plan.program_title);
-    const existing = groupedOptions.get(careerId);
-
-    if (existing) {
-      existing.planIds = [...new Set([...existing.planIds, plan.plan_id])];
-      continue;
-    }
-
-    groupedOptions.set(careerId, {
-      category: officialCareer?.category ?? "licenciatura",
-      careerId,
-      displayLabel: officialCareer?.display_name ?? formatProgramChoiceLabel(plan.program_title),
-      planIds: [plan.plan_id],
-    });
-  }
-
-  return [...groupedOptions.values()].sort((left, right) =>
+  return options.sort((left, right) =>
     left.displayLabel.localeCompare(right.displayLabel, "es-MX", { sensitivity: "base" }),
   );
+}
+
+export function buildCareerChoiceOptionsForLevel(
+  plans: BulletinSummary[],
+  entryTerm: string,
+  academicLevel: AcademicLevel | null,
+) {
+  if (academicLevel !== "undergraduate") {
+    return [];
+  }
+
+  return buildCareerChoiceOptions(plans, entryTerm);
 }
 
 export function filterCareerChoiceOptions(options: CareerChoiceOption[], query: string) {
@@ -324,6 +356,34 @@ export function getCareerChoiceMode(options: CareerChoiceOption[]): ProgramChoic
   return "career";
 }
 
+export function filterPeriodsForAcademicLevel(
+  periods: SchedulePeriodSummary[],
+  academicLevel: AcademicLevel | null,
+) {
+  if (academicLevel === null) {
+    return periods;
+  }
+
+  const allowedLevels = ACADEMIC_LEVEL_PERIOD_MATCHERS[academicLevel];
+
+  return periods.filter((period) =>
+    allowedLevels.some((allowedLevel) =>
+      normalizeAcademicTitle(period.level).includes(normalizeAcademicTitle(allowedLevel)),
+    ),
+  );
+}
+
+export function getDefaultPeriodForAcademicLevel(
+  periods: SchedulePeriodSummary[],
+  academicLevel: AcademicLevel | null,
+) {
+  return filterPeriodsForAcademicLevel(periods, academicLevel)[0] ?? null;
+}
+
+export function formatSchedulePeriodLabel(label: string) {
+  return label.replace(/^\((.*)\)$/u, "$1").trim();
+}
+
 export function filterProgramChoiceOptions(
   options: ProgramChoiceOption[],
   query: string,
@@ -375,6 +435,15 @@ function getMaximumEntryTermYear() {
 }
 
 function matchesEntryTerm(plan: BulletinSummary, entryTerm: string) {
+  if (plan.entry_from_term === null && plan.entry_to_term === null) {
+    const target = parseComparableAcademicTerm(entryTerm);
+    const fallbackStartYear = getPlanFallbackEntryYear(plan);
+
+    return target !== null && fallbackStartYear !== null
+      ? target.year >= fallbackStartYear && target.year <= getMaximumEntryTermYear()
+      : false;
+  }
+
   return isTermWithinRange(entryTerm, plan.entry_from_term, plan.entry_to_term);
 }
 
@@ -423,6 +492,21 @@ function parseComparableAcademicTerm(value: string | null) {
     seasonOrder: TERM_SEASON_ORDER[season],
     year,
   };
+}
+
+function getPlanFallbackEntryYear(plan: BulletinSummary) {
+  if (typeof plan.application_year === "number" && Number.isInteger(plan.application_year)) {
+    return plan.application_year;
+  }
+
+  if (typeof plan.active_from === "string") {
+    const year = Number.parseInt(plan.active_from.slice(0, 4), 10);
+    if (Number.isInteger(year)) {
+      return year;
+    }
+  }
+
+  return null;
 }
 
 function compareAcademicTerms(

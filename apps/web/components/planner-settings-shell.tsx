@@ -13,6 +13,7 @@ import { clearPlannerBrowserState } from "@/lib/browser-state";
 import { usePlannerStore } from "@/stores/planner-store";
 import { usePlannerUiStore } from "@/stores/planner-ui-store";
 import { useStudentProfileStore } from "@/stores/student-profile-store";
+import { usePhoneViewport } from "@/lib/use-phone-viewport";
 
 interface PlannerSettingsShellProps {
   bulletinDocuments: BulletinDocument[];
@@ -34,6 +35,7 @@ export function PlannerSettingsShell({
   const resetPlannerUi = usePlannerUiStore((state) => state.resetPlannerUi);
   const setNavSwipePreference = usePlannerUiStore((state) => state.setNavSwipePreference);
   const toggleSubjectCode = usePlannerStore((state) => state.toggleSubjectCode);
+  const isPhoneViewport = usePhoneViewport();
   const [query, setQuery] = useState("");
 
   const activePlanDocs = useMemo(
@@ -82,34 +84,39 @@ export function PlannerSettingsShell({
       </div>
 
       <div className="hero-grid">
-        <Card>
-          <CardHeader>
-            <CardTitle>{productCopy.plannerSettings.swipeTitle}</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4 text-sm leading-6 text-muted">
-            <p>{productCopy.plannerSettings.swipeBody}</p>
-            <div className="grid gap-3 sm:grid-cols-2">
-              {(["natural", "inverted"] as const).map((preference) => (
-                <button
-                  key={preference}
-                  className={[
-                    "choice-card text-left",
-                    plannerUi.navSwipePreference === preference ? "border-accent bg-surface-hover" : "",
-                  ].join(" ")}
-                  onClick={() => setNavSwipePreference(preference)}
-                  type="button"
-                >
-                  <span className="block font-semibold text-foreground">
-                    {copy.plannerOnboarding.swipeOptions[preference].title}
-                  </span>
-                  <span className="mt-2 block text-sm leading-6 text-muted">
-                    {copy.plannerOnboarding.swipeOptions[preference].body}
-                  </span>
-                </button>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
+        {isPhoneViewport ? (
+          <Card>
+            <CardHeader>
+              <CardTitle>{productCopy.plannerSettings.swipeTitle}</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4 text-sm leading-6 text-muted">
+              <p>{productCopy.plannerSettings.swipeBody}</p>
+              <div className="grid gap-3 sm:grid-cols-2">
+                {(["natural", "inverted"] as const).map((preference) => (
+                  <button
+                    key={preference}
+                    aria-pressed={plannerUi.navSwipePreference === preference}
+                    className={[
+                      "choice-card text-left",
+                      plannerUi.navSwipePreference === preference
+                        ? "border-accent bg-accent-soft shadow-[0_18px_34px_rgba(31,77,63,0.12)]"
+                        : "",
+                    ].join(" ")}
+                    onClick={() => setNavSwipePreference(preference)}
+                    type="button"
+                  >
+                    <span className="block font-semibold text-foreground">
+                      {copy.plannerOnboarding.swipeOptions[preference].title}
+                    </span>
+                    <span className="mt-2 block text-sm leading-6 text-muted">
+                      {copy.plannerOnboarding.swipeOptions[preference].body}
+                    </span>
+                  </button>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+        ) : null}
 
         <Card>
           <CardHeader>
@@ -156,7 +163,9 @@ export function PlannerSettingsShell({
           </label>
 
           <div className="space-y-3">
-            <p className="text-sm font-medium text-foreground">{copy.plannerHome.subjectsBoard.selectedSubjectsLabel}</p>
+            <p className="text-sm font-medium text-foreground">
+              {productCopy.plannerSettings.subjectsSelectedTitle}
+            </p>
             {selectedSubjects.length === 0 ? (
               <div className="soft-panel text-sm leading-6 text-muted">
                 {productCopy.plannerSettings.subjectsEmpty}
@@ -182,7 +191,9 @@ export function PlannerSettingsShell({
 
           <div className="space-y-3">
             <p className="text-sm font-medium text-foreground">
-              {query.trim() ? productCopy.common.search : copy.plannerHome.subjectsBoard.activePlansLabel}
+              {query.trim()
+                ? productCopy.common.search
+                : productCopy.plannerSettings.subjectsDefaultTitle}
             </p>
             {visibleDirectory.length === 0 ? (
               <div className="soft-panel text-sm leading-6 text-muted">

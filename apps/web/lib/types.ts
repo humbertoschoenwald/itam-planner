@@ -1,6 +1,8 @@
 export type LocaleCode = "es-MX" | "en";
+export type AcademicLevel = "undergraduate" | "graduate";
 
 export interface StudentProfile {
+  academicLevel: AcademicLevel | null;
   entryTerm: string;
   activePlanIds: string[];
   locale: LocaleCode;

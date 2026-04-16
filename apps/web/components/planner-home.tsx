@@ -12,6 +12,10 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { fetchSchedulePeriodDetail } from "@/lib/api";
 import { getUiCopy } from "@/lib/copy";
 import {
+  filterPeriodsForAcademicLevel,
+  formatSchedulePeriodLabel,
+} from "@/lib/onboarding";
+import {
   buildRecommendedSubjectCodes,
   buildSubjectDirectory,
   estimateSemesterNumber,
@@ -48,6 +52,7 @@ export function PlannerHome({
 
   const plannerState = usePlannerStore((state) => state.state);
   const plannerWidgetIds = usePlannerUiStore((state) => state.state.plannerWidgetIds);
+  const setSelectedOfferingIds = usePlannerStore((state) => state.setSelectedOfferingIds);
   const setSelectedPeriodId = usePlannerStore((state) => state.setSelectedPeriodId);
   const setSelectedSubjectCodes = usePlannerStore((state) => state.setSelectedSubjectCodes);
   const toggleOfferingId = usePlannerStore((state) => state.toggleOfferingId);
@@ -62,10 +67,18 @@ export function PlannerHome({
     label,
     value,
   }));
-  const defaultPeriodId = periods[0]?.period_id ?? null;
-  const activePeriodId = plannerState.selectedPeriodId ?? defaultPeriodId;
+  const filteredPeriods = useMemo(
+    () => filterPeriodsForAcademicLevel(periods, profile.academicLevel),
+    [periods, profile.academicLevel],
+  );
+  const defaultPeriodId = filteredPeriods[0]?.period_id ?? null;
+  const activePeriodId = filteredPeriods.some(
+    (period) => period.period_id === plannerState.selectedPeriodId,
+  )
+    ? plannerState.selectedPeriodId
+    : defaultPeriodId;
   const activePeriodSummary =
-    periods.find((period) => period.period_id === activePeriodId) ?? null;
+    filteredPeriods.find((period) => period.period_id === activePeriodId) ?? null;
   const activePlanDocuments = useMemo(
     () => bulletinDocuments.filter((document) => profile.activePlanIds.includes(document.plan_id)),
     [bulletinDocuments, profile.activePlanIds],
@@ -78,15 +91,15 @@ export function PlannerHome({
     () => buildRecommendedSubjectCodes(activePlanDocuments, estimatedSemester),
     [activePlanDocuments, estimatedSemester],
   );
-  const subjectDirectory = useMemo(
-    () => buildSubjectDirectory(activePlanDocuments),
-    [activePlanDocuments],
+  const fullSubjectDirectory = useMemo(
+    () => buildSubjectDirectory(bulletinDocuments),
+    [bulletinDocuments],
   );
   const effectiveSubjectCodes =
     plannerState.selectedSubjectCodes.length > 0
       ? plannerState.selectedSubjectCodes
       : recommendedSubjectCodes;
-  const selectedSubjectEntries = subjectDirectory.filter((entry) =>
+  const selectedSubjectEntries = fullSubjectDirectory.filter((entry) =>
     effectiveSubjectCodes.includes(entry.courseCode),
   );
   const resolvedSelectedPeriod = resolvedPeriodId === activePeriodId ? selectedPeriod : null;
@@ -98,10 +111,12 @@ export function PlannerHome({
     resolvedSelectedPeriodError === null;
 
   useEffect(() => {
-    if (!plannerState.selectedPeriodId && defaultPeriodId) {
+    const validPeriodIds = new Set(filteredPeriods.map((period) => period.period_id));
+
+    if ((!plannerState.selectedPeriodId || !validPeriodIds.has(plannerState.selectedPeriodId)) && defaultPeriodId) {
       setSelectedPeriodId(defaultPeriodId);
     }
-  }, [defaultPeriodId, plannerState.selectedPeriodId, setSelectedPeriodId]);
+  }, [defaultPeriodId, filteredPeriods, plannerState.selectedPeriodId, setSelectedPeriodId]);
 
   useEffect(() => {
     if (
@@ -148,12 +163,32 @@ export function PlannerHome({
     };
   }, [activePeriodId, copy.plannerHome.selectedPeriodLoadError]);
 
-  const visibleOfferings =
-    resolvedSelectedPeriod?.offerings.filter(
-      (offering) =>
-        effectiveSubjectCodes.length === 0 ||
-        effectiveSubjectCodes.includes(offering.course_code),
-    ) ?? [];
+  const visibleOfferings = useMemo(
+    () =>
+      resolvedSelectedPeriod?.offerings.filter(
+        (offering) =>
+          effectiveSubjectCodes.length === 0 ||
+          effectiveSubjectCodes.includes(offering.course_code),
+      ) ?? [],
+    [effectiveSubjectCodes, resolvedSelectedPeriod],
+  );
+  useEffect(() => {
+    if (plannerState.selectedOfferingIds.length > 0 || visibleOfferings.length === 0) {
+      return;
+    }
+
+    const defaultOfferingIds = [...new Set(visibleOfferings.map((offering) => offering.course_code))]
+      .map(
+        (courseCode) =>
+          visibleOfferings.find((offering) => offering.course_code === courseCode)?.offering_id ??
+          null,
+      )
+      .filter((offeringId): offeringId is string => typeof offeringId === "string");
+
+    if (defaultOfferingIds.length > 0) {
+      setSelectedOfferingIds(defaultOfferingIds);
+    }
+  }, [plannerState.selectedOfferingIds.length, setSelectedOfferingIds, visibleOfferings]);
   const selectedOfferings =
     resolvedSelectedPeriod?.offerings.filter((offering) =>
       plannerState.selectedOfferingIds.includes(offering.offering_id),
@@ -165,15 +200,17 @@ export function PlannerHome({
   const currentLocaleLabel =
     localeOptions.find((option) => option.value === profile.locale)?.label ?? profile.locale;
   const activePeriodLabel =
-    periods.find((period) => period.period_id === activePeriodId)?.label ??
-    copy.plannerHome.activePeriodFallback;
+    formatSchedulePeriodLabel(
+      filteredPeriods.find((period) => period.period_id === activePeriodId)?.label ??
+        copy.plannerHome.activePeriodFallback,
+    );
   const showTodayWidget = plannerWidgetIds.includes("today");
   const showWeekWidget = plannerWidgetIds.includes("week");
   const showSubjectsWidget = plannerWidgetIds.includes("subjects");
 
   const heroMetrics = [
     { label: copy.plannerHome.plansMetric, value: String(plans.length) },
-    { label: copy.plannerHome.periodsMetric, value: String(periods.length) },
+    { label: copy.plannerHome.periodsMetric, value: String(filteredPeriods.length) },
     { label: productCopy.plannerPage.filteredSubjectsTitle, value: String(selectedSubjectEntries.length) },
     { label: copy.plannerHome.groupsSelected, value: String(selectedOfferings.length) },
     { label: copy.plannerHome.currentLocale, value: currentLocaleLabel },
@@ -353,9 +390,9 @@ export function PlannerHome({
                 value={activePeriodId ?? ""}
               >
                 <option value="">{copy.plannerHome.selectPeriod}</option>
-                {periods.map((period) => (
+                {filteredPeriods.map((period) => (
                   <option key={period.period_id} value={period.period_id}>
-                    {period.label}
+                    {formatSchedulePeriodLabel(period.label)}
                   </option>
                 ))}
               </select>

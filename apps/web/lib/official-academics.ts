@@ -212,6 +212,24 @@ export const OFFICIAL_JOINT_PROGRAMS: readonly JointProgramReference[] = [
   },
 ] as const;
 
+const OFFICIAL_CAREER_MATCH_ALIASES: Record<string, string[]> = {
+  "administracion-negocios": ["administracion de negocios", "administracion en negocios"],
+  computacion: [
+    "computacion",
+    "ingenieria en computacion",
+    "ingenieria y ciencias de la computacion",
+  ],
+  "industrial-sistemas-inteligentes": [
+    "ingenieria industrial",
+    "industrial y en sistemas inteligentes",
+    "industrial y sistemas inteligentes",
+  ],
+  "mecatronica-robotica-inteligente": [
+    "ingenieria en mecatronica",
+    "mecatronica y robotica inteligente",
+  ],
+};
+
 const PROGRAM_NORMALIZATION_OVERRIDES: Record<string, string> = {
   "administracion en negocios": "administracion de negocios",
   "administracion y contaduria publica y estrategia financiera":
@@ -254,21 +272,34 @@ export function findOfficialCareer(careerId: string) {
   return OFFICIAL_CAREERS.find((career) => career.career_id === careerId) ?? null;
 }
 
+export function getOfficialCareerMatchTokens(careerId: string) {
+  const career = findOfficialCareer(careerId);
+  const aliases = OFFICIAL_CAREER_MATCH_ALIASES[careerId] ?? [];
+  const tokens = career ? [career.display_name, ...aliases] : aliases;
+
+  return [...new Set(tokens.map(normalizeAcademicTitle).filter(Boolean))];
+}
+
 export function findOfficialJointProgram(jointProgramId: string) {
   return OFFICIAL_JOINT_PROGRAMS.find((program) => program.joint_program_id === jointProgramId) ?? null;
 }
 
-export function classifyProgramTitle(programTitle: string) {
+export function matchesOfficialCareerProgramTitle(programTitle: string, careerId: string) {
   const normalized = normalizeAcademicTitle(programTitle);
 
-  const career = OFFICIAL_CAREERS.find((entry) =>
-    normalized.includes(normalizeAcademicTitle(entry.display_name)),
+  return getOfficialCareerMatchTokens(careerId).some((token) => normalized.includes(token));
+}
+
+export function classifyProgramTitle(programTitle: string) {
+  const normalized = normalizeAcademicTitle(programTitle);
+  const matchedCareers = OFFICIAL_CAREERS.filter((entry) =>
+    matchesOfficialCareerProgramTitle(programTitle, entry.career_id),
   );
+  const career = matchedCareers[0] ?? null;
 
   return {
-    isJointProgram:
-      /\b y \b/iu.test(normalized) ||
-      normalizeAcademicTitle(programTitle).includes("plan conjunto"),
+    isJointProgram: normalized.includes("plan conjunto") || matchedCareers.length > 1,
+    matchedCareers,
     officialCareer: career,
     normalized,
   };
@@ -276,7 +307,7 @@ export function classifyProgramTitle(programTitle: string) {
 
 export function isIndividualCareerProgram(programTitle: string) {
   const classification = classifyProgramTitle(programTitle);
-  return classification.officialCareer !== null && !classification.isJointProgram;
+  return classification.officialCareer !== null && classification.matchedCareers.length === 1;
 }
 
 export function findApplicableJointPlansForEntryTerm(
@@ -290,9 +321,7 @@ export function findApplicableJointPlansForEntryTerm(
   }
 
   const componentTokens = jointProgram.component_career_ids
-    .map((careerId) => findOfficialCareer(careerId))
-    .filter((career): career is AcademicCareerReference => career !== null)
-    .map((career) => normalizeAcademicTitle(career.display_name));
+    .flatMap((careerId) => getOfficialCareerMatchTokens(careerId));
 
   return plans.filter((plan) => {
     const normalized = normalizeAcademicTitle(plan.program_title);

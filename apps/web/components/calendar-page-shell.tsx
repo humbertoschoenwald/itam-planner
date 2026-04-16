@@ -30,6 +30,7 @@ export function CalendarPageShell({
   const [loadedSelectedOfferings, setLoadedSelectedOfferings] = useState<
     Awaited<ReturnType<typeof fetchSchedulePeriodDetail>>["offerings"]
   >([]);
+  const todayIso = useMemo(() => getMexicoCityTodayIso(), []);
 
   const shouldLoadTodayContext =
     plannerState.selectedPeriodId !== null && plannerState.selectedOfferingIds.length > 0;
@@ -69,12 +70,12 @@ export function CalendarPageShell({
   }, [plannerState.selectedOfferingIds, plannerState.selectedPeriodId, shouldLoadTodayContext]);
 
   const upcomingSchoolEvents = useMemo(
-    () => schoolCalendar.events.slice(0, 8),
-    [schoolCalendar.events],
+    () => getRelevantSchoolEvents(schoolCalendar.events, todayIso).slice(0, 8),
+    [schoolCalendar.events, todayIso],
   );
   const paymentHighlights = useMemo(
-    () => paymentCalendar.payment_events.slice(0, 6),
-    [paymentCalendar.payment_events],
+    () => getRelevantPaymentEvents(paymentCalendar.payment_events, todayIso).slice(0, 6),
+    [paymentCalendar.payment_events, todayIso],
   );
 
   return (
@@ -159,4 +160,58 @@ export function CalendarPageShell({
       </section>
     </main>
   );
+}
+
+function getMexicoCityTodayIso() {
+  return new Intl.DateTimeFormat("en-CA", {
+    day: "2-digit",
+    month: "2-digit",
+    timeZone: "America/Mexico_City",
+    year: "numeric",
+  }).format(new Date());
+}
+
+function getRelevantSchoolEvents(
+  events: SchoolCalendarDocument["events"],
+  todayIso: string,
+) {
+  return [...events].sort((left, right) => {
+    const leftDistance = Math.abs(compareDateDistance(left.event_date, todayIso));
+    const rightDistance = Math.abs(compareDateDistance(right.event_date, todayIso));
+
+    if (leftDistance !== rightDistance) {
+      return leftDistance - rightDistance;
+    }
+
+    return left.event_date.localeCompare(right.event_date, "en");
+  });
+}
+
+function getRelevantPaymentEvents(
+  events: PaymentCalendarDocument["payment_events"],
+  todayIso: string,
+) {
+  return [...events].sort((left, right) => {
+    const leftAnchor = left.event_date ?? left.date_range_start ?? left.active_from ?? "9999-12-31";
+    const rightAnchor = right.event_date ?? right.date_range_start ?? right.active_from ?? "9999-12-31";
+    const leftDistance = Math.abs(compareDateDistance(leftAnchor, todayIso));
+    const rightDistance = Math.abs(compareDateDistance(rightAnchor, todayIso));
+
+    if (leftDistance !== rightDistance) {
+      return leftDistance - rightDistance;
+    }
+
+    return leftAnchor.localeCompare(rightAnchor, "en");
+  });
+}
+
+function compareDateDistance(leftIso: string, rightIso: string) {
+  const left = Date.parse(`${leftIso}T00:00:00Z`);
+  const right = Date.parse(`${rightIso}T00:00:00Z`);
+
+  if (!Number.isFinite(left) || !Number.isFinite(right)) {
+    return Number.POSITIVE_INFINITY;
+  }
+
+  return left - right;
 }

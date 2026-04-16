@@ -59,6 +59,19 @@ const productCopy = {
       },
     },
     plannerWizard: {
+      academicLevelBody:
+        "Choose whether you want the planner to start from undergraduate public data or graduate public periods.",
+      academicLevelOptions: {
+        graduate: {
+          body: "Use public master's and hybrid periods without forcing undergraduate career defaults.",
+          title: "Graduate",
+        },
+        undergraduate: {
+          body: "Use undergraduate careers, official joint programs, and default subjects from the public catalog.",
+          title: "Undergraduate",
+        },
+      },
+      academicLevelTitle: "What academic level are you in?",
       careerBody:
         "Choose one or two base careers. The planner will use them to derive applicable plans and default subjects.",
       careerLimit: "You can choose up to two careers.",
@@ -70,18 +83,31 @@ const productCopy = {
       jointProgramsEmpty:
         "No official joint programs matched the selected careers for this entry term.",
       jointProgramsTitle: "Do any joint programs apply to you?",
+      subjectsBody:
+        "The planner already selected default subjects from your current academic context. Keep them, remove them, or search the full published catalog.",
+      subjectsCount: "Selected subjects",
+      subjectsDefaultEmpty:
+        "No default subjects were inferred from the current public catalog. Search the published catalog and choose the ones you want to keep.",
+      subjectsRecommended: "Default subjects",
+      subjectsSearchPlaceholder: "Search any public subject",
+      subjectsSelected: "Current subject selection",
+      subjectsTitle: "Which subjects should the planner start with?",
       selectedCount: "Selected",
       stepLabels: {
+        academicLevel: "Level",
         careers: "Careers",
         entryTerm: "Entry term",
         finish: "Finish",
         intro: "Intro",
         jointPrograms: "Joint programs",
+        subjects: "Subjects",
         swipe: "Swipe",
       },
       validation: {
+        academicLevel: "Choose the academic level before continuing.",
         careers: "Choose at least one career before continuing.",
         jointPrograms: "Continue with or without a joint program.",
+        subjects: "Choose at least one subject before continuing.",
       },
     },
     plannerSettings: {
@@ -93,7 +119,9 @@ const productCopy = {
         "This clears the browser-local planner context for this browser only. Continue?",
       subjectsBody:
         "Recommended subjects come from your selected careers and the estimated current semester. Search to add anything else from the published public catalog.",
+      subjectsDefaultTitle: "Default subjects",
       subjectsEmpty: "No subjects are selected yet.",
+      subjectsSelectedTitle: "Selected subjects",
       subjectsSearch: "Search subjects",
       subjectsTitle: "Subjects",
       swipeBody:
@@ -191,6 +219,19 @@ const productCopy = {
       },
     },
     plannerWizard: {
+      academicLevelBody:
+        "Elige si quieres que el planner arranque desde datos públicos de licenciatura o desde periodos públicos de maestría.",
+      academicLevelOptions: {
+        graduate: {
+          body: "Usa periodos públicos de maestría e híbrido sin forzar carreras ni materias de licenciatura.",
+          title: "Maestría",
+        },
+        undergraduate: {
+          body: "Usa carreras de licenciatura/ingeniería, programas conjuntos oficiales y materias por defecto del catálogo público.",
+          title: "Licenciatura / ingeniería",
+        },
+      },
+      academicLevelTitle: "¿En qué nivel académico estás?",
       careerBody:
         "Elige una o dos carreras base. Con eso el planner puede derivar planes aplicables y materias por defecto.",
       careerLimit: "Puedes elegir hasta dos carreras.",
@@ -202,18 +243,31 @@ const productCopy = {
       jointProgramsEmpty:
         "Ningún programa conjunto oficial coincide con las carreras elegidas para ese ingreso.",
       jointProgramsTitle: "¿Te aplica algún programa conjunto?",
+      subjectsBody:
+        "El planner ya marcó las materias por defecto según tu contexto académico actual. Puedes dejarlas, quitarlas o buscar cualquier otra materia publicada.",
+      subjectsCount: "Materias seleccionadas",
+      subjectsDefaultEmpty:
+        "El catálogo público actual no permitió inferir materias por defecto. Busca en el catálogo publicado y marca las que quieras conservar.",
+      subjectsRecommended: "Materias por defecto",
+      subjectsSearchPlaceholder: "Busca cualquier materia pública",
+      subjectsSelected: "Selección actual de materias",
+      subjectsTitle: "¿Con qué materias debe arrancar el planner?",
       selectedCount: "Seleccionadas",
       stepLabels: {
+        academicLevel: "Nivel",
         careers: "Carreras",
         entryTerm: "Ingreso",
         finish: "Finalizar",
         intro: "Inicio",
         jointPrograms: "Conjuntos",
+        subjects: "Materias",
         swipe: "Deslizamiento",
       },
       validation: {
+        academicLevel: "Elige el nivel académico antes de continuar.",
         careers: "Elige al menos una carrera antes de continuar.",
         jointPrograms: "Continúa con o sin programa conjunto.",
+        subjects: "Elige al menos una materia antes de continuar.",
       },
     },
     plannerSettings: {
@@ -225,7 +279,9 @@ const productCopy = {
         "Esto borra el contexto local del planner solo en este navegador. ¿Continuar?",
       subjectsBody:
         "Las materias recomendadas salen de las carreras que elegiste y del semestre estimado. Usa la búsqueda para agregar cualquier otra materia del catálogo público publicado.",
+      subjectsDefaultTitle: "Materias por defecto",
       subjectsEmpty: "Todavía no hay materias seleccionadas.",
+      subjectsSelectedTitle: "Materias seleccionadas",
       subjectsSearch: "Buscar materias",
       subjectsTitle: "Materias",
       swipeBody:

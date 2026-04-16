@@ -51,6 +51,10 @@ export function SiteHeader() {
       label: productCopy.siteHeader.secondaryNav.configuration,
     },
   ] as const;
+  const searchLink = {
+    href: "/search",
+    label: productCopy.common.search,
+  } as const;
 
   function commitSwipe(clientX: number) {
     if (!isPhoneViewport || gestureStartX.current === null) {
@@ -92,33 +96,7 @@ export function SiteHeader() {
             <Link className="font-display text-2xl text-foreground" href="/" prefetch={false}>
               {copy.plannerHome.title}
             </Link>
-            <span className="rounded-full border border-accent/12 bg-accent-soft px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-accent">
-              {copy.siteHeader.badge}
-            </span>
           </div>
-
-          {!isPhoneViewport ? (
-            <div className="flex flex-wrap items-center gap-2 text-sm font-medium text-muted">
-              {secondaryLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  className="nav-pill rounded-full px-3 py-2 transition hover:bg-surface-elevated hover:text-foreground"
-                  href={link.href}
-                  prefetch={false}
-                >
-                  {link.label}
-                </Link>
-              ))}
-              <Link
-                aria-label={productCopy.siteHeader.searchLabel}
-                className="nav-pill rounded-full px-3 py-2 transition hover:bg-surface-elevated hover:text-foreground"
-                href="/search"
-                prefetch={false}
-              >
-                {productCopy.common.search}
-              </Link>
-            </div>
-          ) : null}
         </div>
 
         <nav
@@ -167,11 +145,50 @@ export function SiteHeader() {
               {link.label}
             </Link>
           ))}
+
+          {!isPhoneViewport
+            ? secondaryLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  className="nav-pill rounded-full px-3 py-2 transition hover:bg-surface-elevated hover:text-foreground"
+                  href={link.href}
+                  prefetch={false}
+                >
+                  {link.label}
+                </Link>
+              ))
+            : null}
+
+          {!isPhoneViewport ? (
+            <Link
+              aria-label={productCopy.siteHeader.searchLabel}
+              className="nav-pill flex h-10 w-10 items-center justify-center rounded-full transition hover:bg-surface-elevated hover:text-foreground"
+              href={searchLink.href}
+              prefetch={false}
+              title={searchLink.label}
+            >
+              <svg
+                aria-hidden
+                className="h-4 w-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle cx="11" cy="11" r="6.5" stroke="currentColor" strokeWidth="1.6" />
+                <path
+                  d="M16 16L21 21"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeWidth="1.6"
+                />
+              </svg>
+            </Link>
+          ) : null}
         </nav>
 
         {isPhoneViewport && mobileMenuOpen ? (
           <div className="grid gap-2 rounded-[1.5rem] border border-border bg-surface-elevated p-3 text-sm font-medium text-muted">
-            {[...secondaryLinks, { href: "/search", label: productCopy.common.search }, { href: "/mapa", label: productCopy.common.map }].map((link) => (
+            {[...secondaryLinks, searchLink, { href: "/mapa", label: productCopy.common.map }].map((link) => (
               <Link
                 key={link.href}
                 className="nav-pill rounded-full px-3 py-2 transition hover:bg-surface-hover hover:text-foreground"

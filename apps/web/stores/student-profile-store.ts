@@ -5,9 +5,10 @@ import { persist } from "zustand/middleware";
 
 import { createSafeJsonStorage } from "@/lib/browser-storage";
 import { STORAGE_KEYS } from "@/lib/storage-keys";
-import type { LocaleCode, StudentProfile } from "@/lib/types";
+import type { AcademicLevel, LocaleCode, StudentProfile } from "@/lib/types";
 
 export const DEFAULT_STUDENT_PROFILE: StudentProfile = {
+  academicLevel: null,
   entryTerm: "",
   activePlanIds: [],
   locale: "es-MX",
@@ -17,6 +18,7 @@ export const DEFAULT_STUDENT_PROFILE: StudentProfile = {
 
 interface StudentProfileStoreState {
   profile: StudentProfile;
+  setAcademicLevel: (academicLevel: AcademicLevel | null) => void;
   resetProfile: () => void;
   setActivePlanIds: (planIds: string[]) => void;
   setSelectedCareerIds: (careerIds: string[]) => void;
@@ -28,12 +30,20 @@ interface StudentProfileStoreState {
 
 const storage = createSafeJsonStorage<StudentProfileStoreState>();
 const VALID_LOCALES: readonly LocaleCode[] = ["es-MX", "en"] as const;
+const VALID_ACADEMIC_LEVELS = ["undergraduate", "graduate"] as const satisfies readonly AcademicLevel[];
 
 export const useStudentProfileStore = create<StudentProfileStoreState>()(
   persist(
     (set) => ({
       profile: DEFAULT_STUDENT_PROFILE,
       resetProfile: () => set({ profile: DEFAULT_STUDENT_PROFILE }),
+      setAcademicLevel: (academicLevel) =>
+        set((current) => ({
+          profile: {
+            ...current.profile,
+            academicLevel,
+          },
+        })),
       setActivePlanIds: (planIds) =>
         set((current) => ({
           profile: {
@@ -103,6 +113,9 @@ function sanitizeStudentProfile(value: unknown): StudentProfile {
   const candidate = value as Partial<StudentProfile>;
 
   return {
+    academicLevel: VALID_ACADEMIC_LEVELS.includes(candidate.academicLevel as AcademicLevel)
+      ? (candidate.academicLevel as AcademicLevel)
+      : null,
     activePlanIds: Array.isArray(candidate.activePlanIds)
       ? [...new Set(candidate.activePlanIds.filter((planId): planId is string => typeof planId === "string"))]
       : [],

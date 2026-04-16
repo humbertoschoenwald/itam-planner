@@ -233,10 +233,12 @@ const uiCopy = {
       redirectBody: "Planner needs the embedded onboarding flow before this browser can render your schedule shell.",
       redirectTitle: "Planner is preparing your onboarding flow",
       stepLabels: {
+        academicLevel: "Academic level",
         entryTerm: "Entry term",
         finish: "Finish",
         intro: "Overview",
         program: "Career",
+        subjects: "Subjects",
         swipe: "Swipe",
       },
       swipeOptions: {
@@ -254,10 +256,12 @@ const uiCopy = {
       swipePreferenceTitle: "How should swipe motion feel?",
       title: "Answer the planner questions one step at a time",
       validationBody: {
+        academicLevel: "Choose the academic level before continuing.",
         entryTerm: "Choose both the academic cycle and a real year from the published catalog before continuing.",
         finish: "Review the summary and then finish the setup.",
         intro: "Continue to capture the minimum planner data.",
         program: "Choose one career from the filtered list before continuing.",
+        subjects: "Choose at least one subject before continuing.",
         swipe: "Choose how swipe motion should feel on this device before continuing.",
       },
       validationTitle: "A required step is still missing",
@@ -728,10 +732,12 @@ const uiCopy = {
       redirectBody: "Planner necesita terminar su onboarding embebido antes de renderizar el shell de horario en este navegador.",
       redirectTitle: "Planner está preparando tu onboarding",
       stepLabels: {
+        academicLevel: "Nivel",
         entryTerm: "Ingreso",
         finish: "Finalizar",
         intro: "Inicio",
         program: "Carrera",
+        subjects: "Materias",
         swipe: "Deslizamiento",
       },
       swipeOptions: {
@@ -749,11 +755,15 @@ const uiCopy = {
       swipePreferenceTitle: "¿Cómo quieres que se sienta el deslizamiento?",
       title: "Responde el onboarding del planner paso a paso",
       validationBody: {
+        academicLevel:
+          "Elige el nivel académico antes de continuar.",
         entryTerm:
           "Elige tanto el ciclo académico como un año real del catálogo publicado antes de continuar.",
         finish: "Revisa el resumen y luego finaliza la configuración.",
         intro: "Continúa para capturar lo mínimo que necesita el planner.",
         program: "Elige una carrera de la lista filtrada antes de continuar.",
+        subjects:
+          "Elige al menos una materia antes de continuar.",
         swipe:
           "Elige cómo quieres que se sienta el deslizamiento en este dispositivo antes de continuar.",
       },

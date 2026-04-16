@@ -109,7 +109,7 @@ describe("filterPlansForEntryTerm", () => {
   });
 
   it("derives the year selector from the published plan ranges", () => {
-    expect(getEntryTermYearOptions(samplePlans)).toEqual([
+    expect(getEntryTermYearOptions(samplePlans, "undergraduate")).toEqual([
       "2026",
       "2025",
       "2024",
@@ -155,6 +155,7 @@ describe("filterPlansForEntryTerm", () => {
     expect(
       hasApplicableActivePlans(
         {
+          academicLevel: "undergraduate",
           selectedCareerIds: ["matematicas-aplicadas"],
           selectedJointProgramIds: [],
           activePlanIds: ["licenciatura-en-matematicas-aplicadas:e"],
@@ -168,6 +169,7 @@ describe("filterPlansForEntryTerm", () => {
     expect(
       hasApplicableActivePlans(
         {
+          academicLevel: "undergraduate",
           selectedCareerIds: ["matematicas-aplicadas"],
           selectedJointProgramIds: [],
           activePlanIds: ["licenciatura-en-matematicas-aplicadas:e"],

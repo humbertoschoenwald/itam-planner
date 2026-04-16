@@ -12,6 +12,7 @@ describe("student code", () => {
   it("round-trips the current profile and planner state", () => {
     const payload = buildStudentCodePayload(
       {
+        academicLevel: "undergraduate",
         selectedCareerIds: ["matematicas-aplicadas"],
         selectedJointProgramIds: [],
         entryTerm: "OTOÑO 2025",
@@ -37,6 +38,7 @@ describe("student code", () => {
   it("uses browser-safe base64 helpers even when Buffer exists in the window context", () => {
     const payload = buildStudentCodePayload(
       {
+        academicLevel: "undergraduate",
         selectedCareerIds: ["matematicas-aplicadas"],
         selectedJointProgramIds: [],
         entryTerm: "PRIMAVERA 2024",

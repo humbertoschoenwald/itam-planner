@@ -19,10 +19,12 @@ describe("persisted stores", () => {
   });
 
   it("persists and rehydrates the student profile", async () => {
+    useStudentProfileStore.getState().setAcademicLevel("undergraduate");
     useStudentProfileStore.getState().setEntryTerm("OTOÑO 2025");
     useStudentProfileStore.getState().setActivePlanIds(["plan:ma-e", "plan:ma-e"]);
 
     const stored = JSON.parse(window.localStorage.getItem(STORAGE_KEYS.studentProfile) ?? "{}");
+    expect(stored.state.profile.academicLevel).toBe("undergraduate");
     expect(stored.state.profile.entryTerm).toBe("OTOÑO 2025");
 
     useStudentProfileStore.setState({ profile: DEFAULT_STUDENT_PROFILE });
@@ -30,6 +32,7 @@ describe("persisted stores", () => {
     await useStudentProfileStore.persist.rehydrate();
 
     expect(useStudentProfileStore.getState().profile.entryTerm).toBe("OTOÑO 2025");
+    expect(useStudentProfileStore.getState().profile.academicLevel).toBe("undergraduate");
     expect(useStudentProfileStore.getState().profile.activePlanIds).toEqual(["plan:ma-e"]);
   });
 

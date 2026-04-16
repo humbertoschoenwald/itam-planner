@@ -16,6 +16,7 @@ export const DEFAULT_PLANNER_STATE: PlannerState = {
 interface PlannerStoreState {
   state: PlannerState;
   resetPlanner: () => void;
+  setSelectedOfferingIds: (offeringIds: string[]) => void;
   setSelectedPeriodId: (periodId: string) => void;
   setSelectedSubjectCodes: (subjectCodes: string[]) => void;
   toggleOfferingId: (offeringId: string) => void;
@@ -29,6 +30,19 @@ export const usePlannerStore = create<PlannerStoreState>()(
     (set) => ({
       state: DEFAULT_PLANNER_STATE,
       resetPlanner: () => set({ state: DEFAULT_PLANNER_STATE }),
+      setSelectedOfferingIds: (offeringIds) =>
+        set((current) => ({
+          state: {
+            ...current.state,
+            selectedOfferingIds: [
+              ...new Set(
+                offeringIds.filter(
+                  (offeringId): offeringId is string => typeof offeringId === "string",
+                ),
+              ),
+            ],
+          },
+        })),
       setSelectedPeriodId: (periodId) =>
         set((current) => ({
           state: {

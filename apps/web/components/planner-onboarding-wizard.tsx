@@ -1,27 +1,41 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { getUiCopy } from "@/lib/copy";
 import {
-  buildCareerChoiceOptions,
+  ACADEMIC_LEVELS,
+  buildCareerChoiceOptionsForLevel,
   buildEntryTerm,
   buildJointProgramChoiceOptions,
-  type CareerChoiceOption,
+  filterPeriodsForAcademicLevel,
   type EntryTermSeasonKey,
   ENTRY_TERM_SEASON_KEYS,
   filterCareerChoiceOptions,
   formatEntryTermLabel,
+  getDefaultPeriodForAcademicLevel,
   getCareerChoiceMode,
   getEntryTermYearOptions,
   parseEntryTerm,
   resolveActivePlanIdsFromSelections,
 } from "@/lib/onboarding";
+import {
+  buildRecommendedSubjectCodes,
+  buildSelectedSubjectSummary,
+  buildSubjectDirectory,
+  estimateSemesterNumber,
+  searchSubjectDirectory,
+} from "@/lib/planner-subjects";
 import { getProductCopy } from "@/lib/product-copy";
-import type { BulletinSummary } from "@/lib/types";
+import type {
+  AcademicLevel,
+  BulletinDocument,
+  BulletinSummary,
+  SchedulePeriodSummary,
+} from "@/lib/types";
 import { usePhoneViewport } from "@/lib/use-phone-viewport";
 import { useSyncStudentCode } from "@/lib/use-sync-student-code";
 import { usePlannerStore } from "@/stores/planner-store";
@@ -30,17 +44,21 @@ import { useStudentProfileStore } from "@/stores/student-profile-store";
 
 type PlannerOnboardingStep =
   | "intro"
+  | "academicLevel"
   | "entryTerm"
   | "careers"
   | "jointPrograms"
+  | "subjects"
   | "swipe"
   | "finish";
 
 const MOBILE_WIZARD_STEPS: PlannerOnboardingStep[] = [
   "intro",
+  "academicLevel",
   "entryTerm",
   "careers",
   "jointPrograms",
+  "subjects",
   "swipe",
   "finish",
 ];
@@ -51,22 +69,32 @@ const SETUP_DELAY_MIN_MS = 3000;
 const SETUP_DELAY_MAX_MS = 5000;
 
 interface PlannerOnboardingWizardProps {
+  bulletinDocuments: BulletinDocument[];
+  periods: SchedulePeriodSummary[];
   plans: BulletinSummary[];
 }
 
-export function PlannerOnboardingWizard({ plans }: PlannerOnboardingWizardProps) {
+export function PlannerOnboardingWizard({
+  bulletinDocuments,
+  periods,
+  plans,
+}: PlannerOnboardingWizardProps) {
   useSyncStudentCode();
 
   const router = useRouter();
   const setupTimeoutRef = useRef<number | null>(null);
 
   const profile = useStudentProfileStore((state) => state.profile);
+  const setAcademicLevel = useStudentProfileStore((state) => state.setAcademicLevel);
   const setActivePlanIds = useStudentProfileStore((state) => state.setActivePlanIds);
   const setEntryTerm = useStudentProfileStore((state) => state.setEntryTerm);
   const setSelectedCareerIds = useStudentProfileStore((state) => state.setSelectedCareerIds);
   const setSelectedJointProgramIds = useStudentProfileStore(
     (state) => state.setSelectedJointProgramIds,
   );
+  const plannerState = usePlannerStore((state) => state.state);
+  const setSelectedOfferingIds = usePlannerStore((state) => state.setSelectedOfferingIds);
+  const setSelectedPeriodId = usePlannerStore((state) => state.setSelectedPeriodId);
   const setNavSwipePreference = usePlannerUiStore((state) => state.setNavSwipePreference);
   const setPlannerWidgetIds = usePlannerUiStore((state) => state.setPlannerWidgetIds);
   const setHasCompletedSetupAnimation = usePlannerUiStore(
@@ -78,47 +106,114 @@ export function PlannerOnboardingWizard({ plans }: PlannerOnboardingWizardProps)
     (state) => state.state.hasCompletedSetupAnimation,
   );
   const setSelectedSubjectCodes = usePlannerStore((state) => state.setSelectedSubjectCodes);
+  const toggleSubjectCode = usePlannerStore((state) => state.toggleSubjectCode);
   const isPhoneViewport = usePhoneViewport();
   const copy = getUiCopy(profile.locale);
   const productCopy = getProductCopy(profile.locale);
 
   const [entryTermDraft, setEntryTermDraft] = useState(parseEntryTerm(profile.entryTerm));
   const [careerSearch, setCareerSearch] = useState("");
+  const [subjectSearch, setSubjectSearch] = useState("");
   const [isFinishing, setIsFinishing] = useState(false);
   const [showValidation, setShowValidation] = useState(false);
   const [currentStep, setCurrentStep] = useState<PlannerOnboardingStep>(
     getInitialWizardStep(
+      profile.academicLevel,
       profile.entryTerm,
       profile.selectedCareerIds,
       profile.selectedJointProgramIds,
+      plannerState.selectedSubjectCodes.length,
       navSwipePreference,
-      plans,
+      false,
+      false,
       false,
     ),
   );
 
-  const yearOptions = getEntryTermYearOptions(plans);
   const draftEntryTerm = buildEntryTerm(entryTermDraft.seasonKey, entryTermDraft.year);
-  const careerOptions = buildCareerChoiceOptions(plans, draftEntryTerm);
-  const filteredCareerOptions = filterCareerChoiceOptions(careerOptions, careerSearch);
-  const jointProgramOptions = buildJointProgramChoiceOptions(
+  const filteredPeriods = useMemo(
+    () => filterPeriodsForAcademicLevel(periods, profile.academicLevel),
+    [periods, profile.academicLevel],
+  );
+  const defaultPeriod = useMemo(
+    () => getDefaultPeriodForAcademicLevel(periods, profile.academicLevel),
+    [periods, profile.academicLevel],
+  );
+  const yearOptions = useMemo(
+    () => getEntryTermYearOptions(plans, profile.academicLevel, periods),
+    [periods, plans, profile.academicLevel],
+  );
+  const careerOptions = buildCareerChoiceOptionsForLevel(
     plans,
     draftEntryTerm,
-    profile.selectedCareerIds,
+    profile.academicLevel,
   );
+  const filteredCareerOptions = filterCareerChoiceOptions(careerOptions, careerSearch);
+  const jointProgramOptions =
+    profile.academicLevel === "undergraduate"
+      ? buildJointProgramChoiceOptions(plans, draftEntryTerm, profile.selectedCareerIds)
+      : [];
+  const activePlanDocuments = useMemo(
+    () =>
+      bulletinDocuments.filter((document) => profile.activePlanIds.includes(document.plan_id)),
+    [bulletinDocuments, profile.activePlanIds],
+  );
+  const estimatedSemester =
+    profile.academicLevel === "undergraduate"
+      ? estimateSemesterNumber(draftEntryTerm, defaultPeriod)
+      : null;
+  const recommendedSubjectCodes = buildRecommendedSubjectCodes(
+    activePlanDocuments,
+    estimatedSemester,
+  );
+  const recommendedDirectory = useMemo(
+    () => buildSubjectDirectory(activePlanDocuments),
+    [activePlanDocuments],
+  );
+  const fullSubjectDirectory = useMemo(
+    () => buildSubjectDirectory(bulletinDocuments),
+    [bulletinDocuments],
+  );
+  const subjectResults = useMemo(
+    () =>
+      subjectSearch.trim()
+        ? searchSubjectDirectory(fullSubjectDirectory, subjectSearch)
+        : recommendedDirectory,
+    [fullSubjectDirectory, recommendedDirectory, subjectSearch],
+  );
+  const selectedSubjectEntries = useMemo(
+    () => buildSelectedSubjectSummary(plannerState.selectedSubjectCodes, fullSubjectDirectory),
+    [fullSubjectDirectory, plannerState.selectedSubjectCodes],
+  );
+  const shouldShowCareerSteps = profile.academicLevel === "undergraduate";
+  const shouldShowJointPrograms = shouldShowCareerSteps && jointProgramOptions.length > 0;
   const wizardSteps = (isPhoneViewport
     ? MOBILE_WIZARD_STEPS
     : MOBILE_WIZARD_STEPS.filter((step) => step !== "swipe")
-  ).filter((step) => step !== "jointPrograms" || jointProgramOptions.length > 0);
+  ).filter((step) => {
+    if (step === "careers" || step === "jointPrograms" || step === "subjects") {
+      if (!shouldShowCareerSteps) {
+        return false;
+      }
+      if (step === "jointPrograms") {
+        return shouldShowJointPrograms;
+      }
+    }
+
+    return true;
+  });
   const careerChoiceMode = getCareerChoiceMode(careerOptions);
   const activeStep = wizardSteps.includes(currentStep)
     ? currentStep
     : getInitialWizardStep(
+        profile.academicLevel,
         profile.entryTerm,
         profile.selectedCareerIds,
         profile.selectedJointProgramIds,
+        plannerState.selectedSubjectCodes.length,
         navSwipePreference,
-        plans,
+        shouldShowJointPrograms,
+        shouldShowCareerSteps,
         isPhoneViewport,
       );
   const progressIndex = wizardSteps.indexOf(activeStep);
@@ -134,6 +229,19 @@ export function PlannerOnboardingWizard({ plans }: PlannerOnboardingWizardProps)
   }, []);
 
   useEffect(() => {
+    if (profile.academicLevel !== "undergraduate") {
+      if (
+        profile.selectedCareerIds.length > 0 ||
+        profile.selectedJointProgramIds.length > 0 ||
+        profile.activePlanIds.length > 0
+      ) {
+        setSelectedCareerIds([]);
+        setSelectedJointProgramIds([]);
+        setActivePlanIds([]);
+      }
+      return;
+    }
+
     const nextActivePlanIds = resolveActivePlanIdsFromSelections(
       plans,
       draftEntryTerm,
@@ -150,49 +258,108 @@ export function PlannerOnboardingWizard({ plans }: PlannerOnboardingWizardProps)
     draftEntryTerm,
     plans,
     profile.activePlanIds,
+    profile.academicLevel,
     profile.selectedCareerIds,
     profile.selectedJointProgramIds,
     setActivePlanIds,
+    setSelectedCareerIds,
+    setSelectedJointProgramIds,
   ]);
 
   useEffect(() => {
-    const visibleJointProgramIds = new Set(jointProgramOptions.map((option) => option.jointProgramId));
-    const sanitized = profile.selectedJointProgramIds.filter((value) => visibleJointProgramIds.has(value));
+    if (profile.academicLevel !== "undergraduate") {
+      return;
+    }
+
+    const visibleJointProgramIds = new Set(
+      buildJointProgramChoiceOptions(plans, draftEntryTerm, profile.selectedCareerIds).map(
+        (option) => option.jointProgramId,
+      ),
+    );
+    const sanitized = profile.selectedJointProgramIds.filter((value) =>
+      visibleJointProgramIds.has(value),
+    );
 
     if (arraysMatch(sanitized, profile.selectedJointProgramIds)) {
       return;
     }
 
     setSelectedJointProgramIds(sanitized);
-  }, [jointProgramOptions, profile.selectedJointProgramIds, setSelectedJointProgramIds]);
+  }, [
+    draftEntryTerm,
+    plans,
+    profile.academicLevel,
+    profile.selectedCareerIds,
+    profile.selectedJointProgramIds,
+    setSelectedJointProgramIds,
+  ]);
+
+  useEffect(() => {
+    if (
+      profile.academicLevel !== "undergraduate" ||
+      plannerState.selectedSubjectCodes.length > 0 ||
+      recommendedSubjectCodes.length === 0
+    ) {
+      return;
+    }
+
+    setSelectedSubjectCodes(recommendedSubjectCodes);
+  }, [
+    plannerState.selectedSubjectCodes.length,
+    profile.academicLevel,
+    recommendedSubjectCodes,
+    setSelectedSubjectCodes,
+  ]);
 
   const finishSummary = [
+    {
+      label: productCopy.plannerWizard.stepLabels.academicLevel,
+      value:
+        profile.academicLevel === "graduate"
+          ? productCopy.plannerWizard.academicLevelOptions.graduate.title
+          : profile.academicLevel === "undergraduate"
+            ? productCopy.plannerWizard.academicLevelOptions.undergraduate.title
+            : copy.plannerOnboarding.finishSummary.pending,
+    },
     {
       label: copy.plannerOnboarding.finishSummary.entryTerm,
       value: draftEntryTerm
         ? formatEntryTermLabel(draftEntryTerm, copy.onboardingPage.seasonOptions)
         : copy.plannerOnboarding.finishSummary.pending,
     },
-    {
-      label: productCopy.plannerWizard.stepLabels.careers,
-      value:
-        profile.selectedCareerIds.length > 0
-          ? profile.selectedCareerIds
-              .map((careerId) => careerOptions.find((option) => option.careerId === careerId)?.displayLabel)
-              .filter((value): value is string => typeof value === "string")
-              .join(" · ")
-          : copy.plannerOnboarding.finishSummary.pending,
-    },
-    {
-      label: productCopy.plannerWizard.stepLabels.jointPrograms,
-      value:
-        profile.selectedJointProgramIds.length > 0
-          ? jointProgramOptions
-              .filter((option) => profile.selectedJointProgramIds.includes(option.jointProgramId))
-              .map((option) => option.displayLabel)
-              .join(" · ")
-          : copy.plannerOnboarding.finishSummary.pending,
-    },
+    ...(shouldShowCareerSteps
+      ? [
+          {
+            label: productCopy.plannerWizard.stepLabels.careers,
+            value:
+              profile.selectedCareerIds.length > 0
+                ? profile.selectedCareerIds
+                    .map(
+                      (careerId) =>
+                        careerOptions.find((option) => option.careerId === careerId)?.displayLabel,
+                    )
+                    .filter((value): value is string => typeof value === "string")
+                    .join(" · ")
+                : copy.plannerOnboarding.finishSummary.pending,
+          },
+          {
+            label: productCopy.plannerWizard.stepLabels.subjects,
+            value: String(plannerState.selectedSubjectCodes.length),
+          },
+          {
+            label: productCopy.plannerWizard.stepLabels.jointPrograms,
+            value:
+              profile.selectedJointProgramIds.length > 0
+                ? jointProgramOptions
+                    .filter((option) =>
+                      profile.selectedJointProgramIds.includes(option.jointProgramId),
+                    )
+                    .map((option) => option.displayLabel)
+                    .join(" · ")
+                : copy.plannerOnboarding.finishSummary.pending,
+          },
+        ]
+      : []),
     ...(isPhoneViewport
       ? [
           {
@@ -209,7 +376,21 @@ export function PlannerOnboardingWizard({ plans }: PlannerOnboardingWizardProps)
   ];
 
   function resetDownstreamPlannerState() {
+    setSelectedOfferingIds([]);
+    setSelectedPeriodId("");
     setSelectedSubjectCodes([]);
+  }
+
+  function handleAcademicLevelChange(nextAcademicLevel: AcademicLevel) {
+    setAcademicLevel(nextAcademicLevel);
+    setEntryTerm("");
+    setEntryTermDraft({ seasonKey: "", year: "" });
+    setCareerSearch("");
+    setSubjectSearch("");
+    setSelectedCareerIds([]);
+    setSelectedJointProgramIds([]);
+    resetDownstreamPlannerState();
+    setShowValidation(false);
   }
 
   function handleEntrySeasonChange(nextSeasonKey: EntryTermSeasonKey | "") {
@@ -217,6 +398,7 @@ export function PlannerOnboardingWizard({ plans }: PlannerOnboardingWizardProps)
     setEntryTermDraft(nextDraft);
     setEntryTerm(buildEntryTerm(nextDraft.seasonKey, nextDraft.year));
     setCareerSearch("");
+    setSubjectSearch("");
     setSelectedCareerIds([]);
     setSelectedJointProgramIds([]);
     resetDownstreamPlannerState();
@@ -231,17 +413,20 @@ export function PlannerOnboardingWizard({ plans }: PlannerOnboardingWizardProps)
     setEntryTermDraft(nextDraft);
     setEntryTerm(buildEntryTerm(nextDraft.seasonKey, nextDraft.year));
     setCareerSearch("");
+    setSubjectSearch("");
     setSelectedCareerIds([]);
     setSelectedJointProgramIds([]);
     resetDownstreamPlannerState();
     setShowValidation(false);
   }
 
-  function handleCareerToggle(option: CareerChoiceOption) {
-    const exists = profile.selectedCareerIds.includes(option.careerId);
+  function handleCareerToggle(careerId: string) {
+    const exists = profile.selectedCareerIds.includes(careerId);
 
     if (exists) {
-      setSelectedCareerIds(profile.selectedCareerIds.filter((careerId) => careerId !== option.careerId));
+      setSelectedCareerIds(
+        profile.selectedCareerIds.filter((selectedCareerId) => selectedCareerId !== careerId),
+      );
       setSelectedJointProgramIds([]);
       resetDownstreamPlannerState();
       setShowValidation(false);
@@ -253,7 +438,7 @@ export function PlannerOnboardingWizard({ plans }: PlannerOnboardingWizardProps)
       return;
     }
 
-    setSelectedCareerIds([...profile.selectedCareerIds, option.careerId]);
+    setSelectedCareerIds([...profile.selectedCareerIds, careerId]);
     setSelectedJointProgramIds([]);
     resetDownstreamPlannerState();
     setShowValidation(false);
@@ -296,10 +481,12 @@ export function PlannerOnboardingWizard({ plans }: PlannerOnboardingWizardProps)
 
     if (
       !isStepValid({
+        academicLevel: profile.academicLevel,
         activeStep,
         careerSelectionCount: profile.selectedCareerIds.length,
         draftEntryTerm,
         navSwipePreference,
+        selectedSubjectCount: plannerState.selectedSubjectCodes.length,
         validYears: yearOptions,
       })
     ) {
@@ -320,6 +507,24 @@ export function PlannerOnboardingWizard({ plans }: PlannerOnboardingWizardProps)
   function finalizePlannerSetup() {
     if (plannerWidgetIds.length === 0) {
       setPlannerWidgetIds([...PLANNER_WIDGET_IDS]);
+    }
+
+    const validPeriodIds = new Set(filteredPeriods.map((period) => period.period_id));
+    const defaultPeriodId = defaultPeriod?.period_id ?? "";
+
+    if (
+      defaultPeriodId &&
+      (!plannerState.selectedPeriodId || !validPeriodIds.has(plannerState.selectedPeriodId))
+    ) {
+      setSelectedPeriodId(defaultPeriodId);
+    }
+
+    if (
+      profile.academicLevel === "undergraduate" &&
+      plannerState.selectedSubjectCodes.length === 0 &&
+      recommendedSubjectCodes.length > 0
+    ) {
+      setSelectedSubjectCodes(recommendedSubjectCodes);
     }
 
     if (hasCompletedSetupAnimation) {
@@ -413,12 +618,14 @@ export function PlannerOnboardingWizard({ plans }: PlannerOnboardingWizardProps)
 
         <CardContent className="space-y-5">
           {renderStepContent({
+            academicLevel: profile.academicLevel,
             careerChoiceMode,
             careerOptions: filteredCareerOptions,
             careerSearch,
             copy,
             currentStep: activeStep,
             entryTermDraft,
+            handleAcademicLevelChange,
             handleCareerToggle,
             handleEntrySeasonChange,
             handleEntryYearChange,
@@ -428,9 +635,15 @@ export function PlannerOnboardingWizard({ plans }: PlannerOnboardingWizardProps)
             jointProgramOptions,
             navSwipePreference,
             productCopy,
+            selectedSubjectCodes: plannerState.selectedSubjectCodes,
+            selectedSubjectEntries,
             selectedCareerIds: profile.selectedCareerIds,
             selectedJointProgramIds: profile.selectedJointProgramIds,
             setCareerSearch,
+            setSubjectSearch,
+            subjectResults,
+            subjectSearch,
+            toggleSubjectCode,
             yearOptions,
           })}
 
@@ -441,6 +654,7 @@ export function PlannerOnboardingWizard({ plans }: PlannerOnboardingWizardProps)
               </p>
               <p className="mt-2">
                 {getValidationBody({
+                  academicLevel: profile.academicLevel,
                   activeStep,
                   copy,
                   productCopy,
@@ -478,12 +692,14 @@ export function PlannerOnboardingWizard({ plans }: PlannerOnboardingWizardProps)
 }
 
 function renderStepContent({
+  academicLevel,
   careerChoiceMode,
   careerOptions,
   careerSearch,
   copy,
   currentStep,
   entryTermDraft,
+  handleAcademicLevelChange,
   handleCareerToggle,
   handleEntrySeasonChange,
   handleEntryYearChange,
@@ -493,18 +709,26 @@ function renderStepContent({
   jointProgramOptions,
   navSwipePreference,
   productCopy,
+  selectedSubjectCodes,
+  selectedSubjectEntries,
   selectedCareerIds,
   selectedJointProgramIds,
   setCareerSearch,
+  setSubjectSearch,
+  subjectResults,
+  subjectSearch,
+  toggleSubjectCode,
   yearOptions,
 }: {
+  academicLevel: AcademicLevel | null;
   careerChoiceMode: ReturnType<typeof getCareerChoiceMode>;
-  careerOptions: CareerChoiceOption[];
+  careerOptions: ReturnType<typeof buildCareerChoiceOptionsForLevel>;
   careerSearch: string;
   copy: ReturnType<typeof getUiCopy>;
   currentStep: PlannerOnboardingStep;
   entryTermDraft: { seasonKey: EntryTermSeasonKey | ""; year: string };
-  handleCareerToggle: (option: CareerChoiceOption) => void;
+  handleAcademicLevelChange: (nextAcademicLevel: AcademicLevel) => void;
+  handleCareerToggle: (careerId: string) => void;
   handleEntrySeasonChange: (nextSeasonKey: EntryTermSeasonKey | "") => void;
   handleEntryYearChange: (nextYear: string) => void;
   handleJointProgramToggle: (jointProgramId: string) => void;
@@ -513,9 +737,15 @@ function renderStepContent({
   jointProgramOptions: ReturnType<typeof buildJointProgramChoiceOptions>;
   navSwipePreference: "natural" | "inverted" | null;
   productCopy: ReturnType<typeof getProductCopy>;
+  selectedSubjectCodes: string[];
+  selectedSubjectEntries: ReturnType<typeof buildSelectedSubjectSummary>;
   selectedCareerIds: string[];
   selectedJointProgramIds: string[];
   setCareerSearch: (value: string) => void;
+  setSubjectSearch: (value: string) => void;
+  subjectResults: ReturnType<typeof buildSubjectDirectory>;
+  subjectSearch: string;
+  toggleSubjectCode: (subjectCode: string) => void;
   yearOptions: string[];
 }) {
   switch (currentStep) {
@@ -538,6 +768,43 @@ function renderStepContent({
           </div>
         </div>
       );
+    case "academicLevel":
+      return (
+        <div className="space-y-5">
+          <div className="space-y-3">
+            <p className="text-sm font-medium text-foreground">
+              {productCopy.plannerWizard.academicLevelTitle}
+            </p>
+            <p className="text-sm leading-6 text-muted">
+              {productCopy.plannerWizard.academicLevelBody}
+            </p>
+          </div>
+
+          <div className="grid gap-3 sm:grid-cols-2">
+            {ACADEMIC_LEVELS.map((value) => {
+              const selected = academicLevel === value;
+              const option = productCopy.plannerWizard.academicLevelOptions[value];
+              return (
+                <button
+                  key={value}
+                  aria-pressed={selected}
+                  className={getSelectableChoiceCardClassName(selected)}
+                  onClick={() => handleAcademicLevelChange(value)}
+                  type="button"
+                >
+                  <div className="min-w-0 flex-1">
+                    <span className="block font-semibold text-foreground">{option.title}</span>
+                    <span className="mt-2 block text-sm leading-6 text-muted">
+                      {option.body}
+                    </span>
+                  </div>
+                  <SelectionIndicator selected={selected} />
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      );
     case "entryTerm":
       return (
         <div className="space-y-5">
@@ -554,16 +821,19 @@ function renderStepContent({
             {ENTRY_TERM_SEASON_KEYS.map((seasonKey) => (
               <button
                 key={seasonKey}
-                className={[
-                  "choice-card text-left",
-                  entryTermDraft.seasonKey === seasonKey ? "border-accent bg-surface-hover" : "",
-                ].join(" ")}
+                aria-pressed={entryTermDraft.seasonKey === seasonKey}
+                className={getSelectableChoiceCardClassName(
+                  entryTermDraft.seasonKey === seasonKey,
+                )}
                 onClick={() => handleEntrySeasonChange(seasonKey)}
                 type="button"
               >
-                <span className="block font-semibold text-foreground">
-                  {copy.onboardingPage.seasonOptions[seasonKey]}
-                </span>
+                <div className="min-w-0 flex-1">
+                  <span className="block font-semibold text-foreground">
+                    {copy.onboardingPage.seasonOptions[seasonKey]}
+                  </span>
+                </div>
+                <SelectionIndicator selected={entryTermDraft.seasonKey === seasonKey} />
               </button>
             ))}
           </div>
@@ -622,14 +892,17 @@ function renderStepContent({
                 return (
                   <button
                     key={option.careerId}
-                    className={[
-                      "choice-card text-left",
-                      selected ? "border-accent bg-surface-hover" : "",
-                    ].join(" ")}
-                    onClick={() => handleCareerToggle(option)}
+                    aria-pressed={selected}
+                    className={getSelectableChoiceCardClassName(selected)}
+                    onClick={() => handleCareerToggle(option.careerId)}
                     type="button"
                   >
-                    <span className="block font-semibold text-foreground">{option.displayLabel}</span>
+                    <div className="min-w-0 flex-1">
+                      <span className="block font-semibold text-foreground">
+                        {option.displayLabel}
+                      </span>
+                    </div>
+                    <SelectionIndicator selected={selected} />
                   </button>
                 );
               })}
@@ -662,20 +935,123 @@ function renderStepContent({
               {jointProgramOptions.map((option) => (
                 <button
                   key={option.jointProgramId}
-                  className={[
-                    "choice-card text-left",
-                    selectedJointProgramIds.includes(option.jointProgramId)
-                      ? "border-accent bg-surface-hover"
-                      : "",
-                  ].join(" ")}
+                  aria-pressed={selectedJointProgramIds.includes(option.jointProgramId)}
+                  className={getSelectableChoiceCardClassName(
+                    selectedJointProgramIds.includes(option.jointProgramId),
+                  )}
                   onClick={() => handleJointProgramToggle(option.jointProgramId)}
                   type="button"
                 >
-                  <span className="block font-semibold text-foreground">{option.displayLabel}</span>
+                  <div className="min-w-0 flex-1">
+                    <span className="block font-semibold text-foreground">
+                      {option.displayLabel}
+                    </span>
+                  </div>
+                  <SelectionIndicator
+                    selected={selectedJointProgramIds.includes(option.jointProgramId)}
+                  />
                 </button>
               ))}
             </div>
           )}
+        </div>
+      );
+    case "subjects":
+      return (
+        <div className="space-y-5">
+          <div className="space-y-3">
+            <p className="text-sm font-medium text-foreground">
+              {productCopy.plannerWizard.subjectsTitle}
+            </p>
+            <p className="text-sm leading-6 text-muted">
+              {productCopy.plannerWizard.subjectsBody}
+            </p>
+          </div>
+
+          <div className="soft-panel flex flex-wrap items-center justify-between gap-3 text-sm leading-6 text-muted">
+            <span>{productCopy.plannerWizard.subjectsCount}</span>
+            <span className="font-semibold text-foreground">{selectedSubjectCodes.length}</span>
+          </div>
+
+          <div className="space-y-3">
+            <p className="text-sm font-medium text-foreground">
+              {productCopy.plannerWizard.subjectsSelected}
+            </p>
+            {selectedSubjectEntries.length === 0 ? (
+              <div className="soft-panel text-sm leading-6 text-muted">
+                {productCopy.plannerWizard.subjectsDefaultEmpty}
+              </div>
+            ) : (
+              <div className="grid gap-3 sm:grid-cols-2">
+                {selectedSubjectEntries.map((entry) => (
+                  <button
+                    key={entry.courseCode}
+                    aria-pressed
+                    className={getSelectableChoiceCardClassName(true)}
+                    onClick={() => toggleSubjectCode(entry.courseCode)}
+                    type="button"
+                  >
+                    <div className="min-w-0 flex-1">
+                      <span className="block font-semibold text-foreground">
+                        {entry.courseCode}
+                      </span>
+                      <span className="mt-2 block text-sm leading-6 text-muted">
+                        {entry.title}
+                      </span>
+                    </div>
+                    <SelectionIndicator selected />
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+
+          <input
+            aria-label={productCopy.plannerSettings.subjectsSearch}
+            className={INPUT_CLASS_NAME}
+            onChange={(event) => setSubjectSearch(event.target.value)}
+            placeholder={productCopy.plannerWizard.subjectsSearchPlaceholder}
+            type="search"
+            value={subjectSearch}
+          />
+
+          <div className="space-y-3">
+            <p className="text-sm font-medium text-foreground">
+              {subjectSearch.trim()
+                ? productCopy.common.search
+                : productCopy.plannerWizard.subjectsRecommended}
+            </p>
+            {subjectResults.length === 0 ? (
+              <div className="soft-panel text-sm leading-6 text-muted">
+                {productCopy.plannerWizard.subjectsDefaultEmpty}
+              </div>
+            ) : (
+              <div className="grid gap-3 sm:grid-cols-2">
+                {subjectResults.map((entry) => {
+                  const selected = selectedSubjectCodes.includes(entry.courseCode);
+                  return (
+                    <button
+                      key={entry.courseCode}
+                      aria-pressed={selected}
+                      className={getSelectableChoiceCardClassName(selected)}
+                      onClick={() => toggleSubjectCode(entry.courseCode)}
+                      type="button"
+                    >
+                      <div className="min-w-0 flex-1">
+                        <span className="block font-semibold text-foreground">
+                          {entry.courseCode}
+                        </span>
+                        <span className="mt-2 block text-sm leading-6 text-muted">
+                          {entry.title}
+                        </span>
+                      </div>
+                      <SelectionIndicator selected={selected} />
+                    </button>
+                  );
+                })}
+              </div>
+            )}
+          </div>
         </div>
       );
     case "swipe":
@@ -698,19 +1074,22 @@ function renderStepContent({
             {(["natural", "inverted"] as const).map((preference) => (
               <button
                 key={preference}
-                className={[
-                  "choice-card text-left",
-                  navSwipePreference === preference ? "border-accent bg-surface-hover" : "",
-                ].join(" ")}
+                aria-pressed={navSwipePreference === preference}
+                className={getSelectableChoiceCardClassName(
+                  navSwipePreference === preference,
+                )}
                 onClick={() => handleSwipePreferenceSelection(preference)}
                 type="button"
               >
-                <span className="block font-semibold text-foreground">
-                  {copy.plannerOnboarding.swipeOptions[preference].title}
-                </span>
-                <span className="mt-2 block text-sm leading-6 text-muted">
-                  {copy.plannerOnboarding.swipeOptions[preference].body}
-                </span>
+                <div className="min-w-0 flex-1">
+                  <span className="block font-semibold text-foreground">
+                    {copy.plannerOnboarding.swipeOptions[preference].title}
+                  </span>
+                  <span className="mt-2 block text-sm leading-6 text-muted">
+                    {copy.plannerOnboarding.swipeOptions[preference].body}
+                  </span>
+                </div>
+                <SelectionIndicator selected={navSwipePreference === preference} />
               </button>
             ))}
           </div>
@@ -741,35 +1120,53 @@ function renderStepContent({
 }
 
 function getInitialWizardStep(
+  academicLevel: AcademicLevel | null,
   entryTerm: string,
   selectedCareerIds: string[],
   selectedJointProgramIds: string[],
+  selectedSubjectCount: number,
   navSwipePreference: "natural" | "inverted" | null,
-  plans: BulletinSummary[],
+  shouldShowJointPrograms: boolean,
+  shouldShowSubjects: boolean,
   isPhoneViewport: boolean,
 ): PlannerOnboardingStep {
   const parsedEntryTerm = parseEntryTerm(entryTerm);
 
   if (
+    academicLevel === null &&
     !parsedEntryTerm.seasonKey &&
     !parsedEntryTerm.year &&
     selectedCareerIds.length === 0 &&
     selectedJointProgramIds.length === 0 &&
+    selectedSubjectCount === 0 &&
     navSwipePreference === null
   ) {
     return "intro";
+  }
+
+  if (academicLevel === null) {
+    return "academicLevel";
   }
 
   if (!parsedEntryTerm.seasonKey || !parsedEntryTerm.year) {
     return "entryTerm";
   }
 
-  if (selectedCareerIds.length === 0) {
+  if (academicLevel === "undergraduate" && selectedCareerIds.length === 0) {
     return "careers";
   }
 
-  if (buildJointProgramChoiceOptions(plans, entryTerm, selectedCareerIds).length > 0 && selectedJointProgramIds.length === 0) {
+  if (
+    academicLevel === "undergraduate" &&
+    shouldShowJointPrograms &&
+    selectedJointProgramIds.length === 0 &&
+    selectedSubjectCount === 0
+  ) {
     return "jointPrograms";
+  }
+
+  if (academicLevel === "undergraduate" && shouldShowSubjects && selectedSubjectCount === 0) {
+    return "subjects";
   }
 
   if (isPhoneViewport && navSwipePreference === null) {
@@ -785,49 +1182,65 @@ function getStepLabel(
   productCopy: ReturnType<typeof getProductCopy>,
 ) {
   switch (step) {
+    case "academicLevel":
+      return productCopy.plannerWizard.stepLabels.academicLevel;
     case "careers":
       return productCopy.plannerWizard.stepLabels.careers;
     case "jointPrograms":
       return productCopy.plannerWizard.stepLabels.jointPrograms;
+    case "subjects":
+      return productCopy.plannerWizard.stepLabels.subjects;
     default:
       return copy.plannerOnboarding.stepLabels[step];
   }
 }
 
 function getValidationBody({
+  academicLevel,
   activeStep,
   copy,
   productCopy,
   selectedCareerIds,
 }: {
+  academicLevel: AcademicLevel | null;
   activeStep: PlannerOnboardingStep;
   copy: ReturnType<typeof getUiCopy>;
   productCopy: ReturnType<typeof getProductCopy>;
   selectedCareerIds: string[];
 }) {
   switch (activeStep) {
+    case "academicLevel":
+      return productCopy.plannerWizard.validation.academicLevel;
     case "careers":
       return selectedCareerIds.length >= MAX_SELECTED_CAREERS
         ? productCopy.plannerWizard.careerLimit
         : productCopy.plannerWizard.validation.careers;
     case "jointPrograms":
       return productCopy.plannerWizard.validation.jointPrograms;
+    case "subjects":
+      return academicLevel === "graduate"
+        ? copy.plannerOnboarding.validationBody.finish
+        : productCopy.plannerWizard.validation.subjects;
     default:
       return copy.plannerOnboarding.validationBody[activeStep];
   }
 }
 
 function isStepValid({
+  academicLevel,
   activeStep,
   careerSelectionCount,
   draftEntryTerm,
   navSwipePreference,
+  selectedSubjectCount,
   validYears,
 }: {
+  academicLevel: AcademicLevel | null;
   activeStep: PlannerOnboardingStep;
   careerSelectionCount: number;
   draftEntryTerm: string;
   navSwipePreference: "natural" | "inverted" | null;
+  selectedSubjectCount: number;
   validYears: string[];
 }) {
   switch (activeStep) {
@@ -835,15 +1248,44 @@ function isStepValid({
     case "jointPrograms":
     case "finish":
       return true;
+    case "academicLevel":
+      return academicLevel !== null;
     case "entryTerm": {
       const parsedEntryTerm = parseEntryTerm(draftEntryTerm);
       return parsedEntryTerm.seasonKey.length > 0 && validYears.includes(parsedEntryTerm.year);
     }
     case "careers":
-      return careerSelectionCount > 0 && careerSelectionCount <= MAX_SELECTED_CAREERS;
+      return academicLevel === "graduate"
+        ? true
+        : careerSelectionCount > 0 && careerSelectionCount <= MAX_SELECTED_CAREERS;
+    case "subjects":
+      return academicLevel === "graduate" ? true : selectedSubjectCount > 0;
     case "swipe":
       return navSwipePreference !== null;
   }
+}
+
+function getSelectableChoiceCardClassName(selected: boolean) {
+  return [
+    "choice-card items-start justify-between text-left",
+    selected
+      ? "border-accent bg-accent-soft shadow-[0_18px_34px_rgba(31,77,63,0.12)]"
+      : "",
+  ].join(" ");
+}
+
+function SelectionIndicator({ selected }: { selected: boolean }) {
+  return (
+    <span
+      aria-hidden
+      className={[
+        "mt-1 h-4 w-4 shrink-0 rounded-full border transition",
+        selected
+          ? "border-accent bg-accent shadow-[0_0_0_4px_rgba(31,77,63,0.12)]"
+          : "border-border bg-transparent",
+      ].join(" ")}
+    />
+  );
 }
 
 function arraysMatch(left: string[], right: string[]) {

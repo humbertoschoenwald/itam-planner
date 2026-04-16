@@ -25,14 +25,26 @@ describe("SiteHeader", () => {
     usePlannerUiStore.setState({ state: DEFAULT_PLANNER_UI_STATE });
   });
 
-  it("renders only the Home / Planner / Calendario primary navigation", () => {
+  it("renders the primary nav and keeps the secondary actions in the same desktop cluster", () => {
     const { container } = render(<SiteHeader />);
 
     expect(screen.getByRole("link", { name: "Home" })).toHaveAttribute("href", "/");
     expect(screen.getByRole("link", { name: "Planner" })).toHaveAttribute("href", "/planner");
     expect(screen.getByRole("link", { name: "Calendario" })).toHaveAttribute("href", "/calendar");
-    expect(screen.queryByRole("link", { name: /Comunidad/u })).not.toBeInTheDocument();
-    expect(screen.queryByRole("link", { name: /Conectar con ChatGPT/u })).not.toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "Proyecto" })).toHaveAttribute("href", "/project");
+    expect(screen.getByRole("link", { name: "Connect to AI" })).toHaveAttribute("href", "/connect-ai");
+    expect(screen.getByRole("link", { name: "Inscripciones" })).toHaveAttribute(
+      "href",
+      "/inscripciones",
+    );
+    expect(screen.getByRole("link", { name: "Configuración" })).toHaveAttribute(
+      "href",
+      "/planner/settings",
+    );
+    expect(screen.getByRole("link", { name: "Abrir búsqueda local" })).toHaveAttribute(
+      "href",
+      "/search",
+    );
     expect(container.querySelector("header")).toHaveClass("sticky");
   });
 

@@ -48,7 +48,7 @@ export function OnboardingPanel({
   const parsedEntryTerm = parseEntryTerm(profile.entryTerm);
   const [entryTermDraft, setEntryTermDraft] = useState(parsedEntryTerm);
   const [showValidation, setShowValidation] = useState(false);
-  const yearOptions = getEntryTermYearOptions(plans);
+  const yearOptions = getEntryTermYearOptions(plans, null);
   const localeOptions = Object.entries(copy.common.localeLabels).map(([value, label]) => ({
     label,
     value,

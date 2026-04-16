@@ -49,6 +49,12 @@ describe("official academics helpers", () => {
   it("distinguishes individual careers from joint programs", () => {
     expect(isIndividualCareerProgram("LICENCIATURA EN ACTUARÍA")).toBe(true);
     expect(
+      isIndividualCareerProgram("INGENIERÍA INDUSTRIAL Y EN SISTEMAS INTELIGENTES"),
+    ).toBe(true);
+    expect(
+      isIndividualCareerProgram("INGENIERÍA Y CIENCIAS DE LA COMPUTACIÓN"),
+    ).toBe(true);
+    expect(
       isIndividualCareerProgram("LICENCIATURA EN ACTUARÍA Y MATEMÁTICAS APLICADAS"),
     ).toBe(false);
   });

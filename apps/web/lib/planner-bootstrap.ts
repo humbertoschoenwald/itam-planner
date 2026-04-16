@@ -6,10 +6,18 @@ export function hasCompletedPlannerBootstrap(
   plannerWidgetIds: PlannerWidgetId[],
   plans: BulletinSummary[],
 ) {
+  if (profile.academicLevel === null) {
+    return false;
+  }
+
+  if (profile.academicLevel === "graduate") {
+    return isValidEntryTerm(profile.entryTerm) && plannerWidgetIds.length > 0;
+  }
+
   return (
     isValidEntryTerm(profile.entryTerm) &&
     profile.selectedCareerIds.length > 0 &&
-    hasApplicableActivePlans(profile, plans) &&
+    (profile.activePlanIds.length === 0 || hasApplicableActivePlans(profile, plans)) &&
     plannerWidgetIds.length > 0
   );
 }

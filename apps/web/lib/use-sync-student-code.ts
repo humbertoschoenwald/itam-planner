@@ -8,6 +8,7 @@ import { useStudentCodeStore } from "@/stores/student-code-store";
 import { useStudentProfileStore } from "@/stores/student-profile-store";
 
 export function useSyncStudentCode() {
+  const academicLevel = useStudentProfileStore((state) => state.profile.academicLevel);
   const entryTerm = useStudentProfileStore((state) => state.profile.entryTerm);
   const activePlanIds = useStudentProfileStore((state) => state.profile.activePlanIds);
   const locale = useStudentProfileStore((state) => state.profile.locale);
@@ -23,6 +24,7 @@ export function useSyncStudentCode() {
 
   useEffect(() => {
     const hasProfileData =
+      academicLevel !== null ||
       entryTerm.trim().length > 0 ||
       activePlanIds.length > 0 ||
       selectedCareerIds.length > 0 ||
@@ -41,6 +43,7 @@ export function useSyncStudentCode() {
       setCode(
         buildStudentCode(
           {
+            academicLevel,
             entryTerm,
             activePlanIds,
             locale,
@@ -59,6 +62,7 @@ export function useSyncStudentCode() {
     }
   }, [
     activePlanIds,
+    academicLevel,
     clearCode,
     entryTerm,
     locale,

@@ -8,10 +8,10 @@ export const metadata: Metadata = {
     canonical: "/planner/onboarding",
   },
   description:
-    "Onboarding embebido en el planner de ITAM Planner para elegir periodo de ingreso, carrera y preferencia de deslizamiento local.",
+    "Onboarding embebido en el planner de ITAM Planner para elegir nivel académico, periodo de ingreso, carreras y materias por defecto.",
   openGraph: {
     description:
-      "Onboarding embebido en el planner de ITAM Planner para elegir periodo de ingreso, carrera y preferencia de deslizamiento local.",
+      "Onboarding embebido en el planner de ITAM Planner para elegir nivel académico, periodo de ingreso, carreras y materias por defecto.",
     title: "Planner Onboarding",
     type: "website",
     url: "/planner/onboarding",
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   title: "Planner Onboarding",
   twitter: {
     description:
-      "Onboarding embebido en el planner de ITAM Planner para elegir periodo de ingreso, carrera y preferencia de deslizamiento local.",
+      "Onboarding embebido en el planner de ITAM Planner para elegir nivel académico, periodo de ingreso, carreras y materias por defecto.",
     title: "Planner Onboarding",
   },
 };
@@ -27,5 +27,11 @@ export const metadata: Metadata = {
 export default async function PlannerOnboardingPage() {
   const bootstrap = await readOnboardingBootstrap();
 
-  return <PlannerOnboardingWizard plans={bootstrap.plans} />;
+  return (
+    <PlannerOnboardingWizard
+      bulletinDocuments={bootstrap.bulletinDocuments}
+      periods={bootstrap.periods}
+      plans={bootstrap.plans}
+    />
+  );
 }

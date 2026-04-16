@@ -58,6 +58,7 @@ describe("PlannerRouteShell", () => {
     useStudentProfileStore.setState({
       profile: {
         ...DEFAULT_STUDENT_PROFILE,
+        academicLevel: "undergraduate",
         entryTerm: "OTOÑO 2025",
         activePlanIds: ["plan:ma-e"],
         selectedCareerIds: ["matematicas-aplicadas"],
@@ -103,6 +104,7 @@ describe("PlannerRouteShell", () => {
     useStudentProfileStore.setState({
       profile: {
         ...DEFAULT_STUDENT_PROFILE,
+        academicLevel: "undergraduate",
         entryTerm: "OTOÑO 2025",
         activePlanIds: ["plan:ma-e"],
         selectedCareerIds: ["matematicas-aplicadas"],
