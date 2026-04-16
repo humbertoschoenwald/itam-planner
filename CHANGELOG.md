@@ -12,6 +12,7 @@ Do not edit it manually.
 - web: cover official joint programs in onboarding (`29c5030`)
 - web: add official graduate study references (`95b247f`)
 - web: localize schedule surfaces cleanly (`0e139a7`)
+- web: align schedule wording across metadata (`d13b44e`)
 
 ### Fixes
 
