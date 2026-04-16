@@ -2,6 +2,7 @@ import { beforeEach, describe, expect, it } from "vitest";
 
 import { STORAGE_KEYS } from "@/lib/storage-keys";
 import { DEFAULT_PLANNER_STATE, usePlannerStore } from "@/stores/planner-store";
+import { DEFAULT_PLANNER_UI_STATE, usePlannerUiStore } from "@/stores/planner-ui-store";
 import { useStudentCodeStore } from "@/stores/student-code-store";
 import {
   DEFAULT_STUDENT_PROFILE,
@@ -13,6 +14,7 @@ describe("persisted stores", () => {
     window.localStorage.clear();
     useStudentProfileStore.setState({ profile: DEFAULT_STUDENT_PROFILE });
     usePlannerStore.setState({ state: DEFAULT_PLANNER_STATE });
+    usePlannerUiStore.setState({ state: DEFAULT_PLANNER_UI_STATE });
     useStudentCodeStore.setState({ code: "" });
   });
 
@@ -85,6 +87,45 @@ describe("persisted stores", () => {
     await usePlannerStore.persist.rehydrate();
 
     expect(usePlannerStore.getState().state).toEqual(DEFAULT_PLANNER_STATE);
+  });
+
+  it("persists and rehydrates planner UI preferences", async () => {
+    usePlannerUiStore.getState().setNavSwipePreference("natural");
+    usePlannerUiStore.getState().setPlannerWidgetIds(["today", "week", "today"]);
+
+    const stored = JSON.parse(window.localStorage.getItem(STORAGE_KEYS.plannerUi) ?? "{}");
+    expect(stored.state.state.navSwipePreference).toBe("natural");
+
+    usePlannerUiStore.setState({ state: DEFAULT_PLANNER_UI_STATE });
+    window.localStorage.setItem(STORAGE_KEYS.plannerUi, JSON.stringify(stored));
+    await usePlannerUiStore.persist.rehydrate();
+
+    expect(usePlannerUiStore.getState().state).toEqual({
+      navSwipePreference: "natural",
+      plannerWidgetIds: ["today", "week"],
+    });
+  });
+
+  it("sanitizes malformed planner UI state during rehydration", async () => {
+    window.localStorage.setItem(
+      STORAGE_KEYS.plannerUi,
+      JSON.stringify({
+        state: {
+          state: {
+            navSwipePreference: "sideways",
+            plannerWidgetIds: ["today", "broken", 7],
+          },
+        },
+        version: 0,
+      }),
+    );
+
+    await usePlannerUiStore.persist.rehydrate();
+
+    expect(usePlannerUiStore.getState().state).toEqual({
+      navSwipePreference: null,
+      plannerWidgetIds: ["today"],
+    });
   });
 
   it("keeps student code derived in memory instead of persisting it", () => {

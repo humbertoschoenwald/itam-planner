@@ -1,7 +1,16 @@
 import type { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const routes = ["", "/onboarding", "/planner", "/community", "/connect-chatgpt"];
+  const routes = [
+    "",
+    "/planner",
+    "/planner/onboarding",
+    "/calendar",
+    "/community",
+    "/connect-chatgpt",
+    "/terms",
+    "/privacy",
+  ];
 
   return routes.map((route) => ({
     changeFrequency: "weekly",

@@ -11,10 +11,6 @@ describe("getUiCopy", () => {
     expect(getUiCopy("en").common.community).toBe("Community");
   });
 
-  it("includes the iOS install guidance in Spanish-first copy", () => {
-    expect(getUiCopy("es-MX").installGuide.iosSteps[2]).toMatch(/Agregar a pantalla de inicio/u);
-  });
-
   it("includes the under construction banner copy in Spanish-first mode", () => {
     expect(getUiCopy("es-MX").underConstruction.title).toBe("Under Construction");
   });
@@ -24,5 +20,14 @@ describe("getUiCopy", () => {
     expect(getUiCopy("es-MX").onboardingPage.seasonOptions.fall).toBe("Otoño");
     expect(getUiCopy("en").onboardingPage.seasonOptions.spring).toBe("Spring");
     expect(getUiCopy("en").onboardingPage.seasonOptions.fall).toBe("Fall");
+  });
+
+  it("exposes the new primary navigation, footer, and planner-onboarding copy", () => {
+    const copy = getUiCopy("es-MX");
+
+    expect(copy.common.home).toBe("Home");
+    expect(copy.common.calendar).toBe("Calendario");
+    expect(copy.footer.terms).toBe("Términos y condiciones");
+    expect(copy.plannerOnboarding.swipeTitle).toMatch(/Desliza/u);
   });
 });

@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Fraunces, Space_Grotesk } from "next/font/google";
 
+import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { UnderConstructionBanner } from "@/components/under-construction-banner";
 
@@ -102,6 +103,7 @@ export default function RootLayout({
         <SiteHeader />
         <UnderConstructionBanner />
         {children}
+        <SiteFooter />
       </body>
     </html>
   );

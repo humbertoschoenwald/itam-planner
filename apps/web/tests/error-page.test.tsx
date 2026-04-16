@@ -19,9 +19,9 @@ describe("RouteError", () => {
       />,
     );
 
-    expect(screen.getByRole("link", { name: /Ir a onboarding/u })).toHaveAttribute(
+    expect(screen.getByRole("link", { name: /Abrir onboarding/u })).toHaveAttribute(
       "href",
-      "/onboarding?from=planner",
+      "/planner/onboarding",
     );
 
     fireEvent.click(screen.getByRole("button", { name: /Reintentar/u }));

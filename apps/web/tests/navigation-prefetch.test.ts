@@ -6,13 +6,14 @@ import { describe, expect, it } from "vitest";
 const webRoot = path.resolve(__dirname, "..");
 
 const filesWithDisabledPrefetch = [
-  "app/page.tsx",
+  "components/home-page-shell.tsx",
   "components/community-page-shell.tsx",
   "components/connect-chatgpt-panel.tsx",
   "components/onboarding-panel.tsx",
   "components/planner-home.tsx",
   "components/planner-route-shell.tsx",
   "components/site-header.tsx",
+  "components/site-footer.tsx",
   "components/student-code-card.tsx",
 ];
 

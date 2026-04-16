@@ -4,10 +4,9 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 import { CatalogFreshnessCard } from "@/components/catalog-freshness-card";
-import { CommunityLinks } from "@/components/community-links";
-import { InstallGuideCard } from "@/components/install-guide-card";
 import { SelectedWeekBoard } from "@/components/selected-week-board";
-import { StudentCodeCard } from "@/components/student-code-card";
+import { SubjectsPlansCard } from "@/components/subjects-plans-card";
+import { TodayClassesCard } from "@/components/today-classes-card";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { fetchSchedulePeriodDetail } from "@/lib/api";
@@ -18,6 +17,7 @@ import type {
   SourcesMetadata,
 } from "@/lib/types";
 import { usePlannerStore } from "@/stores/planner-store";
+import { usePlannerUiStore } from "@/stores/planner-ui-store";
 import { useStudentProfileStore } from "@/stores/student-profile-store";
 
 const INPUT_CLASS_NAME = "field-shell text-sm";
@@ -37,6 +37,7 @@ export function PlannerHome({
   const copy = getUiCopy(profile.locale);
 
   const plannerState = usePlannerStore((state) => state.state);
+  const plannerWidgetIds = usePlannerUiStore((state) => state.state.plannerWidgetIds);
   const setSelectedPeriodId = usePlannerStore((state) => state.setSelectedPeriodId);
   const toggleOfferingId = usePlannerStore((state) => state.toggleOfferingId);
   const resetPlanner = usePlannerStore((state) => state.resetPlanner);
@@ -89,7 +90,7 @@ export function PlannerHome({
         setResolvedPeriodId(activePeriodId);
         setSelectedPeriod(null);
         setSelectedPeriodError(copy.plannerHome.selectedPeriodLoadError);
-      })
+      });
 
     return () => {
       active = false;
@@ -107,6 +108,9 @@ export function PlannerHome({
   const activePeriodLabel =
     periods.find((period) => period.period_id === activePeriodId)?.label ??
     copy.plannerHome.activePeriodFallback;
+  const showTodayWidget = plannerWidgetIds.includes("today");
+  const showWeekWidget = plannerWidgetIds.includes("week");
+  const showSubjectsWidget = plannerWidgetIds.includes("subjects");
 
   const heroMetrics = [
     { label: copy.plannerHome.plansMetric, value: String(plans.length) },
@@ -132,28 +136,19 @@ export function PlannerHome({
 
             <div className="flex flex-wrap gap-3">
               <Button asChild variant="secondary">
-                <Link href="/onboarding" prefetch={false}>
+                <Link href="/planner/onboarding" prefetch={false}>
                   {copy.plannerHome.updateOnboarding}
                 </Link>
               </Button>
-              <Button asChild>
-                <Link href="/connect-chatgpt" prefetch={false}>
-                  {copy.common.connectToChatGpt}
+              <Button asChild variant="secondary">
+                <Link href="/calendar" prefetch={false}>
+                  {copy.common.calendar}
                 </Link>
               </Button>
               <Button asChild variant="secondary">
-                <Link href="/community" prefetch={false}>
-                  {copy.common.community}
+                <Link href="/" prefetch={false}>
+                  {copy.common.home}
                 </Link>
-              </Button>
-              <Button asChild variant="secondary">
-                <a
-                  href="https://github.com/humbertoschoenwald/itam-planner/issues"
-                  rel="noreferrer"
-                  target="_blank"
-                >
-                  {copy.plannerHome.openGitHubIssues}
-                </a>
               </Button>
             </div>
 
@@ -171,10 +166,10 @@ export function PlannerHome({
 
           <div className="glass-accent rounded-[1.9rem] border border-white/10 px-5 py-5 shadow-[0_24px_50px_rgba(18,40,33,0.26)]">
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-inverse-muted">
-              {copy.plannerHome.independentProject}
+              {copy.plannerHome.surfaceEyebrow}
             </p>
             <p className="mt-3 text-sm leading-6 text-inverse-muted">
-              {copy.plannerHome.legal}
+              {copy.plannerHome.surfaceBody}
             </p>
 
             <div className="mt-5 space-y-3">
@@ -202,8 +197,6 @@ export function PlannerHome({
           </div>
         </div>
       </section>
-
-      <InstallGuideCard locale={profile.locale} />
 
       <section className="page-grid">
         <Card>
@@ -332,31 +325,24 @@ export function PlannerHome({
       </section>
 
       <section className="page-grid">
+        {showTodayWidget ? <TodayClassesCard locale={profile.locale} offerings={selectedOfferings} /> : null}
         <CatalogFreshnessCard
           isLoading={false}
           locale={profile.locale}
           metadata={sourcesMetadata}
         />
-
-        <SelectedWeekBoard locale={profile.locale} offerings={selectedOfferings} />
       </section>
 
       <section className="page-grid">
-        <StudentCodeCard />
-
-        <Card>
-          <CardHeader>
-            <p className="eyebrow">{copy.plannerHome.step2}</p>
-            <CardTitle>{copy.common.community}</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <CommunityLinks />
-            <div className="rounded-[1.35rem] bg-accent-soft px-4 py-4 text-sm leading-6 text-accent">
-              <p className="font-semibold">{copy.plannerHome.communitySupportTitle}</p>
-              <p className="mt-2">{copy.plannerHome.communitySupport}</p>
-            </div>
-          </CardContent>
-        </Card>
+        {showWeekWidget ? <SelectedWeekBoard locale={profile.locale} offerings={selectedOfferings} /> : null}
+        {showSubjectsWidget ? (
+          <SubjectsPlansCard
+            locale={profile.locale}
+            offerings={selectedOfferings}
+            plans={plans}
+            selectedPlanIds={profile.activePlanIds}
+          />
+        ) : null}
       </section>
     </main>
   );

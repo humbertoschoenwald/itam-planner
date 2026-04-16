@@ -3,13 +3,15 @@ import type { LocaleCode } from "@/lib/types";
 const uiCopy = {
   en: {
     common: {
+      calendar: "Calendar",
       backToPlanner: "Back to planner",
       community: "Community",
       connectToChatGpt: "Connect to ChatGPT",
       genericErrorBody:
-        "This view could not be loaded. Retry or return to onboarding.",
+        "This view could not be loaded. Retry or open planner onboarding.",
       genericErrorTitle: "This view could not be loaded.",
-      goToOnboarding: "Go to onboarding",
+      goToOnboarding: "Open onboarding",
+      home: "Home",
       localeLabels: {
         "es-MX": "Spanish (MX)",
         en: "English",
@@ -69,37 +71,54 @@ const uiCopy = {
     },
     homePage: {
       eyebrow: "Home",
-      title: "A light home for the planner, not the planner itself.",
+      title: "The mobile shell for planner, calendar, and secondary tools.",
       description:
-        "Start with onboarding, keep your student context in this browser, and open the planner only when you are ready to shape a timetable from the published catalog.",
-      independentProject: "Independent project",
-      primaryAction: "Start onboarding",
-      routeCards: [
-        {
-          body: "Set your entry term, active plans, and preferred locale. None of that leaves this browser.",
-          eyebrow: "Suggested route",
-          title: "1. /onboarding",
-        },
-        {
-          body: "The planner no longer shares the home payload. If onboarding is still incomplete, this route returns you to /onboarding.",
-          eyebrow: "Next step",
-          title: "2. /planner",
-        },
-      ],
-      secondaryAction: "Open planner",
-      tertiaryAction: "Community",
+        "Use Home as the discovery surface, keep Planner focused on your browser-local schedule, and open Calendar for the general academic timeline.",
+      primaryAction: "Open planner",
+      secondaryAction: "Open calendar",
+      surfaceEyebrow: "Mobile-first shell",
       panels: [
         {
-          title: "No account wall",
-          body: "The flow starts in the browser. No sign-in, no server-side student profile, and no cloud-backed schedule identity.",
+          title: "Browser-local planner",
+          body: "Your academic profile, selected groups, and UI preferences stay in this browser.",
         },
         {
-          title: "Precomputed catalog",
-          body: "Course relationships, periods, and supporting academic data are shipped from promoted JSON artifacts instead of being recalculated at request time.",
+          title: "Precomputed public data",
+          body: "The app reads normalized public academic artifacts instead of recalculating catalog relationships at request time.",
         },
         {
-          title: "Designed for WebKit",
-          body: "The public home stays deliberately light while the dedicated planner shell lives under its own route.",
+          title: "Safari-first navigation",
+          body: "The top bar is the main mobile navigation surface, including the planner-to-home swipe shortcut.",
+        },
+      ],
+      featureCards: [
+        {
+          action: "Open planner",
+          body: "Planner now owns onboarding, schedule selection, and widget preferences inside a single route family.",
+          eyebrow: "Primary flow",
+          href: "/planner",
+          title: "Planner",
+        },
+        {
+          action: "Open calendar",
+          body: "See the general academic calendar first, then enrich it with today’s class context once planner onboarding exists.",
+          eyebrow: "Top-level destination",
+          href: "/calendar",
+          title: "Calendario",
+        },
+        {
+          action: "Open community",
+          body: "GitHub issues remain the support path for bugs, drift, and data corrections.",
+          eyebrow: "Secondary surface",
+          href: "/community",
+          title: "Community",
+        },
+        {
+          action: "Open ChatGPT setup",
+          body: "The AI bridge stays secondary and lives here instead of competing for primary navigation space.",
+          eyebrow: "Secondary surface",
+          href: "/connect-chatgpt",
+          title: "Connect to ChatGPT",
         },
       ],
     },
@@ -134,6 +153,90 @@ const uiCopy = {
       validationBody:
         "Choose both entry-term selectors and keep at least one active plan before moving to the planner.",
       validationTitle: "Complete the required onboarding fields",
+    },
+    plannerOnboarding: {
+      activePlansBody:
+        "Select the plans that currently apply to you. No account is required and nothing is stored in the backend.",
+      activePlansTitle: "Which plans apply to you right now?",
+      back: "Back",
+      eyebrow: "Planner onboarding",
+      entrySeasonBody: "Choose the academic cycle that matches your entry term.",
+      entrySeasonTitle: "Which cycle did you enter in?",
+      entryYearBody: "Choose only a year that exists in the current published catalog.",
+      entryYearTitle: "Which year applies to that cycle?",
+      localeBody: "This controls visible product copy. You can change it later.",
+      localeTitle: "Which language should the planner use?",
+      next: "Next",
+      openPlanner: "Open planner",
+      redirectBody: "Planner needs the embedded onboarding flow before this browser can render your schedule shell.",
+      redirectTitle: "Planner is preparing your onboarding flow",
+      swipeBody: "Swipe on the top navigation bar to jump back to Home from Planner. The first swipe teaches the browser which horizontal direction you prefer.",
+      swipeTitle: "Swipe to reach Home from Planner",
+      title: "Answer the planner questions one step at a time",
+      widgetDescriptions: {
+        subjects: "Show your selected plans and the current subjects or groups stored in this browser.",
+        today: "Prioritize the classes that matter today in America/Mexico_City.",
+        week: "Keep the weekly view available below the daily summary.",
+      },
+      widgetLabels: {
+        subjects: "Subjects / plans",
+        today: "Today",
+        week: "Week",
+      },
+      widgetsBody: "Choose the widgets you want to keep in the planner launch view.",
+      widgetsTitle: "What should appear in your planner?",
+    },
+    calendarPage: {
+      datePending: "Date pending",
+      description:
+        "Calendar stays useful before onboarding, then adds class-aware context once your planner exists in this browser.",
+      eyebrow: "Calendario",
+      generalCalendarBody:
+        "You can browse the public academic calendar right away. Planner-specific class context appears here after completing planner onboarding.",
+      generalCalendarEyebrow: "General calendar",
+      generalCalendarTitle: "Public calendar first",
+      noAcademicPeriod: "General",
+      paymentsEyebrow: "Payments",
+      paymentsTitle: "Payment highlights",
+      schoolEyebrow: "Academic events",
+      title: "Academic calendar",
+    },
+    legalPages: {
+      privacy: {
+        description: "What the site stores locally, what it never stores on the backend, and how browser-owned state behaves.",
+        eyebrow: "Privacy",
+        sections: [
+          {
+            body: "This product stores only browser-local planner context such as your entry term, active plans, selected groups, widget preferences, and navigation preferences. That data stays on your device.",
+            title: "What stays in the browser",
+          },
+          {
+            body: "The backend does not store your name, email, student ID, selected schedule, or account-backed profile. There are no sign-ins, no analytics, and no personal telemetry.",
+            title: "What never leaves the browser",
+          },
+        ],
+        title: "Privacy notice",
+      },
+      terms: {
+        description: "Independent-project legal context, non-affiliation notice, and scope expectations for public users.",
+        eyebrow: "Terms",
+        sections: [
+          {
+            body: "ITAM Planner is an independent open-source community project. It is not affiliated with, endorsed by, or maintained by Instituto Tecnológico Autónomo de México (ITAM).",
+            title: "Non-affiliation",
+          },
+          {
+            body: "Public academic materials from official ITAM-owned sources are normalized for planning convenience, but this website is not an official institutional service and must not be treated as one.",
+            title: "Public-source use",
+          },
+        ],
+        title: "Terms and conditions",
+      },
+    },
+    footer: {
+      caption: "Independent project. Legal details and privacy behavior live in the footer links.",
+      privacy: "Privacy notice",
+      terms: "Terms and conditions",
     },
     connectPage: {
       description:
@@ -184,9 +287,6 @@ const uiCopy = {
       browserOnlyLabel: "Current build direction",
       browserOnlyText:
         "Public data is normalized outside request time, then shipped back to the app as a stable catalog artifact.",
-      communitySupport:
-        "Bugs, data corrections, and source drift belong in GitHub issues. The Instagram link is only for following the creator and the project journey.",
-      communitySupportTitle: "Support lives on GitHub",
       currentLocale: "Current locale",
       currentProfileFallback: "Start with the academic basics",
       currentProfileHelp:
@@ -194,11 +294,8 @@ const uiCopy = {
       currentProfileReady: "Profile in progress",
       entryTerm: "Entry term",
       groupsSelected: "Selected groups",
-      independentProject: "Independent project",
       intro:
         "Start with onboarding, choose the plans that apply to you, and shape a timetable from published ITAM schedule data. Your profile, selections, and future AI bridge stay in this browser only.",
-      legal:
-        "Independent open-source project, built by the community. Not affiliated with, endorsed by, or maintained by Instituto Tecnológico Autónomo de México (ITAM).",
       loadOfferings: "Loading offerings...",
       loadPlans: "Loading public plan list...",
       locale: "Preferred locale",
@@ -210,7 +307,6 @@ const uiCopy = {
       noErrorFallback: "Unable to load planner data.",
       noPeriodData: "Select a public period to start capturing planner state.",
       offeredBy: "Instructor pending",
-      openGitHubIssues: "Open GitHub Issues",
       period: "Public schedule period",
       plansMetric: "Published plans",
       plannerExists: "Planner state exists",
@@ -272,6 +368,25 @@ const uiCopy = {
           title: "Carry the code",
         },
       ],
+      surfaceBody:
+        "Planner focuses on browser-local onboarding, schedule capture, and the widgets you chose for launch.",
+      surfaceEyebrow: "Planner shell",
+      subjectsBoard: {
+        activePlansLabel: "Active plans",
+        description: "Keep your applicable plans and the subjects already captured in the browser visible without leaving Planner.",
+        eyebrow: "Subjects / plans",
+        noPlans: "No active plans selected yet.",
+        noSubjects: "No selected groups yet.",
+        selectedSubjectsLabel: "Selected subjects",
+        title: "Academic context",
+      },
+      todayBoard: {
+        description: "The planner prioritizes today first whenever the daily widget is enabled.",
+        empty: "No classes selected for today yet.",
+        eyebrow: "Today",
+        roomPending: "Room pending",
+        title: "Today’s classes",
+      },
       weekBoard: {
         description:
           "Every selected public group is mapped into a simple weekly board so you can see the browser-local planner state at a glance.",
@@ -288,26 +403,6 @@ const uiCopy = {
     underConstruction: {
       body: "The planner, the catalog bridge, and the visual system are still being hardened. Expect fast changes while the public beta is under active construction.",
       title: "Under Construction",
-    },
-    installGuide: {
-      eyebrow: "Installable web app",
-      title: "Save the planner to your home screen",
-      description:
-        "The canonical secure URL is https://itam.humbertoschoenwald.com/. Once you open the site there, the planner can behave like a lightweight installed web app.",
-      iosTitle: "On iPhone and iPad",
-      iosSteps: [
-        "Open the site in Safari.",
-        "Tap Share.",
-        "Choose Add to Home Screen.",
-        "Launch it from the new icon to keep a cleaner, app-like planner experience.",
-      ],
-      browserTitle: "In desktop and other browsers",
-      browserBody:
-        "Use the secure canonical URL and install it from the browser menu when the browser offers that option. If there is no install entry yet, keep it as a bookmark until the broader app-install slice lands.",
-      cacheTitle: "Precomputed catalog cache",
-      cacheBody:
-        "Course relationships, schedules, and supporting catalog data are served from precomputed JSON artifacts with HTTP caching. They are not recalculated on every visit.",
-      openCanonicalSite: "Open the secure canonical URL",
     },
     studentCode: {
       browserOwned: "Browser-owned",
@@ -326,13 +421,15 @@ const uiCopy = {
   },
   "es-MX": {
     common: {
+      calendar: "Calendario",
       backToPlanner: "Volver al planner",
       community: "Comunidad",
       connectToChatGpt: "Conectar con ChatGPT",
       genericErrorBody:
-        "No se pudo cargar esta vista. Intenta de nuevo o vuelve al onboarding.",
+        "No se pudo cargar esta vista. Intenta de nuevo o abre el onboarding del planner.",
       genericErrorTitle: "No se pudo cargar esta vista.",
-      goToOnboarding: "Ir a onboarding",
+      goToOnboarding: "Abrir onboarding",
+      home: "Home",
       localeLabels: {
         "es-MX": "Español (MX)",
         en: "English",
@@ -392,37 +489,54 @@ const uiCopy = {
     },
     homePage: {
       eyebrow: "Inicio",
-      title: "Un home ligero para el planner, no el planner mismo.",
+      title: "El shell móvil para planner, calendario y superficies secundarias.",
       description:
-        "Empieza con onboarding, conserva tu contexto académico en este navegador y abre el planner solo cuando ya estés listo para armar un horario con el catálogo publicado.",
-      independentProject: "Proyecto independiente",
-      primaryAction: "Empezar onboarding",
-      routeCards: [
-        {
-          body: "Define tu periodo de ingreso, tus planes activos y el idioma preferido. Nada de eso sale de este navegador.",
-          eyebrow: "Ruta sugerida",
-          title: "1. /onboarding",
-        },
-        {
-          body: "El planner ya no comparte la misma carga del home. Si todavía no hiciste onboarding, esa ruta te regresa a /onboarding.",
-          eyebrow: "Siguiente paso",
-          title: "2. /planner",
-        },
-      ],
-      secondaryAction: "Abrir planner",
-      tertiaryAction: "Comunidad",
+        "Usa Home como superficie de descubrimiento, deja que Planner se enfoque en tu horario local y abre Calendario para la línea académica general.",
+      primaryAction: "Abrir planner",
+      secondaryAction: "Abrir calendario",
+      surfaceEyebrow: "Shell mobile-first",
       panels: [
         {
-          title: "Sin muro de cuentas",
-          body: "El flujo empieza en tu navegador. Sin sign-in, sin perfil del alumno en el servidor y sin identidad de horario guardada en la nube.",
+          title: "Planner solo en navegador",
+          body: "Tu perfil académico, tus grupos y tus preferencias visuales se quedan en este navegador.",
         },
         {
-          title: "Catálogo precalculado",
-          body: "Las relaciones entre materias, los periodos y los datos académicos de soporte se sirven desde artefactos JSON promovidos, no se recalculan por request.",
+          title: "Datos públicos precalculados",
+          body: "La app lee artefactos académicos públicos ya normalizados, en lugar de recalcular relaciones del catálogo por request.",
         },
         {
-          title: "Pensado para WebKit",
-          body: "El home público se mantiene deliberadamente ligero mientras el shell real del planner vive en su propia ruta.",
+          title: "Navegación pensada para Safari",
+          body: "La barra superior es la superficie principal de navegación móvil, incluido el swipe entre Planner y Home.",
+        },
+      ],
+      featureCards: [
+        {
+          action: "Abrir planner",
+          body: "Planner ahora absorbe onboarding, selección de grupos y preferencias visuales dentro de una sola familia de rutas.",
+          eyebrow: "Flujo principal",
+          href: "/planner",
+          title: "Planner",
+        },
+        {
+          action: "Abrir calendario",
+          body: "Consulta primero el calendario académico general y, después, enriquece esa vista con el contexto del día cuando tu planner ya exista.",
+          eyebrow: "Destino principal",
+          href: "/calendar",
+          title: "Calendario",
+        },
+        {
+          action: "Abrir comunidad",
+          body: "GitHub Issues sigue siendo la ruta de soporte para bugs, drift y correcciones de datos.",
+          eyebrow: "Superficie secundaria",
+          href: "/community",
+          title: "Comunidad",
+        },
+        {
+          action: "Abrir conexión con ChatGPT",
+          body: "El puente hacia IA sigue siendo secundario y vive aquí en lugar de competir por la navegación principal.",
+          eyebrow: "Superficie secundaria",
+          href: "/connect-chatgpt",
+          title: "Conectar con ChatGPT",
         },
       ],
     },
@@ -458,6 +572,90 @@ const uiCopy = {
       validationBody:
         "Completa ambos selectores del periodo de ingreso y deja al menos un plan activo antes de pasar al planner.",
       validationTitle: "Falta completar onboarding",
+    },
+    plannerOnboarding: {
+      activePlansBody:
+        "Selecciona los planes que te aplican actualmente. No necesitas cuenta y nada se guarda en el backend.",
+      activePlansTitle: "¿Qué planes te aplican hoy?",
+      back: "Atrás",
+      eyebrow: "Onboarding del planner",
+      entrySeasonBody: "Elige el ciclo académico que corresponde a tu ingreso.",
+      entrySeasonTitle: "¿En qué ciclo ingresaste?",
+      entryYearBody: "Elige solo un año que exista en el catálogo publicado actual.",
+      entryYearTitle: "¿Qué año corresponde a ese ciclo?",
+      localeBody: "Esto controla el copy visible del producto. Después podrás cambiarlo.",
+      localeTitle: "¿En qué idioma quieres ver el planner?",
+      next: "Siguiente",
+      openPlanner: "Abrir planner",
+      redirectBody: "Planner necesita terminar su onboarding embebido antes de renderizar el shell de horario en este navegador.",
+      redirectTitle: "Planner está preparando tu onboarding",
+      swipeBody: "Desliza sobre la barra superior para volver a Home desde Planner. El primer deslizamiento le enseña al navegador qué dirección horizontal prefieres.",
+      swipeTitle: "Desliza para llegar a Home desde Planner",
+      title: "Responde el onboarding del planner paso a paso",
+      widgetDescriptions: {
+        subjects: "Muestra tus planes activos y las materias o grupos ya guardados en este navegador.",
+        today: "Da prioridad a las clases que importan hoy en America/Mexico_City.",
+        week: "Mantén disponible la vista semanal debajo del resumen diario.",
+      },
+      widgetLabels: {
+        subjects: "Materias / planes",
+        today: "Hoy",
+        week: "Semana",
+      },
+      widgetsBody: "Elige los widgets que quieres ver en la vista inicial del planner.",
+      widgetsTitle: "¿Qué quieres ver en tu planner?",
+    },
+    calendarPage: {
+      datePending: "Fecha pendiente",
+      description:
+        "Calendario sigue siendo útil antes del onboarding y luego añade contexto de clases del día cuando el planner ya existe en este navegador.",
+      eyebrow: "Calendario",
+      generalCalendarBody:
+        "Puedes revisar el calendario académico público desde ahora. El contexto de clases del planner aparece aquí después de completar el onboarding del planner.",
+      generalCalendarEyebrow: "Calendario general",
+      generalCalendarTitle: "Primero el calendario público",
+      noAcademicPeriod: "General",
+      paymentsEyebrow: "Pagos",
+      paymentsTitle: "Pagos destacados",
+      schoolEyebrow: "Eventos académicos",
+      title: "Calendario académico",
+    },
+    legalPages: {
+      privacy: {
+        description: "Qué guarda la web localmente, qué nunca se guarda en el backend y cómo se comporta el estado local del navegador.",
+        eyebrow: "Privacidad",
+        sections: [
+          {
+            body: "Este producto guarda solo contexto local del planner, como tu periodo de ingreso, tus planes activos, tus grupos seleccionados, tus widgets y tus preferencias de navegación. Todo eso se queda en tu dispositivo.",
+            title: "Qué sí se queda en el navegador",
+          },
+          {
+            body: "El backend no guarda tu nombre, correo, matrícula, horario seleccionado ni un perfil personal persistente. No hay sign-in, analytics ni telemetry personal.",
+            title: "Qué nunca sale del navegador",
+          },
+        ],
+        title: "Aviso de privacidad",
+      },
+      terms: {
+        description: "Contexto legal del proyecto independiente, aviso de no afiliación y expectativas públicas de uso.",
+        eyebrow: "Términos",
+        sections: [
+          {
+            body: "ITAM Planner es un proyecto open-source independiente. No está afiliado, respaldado ni mantenido por el Instituto Tecnológico Autónomo de México (ITAM).",
+            title: "No afiliación",
+          },
+          {
+            body: "Los materiales académicos públicos provenientes de fuentes oficiales del ITAM se normalizan para facilitar la planeación, pero esta web no es un servicio institucional oficial y no debe tratarse como tal.",
+            title: "Uso de fuentes públicas",
+          },
+        ],
+        title: "Términos y condiciones",
+      },
+    },
+    footer: {
+      caption: "Proyecto independiente. El detalle legal y de privacidad vive en los links del footer.",
+      privacy: "Aviso de privacidad",
+      terms: "Términos y condiciones",
     },
     connectPage: {
       description:
@@ -509,9 +707,6 @@ const uiCopy = {
       browserOnlyLabel: "Dirección actual del build",
       browserOnlyText:
         "Los datos públicos se normalizan fuera del request-time y luego regresan a la app como un artefacto estable del catálogo.",
-      communitySupport:
-        "Los bugs, las correcciones de datos y el source drift van en GitHub Issues. El enlace de Instagram existe solo para seguir al creador y el proceso del proyecto.",
-      communitySupportTitle: "El soporte vive en GitHub",
       currentLocale: "Idioma actual",
       currentProfileFallback: "Empieza con lo básico",
       currentProfileHelp:
@@ -519,11 +714,8 @@ const uiCopy = {
       currentProfileReady: "Perfil en progreso",
       entryTerm: "Periodo de ingreso",
       groupsSelected: "Grupos seleccionados",
-      independentProject: "Proyecto independiente",
       intro:
         "Empieza con onboarding, elige los planes que te aplican y arma un horario a partir de los horarios públicos del ITAM. Tu perfil, tus selecciones y el puente futuro con IA se quedan en este navegador.",
-      legal:
-        "Proyecto open-source independiente, construido por la comunidad. No afiliado, respaldado ni mantenido por el Instituto Tecnológico Autónomo de México (ITAM).",
       loadOfferings: "Cargando grupos...",
       loadPlans: "Cargando lista pública de planes...",
       locale: "Idioma preferido",
@@ -535,7 +727,6 @@ const uiCopy = {
       noErrorFallback: "No fue posible cargar el planner.",
       noPeriodData: "Selecciona un periodo público para empezar a capturar el estado del planner.",
       offeredBy: "Profesor pendiente",
-      openGitHubIssues: "Abrir GitHub Issues",
       period: "Periodo público de horarios",
       plansMetric: "Planes publicados",
       plannerExists: "Ya existe estado del planner",
@@ -597,6 +788,25 @@ const uiCopy = {
           title: "Guarda el código",
         },
       ],
+      surfaceBody:
+        "Planner se enfoca en onboarding local, captura de horario y widgets elegidos para el lanzamiento.",
+      surfaceEyebrow: "Shell del planner",
+      subjectsBoard: {
+        activePlansLabel: "Planes activos",
+        description: "Mantén visibles los planes que te aplican y las materias o grupos ya guardados en este navegador sin salir del planner.",
+        eyebrow: "Materias / planes",
+        noPlans: "Todavía no hay planes activos seleccionados.",
+        noSubjects: "Todavía no hay grupos seleccionados.",
+        selectedSubjectsLabel: "Materias seleccionadas",
+        title: "Contexto académico",
+      },
+      todayBoard: {
+        description: "El planner prioriza hoy siempre que el widget diario esté activado.",
+        empty: "Todavía no hay clases seleccionadas para hoy.",
+        eyebrow: "Hoy",
+        roomPending: "Salón pendiente",
+        title: "Clases de hoy",
+      },
       weekBoard: {
         description:
           "Cada grupo público que seleccionas se proyecta en un tablero semanal simple para que veas el estado local de tu planner de un vistazo.",
@@ -613,26 +823,6 @@ const uiCopy = {
     underConstruction: {
       body: "El planner, el puente al catálogo y el sistema visual siguen endureciéndose. Espera cambios rápidos mientras esta beta pública sigue en construcción.",
       title: "Under Construction",
-    },
-    installGuide: {
-      eyebrow: "Web app instalable",
-      title: "Guarda el planner en tu pantalla de inicio",
-      description:
-        "La URL canónica y segura es https://itam.humbertoschoenwald.com/. Cuando abras la web ahí, el planner podrá comportarse como una app web ligera instalada.",
-      iosTitle: "En iPhone y iPad",
-      iosSteps: [
-        "Abre la web en Safari.",
-        "Toca Compartir.",
-        "Elige Agregar a pantalla de inicio.",
-        "Ábrela desde el nuevo ícono para tener una experiencia más limpia y tipo app.",
-      ],
-      browserTitle: "En desktop y otros navegadores",
-      browserBody:
-        "Usa la URL segura canónica e instálala desde el menú del navegador cuando esa opción aparezca. Si todavía no ves la opción, guárdala como bookmark mientras aterriza el slice más amplio de instalación.",
-      cacheTitle: "Cache precalculado del catálogo",
-      cacheBody:
-        "Las relaciones entre materias, horarios y datos de soporte se sirven desde archivos JSON precalculados y cacheados por HTTP. No se recalculan en cada visita.",
-      openCanonicalSite: "Abrir la URL canónica segura",
     },
     studentCode: {
       browserOwned: "Solo de este navegador",

@@ -2,6 +2,7 @@ import { render, screen, waitFor } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 import { PlannerRouteShell } from "@/components/planner-route-shell";
+import { DEFAULT_PLANNER_UI_STATE, usePlannerUiStore } from "@/stores/planner-ui-store";
 import {
   DEFAULT_STUDENT_PROFILE,
   useStudentProfileStore,
@@ -23,39 +24,41 @@ describe("PlannerRouteShell", () => {
   beforeEach(() => {
     replaceSpy.mockReset();
     useStudentProfileStore.setState({ profile: DEFAULT_STUDENT_PROFILE });
+    usePlannerUiStore.setState({ state: DEFAULT_PLANNER_UI_STATE });
     vi.spyOn(useStudentProfileStore.persist, "hasHydrated").mockReturnValue(true);
-    Object.defineProperty(window.navigator, "standalone", {
-      configurable: true,
-      value: false,
-    });
+    vi.spyOn(usePlannerUiStore.persist, "hasHydrated").mockReturnValue(true);
   });
 
   afterEach(() => {
     vi.restoreAllMocks();
   });
 
-  it("redirects to onboarding when the required profile state is missing", async () => {
-    render(
-      <PlannerRouteShell
-        plans={[]}
-        periods={[]}
-        sourcesMetadata={null}
-      />,
-    );
+  it("redirects to planner onboarding when the required local state is missing", async () => {
+    render(<PlannerRouteShell periods={[]} plans={[]} sourcesMetadata={null} />);
 
     await waitFor(() => {
-      expect(replaceSpy).toHaveBeenCalledWith("/onboarding?from=planner");
+      expect(replaceSpy).toHaveBeenCalledWith("/planner/onboarding");
     });
 
-    expect(screen.getByText(/Redirigiendo a onboarding/u)).toBeInTheDocument();
+    expect(screen.getByText(/Planner está preparando tu onboarding/u)).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: /Abrir planner/u })).toHaveAttribute(
+      "href",
+      "/planner/onboarding",
+    );
   });
 
-  it("renders the planner shell when onboarding is complete", () => {
+  it("renders the planner shell when onboarding and widget preferences are complete", () => {
     useStudentProfileStore.setState({
       profile: {
         entryTerm: "OTOÑO 2025",
         activePlanIds: ["plan:ma-e"],
         locale: "es-MX",
+      },
+    });
+    usePlannerUiStore.setState({
+      state: {
+        navSwipePreference: null,
+        plannerWidgetIds: ["today", "week"],
       },
     });
 
@@ -68,8 +71,8 @@ describe("PlannerRouteShell", () => {
             application_term: "PRIMAVERA 2026",
             application_year: 2026,
             bulletin_id: "bulletin:ma-e",
-            entry_from_term: null,
-            entry_to_term: null,
+            entry_from_term: "PRIMAVERA 2021",
+            entry_to_term: "OTOÑO 2026",
             plan_code: "E",
             plan_id: "plan:ma-e",
             program_title: "LICENCIATURA EN MATEMATICAS APLICADAS",
@@ -86,12 +89,18 @@ describe("PlannerRouteShell", () => {
     expect(replaceSpy).not.toHaveBeenCalled();
   });
 
-  it("redirects to onboarding when the stored active plans no longer apply", async () => {
+  it("treats stale active plans as incomplete and redirects back to planner onboarding", async () => {
     useStudentProfileStore.setState({
       profile: {
         entryTerm: "OTOÑO 2025",
         activePlanIds: ["plan:ma-e"],
         locale: "es-MX",
+      },
+    });
+    usePlannerUiStore.setState({
+      state: {
+        navSwipePreference: null,
+        plannerWidgetIds: ["today"],
       },
     });
 
@@ -119,28 +128,19 @@ describe("PlannerRouteShell", () => {
     );
 
     await waitFor(() => {
-      expect(replaceSpy).toHaveBeenCalledWith("/onboarding?from=planner");
+      expect(replaceSpy).toHaveBeenCalledWith("/planner/onboarding");
     });
 
     expect(screen.queryByText("Planner shell")).not.toBeInTheDocument();
   });
 
-  it("keeps a stable fallback path to onboarding in standalone mode", async () => {
-    Object.defineProperty(window.navigator, "standalone", {
-      configurable: true,
-      value: true,
-    });
+  it("keeps a stable fallback link to planner onboarding while redirecting", () => {
+    render(<PlannerRouteShell periods={[]} plans={[]} sourcesMetadata={null} />);
 
-    render(<PlannerRouteShell plans={[]} periods={[]} sourcesMetadata={null} />);
-
-    await waitFor(() => {
-      expect(screen.getByText(/Termina el onboarding para entrar al planner/u)).toBeInTheDocument();
-    });
-
-    expect(replaceSpy).not.toHaveBeenCalled();
-    expect(screen.getByRole("link", { name: /Ir a onboarding/u })).toHaveAttribute(
+    expect(screen.getByRole("link", { name: /Abrir planner/u })).toHaveAttribute(
       "href",
-      "/onboarding?from=planner",
+      "/planner/onboarding",
     );
+    expect(screen.getByRole("link", { name: /Volver al inicio/u })).toHaveAttribute("href", "/");
   });
 });

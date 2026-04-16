@@ -29,7 +29,7 @@ export default function RouteError({
         </p>
         <div className="flex flex-wrap gap-3">
           <Button asChild>
-            <Link href="/onboarding?from=planner" prefetch={false}>
+            <Link href="/planner/onboarding" prefetch={false}>
               {copy.common.goToOnboarding}
             </Link>
           </Button>

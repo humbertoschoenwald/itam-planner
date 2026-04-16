@@ -3,6 +3,8 @@ import path from "node:path";
 
 import type {
   BulletinSummary,
+  PaymentCalendarDocument,
+  SchoolCalendarDocument,
   SchedulePeriodSummary,
   SourcesMetadata,
 } from "@/lib/types";
@@ -11,6 +13,11 @@ export interface PlannerShellBootstrap {
   plans: BulletinSummary[];
   periods: SchedulePeriodSummary[];
   sourcesMetadata: SourcesMetadata | null;
+}
+
+export interface CalendarBootstrap {
+  paymentCalendar: PaymentCalendarDocument;
+  schoolCalendar: SchoolCalendarDocument;
 }
 
 export async function readPlannerShellBootstrap(): Promise<PlannerShellBootstrap> {
@@ -30,6 +37,18 @@ export async function readPlannerShellBootstrap(): Promise<PlannerShellBootstrap
 export async function readOnboardingBootstrap() {
   return {
     plans: await readPublishedCatalogJson<BulletinSummary[]>("boletines", "index.json"),
+  };
+}
+
+export async function readCalendarBootstrap(): Promise<CalendarBootstrap> {
+  const [schoolCalendar, paymentCalendar] = await Promise.all([
+    readPublishedCatalogJson<SchoolCalendarDocument>("calendars", "school.json"),
+    readPublishedCatalogJson<PaymentCalendarDocument>("calendars", "payment.json"),
+  ]);
+
+  return {
+    paymentCalendar,
+    schoolCalendar,
   };
 }
 

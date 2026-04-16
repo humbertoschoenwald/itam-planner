@@ -11,6 +11,8 @@ export interface PlannerState {
   selectedOfferingIds: string[];
 }
 
+export type PlannerWidgetId = "today" | "week" | "subjects";
+
 export interface BulletinSummary {
   bulletin_id: string;
   source_code: string;
@@ -102,4 +104,56 @@ export interface SourcesMetadata {
   scrape_runs: ScrapeRunSummary[];
   promoted_releases: PromotedReleaseSummary[];
   source_snapshots: SourceSnapshotSummary[];
+}
+
+export interface CalendarLegendItem {
+  symbol: string;
+  label: string;
+  notes: string | null;
+}
+
+export interface SchoolCalendarEvent {
+  symbol: string;
+  label: string;
+  event_date: string;
+  notes: string | null;
+  active_from: string | null;
+  active_to: string | null;
+}
+
+export interface PaymentCalendarEvent {
+  code: string;
+  label: string;
+  academic_period: string | null;
+  event_date: string | null;
+  date_range_start: string | null;
+  date_range_end: string | null;
+  notes: string | null;
+  active_from: string | null;
+  active_to: string | null;
+}
+
+export interface SchoolCalendarDocument {
+  calendar_id: string;
+  source_snapshot_id: string;
+  calendar_kind: "school";
+  title: string;
+  period_label: string | null;
+  active_from: string | null;
+  active_to: string | null;
+  legend: CalendarLegendItem[];
+  events: SchoolCalendarEvent[];
+}
+
+export interface PaymentCalendarDocument {
+  calendar_id: string;
+  source_snapshot_id: string;
+  calendar_kind: "payment";
+  title: string;
+  period_label: string | null;
+  active_from: string | null;
+  active_to: string | null;
+  legend: CalendarLegendItem[];
+  events: never[];
+  payment_events: PaymentCalendarEvent[];
 }
