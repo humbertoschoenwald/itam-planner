@@ -14,3 +14,5 @@ alwaysApply: true
 - RULE: Keep the bibliography current when doctrine adopts or removes a major tool or standard.
 - RULE: Credit `Horarios-ITAM` as inspiration where repository docs describe project lineage.
 - RULE: Acknowledge public ITAM source material where repository docs describe data provenance.
+- RULE: Use only official ITAM-owned domains as production scraping sources.
+- RULE: Treat `horariositam.com` as prohibited for production ingestion and authoritative provenance.

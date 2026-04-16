@@ -16,9 +16,14 @@ alwaysApply: true
 - RULE: Target WCAG 2.2 AA in product decisions and avoid public conformance claims until the relevant UI slice is actually audited.
 - RULE: Start the product flow with onboarding and a real planner shell, not an account wall.
 - RULE: Collect entry term in onboarding with controlled season/year selectors instead of free-text input.
+- RULE: Hide plan selection until the entry-term selectors are complete enough to filter candidate plans.
 - RULE: Keep `/` lightweight, use `/onboarding` for profile bootstrap, and use `/planner` as the dedicated planner shell route.
 - RULE: Keep `/planner` safe even when onboarding is incomplete; browser-side redirects may be used, but the route must still expose a stable fallback path to `/onboarding`.
 - RULE: Keep the initial planner document lean and fetch heavy schedule detail from precomputed JSON on demand instead of embedding the full catalog detail into the first HTML response.
-- RULE: Provide a runtime recovery surface that explains fatal route failures and lets the user clear browser-owned state before restarting onboarding.
+- RULE: Recover silently from browser-owned state failures whenever possible and never expose storage-reset internals in routine UI copy.
+- RULE: If a visible runtime error state is unavoidable, keep it generic and keep the surrounding route alive.
+- RULE: Keep an explicit `Under Construction` notice visible while the product is still in scaffold-heavy mode.
+- RULE: Treat SEO, crawlability, and structured metadata as product requirements.
+- RULE: Favor layered gradients, monochrome noise, and floating accent objects over large flat surfaces.
 - RULE: State clearly that no account is required.
 - RULE: Treat the final Connect to ChatGPT route and setup flow as a follow-up slice after planner state exists.

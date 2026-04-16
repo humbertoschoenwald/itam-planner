@@ -25,6 +25,8 @@ Originality rules:
 - Do not copy proprietary assets, unique strings, or documentation text line by line.
 - Repository-facing docs must explicitly credit `Horarios-ITAM` as inspiration when describing project lineage or problem-space context.
 - Public academic ITAM source pages and documents must be acknowledged as source material for ingestion when repository docs describe data provenance.
+- Third-party mirrors, caches, or unofficial ITAM aggregators are prohibited as canonical production scraping sources.
+- `horariositam.com` must not be used as a production scraping source or as authoritative data provenance.
 
 Bibliography rules:
 
@@ -32,6 +34,7 @@ Bibliography rules:
 - Major tools, standards, and external references used by repository doctrine must be listed there with official links.
 - ADRs may reference those materials rather than duplicating link lists in every file.
 - The bibliography may include inspiration and public-source references in addition to tooling references when they materially shape repository doctrine.
+- Design inspiration references may be listed there when they shape the intended public visual language, but they remain inspiration only and may not be copied directly.
 
 ## Consequences
 

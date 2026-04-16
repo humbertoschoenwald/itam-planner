@@ -22,6 +22,9 @@ Hard rules:
 
 - `web` must never depend on scraper internals.
 - `web` must consume stable contracts, not database schema details.
+- `web` presentation must remain separable from browser-storage concerns, service calls, and catalog-shaping logic.
+- browser-owned persistence adapters must remain optional capabilities around the UI rather than prerequisites for rendering the public shell.
+- failures in browser-owned persistence must not take down the full route; they must degrade to in-memory behavior or a generic error surface.
 - `api` must depend on interfaces or internal service boundaries, not on one specific source site.
 - scraper logic must be replaceable without rewriting the core API surface.
 - deployment adapters must not leak into core runtime logic.

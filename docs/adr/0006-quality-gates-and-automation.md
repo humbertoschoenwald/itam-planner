@@ -42,6 +42,7 @@ Mandatory test policy:
 - Every behavior change must add or update tests in the same change when needed.
 - No parser or schema change ships without matching fixture coverage.
 - Unit tests must be network-free and deterministic.
+- Browser-storage adapters, onboarding guards, runtime fallbacks, and other resilience layers must include edge-case tests for malformed state, blocked persistence, and degraded browser behavior when those behaviors change.
 - Live source checks may exist later as smoke coverage, but they must not replace unit coverage.
 
 Execution rules:

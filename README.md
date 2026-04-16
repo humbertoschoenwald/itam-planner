@@ -46,7 +46,7 @@ The repository also relies on public academic source material published by ITAM,
 
 Current public-source ingestion work is centered around:
 
-- `https://horariositam.com/boletines.html`
+- `https://escolar.itam.mx/licenciaturas/boletines/`
 - `https://escolar.itam.mx/servicios_escolares/servicios_calendarios.php`
 - public schedule surfaces discovered from ITAM services pages
 

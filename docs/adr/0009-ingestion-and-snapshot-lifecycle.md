@@ -28,6 +28,9 @@ Source lifecycle rules:
 - Failed parsing or failed validation must leave the last promoted public dataset untouched.
 - When an upstream discovery family mixes canonical and non-canonical artifacts, source snapshots for incompatible artifacts may be marked `failed` without blocking promotion, but only if the canonical staging dataset still validates.
 - Source snapshot status values may include `unchanged` when a live comparison determines that the upstream content did not change.
+- Production scraping sources must stay on official ITAM-owned domains only.
+- Mirror domains and unofficial community caches are not valid production sources even when they expose ITAM-related content.
+- Boletines ingestion must target official ITAM-hosted bulletin PDFs. If the official bulletin index is unstable, discovery may temporarily probe official ITAM-hosted PDF paths from a seed list derived from the last promoted official dataset, but it may not fall back to third-party mirrors.
 
 Change-handling rules:
 

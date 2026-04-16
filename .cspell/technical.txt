@@ -40,6 +40,9 @@ Vercel
 Vitest
 WebKit
 WCAG
+crawlability
+crawlable
+horariositam
 Yamllint
 Zustand
 fraunces

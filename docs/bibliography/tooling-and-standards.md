@@ -66,10 +66,13 @@ This bibliography lists the primary official references for the tools and standa
 
 - [Cloudflare](https://developers.cloudflare.com/)
 - [WebKit](https://webkit.org/)
+- [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/)
 
 ## Inspiration and Public Sources
 
 - [Horarios-ITAM](https://github.com/Horarios-ITAM/horariosITAM)
+- [Proton Pass Common: proton-authenticator-web](https://github.com/protonpass/proton-pass-common/tree/main/proton-authenticator-web)
 - [ITAM Servicios](https://servicios.itam.mx/)
 - [ITAM Reglamentos y Calendarios](https://escolar.itam.mx/servicios_escolares/servicios_calendarios.php)
-- [Horarios ITAM Boletines](https://horariositam.com/boletines.html)
+- [ITAM Boletines Index Redirect](https://escolar.itam.mx/licenciaturas/boletines/boletines.html)
+- [ITAM Boletines PDF Base](https://escolar.itam.mx/licenciaturas/boletines/)
