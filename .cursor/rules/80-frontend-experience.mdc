@@ -24,6 +24,7 @@ alwaysApply: true
 - RULE: Keep the initial planner document lean and fetch heavy schedule detail from precomputed JSON on demand instead of embedding the full catalog detail into the first HTML response.
 - RULE: Recover silently from browser-owned state failures whenever possible and never expose storage-reset internals in routine UI copy.
 - RULE: If a visible runtime error state is unavoidable, keep it generic and keep the surrounding route alive.
+- RULE: Never wipe browser-local planner state automatically just because a route-level error boundary rendered.
 - RULE: Keep an explicit `Under Construction` notice visible while the product is still in scaffold-heavy mode.
 - RULE: Treat SEO, crawlability, and structured metadata as product requirements.
 - RULE: Drive visible UI strings, selector labels, and locale-dependent option labels from locale configuration instead of hardcoded component strings.

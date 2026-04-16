@@ -54,6 +54,7 @@ Initial product-surface rules:
 - The dedicated planner route must keep the initial document lean. Heavy schedule detail payloads belong in precomputed JSON artifacts fetched on demand, not embedded wholesale into the initial HTML shell.
 - The public runtime should recover silently from browser-owned state failures whenever possible and should never announce storage-reset internals in normal UI copy.
 - If runtime recovery still needs a visible user-facing state, it must stay generic, must not leak implementation details such as `localStorage`, and must not crash the surrounding route shell.
+- Visible route-level error states must not wipe browser-local planner state automatically. If a recovery action really needs to reset browser-local state, it must be explicit and user-triggered.
 - The public product should keep an explicit `Under Construction` notice visible while core planner, data, and AI slices are still incomplete.
 - SEO is a first-class public requirement: canonical metadata, crawlable route metadata, sitemap coverage, and machine-readable structured data must be treated as product work, not marketing afterthought.
 - Visible UI strings, selector labels, locale labels, and other locale-dependent text must come from locale configuration rather than hardcoded component strings.
