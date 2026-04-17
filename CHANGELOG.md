@@ -23,6 +23,7 @@ Do not edit it manually.
 - web: infer ai schedule defaults from official plans (`5096b0f`)
 - web: align localized copy with canonical routes (`86f0c91`)
 - web: localize project and registration labels (`3d9074d`)
+- web: centralize locale-driven copy cleanup (`7092943`)
 
 ### Documentation
 
