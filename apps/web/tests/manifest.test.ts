@@ -12,7 +12,7 @@ describe("web manifest", () => {
     expect(result.theme_color).toBe("#1f4d3f");
     expect(result.icons).toEqual(
       expect.arrayContaining([
-        expect.objectContaining({ src: "/icon", type: "image/png" }),
+        expect.objectContaining({ src: "/icon.svg", type: "image/svg+xml" }),
         expect.objectContaining({ src: "/apple-icon", type: "image/png" }),
       ]),
     );
