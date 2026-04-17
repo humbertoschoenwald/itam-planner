@@ -24,6 +24,7 @@ Do not edit it manually.
 - web: align localized copy with canonical routes (`86f0c91`)
 - web: localize project and registration labels (`3d9074d`)
 - web: centralize locale-driven copy cleanup (`7092943`)
+- web: localize official search surfaces (`d31d061`)
 
 ### Documentation
 
