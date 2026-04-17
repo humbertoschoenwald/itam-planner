@@ -26,6 +26,7 @@ Do not edit it manually.
 - web: centralize locale-driven copy cleanup (`7092943`)
 - web: localize official search surfaces (`d31d061`)
 - web: adopt the shipped svg favicon (`bfa6031`)
+- web: wire canonical favicon and install icons (`a514cbb`)
 
 ### Documentation
 
