@@ -3,20 +3,32 @@
 import Link from "next/link";
 import { useMemo, useState } from "react";
 
+import { getOfficialNewsItems } from "@/lib/site-content";
+import { buildLocalSearchIndex, searchLocalIndex } from "@/lib/search-index";
 import { getProductCopy } from "@/lib/product-copy";
-import { searchLocalIndex } from "@/lib/search-index";
-import type { LocalSearchIndexItem } from "@/lib/types";
+import type { SearchIndexBootstrap } from "@/lib/search-index";
 import { useStudentProfileStore } from "@/stores/student-profile-store";
 
 interface SearchPageShellProps {
-  index: LocalSearchIndexItem[];
+  bootstrap: SearchIndexBootstrap;
 }
 
-export function SearchPageShell({ index }: SearchPageShellProps) {
+export function SearchPageShell({ bootstrap }: SearchPageShellProps) {
   const locale = useStudentProfileStore((state) => state.profile.locale);
   const copy = getProductCopy(locale);
   const [query, setQuery] = useState("");
 
+  const localizedBootstrap = useMemo(
+    () => ({
+      ...bootstrap,
+      newsItems: [...getOfficialNewsItems(locale)],
+    }),
+    [bootstrap, locale],
+  );
+  const index = useMemo(
+    () => buildLocalSearchIndex(localizedBootstrap, locale),
+    [localizedBootstrap, locale],
+  );
   const results = useMemo(() => searchLocalIndex(index, query), [index, query]);
 
   return (

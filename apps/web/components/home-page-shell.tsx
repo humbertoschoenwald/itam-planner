@@ -6,13 +6,14 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { getUiCopy } from "@/lib/copy";
 import { getProductCopy } from "@/lib/product-copy";
-import { OFFICIAL_NEWS_ITEMS } from "@/lib/site-content";
+import { getOfficialNewsItems } from "@/lib/site-content";
 import { useStudentProfileStore } from "@/stores/student-profile-store";
 
 export function HomePageShell() {
   const locale = useStudentProfileStore((state) => state.profile.locale);
   const copy = getUiCopy(locale);
   const productCopy = getProductCopy(locale);
+  const officialNewsItems = getOfficialNewsItems(locale);
 
   return (
     <main className="mx-auto flex w-full max-w-7xl flex-1 flex-col gap-6 px-5 py-6 sm:px-8 sm:py-10">
@@ -87,7 +88,7 @@ export function HomePageShell() {
         </div>
 
         <div className="page-grid">
-          {OFFICIAL_NEWS_ITEMS.map((item) => (
+          {officialNewsItems.map((item) => (
             <Card key={item.href}>
               <CardHeader>
                 <p className="eyebrow">{item.category}</p>

@@ -145,7 +145,7 @@ const bootstrap: SearchIndexBootstrap = {
 
 describe("local search index", () => {
   it("indexes static routes, official references, and published catalog data", () => {
-    const index = buildLocalSearchIndex(bootstrap);
+    const index = buildLocalSearchIndex(bootstrap, "es-MX");
 
     expect(index.some((item) => item.href === "/search")).toBe(true);
     expect(index.some((item) => item.title === "Actuaría")).toBe(true);
@@ -158,10 +158,18 @@ describe("local search index", () => {
         (item) => item.title === "Lic. en Derecho · University of Texas at Austin",
       ),
     ).toBe(true);
+    expect(index.some((item) => item.category === "Página" && item.title === "Buscar")).toBe(true);
+    expect(
+      index.some(
+        (item) =>
+          item.title === "Educación ejecutiva" &&
+          item.category === "Fuente oficial",
+      ),
+    ).toBe(true);
   });
 
   it("searches accent-insensitively across titles, bodies, and keywords", () => {
-    const index = buildLocalSearchIndex(bootstrap);
+    const index = buildLocalSearchIndex(bootstrap, "es-MX");
 
     expect(searchLocalIndex(index, "actuaria").map((item) => item.title)).toContain(
       "Actuaría",
@@ -178,5 +186,18 @@ describe("local search index", () => {
     expect(
       searchLocalIndex(index, "inteligencia artificial").map((item) => item.title),
     ).toContain("Especialidad en Inteligencia Artificial");
+  });
+
+  it("keeps the English search index localized separately", () => {
+    const index = buildLocalSearchIndex(bootstrap, "en");
+
+    expect(index.some((item) => item.category === "Page" && item.title === "Search")).toBe(true);
+    expect(
+      index.some(
+        (item) =>
+          item.title === "Executive education" &&
+          item.category === "Official source",
+      ),
+    ).toBe(true);
   });
 });
