@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 
 import { getUiCopy } from "@/lib/copy";
-import { DEFAULT_LOCALE, SUPPORTED_LOCALES } from "@/lib/locale";
+import { DEFAULT_LOCALE, getLocaleLabels, SUPPORTED_LOCALES } from "@/lib/locale";
 
 describe("getUiCopy", () => {
   it("supports only the current Spanish and English locales", () => {
@@ -18,6 +18,11 @@ describe("getUiCopy", () => {
 
     expect(copy.common.calendar).toBe("Calendar");
     expect(copy.common.timeColumnLabel).toBe("Time");
+  });
+
+  it("reuses the canonical locale labels from the locale registry", () => {
+    expect(getUiCopy("es-MX").common.localeLabels).toEqual(getLocaleLabels("es-MX"));
+    expect(getUiCopy("en").common.localeLabels).toEqual(getLocaleLabels("en"));
   });
 
   it("includes the under construction banner copy in Spanish-first mode", () => {
@@ -42,6 +47,19 @@ describe("getUiCopy", () => {
     expect(copy.plannerOnboarding.programTitles.degree).toMatch(/licenciatura/u);
     expect(copy.plannerOnboarding.swipePreferenceTitle).toMatch(/deslizamiento/u);
     expect(copy.plannerOnboarding.finishHighlight).toMatch(/configuraste tu horario/u);
+  });
+
+  it("keeps Spanish public UI copy free of the mixed terms cleaned in this slice", () => {
+    const copy = getUiCopy("es-MX");
+
+    expect(copy.onboardingPage.eyebrow).toBe("Configuración inicial");
+    expect(copy.plannerOnboarding.eyebrow).toBe("Configuración inicial del horario");
+    expect(copy.connectPage.description).toMatch(/punto de acceso/u);
+    expect(copy.footer.caption).toMatch(/enlaces del pie/u);
+    expect(copy.legalPages.privacy.sections[1]?.body).toMatch(/servidor/u);
+    expect(copy.legalPages.privacy.sections[1]?.body).not.toMatch(
+      /backend|analytics|telemetry|sign-in/u,
+    );
   });
 
   it("keeps home feature cards on the canonical English routes in both locales", () => {

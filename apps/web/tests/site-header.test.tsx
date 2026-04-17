@@ -41,7 +41,7 @@ describe("SiteHeader", () => {
       "/search",
     );
     expect(
-      screen.getByRole("button", { name: "Abrir menú de links oficiales" }),
+      screen.getByRole("button", { name: "Abrir menú de enlaces oficiales" }),
     ).toBeInTheDocument();
     expect(container.querySelector("header")).toHaveClass("sticky");
   });
@@ -99,7 +99,7 @@ describe("SiteHeader", () => {
   it("keeps executive education in the overflow-only links menu", () => {
     render(<SiteHeader />);
 
-    fireEvent.click(screen.getByRole("button", { name: "Abrir menú de links oficiales" }));
+    fireEvent.click(screen.getByRole("button", { name: "Abrir menú de enlaces oficiales" }));
 
     expect(screen.getByRole("link", { name: "Inscripciones" })).toHaveAttribute(
       "href",

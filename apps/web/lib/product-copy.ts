@@ -248,7 +248,7 @@ const productCopy = {
       introEyebrow: "Por qué existe",
       introTitle: "Un horario académico privado construido sobre datos públicos oficiales del ITAM.",
       introBody:
-        "Este proyecto existe para hacer navegable la información académica pública del ITAM sin cuentas, sin sync oculto y sin espejos no oficiales.",
+        "Este proyecto existe para hacer navegable la información académica pública del ITAM sin cuentas, sin sincronización oculta y sin espejos no oficiales.",
       newsEyebrow: "Actualizaciones oficiales",
       newsTitle: "Fuentes trazables que conviene revisar seguido",
       newsBody:
@@ -268,7 +268,7 @@ const productCopy = {
         },
         {
           action: "Abrir proyecto",
-          body: "Encuentra links del repositorio, rutas de soporte y superficies de contribución.",
+          body: "Encuentra enlaces del repositorio, rutas de soporte y superficies de contribución.",
           href: "/project",
           title: "Proyecto",
         },
@@ -282,7 +282,7 @@ const productCopy = {
     },
     siteHeader: {
       mobileMenuLabel: "Abrir menú del producto",
-      officialLinksLabel: "Abrir menú de links oficiales",
+      officialLinksLabel: "Abrir menú de enlaces oficiales",
       searchLabel: "Abrir búsqueda local",
       secondaryNav: {
         configuration: "Configuración",
@@ -453,7 +453,7 @@ const productCopy = {
     },
     mapPage: {
       body:
-        "El mapa detallado de campus y salones sigue diferido. Este placeholder deja visible la ruta sin fingir que el mapa ya está terminado.",
+        "El mapa detallado de campus y salones sigue diferido. Este marcador deja visible la ruta sin fingir que el mapa ya está terminado.",
       title: "Mapa",
     },
   },

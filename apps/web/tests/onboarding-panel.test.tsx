@@ -24,7 +24,9 @@ describe("OnboardingPanel", () => {
   it("explains when the user was redirected from the planner route", () => {
     render(<OnboardingPanel plans={[]} redirectedFromPlanner />);
 
-    expect(screen.getByText(/Termina el onboarding para entrar al horario/u)).toBeInTheDocument();
+    expect(
+      screen.getByText(/Termina la configuración inicial para entrar al horario/u),
+    ).toBeInTheDocument();
   });
 
   it("blocks planner navigation until the required selectors and plans are complete", () => {
@@ -33,7 +35,7 @@ describe("OnboardingPanel", () => {
     fireEvent.click(screen.getByRole("button", { name: /Siguiente/u }));
 
     expect(pushSpy).not.toHaveBeenCalled();
-    expect(screen.getByText(/Falta completar onboarding/u)).toBeInTheDocument();
+    expect(screen.getByText(/Falta completar la configuración inicial/u)).toBeInTheDocument();
   });
 
   it("keeps plans hidden until the entry term is complete", () => {

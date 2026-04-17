@@ -19,7 +19,7 @@ describe("RouteError", () => {
       />,
     );
 
-    expect(screen.getByRole("link", { name: /Abrir onboarding/u })).toHaveAttribute(
+    expect(screen.getByRole("link", { name: /Abrir configuración inicial/u })).toHaveAttribute(
       "href",
       "/planner/onboarding",
     );

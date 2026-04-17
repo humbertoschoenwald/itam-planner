@@ -16,4 +16,13 @@ describe("getProductCopy", () => {
       "Official registration destination",
     );
   });
+
+  it("keeps the Spanish product copy cleanly localized for the current public surfaces", () => {
+    const spanishCopy = getProductCopy("es-MX");
+
+    expect(spanishCopy.home.introBody).toMatch(/sincronización oculta/u);
+    expect(spanishCopy.home.introBody).not.toMatch(/sync/u);
+    expect(spanishCopy.home.cards[2]?.body).toMatch(/enlaces del repositorio/u);
+    expect(spanishCopy.mapPage.body).toMatch(/marcador/u);
+  });
 });

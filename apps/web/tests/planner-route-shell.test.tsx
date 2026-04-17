@@ -50,8 +50,10 @@ describe("PlannerRouteShell", () => {
       expect(replaceSpy).toHaveBeenCalledWith("/planner/onboarding");
     });
 
-    expect(screen.getByText(/Horario está preparando tu onboarding/u)).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: /Continuar onboarding/u })).toHaveAttribute(
+    expect(
+      screen.getByText(/Horario está preparando tu configuración inicial/u),
+    ).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: /Continuar configuración inicial/u })).toHaveAttribute(
       "href",
       "/planner/onboarding",
     );
@@ -162,7 +164,9 @@ describe("PlannerRouteShell", () => {
       />,
     );
 
-    expect(screen.getByRole("link", { name: /Continuar onboarding/u })).toHaveAttribute(
+    expect(
+      screen.getByRole("link", { name: /Continuar configuración inicial/u }),
+    ).toHaveAttribute(
       "href",
       "/planner/onboarding",
     );

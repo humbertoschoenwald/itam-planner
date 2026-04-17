@@ -1,4 +1,4 @@
-import { DEFAULT_LOCALE } from "@/lib/locale";
+import { DEFAULT_LOCALE, LOCALE_LABELS } from "@/lib/locale";
 import type { LocaleCode } from "@/lib/types";
 
 const uiCopy = {
@@ -13,10 +13,7 @@ const uiCopy = {
       genericErrorTitle: "This view could not be loaded.",
       goToOnboarding: "Open onboarding",
       home: "Home",
-      localeLabels: {
-        "es-MX": "Spanish (MX)",
-        en: "English",
-      },
+      localeLabels: LOCALE_LABELS.en,
       open: "Open",
       planner: "Schedule",
       retry: "Retry",
@@ -513,12 +510,9 @@ const uiCopy = {
       genericErrorBody:
         "No se pudo cargar esta vista. Intenta de nuevo o abre la configuración del horario.",
       genericErrorTitle: "No se pudo cargar esta vista.",
-      goToOnboarding: "Abrir onboarding",
+      goToOnboarding: "Abrir configuración inicial",
       home: "Inicio",
-      localeLabels: {
-        "es-MX": "Español (MX)",
-        en: "Inglés",
-      },
+      localeLabels: LOCALE_LABELS["es-MX"],
       open: "Abrir",
       planner: "Horario",
       retry: "Reintentar",
@@ -536,7 +530,7 @@ const uiCopy = {
     projectLinks: {
       githubIssuesLabel: "GitHub Issues",
       githubDescription:
-        "Reporta bugs, source drift, correcciones de datos e ideas de producto por la vía oficial del proyecto.",
+        "Reporta errores, cambios en fuentes oficiales, correcciones de datos e ideas de producto por la vía oficial del proyecto.",
       instagramLabel: "Instagram",
       instagramDescription:
         "Sigue el trabajo del creador, sus experimentos de calidad y las actualizaciones del proyecto. No es un canal de soporte.",
@@ -556,33 +550,33 @@ const uiCopy = {
       creatorSurfaces: "Canales del creador",
       eyebrow: "Proyecto",
       issueBullets: [
-        "Reporte de errores para comportamiento roto de la app o del pipeline.",
+        "Reporte de errores para comportamiento roto de la aplicación o del pipeline.",
         "Corrección de datos para información académica normalizada incorrecta.",
         "Cambio en fuente oficial cuando varía la forma de una página o PDF del ITAM.",
-        "Solicitud de mejora para nuevas ideas de horario o UX.",
+        "Solicitud de mejora para nuevas ideas de horario o experiencia de uso.",
       ],
-      issueLead: "Elige el template que mejor describa tu reporte:",
+      issueLead: "Elige la plantilla que mejor describa tu reporte:",
       issueShortcuts: {
         bug: "Reporte de errores",
         dataCorrection: "Corrección de datos",
         featureRequest: "Solicitud de mejora",
         sourceDrift: "Cambio en fuente oficial",
       },
-      issueTitle: "Abrir un issue",
+      issueTitle: "Abrir una incidencia",
       signUpLead: "Si todavía no tienes cuenta de GitHub, créala en",
       supportPath: "Ruta oficial de soporte",
-      title: "Proyecto, issues y links del creador",
+      title: "Proyecto, incidencias y enlaces del creador",
       description:
-        "Usa GitHub Issues para bugs, correcciones de datos, source drift y feature requests. Las redes del creador también viven aquí, pero el soporte se queda en GitHub.",
+        "Usa GitHub Issues para errores, correcciones de datos, cambios en fuentes oficiales y solicitudes de mejora. Las redes del creador también viven aquí, pero el soporte se queda en GitHub.",
     },
     homePage: {
       eyebrow: "Inicio",
-      title: "El shell móvil para horario, calendario y superficies secundarias.",
+      title: "La superficie móvil para horario, calendario y herramientas secundarias.",
       description:
         "Usa Inicio como superficie de descubrimiento, deja que Horario se enfoque en tu horario local y abre Calendario para la línea académica general.",
       primaryAction: "Abrir horario",
       secondaryAction: "Abrir calendario",
-      surfaceEyebrow: "Shell mobile-first",
+      surfaceEyebrow: "Prioridad móvil",
       panels: [
         {
           title: "Horario solo en navegador",
@@ -590,7 +584,7 @@ const uiCopy = {
         },
         {
           title: "Datos públicos precalculados",
-          body: "La app lee artefactos académicos públicos ya normalizados, en lugar de recalcular relaciones del catálogo por request.",
+          body: "La aplicación lee artefactos académicos públicos ya normalizados, en lugar de recalcular relaciones del catálogo en cada carga.",
         },
         {
           title: "Navegación pensada para Safari",
@@ -600,7 +594,7 @@ const uiCopy = {
       featureCards: [
         {
           action: "Abrir horario",
-          body: "Horario ahora absorbe onboarding, selección de grupos y preferencias visuales dentro de una sola familia de rutas.",
+          body: "Horario ahora absorbe la configuración inicial, la selección de grupos y las preferencias visuales dentro de una sola familia de rutas.",
           eyebrow: "Flujo principal",
           href: "/planner",
           title: "Horario",
@@ -614,7 +608,7 @@ const uiCopy = {
         },
         {
           action: "Abrir proyecto",
-          body: "GitHub Issues sigue siendo la ruta de soporte para bugs, drift y correcciones de datos.",
+          body: "GitHub Issues sigue siendo la ruta de soporte para errores, cambios en fuentes oficiales y correcciones de datos.",
           eyebrow: "Superficie secundaria",
           href: "/project",
           title: "Proyecto",
@@ -629,7 +623,7 @@ const uiCopy = {
       ],
     },
     onboardingPage: {
-      eyebrow: "Onboarding",
+      eyebrow: "Configuración inicial",
       title: "Captura lo académico básico una vez en este navegador.",
       description:
         "Elige tu periodo de ingreso, tus planes activos y tu idioma preferido. La ruta del horario depende de este estado local para saber qué documentos te aplican.",
@@ -642,14 +636,14 @@ const uiCopy = {
         spring: "Primavera",
       },
       plannerGateBody:
-        "Entraste primero a la ruta del horario, pero este navegador todavía necesita el onboarding mínimo antes de abrir el shell dedicado del horario.",
-      plannerGateTitle: "Termina el onboarding para entrar al horario",
+        "Entraste primero a la ruta del horario, pero este navegador todavía necesita la configuración inicial mínima antes de abrir la superficie dedicada del horario.",
+      plannerGateTitle: "Termina la configuración inicial para entrar al horario",
       noPlansForTermBody:
         "Ningún plan activo del catálogo publicado coincide con el periodo de ingreso seleccionado. Prueba otro año o espera la siguiente actualización pública del catálogo.",
       noPlansForTermTitle: "No hay planes para ese periodo de ingreso",
       readyBody:
-        "Este navegador ya tiene el onboarding mínimo. Puedes ajustarlo aquí o saltar directo al horario.",
-      readyTitle: "Ya existe onboarding",
+        "Este navegador ya tiene la configuración inicial mínima. Puedes ajustarla aquí o saltar directo al horario.",
+      readyTitle: "La configuración inicial ya existe",
       openPlanner: "Siguiente",
       backHome: "Volver al inicio",
       plansLockedBody:
@@ -659,11 +653,11 @@ const uiCopy = {
       selectYear: "Selecciona un año",
       validationBody:
         "Completa ambos selectores del periodo de ingreso y deja al menos un plan activo antes de pasar al horario.",
-      validationTitle: "Falta completar onboarding",
+      validationTitle: "Falta completar la configuración inicial",
     },
     plannerOnboarding: {
       back: "Atrás",
-      eyebrow: "Onboarding del horario",
+      eyebrow: "Configuración inicial del horario",
       entryTermBody:
         "Elige el ciclo académico y el año que corresponden a tu ingreso al ITAM. Aquí solo aparecen años reales del catálogo publicado.",
       entryTermTitle: "¿Cuál es tu periodo de ingreso?",
@@ -680,13 +674,13 @@ const uiCopy = {
         swipe: "Deslizamiento",
       },
       finishSupport:
-        "En la siguiente pantalla el navegador terminará de preparar tu shell local y te llevará directo al horario.",
+        "En la siguiente pantalla el navegador terminará de preparar tu superficie local y te llevará directo al horario.",
       finishTitle: "Ya puedes crear tu horario",
       introBody:
-        "Te vamos a pedir unos pocos datos para que este navegador sepa qué planes públicos te aplican y cómo quieres sentir la navegación desde el primer swipe.",
+        "Te vamos a pedir unos pocos datos para que este navegador sepa qué planes públicos te aplican y cómo quieres sentir la navegación desde el primer deslizamiento.",
       introCards: [
         {
-          body: "Lo básico de tu contexto académico se queda solo en este navegador. No necesitas cuenta y no hay perfil en el backend.",
+          body: "Lo básico de tu contexto académico se queda solo en este navegador. No necesitas cuenta y no hay perfil en el servidor.",
           title: "Privado por defecto",
         },
         {
@@ -694,31 +688,31 @@ const uiCopy = {
           title: "Catálogo público real",
         },
         {
-          body: "El setup inicial es corto. Después podrás entrar al horario y ajustar detalles cuando quieras.",
-          title: "Setup rápido",
+          body: "La configuración inicial es corta. Después podrás entrar al horario y ajustar detalles cuando quieras.",
+          title: "Configuración rápida",
         },
       ],
       introTitle: "Vamos a configurar el horario una sola vez",
       loadingBody:
-        "El navegador está armando tu shell local, cruzando el catálogo público y preparando el primer estado del horario.",
+        "El navegador está armando tu superficie local, cruzando el catálogo público y preparando el primer estado del horario.",
       loadingCards: [
         {
           body: "Empatando tu periodo de ingreso con los planes publicados que sí te aplican.",
           title: "Contexto académico",
         },
         {
-          body: "Preparando los widgets iniciales y la navegación de este navegador.",
-          title: "Shell local",
+          body: "Preparando los paneles iniciales y la navegación de este navegador.",
+          title: "Superficie local",
         },
         {
-          body: "Generando el primer código portable a partir del perfil que acabas de configurar.",
-          title: "Contexto portable",
+          body: "Generando el primer código portátil a partir del perfil que acabas de configurar.",
+          title: "Contexto portátil",
         },
       ],
       loadingEyebrow: "Configurando este navegador",
       loadingTitle: "Preparando tu horario",
       next: "Siguiente",
-      openPlanner: "Continuar onboarding",
+      openPlanner: "Continuar configuración inicial",
       programBody:
         "Busca y elige la carrera que te aplica para ese periodo de ingreso. Los títulos repetidos se colapsan a propósito.",
       programLockedBody:
@@ -738,8 +732,9 @@ const uiCopy = {
         degree: "Selecciona tu licenciatura:",
         mixed: "Selecciona tu licenciatura / ingeniería:",
       },
-      redirectBody: "Horario necesita terminar su onboarding embebido antes de renderizar el shell de horario en este navegador.",
-      redirectTitle: "Horario está preparando tu onboarding",
+      redirectBody:
+        "Horario necesita terminar su configuración inicial embebida antes de renderizar la superficie de horario en este navegador.",
+      redirectTitle: "Horario está preparando tu configuración inicial",
       stepLabels: {
         academicLevel: "Nivel",
         entryTerm: "Ingreso",
@@ -763,7 +758,7 @@ const uiCopy = {
       swipePreferenceBody:
         "Horario siempre te mueve al destino adyacente, pero aquí puedes decidir si la animación debe sentirse natural o invertida en este dispositivo.",
       swipePreferenceTitle: "¿Cómo quieres que se sienta el deslizamiento?",
-      title: "Responde el onboarding del horario paso a paso",
+      title: "Responde la configuración inicial del horario paso a paso",
       validationBody: {
         academicLevel:
           "Elige el nivel académico antes de continuar.",
@@ -783,10 +778,10 @@ const uiCopy = {
       calendarGridEventDays: "días con eventos",
       datePending: "Fecha pendiente",
       description:
-        "Calendario sigue siendo útil antes del onboarding y luego añade contexto de clases del día cuando el horario ya existe en este navegador.",
+        "Calendario sigue siendo útil antes de la configuración inicial y luego añade contexto de clases del día cuando el horario ya existe en este navegador.",
       eyebrow: "Calendario",
       generalCalendarBody:
-        "Puedes revisar el calendario académico público desde ahora. El contexto de clases del horario aparece aquí después de completar el onboarding del horario.",
+        "Puedes revisar el calendario académico público desde ahora. El contexto de clases del horario aparece aquí después de completar la configuración inicial del horario.",
       generalCalendarEyebrow: "Calendario general",
       generalCalendarTitle: "Primero el calendario público",
       noAcademicPeriod: "General",
@@ -797,15 +792,18 @@ const uiCopy = {
     },
     legalPages: {
       privacy: {
-        description: "Qué guarda la web localmente, qué nunca se guarda en el backend y cómo se comporta el estado local del navegador.",
+        description:
+          "Qué guarda la web localmente, qué nunca se guarda en el servidor y cómo se comporta el estado local del navegador.",
         eyebrow: "Privacidad",
         sections: [
           {
-            body: "Este producto guarda solo contexto local del horario, como tu periodo de ingreso, tus planes activos, tus grupos seleccionados, tus widgets y tus preferencias de navegación. Todo eso se queda en tu dispositivo.",
+            body:
+              "Este producto guarda solo contexto local del horario, como tu periodo de ingreso, tus planes activos, tus grupos seleccionados, tus paneles y tus preferencias de navegación. Todo eso se queda en tu dispositivo.",
             title: "Qué sí se queda en el navegador",
           },
           {
-            body: "El backend no guarda tu nombre, correo, matrícula, horario seleccionado ni un perfil personal persistente. No hay sign-in, analytics ni telemetry personal.",
+            body:
+              "El servidor no guarda tu nombre, correo, matrícula, horario seleccionado ni un perfil personal persistente. No hay inicio de sesión, analítica ni telemetría personal.",
             title: "Qué nunca sale del navegador",
           },
         ],
@@ -816,7 +814,8 @@ const uiCopy = {
         eyebrow: "Términos",
         sections: [
           {
-            body: "ITAM Planner es un proyecto open-source independiente. No está afiliado, respaldado ni mantenido por el Instituto Tecnológico Autónomo de México (ITAM).",
+            body:
+              "ITAM Planner es un proyecto independiente de código abierto. No está afiliado, respaldado ni mantenido por el Instituto Tecnológico Autónomo de México (ITAM).",
             title: "No afiliación",
           },
           {
@@ -828,13 +827,13 @@ const uiCopy = {
       },
     },
     footer: {
-      caption: "Proyecto independiente. El detalle legal y de privacidad vive en los links del footer.",
+      caption: "Proyecto independiente. El detalle legal y de privacidad vive en los enlaces del pie.",
       privacy: "Aviso de privacidad",
       terms: "Términos y condiciones",
     },
     connectPage: {
       description:
-        "Tu código del estudiante ya refleja el estado local de tu horario en el navegador. La forma exacta del endpoint para IA sigue diferida por doctrina, así que esta página se concentra en el contrato actual y en lo que sigue.",
+        "Tu código del estudiante ya refleja el estado local de tu horario en el navegador. La forma exacta del punto de acceso para IA sigue diferida por doctrina, así que esta página se concentra en el contrato actual y en lo que sigue.",
       eyebrow: "Conectar con IA",
       title: "Prepara tu horario local para usarlo con IA externa",
     },
@@ -844,9 +843,9 @@ const uiCopy = {
       deferredContract: "Contrato diferido",
       entryTerm: "Periodo de ingreso",
       finishOnboarding:
-        "Termina el onboarding y elige al menos un plan o grupo para generar tu código.",
+        "Termina la configuración inicial y elige al menos un plan o grupo para generar tu código.",
       footer:
-        "Las instrucciones finales para ChatGPT, las capturas para iPhone y el endpoint público de contexto para IA llegan en el siguiente slice cuando el contrato quede congelado en doctrina.",
+        "Las instrucciones finales para ChatGPT, las capturas para iPhone y el punto de acceso público de contexto para IA llegan en la siguiente etapa cuando el contrato quede congelado en doctrina.",
       notSetYet: "Todavía no definido",
       plans: "Planes seleccionados",
       offerings: "Grupos seleccionados",
@@ -857,8 +856,8 @@ const uiCopy = {
           title: "1. Mantén el horario local",
         },
         {
-          body: "El endpoint futuro para IA seguirá siendo read-only, JSON-only y no persistente.",
-          title: "2. Congela el contrato del endpoint",
+          body: "El punto de acceso futuro para IA seguirá siendo de solo lectura, solo JSON y no persistente.",
+          title: "2. Congela el contrato del punto de acceso",
         },
         {
           body: "Las guías para navegador e iPhone llegan cuando ese contrato quede aceptado.",
@@ -869,19 +868,19 @@ const uiCopy = {
       worksWithOtherAis:
         "Esto también funciona con otras IAs. ChatGPT es solo el primer objetivo nombrado.",
       intro:
-        "Esta página es el puente hacia el flujo futuro con IA externa. El contrato final del endpoint sigue abierto a propósito, pero el código local del estudiante ya es real.",
+        "Esta página es el puente hacia el flujo futuro con IA externa. El contrato final del punto de acceso sigue abierto a propósito, pero el código local del estudiante ya es real.",
     },
     plannerHome: {
       activePlans: "Planes activos",
       activePlansHelp:
-        "Selecciona los planes que te aplican actualmente. No necesitas cuenta y nada se guarda en el backend.",
+        "Selecciona los planes que te aplican actualmente. No necesitas cuenta y nada se guarda en el servidor.",
       activePlansShort: "planes activos",
       activePeriodFallback: "Todavía no hay periodo seleccionado",
       activePeriodTitle:
         "Elige un periodo público y guarda los grupos que quieres dentro del estado local del horario.",
-      browserOnlyLabel: "Dirección actual del build",
+      browserOnlyLabel: "Dirección actual de la publicación",
       browserOnlyText:
-        "Los datos públicos se normalizan fuera del request-time y luego regresan a la app como un artefacto estable del catálogo.",
+        "Los datos públicos se normalizan fuera del tiempo de solicitud y luego regresan a la aplicación como un artefacto estable del catálogo.",
       currentLocale: "Idioma actual",
       currentProfileFallback: "Empieza con lo básico",
       currentProfileHelp:
@@ -890,13 +889,13 @@ const uiCopy = {
       entryTerm: "Periodo de ingreso",
       groupsSelected: "Grupos seleccionados",
       intro:
-        "Empieza con onboarding, elige los planes que te aplican y arma un horario a partir de los horarios públicos del ITAM. Tu perfil, tus selecciones y el puente futuro con IA se quedan en este navegador.",
+        "Empieza con la configuración inicial, elige los planes que te aplican y arma un horario a partir de los horarios públicos del ITAM. Tu perfil, tus selecciones y el puente futuro con IA se quedan en este navegador.",
       loadOfferings: "Cargando grupos...",
       loadPlans: "Cargando lista pública de planes...",
       locale: "Idioma preferido",
       noAccountRequired: "No necesitas cuenta",
       noAccountRequiredText:
-        "Haz onboarding, elige tu plan y tus grupos, y conserva el estado resultante en localStorage.",
+        "Haz la configuración inicial, elige tu plan y tus grupos, y conserva el estado resultante en el almacenamiento local del navegador.",
       noPlannerData: "El horario todavía está vacío",
       noTermYet: "Todavía sin periodo",
       noErrorFallback: "No fue posible cargar el horario.",
@@ -905,7 +904,7 @@ const uiCopy = {
       period: "Periodo público de horarios",
       plansMetric: "Planes publicados",
       plannerExists: "Ya existe estado del horario",
-      plannerShell: "Shell del horario",
+      plannerShell: "Superficie del horario",
       plannerShellHelp:
         "Selecciona los grupos que quieres conservar dentro del estado actual del horario.",
       groupLabel: "Grupo",
@@ -914,13 +913,13 @@ const uiCopy = {
       selectedPeriodLoading: "Cargando el periodo público seleccionado...",
       redirectingHelp:
         "La ruta del horario requiere un periodo de ingreso y al menos un plan activo en este navegador.",
-      redirectingToOnboarding: "Redirigiendo a onboarding...",
+      redirectingToOnboarding: "Redirigiendo a configuración inicial...",
       periodsMetric: "Periodos públicos",
       plannerTitle: "Un horario local con un catálogo público normalizado por debajo.",
       profileReset: "Reiniciar perfil",
       resetPlanner: "Reiniciar horario",
       roomPending: "Salón pendiente",
-      updateOnboarding: "Ajustar onboarding",
+      updateOnboarding: "Ajustar configuración inicial",
       selectAtLeastOne:
         "Selecciona al menos un grupo público para empezar a construir el estado local del horario.",
       selectPeriod: "Selecciona un periodo",
@@ -929,16 +928,16 @@ const uiCopy = {
       step3: "Paso 3",
       catalogFreshness: {
         description:
-          "Este build lleva el último snapshot promovido del catálogo JSON directamente dentro de la web. Estos datos muestran qué tan fresco está ese snapshot publicado.",
+          "Esta publicación lleva la última instantánea promovida del catálogo JSON directamente dentro de la web. Estos datos muestran qué tan fresca está esa instantánea publicada.",
         eyebrow: "Catálogo publicado",
         latestObservedSource: "Última fuente observada",
         latestPromotion: "Última promoción",
-        noData: "Todavía no hay metadata publicada del snapshot.",
+        noData: "Todavía no hay metadatos publicados de la instantánea.",
         notAvailableYet: "Todavía no disponible",
-        releaseLabel: "Release",
-        snapshots: "Snapshots",
+        releaseLabel: "Versión",
+        snapshots: "Instantáneas",
         statusLabels: {
-          drift_detected: "Drift detectado",
+          drift_detected: "Cambio detectado",
           failed: "Falló",
           no_changes: "Sin cambios",
           running: "Corriendo",
@@ -952,7 +951,7 @@ const uiCopy = {
       timeline: [
         {
           body: "Elige los planes que te aplican y guarda ese contexto solo en este navegador.",
-          title: "Empieza con onboarding",
+          title: "Empieza con la configuración inicial",
         },
         {
           body: "Toma un periodo público, conserva los grupos que te interesan y forma tu primer estado de horario.",
@@ -964,8 +963,8 @@ const uiCopy = {
         },
       ],
       surfaceBody:
-        "Horario se enfoca en onboarding local, captura de horario y widgets elegidos para el lanzamiento.",
-      surfaceEyebrow: "Shell del horario",
+        "Horario se enfoca en la configuración inicial local, la captura del horario y los paneles elegidos para el lanzamiento.",
+      surfaceEyebrow: "Superficie del horario",
       subjectsBoard: {
         activePlansLabel: "Planes activos",
         description:
@@ -977,7 +976,7 @@ const uiCopy = {
         title: "Contexto académico",
       },
       todayBoard: {
-        description: "El horario prioriza hoy siempre que el widget diario esté activado.",
+        description: "El horario prioriza hoy siempre que el panel diario esté activado.",
         empty: "Todavía no hay clases seleccionadas para hoy.",
         eyebrow: "Hoy",
         roomPending: "Salón pendiente",
@@ -1002,9 +1001,9 @@ const uiCopy = {
       copied: "Copiado",
       copyCode: "Copiar código",
       description:
-        "Este código, propiedad del navegador, se genera a partir de tu perfil actual y del estado del horario. No necesitas cuenta y ningún dato personal se guarda en el backend. Usa GitHub Issues para soporte; este código es la base del flujo futuro con IA.",
+        "Este código, propiedad del navegador, se genera a partir de tu perfil actual y del estado del horario. No necesitas cuenta y ningún dato personal se guarda en el servidor. Usa GitHub Issues para soporte; este código es la base del flujo futuro con IA.",
       lengthSuffix: "caracteres",
-      eyebrow: "Contexto portable",
+      eyebrow: "Contexto portátil",
       openConnectToAi: "Abrir la página Conectar con IA",
       title: "Código del alumno",
       waitingForPlannerData: "Esperando datos del horario",
