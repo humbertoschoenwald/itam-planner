@@ -1,4 +1,4 @@
-# itam-planner
+# ITAM Planner
 
 `itam-planner` is a modern, privacy-first academic planning project for ITAM students. It ingests public academic documents, normalizes them into a stable public catalog, and is evolving toward a browser-local planner that students can use without accounts or cloud-stored personal data.
 
