@@ -252,6 +252,11 @@ export function buildSiteMetadata(locale: LocaleCode): Metadata {
       canonical: "https://itam.humbertoschoenwald.com",
     },
     manifest: "/manifest.webmanifest",
+    icons: {
+      apple: [{ type: "image/png", url: "/apple-icon" }],
+      icon: [{ type: "image/svg+xml", url: "/favicon.svg" }],
+      shortcut: [{ type: "image/svg+xml", url: "/favicon.svg" }],
+    },
     title: {
       default: copy.siteTitle,
       template: `%s | ${copy.siteTitle}`,

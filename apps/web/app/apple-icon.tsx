@@ -1,3 +1,6 @@
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
+
 import { ImageResponse } from "next/og";
 
 export const size = {
@@ -7,17 +10,20 @@ export const size = {
 
 export const contentType = "image/png";
 
+const appIconSvg = readFileSync(
+  join(process.cwd(), "public", "app-icon.svg"),
+  "utf8",
+);
+
+const appIconDataUrl = `data:image/svg+xml;base64,${Buffer.from(appIconSvg).toString("base64")}`;
+
 export default function AppleIcon() {
   return new ImageResponse(
     (
       <div
         style={{
-          alignItems: "center",
-          background: "linear-gradient(180deg, #1f4d3f 0%, #17392f 100%)",
-          borderRadius: "42px",
           color: "#f4fbf8",
           display: "flex",
-          flexDirection: "column",
           height: "100%",
           justifyContent: "center",
           width: "100%",
@@ -25,23 +31,14 @@ export default function AppleIcon() {
       >
         <div
           style={{
-            fontSize: 34,
-            fontWeight: 700,
-            letterSpacing: "0.12em",
-            textTransform: "uppercase",
+            backgroundImage: `url(${appIconDataUrl})`,
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+            height: "100%",
+            width: "100%",
           }}
-        >
-          ITAM
-        </div>
-        <div
-          style={{
-            fontSize: 30,
-            fontWeight: 700,
-            lineHeight: 1.05,
-          }}
-        >
-          Horario
-        </div>
+        />
       </div>
     ),
     size,

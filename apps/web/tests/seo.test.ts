@@ -30,6 +30,13 @@ describe("seo copy", () => {
 
     expect(siteMetadata.applicationName).toBe("ITAM Planner");
     expect(siteMetadata.description).toMatch(/Horario académico/u);
+    expect(siteMetadata.icons).toEqual(
+      expect.objectContaining({
+        apple: [expect.objectContaining({ type: "image/png", url: "/apple-icon" })],
+        icon: [expect.objectContaining({ type: "image/svg+xml", url: "/favicon.svg" })],
+        shortcut: [expect.objectContaining({ type: "image/svg+xml", url: "/favicon.svg" })],
+      }),
+    );
     expect(siteMetadata.openGraph?.locale).toBe("es_MX");
     expect(structuredData.inLanguage).toBe("es-MX");
     expect(structuredData.description).toMatch(/Proyecto independiente/u);
