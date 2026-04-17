@@ -25,6 +25,7 @@ Do not edit it manually.
 - web: localize project and registration labels (`3d9074d`)
 - web: centralize locale-driven copy cleanup (`7092943`)
 - web: localize official search surfaces (`d31d061`)
+- web: adopt the shipped svg favicon (`bfa6031`)
 
 ### Documentation
 
@@ -38,6 +39,7 @@ Do not edit it manually.
 - doctrine: require English frontend identifiers (`107feea`)
 - doctrine: codify localized schedule onboarding (`0441cc6`)
 - doctrine: harden localized onboarding defaults (`60c829a`)
+- docs: title the readme canonically (`7748642`)
 
 ### Refactors
 
