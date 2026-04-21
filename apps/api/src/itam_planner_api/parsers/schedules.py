@@ -13,6 +13,7 @@ _PERIOD_PATTERN = re.compile(r"Horarios para el período\s+(.+)", re.IGNORECASE)
 _SUBJECT_PATTERN = re.compile(r"^([A-Z]{2,4})-(\d{5})-(.+)$")
 _DAY_PATTERN = re.compile(r"\b(LU|MA|MI|JU|VI|SA|DO)\b")
 _TIME_RANGE_PATTERN = re.compile(r"^(\d{2}:\d{2})-(\d{2}:\d{2})$")
+SCHEDULE_OFFERING_CELL_COUNT = 13
 
 
 def parse_schedule_periods_menu(html: str, base_url: str) -> list[SchedulePeriod]:
@@ -104,7 +105,7 @@ def parse_schedule_offerings(html: str, period_id: str) -> list[ScheduleOffering
         cells = [
             normalize_whitespace(cell.get_text(" ", strip=True)) for cell in row.find_all("td")
         ]
-        if len(cells) != 13:
+        if len(cells) != SCHEDULE_OFFERING_CELL_COUNT:
             continue
         (
             department_code,

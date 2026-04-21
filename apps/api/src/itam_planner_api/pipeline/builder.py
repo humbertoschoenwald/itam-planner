@@ -38,6 +38,7 @@ HORARIOS_FORM_URL = "https://itaca2.itam.mx:8443/b9prod/edsup/BWZKSENP.P_Horario
 REFERENCE_BULLETIN_CODES_PATH = (
     Path(__file__).resolve().parents[1] / "reference" / "official_bulletin_codes.json"
 )
+HTTP_NOT_FOUND_STATUS = 404
 FIXTURE_RUN_STARTED_AT = datetime(2026, 4, 15, 11, 36, 0, tzinfo=UTC)
 FIXTURE_RUN_COMPLETED_AT = datetime(2026, 4, 15, 11, 36, 2, tzinfo=UTC)
 FIXTURE_PROMOTED_AT = datetime(2026, 4, 15, 11, 36, 3, tzinfo=UTC)
@@ -659,7 +660,7 @@ def _fetch_official_bulletin_payloads(
     for bulletin_link in bulletin_links:
         response = client.get(bulletin_link.url)
 
-        if response.status_code == 404:
+        if response.status_code == HTTP_NOT_FOUND_STATUS:
             continue
 
         response.raise_for_status()
