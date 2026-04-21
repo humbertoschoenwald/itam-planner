@@ -1,3 +1,5 @@
+// @vitest-environment node
+
 import { describe, expect, it } from "vitest";
 
 import { buildLocalSearchIndex, searchLocalIndex } from "@/lib/search-index";

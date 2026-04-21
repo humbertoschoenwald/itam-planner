@@ -1,4 +1,4 @@
-import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { act, fireEvent, render, screen } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import { SiteHeader } from "@/components/site-header";
@@ -10,6 +10,7 @@ import {
 
 const pushSpy = vi.fn();
 let mockedPathname = "/planner";
+let mockedPhoneViewport = false;
 
 vi.mock("next/navigation", () => ({
   usePathname: () => mockedPathname,
@@ -18,10 +19,15 @@ vi.mock("next/navigation", () => ({
   }),
 }));
 
+vi.mock("@/lib/use-phone-viewport", () => ({
+  usePhoneViewport: () => mockedPhoneViewport,
+}));
+
 describe("SiteHeader", () => {
   beforeEach(() => {
     pushSpy.mockReset();
     mockedPathname = "/planner";
+    mockedPhoneViewport = false;
     setViewportWidth(1280);
     useStudentProfileStore.setState({ profile: DEFAULT_STUDENT_PROFILE });
     usePlannerUiStore.setState({ state: DEFAULT_PLANNER_UI_STATE });
@@ -68,18 +74,16 @@ describe("SiteHeader", () => {
   });
 
   it("stores the first learned swipe preference while moving from planner to home on phone layouts", async () => {
-    setViewportWidth(390);
+    mockedPhoneViewport = true;
     render(<SiteHeader />);
 
     const nav = screen.getByRole("link", { name: "Horario" }).closest("nav");
     expect(nav).not.toBeNull();
 
-    await waitFor(() => {
-      fireEvent.pointerDown(nav!, { clientX: 10 });
-      fireEvent.pointerUp(nav!, { clientX: 90 });
-
-      expect(pushSpy).toHaveBeenCalledWith("/");
-    });
+    fireEvent.pointerDown(nav!, { clientX: 10 });
+    fireEvent.pointerUp(nav!, { clientX: 90 });
+    await flushAsyncState();
+    expect(pushSpy).toHaveBeenCalledWith("/");
 
     expect(usePlannerUiStore.getState().state.navSwipePreference).toBe("natural");
   });
@@ -90,10 +94,9 @@ describe("SiteHeader", () => {
 
     render(<SiteHeader />);
 
-    await waitFor(() => {
-      expect(screen.queryByRole("link", { name: "Proyecto" })).not.toBeInTheDocument();
-      expect(screen.getByRole("button", { name: "Abrir menú del producto" })).toBeInTheDocument();
-    });
+    await flushAsyncState();
+    expect(screen.queryByRole("link", { name: "Proyecto" })).not.toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Abrir menú del producto" })).toBeInTheDocument();
   });
 
   it("keeps executive education in the overflow-only links menu", () => {
@@ -125,4 +128,12 @@ function setViewportWidth(width: number) {
     writable: true,
   });
   window.dispatchEvent(new Event("resize"));
+}
+
+async function flushAsyncState(iterations: number = 3) {
+  await act(async () => {
+    for (let index = 0; index < iterations; index += 1) {
+      await Promise.resolve();
+    }
+  });
 }

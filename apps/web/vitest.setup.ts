@@ -30,10 +30,12 @@ class MemoryStorage {
 
 const storage = new MemoryStorage();
 
-Object.defineProperty(window, "localStorage", {
-  configurable: true,
-  value: storage,
-});
+if (typeof window !== "undefined") {
+  Object.defineProperty(window, "localStorage", {
+    configurable: true,
+    value: storage,
+  });
+}
 
 Object.defineProperty(globalThis, "localStorage", {
   configurable: true,

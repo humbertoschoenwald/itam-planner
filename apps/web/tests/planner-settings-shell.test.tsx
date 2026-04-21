@@ -1,4 +1,4 @@
-import { render, screen, waitFor } from "@testing-library/react";
+import { act, render, screen } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import { PlannerSettingsShell } from "@/components/planner-settings-shell";
@@ -131,12 +131,19 @@ describe("PlannerSettingsShell", () => {
     expect(screen.getByRole("heading", { name: "Horario público" })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "Preferencias del horario" })).toBeInTheDocument();
 
-    await waitFor(() => {
-      expect(fetchSchedulePeriodDetailMock).toHaveBeenCalledWith("2938");
-    });
+    await flushAsyncState();
+    expect(fetchSchedulePeriodDetailMock).toHaveBeenCalledWith("2938");
 
     expect(screen.getByRole("button", { name: /ACT-15360 · 001/u })).toBeInTheDocument();
     expect(screen.getByText(/Clases seleccionadas: 1/u)).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: /Materias/u })).toBeInTheDocument();
   });
 });
+
+async function flushAsyncState(iterations: number = 3) {
+  await act(async () => {
+    for (let index = 0; index < iterations; index += 1) {
+      await Promise.resolve();
+    }
+  });
+}

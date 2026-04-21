@@ -52,11 +52,13 @@ describe("student code", () => {
       },
     );
 
-    globalThis.Buffer = {
+    const unsupportedBuffer = Object.assign(function UnsupportedBuffer() {}, {
       from: () => {
         throw new Error("Buffer branch should not run in the browser");
       },
-    } as unknown as typeof Buffer;
+    });
+
+    globalThis.Buffer = unsupportedBuffer as unknown as typeof Buffer;
 
     const token = encodeStudentCode(payload);
 

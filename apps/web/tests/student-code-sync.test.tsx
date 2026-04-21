@@ -44,11 +44,13 @@ describe("useSyncStudentCode", () => {
   });
 
   it("does not crash the route when code generation hits a browser-incompatible Buffer implementation", async () => {
-    globalThis.Buffer = {
+    const unsupportedBuffer = Object.assign(function UnsupportedBuffer() {}, {
       from: () => {
         throw new Error("Unsupported browser Buffer polyfill");
       },
-    } as unknown as typeof Buffer;
+    });
+
+    globalThis.Buffer = unsupportedBuffer as unknown as typeof Buffer;
 
     render(<SyncHarness />);
 

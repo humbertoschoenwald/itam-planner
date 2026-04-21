@@ -1,4 +1,4 @@
-import { act, fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { act, fireEvent, render, screen } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import {
@@ -19,6 +19,7 @@ import {
 
 const pushSpy = vi.fn();
 const fetchSchedulePeriodDetailMock = vi.fn();
+let mockedPhoneViewport = true;
 
 vi.mock("next/navigation", () => ({
   useRouter: () => ({
@@ -29,6 +30,10 @@ vi.mock("next/navigation", () => ({
 
 vi.mock("@/lib/api", () => ({
   fetchSchedulePeriodDetail: (...args: unknown[]) => fetchSchedulePeriodDetailMock(...args),
+}));
+
+vi.mock("@/lib/use-phone-viewport", () => ({
+  usePhoneViewport: () => mockedPhoneViewport,
 }));
 
 const samplePlans: BulletinSummary[] = [
@@ -244,7 +249,7 @@ describe("PlannerOnboardingWizard", () => {
     fetchSchedulePeriodDetailMock.mockReset();
     vi.useRealTimers();
     vi.restoreAllMocks();
-    setViewportWidth(390);
+    mockedPhoneViewport = true;
     window.localStorage.clear();
     useStudentProfileStore.setState({ profile: DEFAULT_STUDENT_PROFILE });
     usePlannerStore.setState({ state: DEFAULT_PLANNER_STATE });
@@ -332,24 +337,27 @@ describe("PlannerOnboardingWizard", () => {
     });
   });
 
-  it("starts at the intro step and blocks progress until the academic level is chosen", () => {
+  it("starts at the intro step and blocks progress until the academic level is chosen", async () => {
     renderWizard();
+    await flushAsyncState();
 
     expect(screen.getByText(/Vamos a configurar el horario una sola vez/u)).toBeInTheDocument();
     expect(screen.queryByLabelText(/Busca tu carrera/u)).not.toBeInTheDocument();
 
     fireEvent.click(screen.getByRole("button", { name: /Siguiente/u }));
+    await flushAsyncState();
 
     expect(screen.getByText(/¿En qué nivel académico estás\?/u)).toBeInTheDocument();
 
     fireEvent.click(screen.getByRole("button", { name: /Siguiente/u }));
+    await flushAsyncState();
 
     expect(screen.getByText(/Todavía falta un paso obligatorio/u)).toBeInTheDocument();
     expect(screen.queryByLabelText(/Busca tu carrera/u)).not.toBeInTheDocument();
   });
 
   it("skips the swipe step outside phone layouts and lands on finish after classes", async () => {
-    setViewportWidth(1280);
+    mockedPhoneViewport = false;
     renderWizard();
 
     fireEvent.click(screen.getByRole("button", { name: /Siguiente/u }));
@@ -365,17 +373,15 @@ describe("PlannerOnboardingWizard", () => {
     fireEvent.click(screen.getByRole("button", { name: "Economía" }));
     fireEvent.click(screen.getByRole("button", { name: /Siguiente/u }));
 
-    await waitFor(() => {
-      expect(usePlannerStore.getState().state.selectedSubjectCodes).toEqual(["ECO-12002"]);
-    });
+    await flushAsyncState();
+    expect(usePlannerStore.getState().state.selectedSubjectCodes).toEqual(["ECO-12002"]);
 
     expect(screen.getByText(/¿Con qué materias debe arrancar el horario\?/u)).toBeInTheDocument();
 
     fireEvent.click(screen.getByRole("button", { name: /Siguiente/u }));
 
-    await waitFor(() => {
-      expect(fetchSchedulePeriodDetailMock).toHaveBeenCalledWith("2938");
-    });
+    await flushAsyncState();
+    expect(fetchSchedulePeriodDetailMock).toHaveBeenCalledWith("2938");
 
     expect(screen.getByText(/¿Qué clases públicas deben quedarse en tu horario\?/u)).toBeInTheDocument();
     fireEvent.click(screen.getByRole("button", { name: /ECO-12002 · Grupo 001/u }));
@@ -405,16 +411,15 @@ describe("PlannerOnboardingWizard", () => {
     fireEvent.click(screen.getByRole("button", { name: "Inteligencia Artificial" }));
     fireEvent.click(screen.getByRole("button", { name: /Siguiente/u }));
 
-    await waitFor(() => {
-      expect(usePlannerStore.getState().state.selectedSubjectCodes).toEqual([
-        "COM-16306",
-        "EGN-17141",
-        "LEN-12701",
-        "MAT-12200",
-        "MAT-14250",
-        "MAT-14280",
-      ]);
-    });
+    await flushAsyncState();
+    expect(usePlannerStore.getState().state.selectedSubjectCodes).toEqual([
+      "COM-16306",
+      "EGN-17141",
+      "LEN-12701",
+      "MAT-12200",
+      "MAT-14250",
+      "MAT-14280",
+    ]);
 
     expect(screen.getByText(/Selección actual de materias/u)).toBeInTheDocument();
     expect(screen.getAllByRole("button", { name: /COM-16306/u })).toHaveLength(1);
@@ -487,9 +492,8 @@ describe("PlannerOnboardingWizard", () => {
 
     fireEvent.click(screen.getByRole("button", { name: /Siguiente/u }));
 
-    await waitFor(() => {
-      expect(fetchSchedulePeriodDetailMock).toHaveBeenCalledWith("2938");
-    });
+    await flushAsyncState();
+    expect(fetchSchedulePeriodDetailMock).toHaveBeenCalledWith("2938");
 
     expect(screen.getByText(/¿Qué clases públicas deben quedarse en tu horario\?/u)).toBeInTheDocument();
     fireEvent.click(screen.getByRole("button", { name: /ECO-12002 · Grupo 001/u }));
@@ -550,16 +554,14 @@ describe("PlannerOnboardingWizard", () => {
     );
     fireEvent.click(screen.getByRole("button", { name: /Siguiente/u }));
 
-    await waitFor(() => {
-      expect(useStudentProfileStore.getState().profile.activePlanIds).toEqual(["plan:cd-ia"]);
-      expect(usePlannerStore.getState().state.selectedSubjectCodes).toEqual(["DAT-12010"]);
-    });
+    await flushAsyncState();
+    expect(useStudentProfileStore.getState().profile.activePlanIds).toEqual(["plan:cd-ia"]);
+    expect(usePlannerStore.getState().state.selectedSubjectCodes).toEqual(["DAT-12010"]);
 
     fireEvent.click(screen.getByRole("button", { name: /Siguiente/u }));
 
-    await waitFor(() => {
-      expect(fetchSchedulePeriodDetailMock).toHaveBeenCalledWith("2938");
-    });
+    await flushAsyncState();
+    expect(fetchSchedulePeriodDetailMock).toHaveBeenCalledWith("2938");
 
     expect(screen.getByText(/¿Qué clases públicas deben quedarse en tu horario\?/u)).toBeInTheDocument();
     fireEvent.click(screen.getByRole("button", { name: /DAT-12010 · Grupo 001/u }));
@@ -582,15 +584,13 @@ describe("PlannerOnboardingWizard", () => {
     fireEvent.click(screen.getByRole("button", { name: "Actuaría" }));
     fireEvent.click(screen.getByRole("button", { name: /Siguiente/u }));
 
-    await waitFor(() => {
-      expect(usePlannerStore.getState().state.selectedSubjectCodes).toEqual(["ACT-12002"]);
-    });
+    await flushAsyncState();
+    expect(usePlannerStore.getState().state.selectedSubjectCodes).toEqual(["ACT-12002"]);
 
     fireEvent.click(screen.getByRole("button", { name: /Siguiente/u }));
 
-    await waitFor(() => {
-      expect(fetchSchedulePeriodDetailMock).toHaveBeenCalledWith("2938");
-    });
+    await flushAsyncState();
+    expect(fetchSchedulePeriodDetailMock).toHaveBeenCalledWith("2938");
 
     expect(screen.getByText(/¿Qué clases públicas deben quedarse en tu horario\?/u)).toBeInTheDocument();
 
@@ -612,11 +612,10 @@ function renderWizard() {
   );
 }
 
-function setViewportWidth(width: number) {
-  Object.defineProperty(window, "innerWidth", {
-    configurable: true,
-    value: width,
-    writable: true,
+async function flushAsyncState(iterations: number = 3) {
+  await act(async () => {
+    for (let index = 0; index < iterations; index += 1) {
+      await Promise.resolve();
+    }
   });
-  window.dispatchEvent(new Event("resize"));
 }
