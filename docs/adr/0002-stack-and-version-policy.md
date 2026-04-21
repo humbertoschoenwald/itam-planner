@@ -15,6 +15,7 @@ The canonical stack for the initial production path is:
 
 - JavaScript runtime baseline: `Node.js 25`
 - JavaScript and TypeScript workspace management: `pnpm workspaces`
+- JavaScript and TypeScript task orchestration and caching: `Turborepo`
 - Web framework: `Next.js` App Router
 - UI framework: `React`
 - Frontend language: `TypeScript` in strict mode
@@ -48,6 +49,7 @@ The repository does not reserve or advertise a polyglot production path in its i
 
 - The technical path stays modern and familiar.
 - Python tooling becomes simpler and more consistent.
+- Workspace automation gets a canonical task graph, cache model, and filter model.
 - The repository avoids optional-runtime complexity at the doctrine stage.
 - Future adoption of a non-canonical stack requires explicit ADR review.
 

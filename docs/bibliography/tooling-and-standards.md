@@ -15,6 +15,7 @@ This bibliography lists the primary official references for the tools and standa
 
 - [Node.js](https://nodejs.org/)
 - [pnpm Workspaces](https://pnpm.io/workspaces)
+- [Turborepo](https://turborepo.com/docs)
 - [Next.js](https://nextjs.org/docs)
 - [React](https://react.dev/)
 - [TypeScript](https://www.typescriptlang.org/docs/)

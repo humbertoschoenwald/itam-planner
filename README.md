@@ -73,6 +73,7 @@ uv run --project apps/api python -m itam_planner_api.cli serve
 ### Web Workspace
 
 - Workspace manager: `pnpm`
+- Task graph and cache orchestration: `Turborepo`
 - Frontend package: `apps/web`
 - Framework: `Next.js` App Router
 

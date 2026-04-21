@@ -28,6 +28,7 @@ Commit and versioning rules:
 Repository quality tools:
 
 - JavaScript and TypeScript: `ESLint`, `Prettier`, `tsc --noEmit`
+- JavaScript and TypeScript workspace task orchestration: `Turborepo`
 - Python: `Ruff`, `basedpyright`
 - Repository-wide text quality: `cspell`
 - Markdown: `markdownlint-cli2`
@@ -60,6 +61,7 @@ Execution rules:
 - `pre-push` must mirror the blocking hosted CI path closely enough to catch repository, web, coverage-generation, and API fixture-promotion failures before network push.
 - `pre-push` is the extreme local gate. It may run a fuller local mirror than hosted CI, but it must stay intentionally optimized rather than wasting local time on redundant work.
 - Local blocking gates must run the supported `Node.js 25` web path before allowing a push.
+- Workspace package lint, typecheck, test, and build orchestration should flow through `Turborepo` rather than hand-rolled recursive workspace command chains.
 - CI must enforce the same policy classes as local tooling.
 - Repository settings and tool configs must not silently relax these rules.
 - Local workflow must not introduce artificial PR or branch overhead for a single maintainer.

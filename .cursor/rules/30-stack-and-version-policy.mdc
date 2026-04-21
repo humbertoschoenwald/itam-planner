@@ -7,7 +7,7 @@ alwaysApply: true
 
 # Stack And Version Policy
 
-- RULE: The canonical stack is `pnpm workspaces`, `Next.js`, `React`, `TypeScript`, `Tailwind CSS`, `shadcn/ui`, `Zustand`, `uv`, `FastAPI`, `Pydantic v2`, `BeautifulSoup4`, `lxml`, `Playwright`, and `openapi-typescript`.
+- RULE: The canonical stack is `pnpm workspaces`, `Turborepo`, `Next.js`, `React`, `TypeScript`, `Tailwind CSS`, `shadcn/ui`, `Zustand`, `uv`, `FastAPI`, `Pydantic v2`, `BeautifulSoup4`, `lxml`, `Playwright`, and `openapi-typescript`.
 - RULE: `Node.js 25` is the required stable baseline for repository automation, local setup, and hosted CI.
 - RULE: Do not maintain parallel Node baselines unless doctrine explicitly documents the compatibility need.
 - RULE: Python workflow goes through `uv` only.
