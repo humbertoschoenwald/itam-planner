@@ -12,8 +12,15 @@ export default defineConfig({
     },
   },
   test: {
+    coverage: {
+      provider: "v8",
+      reporter: ["text-summary", "cobertura"],
+      reportsDirectory: path.resolve(root, "../../coverage/web"),
+    },
     environment: "jsdom",
     globals: true,
+    hookTimeout: 40_000,
     setupFiles: ["./vitest.setup.ts"],
+    testTimeout: 40_000,
   },
 });

@@ -21,6 +21,8 @@ dependencies = [
 dev = [
   "basedpyright",
   "pytest",
+  "pytest-cov",
+  "pytest-timeout",
   "ruff",
 ]
 
@@ -32,6 +34,6 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [tool.pytest.ini_options]
-addopts = "--basetemp=.pytest-tmp"
+addopts = "--basetemp=.pytest-tmp --timeout=40 --timeout-method=thread"
 testpaths = ["tests"]
 pythonpath = ["src"]
