@@ -10,6 +10,9 @@ alwaysApply: true
 - RULE: Keep frontend, backend, and data adapters separated by contracts.
 - RULE: Do not couple the frontend to scraper internals or database schema.
 - RULE: Keep presentation logic separable from storage adapters, catalog shaping, and service fetch logic.
+- RULE: Keep the frontend pipeline as `data -> presenter functions -> locale dictionaries -> UI`.
+- RULE: Do not let pages or components import raw academic-data catalogs, search-index builders, catalog shapers, or other domain-data modules directly.
+- RULE: Keep one canonical repository owner for each academic fact; duplicated career metadata across modules is not allowed.
 - RULE: Browser-owned persistence failures must degrade safely without taking down the full public route.
 - RULE: Do not couple backend behavior to one source site.
 - RULE: Prefer interface-driven seams that make the service layer reusable in a normal server environment.

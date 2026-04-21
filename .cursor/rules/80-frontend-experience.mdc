@@ -51,6 +51,8 @@ alwaysApply: true
 - RULE: Keep frontend identifiers, enum values, configuration keys, and non-locale component APIs English-only; Spanish belongs only in locale dictionaries, source-derived content, and compatibility aliases.
 - RULE: Support only `es-MX` and `en` as product locales in the current slice.
 - RULE: Any locale-facing text change must update the locale dictionaries and regression tests in the same change.
+- RULE: Keep UI modules on the strict path `data -> presenter functions -> locale dictionaries -> UI`.
+- RULE: Keep canonical academic program data in one shared source of truth and derive matchers, labels, and fallbacks from that source instead of duplicating them.
 - RULE: Keep planner logic, browser persistence, and presentation styling loosely coupled so the visual system can be replaced without rewriting behavior.
 - RULE: Keep swipe navigation scoped to the top navigation surface only.
 - RULE: Keep swipe interaction and swipe-teaching UI mobile-phone-only; tablet and desktop navigation should use pointer and keyboard interactions instead.

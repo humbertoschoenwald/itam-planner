@@ -92,6 +92,9 @@ Initial product-surface rules:
 - Frontend identifiers, enum values, configuration keys, and non-locale component APIs should stay English-only. Spanish belongs in locale dictionaries, source-derived content, and compatibility aliases only.
 - The current product slice supports only two UI locales: Spanish (`es-MX`) and English (`en`).
 - Adding or changing locale-facing text requires updating the locale dictionaries and the relevant regression tests in the same change.
+- Frontend runtime structure must keep a strict `data -> presenter functions -> locale dictionaries -> UI` flow.
+- UI modules may reference presenter functions, locale dictionaries, and visual primitives, but they must not own canonical academic data or inline locale-facing business text.
+- Canonical career metadata, academic aliases, and official study-plan fallback data must live in a single internal source of truth per academic program.
 - Keep interaction logic, browser persistence, and presentation styling loosely coupled so the visual system can be replaced without rewriting planner behavior.
 - The website must never instruct users to install the app manually through browser-native entries such as “Add to Home Screen”.
 - The primary navigation bar should remain sticky for a substantial portion of the scroll experience, respect browser safe areas, and use light blur without fighting Safari chrome.

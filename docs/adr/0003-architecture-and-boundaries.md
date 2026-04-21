@@ -23,6 +23,10 @@ Hard rules:
 - `web` must never depend on scraper internals.
 - `web` must consume stable contracts, not database schema details.
 - `web` presentation must remain separable from browser-storage concerns, service calls, and catalog-shaping logic.
+- `web` presentation modules must follow the pipeline `data -> presenter functions -> locale dictionaries -> UI`.
+- page and component modules must not import raw academic-data catalogs, search index builders, catalog shapers, or other domain-data modules directly; they must consume presenter-layer functions instead.
+- locale-facing UI text must not be embedded in page or component modules. UI may reference locale dictionaries only.
+- canonical academic data for one career, joint-program component set, or study-plan fallback must have a single repository owner. Duplicate copies of the same academic fact in multiple modules are prohibited.
 - browser-owned persistence adapters must remain optional capabilities around the UI rather than prerequisites for rendering the public shell.
 - failures in browser-owned persistence must not take down the full route; they must degrade to in-memory behavior or a generic error surface.
 - `api` must depend on interfaces or internal service boundaries, not on one specific source site.

@@ -22,9 +22,14 @@ alwaysApply: true
 - RULE: Every user-facing control, locale-dependent label mapping, and browser-owned state boundary must get regression coverage when behavior changes.
 - RULE: Behavior changes must add or update tests when needed.
 - RULE: Browser-storage adapters, onboarding guards, and runtime recovery changes require explicit edge-case coverage.
+- RULE: Architecture-boundary regressions must fail if UI modules bypass presenter functions or locale-dictionary seams.
 - RULE: Use SSH for Git remotes and push operations.
 - RULE: GitHub Actions may use `GITHUB_TOKEN` for repository automation when hosted runners cannot use SSH.
 - RULE: Stable CI must stay green on `Node.js 24`, while current-line compatibility may run as a non-blocking canary.
-- RULE: `pre-push` must mirror the blocking CI jobs closely enough to catch stable web, current-line web, and API fixture-promotion failures before any push leaves the machine.
+- RULE: `pre-push` must mirror the blocking CI jobs closely enough to catch stable web, current-line web, coverage generation, and API fixture-promotion failures before any push leaves the machine.
+- RULE: `pre-push` is the heavier local gate; hosted CI should stay lightweight where local enforcement already covers the heavier checks.
 - RULE: Local blocking gates must run both the stable `Node.js 24` web path and the current-line `Node.js 25` web path.
 - RULE: API fixture-ingest validation must run against an isolated temporary public-data root and must not require overwriting the committed promoted public snapshot during quality checks.
+- RULE: Emit a merged root `coverage.xml` from web and API Cobertura reports during quality-gate runs.
+- RULE: Individual tests longer than 40 seconds are critical failures unless doctrine explicitly allows an exception.
+- RULE: Magic numbers and magic strings are forbidden in source code outside tests. Promote them to named constants, configuration, enums, or locale dictionaries.
