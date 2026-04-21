@@ -4,7 +4,7 @@
   "version": "26.04.0",
   "packageManager": "pnpm@10.33.0",
   "engines": {
-    "node": ">=24 <26",
+    "node": ">=25 <26",
     "pnpm": ">=10.33.0"
   },
   "scripts": {
@@ -16,12 +16,13 @@
     "catalog:live": "uv run --project apps/api python -m itam_planner_api.cli ingest-live --public-data-root public-data",
     "changelog:generate": "node scripts/generate-changelog.mjs --mode full",
     "ci:api": "uv sync --project apps/api --group dev && pnpm lint:api && pnpm typecheck:api && pnpm test:api:coverage && pnpm verify:api:fixtures",
-    "ci:local": "pnpm install --frozen-lockfile && pnpm lint:repo && pnpm ci:api && pnpm ci:local:web:node24 && pnpm ci:local:web:node25 && pnpm coverage:merge",
-    "ci:local:web:node24": "node scripts/run-pnpm-with-node-version.mjs 24 ci:web:full",
-    "ci:local:web:node25": "node scripts/run-pnpm-with-node-version.mjs 25 ci:web:compat",
-    "ci:web": "pnpm lint:web && pnpm typecheck:web && pnpm test:web:coverage",
-    "ci:web:compat": "pnpm test:web",
+    "ci:hosted": "pnpm ci:repo && pnpm ci:api && pnpm ci:web:full && pnpm coverage:merge",
+    "ci:local": "pnpm install --frozen-lockfile && pnpm ci:repo && pnpm ci:api && pnpm ci:local:web && pnpm coverage:merge",
+    "ci:local:web": "node scripts/run-pnpm-with-node-version.mjs 25 ci:web:full",
+    "ci:repo": "pnpm lint:repo && pnpm test:repo && pnpm check:magic-literals",
+    "ci:web": "pnpm catalog:sync:web && pnpm lint:web && pnpm typecheck:web && pnpm test:web:coverage",
     "ci:web:full": "pnpm ci:web && pnpm build:web",
+    "check:magic-literals": "node scripts/check-source-literals.mjs",
     "lint": "pnpm lint:repo && pnpm lint:web && pnpm lint:api",
     "lint:commit-range": "commitlint --from=HEAD~10 --to=HEAD",
     "lint:repo": "pnpm lint:repo:markdown && pnpm lint:repo:spelling",

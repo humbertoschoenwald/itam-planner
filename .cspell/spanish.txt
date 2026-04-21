@@ -1015,3 +1015,4 @@ valores
 Evento
 comunicados
 codepaths
+turbopack

@@ -4,7 +4,7 @@ const [nodeMajor, ...pnpmArgs] = process.argv.slice(2);
 
 if (!nodeMajor || pnpmArgs.length === 0) {
   process.stderr.write(
-    "Usage: node scripts/run-pnpm-with-node-version.mjs <24|25> <pnpm args...>\n",
+    "Usage: node scripts/run-pnpm-with-node-version.mjs <node-major> <pnpm args...>\n",
   );
   process.exit(1);
 }
