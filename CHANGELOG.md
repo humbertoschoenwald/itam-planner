@@ -3,6 +3,20 @@
 This file is generated automatically from Conventional Commits on push to `main`.
 Do not edit it manually.
 
+## 2026-04-20
+
+### Documentation
+
+- doctrine: codify ui boundaries and quality gates (`d43311b`)
+
+### Refactors
+
+- web: centralize academic data and ui seams (`e4e7e8c`)
+
+### Continuous Integration
+
+- repo: add merged coverage and lighter hosted checks (`4338eca`)
+
 ## 2026-04-16
 
 ### Features
