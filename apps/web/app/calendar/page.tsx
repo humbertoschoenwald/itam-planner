@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 
 import { CalendarPageShell } from "@/components/calendar-page-shell";
-import { readCalendarBootstrap, readOnboardingBootstrap } from "@/lib/catalog-static";
+import {
+  readCalendarBootstrap,
+  readOnboardingBootstrap,
+} from "@/lib/presenters/bootstrap-server";
 import { DEFAULT_LOCALE } from "@/lib/locale";
 import { buildPageMetadata } from "@/lib/seo";
 

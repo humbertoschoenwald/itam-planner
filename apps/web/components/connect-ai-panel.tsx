@@ -3,7 +3,7 @@
 import Link from "next/link";
 
 import { getUiCopy } from "@/lib/copy";
-import { formatEntryTermLabel } from "@/lib/onboarding";
+import { formatEntryTermLabel } from "@/lib/presenters/schedule";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { usePlannerStore } from "@/stores/planner-store";
 import { useStudentCodeStore } from "@/stores/student-code-store";

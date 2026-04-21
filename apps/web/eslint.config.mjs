@@ -5,6 +5,37 @@ import nextTs from "eslint-config-next/typescript";
 const eslintConfig = defineConfig([
   ...nextVitals,
   ...nextTs,
+  {
+    files: ["app/**/*.{ts,tsx}", "components/**/*.{ts,tsx}"],
+    rules: {
+      "no-restricted-imports": [
+        "error",
+        {
+          patterns: [
+            {
+              group: [
+                "@/lib/academic-catalog",
+                "@/lib/api",
+                "@/lib/catalog-insights",
+                "@/lib/catalog-static",
+                "@/lib/official-academics",
+                "@/lib/official-study-plan-fallbacks",
+                "@/lib/onboarding",
+                "@/lib/planner-bootstrap",
+                "@/lib/planner-subjects",
+                "@/lib/search-index",
+                "@/lib/site-content",
+                "@/lib/time",
+                "@/lib/timetable-grid",
+              ],
+              message:
+                "UI modules must consume presenter functions instead of raw data or domain modules.",
+            },
+          ],
+        },
+      ],
+    },
+  },
   // Override default ignores of eslint-config-next.
   globalIgnores([
     // Default ignores of eslint-config-next:

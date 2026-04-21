@@ -3,10 +3,13 @@
 import Link from "next/link";
 import { useMemo, useState } from "react";
 
-import { getOfficialNewsItems } from "@/lib/site-content";
-import { buildLocalSearchIndex, searchLocalIndex } from "@/lib/search-index";
+import {
+  buildLocalSearchIndex,
+  getOfficialNewsItems,
+  searchLocalIndex,
+  type SearchIndexBootstrap,
+} from "@/lib/presenters/official-content";
 import { getProductCopy } from "@/lib/product-copy";
-import type { SearchIndexBootstrap } from "@/lib/search-index";
 import { useStudentProfileStore } from "@/stores/student-profile-store";
 
 interface SearchPageShellProps {

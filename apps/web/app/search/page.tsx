@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 import { SearchPageShell } from "@/components/search-page-shell";
-import { readSearchBootstrap } from "@/lib/catalog-static";
+import { readSearchBootstrap } from "@/lib/presenters/bootstrap-server";
 import { DEFAULT_LOCALE } from "@/lib/locale";
 import { buildPageMetadata } from "@/lib/seo";
 

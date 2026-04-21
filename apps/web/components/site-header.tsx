@@ -12,11 +12,11 @@ import {
   resolveSwipeNavigation,
   SECONDARY_NAV_ITEMS,
 } from "@/lib/navigation";
-import { getProductCopy } from "@/lib/product-copy";
 import {
   OFFICIAL_EXECUTIVE_EDUCATION_URL,
   OFFICIAL_ITAM_NEWS_URL,
-} from "@/lib/site-content";
+} from "@/lib/presenters/official-content";
+import { getProductCopy } from "@/lib/product-copy";
 import { usePhoneViewport } from "@/lib/use-phone-viewport";
 import { usePlannerUiStore } from "@/stores/planner-ui-store";
 import { useStudentProfileStore } from "@/stores/student-profile-store";

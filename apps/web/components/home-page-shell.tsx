@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { getUiCopy } from "@/lib/copy";
 import { getProductCopy } from "@/lib/product-copy";
-import { getOfficialNewsItems } from "@/lib/site-content";
+import { getOfficialNewsItems } from "@/lib/presenters/official-content";
 import { useStudentProfileStore } from "@/stores/student-profile-store";
 
 export function HomePageShell() {

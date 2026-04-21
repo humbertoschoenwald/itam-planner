@@ -2,8 +2,10 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { getUiCopy } from "@/lib/copy";
-import { getCanonicalProgramDisplayName } from "@/lib/official-academics";
-import { getCanonicalSubjectTitle } from "@/lib/planner-subjects";
+import {
+  getCanonicalProgramDisplayName,
+  getCanonicalSubjectTitle,
+} from "@/lib/presenters/schedule";
 import type { BulletinSummary, LocaleCode, ScheduleOffering } from "@/lib/types";
 
 interface SubjectsPlansCardProps {

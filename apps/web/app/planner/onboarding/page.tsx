@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 import { PlannerOnboardingWizard } from "@/components/planner-onboarding-wizard";
-import { readOnboardingBootstrap } from "@/lib/catalog-static";
+import { readOnboardingBootstrap } from "@/lib/presenters/bootstrap-server";
 import { DEFAULT_LOCALE } from "@/lib/locale";
 import { buildPageMetadata } from "@/lib/seo";
 

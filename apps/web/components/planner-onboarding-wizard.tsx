@@ -13,10 +13,15 @@ import {
   buildCareerChoiceOptionsForLevel,
   buildEntryTerm,
   buildJointProgramChoiceOptionsForLevel,
+  buildRecommendedSubjectCodes,
+  buildSelectedSubjectSummary,
+  buildSubjectDirectory,
+  buildSubjectTitleLookup,
   filterPeriodsForAcademicLevel,
   formatSchedulePeriodLabel,
   type EntryTermSeasonKey,
   ENTRY_TERM_SEASON_KEYS,
+  estimateSemesterNumber,
   filterCareerChoiceOptions,
   formatEntryTermLabel,
   getDefaultPeriodForAcademicLevel,
@@ -24,15 +29,8 @@ import {
   getEntryTermYearOptions,
   parseEntryTerm,
   resolveActivePlanIdsFromSelections,
-} from "@/lib/onboarding";
-import {
-  buildRecommendedSubjectCodes,
-  buildSelectedSubjectSummary,
-  buildSubjectDirectory,
-  buildSubjectTitleLookup,
-  estimateSemesterNumber,
   searchSubjectDirectory,
-} from "@/lib/planner-subjects";
+} from "@/lib/presenters/schedule";
 import { getProductCopy } from "@/lib/product-copy";
 import { useSchedulePeriodDetail } from "@/lib/use-schedule-period-detail";
 import type {

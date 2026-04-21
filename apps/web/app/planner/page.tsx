@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 import { PlannerRouteShell } from "@/components/planner-route-shell";
-import { readPlannerShellBootstrap } from "@/lib/catalog-static";
+import { readPlannerShellBootstrap } from "@/lib/presenters/bootstrap-server";
 import { DEFAULT_LOCALE } from "@/lib/locale";
 import { buildPageMetadata } from "@/lib/seo";
 

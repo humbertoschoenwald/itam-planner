@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 import { PlannerHome } from "@/components/planner-home";
 import { Button } from "@/components/ui/button";
 import { getUiCopy } from "@/lib/copy";
-import { hasCompletedPlannerBootstrap } from "@/lib/planner-bootstrap";
+import { hasCompletedPlannerBootstrap } from "@/lib/presenters/bootstrap-client";
 import { usePlannerStore } from "@/stores/planner-store";
 import type {
   BulletinDocument,

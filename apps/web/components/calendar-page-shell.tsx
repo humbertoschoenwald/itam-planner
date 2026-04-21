@@ -5,7 +5,7 @@ import { useMemo } from "react";
 import { TodayClassesCard } from "@/components/today-classes-card";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { getUiCopy } from "@/lib/copy";
-import { hasCompletedPlannerBootstrap } from "@/lib/planner-bootstrap";
+import { hasCompletedPlannerBootstrap } from "@/lib/presenters/bootstrap-client";
 import { useSchedulePeriodDetail } from "@/lib/use-schedule-period-detail";
 import type { PaymentCalendarDocument, SchoolCalendarDocument } from "@/lib/types";
 import { usePlannerStore } from "@/stores/planner-store";

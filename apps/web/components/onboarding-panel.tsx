@@ -16,7 +16,7 @@ import {
   getEntryTermYearOptions,
   isValidEntryTerm,
   parseEntryTerm,
-} from "@/lib/onboarding";
+} from "@/lib/presenters/schedule";
 import type { BulletinSummary } from "@/lib/types";
 import { useSyncStudentCode } from "@/lib/use-sync-student-code";
 import {

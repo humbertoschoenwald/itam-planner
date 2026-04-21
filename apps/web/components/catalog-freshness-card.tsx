@@ -1,7 +1,7 @@
 "use client";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { summarizeCatalogSnapshot } from "@/lib/catalog-insights";
+import { summarizeCatalogSnapshot } from "@/lib/presenters/catalog";
 import { getUiCopy } from "@/lib/copy";
 import type { LocaleCode, SourcesMetadata } from "@/lib/types";
 

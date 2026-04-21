@@ -5,13 +5,14 @@ import { useEffect, useMemo, useState } from "react";
 import { SelectedWeekBoard } from "@/components/selected-week-board";
 import { SubjectsPlansCard } from "@/components/subjects-plans-card";
 import { TodayClassesCard } from "@/components/today-classes-card";
-import { fetchSchedulePeriodDetail } from "@/lib/api";
-import { buildSelectedAcademicChoiceLabels, filterPeriodsForAcademicLevel } from "@/lib/onboarding";
 import {
   buildRecommendedSubjectCodes,
+  buildSelectedAcademicChoiceLabels,
   buildSubjectTitleLookup,
   estimateSemesterNumber,
-} from "@/lib/planner-subjects";
+  fetchSchedulePeriodDetail,
+  filterPeriodsForAcademicLevel,
+} from "@/lib/presenters/schedule";
 import type {
   BulletinDocument,
   BulletinSummary,

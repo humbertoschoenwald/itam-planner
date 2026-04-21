@@ -1,7 +1,7 @@
 "use client";
 
 import { getUiCopy } from "@/lib/copy";
-import { getCanonicalSubjectTitle } from "@/lib/planner-subjects";
+import { getCanonicalSubjectTitle } from "@/lib/presenters/schedule";
 import { getProductCopy } from "@/lib/product-copy";
 import type { LocaleCode, ScheduleOffering } from "@/lib/types";
 

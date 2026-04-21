@@ -9,13 +9,14 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { clearPlannerBrowserState } from "@/lib/browser-state";
 import { getUiCopy } from "@/lib/copy";
 import { SUPPORTED_LOCALES } from "@/lib/locale";
-import { filterPeriodsForAcademicLevel, formatSchedulePeriodLabel } from "@/lib/onboarding";
 import {
-  buildSubjectDirectory,
   buildSelectedSubjectSummary,
+  buildSubjectDirectory,
   buildSubjectTitleLookup,
+  filterPeriodsForAcademicLevel,
+  formatSchedulePeriodLabel,
   searchSubjectDirectory,
-} from "@/lib/planner-subjects";
+} from "@/lib/presenters/schedule";
 import { getProductCopy } from "@/lib/product-copy";
 import { useSchedulePeriodDetail } from "@/lib/use-schedule-period-detail";
 import { usePhoneViewport } from "@/lib/use-phone-viewport";

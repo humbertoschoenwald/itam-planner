@@ -5,18 +5,15 @@ import type {
   GraduateProgramReference,
   JointProgramReference,
 } from "@/lib/types";
+import {
+  ACADEMIC_CAREER_DEFINITIONS,
+  getAcademicCareerMatchAliases,
+} from "@/lib/academic-catalog";
 
 const OFFICIAL_CAREERS_SOURCE_URL = "https://carreras.itam.mx/carreras/";
 const OFFICIAL_JOINT_PROGRAMS_SOURCE_URL = "https://www.itam.mx/es/programas-conjuntos";
 const OFFICIAL_GRADUATE_PROGRAMS_SOURCE_URL = "https://posgrados.itam.mx/";
 const OFFICIAL_DOUBLE_DEGREES_SOURCE_URL = "https://intercambio.itam.mx/es/dobles-grados";
-
-interface OfficialCareerDefinition {
-  careerId: string;
-  category: AcademicCareerReference["category"];
-  displayName: string;
-  studyPlanUrl: string | null;
-}
 
 interface OfficialJointProgramDefinition {
   componentCareerIds: [string, string];
@@ -86,120 +83,7 @@ export interface ExtractedOfficialDoubleDegreeRow {
   partner_institution: string | null;
 }
 
-const OFFICIAL_CAREER_DEFINITIONS = [
-  {
-    careerId: "actuaria",
-    category: "degree",
-    displayName: "Actuaría",
-    studyPlanUrl:
-      "https://carreras.itam.mx/wp-content/uploads/licenciaturas/plan-de-estudios/plan-de-estudios-licenciatura-actuaria.pdf",
-  },
-  {
-    careerId: "administracion-negocios",
-    category: "degree",
-    displayName: "Administración de Negocios",
-    studyPlanUrl:
-      "https://carreras.itam.mx/wp-content/uploads/licenciaturas/plan-de-estudios/plan-de-estudios-licenciatura-administracion.pdf",
-  },
-  {
-    careerId: "ciencia-datos",
-    category: "degree",
-    displayName: "Ciencia de Datos",
-    studyPlanUrl:
-      "https://carreras.itam.mx/wp-content/uploads/licenciaturas/plan-de-estudios/plan-de-estudios-licenciatura-ciencia-de-datos.pdf",
-  },
-  {
-    careerId: "ciencia-politica",
-    category: "degree",
-    displayName: "Ciencia Política",
-    studyPlanUrl:
-      "https://carreras.itam.mx/wp-content/uploads/licenciaturas/plan-de-estudios/plan-de-estudios-licenciatura-ciencia-politica.pdf",
-  },
-  {
-    careerId: "contaduria-analitica-finanzas-corporativas",
-    category: "degree",
-    displayName: "Contaduría Analítica y Finanzas Corporativas",
-    studyPlanUrl: null,
-  },
-  {
-    careerId: "derecho",
-    category: "degree",
-    displayName: "Derecho",
-    studyPlanUrl:
-      "https://carreras.itam.mx/wp-content/uploads/licenciaturas/plan-de-estudios/plan-de-estudios-licenciatura-derecho.pdf",
-  },
-  {
-    careerId: "direccion-mercadotecnia",
-    category: "degree",
-    displayName: "Dirección de Mercadotecnia",
-    studyPlanUrl: null,
-  },
-  {
-    careerId: "direccion-financiera",
-    category: "degree",
-    displayName: "Dirección Financiera",
-    studyPlanUrl:
-      "https://carreras.itam.mx/wp-content/uploads/licenciaturas/plan-de-estudios/plan-de-estudios-licenciatura-direccion-financiera.pdf",
-  },
-  {
-    careerId: "economia",
-    category: "degree",
-    displayName: "Economía",
-    studyPlanUrl:
-      "https://carreras.itam.mx/wp-content/uploads/licenciaturas/plan-de-estudios/plan-de-estudios-licenciatura-economia.pdf",
-  },
-  {
-    careerId: "matematicas-aplicadas",
-    category: "degree",
-    displayName: "Matemáticas Aplicadas",
-    studyPlanUrl:
-      "https://carreras.itam.mx/wp-content/uploads/licenciaturas/plan-de-estudios/plan-de-estudios-licenciatura-matematicas-aplicadas.pdf",
-  },
-  {
-    careerId: "relaciones-internacionales",
-    category: "degree",
-    displayName: "Relaciones Internacionales",
-    studyPlanUrl:
-      "https://carreras.itam.mx/wp-content/uploads/licenciaturas/plan-de-estudios/plan-de-estudios-licenciatura-relaciones-internacionales.pdf",
-  },
-  {
-    careerId: "inteligencia-artificial",
-    category: "engineering",
-    displayName: "Inteligencia Artificial",
-    studyPlanUrl:
-      "https://carreras.itam.mx/wp-content/uploads/licenciaturas/plan-de-estudios/plan-de-estudios-ingenieria-inteligencia-artificial.pdf",
-  },
-  {
-    careerId: "computacion",
-    category: "engineering",
-    displayName: "Ciencias de la Computación",
-    studyPlanUrl:
-      "https://carreras.itam.mx/wp-content/uploads/licenciaturas/plan-de-estudios/plan-de-estudios-ingenieria-computacion.pdf",
-  },
-  {
-    careerId: "mecatronica-robotica-inteligente",
-    category: "engineering",
-    displayName: "Mecatrónica y Robótica Inteligente",
-    studyPlanUrl:
-      "https://carreras.itam.mx/wp-content/uploads/licenciaturas/plan-de-estudios/plan-de-estudios-ingenieria-mecatronica.pdf",
-  },
-  {
-    careerId: "ingenieria-negocios",
-    category: "engineering",
-    displayName: "Negocios",
-    studyPlanUrl:
-      "https://carreras.itam.mx/wp-content/uploads/licenciaturas/plan-de-estudios/plan-de-estudios-ingenieria-negocios.pdf",
-  },
-  {
-    careerId: "industrial-sistemas-inteligentes",
-    category: "engineering",
-    displayName: "Industrial y Sistemas Inteligentes",
-    studyPlanUrl:
-      "https://carreras.itam.mx/wp-content/uploads/licenciaturas/plan-de-estudios/plan-de-estudios-ingenieria-industrial.pdf",
-  },
-] as const satisfies readonly OfficialCareerDefinition[];
-
-export const OFFICIAL_CAREERS: readonly AcademicCareerReference[] = OFFICIAL_CAREER_DEFINITIONS.map(
+export const OFFICIAL_CAREERS: readonly AcademicCareerReference[] = ACADEMIC_CAREER_DEFINITIONS.map(
   (definition) => ({
     career_id: definition.careerId,
     category: definition.category,
@@ -208,40 +92,6 @@ export const OFFICIAL_CAREERS: readonly AcademicCareerReference[] = OFFICIAL_CAR
     study_plan_url: definition.studyPlanUrl,
   }),
 );
-
-const OFFICIAL_CAREER_MATCH_ALIASES: Record<string, string[]> = {
-  "administracion-negocios": [
-    "administracion",
-    "administracion de negocios",
-    "administracion en negocios",
-  ],
-  computacion: [
-    "computacion",
-    "ciencias de la computacion",
-    "ingenieria en computacion",
-    "ingenieria y ciencias de la computacion",
-  ],
-  "contaduria-analitica-finanzas-corporativas": [
-    "contaduria analitica y finanzas corporativas",
-    "contaduria publica",
-    "contaduria publica y estrategia financiera",
-    "contaduria publica estrategia financiera",
-  ],
-  "direccion-mercadotecnia": ["mercadotecnia", "direccion de mercadotecnia"],
-  "industrial-sistemas-inteligentes": [
-    "ingenieria industrial",
-    "ingenieria industrial y sistemas inteligentes",
-    "ingenieria industrial y en sistemas inteligentes",
-    "industrial y sistemas inteligentes",
-    "industrial y en sistemas inteligentes",
-  ],
-  "inteligencia-artificial": ["inteligencia artificial", "ingenieria en inteligencia artificial"],
-  "mecatronica-robotica-inteligente": [
-    "ingenieria en mecatronica",
-    "ingenieria en mecatronica y robotica inteligente",
-    "mecatronica y robotica inteligente",
-  ],
-};
 
 const PROGRAM_NORMALIZATION_OVERRIDES: Record<string, string> = {
   "administracion en negocios": "administracion de negocios",
@@ -882,7 +732,7 @@ export function findOfficialCareer(careerId: string) {
 
 export function getOfficialCareerMatchTokens(careerId: string) {
   const career = findOfficialCareer(careerId);
-  const aliases = OFFICIAL_CAREER_MATCH_ALIASES[careerId] ?? [];
+  const aliases = getAcademicCareerMatchAliases(careerId);
   const tokens = career ? [career.display_name, ...aliases] : aliases;
 
   return [...new Set(tokens.map(normalizeOfficialMatchText).filter(Boolean))];

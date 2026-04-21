@@ -1,10 +1,9 @@
 "use client";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { buildWeeklyAgenda } from "@/lib/catalog-insights";
+import { buildWeeklyAgenda, getMexicoCityDateContext } from "@/lib/presenters/catalog";
 import { getUiCopy } from "@/lib/copy";
-import { getCanonicalSubjectTitle } from "@/lib/planner-subjects";
-import { getMexicoCityDateContext } from "@/lib/time";
+import { getCanonicalSubjectTitle } from "@/lib/presenters/schedule";
 import type { LocaleCode, ScheduleOffering } from "@/lib/types";
 
 interface TodayClassesCardProps {

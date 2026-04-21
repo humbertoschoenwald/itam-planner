@@ -2,7 +2,7 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { getUiCopy } from "@/lib/copy";
-import { buildTimetableGrid } from "@/lib/timetable-grid";
+import { buildTimetableGrid } from "@/lib/presenters/catalog";
 import type { LocaleCode, ScheduleOffering } from "@/lib/types";
 
 interface SelectedWeekBoardProps {
