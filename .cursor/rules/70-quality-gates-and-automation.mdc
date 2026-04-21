@@ -25,6 +25,7 @@ alwaysApply: true
 - RULE: Architecture-boundary regressions must fail if UI modules bypass presenter functions or locale-dictionary seams.
 - RULE: Use SSH for Git remotes and push operations.
 - RULE: GitHub Actions may use `GITHUB_TOKEN` for repository automation when hosted runners cannot use SSH.
+- RULE: Use the officially supported JavaScript-action runtime override when hosted GitHub Actions runners need it. Today that means `FORCE_JAVASCRIPT_ACTIONS_TO_NODE24`, not invented alternatives.
 - RULE: `pre-push` must mirror the blocking hosted CI path closely enough to catch repository, web, coverage generation, and API fixture-promotion failures before any push leaves the machine.
 - RULE: `pre-push` is the heavier local gate; hosted CI should stay lightweight where local enforcement already covers the heavier checks.
 - RULE: Local blocking gates must run the supported `Node.js 25` web path.

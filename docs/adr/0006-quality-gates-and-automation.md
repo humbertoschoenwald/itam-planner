@@ -68,6 +68,7 @@ Execution rules:
 - Hosted GitHub CI should prefer lightweight blocking checks that still validate the supported codepaths without spending minutes on redundant heavy work already enforced locally by `pre-push`.
 - Hosted GitHub CI should converge on a single blocking job whenever the toolchain allows it. Avoid separate artifact-only merge jobs, duplicate runtime matrices, and skipped canaries when they do not add supported-surface signal.
 - Coverage generation must emit a root `coverage.xml` artifact that merges the current web and API Cobertura reports within the blocking quality-gate path itself.
+- GitHub-hosted JavaScript actions must use the officially supported forced runtime override when needed to avoid stale runner warnings. Today that override is `FORCE_JAVASCRIPT_ACTIONS_TO_NODE24`; do not invent unsupported runtime flags.
 
 Text normalization rules:
 
