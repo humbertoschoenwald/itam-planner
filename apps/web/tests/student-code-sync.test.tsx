@@ -1,4 +1,4 @@
-import { render, waitFor } from "@testing-library/react";
+import { act, render, waitFor } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
 
 import { useSyncStudentCode } from "@/lib/use-sync-student-code";
@@ -31,10 +31,12 @@ describe("useSyncStudentCode", () => {
   it("regenerates the student code when planner data changes", async () => {
     render(<SyncHarness />);
 
-    useStudentProfileStore.getState().setEntryTerm("OTOÑO 2025");
-    useStudentProfileStore.getState().toggleActivePlanId("plan:ma-e");
-    usePlannerStore.getState().setSelectedPeriodId("2938");
-    usePlannerStore.getState().toggleOfferingId("2938:ACT-11300:001");
+    await act(async () => {
+      useStudentProfileStore.getState().setEntryTerm("OTOÑO 2025");
+      useStudentProfileStore.getState().toggleActivePlanId("plan:ma-e");
+      usePlannerStore.getState().setSelectedPeriodId("2938");
+      usePlannerStore.getState().toggleOfferingId("2938:ACT-11300:001");
+    });
 
     await waitFor(() => {
       expect(useStudentCodeStore.getState().code).toMatch(/^itp1\./u);
@@ -50,8 +52,10 @@ describe("useSyncStudentCode", () => {
 
     render(<SyncHarness />);
 
-    useStudentProfileStore.getState().setEntryTerm("PRIMAVERA 2024");
-    useStudentProfileStore.getState().toggleActivePlanId("plan:ma-e");
+    await act(async () => {
+      useStudentProfileStore.getState().setEntryTerm("PRIMAVERA 2024");
+      useStudentProfileStore.getState().toggleActivePlanId("plan:ma-e");
+    });
 
     await waitFor(() => {
       expect(useStudentCodeStore.getState().code).toMatch(/^itp1\./u);

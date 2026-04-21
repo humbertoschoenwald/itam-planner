@@ -75,30 +75,24 @@ export function OnboardingPanel({
   }, [profile.activePlanIds, setActivePlanIds, visiblePlans]);
 
   function handleEntrySeasonChange(nextSeasonKey: EntryTermSeasonKey | "") {
-    setEntryTermDraft((current) => {
-      const nextDraft = {
-        ...current,
-        seasonKey: nextSeasonKey,
-      };
+    const nextDraft = {
+      ...entryTermDraft,
+      seasonKey: nextSeasonKey,
+    };
 
-      setEntryTerm(buildEntryTerm(nextDraft.seasonKey, nextDraft.year));
-
-      return nextDraft;
-    });
+    setEntryTermDraft(nextDraft);
+    setEntryTerm(buildEntryTerm(nextDraft.seasonKey, nextDraft.year));
     setShowValidation(false);
   }
 
   function handleEntryYearChange(nextYear: string) {
-    setEntryTermDraft((current) => {
-      const nextDraft = {
-        ...current,
-        year: nextYear,
-      };
+    const nextDraft = {
+      ...entryTermDraft,
+      year: nextYear,
+    };
 
-      setEntryTerm(buildEntryTerm(nextDraft.seasonKey, nextDraft.year));
-
-      return nextDraft;
-    });
+    setEntryTermDraft(nextDraft);
+    setEntryTerm(buildEntryTerm(nextDraft.seasonKey, nextDraft.year));
     setShowValidation(false);
   }
 

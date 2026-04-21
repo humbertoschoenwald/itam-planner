@@ -126,13 +126,13 @@ export async function readSearchBootstrap() {
 }
 
 async function readPublishedCatalogJson<T>(...segments: string[]): Promise<T> {
-  const filePath = path.join(process.cwd(), "public", "catalog", "latest", ...segments);
+  const filePath = path.join(await resolveCatalogRootPath(), ...segments);
   const raw = await fs.readFile(filePath, "utf8");
   return JSON.parse(raw) as T;
 }
 
 async function readPublishedBulletinDocuments() {
-  const directoryPath = path.join(process.cwd(), "public", "catalog", "latest", "boletines", "documents");
+  const directoryPath = path.join(await resolveCatalogRootPath(), "boletines", "documents");
   const entries = await fs.readdir(directoryPath);
   const fileNames = entries.filter((entry) => entry.endsWith(".json")).sort();
   const documents = await Promise.all(
@@ -143,4 +143,16 @@ async function readPublishedBulletinDocuments() {
   );
 
   return documents;
+}
+
+async function resolveCatalogRootPath() {
+  const publishedCatalogRootPath = path.join(
+    /* turbopackIgnore: true */ process.cwd(),
+    "public",
+    "catalog",
+    "latest",
+  );
+
+  await fs.access(publishedCatalogRootPath);
+  return publishedCatalogRootPath;
 }

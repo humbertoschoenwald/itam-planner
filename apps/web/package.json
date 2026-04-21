@@ -6,6 +6,7 @@
     "prebuild": "node ../../scripts/sync-web-public-data.mjs",
     "predev": "node ../../scripts/sync-web-public-data.mjs",
     "pretest": "node ../../scripts/sync-web-public-data.mjs",
+    "pretest:coverage": "node ../../scripts/sync-web-public-data.mjs",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
