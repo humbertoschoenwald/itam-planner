@@ -15,7 +15,7 @@ export default defineConfig({
     coverage: {
       provider: "v8",
       reporter: ["text-summary", "cobertura"],
-      reportsDirectory: path.resolve(root, "../../coverage/web"),
+      reportsDirectory: path.resolve(root, "./coverage"),
     },
     environment: "jsdom",
     globals: true,

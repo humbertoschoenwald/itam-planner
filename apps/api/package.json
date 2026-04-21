@@ -1,0 +1,11 @@
+{
+  "name": "@itam-planner/api",
+  "version": "26.04.0",
+  "private": true,
+  "scripts": {
+    "lint": "uv run --project . --group dev ruff check src tests",
+    "typecheck": "node ../../scripts/run-api-typecheck.mjs",
+    "test": "uv run --project . --group dev pytest",
+    "test:coverage": "uv run --project . --group dev pytest --cov=itam_planner_api --cov-report=term-missing:skip-covered --cov-report=xml:coverage/coverage.xml"
+  }
+}

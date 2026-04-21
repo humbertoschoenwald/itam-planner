@@ -9,8 +9,8 @@ const mergeCoverageScriptPath = path.resolve("scripts/merge-coverage.mjs");
 
 test("merge-coverage writes a merged root coverage.xml file", () => {
   const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), "itam-planner-coverage-"));
-  const apiCoveragePath = path.join(tempRoot, "coverage", "api");
-  const webCoveragePath = path.join(tempRoot, "coverage", "web");
+  const apiCoveragePath = path.join(tempRoot, "apps", "api", "coverage");
+  const webCoveragePath = path.join(tempRoot, "apps", "web", "coverage");
 
   fs.mkdirSync(apiCoveragePath, { recursive: true });
   fs.mkdirSync(webCoveragePath, { recursive: true });

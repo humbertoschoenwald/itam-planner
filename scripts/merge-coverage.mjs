@@ -5,11 +5,11 @@ const repositoryRoot = process.cwd();
 const reportInputs = [
   {
     name: "api",
-    path: path.join(repositoryRoot, "coverage", "api", "coverage.xml"),
+    path: path.join(repositoryRoot, "apps", "api", "coverage", "coverage.xml"),
   },
   {
     name: "web",
-    path: path.join(repositoryRoot, "coverage", "web", "cobertura-coverage.xml"),
+    path: path.join(repositoryRoot, "apps", "web", "coverage", "cobertura-coverage.xml"),
   },
 ];
 const outputPath = path.join(repositoryRoot, "coverage.xml");
