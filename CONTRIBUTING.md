@@ -71,4 +71,4 @@ Examples:
 - `fix(api): handle unchanged source snapshots in live refresh`
 - `test(web): cover student-code regeneration on planner changes`
 - `docs(adr): clarify deployment invariants for ai context`
-- `ci(repo): add Node 24 baseline and Node 25 canary checks`
+- `ci(repo): move the quality gate to a single Node 25 path`

@@ -13,7 +13,7 @@ The user explicitly rejected a production path that depends on Rust, C, C++, or 
 
 The canonical stack for the initial production path is:
 
-- JavaScript runtime baseline: `Node.js 24`
+- JavaScript runtime baseline: `Node.js 25`
 - JavaScript and TypeScript workspace management: `pnpm workspaces`
 - Web framework: `Next.js` App Router
 - UI framework: `React`
@@ -36,8 +36,8 @@ Python workflow requirements:
 Version policy requirements:
 
 - Prefer the latest stable release line available at the time of implementation.
-- Treat `Node.js 24` as the required stable baseline for repository automation and local setup documentation.
-- Use the current `Node.js` line, including `Node.js 25` while it remains current, only as a non-blocking compatibility canary unless doctrine explicitly upgrades the baseline.
+- Treat `Node.js 25` as the required stable baseline for repository automation, local setup documentation, and hosted CI.
+- Do not spend repository time or hosted CI minutes on parallel Node baselines unless doctrine explicitly documents a compatibility reason.
 - Do not use prerelease, beta, canary, or release-candidate versions unless an ADR explicitly documents the exception.
 - Do not pin tool versions in doctrine unless a compatibility constraint requires it.
 - Repository versioning uses CalVer `YY.MM.PATCH` as defined in ADR-0006.

@@ -103,8 +103,7 @@ pnpm verify
 ## CI/CD and Delivery
 
 - GitHub Actions is the canonical automation surface for validation, deployment, and scheduled refresh.
-- Node 24 is the required stable baseline for the web workspace.
-- Node 25 runs as a non-blocking compatibility canary.
+- Node 25 is the required stable baseline for the workspace and hosted CI.
 - Vercel is the default web deployment target.
 - Cloudflare is reserved for DNS and hostname management around `itam.humbertoschoenwald.com`.
 - The default production web build should stay self-sufficient by shipping the published JSON catalog with the deployed site unless an explicit external API origin is configured.

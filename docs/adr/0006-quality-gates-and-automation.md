@@ -57,18 +57,17 @@ Execution rules:
 - Local hooks must be version-controlled under `.githooks/`.
 - `pre-commit` runs the fast local gate.
 - `pre-push` runs the stronger local gate.
-- `pre-push` must mirror the blocking CI jobs closely enough to catch stable web, current-line web, coverage generation, and API fixture-promotion failures before network push.
+- `pre-push` must mirror the blocking hosted CI path closely enough to catch repository, web, coverage-generation, and API fixture-promotion failures before network push.
 - `pre-push` is the extreme local gate. It may run a fuller local mirror than hosted CI, but it must stay intentionally optimized rather than wasting local time on redundant work.
-- Local blocking gates must run the stable `Node.js 24` web path and the current-line `Node.js 25` web path before allowing a push.
+- Local blocking gates must run the supported `Node.js 25` web path before allowing a push.
 - CI must enforce the same policy classes as local tooling.
 - Repository settings and tool configs must not silently relax these rules.
 - Local workflow must not introduce artificial PR or branch overhead for a single maintainer.
 - GitHub Actions may use the repository `GITHUB_TOKEN` for repository automation such as scheduled public-data refresh commits when SSH is not available in the hosted runner context.
-- Required checks should stay green on the stable Node baseline, while current-line Node compatibility may run as a non-blocking canary.
 - API fixture-ingest validation must run against an isolated temporary public-data root during quality gates. Quality checks must not require overwriting the committed promoted public snapshot just to validate fixture ingest.
 - Hosted GitHub CI should prefer lightweight blocking checks that still validate the supported codepaths without spending minutes on redundant heavy work already enforced locally by `pre-push`.
-- Coverage generation must emit a root `coverage.xml` artifact that merges the current web and API Cobertura reports.
-- Hosted CI may skip heavyweight non-essential work such as duplicate canary builds when local `pre-push` already covers those concerns.
+- Hosted GitHub CI should converge on a single blocking job whenever the toolchain allows it. Avoid separate artifact-only merge jobs, duplicate runtime matrices, and skipped canaries when they do not add supported-surface signal.
+- Coverage generation must emit a root `coverage.xml` artifact that merges the current web and API Cobertura reports within the blocking quality-gate path itself.
 
 Text normalization rules:
 
@@ -81,6 +80,8 @@ Code-literal discipline:
 
 - Magic numbers are prohibited in repository source code. Promote them to named constants or configuration.
 - Magic strings are prohibited in repository source code. Promote them to named constants, enumerations, adapters, or locale dictionaries.
+- Literal-host modules are the only non-test standing exception: locale dictionaries, canonical academic-data tables, configuration manifests, and fixtures may contain raw literals because they are declarative data, not imperative logic.
+- Quality gates must enforce the magic-literal policy automatically within imperative logic modules. Do not leave literal discipline as doctrine-only guidance.
 - Tests are the only standing exception: use DAMP (Descriptive And Meaningful Phrases) over DRY inside tests when repeated literals improve failure readability.
 - Any deliberate exception outside tests must be documented in doctrine and in the relevant config or source comment.
 
