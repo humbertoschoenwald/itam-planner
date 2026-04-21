@@ -10,7 +10,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint .",
+    "lint": "eslint . --cache --cache-location ../../.cache/eslint/apps-web/",
     "test": "vitest run",
     "test:coverage": "vitest run --coverage.enabled",
     "test:watch": "vitest",
