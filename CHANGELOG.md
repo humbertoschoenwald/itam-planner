@@ -14,15 +14,24 @@ Do not edit it manually.
 - doctrine: codify ui boundaries and quality gates (`d43311b`)
 - doctrine: move the runtime baseline to Node 25 (`cb6a7a9`)
 - doctrine: document supported actions runtime override (`4af182c`)
+- doctrine: adopt turborepo in repository policy (`407cfda`)
 
 ### Refactors
 
 - web: centralize academic data and ui seams (`e4e7e8c`)
 - api: replace parser comparison literals (`c055c84`)
 
+### Performance
+
+- web: cache eslint runs locally (`9309cf0`)
+
 ### Tests
 
 - tests: speed up the web suite deterministically (`e9bcf9c`)
+
+### Build
+
+- ci: integrate turborepo task orchestration (`3467e6a`)
 
 ### Continuous Integration
 
