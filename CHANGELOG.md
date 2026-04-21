@@ -13,16 +13,22 @@ Do not edit it manually.
 
 - doctrine: codify ui boundaries and quality gates (`d43311b`)
 - doctrine: move the runtime baseline to Node 25 (`cb6a7a9`)
+- doctrine: document supported actions runtime override (`4af182c`)
 
 ### Refactors
 
 - web: centralize academic data and ui seams (`e4e7e8c`)
 - api: replace parser comparison literals (`c055c84`)
 
+### Tests
+
+- tests: speed up the web suite deterministically (`e9bcf9c`)
+
 ### Continuous Integration
 
 - repo: add merged coverage and lighter hosted checks (`4338eca`)
 - repo: consolidate hosted validation on Node 25 (`5365baf`)
+- ci: trim hosted workflow overhead and stale warnings (`8453843`)
 
 ## 2026-04-16
 
