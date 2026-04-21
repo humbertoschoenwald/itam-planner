@@ -13,6 +13,9 @@ concurrency:
 permissions:
   contents: write
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
 jobs:
   refresh:
     name: Refresh public catalog snapshot
@@ -60,11 +63,3 @@ jobs:
           git commit -m "chore(data): refresh public catalog snapshot"
           git push
         shell: bash
-
-      - name: Upload working refresh diagnostics
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: catalog-refresh-working
-          path: public-data/working
-          if-no-files-found: ignore

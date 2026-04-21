@@ -16,6 +16,9 @@ concurrency:
 permissions:
   contents: read
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
 jobs:
   validate:
     name: Validate
@@ -75,10 +78,3 @@ jobs:
 
       - name: Merge Cobertura reports
         run: node scripts/merge-coverage.mjs
-
-      - name: Upload merged coverage report
-        uses: actions/upload-artifact@v4
-        with:
-          if-no-files-found: error
-          name: coverage-xml
-          path: coverage.xml

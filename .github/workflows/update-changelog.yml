@@ -15,6 +15,9 @@ concurrency:
 permissions:
   contents: write
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
 jobs:
   update:
     name: Regenerate CHANGELOG.md
@@ -26,10 +29,10 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Set up Node.js 24
+      - name: Set up Node.js 25
         uses: actions/setup-node@v6.3.0
         with:
-          node-version: 24
+          node-version: 25
 
       - name: Compute Mexico City push date
         id: push_date
