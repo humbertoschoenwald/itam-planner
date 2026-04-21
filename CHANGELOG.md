@@ -5,17 +5,24 @@ Do not edit it manually.
 
 ## 2026-04-20
 
+### Fixes
+
+- web: harden catalog sync for deterministic checks (`e89cf8b`)
+
 ### Documentation
 
 - doctrine: codify ui boundaries and quality gates (`d43311b`)
+- doctrine: move the runtime baseline to Node 25 (`cb6a7a9`)
 
 ### Refactors
 
 - web: centralize academic data and ui seams (`e4e7e8c`)
+- api: replace parser comparison literals (`c055c84`)
 
 ### Continuous Integration
 
 - repo: add merged coverage and lighter hosted checks (`4338eca`)
+- repo: consolidate hosted validation on Node 25 (`5365baf`)
 
 ## 2026-04-16
 
