@@ -22,7 +22,7 @@ import type {
   SourcesMetadata,
 } from "@/lib/types";
 
-export interface PlannerShellBootstrap {
+export type PlannerShellBootstrap = {
   bulletinDocuments: BulletinDocument[];
   careers: AcademicCareerReference[];
   doubleDegrees: DoubleDegreeReference[];
@@ -34,7 +34,7 @@ export interface PlannerShellBootstrap {
   sourcesMetadata: SourcesMetadata | null;
 }
 
-export interface CalendarBootstrap {
+export type CalendarBootstrap = {
   paymentCalendar: PaymentCalendarDocument;
   schoolCalendar: SchoolCalendarDocument;
 }
@@ -60,7 +60,18 @@ export async function readPlannerShellBootstrap(): Promise<PlannerShellBootstrap
   };
 }
 
-export async function readOnboardingBootstrap() {
+export async function readOnboardingBootstrap(): Promise<
+  Pick<
+    PlannerShellBootstrap,
+    | "bulletinDocuments"
+    | "careers"
+    | "doubleDegrees"
+    | "graduatePrograms"
+    | "jointPrograms"
+    | "periods"
+    | "plans"
+  >
+> {
   const [plans, periods, bulletinDocuments] = await Promise.all([
     readPublishedCatalogJson<BulletinSummary[]>("boletines", "index.json"),
     readPublishedCatalogJson<SchedulePeriodSummary[]>("schedules", "periods.json"),
@@ -90,7 +101,17 @@ export async function readCalendarBootstrap(): Promise<CalendarBootstrap> {
   };
 }
 
-export async function readPlannerSettingsBootstrap() {
+export async function readPlannerSettingsBootstrap(): Promise<
+  Pick<
+    PlannerShellBootstrap,
+    | "bulletinDocuments"
+    | "careers"
+    | "doubleDegrees"
+    | "graduatePrograms"
+    | "jointPrograms"
+    | "periods"
+  >
+> {
   const [periods, bulletinDocuments] = await Promise.all([
     readPublishedCatalogJson<SchedulePeriodSummary[]>("schedules", "periods.json"),
     readPublishedBulletinDocuments(),
@@ -106,7 +127,17 @@ export async function readPlannerSettingsBootstrap() {
   };
 }
 
-export async function readSearchBootstrap() {
+export async function readSearchBootstrap(): Promise<{
+  careers: AcademicCareerReference[];
+  doubleDegrees: DoubleDegreeReference[];
+  graduatePrograms: GraduateProgramReference[];
+  jointPrograms: JointProgramReference[];
+  newsItems: SiteNewsItem[];
+  paymentCalendar: PaymentCalendarDocument;
+  plans: BulletinSummary[];
+  periods: SchedulePeriodSummary[];
+  schoolCalendar: SchoolCalendarDocument;
+}> {
   const [plannerBootstrap, calendarBootstrap] = await Promise.all([
     readPlannerShellBootstrap(),
     readCalendarBootstrap(),
@@ -131,7 +162,7 @@ async function readPublishedCatalogJson<T>(...segments: string[]): Promise<T> {
   return JSON.parse(raw) as T;
 }
 
-async function readPublishedBulletinDocuments() {
+async function readPublishedBulletinDocuments(): Promise<BulletinDocument[]> {
   const directoryPath = path.join(await resolveCatalogRootPath(), "boletines", "documents");
   const entries = await fs.readdir(directoryPath);
   const fileNames = entries.filter((entry) => entry.endsWith(".json")).sort();
@@ -145,7 +176,7 @@ async function readPublishedBulletinDocuments() {
   return documents;
 }
 
-async function resolveCatalogRootPath() {
+async function resolveCatalogRootPath(): Promise<string> {
   const publishedCatalogRootPath = path.join(
     /* turbopackIgnore: true */ process.cwd(),
     "public",

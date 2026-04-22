@@ -6,6 +6,6 @@ import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata(DEFAULT_LOCALE, "connectAi");
 
-export default function ConnectAiPage() {
+export default function ConnectAiPage(): React.JSX.Element {
   return <ConnectAiPageShell />;
 }

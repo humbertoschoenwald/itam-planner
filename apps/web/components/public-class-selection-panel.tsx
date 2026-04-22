@@ -5,7 +5,7 @@ import { getCanonicalSubjectTitle } from "@/lib/presenters/schedule";
 import { getProductCopy } from "@/lib/product-copy";
 import type { LocaleCode, ScheduleOffering } from "@/lib/types";
 
-interface PublicClassSelectionPanelProps {
+type PublicClassSelectionPanelProps = {
   activePeriodLabel: string;
   isLoading: boolean;
   loadError: string | null;
@@ -25,7 +25,7 @@ export function PublicClassSelectionPanel({
   selectedOfferingIds,
   subjectTitleLookup,
   toggleOfferingId,
-}: PublicClassSelectionPanelProps) {
+}: PublicClassSelectionPanelProps): React.JSX.Element {
   const copy = getUiCopy(locale);
   const productCopy = getProductCopy(locale);
   const selectedOfferingIdSet = new Set(selectedOfferingIds);
@@ -51,7 +51,12 @@ export function PublicClassSelectionPanel({
   return (
     <div className="grid gap-4 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
       <div className="grid gap-3">
-        <p className="text-sm font-medium text-foreground">{activePeriodLabel}</p>
+        <div className="soft-panel flex flex-wrap items-center justify-between gap-3">
+          <p className="text-sm font-medium text-foreground">{activePeriodLabel}</p>
+          <span className="rounded-full bg-surface-elevated px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-accent">
+            {availableOfferings.length}
+          </span>
+        </div>
         {availableOfferings.length > 0 ? (
           availableOfferings.map((offering) => (
             <button
@@ -91,38 +96,45 @@ export function PublicClassSelectionPanel({
         )}
       </div>
 
-      <div className="rounded-[1.35rem] border border-border bg-surface-elevated px-4 py-4">
-        <p className="text-sm font-semibold text-foreground">
-          {productCopy.plannerSettings.selectedClassesTitle}: {selectedOfferings.length}
-        </p>
+      <div className="soft-panel">
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <p className="text-sm font-semibold text-foreground">
+            {productCopy.plannerSettings.selectedClassesTitle}: {selectedOfferings.length}
+          </p>
+          <span className="rounded-full bg-accent-soft px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-accent">
+            {selectedOfferings.length}
+          </span>
+        </div>
         <div className="mt-3 grid gap-2">
           {selectedOfferings.length > 0 ? (
             selectedOfferings.map((offering) => (
               <button
                 key={offering.offering_id}
                 aria-pressed
-                className="rounded-[1.15rem] border border-accent/30 bg-accent-soft px-3 py-3 text-left text-xs leading-5 text-muted"
+                className="choice-card border-accent bg-accent-soft text-left shadow-[0_18px_34px_rgba(31,77,63,0.12)]"
                 onClick={() => toggleOfferingId(offering.offering_id)}
                 type="button"
               >
-                <span className="font-semibold text-foreground">
-                  {offering.course_code} · {offering.group_code}
-                </span>
-                <span className="mt-1 block">
-                  {getCanonicalSubjectTitle(
-                    offering.course_code,
-                    subjectTitleLookup,
-                    offering.display_title,
-                  )}
-                </span>
-                <span className="mt-1 block">
-                  {offering.meetings
-                    .map(
-                      (meeting) =>
-                        `${meeting.weekday_code} ${meeting.start_time.slice(0, 5)}-${meeting.end_time.slice(0, 5)}`,
-                    )
-                    .join(" · ")}
-                </span>
+                <div>
+                  <span className="font-semibold text-foreground">
+                    {offering.course_code} · {offering.group_code}
+                  </span>
+                  <span className="mt-1 block text-xs leading-5 text-muted">
+                    {getCanonicalSubjectTitle(
+                      offering.course_code,
+                      subjectTitleLookup,
+                      offering.display_title,
+                    )}
+                  </span>
+                  <span className="mt-2 block text-xs leading-5 text-muted">
+                    {offering.meetings
+                      .map(
+                        (meeting) =>
+                          `${meeting.weekday_code} ${meeting.start_time.slice(0, 5)}-${meeting.end_time.slice(0, 5)}`,
+                      )
+                      .join(" · ")}
+                  </span>
+                </div>
               </button>
             ))
           ) : (

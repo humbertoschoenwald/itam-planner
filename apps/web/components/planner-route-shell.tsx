@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import type { JSX } from "react";
 import { useRouter } from "next/navigation";
 
 import { PlannerHome } from "@/components/planner-home";
@@ -19,14 +20,14 @@ import { usePlannerUiStore } from "@/stores/planner-ui-store";
 import { useSyncStudentCode } from "@/lib/use-sync-student-code";
 import { useStudentProfileStore } from "@/stores/student-profile-store";
 
-interface PlannerRouteShellProps {
+type PlannerRouteShellProps = {
   bulletinDocuments: BulletinDocument[];
   plans: BulletinSummary[];
   periods: SchedulePeriodSummary[];
   sourcesMetadata: SourcesMetadata | null;
 }
 
-export function PlannerRouteShell(props: PlannerRouteShellProps) {
+export function PlannerRouteShell(props: PlannerRouteShellProps): JSX.Element {
   useSyncStudentCode();
 
   const profile = useStudentProfileStore((state) => state.profile);

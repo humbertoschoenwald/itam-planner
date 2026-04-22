@@ -3,7 +3,7 @@
 import { getUiCopy } from "@/lib/copy";
 import { useStudentProfileStore } from "@/stores/student-profile-store";
 
-export function ProjectLinks() {
+export function ProjectLinks(): React.JSX.Element {
   const locale = useStudentProfileStore((state) => state.profile.locale);
   const copy = getUiCopy(locale);
   const projectLinks = [
@@ -24,7 +24,7 @@ export function ProjectLinks() {
       {projectLinks.map((link) => (
         <a
           key={link.href}
-          className="rounded-[1.35rem] border border-border bg-surface-elevated px-4 py-4 transition hover:-translate-y-0.5 hover:border-accent/40 hover:bg-surface-hover"
+          className="support-link"
           href={link.href}
           rel="noreferrer"
           target="_blank"

@@ -10,9 +10,9 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-accent text-accent-contrast shadow-[0_14px_28px_rgba(31,77,63,0.16)] hover:-translate-y-0.5 hover:bg-accent/92",
+          "bg-[linear-gradient(180deg,color-mix(in_srgb,var(--accent)_92%,white),var(--accent))] text-accent-contrast shadow-[0_18px_38px_rgba(31,77,63,0.18)] hover:-translate-y-0.5 hover:shadow-[0_22px_44px_rgba(31,77,63,0.22)]",
         secondary:
-          "border border-border bg-surface-elevated text-foreground hover:-translate-y-0.5 hover:border-accent/35 hover:bg-surface-hover",
+          "border border-border bg-[linear-gradient(180deg,color-mix(in_srgb,var(--surface-elevated)_98%,transparent),var(--surface))] text-foreground shadow-[0_10px_24px_rgba(30,34,22,0.05)] hover:-translate-y-0.5 hover:border-accent/35 hover:bg-surface-hover hover:shadow-[0_18px_32px_rgba(30,34,22,0.08)]",
       },
     },
     defaultVariants: {
@@ -21,11 +21,9 @@ const buttonVariants = cva(
   },
 );
 
-export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariants> {
+export type ButtonProps = {
   asChild?: boolean;
-}
+} & React.ButtonHTMLAttributes<HTMLButtonElement> & VariantProps<typeof buttonVariants>
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, asChild = false, ...props }, ref) => {

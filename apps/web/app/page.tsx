@@ -5,14 +5,20 @@ import { buildHomeStructuredData, buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata(DEFAULT_LOCALE, "home");
 
-export default function HomePage() {
+function serializeJsonLd(data: unknown): string {
+  return JSON.stringify(data).replace(/</g, "\\u003c");
+}
+
+export default function HomePage(): React.JSX.Element {
   const structuredData = buildHomeStructuredData(DEFAULT_LOCALE);
 
   return (
     <>
       <script
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: serializeJsonLd(structuredData),
+        }}
       />
       <HomePageShell />
     </>

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import type { JSX } from "react";
 import { useEffect, useState } from "react";
 
 import { Button } from "@/components/ui/button";
@@ -26,7 +27,7 @@ import {
 
 const INPUT_CLASS_NAME = "field-shell text-sm";
 
-interface OnboardingPanelProps {
+type OnboardingPanelProps = {
   redirectedFromPlanner?: boolean;
   plans: BulletinSummary[];
 }
@@ -34,7 +35,7 @@ interface OnboardingPanelProps {
 export function OnboardingPanel({
   plans,
   redirectedFromPlanner = false,
-}: OnboardingPanelProps) {
+}: OnboardingPanelProps): JSX.Element {
   useSyncStudentCode();
 
   const router = useRouter();
@@ -63,18 +64,14 @@ export function OnboardingPanel({
   ).length;
   const onboardingComplete =
     isValidEntryTerm(profile.entryTerm) && activeVisiblePlanCount > 0;
+  const onboardingBanner = getOnboardingBannerContent(onboardingComplete, copy);
+  const planSelectionState = getPlanSelectionState(canShowPlans, visiblePlans.length);
+  const entryTermBadgeLabel = getEntryTermBadgeLabel(profile.entryTerm, copy);
+  const shouldShowValidation = showValidation && !onboardingComplete;
 
-  useEffect(() => {
-    const visiblePlanIds = new Set(visiblePlans.map((plan) => plan.plan_id));
+  useSyncVisiblePlanSelection(profile.activePlanIds, setActivePlanIds, visiblePlans);
 
-    if (profile.activePlanIds.every((planId) => visiblePlanIds.has(planId))) {
-      return;
-    }
-
-    setActivePlanIds(profile.activePlanIds.filter((planId) => visiblePlanIds.has(planId)));
-  }, [profile.activePlanIds, setActivePlanIds, visiblePlans]);
-
-  function handleEntrySeasonChange(nextSeasonKey: EntryTermSeasonKey | "") {
+  function handleEntrySeasonChange(nextSeasonKey: EntryTermSeasonKey | ""): void {
     const nextDraft = {
       ...entryTermDraft,
       seasonKey: nextSeasonKey,
@@ -85,7 +82,7 @@ export function OnboardingPanel({
     setShowValidation(false);
   }
 
-  function handleEntryYearChange(nextYear: string) {
+  function handleEntryYearChange(nextYear: string): void {
     const nextDraft = {
       ...entryTermDraft,
       year: nextYear,
@@ -96,7 +93,7 @@ export function OnboardingPanel({
     setShowValidation(false);
   }
 
-  function handleContinue() {
+  function handleContinue(): void {
     if (!onboardingComplete) {
       setShowValidation(true);
       return;
@@ -105,7 +102,7 @@ export function OnboardingPanel({
     router.push("/planner");
   }
 
-  function handleResetProfile() {
+  function handleResetProfile(): void {
     setEntryTermDraft({
       seasonKey: "",
       year: "",
@@ -123,28 +120,13 @@ export function OnboardingPanel({
       <CardContent className="space-y-5">
         <p className="text-sm leading-6 text-muted">{copy.onboardingPage.description}</p>
 
-        {redirectedFromPlanner ? (
-          <div className="rounded-[1.35rem] bg-accent-soft px-4 py-4 text-sm leading-6 text-accent">
-            <p className="font-semibold">{copy.onboardingPage.plannerGateTitle}</p>
-            <p className="mt-2">{copy.onboardingPage.plannerGateBody}</p>
-          </div>
-        ) : null}
+        <RedirectedNotice copy={copy} redirectedFromPlanner={redirectedFromPlanner} />
 
-        {onboardingComplete ? (
-          <div className="rounded-[1.35rem] bg-accent-soft px-4 py-4 text-sm leading-6 text-accent">
-            <p className="font-semibold">{copy.onboardingPage.readyTitle}</p>
-            <p className="mt-2">{copy.onboardingPage.readyBody}</p>
-          </div>
-        ) : (
-          <div className="soft-panel">
-            <p className="font-semibold text-foreground">
-              {copy.plannerHome.currentProfileFallback}
-            </p>
-            <p className="mt-2 text-sm leading-6 text-muted">
-              {copy.plannerHome.currentProfileHelp}
-            </p>
-          </div>
-        )}
+        <OnboardingStatusPanel
+          body={onboardingBanner.body}
+          emphasized={onboardingBanner.emphasized}
+          title={onboardingBanner.title}
+        />
 
         <div className="space-y-3">
           <div>
@@ -198,12 +180,7 @@ export function OnboardingPanel({
             </div>
           </div>
 
-          {showValidation && !onboardingComplete ? (
-            <div className="rounded-[1.35rem] border border-border bg-surface-elevated px-4 py-4 text-sm leading-6 text-muted">
-              <p className="font-semibold text-foreground">{copy.onboardingPage.validationTitle}</p>
-              <p className="mt-2">{copy.onboardingPage.validationBody}</p>
-            </div>
-          ) : null}
+          <ValidationNotice copy={copy} shouldShow={shouldShowValidation} />
         </div>
 
         <div className="space-y-2">
@@ -230,50 +207,13 @@ export function OnboardingPanel({
             <p className="mt-1 text-xs leading-5 text-muted">{copy.plannerHome.activePlansHelp}</p>
           </div>
 
-          {!canShowPlans ? (
-            <div className="soft-panel">
-              <p className="font-semibold text-foreground">
-                {copy.onboardingPage.plansLockedTitle}
-              </p>
-              <p className="mt-2 text-sm leading-6 text-muted">
-                {copy.onboardingPage.plansLockedBody}
-              </p>
-            </div>
-          ) : visiblePlans.length === 0 ? (
-            <div className="soft-panel">
-              <p className="font-semibold text-foreground">
-                {copy.onboardingPage.noPlansForTermTitle}
-              </p>
-              <p className="mt-2 text-sm leading-6 text-muted">
-                {copy.onboardingPage.noPlansForTermBody}
-              </p>
-            </div>
-          ) : (
-            <div className="grid gap-3">
-              {visiblePlans.map((plan) => {
-                const checked = profile.activePlanIds.includes(plan.plan_id);
-                return (
-                  <label
-                    key={plan.bulletin_id}
-                    className="choice-card cursor-pointer items-start text-sm"
-                  >
-                    <input
-                      checked={checked}
-                      className="mt-1 h-4 w-4 accent-accent"
-                      onChange={() => togglePlan(plan.plan_id)}
-                      type="checkbox"
-                    />
-                    <span>
-                      <span className="block font-semibold text-foreground">
-                        {plan.program_title} · {plan.plan_code}
-                      </span>
-                      <span className="mt-1 block text-xs leading-5 text-muted">{plan.title}</span>
-                    </span>
-                  </label>
-                );
-              })}
-            </div>
-          )}
+          <PlanSelectionContent
+            copy={copy}
+            planSelectionState={planSelectionState}
+            profile={profile}
+            togglePlan={togglePlan}
+            visiblePlans={visiblePlans}
+          />
         </div>
 
         <div className="flex flex-wrap gap-3">
@@ -290,9 +230,7 @@ export function OnboardingPanel({
 
         <div className="flex flex-wrap gap-3">
           <span className="rounded-full bg-accent-soft px-3 py-2 text-xs font-medium text-accent">
-            {profile.entryTerm
-              ? formatEntryTermLabel(profile.entryTerm, copy.onboardingPage.seasonOptions)
-              : DEFAULT_STUDENT_PROFILE.entryTerm || copy.plannerHome.noTermYet}
+            {entryTermBadgeLabel}
           </span>
           <span className="rounded-full border border-border bg-surface-elevated px-3 py-2 text-xs font-medium text-muted">
             {activeVisiblePlanCount} {copy.plannerHome.activePlansShort}
@@ -300,5 +238,189 @@ export function OnboardingPanel({
         </div>
       </CardContent>
     </Card>
+  );
+}
+
+function sanitizeVisiblePlanIds(activePlanIds: string[], visiblePlans: BulletinSummary[]): string[] {
+  const visiblePlanIds = new Set(visiblePlans.map((plan) => plan.plan_id));
+  return activePlanIds.filter((planId) => visiblePlanIds.has(planId));
+}
+
+function getEntryTermBadgeLabel(
+  entryTerm: string,
+  copy: ReturnType<typeof getUiCopy>,
+): string {
+  return entryTerm
+    ? formatEntryTermLabel(entryTerm, copy.onboardingPage.seasonOptions)
+    : DEFAULT_STUDENT_PROFILE.entryTerm || copy.plannerHome.noTermYet;
+}
+
+function useSyncVisiblePlanSelection(
+  activePlanIds: string[],
+  setActivePlanIds: (planIds: string[]) => void,
+  visiblePlans: BulletinSummary[],
+): void {
+  useEffect(() => {
+    const sanitizedPlanIds = sanitizeVisiblePlanIds(activePlanIds, visiblePlans);
+
+    if (sanitizedPlanIds.length === activePlanIds.length) {
+      return;
+    }
+
+    setActivePlanIds(sanitizedPlanIds);
+  }, [activePlanIds, setActivePlanIds, visiblePlans]);
+}
+
+function getOnboardingBannerContent(
+  onboardingComplete: boolean,
+  copy: ReturnType<typeof getUiCopy>,
+): { body: string; emphasized: boolean; title: string } {
+  return onboardingComplete
+    ? {
+        body: copy.onboardingPage.readyBody,
+        emphasized: true,
+        title: copy.onboardingPage.readyTitle,
+      }
+    : {
+        body: copy.plannerHome.currentProfileHelp,
+        emphasized: false,
+        title: copy.plannerHome.currentProfileFallback,
+      };
+}
+
+function getPlanSelectionState(
+  canShowPlans: boolean,
+  visiblePlanCount: number,
+): "empty" | "locked" | "ready" {
+  if (!canShowPlans) {
+    return "locked";
+  }
+
+  return visiblePlanCount === 0 ? "empty" : "ready";
+}
+
+function BannerNotice({ body, title }: { body: string; title: string }): JSX.Element {
+  return (
+    <div className="rounded-[1.35rem] bg-accent-soft px-4 py-4 text-sm leading-6 text-accent">
+      <p className="font-semibold">{title}</p>
+      <p className="mt-2">{body}</p>
+    </div>
+  );
+}
+
+function RedirectedNotice({
+  copy,
+  redirectedFromPlanner,
+}: {
+  copy: ReturnType<typeof getUiCopy>;
+  redirectedFromPlanner: boolean;
+}): JSX.Element | null {
+  if (!redirectedFromPlanner) {
+    return null;
+  }
+
+  return (
+    <BannerNotice
+      body={copy.onboardingPage.plannerGateBody}
+      title={copy.onboardingPage.plannerGateTitle}
+    />
+  );
+}
+
+function OnboardingStatusPanel({
+  body,
+  emphasized,
+  title,
+}: {
+  body: string;
+  emphasized: boolean;
+  title: string;
+}): JSX.Element {
+  if (emphasized) {
+    return <BannerNotice body={body} title={title} />;
+  }
+
+  return (
+    <div className="soft-panel">
+      <p className="font-semibold text-foreground">{title}</p>
+      <p className="mt-2 text-sm leading-6 text-muted">{body}</p>
+    </div>
+  );
+}
+
+function PlanSelectionContent({
+  copy,
+  planSelectionState,
+  profile,
+  togglePlan,
+  visiblePlans,
+}: {
+  copy: ReturnType<typeof getUiCopy>;
+  planSelectionState: "empty" | "locked" | "ready";
+  profile: ReturnType<typeof useStudentProfileStore.getState>["profile"];
+  togglePlan: (planId: string) => void;
+  visiblePlans: BulletinSummary[];
+}): JSX.Element {
+  if (planSelectionState === "locked") {
+    return (
+      <div className="soft-panel">
+        <p className="font-semibold text-foreground">{copy.onboardingPage.plansLockedTitle}</p>
+        <p className="mt-2 text-sm leading-6 text-muted">{copy.onboardingPage.plansLockedBody}</p>
+      </div>
+    );
+  }
+
+  if (planSelectionState === "empty") {
+    return (
+      <div className="soft-panel">
+        <p className="font-semibold text-foreground">{copy.onboardingPage.noPlansForTermTitle}</p>
+        <p className="mt-2 text-sm leading-6 text-muted">
+          {copy.onboardingPage.noPlansForTermBody}
+        </p>
+      </div>
+    );
+  }
+
+  return (
+    <div className="grid gap-3">
+      {visiblePlans.map((plan) => {
+        const checked = profile.activePlanIds.includes(plan.plan_id);
+        return (
+          <label key={plan.bulletin_id} className="choice-card cursor-pointer items-start text-sm">
+            <input
+              checked={checked}
+              className="mt-1 h-4 w-4 accent-accent"
+              onChange={() => togglePlan(plan.plan_id)}
+              type="checkbox"
+            />
+            <span>
+              <span className="block font-semibold text-foreground">
+                {plan.program_title} · {plan.plan_code}
+              </span>
+              <span className="mt-1 block text-xs leading-5 text-muted">{plan.title}</span>
+            </span>
+          </label>
+        );
+      })}
+    </div>
+  );
+}
+
+function ValidationNotice({
+  copy,
+  shouldShow,
+}: {
+  copy: ReturnType<typeof getUiCopy>;
+  shouldShow: boolean;
+}): JSX.Element | null {
+  if (!shouldShow) {
+    return null;
+  }
+
+  return (
+    <div className="rounded-[1.35rem] border border-border bg-surface-elevated px-4 py-4 text-sm leading-6 text-muted">
+      <p className="font-semibold text-foreground">{copy.onboardingPage.validationTitle}</p>
+      <p className="mt-2">{copy.onboardingPage.validationBody}</p>
+    </div>
   );
 }

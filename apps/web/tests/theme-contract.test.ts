@@ -23,4 +23,15 @@ describe("theme contract", () => {
     expect(globalCss).toContain("--surface-elevated");
     expect(globalCss).toContain("--accent-contrast");
   });
+
+  it("keeps the atmospheric background CSS-only without embedded raster textures", () => {
+    const globalCss = readFileSync(join(appRoot, "app", "globals.css"), "utf8");
+
+    expect(globalCss).toContain(".site-tiling");
+    expect(globalCss).toContain("repeating-linear-gradient");
+    expect(globalCss).toContain("repeating-radial-gradient");
+    expect(globalCss).not.toContain("data:image");
+    expect(globalCss).not.toContain(".png");
+    expect(globalCss).not.toContain(".jpg");
+  });
 });

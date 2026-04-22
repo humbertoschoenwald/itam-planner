@@ -9,7 +9,7 @@ alwaysApply: true
 
 - RULE: Use Conventional Commits and CalVer `YY.MM.PATCH`.
 - RULE: Derive changelog generation from conventional commit history.
-- RULE: Regenerate `CHANGELOG.md` automatically on every push to `main`.
+- RULE: Regenerate `CHANGELOG.md` automatically after the blocking `CI` workflow succeeds on `main`.
 - RULE: Group generated changelog sections by the push date in `America/Mexico_City`.
 - RULE: Allow repeated changelog subsection headings when they live under different generated date sections.
 - RULE: Enforce quality with Ruff, basedpyright, ESLint, Prettier, CSpell, Commitlint, markdownlint-cli2, yamllint, ShellCheck, Hadolint, and actionlint.
@@ -33,6 +33,11 @@ alwaysApply: true
 - RULE: API fixture-ingest validation must run against an isolated temporary public-data root and must not require overwriting the committed promoted public snapshot during quality checks.
 - RULE: Emit a merged root `coverage.xml` from web and API Cobertura reports during quality-gate runs.
 - RULE: Prefer a single blocking hosted CI job over split jobs, artifact-only merge jobs, or non-blocking canaries when the same signal can be produced in one path.
+- RULE: Canonical production deployments must come from the repository-owned deploy workflow, not Vercel's native Git auto-deploy path on `main`.
 - RULE: Individual tests longer than 40 seconds are critical failures unless doctrine explicitly allows an exception.
+- RULE: Keep browser-level responsive smoke suites available locally when they materially improve Safari/Chrome readiness, but do not add them to the blocking hosted gate until they fit the supported hosted budget.
+- RULE: When responsive smoke uses a compiling dev server, prewarm the known public routes before parallel assertions so Next/Turbopack cold-start churn does not look like a product failure.
+- RULE: If responsive smoke remains flaky after route prewarm, reduce worker parallelism until the suite is deterministic instead of normalizing flaky browser-level checks.
+- RULE: Ship workspace `.vscode` recommendations and launch/task scaffolding for live browser preview, browser debugging, and responsive smoke execution instead of leaving that setup undocumented.
 - RULE: Magic numbers and magic strings are forbidden in source code outside tests. Promote them to named constants, configuration, enums, or locale dictionaries.
 - RULE: Enforce the magic-literal policy automatically within imperative logic modules during quality gates; do not leave it as manual review guidance.

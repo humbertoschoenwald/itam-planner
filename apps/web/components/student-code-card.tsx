@@ -8,15 +8,15 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useStudentCodeStore } from "@/stores/student-code-store";
 import { useStudentProfileStore } from "@/stores/student-profile-store";
 
-export function StudentCodeCard() {
+export function StudentCodeCard(): React.JSX.Element {
   const code = useStudentCodeStore((state) => state.code);
   const locale = useStudentProfileStore((state) => state.profile.locale);
   const copy = getUiCopy(locale);
   const [copied, setCopied] = useState(false);
   const codeLength = code.length;
 
-  async function copyCode() {
-    if (!code || typeof navigator === "undefined" || !navigator.clipboard) {
+  async function copyCode(): Promise<void> {
+    if (!code) {
       return;
     }
     await navigator.clipboard.writeText(code);

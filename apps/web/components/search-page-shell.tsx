@@ -12,11 +12,11 @@ import {
 import { getProductCopy } from "@/lib/product-copy";
 import { useStudentProfileStore } from "@/stores/student-profile-store";
 
-interface SearchPageShellProps {
+type SearchPageShellProps = {
   bootstrap: SearchIndexBootstrap;
 }
 
-export function SearchPageShell({ bootstrap }: SearchPageShellProps) {
+export function SearchPageShell({ bootstrap }: SearchPageShellProps): React.JSX.Element {
   const locale = useStudentProfileStore((state) => state.profile.locale);
   const copy = getProductCopy(locale);
   const [query, setQuery] = useState("");

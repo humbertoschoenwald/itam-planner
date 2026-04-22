@@ -4,6 +4,7 @@ import { describe, expect, it } from "vitest";
 
 import {
   resolvePrimaryNavId,
+  resolveSecondaryNavPresentation,
   resolveSecondaryNavId,
   resolveSwipeNavigation,
 } from "@/lib/navigation";
@@ -58,5 +59,51 @@ describe("navigation helpers", () => {
     expect(resolveSwipeNavigation("/planner", 12, null)).toBeNull();
     expect(resolveSwipeNavigation("/", 60, "natural")).toBeNull();
     expect(resolveSwipeNavigation("/calendar", -60, "natural")).toBeNull();
+  });
+
+  it("adapts the secondary nav to the measured space instead of the viewport width", () => {
+    const candidateWidths = {
+      connectAi: 120,
+      project: 92,
+      registration: 118,
+      search: 40,
+      settings: 112,
+    } as const;
+
+    expect(
+      resolveSecondaryNavPresentation({
+        availableWidth: 420,
+        candidateWidths,
+        isPhoneViewport: false,
+        overflowMenuWidth: 40,
+      }),
+    ).toEqual({
+      layout: "compact",
+      visibleCandidateIds: ["project", "connectAi", "search"],
+    });
+
+    expect(
+      resolveSecondaryNavPresentation({
+        availableWidth: 0,
+        candidateWidths,
+        isPhoneViewport: false,
+        overflowMenuWidth: 40,
+      }),
+    ).toEqual({
+      layout: "overflow",
+      visibleCandidateIds: [],
+    });
+
+    expect(
+      resolveSecondaryNavPresentation({
+        availableWidth: 640,
+        candidateWidths,
+        isPhoneViewport: false,
+        overflowMenuWidth: 40,
+      }),
+    ).toEqual({
+      layout: "full",
+      visibleCandidateIds: ["project", "connectAi", "search", "registration", "settings"],
+    });
   });
 });

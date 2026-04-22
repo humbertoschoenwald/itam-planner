@@ -7,7 +7,7 @@ import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata(DEFAULT_LOCALE, "planner");
 
-export default async function PlannerPage() {
+export default async function PlannerPage(): Promise<React.JSX.Element> {
   const bootstrap = await readPlannerShellBootstrap();
 
   return (

@@ -10,7 +10,7 @@ import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata(DEFAULT_LOCALE, "calendar");
 
-export default async function CalendarPage() {
+export default async function CalendarPage(): Promise<React.JSX.Element> {
   const [calendarBootstrap, onboardingBootstrap] = await Promise.all([
     readCalendarBootstrap(),
     readOnboardingBootstrap(),

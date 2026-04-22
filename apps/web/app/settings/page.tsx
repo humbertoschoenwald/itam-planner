@@ -7,7 +7,7 @@ import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata(DEFAULT_LOCALE, "settings");
 
-export default async function SettingsPage() {
+export default async function SettingsPage(): Promise<React.JSX.Element> {
   const bootstrap = await readPlannerSettingsBootstrap();
 
   return (

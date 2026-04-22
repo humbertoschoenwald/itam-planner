@@ -17,6 +17,8 @@ Frontend experience rules:
 - Treat Safari on iPhone as the primary browser target.
 - Support iPad, macOS, Windows, Chrome, and other evergreen browsers as secondary targets.
 - Prefer stable browser APIs with good WebKit behavior.
+- Treat automated WebKit verification as a Safari-adjacent signal, not as a substitute for final manual Safari validation on Apple tooling when a slice materially changes mobile layout or interaction.
+- Use Safari Responsive Design Mode and, when needed, Open with Simulator and iOS/iPadOS Web Inspector as the canonical manual validation path for Apple-device layout and interaction issues.
 - Keep the frontend lightweight and visually polished.
 - Support both light and dark presentation from the beginning of runtime work.
 - Detect the preferred color scheme from the operating system by default rather than requiring account-backed preferences.
@@ -89,6 +91,7 @@ Initial product-surface rules:
 - SEO is a first-class public requirement: canonical metadata, crawlable route metadata, sitemap coverage, and machine-readable structured data must be treated as product work, not marketing afterthought.
 - Visible UI strings, route chrome labels, selector labels, locale labels, ARIA labels, and other locale-dependent text must come from locale dictionaries rather than hardcoded strings inside components or page modules.
 - Public metadata text, structured-data descriptions, and other crawlable locale-facing SEO copy must also come from locale dictionaries rather than hardcoded page-module strings.
+- App Router metadata routes and metadata helpers, including `manifest`, `robots`, `sitemap`, JSON-LD serialization inputs, and other crawlable metadata surfaces, must source locale-facing text from dedicated locale/i18n modules instead of inline literals.
 - Frontend identifiers, enum values, configuration keys, and non-locale component APIs should stay English-only. Spanish belongs in locale dictionaries, source-derived content, and compatibility aliases only.
 - The current product slice supports only two UI locales: Spanish (`es-MX`) and English (`en`).
 - Adding or changing locale-facing text requires updating the locale dictionaries and the relevant regression tests in the same change.
@@ -98,6 +101,10 @@ Initial product-surface rules:
 - Keep interaction logic, browser persistence, and presentation styling loosely coupled so the visual system can be replaced without rewriting planner behavior.
 - The website must never instruct users to install the app manually through browser-native entries such as “Add to Home Screen”.
 - The primary navigation bar should remain sticky for a substantial portion of the scroll experience, respect browser safe areas, and use light blur without fighting Safari chrome.
+- Prefer dynamic viewport units, safe-area environment variables, and resilient fallback sizing for shell-level height and spacing decisions on mobile Safari.
+- The repository should support editor-driven live preview and browser debugging for the web app through workspace launch/task configuration rather than requiring tribal local setup.
+- Browser-level responsive smoke coverage should exercise at least one desktop Chromium profile, one phone WebKit profile, and one tablet WebKit profile so layout regressions surface before manual review.
+- Workspace tasking should expose terminal, headed, and interactive responsive-smoke entrypoints so visual debugging does not depend on ad-hoc local commands.
 - Swipe navigation belongs only to the top navigation surface, not to the whole page.
 - Swipe interaction and swipe-teaching copy are mobile-phone-only behavior. Tablet and desktop navigation should rely on pointer and keyboard interactions instead of swipe gestures.
 - Swipe preference may be chosen during onboarding and updated later through interaction, but swipe behavior must remain deterministic and must never change the semantic destination set.
@@ -107,6 +114,11 @@ Initial product-surface rules:
 - Tablet and desktop layouts must also collapse secondary navigation actions into a menu trigger whenever the available top-bar width cannot fit the full navigation cluster without wrapping.
 - The public product must expose a small persistent footer with links to Terms and Privacy.
 - The visual language should favor layered gradients, monochrome noise, motion-driven atmosphere, and floating accent objects instead of large flat surfaces.
+- Prefer CSS-native or mathematically generated atmospheric backgrounds, gradients, and pattern layers over raster background textures whenever the same effect can be achieved with acceptable runtime cost and browser support.
+- Prefer container queries and CSS containment for reusable component adaptation before adding breakpoint-only layout forks that duplicate the same design intent.
+- Use `content-visibility`, `contain`, and `contain-intrinsic-size` selectively on heavy editorial or below-the-fold sections when doing so improves rendering cost without hiding critical above-the-fold interactive content.
+- Treat `backdrop-filter` and translucency as progressive enhancement: ship solid and contrast-safe fallbacks first, then layer blur and transparency where support and accessibility preferences allow.
+- Honor reduced-motion and stronger-contrast user preferences in the visual system instead of treating motion and translucency as unconditional decoration.
 - Treat Apple atmosphere, Proton Authenticator web, and Perplexity Comet as inspiration references for layout density, atmospheric surfaces, and motion cues only. Do not copy their assets, code, or distinctive strings.
 - The public home should explain the project in non-technical language and expose a traceable news section whose links stay attached to official sources.
 - The calendar surface should foreground current and near-term academic events and payment milestones, while keeping older published items available as secondary history rather than leading the page with stale dates.

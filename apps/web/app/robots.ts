@@ -1,12 +1,16 @@
 import type { MetadataRoute } from "next";
 
+const SITE_URL = "https://itam.humbertoschoenwald.com";
+
 export default function robots(): MetadataRoute.Robots {
   return {
-    host: "https://itam.humbertoschoenwald.com",
-    rules: {
-      allow: "/",
-      userAgent: "*",
-    },
-    sitemap: "https://itam.humbertoschoenwald.com/sitemap.xml",
+    rules: [
+      {
+        userAgent: "*",
+        allow: "/",
+      },
+    ],
+    sitemap: `${SITE_URL}/sitemap.xml`,
+    host: SITE_URL,
   };
 }

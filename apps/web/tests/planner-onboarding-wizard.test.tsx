@@ -1,4 +1,5 @@
 import { act, fireEvent, render, screen } from "@testing-library/react";
+import type { RenderResult } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import {
@@ -36,68 +37,86 @@ vi.mock("@/lib/use-phone-viewport", () => ({
   usePhoneViewport: () => mockedPhoneViewport,
 }));
 
+const actuarialPlan: BulletinSummary = {
+  active_from: "2026-01-01",
+  active_to: "2026-05-31",
+  application_term: "PRIMAVERA 2026",
+  application_year: 2026,
+  bulletin_id: "bulletin:act-g",
+  entry_from_term: "PRIMAVERA 2021",
+  entry_to_term: "OTOÑO 2026",
+  plan_code: "G",
+  plan_id: "plan:act-g",
+  program_title: "LICENCIATURA EN ACTUARÍA",
+  source_code: "ACT-G",
+  title: "LICENCIATURA EN ACTUARÍA Plan G",
+};
+
+const economicsPlan: BulletinSummary = {
+  active_from: "2026-01-01",
+  active_to: "2026-05-31",
+  application_term: "PRIMAVERA 2026",
+  application_year: 2026,
+  bulletin_id: "bulletin:econ-f",
+  entry_from_term: "PRIMAVERA 2021",
+  entry_to_term: "OTOÑO 2026",
+  plan_code: "F",
+  plan_id: "plan:econ-f",
+  program_title: "LICENCIATURA EN ECONOMÍA",
+  source_code: "ECO-F",
+  title: "LICENCIATURA EN ECONOMÍA Plan F",
+};
+
+const computerSciencePlan: BulletinSummary = {
+  active_from: "2026-01-01",
+  active_to: "2026-05-31",
+  application_term: "PRIMAVERA 2026",
+  application_year: 2026,
+  bulletin_id: "bulletin:comp-a",
+  entry_from_term: "PRIMAVERA 2021",
+  entry_to_term: "OTOÑO 2026",
+  plan_code: "A",
+  plan_id: "plan:comp-a",
+  program_title: "INGENIERÍA Y CIENCIAS DE LA COMPUTACIÓN",
+  source_code: "ICC-A",
+  title: "INGENIERÍA Y CIENCIAS DE LA COMPUTACIÓN Plan A",
+};
+
+const dataScienceAiJointPlan: BulletinSummary = {
+  active_from: "2026-01-01",
+  active_to: "2026-05-31",
+  application_term: "PRIMAVERA 2026",
+  application_year: 2026,
+  bulletin_id: "bulletin:cd-ia",
+  entry_from_term: "PRIMAVERA 2021",
+  entry_to_term: "OTOÑO 2026",
+  plan_code: "JP",
+  plan_id: "plan:cd-ia",
+  program_title: "PLAN CONJUNTO DE CIENCIA DE DATOS E INTELIGENCIA ARTIFICIAL",
+  source_code: "CD-IA",
+  title: "PLAN CONJUNTO DE CIENCIA DE DATOS E INTELIGENCIA ARTIFICIAL",
+};
+
 const samplePlans: BulletinSummary[] = [
-  {
-    active_from: "2026-01-01",
-    active_to: "2026-05-31",
-    application_term: "PRIMAVERA 2026",
-    application_year: 2026,
-    bulletin_id: "bulletin:act-g",
-    entry_from_term: "PRIMAVERA 2021",
-    entry_to_term: "OTOÑO 2026",
-    plan_code: "G",
-    plan_id: "plan:act-g",
-    program_title: "LICENCIATURA EN ACTUARÍA",
-    source_code: "ACT-G",
-    title: "LICENCIATURA EN ACTUARÍA Plan G",
-  },
-  {
-    active_from: "2026-01-01",
-    active_to: "2026-05-31",
-    application_term: "PRIMAVERA 2026",
-    application_year: 2026,
-    bulletin_id: "bulletin:econ-f",
-    entry_from_term: "PRIMAVERA 2021",
-    entry_to_term: "OTOÑO 2026",
-    plan_code: "F",
-    plan_id: "plan:econ-f",
-    program_title: "LICENCIATURA EN ECONOMÍA",
-    source_code: "ECO-F",
-    title: "LICENCIATURA EN ECONOMÍA Plan F",
-  },
-  {
-    active_from: "2026-01-01",
-    active_to: "2026-05-31",
-    application_term: "PRIMAVERA 2026",
-    application_year: 2026,
-    bulletin_id: "bulletin:comp-a",
-    entry_from_term: "PRIMAVERA 2021",
-    entry_to_term: "OTOÑO 2026",
-    plan_code: "A",
-    plan_id: "plan:comp-a",
-    program_title: "INGENIERÍA Y CIENCIAS DE LA COMPUTACIÓN",
-    source_code: "ICC-A",
-    title: "INGENIERÍA Y CIENCIAS DE LA COMPUTACIÓN Plan A",
-  },
-  {
-    active_from: "2026-01-01",
-    active_to: "2026-05-31",
-    application_term: "PRIMAVERA 2026",
-    application_year: 2026,
-    bulletin_id: "bulletin:cd-ia",
-    entry_from_term: "PRIMAVERA 2021",
-    entry_to_term: "OTOÑO 2026",
-    plan_code: "JP",
-    plan_id: "plan:cd-ia",
-    program_title: "PLAN CONJUNTO DE CIENCIA DE DATOS E INTELIGENCIA ARTIFICIAL",
-    source_code: "CD-IA",
-    title: "PLAN CONJUNTO DE CIENCIA DE DATOS E INTELIGENCIA ARTIFICIAL",
-  },
+  actuarialPlan,
+  economicsPlan,
+  computerSciencePlan,
+  dataScienceAiJointPlan,
 ];
 
+function buildBulletinDocument(
+  summary: BulletinSummary,
+  options: Partial<BulletinSummary> & { requirements: BulletinDocument["requirements"] },
+): BulletinDocument {
+  return {
+    ...summary,
+    ...options,
+    requirements: options.requirements,
+  };
+}
+
 const sampleBulletinDocuments: BulletinDocument[] = [
-  {
-    ...samplePlans[0],
+  buildBulletinDocument(actuarialPlan, {
     requirements: [
       {
         course_code: "ACT-12002",
@@ -111,9 +130,8 @@ const sampleBulletinDocuments: BulletinDocument[] = [
         sort_order: 1,
       },
     ],
-  },
-  {
-    ...samplePlans[1],
+  }),
+  buildBulletinDocument(economicsPlan, {
     requirements: [
       {
         course_code: "ECO-12002",
@@ -127,9 +145,8 @@ const sampleBulletinDocuments: BulletinDocument[] = [
         sort_order: 1,
       },
     ],
-  },
-  {
-    ...samplePlans[3],
+  }),
+  buildBulletinDocument(dataScienceAiJointPlan, {
     requirements: [
       {
         course_code: "DAT-12010",
@@ -143,9 +160,8 @@ const sampleBulletinDocuments: BulletinDocument[] = [
         sort_order: 1,
       },
     ],
-  },
-  {
-    ...samplePlans[0],
+  }),
+  buildBulletinDocument(actuarialPlan, {
     bulletin_id: "bulletin:ai-reference",
     plan_id: "plan:ai-reference",
     program_title: "LICENCIATURA EN ACTUARÍA",
@@ -219,7 +235,7 @@ const sampleBulletinDocuments: BulletinDocument[] = [
     ],
     source_code: "AI-REF",
     title: "Referencia académica IA",
-  },
+  }),
 ];
 
 const samplePeriods: SchedulePeriodSummary[] = [
@@ -342,6 +358,7 @@ describe("PlannerOnboardingWizard", () => {
     await flushAsyncState();
 
     expect(screen.getByText(/Vamos a configurar el horario una sola vez/u)).toBeInTheDocument();
+    expect(screen.getAllByText("Inicio").length).toBeGreaterThan(0);
     expect(screen.queryByLabelText(/Busca tu carrera/u)).not.toBeInTheDocument();
 
     fireEvent.click(screen.getByRole("button", { name: /Siguiente/u }));
@@ -602,7 +619,7 @@ describe("PlannerOnboardingWizard", () => {
   });
 });
 
-function renderWizard() {
+function renderWizard(): RenderResult {
   return render(
     <PlannerOnboardingWizard
       bulletinDocuments={sampleBulletinDocuments}
@@ -612,7 +629,7 @@ function renderWizard() {
   );
 }
 
-async function flushAsyncState(iterations: number = 3) {
+async function flushAsyncState(iterations: number = 3): Promise<void> {
   await act(async () => {
     for (let index = 0; index < iterations; index += 1) {
       await Promise.resolve();

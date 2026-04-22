@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 
-import { DEFAULT_LOCALE } from "@/lib/locale";
 import type { LocaleCode } from "@/lib/types";
 
 type PageSeoKey =
@@ -17,13 +16,13 @@ type PageSeoKey =
   | "settings"
   | "terms";
 
-interface PageSeoEntry {
+type PageSeoEntry = {
   canonicalPath: string;
   description: string;
   title: string;
 }
 
-interface SiteSeoCopy {
+type SiteSeoCopy = {
   applicationName: string;
   homeStructuredDataDescription: string;
   keywords: string[];
@@ -217,8 +216,8 @@ const seoCopy = {
   },
 } satisfies Record<LocaleCode, SiteSeoCopy>;
 
-export function getSeoCopy(locale: LocaleCode) {
-  return seoCopy[locale] ?? seoCopy[DEFAULT_LOCALE];
+export function getSeoCopy(locale: LocaleCode): { applicationName: string; homeStructuredDataDescription: string; keywords: string[]; pages: { calendar: { canonicalPath: string; description: string; title: string; }; connectAi: { canonicalPath: string; description: string; title: string; }; home: { canonicalPath: string; description: string; title: string; }; map: { canonicalPath: string; description: string; title: string; }; planner: { canonicalPath: string; description: string; title: string; }; plannerOnboarding: { canonicalPath: string; description: string; title: string; }; privacy: { canonicalPath: string; description: string; title: string; }; project: { canonicalPath: string; description: string; title: string; }; registration: { canonicalPath: string; description: string; title: string; }; search: { canonicalPath: string; description: string; title: string; }; settings: { canonicalPath: string; description: string; title: string; }; terms: { canonicalPath: string; description: string; title: string; }; }; siteDescription: string; siteTitle: string; } | { applicationName: string; homeStructuredDataDescription: string; keywords: string[]; pages: { calendar: { canonicalPath: string; description: string; title: string; }; connectAi: { canonicalPath: string; description: string; title: string; }; home: { canonicalPath: string; description: string; title: string; }; map: { canonicalPath: string; description: string; title: string; }; planner: { canonicalPath: string; description: string; title: string; }; plannerOnboarding: { canonicalPath: string; description: string; title: string; }; privacy: { canonicalPath: string; description: string; title: string; }; project: { canonicalPath: string; description: string; title: string; }; registration: { canonicalPath: string; description: string; title: string; }; search: { canonicalPath: string; description: string; title: string; }; settings: { canonicalPath: string; description: string; title: string; }; terms: { canonicalPath: string; description: string; title: string; }; }; siteDescription: string; siteTitle: string; } {
+  return seoCopy[locale];
 }
 
 export function buildPageMetadata(locale: LocaleCode, pageKey: PageSeoKey): Metadata {
@@ -297,7 +296,7 @@ export function buildSiteMetadata(locale: LocaleCode): Metadata {
   };
 }
 
-export function buildHomeStructuredData(locale: LocaleCode) {
+export function buildHomeStructuredData(locale: LocaleCode): { "@context": string; "@type": string; description: string; inLanguage: LocaleCode; name: string; publisher: { "@type": string; name: string; }; url: string; } {
   const copy = getSeoCopy(locale);
 
   return {

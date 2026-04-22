@@ -1,11 +1,11 @@
 import type { AcademicCareerReference } from "@/lib/types";
 
-export interface OfficialCareerStudyPlanFallback {
+export type OfficialCareerStudyPlanFallback = {
   semesters: Readonly<Record<number, readonly string[]>>;
   sourceUrl: string;
 }
 
-export interface AcademicCareerDefinition {
+export type AcademicCareerDefinition = {
   careerId: string;
   category: AcademicCareerReference["category"];
   displayName: string;
@@ -254,14 +254,16 @@ const ACADEMIC_CAREER_DEFINITION_LIST = [
 
 export const ACADEMIC_CAREER_DEFINITIONS = ACADEMIC_CAREER_DEFINITION_LIST;
 
-export function findAcademicCareerDefinition(careerId: string) {
+export function findAcademicCareerDefinition(careerId: string): AcademicCareerDefinition | null {
   return ACADEMIC_CAREER_DEFINITIONS.find((definition) => definition.careerId === careerId) ?? null;
 }
 
-export function getAcademicCareerMatchAliases(careerId: string) {
+export function getAcademicCareerMatchAliases(careerId: string): string[] {
   return [...(findAcademicCareerDefinition(careerId)?.matchAliases ?? [])];
 }
 
-export function getAcademicCareerStudyPlanFallback(careerId: string) {
+export function getAcademicCareerStudyPlanFallback(
+  careerId: string,
+): OfficialCareerStudyPlanFallback | null {
   return findAcademicCareerDefinition(careerId)?.studyPlanFallback ?? null;
 }

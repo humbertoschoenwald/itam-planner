@@ -21,7 +21,10 @@ async function readJson<T>(path: string): Promise<T> {
   return (await response.json()) as T;
 }
 
-export function resolveCatalogUrl(path: string, apiBaseUrl: string | null = EXTERNAL_API_BASE_URL) {
+export function resolveCatalogUrl(
+  path: string,
+  apiBaseUrl: string | null = EXTERNAL_API_BASE_URL,
+): string {
   if (apiBaseUrl) {
     return `${apiBaseUrl}${path}`;
   }
@@ -51,26 +54,26 @@ export function resolveCatalogUrl(path: string, apiBaseUrl: string | null = EXTE
   throw new Error(`Unsupported catalog path: ${path}`);
 }
 
-export function fetchBulletinIndex() {
+export function fetchBulletinIndex(): Promise<BulletinSummary[]> {
   return readJson<BulletinSummary[]>("/boletines");
 }
 
-export function fetchSchedulePeriods() {
+export function fetchSchedulePeriods(): Promise<SchedulePeriodSummary[]> {
   return readJson<SchedulePeriodSummary[]>("/schedules/periods");
 }
 
-export function fetchSchedulePeriodDetail(periodId: string) {
+export function fetchSchedulePeriodDetail(periodId: string): Promise<SchedulePeriodDetail> {
   return readJson<SchedulePeriodDetail>(`/schedules/periods/${periodId}`);
 }
 
-export function fetchSourcesMetadata() {
+export function fetchSourcesMetadata(): Promise<SourcesMetadata> {
   return readJson<SourcesMetadata>("/sources");
 }
 
-function normalizeApiBaseUrl(value: string | undefined) {
+function normalizeApiBaseUrl(value: string | undefined): string | null {
   return value?.trim().replace(/\/$/, "") || null;
 }
 
-function safeDocumentName(value: string) {
+function safeDocumentName(value: string): string {
   return value.replaceAll(":", "__");
 }

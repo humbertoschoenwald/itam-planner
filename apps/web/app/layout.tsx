@@ -36,7 +36,7 @@ export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
-}>) {
+}>): React.JSX.Element {
   return (
     <html
       lang="es-MX"
@@ -44,8 +44,10 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         <div aria-hidden className="site-atmosphere">
+          <span className="site-tiling" />
           <span className="site-orb site-orb-primary" />
           <span className="site-orb site-orb-secondary" />
+          <span className="site-orb site-orb-tertiary" />
           <span className="site-noise" />
         </div>
         <SiteHeader />

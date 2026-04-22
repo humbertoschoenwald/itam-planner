@@ -13,7 +13,7 @@ export const DEFAULT_PLANNER_STATE: PlannerState = {
   selectedSubjectCodes: [],
 };
 
-interface PlannerStoreState {
+type PlannerStoreState = {
   state: PlannerState;
   resetPlanner: () => void;
   setSelectedOfferingIds: (offeringIds: string[]) => void;

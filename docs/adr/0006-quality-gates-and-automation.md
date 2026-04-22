@@ -19,16 +19,19 @@ Commit and versioning rules:
 - Pull requests are optional in single-maintainer mode. They may be used for review history, large changes, or safer merge boundaries, but they are not required for routine development.
 - Use CalVer with the format `YY.MM.PATCH`.
 - Generate `CHANGELOG.md` from conventional commit history rather than maintaining it manually.
-- Regenerate `CHANGELOG.md` automatically on every push to `main`.
+- Regenerate `CHANGELOG.md` automatically after the blocking `CI` workflow succeeds on `main`.
 - Group automated changelog entries by the push date in `America/Mexico_City`.
 - Allow repeated generated subsection headings such as `Features` and `Documentation` across different changelog date sections. Markdown linting must treat those headings as valid when they are separated by parent date headings.
 - Use GitHub Actions plus the repository `GITHUB_TOKEN` to commit the generated `CHANGELOG.md` update back to `main` when the file changed.
+- Production web deployments must not come from Vercel's native Git auto-deploy path on `main`. The repository-owned deploy workflow is the canonical production deploy path so changelog-only automation commits do not create accidental deployments.
 - Use SSH for Git remotes and push operations. Do not normalize HTTPS push URLs as a routine workflow.
 
 Repository quality tools:
 
 - JavaScript and TypeScript: `ESLint`, `Prettier`, `tsc --noEmit`
 - JavaScript and TypeScript workspace task orchestration: `Turborepo`
+- Browser-level responsive and visual smoke verification: `Playwright`
+- Editor-integrated browser debugging and preview: Microsoft Edge DevTools for VS Code, Playwright VS Code extension
 - Python: `Ruff`, `basedpyright`
 - Repository-wide text quality: `cspell`
 - Markdown: `markdownlint-cli2`
@@ -71,6 +74,10 @@ Execution rules:
 - Hosted GitHub CI should converge on a single blocking job whenever the toolchain allows it. Avoid separate artifact-only merge jobs, duplicate runtime matrices, and skipped canaries when they do not add supported-surface signal.
 - Coverage generation must emit a root `coverage.xml` artifact that merges the current web and API Cobertura reports within the blocking quality-gate path itself.
 - GitHub-hosted JavaScript actions must use the officially supported forced runtime override when needed to avoid stale runner warnings. Today that override is `FORCE_JAVASCRIPT_ACTIONS_TO_NODE24`; do not invent unsupported runtime flags.
+- Browser-level responsive smoke suites may exist outside the blocking hosted gate when they materially improve Safari/Chrome readiness but remain heavier than the supported hosted budget. Keep them fast, deterministic, and easy to run locally from the editor.
+- Responsive browser-smoke harnesses that run against a compiling dev server must prewarm their known public routes before parallel assertions start, so toolchain cold-start churn does not masquerade as product regressions.
+- When responsive browser smoke still encounters dev-server instability after route prewarm, prefer a smaller deterministic worker count over flaky parallelism.
+- The workspace should ship `.vscode` recommendations and launch/task scaffolding for live browser preview, browser debugging, and responsive smoke execution instead of relying on undocumented editor setup.
 
 Text normalization rules:
 

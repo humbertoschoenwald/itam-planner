@@ -5,11 +5,11 @@ import { useSearchParams } from "next/navigation";
 import { OnboardingPanel } from "@/components/onboarding-panel";
 import type { BulletinSummary } from "@/lib/types";
 
-interface OnboardingPageShellProps {
+type OnboardingPageShellProps = {
   plans: BulletinSummary[];
 }
 
-export function OnboardingPageShell({ plans }: OnboardingPageShellProps) {
+export function OnboardingPageShell({ plans }: OnboardingPageShellProps): React.JSX.Element {
   const searchParams = useSearchParams();
   const redirectedFromPlanner = searchParams.get("from") === "planner";
 

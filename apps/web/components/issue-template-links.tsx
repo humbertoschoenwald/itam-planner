@@ -5,7 +5,7 @@ import { useStudentProfileStore } from "@/stores/student-profile-store";
 
 const ISSUE_BASE_URL = "https://github.com/humbertoschoenwald/itam-planner/issues/new";
 
-export function IssueTemplateLinks() {
+export function IssueTemplateLinks(): React.JSX.Element {
   const locale = useStudentProfileStore((state) => state.profile.locale);
   const copy = getUiCopy(locale);
   const templates = [
@@ -32,7 +32,7 @@ export function IssueTemplateLinks() {
       {templates.map((template) => (
         <a
           key={template.href}
-          className="rounded-[1.25rem] border border-border bg-surface-elevated px-4 py-4 text-sm font-semibold text-foreground transition hover:-translate-y-0.5 hover:border-accent/40 hover:bg-surface-hover"
+          className="support-link text-sm font-semibold text-foreground"
           href={template.href}
           rel="noreferrer"
           target="_blank"

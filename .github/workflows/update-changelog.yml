@@ -1,11 +1,11 @@
-name: Update Changelog
+name: Changelog Bot
 
 on:
-  push:
-    branches:
-      - main
-    paths-ignore:
-      - "CHANGELOG.md"
+  workflow_run:
+    workflows:
+      - CI
+    types:
+      - completed
   workflow_dispatch:
 
 concurrency:
@@ -20,13 +20,22 @@ env:
 
 jobs:
   update:
-    name: Regenerate CHANGELOG.md
+    name: Regenerate CHANGELOG.md after CI
     runs-on: ubuntu-latest
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (
+        github.event.workflow_run.conclusion == 'success' &&
+        github.event.workflow_run.head_branch == 'main' &&
+        github.event.workflow_run.event == 'push' &&
+        github.event.workflow_run.head_commit.message != 'chore(changelog): update changelog'
+      )
 
     steps:
       - name: Check out repository
         uses: actions/checkout@v6.0.2
         with:
+          ref: ${{ github.event_name == 'workflow_dispatch' && github.ref_name || github.event.workflow_run.head_sha }}
           fetch-depth: 0
 
       - name: Set up Node.js 25
@@ -37,12 +46,27 @@ jobs:
       - name: Compute Mexico City push date
         id: push_date
         shell: bash
-        run: echo "value=$(TZ=America/Mexico_City date +%F)" >> "$GITHUB_OUTPUT"
+        run: |
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+            echo "value=$(TZ=America/Mexico_City date +%F)" >> "$GITHUB_OUTPUT"
+          else
+            echo "value=$(TZ=America/Mexico_City date --date='${{ github.event.workflow_run.created_at }}' +%F)" >> "$GITHUB_OUTPUT"
+          fi
 
       - name: Generate changelog from pushed commits
         shell: bash
         run: |
-          BEFORE_SHA="${{ github.event.before }}"
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+            BEFORE_SHA=""
+            CURRENT_SHA="${{ github.sha }}"
+          else
+            CURRENT_SHA="${{ github.event.workflow_run.head_sha }}"
+            if git rev-parse "${CURRENT_SHA}^" >/dev/null 2>&1; then
+              BEFORE_SHA="$(git rev-parse "${CURRENT_SHA}^")"
+            else
+              BEFORE_SHA=""
+            fi
+          fi
 
           if [[ -z "$BEFORE_SHA" || "$BEFORE_SHA" =~ ^0+$ ]]; then
             node scripts/generate-changelog.mjs --mode full
@@ -50,7 +74,7 @@ jobs:
             node scripts/generate-changelog.mjs \
               --mode incremental \
               --since "$BEFORE_SHA" \
-              --until "${{ github.sha }}" \
+              --until "$CURRENT_SHA" \
               --date "${{ steps.push_date.outputs.value }}"
           fi
 

@@ -1,5 +1,6 @@
 "use client";
 
+import type { JSX } from "react";
 import { useEffect, useMemo, useState } from "react";
 
 import { SelectedWeekBoard } from "@/components/selected-week-board";
@@ -23,7 +24,7 @@ import { usePlannerStore } from "@/stores/planner-store";
 import { usePlannerUiStore } from "@/stores/planner-ui-store";
 import { useStudentProfileStore } from "@/stores/student-profile-store";
 
-interface PlannerHomeProps {
+type PlannerHomeProps = {
   bulletinDocuments: BulletinDocument[];
   plans: BulletinSummary[];
   periods: SchedulePeriodSummary[];
@@ -35,7 +36,7 @@ export function PlannerHome({
   plans,
   periods,
   sourcesMetadata: _sourcesMetadata,
-}: PlannerHomeProps) {
+}: PlannerHomeProps): JSX.Element {
   void _sourcesMetadata;
 
   const profile = useStudentProfileStore((state) => state.profile);
@@ -53,11 +54,11 @@ export function PlannerHome({
     [periods, profile.academicLevel],
   );
   const defaultPeriodId = filteredPeriods[0]?.period_id ?? null;
-  const activePeriodId = filteredPeriods.some(
-    (period) => period.period_id === plannerState.selectedPeriodId,
-  )
-    ? plannerState.selectedPeriodId
-    : defaultPeriodId;
+  const activePeriodId = resolvePlannerHomePeriodId(
+    filteredPeriods,
+    plannerState.selectedPeriodId,
+    defaultPeriodId,
+  );
   const activePeriodSummary =
     filteredPeriods.find((period) => period.period_id === activePeriodId) ?? null;
   const activePlanDocuments = useMemo(
@@ -85,26 +86,15 @@ export function PlannerHome({
     [profile.selectedCareerIds, profile.selectedJointProgramIds],
   );
   const resolvedSelectedPeriod = resolvedPeriodId === activePeriodId ? selectedPeriod : null;
+  const widgetVisibility = buildPlannerWidgetVisibility(plannerWidgetIds);
 
-  useEffect(() => {
-    const validPeriodIds = new Set(filteredPeriods.map((period) => period.period_id));
+  useSyncPlannerHomePeriod(filteredPeriods, plannerState.selectedPeriodId, defaultPeriodId, setSelectedPeriodId);
 
-    if ((!plannerState.selectedPeriodId || !validPeriodIds.has(plannerState.selectedPeriodId)) && defaultPeriodId) {
-      setSelectedPeriodId(defaultPeriodId);
-    }
-  }, [defaultPeriodId, filteredPeriods, plannerState.selectedPeriodId, setSelectedPeriodId]);
-
-  useEffect(() => {
-    if (plannerState.selectedSubjectCodes.length > 0 || recommendedSubjectCodes.length === 0) {
-      return;
-    }
-
-    setSelectedSubjectCodes(recommendedSubjectCodes);
-  }, [
+  useSeedPlannerHomeSubjects(
     plannerState.selectedSubjectCodes.length,
     recommendedSubjectCodes,
     setSelectedSubjectCodes,
-  ]);
+  );
 
   useEffect(() => {
     if (!activePeriodId) {
@@ -138,41 +128,142 @@ export function PlannerHome({
     resolvedSelectedPeriod?.offerings.filter((offering) =>
       plannerState.selectedOfferingIds.includes(offering.offering_id),
     ) ?? [];
-  const showTodayWidget = plannerWidgetIds.includes("today");
-  const showWeekWidget = plannerWidgetIds.includes("week");
-  const showSubjectsWidget = plannerWidgetIds.includes("subjects");
 
   return (
     <main className="mx-auto flex w-full max-w-7xl flex-1 flex-col gap-6 px-5 py-6 sm:px-8 sm:py-10">
-      <section className="page-grid">
-        {showTodayWidget ? (
-          <TodayClassesCard
-            locale={profile.locale}
-            offerings={selectedOfferings}
-            subjectTitleLookup={subjectTitleLookup}
-          />
-        ) : null}
-        {showWeekWidget ? (
-          <SelectedWeekBoard
-            locale={profile.locale}
-            offerings={selectedOfferings}
-            subjectTitleLookup={subjectTitleLookup}
-          />
-        ) : null}
-      </section>
+      <PlannerHomePrimaryWidgets
+        locale={profile.locale}
+        offerings={selectedOfferings}
+        subjectTitleLookup={subjectTitleLookup}
+        widgetVisibility={widgetVisibility}
+      />
 
-      {showSubjectsWidget ? (
-        <section className="page-grid">
-          <SubjectsPlansCard
-            locale={profile.locale}
-            offerings={selectedOfferings}
-            plans={plans}
-            selectedAcademicLabels={selectedAcademicLabels}
-            selectedPlanIds={profile.activePlanIds}
-            subjectTitleLookup={subjectTitleLookup}
-          />
-        </section>
-      ) : null}
+      <PlannerHomeSubjectsSection
+        locale={profile.locale}
+        offerings={selectedOfferings}
+        plans={plans}
+        selectedAcademicLabels={selectedAcademicLabels}
+        selectedPlanIds={profile.activePlanIds}
+        showSubjects={widgetVisibility.showSubjects}
+        subjectTitleLookup={subjectTitleLookup}
+      />
     </main>
+  );
+}
+
+function resolvePlannerHomePeriodId(
+  filteredPeriods: SchedulePeriodSummary[],
+  selectedPeriodId: string | null,
+  defaultPeriodId: string | null,
+): string | null {
+  return filteredPeriods.some((period) => period.period_id === selectedPeriodId)
+    ? selectedPeriodId
+    : defaultPeriodId;
+}
+
+function buildPlannerWidgetVisibility(plannerWidgetIds: string[]): {
+  showSubjects: boolean;
+  showToday: boolean;
+  showWeek: boolean;
+} {
+  return {
+    showSubjects: plannerWidgetIds.includes("subjects"),
+    showToday: plannerWidgetIds.includes("today"),
+    showWeek: plannerWidgetIds.includes("week"),
+  };
+}
+
+function useSyncPlannerHomePeriod(
+  filteredPeriods: SchedulePeriodSummary[],
+  selectedPeriodId: string | null,
+  defaultPeriodId: string | null,
+  setSelectedPeriodId: (periodId: string) => void,
+): void {
+  useEffect(() => {
+    const validPeriodIds = new Set(filteredPeriods.map((period) => period.period_id));
+
+    if ((!selectedPeriodId || !validPeriodIds.has(selectedPeriodId)) && defaultPeriodId) {
+      setSelectedPeriodId(defaultPeriodId);
+    }
+  }, [defaultPeriodId, filteredPeriods, selectedPeriodId, setSelectedPeriodId]);
+}
+
+function useSeedPlannerHomeSubjects(
+  selectedSubjectCount: number,
+  recommendedSubjectCodes: string[],
+  setSelectedSubjectCodes: (subjectCodes: string[]) => void,
+): void {
+  useEffect(() => {
+    if (selectedSubjectCount > 0 || recommendedSubjectCodes.length === 0) {
+      return;
+    }
+
+    setSelectedSubjectCodes(recommendedSubjectCodes);
+  }, [recommendedSubjectCodes, selectedSubjectCount, setSelectedSubjectCodes]);
+}
+
+function PlannerHomePrimaryWidgets({
+  locale,
+  offerings,
+  subjectTitleLookup,
+  widgetVisibility,
+}: {
+  locale: ReturnType<typeof useStudentProfileStore.getState>["profile"]["locale"];
+  offerings: Awaited<ReturnType<typeof fetchSchedulePeriodDetail>>["offerings"];
+  subjectTitleLookup: ReadonlyMap<string, string>;
+  widgetVisibility: { showSubjects: boolean; showToday: boolean; showWeek: boolean };
+}): JSX.Element {
+  return (
+    <section className="page-grid min-[820px]:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] min-[820px]:items-start">
+      {widgetVisibility.showToday ? (
+        <TodayClassesCard
+          locale={locale}
+          offerings={offerings}
+          subjectTitleLookup={subjectTitleLookup}
+        />
+      ) : null}
+      {widgetVisibility.showWeek ? (
+        <SelectedWeekBoard
+          locale={locale}
+          offerings={offerings}
+          subjectTitleLookup={subjectTitleLookup}
+        />
+      ) : null}
+    </section>
+  );
+}
+
+function PlannerHomeSubjectsSection({
+  locale,
+  offerings,
+  plans,
+  selectedAcademicLabels,
+  selectedPlanIds,
+  showSubjects,
+  subjectTitleLookup,
+}: {
+  locale: ReturnType<typeof useStudentProfileStore.getState>["profile"]["locale"];
+  offerings: Awaited<ReturnType<typeof fetchSchedulePeriodDetail>>["offerings"];
+  plans: BulletinSummary[];
+  selectedAcademicLabels: string[];
+  selectedPlanIds: string[];
+  showSubjects: boolean;
+  subjectTitleLookup: ReadonlyMap<string, string>;
+}): JSX.Element | null {
+  if (!showSubjects) {
+    return null;
+  }
+
+  return (
+    <section className="page-grid min-[820px]:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] min-[820px]:items-start">
+      <SubjectsPlansCard
+        locale={locale}
+        offerings={offerings}
+        plans={plans}
+        selectedAcademicLabels={selectedAcademicLabels}
+        selectedPlanIds={selectedPlanIds}
+        subjectTitleLookup={subjectTitleLookup}
+      />
+    </section>
   );
 }

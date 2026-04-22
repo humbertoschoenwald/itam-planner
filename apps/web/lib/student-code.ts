@@ -1,6 +1,6 @@
 import type { PlannerState, StudentProfile } from "@/lib/types";
 
-export interface StudentCodePayload {
+export type StudentCodePayload = {
   v: 1;
   profile: StudentProfile;
   planner: PlannerState;

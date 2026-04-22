@@ -9,7 +9,7 @@ const copy = getUiCopy(DEFAULT_LOCALE);
 
 export const metadata: Metadata = buildPageMetadata(DEFAULT_LOCALE, "terms");
 
-export default function TermsPage() {
+export default function TermsPage(): React.JSX.Element {
   return (
     <LegalPageShell
       description={copy.legalPages.terms.description}

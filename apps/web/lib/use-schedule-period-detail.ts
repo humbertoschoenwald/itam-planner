@@ -4,7 +4,14 @@ import { useEffect, useState } from "react";
 
 import { fetchSchedulePeriodDetail } from "@/lib/api";
 
-export function useSchedulePeriodDetail(periodId: string | null, loadErrorMessage: string) {
+export function useSchedulePeriodDetail(
+  periodId: string | null,
+  loadErrorMessage: string,
+): {
+  detail: Awaited<ReturnType<typeof fetchSchedulePeriodDetail>> | null;
+  error: string | null;
+  isLoading: boolean;
+} {
   const [detail, setDetail] = useState<Awaited<ReturnType<typeof fetchSchedulePeriodDetail>> | null>(
     null,
   );

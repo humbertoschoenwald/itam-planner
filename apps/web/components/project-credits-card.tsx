@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { getUiCopy } from "@/lib/copy";
 import { useStudentProfileStore } from "@/stores/student-profile-store";
 
-export function ProjectCreditsCard() {
+export function ProjectCreditsCard(): React.JSX.Element {
   const locale = useStudentProfileStore((state) => state.profile.locale);
   const copy = getUiCopy(locale);
 
@@ -24,7 +24,7 @@ export function ProjectCreditsCard() {
   ] as const;
 
   return (
-    <Card>
+    <Card className="section-shell">
       <CardHeader>
         <p className="eyebrow">{copy.projectPage.creditsEyebrow}</p>
         <CardTitle>{copy.projectPage.creditsTitle}</CardTitle>
@@ -35,7 +35,7 @@ export function ProjectCreditsCard() {
           {links.map((link) => (
             <a
               key={link.href}
-              className="rounded-[1.25rem] border border-border bg-surface-elevated px-4 py-4 font-semibold text-foreground transition hover:-translate-y-0.5 hover:border-accent/40 hover:bg-surface-hover"
+              className="support-link font-semibold text-foreground"
               href={link.href}
               rel="noreferrer"
               target="_blank"

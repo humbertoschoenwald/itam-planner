@@ -9,7 +9,7 @@ import {
   useStudentProfileStore,
 } from "@/stores/student-profile-store";
 
-function SyncHarness() {
+function SyncHarness(): null {
   useSyncStudentCode();
   return null;
 }

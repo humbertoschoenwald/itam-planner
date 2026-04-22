@@ -5,14 +5,24 @@
     "lib": ["ES2023", "DOM", "DOM.Iterable"],
     "module": "ESNext",
     "moduleResolution": "Bundler",
+
     "allowJs": false,
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "isolatedModules": true,
+
     "strict": true,
     "noEmit": true,
+
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
+
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+    "noImplicitOverride": true,
+    "useUnknownInCatchVariables": true,
+    "noFallthroughCasesInSwitch": true,
+
     "jsx": "preserve"
   },
   "exclude": [

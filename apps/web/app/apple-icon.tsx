@@ -17,7 +17,7 @@ const appIconSvg = readFileSync(
 
 const appIconDataUrl = `data:image/svg+xml;base64,${Buffer.from(appIconSvg).toString("base64")}`;
 
-export default function AppleIcon() {
+export default function AppleIcon(): ImageResponse {
   return new ImageResponse(
     (
       <div

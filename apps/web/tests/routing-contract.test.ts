@@ -6,7 +6,7 @@ import nextConfig from "../next.config";
 
 describe("routing contract", () => {
   it("keeps the legacy public routes as compatibility redirects to the English canonicals", async () => {
-    const redirects = await nextConfig.redirects?.();
+    const redirects = await nextConfig.redirects();
 
     expect(redirects).toEqual(
       expect.arrayContaining([

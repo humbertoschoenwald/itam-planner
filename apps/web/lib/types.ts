@@ -1,7 +1,7 @@
 export type LocaleCode = "es-MX" | "en";
 export type AcademicLevel = "undergraduate" | "jointPrograms" | "graduate";
 
-export interface StudentProfile {
+export type StudentProfile = {
   academicLevel: AcademicLevel | null;
   entryTerm: string;
   activePlanIds: string[];
@@ -10,7 +10,7 @@ export interface StudentProfile {
   selectedJointProgramIds: string[];
 }
 
-export interface PlannerState {
+export type PlannerState = {
   selectedPeriodId: string | null;
   selectedOfferingIds: string[];
   selectedSubjectCodes: string[];
@@ -18,7 +18,7 @@ export interface PlannerState {
 
 export type PlannerWidgetId = "today" | "week" | "subjects";
 
-export interface BulletinSummary {
+export type BulletinSummary = {
   bulletin_id: string;
   source_code: string;
   title: string;
@@ -33,12 +33,12 @@ export interface BulletinSummary {
   entry_to_term: string | null;
 }
 
-export interface BulletinRequirementReference {
+export type BulletinRequirementReference = {
   ordinal_position: number;
   referenced_course_code: string;
 }
 
-export interface BulletinRequirement {
+export type BulletinRequirement = {
   course_code: string;
   credits: number | null;
   display_title: string;
@@ -50,11 +50,11 @@ export interface BulletinRequirement {
   sort_order: number;
 }
 
-export interface BulletinDocument extends BulletinSummary {
+export type BulletinDocument = {
   requirements: BulletinRequirement[];
-}
+} & BulletinSummary
 
-export interface SchedulePeriodSummary {
+export type SchedulePeriodSummary = {
   period_id: string;
   label: string;
   level: string;
@@ -64,7 +64,7 @@ export interface SchedulePeriodSummary {
   active_to: string | null;
 }
 
-export interface ScheduleMeeting {
+export type ScheduleMeeting = {
   weekday_code: string;
   start_time: string;
   end_time: string;
@@ -72,7 +72,7 @@ export interface ScheduleMeeting {
   campus_name: string | null;
 }
 
-export interface ScheduleOffering {
+export type ScheduleOffering = {
   offering_id: string;
   period_id: string;
   course_code: string;
@@ -88,7 +88,7 @@ export interface ScheduleOffering {
   meetings: ScheduleMeeting[];
 }
 
-export interface SchedulePeriodDetail extends SchedulePeriodSummary {
+export type SchedulePeriodDetail = {
   subjects: Array<{
     subject_id: string;
     raw_value: string;
@@ -96,9 +96,9 @@ export interface SchedulePeriodDetail extends SchedulePeriodSummary {
     canonical_title: string;
   }>;
   offerings: ScheduleOffering[];
-}
+} & SchedulePeriodSummary
 
-export interface ScrapeRunSummary {
+export type ScrapeRunSummary = {
   run_id: string;
   started_at: string;
   completed_at: string | null;
@@ -106,14 +106,14 @@ export interface ScrapeRunSummary {
   notes: string | null;
 }
 
-export interface PromotedReleaseSummary {
+export type PromotedReleaseSummary = {
   release_id: string;
   run_id: string;
   promoted_at: string;
   notes: string | null;
 }
 
-export interface SourceSnapshotSummary {
+export type SourceSnapshotSummary = {
   snapshot_id: string;
   run_id: string;
   source_id: string;
@@ -126,19 +126,19 @@ export interface SourceSnapshotSummary {
   size_bytes: number;
 }
 
-export interface SourcesMetadata {
+export type SourcesMetadata = {
   scrape_runs: ScrapeRunSummary[];
   promoted_releases: PromotedReleaseSummary[];
   source_snapshots: SourceSnapshotSummary[];
 }
 
-export interface CalendarLegendItem {
+export type CalendarLegendItem = {
   symbol: string;
   label: string;
   notes: string | null;
 }
 
-export interface SchoolCalendarEvent {
+export type SchoolCalendarEvent = {
   symbol: string;
   label: string;
   event_date: string;
@@ -147,7 +147,7 @@ export interface SchoolCalendarEvent {
   active_to: string | null;
 }
 
-export interface PaymentCalendarEvent {
+export type PaymentCalendarEvent = {
   code: string;
   label: string;
   academic_period: string | null;
@@ -159,7 +159,7 @@ export interface PaymentCalendarEvent {
   active_to: string | null;
 }
 
-export interface SchoolCalendarDocument {
+export type SchoolCalendarDocument = {
   calendar_id: string;
   source_snapshot_id: string;
   calendar_kind: "school";
@@ -171,7 +171,7 @@ export interface SchoolCalendarDocument {
   events: SchoolCalendarEvent[];
 }
 
-export interface PaymentCalendarDocument {
+export type PaymentCalendarDocument = {
   calendar_id: string;
   source_snapshot_id: string;
   calendar_kind: "payment";
@@ -184,7 +184,7 @@ export interface PaymentCalendarDocument {
   payment_events: PaymentCalendarEvent[];
 }
 
-export interface AcademicCareerReference {
+export type AcademicCareerReference = {
   career_id: string;
   category: "engineering" | "degree";
   display_name: string;
@@ -192,7 +192,7 @@ export interface AcademicCareerReference {
   study_plan_url: string | null;
 }
 
-export interface JointProgramReference {
+export type JointProgramReference = {
   contact_emails: string[];
   component_career_ids: string[];
   coordinators: string[];
@@ -202,7 +202,7 @@ export interface JointProgramReference {
   source_url: string;
 }
 
-export interface GraduateProgramReference {
+export type GraduateProgramReference = {
   admission_process_url: string | null;
   brochure_url: string | null;
   calendar_url: string | null;
@@ -216,7 +216,7 @@ export interface GraduateProgramReference {
   study_plan_url: string | null;
 }
 
-export interface DoubleDegreeReference {
+export type DoubleDegreeReference = {
   base_program_label: string;
   brochure_urls: string[];
   contact_emails: string[];
@@ -231,7 +231,7 @@ export interface DoubleDegreeReference {
   source_url: string;
 }
 
-export interface SiteNewsItem {
+export type SiteNewsItem = {
   category: string;
   href: string;
   published_at: string | null;
@@ -241,7 +241,7 @@ export interface SiteNewsItem {
   title: string;
 }
 
-export interface LocalSearchIndexItem {
+export type LocalSearchIndexItem = {
   body: string;
   category: string;
   href: string;

@@ -18,6 +18,6 @@ export function isSupportedLocale(value: string): value is LocaleCode {
   return SUPPORTED_LOCALES.includes(value as LocaleCode);
 }
 
-export function getLocaleLabels(locale: LocaleCode) {
-  return LOCALE_LABELS[locale] ?? LOCALE_LABELS[DEFAULT_LOCALE];
+export function getLocaleLabels(locale: LocaleCode): Record<LocaleCode, string> {
+  return LOCALE_LABELS[locale];
 }

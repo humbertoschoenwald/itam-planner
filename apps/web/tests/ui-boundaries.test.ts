@@ -52,7 +52,7 @@ function collectUiFiles(directoryPath: string): string[] {
   });
 }
 
-function collectImportSources(filePath: string) {
+function collectImportSources(filePath: string): string[] {
   const source = fs.readFileSync(filePath, "utf8");
   return [...source.matchAll(/from\s+"([^"]+)"/gu)].map((match) => match[1] ?? "");
 }

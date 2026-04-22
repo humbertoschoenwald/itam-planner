@@ -16,7 +16,7 @@ export const DEFAULT_STUDENT_PROFILE: StudentProfile = {
   selectedJointProgramIds: [],
 };
 
-interface StudentProfileStoreState {
+type StudentProfileStoreState = {
   profile: StudentProfile;
   setAcademicLevel: (academicLevel: AcademicLevel | null) => void;
   resetProfile: () => void;
@@ -117,34 +117,27 @@ function sanitizeStudentProfile(value: unknown): StudentProfile {
   const candidate = value as Partial<StudentProfile>;
 
   return {
-    academicLevel: VALID_ACADEMIC_LEVELS.includes(candidate.academicLevel as AcademicLevel)
-      ? (candidate.academicLevel as AcademicLevel)
-      : null,
-    activePlanIds: Array.isArray(candidate.activePlanIds)
-      ? [...new Set(candidate.activePlanIds.filter((planId): planId is string => typeof planId === "string"))]
-      : [],
+    academicLevel: sanitizeAcademicLevel(candidate.academicLevel),
+    activePlanIds: sanitizeStringList(candidate.activePlanIds),
     entryTerm: typeof candidate.entryTerm === "string" ? candidate.entryTerm : "",
-    locale: VALID_LOCALES.includes(candidate.locale as LocaleCode)
-      ? (candidate.locale as LocaleCode)
-      : DEFAULT_STUDENT_PROFILE.locale,
-    selectedCareerIds: Array.isArray(candidate.selectedCareerIds)
-      ? [
-          ...new Set(
-            candidate.selectedCareerIds.filter(
-              (careerId): careerId is string => typeof careerId === "string",
-            ),
-          ),
-        ]
-      : [],
-    selectedJointProgramIds: Array.isArray(candidate.selectedJointProgramIds)
-      ? [
-          ...new Set(
-            candidate.selectedJointProgramIds.filter(
-              (jointProgramId): jointProgramId is string =>
-                typeof jointProgramId === "string",
-            ),
-          ),
-        ]
-      : [],
+    locale: sanitizeLocale(candidate.locale),
+    selectedCareerIds: sanitizeStringList(candidate.selectedCareerIds),
+    selectedJointProgramIds: sanitizeStringList(candidate.selectedJointProgramIds),
   };
+}
+
+function sanitizeAcademicLevel(value: unknown): AcademicLevel | null {
+  return VALID_ACADEMIC_LEVELS.includes(value as AcademicLevel) ? (value as AcademicLevel) : null;
+}
+
+function sanitizeLocale(value: unknown): LocaleCode {
+  return VALID_LOCALES.includes(value as LocaleCode)
+    ? (value as LocaleCode)
+    : DEFAULT_STUDENT_PROFILE.locale;
+}
+
+function sanitizeStringList(value: unknown): string[] {
+  return Array.isArray(value)
+    ? [...new Set(value.filter((item): item is string => typeof item === "string"))]
+    : [];
 }

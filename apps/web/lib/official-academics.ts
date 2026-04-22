@@ -15,14 +15,14 @@ const OFFICIAL_JOINT_PROGRAMS_SOURCE_URL = "https://www.itam.mx/es/programas-con
 const OFFICIAL_GRADUATE_PROGRAMS_SOURCE_URL = "https://posgrados.itam.mx/";
 const OFFICIAL_DOUBLE_DEGREES_SOURCE_URL = "https://intercambio.itam.mx/es/dobles-grados";
 
-interface OfficialJointProgramDefinition {
+type OfficialJointProgramDefinition = {
   componentCareerIds: [string, string];
   contactEmails: string[];
   coordinators: string[];
   phoneExtensions: string[];
 }
 
-interface OfficialGraduateProgramDefinition {
+type OfficialGraduateProgramDefinition = {
   admissionProcessUrl: string | null;
   brochureUrl: string | null;
   calendarUrl: string | null;
@@ -35,7 +35,7 @@ interface OfficialGraduateProgramDefinition {
   studyPlanUrl: string | null;
 }
 
-interface OfficialDoubleDegreeDefinition {
+type OfficialDoubleDegreeDefinition = {
   baseProgramLabel: string;
   brochureUrls: string[];
   contactEmails: string[];
@@ -49,14 +49,14 @@ interface OfficialDoubleDegreeDefinition {
   partnerInstitution: string | null;
 }
 
-export interface ExtractedOfficialJointProgramRow {
+export type ExtractedOfficialJointProgramRow = {
   contact_emails: string[];
   coordinators: string[];
   component_titles: [string, string];
   phone_extensions: string[];
 }
 
-export interface ExtractedOfficialGraduateProgramRow {
+export type ExtractedOfficialGraduateProgramRow = {
   admission_process_url: string | null;
   brochure_url: string | null;
   calendar_url: string | null;
@@ -69,7 +69,7 @@ export interface ExtractedOfficialGraduateProgramRow {
   study_plan_url: string | null;
 }
 
-export interface ExtractedOfficialDoubleDegreeRow {
+export type ExtractedOfficialDoubleDegreeRow = {
   base_program_label: string;
   brochure_urls: string[];
   contact_emails: string[];
@@ -703,7 +703,7 @@ export const OFFICIAL_DOUBLE_DEGREES: readonly DoubleDegreeReference[] =
     createDoubleDegreeReference(definition),
   );
 
-export function normalizeAcademicTitle(value: string) {
+export function normalizeAcademicTitle(value: string): string {
   const normalized = value
     .toLocaleLowerCase("es-MX")
     .normalize("NFD")
@@ -722,15 +722,15 @@ export function normalizeAcademicTitle(value: string) {
   return PROGRAM_NORMALIZATION_OVERRIDES[normalized] ?? normalized;
 }
 
-export function buildJointProgramId(componentCareerIds: readonly string[]) {
+export function buildJointProgramId(componentCareerIds: readonly string[]): string {
   return componentCareerIds.join("-");
 }
 
-export function findOfficialCareer(careerId: string) {
+export function findOfficialCareer(careerId: string): AcademicCareerReference | null {
   return OFFICIAL_CAREERS.find((career) => career.career_id === careerId) ?? null;
 }
 
-export function getOfficialCareerMatchTokens(careerId: string) {
+export function getOfficialCareerMatchTokens(careerId: string): string[] {
   const career = findOfficialCareer(careerId);
   const aliases = getAcademicCareerMatchAliases(careerId);
   const tokens = career ? [career.display_name, ...aliases] : aliases;
@@ -738,7 +738,7 @@ export function getOfficialCareerMatchTokens(careerId: string) {
   return [...new Set(tokens.map(normalizeOfficialMatchText).filter(Boolean))];
 }
 
-export function findOfficialCareerIdFromSourceLabel(label: string) {
+export function findOfficialCareerIdFromSourceLabel(label: string): string | null {
   const normalized = normalizeOfficialMatchText(label);
   const directMatch =
     OFFICIAL_CAREERS.find((career) =>
@@ -748,7 +748,7 @@ export function findOfficialCareerIdFromSourceLabel(label: string) {
   return directMatch?.career_id ?? null;
 }
 
-export function findOfficialJointProgram(jointProgramId: string) {
+export function findOfficialJointProgram(jointProgramId: string): JointProgramReference | null {
   return OFFICIAL_JOINT_PROGRAMS.find((program) => program.joint_program_id === jointProgramId) ?? null;
 }
 
@@ -759,34 +759,11 @@ export function extractOfficialJointProgramRowsFromHtml(
   const rows = [...tbody.matchAll(/<tr>([\s\S]*?)<\/tr>/giu)];
 
   return rows
-    .map((rowMatch) => {
-      const cells = [...rowMatch[1].matchAll(/<td\b[^>]*>([\s\S]*?)<\/td>/giu)].map(
-        (cellMatch) => cellMatch[1],
-      );
-
-      if (cells.length < 4) {
-        return null;
-      }
-
-      const componentTitles = extractTextLinesFromHtmlFragment(cells[0]);
-      if (componentTitles.length < 2) {
-        return null;
-      }
-
-      return {
-        contact_emails: extractEmailAddressesFromHtmlFragment(cells[2]),
-        coordinators: extractTextLinesFromHtmlFragment(cells[1]),
-        component_titles: [
-          trimTrailingAcademicConnector(componentTitles[0] ?? ""),
-          trimTrailingAcademicConnector(componentTitles[1] ?? ""),
-        ],
-        phone_extensions: extractPhoneExtensionsFromHtmlFragment(cells[3]),
-      } satisfies ExtractedOfficialJointProgramRow;
-    })
+    .map((rowMatch) => extractOfficialJointProgramRowFromHtml(rowMatch[1] ?? ""))
     .filter((row): row is ExtractedOfficialJointProgramRow => row !== null);
 }
 
-export function extractOfficialJointProgramsFromHtml(html: string) {
+export function extractOfficialJointProgramsFromHtml(html: string): JointProgramReference[] {
   return extractOfficialJointProgramRowsFromHtml(html)
     .map((row) => {
       const componentCareerIds = row.component_titles
@@ -812,7 +789,7 @@ export function extractOfficialJointProgramsFromHtml(html: string) {
     .filter((program): program is JointProgramReference => program !== null);
 }
 
-export function findOfficialGraduateProgram(graduateProgramId: string) {
+export function findOfficialGraduateProgram(graduateProgramId: string): GraduateProgramReference | null {
   return (
     OFFICIAL_GRADUATE_PROGRAMS.find(
       (program) => program.graduate_program_id === graduateProgramId,
@@ -831,71 +808,19 @@ export function extractOfficialGraduateProgramsFromHtml(
   const programs = new Map<string, GraduateProgramReference>();
 
   for (const match of matches) {
-    const titleHref = match[1] ?? "";
-    const displayName = decodeHtmlText(match[2] ?? "");
-    const content = match[3] ?? "";
-    const graduateProgramId = buildGraduateProgramId(displayName);
+    const program = extractOfficialGraduateProgramFromMatch(match);
 
-    if (!displayName || programs.has(graduateProgramId)) {
+    if (program === null || programs.has(program.graduate_program_id)) {
       continue;
     }
 
-    const extractedLinks = extractAnchorsFromHtmlFragment(content);
-    const contactEmails = dedupeStrings(
-      extractedLinks
-        .filter((link) => link.href.startsWith("mailto:"))
-        .map((link) => link.href.replace(/^mailto:/iu, "").toLocaleLowerCase("en-US")),
-    );
-    const brochureUrl =
-      extractedLinks.find(
-        (link) =>
-          isPdfLikeUrl(link.href) &&
-          (link.label.toLocaleLowerCase("es-MX").includes("folleto") ||
-            link.href.includes("/folleto/")),
-      )?.href ?? null;
-    const calendarUrl =
-      extractedLinks.find(
-        (link) =>
-          isPdfLikeUrl(link.href) &&
-          (link.label.toLocaleLowerCase("es-MX").includes("calendario") ||
-            link.href.includes("/calendario/")),
-      )?.href ?? null;
-    const studyPlanUrl =
-      extractedLinks.find((link) => link.href.includes("/plan-de-estudios/"))?.href ?? null;
-    const admissionProcessUrl =
-      extractedLinks.find(
-        (link) =>
-          link.href.includes("/proceso-de-admision/") ||
-          normalizeAcademicTitle(link.label).includes("proceso de admision"),
-      )?.href ?? null;
-    const micrositeUrl = isPdfLikeUrl(titleHref)
-      ? extractedLinks.find(
-          (link) =>
-            !link.href.startsWith("mailto:") &&
-            !isPdfLikeUrl(link.href) &&
-            normalizeAcademicTitle(link.label).includes("micrositio"),
-        )?.href ?? null
-      : titleHref;
-
-    programs.set(graduateProgramId, {
-      admission_process_url: admissionProcessUrl,
-      brochure_url: brochureUrl,
-      calendar_url: calendarUrl,
-      contact_emails: contactEmails,
-      display_name: displayName,
-      graduate_program_id: graduateProgramId,
-      microsite_url: micrositeUrl,
-      program_kind: classifyGraduateProgramKind(displayName),
-      source_url: OFFICIAL_GRADUATE_PROGRAMS_SOURCE_URL,
-      status: /en revisión/iu.test(displayName) ? "under-review" : "active",
-      study_plan_url: studyPlanUrl,
-    });
+    programs.set(program.graduate_program_id, program);
   }
 
   return [...programs.values()];
 }
 
-export function findOfficialDoubleDegree(doubleDegreeId: string) {
+export function findOfficialDoubleDegree(doubleDegreeId: string): DoubleDegreeReference | null {
   return (
     OFFICIAL_DOUBLE_DEGREES.find((program) => program.double_degree_id === doubleDegreeId) ??
     null
@@ -917,7 +842,7 @@ export function extractOfficialDoubleDegreesFromHtml(html: string): DoubleDegree
     const tables = [...sectionBody.matchAll(/<table[\s\S]*?<\/table>/giu)];
 
     for (const tableMatch of tables) {
-      const tableHtml = tableMatch[0] ?? "";
+      const tableHtml = tableMatch[0];
       const lines = decodeHtmlText(tableHtml)
         .split("\n")
         .map((value) => value.trim())
@@ -960,13 +885,13 @@ export function extractOfficialDoubleDegreesFromHtml(html: string): DoubleDegree
   return references;
 }
 
-export function matchesOfficialCareerProgramTitle(programTitle: string, careerId: string) {
+export function matchesOfficialCareerProgramTitle(programTitle: string, careerId: string): boolean {
   const normalized = normalizeOfficialMatchText(programTitle);
 
   return getOfficialCareerMatchTokens(careerId).some((token) => normalized.includes(token));
 }
 
-export function classifyProgramTitle(programTitle: string) {
+export function classifyProgramTitle(programTitle: string): { isJointProgram: boolean; matchedCareers: AcademicCareerReference[]; normalized: string; officialCareer: AcademicCareerReference | null; } {
   const normalized = normalizeAcademicTitle(programTitle);
   const matchedCareers = OFFICIAL_CAREERS.filter((entry) =>
     matchesOfficialCareerProgramTitle(programTitle, entry.career_id),
@@ -981,7 +906,7 @@ export function classifyProgramTitle(programTitle: string) {
   };
 }
 
-export function getCanonicalProgramDisplayName(programTitle: string) {
+export function getCanonicalProgramDisplayName(programTitle: string): string {
   const classification = classifyProgramTitle(programTitle);
 
   if (classification.matchedCareers.length > 1) {
@@ -995,7 +920,7 @@ export function getCanonicalProgramDisplayName(programTitle: string) {
   return formatCanonicalProgramFallback(programTitle);
 }
 
-export function isIndividualCareerProgram(programTitle: string) {
+export function isIndividualCareerProgram(programTitle: string): boolean {
   const classification = classifyProgramTitle(programTitle);
   return classification.officialCareer !== null && classification.matchedCareers.length === 1;
 }
@@ -1003,7 +928,7 @@ export function isIndividualCareerProgram(programTitle: string) {
 export function findApplicableJointPlansForEntryTerm(
   plans: BulletinSummary[],
   jointProgramId: string,
-) {
+): BulletinSummary[] {
   const jointProgram = findOfficialJointProgram(jointProgramId);
 
   if (!jointProgram) {
@@ -1075,7 +1000,7 @@ function createDoubleDegreeReference(
   };
 }
 
-function extractTextLinesFromHtmlFragment(fragment: string) {
+function extractTextLinesFromHtmlFragment(fragment: string): string[] {
   return dedupeStrings(
     decodeHtmlText(fragment)
       .split("\n")
@@ -1084,7 +1009,7 @@ function extractTextLinesFromHtmlFragment(fragment: string) {
   );
 }
 
-function extractEmailAddressesFromHtmlFragment(fragment: string) {
+function extractEmailAddressesFromHtmlFragment(fragment: string): string[] {
   return dedupeStrings(
     decodeHtmlText(fragment)
       .match(/[a-z0-9._%+-]+\s*@\s*[a-z0-9.-]+\.[a-z]{2,}/giu)
@@ -1092,7 +1017,7 @@ function extractEmailAddressesFromHtmlFragment(fragment: string) {
   );
 }
 
-function extractPhoneExtensionsFromHtmlFragment(fragment: string) {
+function extractPhoneExtensionsFromHtmlFragment(fragment: string): string[] {
   return dedupeStrings(
     decodeHtmlText(fragment)
       .match(/\b\d{3,5}\b/gu)
@@ -1100,7 +1025,7 @@ function extractPhoneExtensionsFromHtmlFragment(fragment: string) {
   );
 }
 
-function extractAnchorsFromHtmlFragment(fragment: string) {
+function extractAnchorsFromHtmlFragment(fragment: string): { href: string; label: string; }[] {
   return [...fragment.matchAll(/<a\b[^>]*href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/giu)].map(
     (match) => ({
       href: match[1] ?? "",
@@ -1109,92 +1034,310 @@ function extractAnchorsFromHtmlFragment(fragment: string) {
   );
 }
 
-function extractDoubleDegreeTableDetails(lines: string[]) {
-  let eligibilityLabel: string | null = null;
-  let partnerInstitution: string | null = null;
-  let location: string | null = null;
-  let languageRequirement: string | null = null;
-  const degreeLabels: string[] = [];
-  const notes: string[] = [];
-  let captureDegrees = false;
+function extractDoubleDegreeTableDetails(lines: string[]): { degreeLabels: string[]; eligibilityLabel: string | null; languageRequirement: string | null; location: string | null; notes: string[]; partnerInstitution: string | null; } {
+  const state = {
+    captureDegrees: false,
+    degreeLabels: [] as string[],
+    eligibilityLabel: null as string | null,
+    languageRequirement: null as string | null,
+    location: null as string | null,
+    notes: [] as string[],
+    partnerInstitution: null as string | null,
+  };
 
   for (const line of lines) {
-    if (line.startsWith("» Grado:") || line.startsWith("» Grados elegibles:")) {
-      captureDegrees = true;
-      const inlineValue = line.replace(/^» Grado(s elegibles)?:/u, "").trim();
-      if (inlineValue) {
-        degreeLabels.push(inlineValue);
-      }
+    const extractedField = extractDoubleDegreeField(line);
+
+    if (applyExtractedDoubleDegreeField(extractedField, state)) {
       continue;
     }
 
-    if (line.startsWith("» Universidad:")) {
-      captureDegrees = false;
-      partnerInstitution = line.replace(/^» Universidad:/u, "").trim() || null;
+    if (isIgnorableDoubleDegreeLine(line)) {
+      state.captureDegrees = false;
       continue;
     }
 
-    if (line.startsWith("» Ubicación:")) {
-      captureDegrees = false;
-      location = line.replace(/^» Ubicación:/u, "").trim() || null;
+    if (state.captureDegrees) {
+      state.degreeLabels.push(line);
       continue;
     }
 
-    if (line.startsWith("» Idioma requerido:")) {
-      captureDegrees = false;
-      languageRequirement = line.replace(/^» Idioma requerido:/u, "").trim() || null;
+    if (!line.startsWith("»") && state.eligibilityLabel === null) {
+      state.eligibilityLabel = line;
       continue;
     }
 
-    if (line.startsWith("Nota:")) {
-      captureDegrees = false;
-      notes.push(line.replace(/^Nota:/u, "").trim());
-      continue;
-    }
-
-    if (
-      line === "Ver el folleto" ||
-      line === "Ver Folleto" ||
-      line.toLocaleLowerCase("es-MX").startsWith("folleto ")
-    ) {
-      captureDegrees = false;
-      continue;
-    }
-
-    if (/^[^:]+:\s*[^@\s]+@[^@\s]+/u.test(line)) {
-      captureDegrees = false;
-      notes.push(line);
-      continue;
-    }
-
-    if (captureDegrees) {
-      degreeLabels.push(line);
-      continue;
-    }
-
-    if (!line.startsWith("»") && eligibilityLabel === null) {
-      eligibilityLabel = line;
-      continue;
-    }
-
-    notes.push(line);
+    state.notes.push(line);
   }
 
   return {
-    degreeLabels: dedupeStrings(degreeLabels),
-    eligibilityLabel,
-    languageRequirement,
-    location,
-    notes: dedupeStrings(notes),
-    partnerInstitution,
+    degreeLabels: dedupeStrings(state.degreeLabels),
+    eligibilityLabel: state.eligibilityLabel,
+    languageRequirement: state.languageRequirement,
+    location: state.location,
+    notes: dedupeStrings(state.notes),
+    partnerInstitution: state.partnerInstitution,
   };
 }
 
-function buildGraduateProgramId(displayName: string) {
+function buildGraduateProgramId(displayName: string): string {
   return slugifyAcademicReference(displayName.replace(/\(.*?\)/gu, "").trim());
 }
 
-function buildDoubleDegreeId(baseProgramLabel: string, partnerInstitution: string | null) {
+function extractOfficialJointProgramRowFromHtml(
+  rowHtml: string,
+): ExtractedOfficialJointProgramRow | null {
+  const cells = [...rowHtml.matchAll(/<td\b[^>]*>([\s\S]*?)<\/td>/giu)].map(
+    (cellMatch) => cellMatch[1],
+  );
+
+  if (cells.length < 4) {
+    return null;
+  }
+
+  const componentTitlesCell = cells[0] ?? "";
+  const coordinatorsCell = cells[1] ?? "";
+  const emailsCell = cells[2] ?? "";
+  const extensionsCell = cells[3] ?? "";
+
+  const componentTitles = extractTextLinesFromHtmlFragment(componentTitlesCell);
+
+  if (componentTitles.length < 2) {
+    return null;
+  }
+
+  return {
+    contact_emails: extractEmailAddressesFromHtmlFragment(emailsCell),
+    coordinators: extractTextLinesFromHtmlFragment(coordinatorsCell),
+    component_titles: buildJointProgramComponentTitles(componentTitles),
+    phone_extensions: extractPhoneExtensionsFromHtmlFragment(extensionsCell),
+  };
+}
+
+function buildJointProgramComponentTitles(componentTitles: string[]): [string, string] {
+  return [
+    trimTrailingAcademicConnector(componentTitles[0] ?? ""),
+    trimTrailingAcademicConnector(componentTitles[1] ?? ""),
+  ];
+}
+
+function extractOfficialGraduateProgramFromMatch(
+  match: RegExpMatchArray,
+): GraduateProgramReference | null {
+  const titleHref = match[1] ?? "";
+  const displayName = decodeHtmlText(match[2] ?? "");
+  const content = match[3] ?? "";
+
+  if (!displayName) {
+    return null;
+  }
+
+  const graduateProgramId = buildGraduateProgramId(displayName);
+  const extractedLinks = extractAnchorsFromHtmlFragment(content);
+
+  return {
+    admission_process_url: findGraduateProgramAdmissionProcessUrl(extractedLinks),
+    brochure_url: findGraduateProgramPdfUrl(extractedLinks, "folleto", "/folleto/"),
+    calendar_url: findGraduateProgramPdfUrl(extractedLinks, "calendario", "/calendario/"),
+    contact_emails: extractGraduateProgramContactEmails(extractedLinks),
+    display_name: displayName,
+    graduate_program_id: graduateProgramId,
+    microsite_url: resolveGraduateProgramMicrositeUrl(titleHref, extractedLinks),
+    program_kind: classifyGraduateProgramKind(displayName),
+    source_url: OFFICIAL_GRADUATE_PROGRAMS_SOURCE_URL,
+    status: /en revisión/iu.test(displayName) ? "under-review" : "active",
+    study_plan_url: findGraduateProgramStudyPlanUrl(extractedLinks),
+  };
+}
+
+function extractGraduateProgramContactEmails(
+  links: { href: string; label: string }[],
+): string[] {
+  return dedupeStrings(
+    links
+      .filter((link) => link.href.startsWith("mailto:"))
+      .map((link) => link.href.replace(/^mailto:/iu, "").toLocaleLowerCase("en-US")),
+  );
+}
+
+function findGraduateProgramPdfUrl(
+  links: { href: string; label: string }[],
+  labelToken: string,
+  hrefToken: string,
+): string | null {
+  return (
+    links.find(
+      (link) =>
+        isPdfLikeUrl(link.href) &&
+        (link.label.toLocaleLowerCase("es-MX").includes(labelToken) ||
+          link.href.includes(hrefToken)),
+    )?.href ?? null
+  );
+}
+
+function findGraduateProgramStudyPlanUrl(
+  links: { href: string; label: string }[],
+): string | null {
+  return links.find((link) => link.href.includes("/plan-de-estudios/"))?.href ?? null;
+}
+
+function findGraduateProgramAdmissionProcessUrl(
+  links: { href: string; label: string }[],
+): string | null {
+  return (
+    links.find(
+      (link) =>
+        link.href.includes("/proceso-de-admision/") ||
+        normalizeAcademicTitle(link.label).includes("proceso de admision"),
+    )?.href ?? null
+  );
+}
+
+function resolveGraduateProgramMicrositeUrl(
+  titleHref: string,
+  links: { href: string; label: string }[],
+): string | null {
+  if (!isPdfLikeUrl(titleHref)) {
+    return titleHref;
+  }
+
+  return (
+    links.find(
+      (link) =>
+        !link.href.startsWith("mailto:") &&
+        !isPdfLikeUrl(link.href) &&
+        normalizeAcademicTitle(link.label).includes("micrositio"),
+    )?.href ?? null
+  );
+}
+
+function extractDoubleDegreeField(line: string): {
+  kind:
+    | "degreeLabel"
+    | "partnerInstitution"
+    | "location"
+    | "languageRequirement"
+    | "note"
+    | "other";
+  value: string | null;
+} {
+  const prefixedField = DOUBLE_DEGREE_PREFIX_FIELDS.find(({ matches }) => matches(line));
+
+  if (prefixedField) {
+    return {
+      kind: prefixedField.kind,
+      value: line.replace(prefixedField.pattern, "").trim() || null,
+    };
+  }
+
+  if (line.startsWith("Nota:") || /^[^:]+:\s*[^@\s]+@[^@\s]+/u.test(line)) {
+    return {
+      kind: "note",
+      value: line.replace(/^Nota:/u, "").trim() || line,
+    };
+  }
+
+  return {
+    kind: "other",
+    value: null,
+  };
+}
+
+function applyExtractedDoubleDegreeField(
+  extractedField: ReturnType<typeof extractDoubleDegreeField>,
+  state: {
+    captureDegrees: boolean;
+    degreeLabels: string[];
+    languageRequirement: string | null;
+    location: string | null;
+    notes: string[];
+    partnerInstitution: string | null;
+  },
+): boolean {
+  const applyField = DOUBLE_DEGREE_FIELD_APPLIERS[extractedField.kind];
+
+  if (!applyField) {
+    return false;
+  }
+
+  applyField(extractedField.value, state);
+  return true;
+}
+
+const DOUBLE_DEGREE_FIELD_APPLIERS: Partial<
+  Record<
+    ReturnType<typeof extractDoubleDegreeField>["kind"],
+    (
+      value: string | null,
+      state: {
+        captureDegrees: boolean;
+        degreeLabels: string[];
+        languageRequirement: string | null;
+        location: string | null;
+        notes: string[];
+        partnerInstitution: string | null;
+      },
+    ) => void
+  >
+> = {
+  degreeLabel: (value, state) => {
+    state.captureDegrees = true;
+    if (value) {
+      state.degreeLabels.push(value);
+    }
+  },
+  languageRequirement: (value, state) => {
+    state.captureDegrees = false;
+    state.languageRequirement = value;
+  },
+  location: (value, state) => {
+    state.captureDegrees = false;
+    state.location = value;
+  },
+  note: (value, state) => {
+    state.captureDegrees = false;
+    if (value) {
+      state.notes.push(value);
+    }
+  },
+  partnerInstitution: (value, state) => {
+    state.captureDegrees = false;
+    state.partnerInstitution = value;
+  },
+};
+
+const DOUBLE_DEGREE_PREFIX_FIELDS = [
+  {
+    kind: "degreeLabel",
+    matches: (line: string) => line.startsWith("» Grado:") || line.startsWith("» Grados elegibles:"),
+    pattern: /^» Grado(s elegibles)?:/u,
+  },
+  {
+    kind: "partnerInstitution",
+    matches: (line: string) => line.startsWith("» Universidad:"),
+    pattern: /^» Universidad:/u,
+  },
+  {
+    kind: "location",
+    matches: (line: string) => line.startsWith("» Ubicación:"),
+    pattern: /^» Ubicación:/u,
+  },
+  {
+    kind: "languageRequirement",
+    matches: (line: string) => line.startsWith("» Idioma requerido:"),
+    pattern: /^» Idioma requerido:/u,
+  },
+] as const;
+
+function isIgnorableDoubleDegreeLine(line: string): boolean {
+  return (
+    line === "Ver el folleto" ||
+    line === "Ver Folleto" ||
+    line.toLocaleLowerCase("es-MX").startsWith("folleto ")
+  );
+}
+
+function buildDoubleDegreeId(baseProgramLabel: string, partnerInstitution: string | null): string {
   return partnerInstitution
     ? `${slugifyAcademicReference(baseProgramLabel)}-${slugifyAcademicReference(partnerInstitution)}`
     : slugifyAcademicReference(baseProgramLabel);
@@ -1216,11 +1359,11 @@ function classifyGraduateProgramKind(displayName: string): GraduateProgramRefere
   return "master";
 }
 
-function isPdfLikeUrl(value: string) {
+function isPdfLikeUrl(value: string): boolean {
   return /\.pdf(?:$|\?)/iu.test(value);
 }
 
-function decodeHtmlText(value: string) {
+function decodeHtmlText(value: string): string {
   return value
     .replace(/<br\s*\/?>/giu, "\n")
     .replace(/<\/(div|p|li|td|tr)>/giu, "\n")
@@ -1236,11 +1379,11 @@ function decodeHtmlText(value: string) {
     .trim();
 }
 
-function dedupeStrings(values: readonly string[]) {
+function dedupeStrings(values: readonly string[]): string[] {
   return [...new Set(values.filter(Boolean))];
 }
 
-function normalizeOfficialMatchText(value: string) {
+function normalizeOfficialMatchText(value: string): string {
   return value
     .toLocaleLowerCase("es-MX")
     .normalize("NFD")
@@ -1251,11 +1394,11 @@ function normalizeOfficialMatchText(value: string) {
     .trim();
 }
 
-function trimTrailingAcademicConnector(value: string) {
+function trimTrailingAcademicConnector(value: string): string {
   return value.replace(/\s+[ye]$/u, "").trim();
 }
 
-function slugifyAcademicReference(value: string) {
+function slugifyAcademicReference(value: string): string {
   return value
     .toLocaleLowerCase("es-MX")
     .normalize("NFD")
@@ -1264,7 +1407,7 @@ function slugifyAcademicReference(value: string) {
     .replace(/^-+|-+$/gu, "");
 }
 
-function formatCanonicalProgramFallback(programTitle: string) {
+function formatCanonicalProgramFallback(programTitle: string): string {
   const normalized = programTitle
     .trim()
     .replace(/^LICENCIATURA EN /iu, "")

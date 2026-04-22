@@ -2,7 +2,7 @@
 
 import { create } from "zustand";
 
-interface StudentCodeStoreState {
+type StudentCodeStoreState = {
   code: string;
   clearCode: () => void;
   setCode: (code: string) => void;

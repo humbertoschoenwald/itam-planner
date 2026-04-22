@@ -140,7 +140,7 @@ describe("PlannerSettingsShell", () => {
   });
 });
 
-async function flushAsyncState(iterations: number = 3) {
+async function flushAsyncState(iterations: number = 3): Promise<void> {
   await act(async () => {
     for (let index = 0; index < iterations; index += 1) {
       await Promise.resolve();

@@ -143,13 +143,13 @@ const OFFICIAL_NEWS_ITEM_SEEDS = [
 
 export function getOfficialNewsItems(locale: LocaleCode): readonly SiteNewsItem[] {
   return OFFICIAL_NEWS_ITEM_SEEDS.map((item) => ({
-    category: item.category[locale] ?? item.category[DEFAULT_LOCALE],
+    category: item.category[locale],
     href: item.href,
     published_at: item.published_at,
     source_label: item.source_label,
     source_url: item.source_url,
-    summary: item.summary[locale] ?? item.summary[DEFAULT_LOCALE],
-    title: item.title[locale] ?? item.title[DEFAULT_LOCALE],
+    summary: item.summary[locale],
+    title: item.title[locale],
   }));
 }
 

@@ -11,7 +11,7 @@ export const TIMETABLE_WEEKDAY_ORDER = [
   "DO",
 ] as const;
 
-export interface TimetableGridMeeting {
+export type TimetableGridMeeting = {
   campusName: string | null;
   courseCode: string;
   displayTitle: string;
@@ -21,19 +21,19 @@ export interface TimetableGridMeeting {
   startTime: string;
 }
 
-export interface TimetableGridCellItem {
+export type TimetableGridCellItem = {
   meeting: TimetableGridMeeting;
   startsAtSlot: boolean;
 }
 
-export interface TimetableGridRow {
+export type TimetableGridRow = {
   cells: Record<(typeof TIMETABLE_WEEKDAY_ORDER)[number], TimetableGridCellItem[]>;
   label: string;
   slotEnd: string;
   slotStart: string;
 }
 
-export interface TimetableGridModel {
+export type TimetableGridModel = {
   days: readonly (typeof TIMETABLE_WEEKDAY_ORDER)[number][];
   rows: TimetableGridRow[];
 }
@@ -112,12 +112,12 @@ export function buildTimetableGrid(
   };
 }
 
-function toMinutes(value: string) {
+function toMinutes(value: string): number {
   const [hours = "0", minutes = "0"] = value.split(":");
   return Number.parseInt(hours, 10) * 60 + Number.parseInt(minutes, 10);
 }
 
-function toTimeString(value: number) {
+function toTimeString(value: number): string {
   const hours = Math.floor(value / 60)
     .toString()
     .padStart(2, "0");

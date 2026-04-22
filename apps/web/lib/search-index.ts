@@ -15,7 +15,7 @@ import type {
   SiteNewsItem,
 } from "@/lib/types";
 
-export interface SearchIndexBootstrap {
+export type SearchIndexBootstrap = {
   careers: AcademicCareerReference[];
   doubleDegrees: DoubleDegreeReference[];
   graduatePrograms: GraduateProgramReference[];
@@ -149,7 +149,7 @@ export function buildLocalSearchIndex(
   ];
 }
 
-export function searchLocalIndex(index: LocalSearchIndexItem[], query: string) {
+export function searchLocalIndex(index: LocalSearchIndexItem[], query: string): LocalSearchIndexItem[] {
   const normalizedQuery = normalizeSearchText(query);
 
   if (!normalizedQuery) {
@@ -163,7 +163,7 @@ export function searchLocalIndex(index: LocalSearchIndexItem[], query: string) {
   );
 }
 
-function normalizeSearchText(value: string) {
+function normalizeSearchText(value: string): string {
   return value
     .toLocaleLowerCase("es-MX")
     .normalize("NFD")
@@ -273,7 +273,7 @@ function buildStaticPages(
   ];
 }
 
-function getSearchIndexCopy(locale: LocaleCode) {
+function getSearchIndexCopy(locale: LocaleCode): { careerBodyPrefix: string; doubleDegreeBodyPrefix: string; graduateProgramBodyPrefix: string; jointProgramBodyPrefix: string; categories: { calendarEvent: string; career: string; doubleDegree: string; graduateProgram: string; jointProgram: string; officialSource: string; officialUpdate: string; page: string; paymentEvent: string; plan: string; schedulePeriod: string; }; staticPages: { calendarBody: string; connectAiBody: string; executiveEducationBody: string; homeBody: string; mapBody: string; onboardingBody: string; privacyBody: string; projectBody: string; registrationBody: string; scheduleBody: string; searchBody: string; settingsBody: string; termsBody: string; }; } {
   return locale === "en"
     ? {
         careerBodyPrefix: "Official ITAM career source.",

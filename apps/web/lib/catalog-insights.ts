@@ -2,7 +2,7 @@ import type { ScheduleOffering, SourcesMetadata } from "@/lib/types";
 
 const WEEKDAY_ORDER = ["LU", "MA", "MI", "JU", "VI", "SA", "DO"] as const;
 
-export interface WeeklyAgendaItem {
+export type WeeklyAgendaItem = {
   weekdayCode: string;
   startTime: string;
   endTime: string;
@@ -13,12 +13,12 @@ export interface WeeklyAgendaItem {
   campusName: string | null;
 }
 
-export interface WeeklyAgendaDay {
+export type WeeklyAgendaDay = {
   weekdayCode: string;
   items: WeeklyAgendaItem[];
 }
 
-export interface CatalogSnapshotSummary {
+export type CatalogSnapshotSummary = {
   latestObservedAt: string | null;
   latestPromotionAt: string | null;
   latestRunStatus: SourcesMetadata["scrape_runs"][number]["status"] | null;
@@ -27,7 +27,7 @@ export interface CatalogSnapshotSummary {
   totalSnapshotCount: number;
 }
 
-export function buildWeeklyAgenda(offerings: ScheduleOffering[]) {
+export function buildWeeklyAgenda(offerings: ScheduleOffering[]): { weekdayCode: "LU" | "MA" | "MI" | "JU" | "VI" | "SA" | "DO"; items: WeeklyAgendaItem[]; }[] {
   const grouped = new Map<string, WeeklyAgendaItem[]>();
 
   for (const offering of offerings) {
@@ -67,22 +67,42 @@ export function summarizeCatalogSnapshot(metadata: SourcesMetadata | null): Cata
     };
   }
 
-  const latestObservedAt = metadata.source_snapshots
-    .map((snapshot) => snapshot.observed_at)
-    .sort((left, right) => right.localeCompare(left))[0] ?? null;
-  const latestPromotion = [...metadata.promoted_releases].sort((left, right) =>
-    right.promoted_at.localeCompare(left.promoted_at),
-  )[0];
-  const latestRun = [...metadata.scrape_runs].sort((left, right) =>
-    (right.completed_at ?? right.started_at).localeCompare(left.completed_at ?? left.started_at),
-  )[0];
-
   return {
-    latestObservedAt,
-    latestPromotionAt: latestPromotion?.promoted_at ?? null,
-    latestRunStatus: latestRun?.status ?? null,
-    promotedReleaseId: latestPromotion?.release_id ?? null,
+    latestObservedAt: getLatestObservedAt(metadata),
+    latestPromotionAt: getLatestPromotion(metadata)?.promoted_at ?? null,
+    latestRunStatus: getLatestRun(metadata)?.status ?? null,
+    promotedReleaseId: getLatestPromotion(metadata)?.release_id ?? null,
     trackedSourceCount: new Set(metadata.source_snapshots.map((snapshot) => snapshot.source_id)).size,
     totalSnapshotCount: metadata.source_snapshots.length,
   };
+}
+
+function getLatestObservedAt(metadata: SourcesMetadata): string | null {
+  return metadata.source_snapshots
+    .map((snapshot) => snapshot.observed_at)
+    .sort((left, right) => right.localeCompare(left))[0] ?? null;
+}
+
+function getLatestPromotion(
+  metadata: SourcesMetadata,
+): SourcesMetadata["promoted_releases"][number] | null {
+  return (
+    [...metadata.promoted_releases].sort((left, right) =>
+      right.promoted_at.localeCompare(left.promoted_at),
+    )[0] ?? null
+  );
+}
+
+function getLatestRun(metadata: SourcesMetadata): SourcesMetadata["scrape_runs"][number] | null {
+  return (
+    [...metadata.scrape_runs].sort((left, right) =>
+      getScrapeRunSortValue(right).localeCompare(getScrapeRunSortValue(left)),
+    )[0] ?? null
+  );
+}
+
+function getScrapeRunSortValue(
+  scrapeRun: SourcesMetadata["scrape_runs"][number],
+): string {
+  return scrapeRun.completed_at ?? scrapeRun.started_at;
 }

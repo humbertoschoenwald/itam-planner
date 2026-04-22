@@ -19,7 +19,7 @@ export const ACADEMIC_LEVELS = [
   "graduate",
 ] as const satisfies readonly AcademicLevel[];
 
-export interface ProgramChoiceOption {
+export type ProgramChoiceOption = {
   displayLabel: string;
   kind: Exclude<ProgramChoiceKind, "mixed" | "career"> | "career";
   planIds: string[];
@@ -28,14 +28,14 @@ export interface ProgramChoiceOption {
   sourceCodes: string[];
 }
 
-export interface CareerChoiceOption {
+export type CareerChoiceOption = {
   category: "engineering" | "degree";
   careerId: string;
   displayLabel: string;
   planIds: string[];
 }
 
-export interface JointProgramChoiceOption {
+export type JointProgramChoiceOption = {
   componentCareerIds: string[];
   displayLabel: string;
   jointProgramId: string;
@@ -66,13 +66,13 @@ const TERM_SEASON_ORDER = {
   OTOÑO: 3,
 } as const;
 
-export function buildEntryTerm(seasonKey: string, year: string) {
+export function buildEntryTerm(seasonKey: string, year: string): string {
   return isEntryTermSeasonKey(seasonKey) && /^\d{4}$/u.test(year)
     ? `${ENTRY_TERM_SEASON_TO_ACADEMIC_SEASON[seasonKey]} ${year}`
     : "";
 }
 
-export function parseEntryTerm(entryTerm: string) {
+export function parseEntryTerm(entryTerm: string): { seasonKey: "" | "spring" | "fall"; year: string; } {
   const match = ENTRY_TERM_PATTERN.exec(entryTerm.trim());
 
   return {
@@ -84,7 +84,7 @@ export function parseEntryTerm(entryTerm: string) {
 export function formatEntryTermLabel(
   entryTerm: string,
   seasonLabels: Record<EntryTermSeasonKey, string>,
-) {
+): string {
   const parsedEntryTerm = parseEntryTerm(entryTerm);
 
   return parsedEntryTerm.seasonKey && parsedEntryTerm.year
@@ -92,7 +92,7 @@ export function formatEntryTermLabel(
     : entryTerm.trim();
 }
 
-export function isValidEntryTerm(entryTerm: string) {
+export function isValidEntryTerm(entryTerm: string): boolean {
   const match = ENTRY_TERM_PATTERN.exec(entryTerm.trim());
 
   if (!match) {
@@ -108,36 +108,12 @@ export function getEntryTermYearOptions(
   plans: BulletinSummary[],
   academicLevel: AcademicLevel | null,
   periods: SchedulePeriodSummary[] = [],
-) {
+): string[] {
   const years = new Set<number>();
   const relevantPlans = academicLevel === "graduate" ? [] : plans;
 
   for (const plan of relevantPlans) {
-    const start = parseComparableAcademicTerm(plan.entry_from_term);
-    const end = parseComparableAcademicTerm(plan.entry_to_term);
-
-    if (start !== null && end !== null) {
-      for (let year = Math.min(start.year, end.year); year <= Math.max(start.year, end.year); year += 1) {
-        years.add(year);
-      }
-    } else if (start !== null && end === null) {
-      for (let year = start.year; year <= getMaximumEntryTermYear(); year += 1) {
-        years.add(year);
-      }
-    } else if (end !== null) {
-      years.add(end.year);
-    } else if (typeof plan.application_year === "number") {
-      years.add(plan.application_year);
-    } else if (typeof plan.active_from === "string") {
-      const year = Number.parseInt(plan.active_from.slice(0, 4), 10);
-      if (Number.isInteger(year)) {
-        years.add(year);
-      }
-    }
-
-    if (start !== null) {
-      years.add(start.year);
-    }
+    addPlanEntryYears(years, plan);
   }
 
   for (const period of filterPeriodsForAcademicLevel(periods, academicLevel)) {
@@ -152,38 +128,19 @@ export function getEntryTermYearOptions(
     .map(String);
 }
 
-export function hasCompletedOnboarding(profile: StudentProfile, plans?: BulletinSummary[]) {
-  if (
-    profile.academicLevel === null ||
-    !isValidEntryTerm(profile.entryTerm)
-  ) {
+export function hasCompletedOnboarding(profile: StudentProfile, plans?: BulletinSummary[]): boolean {
+  if (profile.academicLevel === null || !isValidEntryTerm(profile.entryTerm)) {
     return false;
   }
 
   if (!plans) {
-    return profile.academicLevel === "graduate"
-      ? true
-      : profile.academicLevel === "jointPrograms"
-        ? profile.selectedJointProgramIds.length > 0
-        : profile.selectedCareerIds.length > 0;
+    return hasCompletedOnboardingWithoutPlans(profile);
   }
 
-  if (profile.academicLevel === "graduate") {
-    return true;
-  }
-
-  if (profile.academicLevel === "jointPrograms") {
-    return profile.selectedJointProgramIds.length > 0 && hasApplicableActivePlans(profile, plans);
-  }
-
-  if (profile.selectedCareerIds.length === 0) {
-    return false;
-  }
-
-  return profile.activePlanIds.length === 0 || hasApplicableActivePlans(profile, plans);
+  return hasCompletedOnboardingWithPlans(profile, plans);
 }
 
-export function hasApplicableActivePlans(profile: StudentProfile, plans: BulletinSummary[]) {
+export function hasApplicableActivePlans(profile: StudentProfile, plans: BulletinSummary[]): boolean {
   if (profile.academicLevel === "graduate" || !isValidEntryTerm(profile.entryTerm)) {
     return false;
   }
@@ -195,7 +152,7 @@ export function hasApplicableActivePlans(profile: StudentProfile, plans: Bulleti
   return profile.activePlanIds.some((planId) => visiblePlanIds.has(planId));
 }
 
-export function filterPlansForEntryTerm(plans: BulletinSummary[], entryTerm: string) {
+export function filterPlansForEntryTerm(plans: BulletinSummary[], entryTerm: string): BulletinSummary[] {
   if (!isValidEntryTerm(entryTerm)) {
     return [];
   }
@@ -212,7 +169,7 @@ export function filterPlansForEntryTerm(plans: BulletinSummary[], entryTerm: str
     });
 }
 
-export function buildProgramChoiceOptions(plans: BulletinSummary[], entryTerm: string) {
+export function buildProgramChoiceOptions(plans: BulletinSummary[], entryTerm: string): ProgramChoiceOption[] {
   const groupedPrograms = new Map<string, ProgramChoiceOption>();
 
   for (const plan of filterPlansForEntryTerm(plans, entryTerm)) {
@@ -240,7 +197,7 @@ export function buildProgramChoiceOptions(plans: BulletinSummary[], entryTerm: s
   );
 }
 
-export function buildCareerChoiceOptions(plans: BulletinSummary[], entryTerm: string) {
+export function buildCareerChoiceOptions(plans: BulletinSummary[], entryTerm: string): { category: "engineering" | "degree"; careerId: string; displayLabel: string; planIds: string[]; }[] {
   const applicablePlans = filterPlansForEntryTerm(plans, entryTerm).filter((plan) =>
     isIndividualCareerProgram(plan.program_title),
   );
@@ -262,7 +219,7 @@ export function buildCareerChoiceOptionsForLevel(
   plans: BulletinSummary[],
   entryTerm: string,
   academicLevel: AcademicLevel | null,
-) {
+): { category: "engineering" | "degree"; careerId: string; displayLabel: string; planIds: string[]; }[] {
   if (academicLevel !== "undergraduate") {
     return [];
   }
@@ -270,7 +227,7 @@ export function buildCareerChoiceOptionsForLevel(
   return buildCareerChoiceOptions(plans, entryTerm);
 }
 
-export function filterCareerChoiceOptions(options: CareerChoiceOption[], query: string) {
+export function filterCareerChoiceOptions(options: CareerChoiceOption[], query: string): CareerChoiceOption[] {
   const normalizedQuery = normalizeAcademicTitle(query);
 
   if (!normalizedQuery) {
@@ -291,7 +248,7 @@ export function filterCareerChoiceOptions(options: CareerChoiceOption[], query: 
 export function buildSelectedAcademicChoiceLabels(
   selectedCareerIds: string[],
   selectedJointProgramIds: string[],
-) {
+): string[] {
   const careerLabels = selectedCareerIds
     .map((careerId) => findOfficialCareer(careerId)?.display_name ?? null)
     .filter((value): value is string => typeof value === "string");
@@ -308,7 +265,7 @@ export function buildJointProgramChoiceOptions(
   plans: BulletinSummary[],
   entryTerm: string,
   selectedCareerIds: string[],
-) {
+): { componentCareerIds: string[]; displayLabel: string; jointProgramId: string; planIds: string[]; }[] {
   if (selectedCareerIds.length === 0) {
     return [];
   }
@@ -338,7 +295,7 @@ export function buildJointProgramChoiceOptionsForLevel(
   entryTerm: string,
   academicLevel: AcademicLevel | null,
   selectedCareerIds: string[],
-) {
+): { componentCareerIds: string[]; displayLabel: string; jointProgramId: string; planIds: string[]; }[] {
   if (academicLevel === "jointPrograms") {
     const applicablePlans = filterPlansForEntryTerm(plans, entryTerm);
 
@@ -369,7 +326,7 @@ export function resolveCareerSelectionPlanIds(
   plans: BulletinSummary[],
   entryTerm: string,
   selectedCareerIds: string[],
-) {
+): string[] {
   const visibleCareerIds = new Set(selectedCareerIds);
 
   return buildCareerChoiceOptions(plans, entryTerm)
@@ -381,7 +338,7 @@ export function resolveJointProgramSelectionPlanIds(
   plans: BulletinSummary[],
   entryTerm: string,
   selectedJointProgramIds: string[],
-) {
+): string[] {
   const applicablePlans = filterPlansForEntryTerm(plans, entryTerm);
 
   return selectedJointProgramIds.flatMap((jointProgramId) =>
@@ -394,7 +351,7 @@ export function resolveActivePlanIdsFromSelections(
   entryTerm: string,
   selectedCareerIds: string[],
   selectedJointProgramIds: string[],
-) {
+): string[] {
   return [
     ...new Set([
       ...resolveCareerSelectionPlanIds(plans, entryTerm, selectedCareerIds),
@@ -425,7 +382,7 @@ export function getCareerChoiceMode(options: CareerChoiceOption[]): ProgramChoic
 export function filterPeriodsForAcademicLevel(
   periods: SchedulePeriodSummary[],
   academicLevel: AcademicLevel | null,
-) {
+): SchedulePeriodSummary[] {
   if (academicLevel === null) {
     return periods;
   }
@@ -442,18 +399,18 @@ export function filterPeriodsForAcademicLevel(
 export function getDefaultPeriodForAcademicLevel(
   periods: SchedulePeriodSummary[],
   academicLevel: AcademicLevel | null,
-) {
+): SchedulePeriodSummary | null {
   return filterPeriodsForAcademicLevel(periods, academicLevel)[0] ?? null;
 }
 
-export function formatSchedulePeriodLabel(label: string) {
+export function formatSchedulePeriodLabel(label: string): string {
   return label.replace(/^\((.*)\)$/u, "$1").trim();
 }
 
 export function filterProgramChoiceOptions(
   options: ProgramChoiceOption[],
   query: string,
-) {
+): ProgramChoiceOption[] {
   const normalizedQuery = query.trim().toLocaleLowerCase("es-MX");
 
   if (!normalizedQuery) {
@@ -490,17 +447,94 @@ export function getProgramChoiceMode(options: ProgramChoiceOption[]): ProgramCho
 export function findSelectedProgramChoice(
   options: ProgramChoiceOption[],
   activePlanIds: string[],
-) {
+): ProgramChoiceOption | null {
   return (
     options.find((option) => option.planIds.some((planId) => activePlanIds.includes(planId))) ?? null
   );
 }
 
-function getMaximumEntryTermYear() {
+function getMaximumEntryTermYear(): number {
   return new Date().getFullYear() + 1;
 }
 
-function matchesEntryTerm(plan: BulletinSummary, entryTerm: string) {
+function addPlanEntryYears(years: Set<number>, plan: BulletinSummary): void {
+  const start = parseComparableAcademicTerm(plan.entry_from_term);
+  const end = parseComparableAcademicTerm(plan.entry_to_term);
+
+  if (start !== null && end !== null) {
+    addYearRange(years, Math.min(start.year, end.year), Math.max(start.year, end.year));
+  } else if (start !== null) {
+    addYearRange(years, start.year, getMaximumEntryTermYear());
+  } else if (end !== null) {
+    years.add(end.year);
+  } else {
+    addPlanFallbackYear(years, plan);
+  }
+
+  if (start !== null) {
+    years.add(start.year);
+  }
+}
+
+function addYearRange(years: Set<number>, startYear: number, endYear: number): void {
+  for (let year = startYear; year <= endYear; year += 1) {
+    years.add(year);
+  }
+}
+
+function addPlanFallbackYear(years: Set<number>, plan: BulletinSummary): void {
+  if (typeof plan.application_year === "number") {
+    years.add(plan.application_year);
+    return;
+  }
+
+  if (typeof plan.active_from !== "string") {
+    return;
+  }
+
+  const year = Number.parseInt(plan.active_from.slice(0, 4), 10);
+  if (Number.isInteger(year)) {
+    years.add(year);
+  }
+}
+
+function hasCompletedOnboardingWithoutPlans(profile: StudentProfile): boolean {
+  switch (profile.academicLevel) {
+    case "graduate":
+      return true;
+    case "jointPrograms":
+      return profile.selectedJointProgramIds.length > 0;
+    case "undergraduate":
+      return profile.selectedCareerIds.length > 0;
+    case null:
+      return false;
+  }
+}
+
+function hasCompletedOnboardingWithPlans(
+  profile: StudentProfile,
+  plans: BulletinSummary[],
+): boolean {
+  switch (profile.academicLevel) {
+    case "graduate":
+      return true;
+    case "jointPrograms":
+      return profile.selectedJointProgramIds.length > 0 && hasApplicableActivePlans(profile, plans);
+    case "undergraduate":
+      return profile.selectedCareerIds.length > 0 && hasValidActivePlanSelection(profile, plans);
+    case null:
+      return false;
+  }
+}
+
+function hasValidActivePlanSelection(
+  profile: StudentProfile,
+  plans: BulletinSummary[],
+): boolean {
+  return profile.activePlanIds.length === 0 || hasApplicableActivePlans(profile, plans);
+}
+
+function matchesEntryTerm(plan: BulletinSummary, entryTerm: string): boolean {
   if (plan.entry_from_term === null && plan.entry_to_term === null) {
     const target = parseComparableAcademicTerm(entryTerm);
     const fallbackStartYear = getPlanFallbackEntryYear(plan);
@@ -513,7 +547,7 @@ function matchesEntryTerm(plan: BulletinSummary, entryTerm: string) {
   return isTermWithinRange(entryTerm, plan.entry_from_term, plan.entry_to_term);
 }
 
-function isTermWithinRange(entryTerm: string, rangeStart: string | null, rangeEnd: string | null) {
+function isTermWithinRange(entryTerm: string, rangeStart: string | null, rangeEnd: string | null): boolean {
   const target = parseComparableAcademicTerm(entryTerm);
 
   if (target === null) {
@@ -534,7 +568,7 @@ function isTermWithinRange(entryTerm: string, rangeStart: string | null, rangeEn
   return true;
 }
 
-function parseComparableAcademicTerm(value: string | null) {
+function parseComparableAcademicTerm(value: string | null): { season: "PRIMAVERA" | "OTOÑO" | "VERANO"; seasonOrder: 1 | 2 | 3; year: number; } | null {
   if (!value) {
     return null;
   }
@@ -560,7 +594,7 @@ function parseComparableAcademicTerm(value: string | null) {
   };
 }
 
-function getPlanFallbackEntryYear(plan: BulletinSummary) {
+function getPlanFallbackEntryYear(plan: BulletinSummary): number | null {
   if (typeof plan.application_year === "number" && Number.isInteger(plan.application_year)) {
     return plan.application_year;
   }
@@ -578,7 +612,7 @@ function getPlanFallbackEntryYear(plan: BulletinSummary) {
 function compareAcademicTerms(
   left: { seasonOrder: number; year: number },
   right: { seasonOrder: number; year: number },
-) {
+): number {
   if (left.year !== right.year) {
     return left.year - right.year;
   }
@@ -588,17 +622,20 @@ function compareAcademicTerms(
 
 function getEntryTermSeasonKey(value: string): EntryTermSeasonKey | "" {
   const normalized = value.trim().toUpperCase();
+  if (!(normalized in ACADEMIC_SEASON_TO_ENTRY_TERM_SEASON)) {
+    return "";
+  }
 
   return ACADEMIC_SEASON_TO_ENTRY_TERM_SEASON[
     normalized as keyof typeof ACADEMIC_SEASON_TO_ENTRY_TERM_SEASON
-  ] ?? "";
+  ];
 }
 
 function isEntryTermSeasonKey(value: string): value is EntryTermSeasonKey {
   return ENTRY_TERM_SEASON_KEYS.includes(value as EntryTermSeasonKey);
 }
 
-function normalizeProgramTitle(programTitle: string) {
+function normalizeProgramTitle(programTitle: string): string {
   return programTitle.trim().replace(/\s+/gu, " ").toUpperCase();
 }
 
@@ -619,7 +656,7 @@ function getProgramChoiceKind(programTitle: string): ProgramChoiceOption["kind"]
   return "career";
 }
 
-function formatProgramChoiceLabel(programTitle: string) {
+function formatProgramChoiceLabel(programTitle: string): string {
   const normalizedTitle = programTitle
     .trim()
     .replace(/^LICENCIATURA EN /iu, "")

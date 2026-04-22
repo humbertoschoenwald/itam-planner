@@ -5,7 +5,7 @@ import type {
   SchedulePeriodSummary,
 } from "@/lib/types";
 
-export interface SubjectDirectoryEntry {
+export type SubjectDirectoryEntry = {
   courseCode: string;
   semesterOrder: number | null;
   title: string;
@@ -19,38 +19,24 @@ const REGULAR_TERM_ORDER: Record<"fall" | "spring", number> = {
 export function estimateSemesterNumber(
   entryTerm: string,
   currentPeriod: SchedulePeriodSummary | null,
-) {
-  const parsedEntryTerm = parseEntryTerm(entryTerm);
-  const resolvedCurrentPeriod = currentPeriod;
+): number | null {
+  const semesterEstimateInput = buildSemesterEstimateInput(entryTerm, currentPeriod);
 
-  if (
-    !parsedEntryTerm.seasonKey ||
-    !parsedEntryTerm.year ||
-    resolvedCurrentPeriod === null ||
-    resolvedCurrentPeriod.year === null
-  ) {
+  if (semesterEstimateInput === null) {
     return null;
   }
 
-  const entryYear = Number.parseInt(parsedEntryTerm.year, 10);
-  const periodSeason = normalizePeriodSeason(
-    resolvedCurrentPeriod.term ?? resolvedCurrentPeriod.label,
-  );
-
-  if (!Number.isInteger(entryYear) || periodSeason === null) {
-    return null;
-  }
-
-  const yearDifference = resolvedCurrentPeriod.year - entryYear;
+  const { currentPeriodYear, entrySeasonKey, entryYear, periodSeason } = semesterEstimateInput;
+  const yearDifference = currentPeriodYear - entryYear;
   const estimated =
     yearDifference * 2 +
-    (REGULAR_TERM_ORDER[periodSeason] - REGULAR_TERM_ORDER[parsedEntryTerm.seasonKey]) +
+    (REGULAR_TERM_ORDER[periodSeason] - REGULAR_TERM_ORDER[entrySeasonKey]) +
     1;
 
   return Number.isInteger(estimated) ? Math.max(1, Math.min(8, estimated)) : null;
 }
 
-export function buildSubjectDirectory(documents: BulletinDocument[]) {
+export function buildSubjectDirectory(documents: BulletinDocument[]): SubjectDirectoryEntry[] {
   const entries = new Map<string, SubjectDirectoryEntry>();
 
   for (const document of documents) {
@@ -85,7 +71,7 @@ export function buildSubjectDirectory(documents: BulletinDocument[]) {
   );
 }
 
-export function buildSubjectTitleLookup(documents: BulletinDocument[]) {
+export function buildSubjectTitleLookup(documents: BulletinDocument[]): Map<string, string> {
   return new Map(
     buildSubjectDirectory(documents).map((entry) => [entry.courseCode, entry.title] as const),
   );
@@ -98,27 +84,14 @@ export function buildRecommendedSubjectCodes(
     allDocuments?: BulletinDocument[];
     fallbackCareerIds?: string[];
   },
-) {
+): string[] {
   if (estimatedSemester === null) {
     return [];
   }
 
-  const collected = new Set<string>();
+  const recommendedCodes = collectRecommendedSubjectCodes(documents, estimatedSemester);
 
-  for (const document of documents) {
-    for (const requirement of document.requirements) {
-      const courseCode =
-        typeof requirement.course_code === "string" ? requirement.course_code.trim() : "";
-
-      if (requirement.semester_order === estimatedSemester && courseCode) {
-        collected.add(courseCode);
-      }
-    }
-  }
-
-  const recommendedCodes = [...collected].sort((left, right) => left.localeCompare(right, "es-MX"));
-
-  if (recommendedCodes.length > 0 || !options?.fallbackCareerIds?.length) {
+  if (recommendedCodes.length > 0 || !hasFallbackCareerIds(options?.fallbackCareerIds)) {
     return recommendedCodes;
   }
 
@@ -132,7 +105,7 @@ export function buildRecommendedSubjectCodes(
 export function buildSelectedSubjectSummary(
   selectedSubjectCodes: string[],
   directory: SubjectDirectoryEntry[],
-) {
+): SubjectDirectoryEntry[] {
   const selected = new Set(selectedSubjectCodes);
 
   return directory.filter((entry) => selected.has(entry.courseCode));
@@ -141,7 +114,7 @@ export function buildSelectedSubjectSummary(
 export function searchSubjectDirectory(
   directory: SubjectDirectoryEntry[],
   query: string,
-) {
+): SubjectDirectoryEntry[] {
   const normalizedQuery = normalizeQuery(query);
 
   if (!normalizedQuery) {
@@ -157,7 +130,7 @@ export function getCanonicalSubjectTitle(
   courseCode: string,
   titleLookup: ReadonlyMap<string, string>,
   fallbackTitle: string,
-) {
+): string {
   const canonicalTitle = titleLookup.get(courseCode)?.trim();
 
   if (canonicalTitle) {
@@ -167,7 +140,7 @@ export function getCanonicalSubjectTitle(
   return formatVisibleAcademicTitle(fallbackTitle);
 }
 
-function normalizePeriodSeason(value: string | null) {
+function normalizePeriodSeason(value: string | null): "spring" | "fall" | null {
   if (!value) {
     return null;
   }
@@ -185,7 +158,7 @@ function normalizePeriodSeason(value: string | null) {
   return null;
 }
 
-function normalizeQuery(value: string) {
+function normalizeQuery(value: string): string {
   return value
     .toLocaleLowerCase("es-MX")
     .normalize("NFD")
@@ -203,7 +176,7 @@ function buildFallbackSubjectCodesFromOfficialStudyPlans(
   careerIds: string[],
   estimatedSemester: number,
   documents: BulletinDocument[],
-) {
+): string[] {
   const titleIndex = buildTitleIndex(documents);
   const collected = new Set<string>();
 
@@ -222,7 +195,7 @@ function buildFallbackSubjectCodesFromOfficialStudyPlans(
   return [...collected].sort((left, right) => left.localeCompare(right, "es-MX"));
 }
 
-function buildTitleIndex(documents: BulletinDocument[]) {
+function buildTitleIndex(documents: BulletinDocument[]): Map<string, string[]> {
   const titleIndex = new Map<string, string[]>();
 
   for (const document of documents) {
@@ -248,48 +221,30 @@ function buildTitleIndex(documents: BulletinDocument[]) {
 function resolveCourseCodeFromOfficialStudyPlanTitle(
   title: string,
   titleIndex: ReadonlyMap<string, string[]>,
-) {
+): string | null {
   const normalizedTitle = normalizeOfficialStudyPlanTitle(title);
-  const directMatch = titleIndex.get(normalizedTitle);
+  const directMatch = getFirstCourseCode(titleIndex.get(normalizedTitle));
 
-  if (directMatch?.[0]) {
-    return directMatch[0];
+  if (directMatch) {
+    return directMatch;
   }
 
-  const aliasMatch = titleIndex.get(OFFICIAL_STUDY_PLAN_TITLE_ALIASES[normalizedTitle] ?? "");
+  const aliasMatch = getFirstCourseCode(
+    titleIndex.get(OFFICIAL_STUDY_PLAN_TITLE_ALIASES[normalizedTitle] ?? ""),
+  );
 
-  if (aliasMatch?.[0]) {
-    return aliasMatch[0];
+  if (aliasMatch) {
+    return aliasMatch;
   }
 
-  const rankedMatches = [...titleIndex.entries()]
-    .map(([candidateTitle, courseCodes]) => ({
-      candidateTitle,
-      courseCode: courseCodes[0] ?? null,
-      score: scoreAcademicTitleMatch(normalizedTitle, candidateTitle),
-    }))
-    .filter((candidate) => candidate.courseCode !== null && candidate.score >= 0.78)
-    .sort((left, right) => right.score - left.score || left.candidateTitle.localeCompare(right.candidateTitle, "es-MX"));
-
-  const bestMatch = rankedMatches[0];
-  const secondMatch = rankedMatches[1];
-
-  if (!bestMatch?.courseCode) {
-    return null;
-  }
-
-  if (secondMatch && bestMatch.score - secondMatch.score < 0.08) {
-    return null;
-  }
-
-  return bestMatch.courseCode;
+  return resolveRankedCourseCodeMatch(normalizedTitle, titleIndex);
 }
 
-function normalizeOfficialStudyPlanTitle(value: string) {
+function normalizeOfficialStudyPlanTitle(value: string): string {
   return OFFICIAL_STUDY_PLAN_TITLE_ALIASES[normalizeQuery(value)] ?? normalizeQuery(value);
 }
 
-function scoreAcademicTitleMatch(left: string, right: string) {
+function scoreAcademicTitleMatch(left: string, right: string): number {
   if (left === right) {
     return 1;
   }
@@ -315,7 +270,7 @@ const OFFICIAL_STUDY_PLAN_TITLE_ALIASES: Record<string, string> = {
     "comunicacion profesional para ingenieria",
 };
 
-function formatVisibleAcademicTitle(value: string) {
+function formatVisibleAcademicTitle(value: string): string {
   const normalized = value.trim();
 
   if (!normalized) {
@@ -339,4 +294,96 @@ function formatVisibleAcademicTitle(value: string) {
       return `${firstLetter.toLocaleUpperCase("es-MX")}${rest.join("")}`;
     })
     .join(" ");
+}
+
+function buildSemesterEstimateInput(
+  entryTerm: string,
+  currentPeriod: SchedulePeriodSummary | null,
+): {
+  currentPeriodYear: number;
+  entrySeasonKey: "fall" | "spring";
+  entryYear: number;
+  periodSeason: "fall" | "spring";
+} | null {
+  const parsedEntryTerm = parseEntryTerm(entryTerm);
+
+  if (
+    !parsedEntryTerm.seasonKey ||
+    !parsedEntryTerm.year ||
+    currentPeriod === null ||
+    currentPeriod.year === null
+  ) {
+    return null;
+  }
+
+  const entryYear = Number.parseInt(parsedEntryTerm.year, 10);
+  const periodSeason = normalizePeriodSeason(currentPeriod.term ?? currentPeriod.label);
+
+  if (!Number.isInteger(entryYear) || periodSeason === null) {
+    return null;
+  }
+
+  return {
+    currentPeriodYear: currentPeriod.year,
+    entrySeasonKey: parsedEntryTerm.seasonKey,
+    entryYear,
+    periodSeason,
+  };
+}
+
+function collectRecommendedSubjectCodes(
+  documents: BulletinDocument[],
+  estimatedSemester: number,
+): string[] {
+  const collected = new Set<string>();
+
+  for (const document of documents) {
+    for (const requirement of document.requirements) {
+      const courseCode =
+        typeof requirement.course_code === "string" ? requirement.course_code.trim() : "";
+
+      if (requirement.semester_order === estimatedSemester && courseCode) {
+        collected.add(courseCode);
+      }
+    }
+  }
+
+  return [...collected].sort((left, right) => left.localeCompare(right, "es-MX"));
+}
+
+function hasFallbackCareerIds(fallbackCareerIds: string[] | undefined): fallbackCareerIds is string[] {
+  return Array.isArray(fallbackCareerIds) && fallbackCareerIds.length > 0;
+}
+
+function getFirstCourseCode(courseCodes: string[] | undefined): string | null {
+  return courseCodes?.[0] ?? null;
+}
+
+function resolveRankedCourseCodeMatch(
+  normalizedTitle: string,
+  titleIndex: ReadonlyMap<string, string[]>,
+): string | null {
+  const rankedMatches = [...titleIndex.entries()]
+    .map(([candidateTitle, courseCodes]) => ({
+      candidateTitle,
+      courseCode: getFirstCourseCode(courseCodes),
+      score: scoreAcademicTitleMatch(normalizedTitle, candidateTitle),
+    }))
+    .filter((candidate) => candidate.courseCode !== null && candidate.score >= 0.78)
+    .sort(
+      (left, right) =>
+        right.score - left.score ||
+        left.candidateTitle.localeCompare(right.candidateTitle, "es-MX"),
+    );
+
+  const bestMatch = rankedMatches[0];
+  const secondMatch = rankedMatches[1];
+
+  if (!bestMatch?.courseCode) {
+    return null;
+  }
+
+  return secondMatch && bestMatch.score - secondMatch.score < 0.08
+    ? null
+    : bestMatch.courseCode;
 }

@@ -25,8 +25,11 @@ node_modules/
 apps/web/node_modules/
 apps/web/.next/
 apps/web/coverage/
+apps/web/playwright-report/
+apps/web/.tmp-*
 apps/web/.vercel/
 apps/web/public/catalog/
+apps/web/test-results/
 apps/web/.env
 apps/web/.env.local
 apps/web/.env.*.local

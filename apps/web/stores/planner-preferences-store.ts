@@ -25,7 +25,7 @@ export type SchedulePreferenceWeightKey =
   | "lighterDay"
   | "sameTheoryLabGroup";
 
-export interface SchedulePreferenceWeights {
+export type SchedulePreferenceWeights = {
   classSpacing: number;
   lighterDay: number;
   sameTheoryLabGroup: number;
@@ -33,7 +33,7 @@ export interface SchedulePreferenceWeights {
   timeRange: number;
 }
 
-export interface ScheduleGenerationPreferences {
+export type ScheduleGenerationPreferences = {
   classSpacing: ClassSpacingPreference;
   lighterDayPreference: SchedulePreferenceDayCode | null;
   sameTheoryLabGroup: boolean;
@@ -43,7 +43,7 @@ export interface ScheduleGenerationPreferences {
   weights: SchedulePreferenceWeights;
 }
 
-interface PlannerPreferencesStoreState {
+type PlannerPreferencesStoreState = {
   preferences: ScheduleGenerationPreferences;
   resetPreferences: () => void;
   setClassSpacing: (value: ClassSpacingPreference) => void;
@@ -203,7 +203,7 @@ function sanitizeWeights(value: unknown): SchedulePreferenceWeights {
   };
 }
 
-function sanitizeWeightValue(value: unknown) {
+function sanitizeWeightValue(value: unknown): number {
   const numericValue =
     typeof value === "number" && Number.isFinite(value)
       ? value
@@ -212,12 +212,12 @@ function sanitizeWeightValue(value: unknown) {
   return Math.min(Math.max(Math.round(numericValue), 0), 100);
 }
 
-function sanitizeTimeValue(value: unknown, fallback: string) {
+function sanitizeTimeValue(value: unknown, fallback: string): string {
   return typeof value === "string" && /^([01]\d|2[0-3]):(00|30)$/u.test(value)
     ? value
     : fallback;
 }
 
-function compareTimeValues(left: string, right: string) {
+function compareTimeValues(left: string, right: string): number {
   return left.localeCompare(right, "en");
 }

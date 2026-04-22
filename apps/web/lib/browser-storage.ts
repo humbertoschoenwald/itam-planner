@@ -16,7 +16,7 @@ function getBrowserStorage(): Storage | null {
   }
 }
 
-function safeRead(storage: Storage, key: string) {
+function safeRead(storage: Storage, key: string): string | null {
   try {
     return storage.getItem(key);
   } catch {
@@ -24,7 +24,7 @@ function safeRead(storage: Storage, key: string) {
   }
 }
 
-function safeWrite(storage: Storage, key: string, value: string) {
+function safeWrite(storage: Storage, key: string, value: string): void {
   try {
     storage.setItem(key, value);
   } catch {
@@ -32,7 +32,7 @@ function safeWrite(storage: Storage, key: string, value: string) {
   }
 }
 
-function safeRemove(storage: Storage, key: string) {
+function safeRemove(storage: Storage, key: string): void {
   try {
     storage.removeItem(key);
   } catch {
@@ -40,7 +40,7 @@ function safeRemove(storage: Storage, key: string) {
   }
 }
 
-export function clearSafeBrowserState(keys: readonly string[]) {
+export function clearSafeBrowserState(keys: readonly string[]): void {
   const storage = getBrowserStorage();
 
   for (const key of keys) {
@@ -54,7 +54,7 @@ export function clearSafeBrowserState(keys: readonly string[]) {
 
 export function createSafeJsonStorage<T>(): PersistStorage<T> {
   return {
-    getItem(name) {
+    getItem(name): StorageValue<T> | null {
       const storage = getBrowserStorage();
       const rawValue = storage !== null ? safeRead(storage, name) : null;
       const serialized = rawValue ?? memoryFallback.get(name) ?? null;
@@ -70,10 +70,10 @@ export function createSafeJsonStorage<T>(): PersistStorage<T> {
         return null;
       }
     },
-    removeItem(name) {
+    removeItem(name): void {
       clearSafeBrowserState([name]);
     },
-    setItem(name, value) {
+    setItem(name, value): void {
       const serialized = JSON.stringify(value);
       memoryFallback.set(name, serialized);
 

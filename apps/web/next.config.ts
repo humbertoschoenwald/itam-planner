@@ -1,9 +1,15 @@
 import type { NextConfig } from "next";
 
+const ONE_HOUR = 60 * 60;
+const ONE_DAY = 60 * 60 * 24;
+const ONE_WEEK = 60 * 60 * 24 * 7;
+const ONE_YEAR = 60 * 60 * 24 * 365;
+const ALLOWED_DEV_ORIGINS = ["127.0.0.1"];
+
 const SECURITY_HEADERS = [
   {
     key: "Strict-Transport-Security",
-    value: "max-age=31536000; includeSubDomains; preload",
+    value: `max-age=${ONE_YEAR}; includeSubDomains; preload`,
   },
   {
     key: "Referrer-Policy",
@@ -21,51 +27,58 @@ const SECURITY_HEADERS = [
     key: "Permissions-Policy",
     value: "camera=(), microphone=(), geolocation=(), browsing-topics=()",
   },
-];
+] satisfies Awaited<ReturnType<NonNullable<NextConfig["headers"]>>>[number]["headers"];
 
-const nextConfig: NextConfig = {
-  async redirects() {
-    return [
-      {
-        destination: "/planner/onboarding",
-        permanent: true,
-        source: "/onboarding",
-      },
-      {
-        destination: "/project",
-        permanent: true,
-        source: "/community",
-      },
-      {
-        destination: "/connect-ai",
-        permanent: true,
-        source: "/connect-chatgpt",
-      },
-      {
-        destination: "/registration",
-        permanent: true,
-        source: "/inscripciones",
-      },
-      {
-        destination: "/map",
-        permanent: true,
-        source: "/mapa",
-      },
-      {
-        destination: "/settings",
-        permanent: true,
-        source: "/planner/settings",
-      },
-    ];
+const REDIRECTS = [
+  {
+    source: "/onboarding",
+    destination: "/planner/onboarding",
+    permanent: true,
   },
-  async headers() {
+  {
+    source: "/community",
+    destination: "/project",
+    permanent: true,
+  },
+  {
+    source: "/connect-chatgpt",
+    destination: "/connect-ai",
+    permanent: true,
+  },
+  {
+    source: "/inscripciones",
+    destination: "/registration",
+    permanent: true,
+  },
+  {
+    source: "/mapa",
+    destination: "/map",
+    permanent: true,
+  },
+  {
+    source: "/planner/settings",
+    destination: "/settings",
+    permanent: true,
+  },
+] satisfies Awaited<ReturnType<NonNullable<NextConfig["redirects"]>>>;
+
+const nextConfig = {
+  allowedDevOrigins: ALLOWED_DEV_ORIGINS,
+  devIndicators: false,
+  reactStrictMode: true,
+
+  async redirects(): Promise<{ source: string; destination: string; permanent: true; }[]> {
+    return REDIRECTS;
+  },
+
+  async headers(): Promise<{ source: string; headers: { key: string; value: string; }[]; }[]> {
     return [
       {
         source: "/catalog/latest/:path*",
         headers: [
           {
             key: "Cache-Control",
-            value: "public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800",
+            value: `public, max-age=${ONE_HOUR}, s-maxage=${ONE_DAY}, stale-while-revalidate=${ONE_WEEK}`,
           },
         ],
       },
@@ -74,16 +87,16 @@ const nextConfig: NextConfig = {
         headers: [
           {
             key: "Cache-Control",
-            value: "public, max-age=3600, stale-while-revalidate=86400",
+            value: `public, max-age=${ONE_HOUR}, stale-while-revalidate=${ONE_DAY}`,
           },
         ],
       },
       {
-        source: "/(.*)",
+        source: "/:path*",
         headers: SECURITY_HEADERS,
       },
     ];
   },
-};
+} satisfies NextConfig;
 
 export default nextConfig;

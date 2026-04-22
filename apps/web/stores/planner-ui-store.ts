@@ -11,13 +11,13 @@ export type NavSwipePreference = "natural" | "inverted" | null;
 
 export const PLANNER_WIDGET_IDS = ["today", "week", "subjects"] as const satisfies readonly PlannerWidgetId[];
 
-export interface PlannerUiState {
+export type PlannerUiState = {
   hasCompletedSetupAnimation: boolean;
   navSwipePreference: NavSwipePreference;
   plannerWidgetIds: PlannerWidgetId[];
 }
 
-interface PlannerUiStoreState {
+type PlannerUiStoreState = {
   state: PlannerUiState;
   resetPlannerUi: () => void;
   setHasCompletedSetupAnimation: (value: boolean) => void;

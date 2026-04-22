@@ -9,7 +9,7 @@ const copy = getUiCopy(DEFAULT_LOCALE);
 
 export const metadata: Metadata = buildPageMetadata(DEFAULT_LOCALE, "privacy");
 
-export default function PrivacyPage() {
+export default function PrivacyPage(): React.JSX.Element {
   return (
     <LegalPageShell
       description={copy.legalPages.privacy.description}

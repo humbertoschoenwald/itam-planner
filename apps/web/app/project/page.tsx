@@ -6,6 +6,6 @@ import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata(DEFAULT_LOCALE, "project");
 
-export default function ProjectPage() {
+export default function ProjectPage(): React.JSX.Element {
   return <ProjectPageShell />;
 }

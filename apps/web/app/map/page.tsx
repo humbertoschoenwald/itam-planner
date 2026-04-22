@@ -6,6 +6,6 @@ import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata(DEFAULT_LOCALE, "map");
 
-export default function MapPage() {
+export default function MapPage(): React.JSX.Element {
   return <MapPageShell />;
 }

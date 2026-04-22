@@ -9,7 +9,7 @@ describe("browser storage", () => {
 
     Object.defineProperty(window, "localStorage", {
       configurable: true,
-      get() {
+      get(): never {
         throw new Error("blocked");
       },
     });
@@ -26,6 +26,8 @@ describe("browser storage", () => {
 
       storage.removeItem("itam");
       expect(storage.getItem("itam")).toBeNull();
+    } catch (error) {
+      throw error;
     } finally {
       clearSafeBrowserState(["itam"]);
 
@@ -40,7 +42,7 @@ describe("browser storage", () => {
 
     Object.defineProperty(window, "localStorage", {
       configurable: true,
-      get() {
+      get(): never {
         throw new Error("blocked");
       },
     });
@@ -55,6 +57,8 @@ describe("browser storage", () => {
       expect(storage.getItem("itam")).toBeNull();
       expect(() => storage.setItem("itam", storedValue)).not.toThrow();
       expect(() => storage.removeItem("itam")).not.toThrow();
+    } catch (error) {
+      throw error;
     } finally {
       clearSafeBrowserState(["itam"]);
 
@@ -70,13 +74,13 @@ describe("browser storage", () => {
     Object.defineProperty(window, "localStorage", {
       configurable: true,
       value: {
-        getItem() {
+        getItem(): never {
           throw new Error("read blocked");
         },
-        removeItem() {
+        removeItem(): never {
           throw new Error("remove blocked");
         },
-        setItem() {
+        setItem(): never {
           throw new Error("write blocked");
         },
       },
@@ -93,6 +97,8 @@ describe("browser storage", () => {
       expect(() => storage.setItem("itam", storedValue)).not.toThrow();
       expect(storage.getItem("itam")).toEqual(storedValue);
       expect(() => storage.removeItem("itam")).not.toThrow();
+    } catch (error) {
+      throw error;
     } finally {
       clearSafeBrowserState(["itam"]);
 
@@ -109,11 +115,11 @@ describe("browser storage", () => {
     Object.defineProperty(window, "localStorage", {
       configurable: true,
       value: {
-        getItem() {
+        getItem(): string {
           return "{broken";
         },
         removeItem,
-        setItem() {
+        setItem(): undefined {
           return undefined;
         },
       },
@@ -124,6 +130,8 @@ describe("browser storage", () => {
 
       expect(storage.getItem("itam")).toBeNull();
       expect(removeItem).toHaveBeenCalledWith("itam");
+    } catch (error) {
+      throw error;
     } finally {
       clearSafeBrowserState(["itam"]);
 

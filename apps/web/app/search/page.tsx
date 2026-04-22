@@ -7,7 +7,7 @@ import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata(DEFAULT_LOCALE, "search");
 
-export default async function SearchPage() {
+export default async function SearchPage(): Promise<React.JSX.Element> {
   const bootstrap = await readSearchBootstrap();
 
   return <SearchPageShell bootstrap={bootstrap} />;

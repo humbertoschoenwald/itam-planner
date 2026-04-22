@@ -7,7 +7,7 @@ import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata(DEFAULT_LOCALE, "plannerOnboarding");
 
-export default async function PlannerOnboardingPage() {
+export default async function PlannerOnboardingPage(): Promise<React.JSX.Element> {
   const bootstrap = await readOnboardingBootstrap();
 
   return (

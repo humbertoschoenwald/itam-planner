@@ -6,7 +6,7 @@ import { getUiCopy } from "@/lib/copy";
 import { getCanonicalSubjectTitle } from "@/lib/presenters/schedule";
 import type { LocaleCode, ScheduleOffering } from "@/lib/types";
 
-interface TodayClassesCardProps {
+type TodayClassesCardProps = {
   locale: LocaleCode;
   offerings: ScheduleOffering[];
   subjectTitleLookup?: ReadonlyMap<string, string>;
@@ -16,7 +16,7 @@ export function TodayClassesCard({
   locale,
   offerings,
   subjectTitleLookup = new Map<string, string>(),
-}: TodayClassesCardProps) {
+}: TodayClassesCardProps): React.JSX.Element {
   const copy = getUiCopy(locale);
   const today = getMexicoCityDateContext();
   const day = buildWeeklyAgenda(offerings).find((item) => item.weekdayCode === today.weekdayCode);
@@ -29,13 +29,16 @@ export function TodayClassesCard({
       </CardHeader>
       <CardContent className="space-y-4">
         <p className="text-sm leading-6 text-muted">{copy.plannerHome.todayBoard.description}</p>
-        <div className="soft-panel">
+        <div className="soft-panel flex flex-wrap items-center justify-between gap-3">
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted">
             {copy.common.weekdayLabels[
               today.weekdayCode as keyof typeof copy.common.weekdayLabels
             ]}{" "}
             · {today.isoDate}
           </p>
+          <span className="rounded-full bg-surface-elevated px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-accent">
+            {day?.items.length ?? 0}
+          </span>
         </div>
 
         {day && day.items.length > 0 ? (

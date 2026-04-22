@@ -7,7 +7,7 @@ import { usePlannerStore } from "@/stores/planner-store";
 import { useStudentCodeStore } from "@/stores/student-code-store";
 import { useStudentProfileStore } from "@/stores/student-profile-store";
 
-export function useSyncStudentCode() {
+export function useSyncStudentCode(): void {
   const academicLevel = useStudentProfileStore((state) => state.profile.academicLevel);
   const entryTerm = useStudentProfileStore((state) => state.profile.entryTerm);
   const activePlanIds = useStudentProfileStore((state) => state.profile.activePlanIds);
@@ -23,16 +23,18 @@ export function useSyncStudentCode() {
   const clearCode = useStudentCodeStore((state) => state.clearCode);
 
   useEffect(() => {
-    const hasProfileData =
-      academicLevel !== null ||
-      entryTerm.trim().length > 0 ||
-      activePlanIds.length > 0 ||
-      selectedCareerIds.length > 0 ||
-      selectedJointProgramIds.length > 0;
-    const hasPlannerData =
-      selectedPeriodId !== null ||
-      selectedOfferingIds.length > 0 ||
-      selectedSubjectCodes.length > 0;
+    const hasProfileData = hasStudentProfileCodeInput({
+      academicLevel,
+      activePlanIds,
+      entryTerm,
+      selectedCareerIds,
+      selectedJointProgramIds,
+    });
+    const hasPlannerData = hasPlannerCodeInput({
+      selectedOfferingIds,
+      selectedPeriodId,
+      selectedSubjectCodes,
+    });
 
     if (!hasProfileData && !hasPlannerData) {
       clearCode();
@@ -73,4 +75,42 @@ export function useSyncStudentCode() {
     selectedSubjectCodes,
     setCode,
   ]);
+}
+
+function hasStudentProfileCodeInput({
+  academicLevel,
+  activePlanIds,
+  entryTerm,
+  selectedCareerIds,
+  selectedJointProgramIds,
+}: {
+  academicLevel: ReturnType<typeof useStudentProfileStore.getState>["profile"]["academicLevel"];
+  activePlanIds: string[];
+  entryTerm: string;
+  selectedCareerIds: string[];
+  selectedJointProgramIds: string[];
+}): boolean {
+  return (
+    academicLevel !== null ||
+    entryTerm.trim().length > 0 ||
+    activePlanIds.length > 0 ||
+    selectedCareerIds.length > 0 ||
+    selectedJointProgramIds.length > 0
+  );
+}
+
+function hasPlannerCodeInput({
+  selectedOfferingIds,
+  selectedPeriodId,
+  selectedSubjectCodes,
+}: {
+  selectedOfferingIds: string[];
+  selectedPeriodId: string | null;
+  selectedSubjectCodes: string[];
+}): boolean {
+  return (
+    selectedPeriodId !== null ||
+    selectedOfferingIds.length > 0 ||
+    selectedSubjectCodes.length > 0
+  );
 }

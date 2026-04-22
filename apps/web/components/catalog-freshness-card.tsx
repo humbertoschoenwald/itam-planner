@@ -1,11 +1,13 @@
 "use client";
 
+import type { JSX } from "react";
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { summarizeCatalogSnapshot } from "@/lib/presenters/catalog";
 import { getUiCopy } from "@/lib/copy";
 import type { LocaleCode, SourcesMetadata } from "@/lib/types";
 
-interface CatalogFreshnessCardProps {
+type CatalogFreshnessCardProps = {
   isLoading: boolean;
   locale: LocaleCode;
   metadata: SourcesMetadata | null;
@@ -23,9 +25,10 @@ export function CatalogFreshnessCard({
   isLoading,
   locale,
   metadata,
-}: CatalogFreshnessCardProps) {
+}: CatalogFreshnessCardProps): JSX.Element {
   const copy = getUiCopy(locale);
   const summary = summarizeCatalogSnapshot(metadata);
+  const latestRunStatus = summary.latestRunStatus ?? "unknown";
 
   const metrics = [
     {
@@ -57,7 +60,7 @@ export function CatalogFreshnessCard({
           {copy.plannerHome.catalogFreshness.description}
         </p>
 
-        <div className="metric-grid">
+        <div className="metric-grid min-[820px]:grid-cols-4">
           {metrics.map((metric) => (
             <div key={metric.label} className="metric-chip">
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted">
@@ -77,8 +80,7 @@ export function CatalogFreshnessCard({
               RUN_STATUS_CLASS_NAMES[summary.latestRunStatus ?? ""] ?? "bg-stone-200 text-stone-800",
             ].join(" ")}
           >
-            {copy.plannerHome.catalogFreshness.statusLabels[summary.latestRunStatus ?? "unknown"] ??
-              copy.plannerHome.catalogFreshness.statusLabels.unknown}
+            {copy.plannerHome.catalogFreshness.statusLabels[latestRunStatus]}
           </span>
           <div className="text-sm leading-6 text-muted">
             {summary.promotedReleaseId
@@ -91,7 +93,7 @@ export function CatalogFreshnessCard({
   );
 }
 
-function formatDateTime(value: string | null, locale: LocaleCode) {
+function formatDateTime(value: string | null, locale: LocaleCode): string {
   const copy = getUiCopy(locale);
 
   if (!value) {

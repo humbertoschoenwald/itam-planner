@@ -84,8 +84,22 @@ pnpm install
 pnpm dev:web
 pnpm lint:web
 pnpm test:web
+pnpm test:web:responsive
+pnpm test:web:responsive:headed
+pnpm test:web:responsive:ui
 pnpm typecheck:web
 ```
+
+Responsive and browser-debug workflow:
+
+- Use the workspace `.vscode` launch profiles to open the Next.js app directly in Chrome or Microsoft Edge DevTools while `pnpm dev:web` runs.
+- Use the workspace `.vscode` tasks `Web: Responsive Smoke`, `Web: Responsive Smoke (Headed)`, and `Web: Responsive Smoke UI` to move between terminal, visible-browser, and interactive Playwright debugging without reassembling the workflow by hand.
+- Use `pnpm test:web:responsive` for the fast browser-level responsive smoke that covers desktop Chromium, phone WebKit, and tablet WebKit.
+- Treat Playwright WebKit as Safari-adjacent verification, not as the final authority for Safari. Final Apple-specific validation still belongs in Safari Responsive Design Mode, Open with Simulator, and Web Inspector when a slice materially changes mobile layout or interaction.
+- Official Apple verification path:
+  - Safari Responsive Design Mode: [Apple Developer](https://developer.apple.com/documentation/safari-developer-tools/responsive-design-mode)
+  - iPhone/iPad inspection from macOS Safari Develop menu: [Apple Developer](https://developer.apple.com/documentation/safari-developer-tools/inspecting-ios)
+  - Visual viewport behavior for mobile browser chrome and on-screen keyboard handling: [MDN Visual Viewport API](https://developer.mozilla.org/en-US/docs/Web/API/Visual_Viewport_API)
 
 The web app can read the published catalog directly from its own static build artifact. The deployed site ships the generated JSON projections needed by the client; the canonical SQLite snapshot remains in `public-data/latest` and is not required inside the web bundle. Set `NEXT_PUBLIC_ITAM_PLANNER_API_BASE_URL` only when you intentionally want the web client to talk to a separate API origin. See `apps/web/.env.example`.
 

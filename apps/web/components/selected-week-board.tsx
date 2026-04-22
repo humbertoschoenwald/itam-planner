@@ -5,7 +5,7 @@ import { getUiCopy } from "@/lib/copy";
 import { buildTimetableGrid } from "@/lib/presenters/catalog";
 import type { LocaleCode, ScheduleOffering } from "@/lib/types";
 
-interface SelectedWeekBoardProps {
+type SelectedWeekBoardProps = {
   locale: LocaleCode;
   offerings: ScheduleOffering[];
   subjectTitleLookup: ReadonlyMap<string, string>;
@@ -15,7 +15,7 @@ export function SelectedWeekBoard({
   locale,
   offerings,
   subjectTitleLookup,
-}: SelectedWeekBoardProps) {
+}: SelectedWeekBoardProps): React.JSX.Element {
   const copy = getUiCopy(locale);
   const timetable = buildTimetableGrid(offerings, subjectTitleLookup);
 
@@ -29,18 +29,15 @@ export function SelectedWeekBoard({
         <p className="text-sm leading-6 text-muted">{copy.plannerHome.weekBoard.description}</p>
 
         {timetable.rows.length > 0 ? (
-          <div className="overflow-x-auto rounded-[1.35rem] border border-border bg-surface-elevated">
-            <table className="w-full min-w-[880px] border-collapse text-left text-xs leading-5">
+          <div className="timetable-frame">
+            <table className="timetable-grid-table text-left text-xs leading-5">
               <thead>
                 <tr>
-                  <th className="border-b border-border bg-background px-3 py-3 font-semibold text-foreground">
+                  <th className="timetable-head-cell">
                     {copy.common.timeColumnLabel}
                   </th>
                   {timetable.days.map((weekdayCode) => (
-                    <th
-                      key={weekdayCode}
-                      className="border-b border-l border-border bg-background px-3 py-3 font-semibold text-foreground"
-                    >
+                    <th key={weekdayCode} className="timetable-head-cell border-l border-border/80">
                       {
                         copy.common.weekdayLabels[
                           weekdayCode as keyof typeof copy.common.weekdayLabels
@@ -53,24 +50,21 @@ export function SelectedWeekBoard({
               <tbody>
                 {timetable.rows.map((row) => (
                   <tr key={row.label}>
-                    <th className="border-t border-border bg-background px-3 py-2 align-top font-medium text-muted">
+                    <th className="timetable-time-cell align-top">
                       {row.label}
                     </th>
                     {timetable.days.map((weekdayCode) => {
                       const cellItems = row.cells[weekdayCode];
 
                       return (
-                        <td
-                          key={`${row.label}-${weekdayCode}`}
-                          className="border-l border-t border-border px-2 py-2 align-top"
-                        >
+                        <td key={`${row.label}-${weekdayCode}`} className="timetable-cell">
                           {cellItems.length === 0 ? null : (
                             <div className="grid gap-2">
                               {cellItems.map((item) =>
                                 item.startsAtSlot ? (
                                   <article
                                     key={`${weekdayCode}-${row.label}-${item.meeting.courseCode}-${item.meeting.groupCode}-${item.meeting.startTime}`}
-                                    className="rounded-[1rem] border border-accent/20 bg-accent-soft px-2 py-2 text-[11px] leading-5"
+                                    className="timetable-entry text-[11px] leading-5"
                                   >
                                     <p className="font-semibold text-accent">
                                       {item.meeting.courseCode}({item.meeting.groupCode})
@@ -87,7 +81,7 @@ export function SelectedWeekBoard({
                                   <span
                                     key={`${weekdayCode}-${row.label}-${item.meeting.courseCode}-${item.meeting.groupCode}-continuation`}
                                     aria-hidden
-                                    className="block h-6 rounded-[0.85rem] bg-accent/15"
+                                    className="timetable-continue"
                                   />
                                 ),
                               )}

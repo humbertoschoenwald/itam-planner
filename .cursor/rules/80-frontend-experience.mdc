@@ -12,6 +12,8 @@ alwaysApply: true
 - RULE: Keep product UI Spanish-first with English as the secondary locale.
 - RULE: Keep repository-facing content in English.
 - RULE: Favor stable browser APIs and lightweight frontend decisions that work well on WebKit.
+- RULE: Treat automated WebKit checks as Safari-adjacent verification, not as a replacement for final manual Safari validation when a slice materially changes mobile layout or interaction.
+- RULE: Use Safari Responsive Design Mode and, when needed, Open with Simulator and iOS/iPadOS Web Inspector as the canonical manual validation path for Apple-device layout and interaction issues.
 - RULE: Support both light and dark presentation and default to the system color-scheme preference.
 - RULE: Target WCAG 2.2 AA in product decisions and avoid public conformance claims until the relevant UI slice is actually audited.
 - RULE: Use `Home`, `Planner`, and `Calendario` as the primary public navigation destinations.
@@ -48,6 +50,7 @@ alwaysApply: true
 - RULE: Treat SEO, crawlability, and structured metadata as product requirements.
 - RULE: Drive visible UI strings, route chrome labels, selector labels, ARIA labels, and locale-dependent option labels from locale dictionaries instead of hardcoded component or page strings.
 - RULE: Drive public metadata text, structured-data descriptions, and other crawlable locale-facing SEO copy from locale dictionaries instead of hardcoded page-module strings.
+- RULE: Drive App Router metadata routes and metadata helpers, including `manifest`, `robots`, `sitemap`, and JSON-LD input copy, from dedicated locale/i18n modules instead of inline literals.
 - RULE: Keep frontend identifiers, enum values, configuration keys, and non-locale component APIs English-only; Spanish belongs only in locale dictionaries, source-derived content, and compatibility aliases.
 - RULE: Support only `es-MX` and `en` as product locales in the current slice.
 - RULE: Any locale-facing text change must update the locale dictionaries and regression tests in the same change.
@@ -60,11 +63,20 @@ alwaysApply: true
 - RULE: Keep any setup/loading transition browser-local, bounded, and purely cosmetic.
 - RULE: Do not instruct users to install the site through browser-native menu entries from within the website UI.
 - RULE: Keep a small persistent legal footer with links to Terms and Privacy.
+- RULE: Keep workspace launch/task configuration ready for editor-driven browser preview and debugging instead of relying on undocumented local setup.
+- RULE: Keep browser-level responsive smoke coverage available across desktop Chromium, phone WebKit, and tablet WebKit profiles for the public web shell.
+- RULE: Keep workspace tasks available for terminal, headed, and interactive responsive-smoke debugging instead of requiring ad-hoc local commands.
+- RULE: Prefer dynamic viewport units, safe-area environment variables, and resilient fallback sizing for shell-level height and spacing decisions on mobile Safari.
 - RULE: Collapse secondary surfaces into a menu trigger whenever the available top-bar width cannot fit the full navigation cluster without wrapping, even on tablet and desktop.
 - RULE: Keep the main planner route focused on schedule controls, selected offerings, and planner widgets; onboarding-shell explanation belongs to home or onboarding, not planner.
 - RULE: Render the main planner route with a weekly timetable grid spanning Monday through Sunday and only the vertical time range bounded by the earliest and latest selected class meetings.
 - RULE: Prefer canonical subject titles from official or bulletin-derived sources over raw noisy public-schedule abbreviations whenever both are available.
 - RULE: Favor layered gradients, monochrome noise, and floating accent objects over large flat surfaces.
+- RULE: Prefer CSS-native or mathematically generated atmospheric backgrounds and pattern layers over raster decorative textures whenever browser support and runtime cost stay acceptable.
+- RULE: Prefer container queries and CSS containment for reusable component adaptation before duplicating layout intent with breakpoint-only forks.
+- RULE: Use `content-visibility`, `contain`, and `contain-intrinsic-size` selectively on heavy editorial or below-the-fold sections when they improve rendering cost without hiding critical interactive content.
+- RULE: Treat `backdrop-filter` and translucent surfaces as progressive enhancement; ship contrast-safe opaque fallbacks first.
+- RULE: Honor reduced-motion and stronger-contrast user preferences in the visual system rather than treating motion and translucency as unconditional decoration.
 - RULE: Treat Apple atmosphere, Proton Authenticator web, and Perplexity Comet as inspiration only; never copy their assets, code, or distinctive strings.
 - RULE: State clearly that no account is required.
 - RULE: Keep the home surface editorial and non-technical, and keep any news cards traceable to official source URLs.

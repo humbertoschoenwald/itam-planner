@@ -17,6 +17,7 @@ This bibliography lists the primary official references for the tools and standa
 - [pnpm Workspaces](https://pnpm.io/workspaces)
 - [Turborepo](https://turborepo.com/docs)
 - [Next.js](https://nextjs.org/docs)
+- [Playwright for VS Code](https://playwright.dev/docs/getting-started-vscode)
 - [React](https://react.dev/)
 - [TypeScript](https://www.typescriptlang.org/docs/)
 - [Tailwind CSS](https://tailwindcss.com/docs)
@@ -62,12 +63,29 @@ This bibliography lists the primary official references for the tools and standa
 - [GitHub Actions Events](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows)
 - [Cloudflare DNS Documentation](https://developers.cloudflare.com/dns/)
 - [Cloudflare Workers Custom Domains](https://developers.cloudflare.com/workers/configuration/routing/custom-domains/)
+- [Microsoft Edge DevTools extension for Visual Studio Code](https://learn.microsoft.com/en-us/microsoft-edge/visual-studio-code/microsoft-edge-devtools-extension)
+- [Installing the DevTools extension for Visual Studio Code](https://learn.microsoft.com/en-us/microsoft-edge/visual-studio-code/microsoft-edge-devtools-extension/install)
 
 ## Product Context
 
 - [Cloudflare](https://developers.cloudflare.com/)
 - [WebKit](https://webkit.org/)
 - [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/)
+- [Safari Developer Tools](https://developer.apple.com/documentation/safari-developer-tools)
+- [Optimizing Your Website for Safari](https://developer.apple.com/documentation/webkit/optimizing-your-website-for-safari)
+- [Responsive Design Mode](https://developer.apple.com/documentation/safari-developer-tools/responsive-design-mode)
+- [Inspecting iOS and iPadOS](https://developer.apple.com/documentation/safari-developer-tools/inspecting-ios)
+- [Visual Viewport API](https://developer.mozilla.org/en-US/docs/Web/API/Visual_Viewport_API)
+- [env()](https://developer.mozilla.org/en-US/docs/Web/CSS/env)
+- [Container size and style queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_size_and_style_queries)
+- [CSS containment](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment)
+- [content-visibility](https://developer.mozilla.org/docs/Web/CSS/Reference/Properties/content-visibility)
+- [prefers-reduced-motion](https://developer.mozilla.org/en-US/docs/Web/CSS/%40media/prefers-reduced-motion)
+- [prefers-contrast](https://developer.mozilla.org/en-US/docs/Web/CSS/%40media/prefers-contrast)
+- [backdrop-filter](https://developer.mozilla.org/docs/Web/CSS/backdrop-filter)
+- [linear-gradient()](https://developer.mozilla.org/en-US/docs/Web/CSS/gradient/linear-gradient)
+- [repeating-linear-gradient()](https://developer.mozilla.org/en-US/docs/Web/CSS/gradient/repeating-linear-gradient)
+- [repeating-radial-gradient()](https://developer.mozilla.org/en-US/docs/Web/CSS/gradient/repeating-radial-gradient)
 
 ## Inspiration and Public Sources
 

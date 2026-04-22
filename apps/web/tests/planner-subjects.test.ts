@@ -21,46 +21,57 @@ const currentPeriod: SchedulePeriodSummary = {
   year: 2026,
 };
 
-const bulletinDocuments: BulletinDocument[] = [
-  {
-    active_from: "2026-01-01",
-    active_to: "2026-05-31",
-    application_term: "PRIMAVERA 2026",
-    application_year: 2026,
-    bulletin_id: "bulletin:act-g",
-    entry_from_term: "PRIMAVERA 2021",
-    entry_to_term: "OTOÑO 2026",
-    plan_code: "G",
-    plan_id: "plan:act-g",
-    program_title: "LICENCIATURA EN ACTUARÍA",
-    requirements: [
-      {
-        course_code: "ACT-11300",
-        credits: 6,
-        display_title: "Cálculo Actuarial I",
-        prerequisite_references: [],
-        raw_prerequisite_text: null,
-        requirement_id: "req:1",
-        semester_label: "2",
-        semester_order: 2,
-        sort_order: 1,
-      },
-      {
-        course_code: "MAT-14000",
-        credits: 6,
-        display_title: "Álgebra Lineal I",
-        prerequisite_references: [],
-        raw_prerequisite_text: null,
-        requirement_id: "req:2",
-        semester_label: "3",
-        semester_order: 3,
-        sort_order: 2,
-      },
-    ],
-    source_code: "ACT-G",
-    title: "LICENCIATURA EN ACTUARÍA Plan G",
-  },
-];
+const actuarialBulletinDocument: BulletinDocument = {
+  active_from: "2026-01-01",
+  active_to: "2026-05-31",
+  application_term: "PRIMAVERA 2026",
+  application_year: 2026,
+  bulletin_id: "bulletin:act-g",
+  entry_from_term: "PRIMAVERA 2021",
+  entry_to_term: "OTOÑO 2026",
+  plan_code: "G",
+  plan_id: "plan:act-g",
+  program_title: "LICENCIATURA EN ACTUARÍA",
+  requirements: [
+    {
+      course_code: "ACT-11300",
+      credits: 6,
+      display_title: "Cálculo Actuarial I",
+      prerequisite_references: [],
+      raw_prerequisite_text: null,
+      requirement_id: "req:1",
+      semester_label: "2",
+      semester_order: 2,
+      sort_order: 1,
+    },
+    {
+      course_code: "MAT-14000",
+      credits: 6,
+      display_title: "Álgebra Lineal I",
+      prerequisite_references: [],
+      raw_prerequisite_text: null,
+      requirement_id: "req:2",
+      semester_label: "3",
+      semester_order: 3,
+      sort_order: 2,
+    },
+  ],
+  source_code: "ACT-G",
+  title: "LICENCIATURA EN ACTUARÍA Plan G",
+};
+
+const bulletinDocuments: BulletinDocument[] = [actuarialBulletinDocument];
+
+function cloneBulletinDocument(
+  summary: BulletinDocument,
+  overrides: Partial<BulletinDocument>,
+): BulletinDocument {
+  return {
+    ...summary,
+    ...overrides,
+    requirements: overrides.requirements ?? summary.requirements,
+  };
+}
 
 describe("planner subject helpers", () => {
   it("estimates the current semester from the entry term and active public period", () => {
@@ -77,8 +88,7 @@ describe("planner subject helpers", () => {
       buildRecommendedSubjectCodes([], 1, {
         allDocuments: [
           ...bulletinDocuments,
-          {
-            ...bulletinDocuments[0],
+          cloneBulletinDocument(actuarialBulletinDocument, {
             bulletin_id: "bulletin:ai-fallback",
             plan_id: "plan:ai-fallback",
             program_title: "LICENCIATURA EN CIENCIA DE DATOS",
@@ -152,7 +162,7 @@ describe("planner subject helpers", () => {
             ],
             source_code: "CDA-C",
             title: "LICENCIATURA EN CIENCIA DE DATOS Plan C",
-          },
+          }),
         ],
         fallbackCareerIds: ["inteligencia-artificial"],
       }),
