@@ -21,6 +21,12 @@
   --page-overlay-top-left: rgba(255, 255, 255, 0.82);
   --page-overlay-top-right: rgba(31, 77, 63, 0.09);
   --page-overlay-bottom: rgba(172, 138, 84, 0.12);
+  --page-stripe-soft: rgba(223, 202, 165, 0.22);
+  --page-stripe-strong: rgba(255, 255, 255, 0.08);
+  --page-grid-line: rgba(24, 32, 23, 0.018);
+  --page-noise-dot: rgba(255, 255, 255, 0.036);
+  --page-noise-line: rgba(24, 32, 23, 0.028);
+  --page-drift: rgba(189, 155, 101, 0.085);
   --page-background-start: #f7f1e6;
   --page-background-mid: #f4ede0;
   --page-background-end: #eeddc2;
@@ -53,6 +59,12 @@
     --page-overlay-top-left: rgba(140, 199, 168, 0.08);
     --page-overlay-top-right: rgba(110, 189, 145, 0.12);
     --page-overlay-bottom: rgba(26, 58, 49, 0.22);
+    --page-stripe-soft: rgba(130, 199, 165, 0.08);
+    --page-stripe-strong: rgba(239, 245, 241, 0.03);
+    --page-grid-line: rgba(239, 245, 241, 0.016);
+    --page-noise-dot: rgba(239, 245, 241, 0.022);
+    --page-noise-line: rgba(8, 17, 15, 0.16);
+    --page-drift: rgba(27, 66, 53, 0.14);
     --page-background-start: #0f1b18;
     --page-background-mid: #0d1614;
     --page-background-end: #13211d;
@@ -100,14 +112,31 @@ html {
 }
 
 body {
-  background: linear-gradient(
-    180deg,
-    var(--page-background-start) 0%,
-    var(--page-background-mid) 42%,
-    var(--page-background-end) 100%
-  );
+  background:
+    linear-gradient(
+      180deg,
+      var(--page-background-start) 0,
+      var(--page-background-mid) 30rem,
+      var(--page-background-end) 96rem
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0 14rem,
+      var(--page-stripe-soft) 14rem 22rem,
+      transparent 22rem 34rem
+    ),
+    repeating-linear-gradient(
+      180deg,
+      transparent 0 18rem,
+      var(--page-drift) 18rem 28rem,
+      transparent 28rem 46rem
+    );
+  background-color: var(--page-background-mid);
+  background-repeat: repeat-y, repeat, repeat-y;
+  background-size: 100% 96rem, 34rem 100%, 100% 46rem;
   color: var(--foreground);
   font-family: var(--font-sans), sans-serif;
+  isolation: isolate;
   min-height: 100vh;
   min-height: 100dvh;
   overflow-x: clip;
@@ -294,9 +323,10 @@ a {
 
 .site-atmosphere {
   inset: 0;
+  min-height: 100%;
   overflow: clip;
   pointer-events: none;
-  position: fixed;
+  position: absolute;
   z-index: -1;
 }
 
@@ -305,7 +335,7 @@ a {
   border-radius: 999px;
   filter: blur(34px);
   opacity: 0.72;
-  position: absolute;
+  position: fixed;
   transform: translateZ(0);
   will-change: transform;
 }
@@ -341,49 +371,54 @@ a {
 .site-tiling {
   background-image:
     radial-gradient(
-      ellipse 68rem 36rem at -8% -4%,
+      ellipse 58rem 26rem at 12% 0%,
       var(--page-overlay-top-left),
-      transparent 58%
+      transparent 72%
     ),
     radial-gradient(
-      ellipse 46rem 28rem at 108% 6%,
+      ellipse 48rem 24rem at 88% 7rem,
       var(--page-overlay-top-right),
-      transparent 60%
+      transparent 74%
     ),
     radial-gradient(
-      ellipse 58rem 30rem at 50% 118%,
+      ellipse 54rem 26rem at 50% 34rem,
       var(--page-overlay-bottom),
-      transparent 62%
+      transparent 76%
     ),
-    linear-gradient(
-      132deg,
-      rgba(255, 255, 255, 0.14) 0%,
-      transparent 22%,
-      rgba(24, 32, 23, 0.035) 54%,
-      transparent 78%
+    repeating-linear-gradient(
+      90deg,
+      transparent 0 12rem,
+      var(--page-stripe-strong) 12rem 16rem,
+      transparent 16rem 24rem
     ),
-    linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0.06) 0%,
-      transparent 28%,
-      rgba(24, 32, 23, 0.035) 100%
+    repeating-linear-gradient(
+      135deg,
+      var(--page-grid-line) 0 1px,
+      transparent 1px 26px
+    ),
+    repeating-linear-gradient(
+      45deg,
+      var(--page-grid-line) 0 1px,
+      transparent 1px 22px
     );
   background-position:
+    center 0,
+    center 12rem,
+    center 34rem,
     center top,
     center top,
-    center bottom,
-    center center,
     center top;
-  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+  background-repeat: repeat-y, repeat-y, repeat-y, repeat, repeat, repeat;
   background-size:
-    100% 100%,
-    100% 100%,
-    100% 100%,
-    100% 100%,
-    100% 100%;
+    100% 56rem,
+    100% 64rem,
+    100% 72rem,
+    24rem 100%,
+    26px 26px,
+    22px 22px;
   inset: 0;
   mix-blend-mode: soft-light;
-  opacity: 0.76;
+  opacity: 0.7;
   position: absolute;
 }
 
@@ -391,7 +426,7 @@ a {
   background-image:
     repeating-radial-gradient(
       circle at 0 0,
-      rgba(255, 255, 255, 0.04) 0 0.8px,
+      var(--page-noise-dot) 0 0.8px,
       transparent 0.8px 4px
     ),
     repeating-linear-gradient(
@@ -406,7 +441,7 @@ a {
     ),
     repeating-linear-gradient(
       135deg,
-      var(--page-pattern-shadow) 0 1px,
+      var(--page-noise-line) 0 1px,
       transparent 1px 5px
     );
   background-position:
@@ -533,11 +568,13 @@ a {
 .feature-grid {
   display: grid;
   gap: 1rem;
+  align-items: start;
 }
 
 .news-grid {
   display: grid;
   gap: 1rem;
+  align-items: start;
 }
 
 .page-hero-grid {
@@ -803,46 +840,44 @@ a {
   .site-tiling {
     background-image:
       radial-gradient(
-        ellipse 54rem 28rem at -10% -2%,
+        ellipse 42rem 22rem at 14% 0%,
         var(--page-overlay-top-left),
-        transparent 56%
+        transparent 72%
       ),
       radial-gradient(
-        ellipse 40rem 24rem at 110% 6%,
+        ellipse 34rem 18rem at 88% 6rem,
         var(--page-overlay-top-right),
-        transparent 58%
+        transparent 74%
       ),
       radial-gradient(
-        ellipse 46rem 24rem at 50% 112%,
+        ellipse 40rem 20rem at 50% 28rem,
         var(--page-overlay-bottom),
-        transparent 60%
+        transparent 76%
       ),
-      linear-gradient(
-        138deg,
-        rgba(255, 255, 255, 0.1) 0%,
-        transparent 24%,
-        rgba(24, 32, 23, 0.03) 58%,
-        transparent 82%
+      repeating-linear-gradient(
+        90deg,
+        transparent 0 10rem,
+        var(--page-stripe-strong) 10rem 13rem,
+        transparent 13rem 19rem
       ),
-      linear-gradient(
-        180deg,
-        rgba(255, 255, 255, 0.04) 0%,
-        transparent 34%,
-        rgba(24, 32, 23, 0.03) 100%
+      repeating-linear-gradient(
+        135deg,
+        var(--page-grid-line) 0 1px,
+        transparent 1px 28px
       );
     background-position:
+      center 0,
+      center 8rem,
+      center 26rem,
       center top,
-      center top,
-      center bottom,
-      center center,
       center top;
-    background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+    background-repeat: repeat-y, repeat-y, repeat-y, repeat, repeat;
     background-size:
-      100% 100%,
-      100% 100%,
-      100% 100%,
-      100% 100%,
-      100% 100%;
+      100% 44rem,
+      100% 52rem,
+      100% 60rem,
+      20rem 100%,
+      28px 28px;
     opacity: 0.62;
   }
 
@@ -850,12 +885,12 @@ a {
     background-image:
       repeating-radial-gradient(
         circle at 0 0,
-        rgba(255, 255, 255, 0.03) 0 0.8px,
+        var(--page-noise-dot) 0 0.8px,
         transparent 0.8px 5px
       ),
       repeating-linear-gradient(
         135deg,
-        rgba(255, 255, 255, 0.02) 0 1px,
+        var(--page-noise-line) 0 1px,
         transparent 1px 8px
       );
     background-size:

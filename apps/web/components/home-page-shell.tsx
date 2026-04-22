@@ -130,11 +130,13 @@ export function HomePageShell(): JSX.Element {
 
         <Card>
           <CardHeader className="space-y-3">
-            <p className="eyebrow">{productCopy.home.newsEyebrow}</p>
-            <CardTitle className="section-title text-balance">{productCopy.home.newsTitle}</CardTitle>
+            <p className="eyebrow">{copy.homePage.eyebrow}</p>
+            <CardTitle className="section-title text-balance">
+              {copy.plannerHome.noAccountRequired}
+            </CardTitle>
           </CardHeader>
           <CardContent className="space-y-4 text-sm leading-6 text-muted">
-            <p>{productCopy.home.newsBody}</p>
+            <p>{copy.plannerHome.noAccountRequiredText}</p>
             <div className="list-stack">
               {copy.homePage.panels.map((panel) => (
                 <div key={panel.title} className="soft-panel">
@@ -158,25 +160,27 @@ export function HomePageShell(): JSX.Element {
 
         <div className="news-grid min-[960px]:grid-cols-[minmax(0,1.08fr)_minmax(0,0.92fr)]">
           {featuredNewsItem ? (
-            <Card className="min-h-full">
-              <CardHeader className="space-y-3">
-                <p className="eyebrow">{featuredNewsItem.category}</p>
-                <CardTitle className="text-balance">{featuredNewsItem.title}</CardTitle>
-              </CardHeader>
-              <CardContent className="flex h-full flex-col gap-4 text-sm leading-6 text-muted">
-                <p className="max-w-2xl">{featuredNewsItem.summary}</p>
-                <div className="mt-auto flex flex-wrap gap-3">
-                  <a
-                    className="inline-flex rounded-full border border-border bg-surface-elevated px-4 py-2 font-medium text-foreground transition hover:border-accent/30 hover:bg-surface-hover"
-                    href={featuredNewsItem.href}
-                    rel="noreferrer"
-                    target="_blank"
-                  >
-                    {featuredNewsItem.source_label}
-                  </a>
-                </div>
-              </CardContent>
-            </Card>
+            <div className="self-start">
+              <Card>
+                <CardHeader className="space-y-3">
+                  <p className="eyebrow">{featuredNewsItem.category}</p>
+                  <CardTitle className="text-balance">{featuredNewsItem.title}</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4 text-sm leading-6 text-muted">
+                  <p className="max-w-2xl">{featuredNewsItem.summary}</p>
+                  <div className="flex flex-wrap gap-3">
+                    <a
+                      className="inline-flex rounded-full border border-border bg-surface-elevated px-4 py-2 font-medium text-foreground transition hover:border-accent/30 hover:bg-surface-hover"
+                      href={featuredNewsItem.href}
+                      rel="noreferrer"
+                      target="_blank"
+                    >
+                      {featuredNewsItem.source_label}
+                    </a>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
           ) : null}
 
           <div className="list-stack">
