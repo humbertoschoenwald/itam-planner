@@ -9,6 +9,10 @@ Do not edit it manually.
 
 - web: refresh planner shell and responsive tooling (`aaeb8a8`)
 
+### Fixes
+
+- web: stabilize home layout and background (`f6126c6`)
+
 ## 2026-04-20
 
 ### Fixes
