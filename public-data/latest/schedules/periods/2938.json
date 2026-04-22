@@ -3638,7 +3638,7 @@
       "display_title": "MATEMATICAS FINANCIERAS, III",
       "instructor_name": "DAVID RUELAS RODRIGUEZ",
       "credits": 7,
-      "room_code": "RHCUBIC",
+      "room_code": "RH203",
       "campus_name": "RIO HONDO",
       "raw_comments": null,
       "meetings": [
@@ -3714,7 +3714,7 @@
       "display_title": "TEMAS SELECTOS DE ACTUARIA I",
       "instructor_name": "DAVID RUELAS RODRIGUEZ",
       "credits": 6,
-      "room_code": "RH203",
+      "room_code": "RHCUBIC",
       "campus_name": "RIO HONDO",
       "raw_comments": null,
       "meetings": [
@@ -11793,7 +11793,7 @@
       "display_title": "ECONOMIA POLITICA, I",
       "instructor_name": "HORACIO ALEJANDRO LARREGUY ARBESU",
       "credits": 6,
-      "room_code": "RH212",
+      "room_code": "RH104",
       "campus_name": "RIO HONDO",
       "raw_comments": "Se imparte en inglés",
       "meetings": [
@@ -12287,9 +12287,9 @@
       "crn": "1855",
       "section_type": "T",
       "display_title": "FUNDAMENTOS JURIDICOS",
-      "instructor_name": "ALEJANDRO RODILES BRETON",
+      "instructor_name": "MARIANA AGUILAR AGUILAR",
       "credits": 9,
-      "room_code": "RH310",
+      "room_code": "RHSA3",
       "campus_name": "RIO HONDO",
       "raw_comments": "EL EXAMEN DEPARTAMENTAL SE LLEVARÁ A CABO EL MARTES 17 DE MARZO DE 14:30-16:00 HRS.",
       "meetings": [
@@ -12656,7 +12656,7 @@
       "crn": "1871",
       "section_type": "T",
       "display_title": "DERECHO PUBLICO",
-      "instructor_name": "LUIS ENRIQUE PEREDA TREJO",
+      "instructor_name": "JOYCE CAROL SADKA",
       "credits": 9,
       "room_code": "RH309",
       "campus_name": "RIO HONDO",
@@ -12671,8 +12671,8 @@
         },
         {
           "weekday_code": "MA",
-          "start_time": "07:00:00",
-          "end_time": "08:30:00",
+          "start_time": "08:30:00",
+          "end_time": "10:00:00",
           "room_code": "RH309",
           "campus_name": "RIO HONDO"
         }
@@ -12711,7 +12711,7 @@
       "display_title": "TEORIA DEL DERECHO, I",
       "instructor_name": "ALBERTO PUPPO",
       "credits": 10,
-      "room_code": "RHB-4",
+      "room_code": "RHCUBIC",
       "campus_name": "RIO HONDO",
       "raw_comments": "CLAVE EXCLUSIVA PARA PLANES F, G DE DERECHO Y SUS CONJUNTOS CPD-G, DRI-D, EDE-E, DPL-F EL SEMINARIO CON EL PROFESOR PUPPO COMENZARÁ EL MARTES 17 DE FEBRERO",
       "meetings": [
@@ -14062,9 +14062,9 @@
       "crn": "1774",
       "section_type": "T",
       "display_title": "TEO GRAL PROC Y SEM DE PRUEBA",
-      "instructor_name": "GILBERTO NAVA HERNANDEZ",
+      "instructor_name": "RAYMUNDO GAMA LEYVA",
       "credits": 9,
-      "room_code": "RH309",
+      "room_code": "RH103",
       "campus_name": "RIO HONDO",
       "raw_comments": "CLAVE EXCLUSIVA PARA PLAN H DE DERECHO Y SUS CONJUNTOS CFD-A, DRI-E, EDE-F, DPL-G",
       "meetings": [
@@ -14627,9 +14627,9 @@
       "crn": "1765",
       "section_type": "T",
       "display_title": "DER CONST. I Y SEM DE TEO POL",
-      "instructor_name": "JULIO ANTONIO RIOS FIGUEROA",
+      "instructor_name": "ANA MICAELA ALTERIO",
       "credits": 9,
-      "room_code": "RH212",
+      "room_code": "RH209",
       "campus_name": "RIO HONDO",
       "raw_comments": "CLAVE EXCLUSIVA PARA ESTUDIANTES DE PLAN H DE DERECHO Y SUS CONJUNTOS CFD-A, DRI-E, EDE-F, DPL-G",
       "meetings": [
