@@ -3,6 +3,12 @@
 This file is generated automatically from Conventional Commits on push to `main`.
 Do not edit it manually.
 
+## 2026-04-22
+
+### Features
+
+- web: refresh planner shell and responsive tooling (`aaeb8a8`)
+
 ## 2026-04-20
 
 ### Fixes
