@@ -13,3 +13,5 @@ alwaysApply: true
 - RULE: Use GitHub Actions for scheduled refresh and public-data publishing.
 - RULE: The first production web deployment may serve the promoted JSON catalog from the same web artifact bundle.
 - RULE: Do not treat SQLite as durable storage inside the Vercel runtime.
+- RULE: Optional Docker Compose support may exist for local onboarding and self-hosted verification, but it must not replace the Vercel-first production default.
+- RULE: Container assets must preserve separate `web` and `api` runtime units and use promoted `public-data` artifacts as the contract between them.

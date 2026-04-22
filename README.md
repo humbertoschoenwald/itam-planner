@@ -105,6 +105,23 @@ The web app can read the published catalog directly from its own static build ar
 
 Root delivery secrets for Vercel and Cloudflare should live in a local `.env` file that follows `.env.example`. Never commit those secrets.
 
+### Docker
+
+- Optional local container runtime: `Docker Engine` plus `Docker Compose`
+- Web runtime: `http://localhost:3000`
+- API runtime: `http://localhost:8000`
+
+Useful commands:
+
+```sh
+docker compose up --build
+docker compose down --remove-orphans
+pnpm docker:up
+pnpm docker:down
+```
+
+The container path is optional and keeps the same repository boundaries: separate `web` and `api` services, with the promoted `public-data` artifact as the shared runtime contract. Vercel remains the canonical production web target. See `docs/deployment/docker.md`.
+
 ### Repository-Wide Commands
 
 ```sh

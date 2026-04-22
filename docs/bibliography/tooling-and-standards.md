@@ -56,6 +56,8 @@ This bibliography lists the primary official references for the tools and standa
 
 ## Deployment and Automation
 
+- [Docker Documentation](https://docs.docker.com/)
+- [Docker Compose](https://docs.docker.com/compose/)
 - [Vercel Documentation](https://vercel.com/docs)
 - [Vercel: Is SQLite supported in Vercel?](https://vercel.com/guides/is-sqlite-supported-in-vercel)
 - [GitHub Actions](https://docs.github.com/en/actions)

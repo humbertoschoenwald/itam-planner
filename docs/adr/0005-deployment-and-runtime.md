@@ -21,6 +21,7 @@ Primary deployment defaults:
 - The preferred domain shape is `itam.humbertoschoenwald.com`.
 - The frontend runtime must remain host-agnostic even though Vercel is the default platform.
 - The default application configuration must not assume GitHub Pages-specific `basePath` or `assetPrefix`.
+- Optional local container runtime support may exist through Docker Compose as an onboarding and self-hosted verification path, but it does not replace the Vercel-first production default.
 
 Runtime separation:
 
@@ -28,6 +29,7 @@ Runtime separation:
 - GitHub Actions is the default automation surface for scheduled catalog refresh and public-data publishing.
 - Public catalog snapshots should be generated or refreshed outside the Vercel runtime when SQLite is involved.
 - The default production web deployment may serve generated JSON projections directly from the published artifact bundle so that the site stays functional without a mandatory separate API runtime.
+- Container assets must preserve the same separation: `web` and `api` remain separate images, and the promoted `public-data` artifact stays the runtime contract between them.
 
 Operational scheduling:
 
@@ -42,6 +44,7 @@ Operational scheduling:
 - Public-data refresh stays decoupled from request-time infrastructure.
 - The public site can stay deployable even when the Python API is not exposed as a separate public service.
 - Deployment assumptions remain visible and explicit.
+- Local onboarding can stay reproducible without changing the repository's hosted production posture.
 
 ## Alternatives Considered
 

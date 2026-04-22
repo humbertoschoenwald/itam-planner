@@ -13,6 +13,10 @@ describe("next config", () => {
     expect(nextConfig.devIndicators).toBe(false);
   });
 
+  it("builds a standalone server bundle for container runtime support", () => {
+    expect(nextConfig.output).toBe("standalone");
+  });
+
   it("adds strong cache headers for the published catalog", async () => {
     const headers = await nextConfig.headers();
     const catalogHeaders = headers.find(

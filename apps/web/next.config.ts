@@ -65,6 +65,7 @@ const REDIRECTS = [
 const nextConfig = {
   allowedDevOrigins: ALLOWED_DEV_ORIGINS,
   devIndicators: false,
+  output: "standalone",
   reactStrictMode: true,
 
   async redirects(): Promise<{ source: string; destination: string; permanent: true; }[]> {

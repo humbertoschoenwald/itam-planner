@@ -1,0 +1,51 @@
+# Derived from ADR-0005 and ADR-0006.
+
+name: itam-planner
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: apps/api/Dockerfile
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "python",
+          "-c",
+          "from urllib.request import urlopen; import sys; sys.exit(0 if urlopen('http://127.0.0.1:8000/health').status == 200 else 1)",
+        ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    init: true
+    ports:
+      - "${ITAM_PLANNER_API_PORT:-8000}:8000"
+    restart: unless-stopped
+
+  web:
+    build:
+      context: .
+      dockerfile: apps/web/Dockerfile
+      args:
+        NEXT_PUBLIC_ITAM_PLANNER_API_BASE_URL: ${NEXT_PUBLIC_ITAM_PLANNER_API_BASE_URL:-http://localhost:8000}
+    depends_on:
+      api:
+        condition: service_healthy
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "node",
+          "-e",
+          "fetch('http://127.0.0.1:3000').then((response) => process.exit(response.ok ? 0 : 1)).catch(() => process.exit(1))",
+        ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 15s
+    init: true
+    ports:
+      - "${ITAM_PLANNER_WEB_PORT:-3000}:3000"
+    restart: unless-stopped
